@@ -1,24 +1,112 @@
-# Copy this file to data/<id>.yaml and fill every field.
-# RULE: a record is only "verified" when it contains NO <VERIFY ...> markers AND
-# every `source.primary` / `pinpoint` has been checked by a human against the
-# primary instrument. Never let an AI tool generate citations. (see METHODOLOGY.md)
-id: jx-typ-dimension-001            # e.g. hk-frs-permitted_activity_yield-001
-jurisdiction: HK                    # HK | TW | BR | US | EU | UK | SG | CN
-authority: ""                       # e.g. HKMA, FSC (Taiwan), BCB, "SEC/CFTC/Treasury (joint)"
-instrument_type: fiat_referenced_stablecoin
-instrument_label_local: ""          # verbatim local term
-dimension: permitted_activity_yield
-requirement_summary: "<VERIFY: one-paragraph summary checked against the primary source>"
-requirement_structured: {}          # optional machine-readable facets
-status: in_force                    # in_force | transitional | proposed | consultation
-effective_date: null                # YYYY-MM-DD or null
-source:
-  primary: "<VERIFY: instrument + pinpoint, e.g. 'Stablecoins Ordinance (Cap. 656), s.XX'>"
-  url: ""
-  pinpoint: ""
-secondary: []
-interpretation_note: ""             # the judgment layer — where ambiguity is resolved
-confidence: low                     # high | medium | low
-last_reviewed: "2026-06-17"           # YYYY-MM-DD
-version_added: 0.1.0
-tags: []
+{
+  "name": "Stablecoin Rail Register",
+  "version": "0.1.0",
+  "generated": "2026-06-17",
+  "record_count": 2,
+  "records": [
+    {
+      "id": "hk-frs-permitted_activity_yield-001",
+      "jurisdiction": "HK",
+      "authority": "HKMA",
+      "instrument_type": "fiat_referenced_stablecoin",
+      "instrument_label_local": "specified stablecoin",
+      "dimension": "permitted_activity_yield",
+      "requirement_summary": "<VERIFY: HKMA treatment of interest/yield paid to FRS holders under the Stablecoins Ordinance regime; confirm whether/under what conditions issuers or distributors may offer yield or activity-based incentives>",
+      "requirement_structured": {
+        "passive_yield_to_holder": "<VERIFY>",
+        "activity_based_rewards": "<VERIFY>"
+      },
+      "status": "in_force",
+      "effective_date": "2025-08-01",
+      "source": {
+        "primary": "Stablecoins Ordinance (Cap. 656), s.<VERIFY exact section>",
+        "url": "",
+        "pinpoint": "<VERIFY>"
+      },
+      "secondary": [
+        {
+          "citation": "HKMA, supervisory guideline / explanatory materials on the FRS regime, para <VERIFY>"
+        }
+      ],
+      "interpretation_note": "Compare against the 'same activity, same risks, same regulation' principle HKMA applies; note interaction with SFC tokenisation/STO perimeter where settlement touches tokenised funds.",
+      "confidence": "low",
+      "last_reviewed": "2026-06-17",
+      "version_added": "0.1.0",
+      "tags": [
+        "seed",
+        "apac",
+        "focus"
+      ]
+    },
+    {
+      "id": "us-pss-permitted_activity_yield-001",
+      "jurisdiction": "US",
+      "authority": "SEC/CFTC/Treasury (joint rulemaking, post-enactment)",
+      "instrument_type": "payment_stablecoin",
+      "instrument_label_local": "payment stablecoin",
+      "dimension": "permitted_activity_yield",
+      "requirement_summary": "CLARITY Act Sec. 404(c)(1) prohibits a covered party from paying any form of interest or yield to a restricted recipient (A) solely in connection with the holding of payment stablecoins, or (B) on a payment stablecoin balance in a manner economically or functionally equivalent to interest on an interest-bearing bank deposit. Bona fide activity- or transaction-based rewards are permitted, with scope to be defined by joint SEC/CFTC/Treasury rulemaking. <VERIFY exact carve-out wording against the engrossed bill text>",
+      "requirement_structured": {
+        "passive_yield_to_holder": "prohibited",
+        "activity_based_rewards": "permitted, scope TBD by joint rulemaking",
+        "rulemaking_window": "within ~12 months / 360 days post-enactment"
+      },
+      "status": "proposed",
+      "effective_date": null,
+      "source": {
+        "primary": "Digital Asset Market CLARITY Act of 2025 (H.R. 3633), Sec. 404(c)(1); Senate Banking Committee text (May 12, 2026)",
+        "url": "<VERIFY canonical link: congress.gov H.R.3633 / Senate Banking published text>",
+        "pinpoint": "Sec. 404(c)(1); carve-out at 404(c) <VERIFY subsection>"
+      },
+      "secondary": [
+        {
+          "citation": "Not yet law as of June 2026; placed on Senate Legislative Calendar (General Orders) June 1, 2026; awaits reconciliation with Senate Agriculture text and House H.R. 3633, plus 60-vote floor passage"
+        }
+      ],
+      "interpretation_note": "ANCHOR / LIVE WINDOW. The bona-fide-activity boundary is unsettled and still being shaped: SEC Crypto Task Force written-input channel is open now; the main comment window is the post-enactment joint NPRM. Routing into 1940-Act registered tokenised MMFs is argued to fall outside the prohibition because the operative step is the user's signed authorisation, not the holding. Track NPRM timing for a substantive comment.",
+      "confidence": "medium",
+      "last_reviewed": "2026-06-17",
+      "version_added": "0.1.0",
+      "tags": [
+        "anchor",
+        "us",
+        "live-window",
+        "section-404"
+      ]
+    }
+  ],
+  "corridors": [
+    {
+      "corridor_id": "hk-br-usd-stablecoin-settlement-001",
+      "name": "HK to Brazil — USD stablecoin B2B settlement",
+      "legs": [
+        "HK",
+        "BR"
+      ],
+      "flow": "USD-referenced stablecoin used for B2B cross-border settlement, originating HK side, terminating Brazil side",
+      "boundary_analysis": [
+        {
+          "leg": "HK",
+          "gate": "<VERIFY: HK perimeter — FRS regime (Cap. 656) where issuance/distribution touches; SFC tokenisation/STO perimeter where settlement touches tokenised funds>",
+          "clears": "<VERIFY>",
+          "breaks": "<VERIFY>"
+        },
+        {
+          "leg": "BR",
+          "gate": "Brazil FX perimeter. Two diverging rails: (i) eFX rail — BCB Resolution 561 prohibits eFX providers from using stablecoins/crypto to settle with overseas counterparties (effective Oct 1, 2026); (ii) VASP rail — BCB Resolution 521 permits authorised VASPs to use stablecoins for international payments inside the FX market.",
+          "clears": "Authorised-VASP-in-FX channel (Res 521), subject to per-transaction limits (USD 100k pure VASP / USD 500k FX-authorised FI), monthly FX reporting (Annex II-A), custody segregation (Res 520: MPC/HSM, proof-of-reserves, biennial audit).",
+          "breaks": "eFX back-end stablecoin settlement rail (Res 561) — closing. Algorithmic / non-auditable-reserve stablecoins prohibited."
+        }
+      ],
+      "key_constraint": "A single USD-stablecoin instrument cannot serve both HK and Brazil as one uniform rail: the Brazil side forces the flow through the authorised-VASP-in-FX channel, not the closing eFX rail. This is the binding 'regulatory geography' constraint the corridor must be architected around.",
+      "us_doctrinal_link": "Same underlying question as US Sec. 404 bona-fide-activity carve-out: what activity is permitted on the regulated stablecoin rail. US = the anchor instance; see data/us-pss-permitted_activity_yield-001.yaml.",
+      "sources": [
+        "BCB Resolution 521/2025; BCB Resolution 561 (Apr 30, 2026); BCB Resolution 520/2025 (custody)",
+        "<VERIFY: HK primary sources for the HK leg>"
+      ],
+      "confidence": "medium",
+      "last_reviewed": "2026-06-17",
+      "version_added": "0.1.0"
+    }
+  ]
+}

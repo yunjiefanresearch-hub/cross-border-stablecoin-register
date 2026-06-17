@@ -1,0 +1,14 @@
+This project is dual-licensed.
+
+DATA (everything in data/ and corridors/, and the compiled dataset in dist/):
+  Creative Commons Attribution 4.0 International (CC-BY-4.0).
+  https://creativecommons.org/licenses/by/4.0/
+  You may share and adapt the data, including commercially, with attribution.
+
+CODE (everything in scripts/ and schema/):
+  Apache License 2.0.
+  https://www.apache.org/licenses/LICENSE-2.0
+
+To finalise: add the full CC-BY-4.0 text as LICENSE-DATA and the full Apache-2.0 text as
+LICENSE-CODE (GitHub will then display both). This dual structure forces attribution on the
+data (which is what makes the register citable) while keeping the tooling permissively reusable.

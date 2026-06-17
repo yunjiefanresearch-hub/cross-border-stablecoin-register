@@ -1,23 +1,24 @@
-id: hk-frs-permitted_activity_yield-001
-jurisdiction: HK
-authority: HKMA
+# Copy this file to data/<id>.yaml and fill every field.
+# RULE: a record is only "verified" when it contains NO <VERIFY ...> markers AND
+# every `source.primary` / `pinpoint` has been checked by a human against the
+# primary instrument. Never let an AI tool generate citations. (see METHODOLOGY.md)
+id: jx-typ-dimension-001            # e.g. hk-frs-permitted_activity_yield-001
+jurisdiction: HK                    # HK | TW | BR | US | EU | UK | SG | CN
+authority: ""                       # e.g. HKMA, FSC (Taiwan), BCB, "SEC/CFTC/Treasury (joint)"
 instrument_type: fiat_referenced_stablecoin
-instrument_label_local: "specified stablecoin"
+instrument_label_local: ""          # verbatim local term
 dimension: permitted_activity_yield
-requirement_summary: "<VERIFY: HKMA treatment of interest/yield paid to FRS holders under the Stablecoins Ordinance regime; confirm whether/under what conditions issuers or distributors may offer yield or activity-based incentives>"
-requirement_structured:
-  passive_yield_to_holder: "<VERIFY>"
-  activity_based_rewards: "<VERIFY>"
-status: in_force
-effective_date: "2025-08-01"
+requirement_summary: "<VERIFY: one-paragraph summary checked against the primary source>"
+requirement_structured: {}          # optional machine-readable facets
+status: in_force                    # in_force | transitional | proposed | consultation
+effective_date: null                # YYYY-MM-DD or null
 source:
-  primary: "Stablecoins Ordinance (Cap. 656), s.<VERIFY exact section>"
+  primary: "<VERIFY: instrument + pinpoint, e.g. 'Stablecoins Ordinance (Cap. 656), s.XX'>"
   url: ""
-  pinpoint: "<VERIFY>"
-secondary:
-  - citation: "HKMA, supervisory guideline / explanatory materials on the FRS regime, para <VERIFY>"
-interpretation_note: "Compare against the 'same activity, same risks, same regulation' principle HKMA applies; note interaction with SFC tokenisation/STO perimeter where settlement touches tokenised funds."
-confidence: low
-last_reviewed: "2026-06-17"
+  pinpoint: ""
+secondary: []
+interpretation_note: ""             # the judgment layer — where ambiguity is resolved
+confidence: low                     # high | medium | low
+last_reviewed: "2026-06-17"           # YYYY-MM-DD
 version_added: 0.1.0
-tags: [seed, apac, focus]
+tags: []
