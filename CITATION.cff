@@ -6,17 +6,9 @@ authors:
   - family-names: "Fan"
     given-names: "Yunjie"
     # orcid: "https://orcid.org/0000-0000-0000-0000"   # optional — add if you have one
-repository-code: "https://github.com/<YOUR-GITHUB-USERNAME>/stablecoin-rail-register"
-url: "https://<YOUR-GITHUB-USERNAME>.github.io/stablecoin-rail-register"
-abstract: >
-  An open, versioned, machine-readable register of how jurisdictions regulate
-  stablecoin payment rails across a fifteen-dimension framework derived from an
-  eight-constraint model, with two doctrinal spines (the permitted-activity / yield
-  boundary and securities classification) and a corridor-level interoperability layer.
-  Focus jurisdictions: United States, Hong Kong, European Union, United Kingdom,
-  Singapore, and Mainland China; doctrinal anchor: United States (CLARITY Act
-  Section 404 / GENIUS Act). Each record is one sourced (jurisdiction x instrument x
-  dimension) regulatory fact, validated against a published JSON Schema.
+repository-code: "https://github.com/yunjiefanresearch-hub/stablecoin-rail-register"
+url: "https://yunjiefanresearch-hub.github.io/stablecoin-rail-register"
+abstract: "An open, versioned, machine-readable register of how jurisdictions regulate stablecoin payment rails across a fifteen-dimension framework derived from an eight-constraint model, with two doctrinal spines (the permitted-activity / yield boundary and securities classification) and a corridor-level interoperability layer. Focus jurisdictions: United States, Hong Kong, European Union, United Kingdom, Singapore, and Mainland China; doctrinal anchor: United States (CLARITY Act Section 404 / GENIUS Act). Each record is one sourced (jurisdiction x instrument x dimension) regulatory fact, validated against a published JSON Schema. Data is licensed CC-BY-4.0; tooling is licensed Apache-2.0 (see LICENSE-CODE)."
 keywords:
   - stablecoin
   - tokenized real-world assets
@@ -25,7 +17,7 @@ keywords:
   - regulatory data
   - MiCA
   - GENIUS Act
-license: "CC-BY-4.0 (data) / Apache-2.0 (code)"
+license: CC-BY-4.0
 version: "0.2.0"
 date-released: "2026-06-17"
-# doi: "10.5281/zenodo.XXXXXXX"   # <-- uncomment and paste the Zenodo DOI after the first release
+# doi: "10.5281/zenodo.XXXXXXX"   # <-- uncomment and paste the Zenodo DOI after the first successful release

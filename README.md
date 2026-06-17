@@ -6,7 +6,7 @@ An **open, versioned, machine-readable** register of how jurisdictions regulate 
 **corridor-level interoperability layer**. Built from primary sources, citable by DOI.
 
 **Focus:** US · Hong Kong · EU · UK · Singapore · Mainland China  ·  **Doctrinal anchor:** United States (CLARITY Act §404 / GENIUS Act)
-**Backfill:** Brazil, Taiwan·  **Status:** v0.2.0-dev (in active build) · **Cadence:** quarterly diffs + event patches · **License:** CC-BY-4.0 (data) / Apache-2.0 (code)
+**Backfill:** Brazil (corridor-only), Taiwan (parked)  ·  **Status:** v0.2.0-dev (in active build) · **Cadence:** quarterly diffs + event patches · **License:** CC-BY-4.0 (data) / Apache-2.0 (code)
 
 ---
 
