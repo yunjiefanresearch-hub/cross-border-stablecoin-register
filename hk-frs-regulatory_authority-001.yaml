@@ -1,0 +1,19 @@
+id: hk-frs-regulatory_authority-001
+jurisdiction: HK
+authority: "HKMA (primary); SFC (VATPs / Type 1 distribution)"
+instrument_type: fiat_referenced_stablecoin
+instrument_label_local: "specified stablecoin (fiat-referenced stablecoin, FRS)"
+dimension: regulatory_authority
+requirement_summary: "The Stablecoins Ordinance (Cap. 656), effective 1 August 2025, establishes the HKMA as primary regulator for FRS issuers, supported by HKMA Explanatory Notes (Licensing; Transitional Provisions), the Guideline on Supervision of Licensed Stablecoin Issuers, and the AML/CFT Guideline. The SFC regulates virtual asset trading platforms (VATPs) and Type 1 corporations authorised to offer stablecoins."
+status: in_force
+effective_date: "2025-08-01"
+source:
+  primary: "Stablecoins Ordinance (Cap. 656), in force 1 Aug 2025"
+  pinpoint: "Long title; HKMA as designated authority; supporting HKMA guidelines"
+secondary:
+  - citation: "Fan, Multi-Jurisdiction Stablecoin Compliance Matrix v0.9.3 (18 May 2026), p.21 (Hong Kong — Statutory Framework / Regulators)"
+interpretation_note: "Provenance: primary pinpoint transcribed from the author's own verified Compliance Matrix v0.9.3; remains subject to the standing human-verification rule (METHODOLOGY.md)."
+confidence: high
+last_reviewed: "2026-06-17"
+version_added: 0.2.0
+tags: [seed, apac, focus, from_matrix_v0.9.3]

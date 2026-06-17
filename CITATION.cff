@@ -3,11 +3,11 @@ title: "Stablecoin Rail Register"
 message: "If you use this register, please cite it using the DOI of the version you used."
 type: dataset
 authors:
-  - family-names: "Fan"
-    given-names: "Yunjie"
+  - family-names: "<YOUR SURNAME>"
+    given-names: "<YOUR GIVEN NAME>"
     orcid: "<optional>"
-repository-code: "https://github.com/yunjiefanresearch-hub/stablecoin-rail-register"
-url: "https://github.com/yunjiefanresearch-hub/stablecoin-rail-register"
+repository-code: "https://github.com/<you>/stablecoin-rail-register"
+url: "https://<you>.github.io/stablecoin-rail-register"
 abstract: >
   An open, versioned, machine-readable register of how jurisdictions regulate the
   permitted-activity / yield boundary on stablecoin payment rails, with a corridor-level

@@ -1,0 +1,19 @@
+id: hk-frs-implementation_status-001
+jurisdiction: HK
+authority: HKMA
+instrument_type: fiat_referenced_stablecoin
+instrument_label_local: "specified stablecoin"
+dimension: implementation_status
+requirement_summary: "Live regime. Key milestones: HKMA discussion paper (Jan 2022); FSTB/HKMA consultation (Dec 2023); conclusions + sandbox (Jul 2024); Ordinance and guidelines effective (1 Aug 2025); Ant/JD applications suspended (18-20 Oct 2025); pre-existing-issuer application deadline (31 Oct 2025); closing-down period begins (1 Nov 2025); transitional operating window ends (31 Jan 2026); first two licences granted (10 Apr 2026, HSBC = FRS02, Anchorpoint = FRS01). Expected: Anchorpoint HKDAP B2B2C launch (Q2 2026); HSBC retail launch via PayMe (H2 2026); HKMA second-cohort licences (Q3 2026)."
+status: in_force
+effective_date: "2025-08-01"
+source:
+  primary: "Stablecoins Ordinance (Cap. 656) commencement + HKMA licensing actions"
+  pinpoint: "Timeline Jan 2022 -> Q3 2026; first cohort 10 Apr 2026"
+secondary:
+  - citation: "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.23 (Hong Kong — Implementation Timeline)"
+interpretation_note: "Provenance: transcribed from author's Compliance Matrix v0.9.3."
+confidence: high
+last_reviewed: "2026-06-17"
+version_added: 0.2.0
+tags: [apac, focus, from_matrix_v0.9.3]

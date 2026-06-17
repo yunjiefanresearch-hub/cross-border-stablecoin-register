@@ -1,0 +1,20 @@
+id: us-pss-reserve_backing-001
+jurisdiction: US
+authority: "OCC, FDIC"
+instrument_type: payment_stablecoin
+instrument_label_local: "payment stablecoin"
+dimension: reserve_backing
+constraint_ref: C2
+requirement_summary: "1:1 backing of outstanding payment stablecoins at fair value. Permissible reserve assets (proposed 12 CFR §15.11(b)): US currency; demand deposits at IDIs; short-term Treasury bills (<=93 days); certain reverse repos (incl. intraday); registered government MMFs (underlying Treasuries <=93 days); and tokenised forms thereof. Stablecoins and other crypto-assets are excluded. Reserves must be segregated, identifiable, held directly by the issuer or custodied at an eligible institution, and cannot be pledged, rehypothecated, or reused (narrow margin/custodial exceptions). PPSIs with issuance >= $25 billion must hold 0.5% of reserves (capped at $500m) in insured deposits/shares."
+status: proposed
+effective_date: null
+source:
+  primary: "GENIUS Act reserve provisions; proposed 12 CFR §15.11(b) (permissible reserve assets)"
+  pinpoint: "12 CFR §15.11(b); 1:1 fair-value backing; >=$25bn -> 0.5%/$500m insured"
+secondary:
+  - citation: "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.8 (US — Reserve and Backing Requirements)"
+interpretation_note: "Provenance: transcribed from author's Compliance Matrix v0.9.3. Reserve half of the split reserve_capital dimension."
+confidence: medium
+last_reviewed: "2026-06-17"
+version_added: 0.2.0
+tags: [us, anchor, from_matrix_v0.9.3, dimension_split]

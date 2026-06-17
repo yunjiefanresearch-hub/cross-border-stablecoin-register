@@ -1,0 +1,20 @@
+id: eu-emt-permitted_activity_yield-001
+jurisdiction: EU
+authority: "EBA, ESMA, NCAs"
+instrument_type: e_money_token
+instrument_label_local: "e-money token (EMT)"
+dimension: permitted_activity_yield
+constraint_ref: C3
+requirement_summary: "MiCA Article 50 imposes a yield ban on EMT holders: holders may not receive interest. The prohibition attaches to the holding of the token, paralleling the US GENIUS §4(a)(11) structure but expressed as a flat ban rather than a 'solely'-qualified one."
+status: in_force
+effective_date: null
+source:
+  primary: "Regulation (EU) 2023/1114 (MiCA), Article 50"
+  pinpoint: "Art. 50 — no interest to EMT holders"
+secondary:
+  - citation: "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.5 / p.2 (Executive Summary) (EU — Yield)"
+interpretation_note: "Provenance: transcribed from author's Compliance Matrix v0.9.3."
+confidence: high
+last_reviewed: "2026-06-17"
+version_added: 0.2.0
+tags: [eu, focus, spine, from_matrix_v0.9.3]

@@ -2,8 +2,570 @@
   "name": "Stablecoin Rail Register",
   "version": "0.1.0",
   "generated": "2026-06-17",
-  "record_count": 2,
+  "record_count": 30,
   "records": [
+    {
+      "id": "cn-prc-cross_border_data-001",
+      "jurisdiction": "CN",
+      "authority": "CAC; PBOC",
+      "instrument_type": "other",
+      "instrument_label_local": "出境数据 (cross-border data); wallet KYC / merchant onboarding data",
+      "dimension": "cross_border_data",
+      "constraint_ref": "C6",
+      "requirement_summary": "Even where issuance is prohibited, stablecoin-related personal data (wallet KYC and merchant-onboarding data tied to PRC residents) falls within PIPL outbound-transfer scope and is the binding constraint that reaches non-PRC-affiliated cross-border firms. PIPL (effective 1 Nov 2021) requires that any cross-border transfer of personal information satisfy one of three gates: (a) a CAC security assessment, (b) personal-information-protection certification by a CAC-approved body, or (c) a CAC Standard Contract. The Data Security Law (DSL, effective 1 Sep 2021) subjects cross-border transfer of 'important data' to security review. The 22 March 2024 Provisions on Promoting and Regulating Cross-Border Data Flows raise the thresholds for mandatory security assessment, giving partial relief for routine business data (e.g. HR and contract-performance data). Free Trade Zone negative lists (Shanghai, Beijing, Hainan, and others) provide additional zone-specific relief.",
+      "requirement_structured": {
+        "pipl_transfer_gates": [
+          "CAC security assessment",
+          "CAC-approved certification",
+          "CAC Standard Contract"
+        ],
+        "dsl_important_data": "cross-border transfer subject to security review",
+        "march_2024_provisions": "raises mandatory-assessment thresholds; partial relief for routine business data",
+        "ftz_relief": "zone-specific negative lists (Shanghai/Beijing/Hainan/etc.)",
+        "reaches_non_prc_firms": true
+      },
+      "status": "in_force",
+      "effective_date": "2021-11-01",
+      "source": {
+        "primary": "Personal Information Protection Law (PIPL, eff. 1 Nov 2021); Data Security Law (DSL, eff. 1 Sep 2021); CAC Provisions on Promoting and Regulating Cross-Border Data Flows (22 Mar 2024)",
+        "pinpoint": "PIPL three-gate outbound transfer; DSL important-data review; March 2024 threshold relief; FTZ negative lists"
+      },
+      "secondary": [
+        {
+          "citation": "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.26 (Mainland China — Cross-Border Data Treatment)"
+        }
+      ],
+      "interpretation_note": "Provenance: transcribed from author's Compliance Matrix v0.9.3. This is the one PRC constraint that binds firms with no PRC entity affiliation: when their KYC/onboarding flows touch PRC-resident personal data, the PIPL and DSL gates apply regardless of where the stablecoin is issued.",
+      "confidence": "high",
+      "last_reviewed": "2026-06-17",
+      "version_added": "0.2.0",
+      "tags": [
+        "apac",
+        "focus",
+        "from_matrix_v0.9.3",
+        "data_sovereignty"
+      ]
+    },
+    {
+      "id": "cn-prc-distribution-001",
+      "jurisdiction": "CN",
+      "authority": "PBOC; CSRC; SAFE; CAC",
+      "instrument_type": "other",
+      "instrument_label_local": "推广与发售 (promotion and offering)",
+      "dimension": "distribution",
+      "constraint_ref": "C8",
+      "requirement_summary": "All cryptocurrency promotion, offering, and trading is prohibited within PRC territory, so there is no domestic distribution channel. For PRC-connected groups operating via Hong Kong, the indirect pathway carries three independent layers of constraint: (i) A-share listing rules — a Hong Kong subsidiary's stablecoin activities are subject to related-party-transaction disclosure, results consolidate into the listed parent under the Accounting Standards for Business Enterprises, and the CSRC may require special disclosure or pre-notification; (ii) SAFE outbound-capital control — capital injections into the HK subsidiary, profit repatriation, and intra-group financing are subject to SAFE registration and quota limits; and (iii) PBOC/CAC supervisory posture — the October 2025 verbal guidance signaled disapproval of private RMB-linked or RMB-substitute issuance, producing observable behavioral effects without a published rule.",
+      "requirement_structured": {
+        "domestic_distribution": "prohibited (all crypto promotion/offering/trading)",
+        "indirect_hk_pathway_layers": {
+          "a_share_disclosure": "related-party disclosure; consolidation; CSRC special disclosure/pre-notification",
+          "safe_capital": "registration + quota on injections, repatriation, intra-group financing",
+          "pboc_cac_posture": "Oct 2025 verbal guidance; behavioral effect without published rule"
+        }
+      },
+      "status": "in_force",
+      "effective_date": null,
+      "source": {
+        "primary": "PRC prohibition on cryptocurrency promotion/offering/trading within territory; CSRC A-share disclosure rules; SAFE outbound-capital controls; PBOC/CAC October 2025 guidance",
+        "pinpoint": "Domestic distribution prohibited; three indirect-pathway constraint layers (A-share / SAFE / PBOC-CAC)"
+      },
+      "secondary": [
+        {
+          "citation": "Fan, Compliance Matrix v0.9.3 (18 May 2026), pp.26-27 (Mainland China — Distribution and Offering Restrictions; Indirect pathway constraints)"
+        }
+      ],
+      "interpretation_note": "Provenance: transcribed from author's Compliance Matrix v0.9.3. Mapped to C8 (disclosure/reporting/supervisory coordination) because the operative constraints on the indirect pathway are disclosure-, capital-control-, and supervisory-posture constraints rather than a product distribution rule.",
+      "confidence": "high",
+      "last_reviewed": "2026-06-17",
+      "version_added": "0.2.0",
+      "tags": [
+        "apac",
+        "focus",
+        "from_matrix_v0.9.3",
+        "prohibition"
+      ]
+    },
+    {
+      "id": "cn-prc-issuer_pathway-001",
+      "jurisdiction": "CN",
+      "authority": "PBOC; CAC; MIIT; SAFE",
+      "instrument_type": "other",
+      "instrument_label_local": "无合法境内发行路径 (no lawful domestic issuance pathway)",
+      "dimension": "issuer_pathway",
+      "constraint_ref": "C1",
+      "requirement_summary": "There is no domestic stablecoin issuance pathway. The 2017 ICO Notice (94 公告) and the 2021 PBOC framework remain in force and treat token issuance and virtual-currency business activity as prohibited. The live regulatory questions for PRC-connected groups therefore concern the indirect pathway through Hong Kong and the cross-border data, capital, and disclosure constraints that condition it, not a domestic licence. The behavioral boundary observed in 2025 tracks a private/state distinction rather than a PRC-connected/non-PRC-connected one: private internet groups (Ant, JD) applied for HK licences and then withdrew in October 2025; state-linked banks expressed interest and paused; and no PRC-affiliated applicant received a licence in the April 2026 first round.",
+      "requirement_structured": {
+        "domestic_pathway": "none",
+        "prohibition_instruments": [
+          "2017 ICO Notice (94 公告)",
+          "2021 PBOC virtual-currency framework"
+        ],
+        "observed_boundary": "private vs state issuance, not PRC-connected vs non-PRC-connected"
+      },
+      "status": "in_force",
+      "effective_date": "2021-09-24",
+      "source": {
+        "primary": "PBOC et al., Notice on Risks Associated with Token Offering and Financing (4 Sep 2017, 94 公告); PBOC Notice on Further Preventing and Disposing of Risks from Virtual Currency Trading Speculation (24 Sep 2021)",
+        "pinpoint": "No domestic issuance pathway; token issuance / virtual-currency business prohibited"
+      },
+      "secondary": [
+        {
+          "citation": "Fan, Compliance Matrix v0.9.3 (18 May 2026), pp.25-27 (Mainland China — Statutory Framework; Indirect pathway)"
+        }
+      ],
+      "interpretation_note": "Provenance: transcribed from author's Compliance Matrix v0.9.3. The Ant/JD October 2025 suspension and the absence of any PRC-affiliated licensee in the April 2026 HK cohort are the empirical anchors for the 'stable prohibition' characterization.",
+      "confidence": "high",
+      "last_reviewed": "2026-06-17",
+      "version_added": "0.2.0",
+      "tags": [
+        "apac",
+        "focus",
+        "from_matrix_v0.9.3",
+        "prohibition"
+      ]
+    },
+    {
+      "id": "cn-prc-monetary_sovereignty-001",
+      "jurisdiction": "CN",
+      "authority": "PBOC; CAC",
+      "instrument_type": "other",
+      "instrument_label_local": "非人民币代币 (non-RMB currency tokens)",
+      "dimension": "monetary_sovereignty",
+      "constraint_ref": "C7",
+      "requirement_summary": "Mainland China occupies the prohibitive pole of the monetary-sovereignty constraint: it prohibits all non-RMB currency tokens within PRC territory outright, rather than imposing a quantitative usage cap (contrast EU Article 23) or a qualitative distribution restriction (contrast Hong Kong's professional-investor limit on non-HKD FRS). The boundary the PBOC is actively policing runs between private and state authority to issue currency-like instruments: the October 2025 verbal guidance targeted private RMB-linked or RMB-substitute issuance because PBOC concerns center on private currency challenging the e-CNY, and the April 2026 HK first-license cohort excluded both private (Ant, JD) and state-owned (BOCHK, ICBC Asia, BOCom HK, CCB Asia, PetroChina) PRC-connected applicants alike. The structural rationale is reserve-currency and monetary-sovereignty protection, with the sovereign digital currency (e-CNY) reserved as the state instrument.",
+      "requirement_structured": {
+        "cap_type": "total prohibition (non-RMB tokens), not quantitative",
+        "policed_boundary": "private vs state authority to issue currency-like instruments",
+        "sovereign_instrument": "e-CNY",
+        "spectrum_position": "prohibitive pole (vs EU quantitative cap, HK qualitative restriction)"
+      },
+      "status": "in_force",
+      "effective_date": null,
+      "source": {
+        "primary": "PRC prohibition on non-RMB currency tokens within PRC territory; PBOC October 2025 verbal guidance (private RMB-linked / RMB-substitute issuance)",
+        "pinpoint": "All non-RMB currency tokens prohibited in PRC territory; PBOC policing private vs state currency issuance, protecting e-CNY"
+      },
+      "secondary": [
+        {
+          "citation": "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.5 (Comparison Table — Non-domestic currency caps) and pp.25-27"
+        }
+      ],
+      "interpretation_note": "Provenance: transcribed from author's Compliance Matrix v0.9.3. This is the PRC instance of Constraint 7. The three-jurisdiction sovereignty spectrum (EU quantitative cap / HK qualitative restriction / PRC total prohibition) is the comparative payload of the author's monetary-sovereignty paper.",
+      "confidence": "high",
+      "last_reviewed": "2026-06-17",
+      "version_added": "0.2.0",
+      "tags": [
+        "apac",
+        "focus",
+        "from_matrix_v0.9.3",
+        "new_dimension"
+      ]
+    },
+    {
+      "id": "cn-prc-regulatory_authority-001",
+      "jurisdiction": "CN",
+      "authority": "PBOC; CAC; CSRC; MIIT; SAFE",
+      "instrument_type": "other",
+      "instrument_label_local": "虚拟货币 / stablecoin (no lawful domestic instrument)",
+      "dimension": "regulatory_authority",
+      "constraint_ref": "C1",
+      "requirement_summary": "No single stablecoin regulator exists because there is no lawful domestic issuance pathway; instead, a coordinated multi-agency prohibition perimeter governs. The People's Bank of China (PBOC) is the primary financial regulator and in October 2025 issued verbal guidance to PRC tech groups against private RMB-linked stablecoin issuance. The Cyberspace Administration of China (CAC) governs ICP, deep-synthesis/generative-AI content, and cross-border data flows, and joined the October 2025 guidance. The China Securities Regulatory Commission (CSRC) governs A-share issuer disclosure and has directed brokerages to pause Hong Kong tokenization activity. The Ministry of Industry and Information Technology (MIIT) and the State Administration of Foreign Exchange (SAFE) supply supporting administrative measures (telecoms/ICP and outbound-capital control respectively).",
+      "requirement_structured": {
+        "agencies": {
+          "PBOC": "primary financial regulator; private RMB-linked issuance guidance (Oct 2025)",
+          "CAC": "cross-border data, ICP, content; joined Oct 2025 guidance",
+          "CSRC": "A-share disclosure; brokerage tokenization pause",
+          "MIIT": "telecoms / ICP supporting measures",
+          "SAFE": "outbound capital and profit repatriation control"
+        },
+        "single_stablecoin_regulator": false
+      },
+      "status": "in_force",
+      "effective_date": null,
+      "source": {
+        "primary": "PBOC et al., Notice on Further Preventing and Disposing of Risks from Virtual Currency Trading Speculation (24 Sep 2021); supporting measures from PBOC, CAC, MIIT, SAFE",
+        "pinpoint": "Multi-agency coordination; PBOC primary; CAC data/content; CSRC disclosure; MIIT/SAFE supporting"
+      },
+      "secondary": [
+        {
+          "citation": "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.25 (Mainland China — Regulators)"
+        }
+      ],
+      "interpretation_note": "Provenance: transcribed from author's Compliance Matrix v0.9.3. The relevant 'authority' question for PRC-connected groups is not who licenses issuance (no one does) but which agencies condition the indirect Hong Kong pathway.",
+      "confidence": "high",
+      "last_reviewed": "2026-06-17",
+      "version_added": "0.2.0",
+      "tags": [
+        "apac",
+        "focus",
+        "from_matrix_v0.9.3"
+      ]
+    },
+    {
+      "id": "eu-emt-monetary_sovereignty-001",
+      "jurisdiction": "EU",
+      "authority": "EBA, ESMA, NCAs",
+      "instrument_type": "e_money_token",
+      "instrument_label_local": "non-EU-currency EMT",
+      "dimension": "monetary_sovereignty",
+      "constraint_ref": "C7",
+      "requirement_summary": "MiCA Article 23 caps the usage of non-EU-currency EMTs at EUR 200 million per day or 1 million transactions per day, measured on a quarterly-average basis. The cap applies only to use as a means of exchange within a single currency area, not to store-of-value use or to trading on crypto-asset venues. A separate reporting obligation triggers at EUR 100 million in issuance value globally. This is the canonical quantitative monetary-sovereignty cap and the clearest instance of Constraint 7.",
+      "requirement_structured": {
+        "cap_type": "quantitative",
+        "thresholds": [
+          "EUR 200,000,000 / day",
+          "1,000,000 transactions / day"
+        ],
+        "measurement": "quarterly average",
+        "scope": "means of exchange within a single currency area only",
+        "reporting_trigger": "EUR 100,000,000 global issuance value"
+      },
+      "status": "in_force",
+      "effective_date": null,
+      "source": {
+        "primary": "Regulation (EU) 2023/1114 (MiCA), Article 23",
+        "pinpoint": "Art. 23 — non-EU-currency EMT usage caps; means-of-exchange scope"
+      },
+      "secondary": [
+        {
+          "citation": "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.5 (Comparison Table — Non-domestic currency caps)"
+        }
+      ],
+      "interpretation_note": "Provenance: transcribed from author's Compliance Matrix v0.9.3. The exemplar quantitative cap for the monetary_sovereignty dimension; contrast HK (qualitative, professional-investor restriction) and PRC (total prohibition).",
+      "confidence": "high",
+      "last_reviewed": "2026-06-17",
+      "version_added": "0.2.0",
+      "tags": [
+        "eu",
+        "focus",
+        "new_dimension",
+        "from_matrix_v0.9.3"
+      ]
+    },
+    {
+      "id": "eu-emt-permitted_activity_yield-001",
+      "jurisdiction": "EU",
+      "authority": "EBA, ESMA, NCAs",
+      "instrument_type": "e_money_token",
+      "instrument_label_local": "e-money token (EMT)",
+      "dimension": "permitted_activity_yield",
+      "constraint_ref": "C3",
+      "requirement_summary": "MiCA Article 50 imposes a yield ban on EMT holders: holders may not receive interest. The prohibition attaches to the holding of the token, paralleling the US GENIUS §4(a)(11) structure but expressed as a flat ban rather than a 'solely'-qualified one.",
+      "status": "in_force",
+      "effective_date": null,
+      "source": {
+        "primary": "Regulation (EU) 2023/1114 (MiCA), Article 50",
+        "pinpoint": "Art. 50 — no interest to EMT holders"
+      },
+      "secondary": [
+        {
+          "citation": "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.5 / p.2 (Executive Summary) (EU — Yield)"
+        }
+      ],
+      "interpretation_note": "Provenance: transcribed from author's Compliance Matrix v0.9.3.",
+      "confidence": "high",
+      "last_reviewed": "2026-06-17",
+      "version_added": "0.2.0",
+      "tags": [
+        "eu",
+        "focus",
+        "spine",
+        "from_matrix_v0.9.3"
+      ]
+    },
+    {
+      "id": "eu-emt-regulatory_authority-001",
+      "jurisdiction": "EU",
+      "authority": "EBA, ESMA, national competent authorities (NCAs)",
+      "instrument_type": "e_money_token",
+      "instrument_label_local": "e-money token (EMT) / asset-referenced token (ART)",
+      "dimension": "regulatory_authority",
+      "requirement_summary": "The Markets in Crypto-Assets Regulation (MiCA, Reg. (EU) 2023/1114) governs EMTs and ARTs, supervised by the EBA (significant tokens), ESMA, and national competent authorities. The transitional regime ends 1 July 2026; a PSD2/MiCAR interplay question is addressed by the EBA No-Action Letter (10 June 2025).",
+      "status": "in_force",
+      "effective_date": null,
+      "source": {
+        "primary": "Regulation (EU) 2023/1114 (MiCA)",
+        "pinpoint": "MiCA Titles III (ARTs) / IV (EMTs); EBA/ESMA/NCA supervisory architecture"
+      },
+      "secondary": [
+        {
+          "citation": "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.5 (Comparison Table) and EU detailed entry"
+        }
+      ],
+      "interpretation_note": "Provenance: transcribed from author's Compliance Matrix v0.9.3.",
+      "confidence": "high",
+      "last_reviewed": "2026-06-17",
+      "version_added": "0.2.0",
+      "tags": [
+        "eu",
+        "focus",
+        "from_matrix_v0.9.3"
+      ]
+    },
+    {
+      "id": "eu-emt-reserve_backing-001",
+      "jurisdiction": "EU",
+      "authority": "EBA, NCAs",
+      "instrument_type": "e_money_token",
+      "instrument_label_local": "e-money token (EMT) / asset-referenced token (ART)",
+      "dimension": "reserve_backing",
+      "constraint_ref": "C2",
+      "requirement_summary": "MiCA requires EMT reserves to hold at least 60% in bank deposits; ART reserves at least 30% in bank deposits. (Distinct from the US/HK same-currency short-dated-sovereign model.)",
+      "requirement_structured": {
+        "emt_bank_deposit_floor": ">=60%",
+        "art_bank_deposit_floor": ">=30%"
+      },
+      "status": "in_force",
+      "effective_date": null,
+      "source": {
+        "primary": "Regulation (EU) 2023/1114 (MiCA), reserve composition provisions",
+        "pinpoint": "EMT >=60% bank deposits; ART >=30% bank deposits"
+      },
+      "secondary": [
+        {
+          "citation": "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.5 (Comparison Table — Reserve backing)"
+        }
+      ],
+      "interpretation_note": "Provenance: transcribed from author's Compliance Matrix v0.9.3. Reserve half of the split dimension.",
+      "confidence": "medium",
+      "last_reviewed": "2026-06-17",
+      "version_added": "0.2.0",
+      "tags": [
+        "eu",
+        "focus",
+        "from_matrix_v0.9.3",
+        "dimension_split"
+      ]
+    },
+    {
+      "id": "hk-frs-aml_kyc-001",
+      "jurisdiction": "HK",
+      "authority": "HKMA",
+      "instrument_type": "fiat_referenced_stablecoin",
+      "instrument_label_local": "specified stablecoin",
+      "dimension": "aml_kyc",
+      "requirement_summary": "The HKMA AML/CFT Guideline for licensed stablecoin issuers applies: standard FATF KYC, transaction monitoring, and suspicious-transaction reporting, plus distribution-channel KYC obligations executed via licensed VATPs and SFC Type 1 corporations.",
+      "status": "in_force",
+      "effective_date": "2025-08-01",
+      "source": {
+        "primary": "HKMA AML/CFT Guideline for licensed stablecoin issuers (under Cap. 656)",
+        "pinpoint": "FATF KYC; transaction monitoring; STR; distribution-channel KYC"
+      },
+      "secondary": [
+        {
+          "citation": "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.22 (Hong Kong — AML/KYC Framework)"
+        }
+      ],
+      "interpretation_note": "Provenance: transcribed from author's Compliance Matrix v0.9.3.",
+      "confidence": "high",
+      "last_reviewed": "2026-06-17",
+      "version_added": "0.2.0",
+      "tags": [
+        "apac",
+        "focus",
+        "from_matrix_v0.9.3"
+      ]
+    },
+    {
+      "id": "hk-frs-capital_requirements-001",
+      "jurisdiction": "HK",
+      "authority": "HKMA",
+      "instrument_type": "fiat_referenced_stablecoin",
+      "instrument_label_local": "specified stablecoin",
+      "dimension": "capital_requirements",
+      "constraint_ref": "C2",
+      "requirement_summary": "HK$25 million minimum paid-up share capital (or currency equivalent), with HKMA empowered to require more based on business plan; HK$3 million minimum liquid capital; and excess liquid capital equivalent to at least 12 months of operating expenses. The HK$25m threshold, combined with the HK-incorporation-or-authorised-institution requirement, effectively limits applicants to banks and JV-backed large corporates.",
+      "requirement_structured": {
+        "min_paid_up_capital": "HK$25,000,000",
+        "min_liquid_capital": "HK$3,000,000",
+        "liquidity_buffer": ">=12 months operating expenses"
+      },
+      "status": "in_force",
+      "effective_date": "2025-08-01",
+      "source": {
+        "primary": "Stablecoins Ordinance (Cap. 656), capital requirements",
+        "pinpoint": "HK$25m paid-up; HK$3m liquid capital; 12-month opex buffer"
+      },
+      "secondary": [
+        {
+          "citation": "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.21-22 (Hong Kong — Capital Requirements)"
+        }
+      ],
+      "interpretation_note": "Provenance: transcribed from author's Compliance Matrix v0.9.3. Split-out capital half of the former reserve_capital dimension.",
+      "confidence": "high",
+      "last_reviewed": "2026-06-17",
+      "version_added": "0.2.0",
+      "tags": [
+        "apac",
+        "focus",
+        "from_matrix_v0.9.3",
+        "dimension_split"
+      ]
+    },
+    {
+      "id": "hk-frs-cross_border_data-001",
+      "jurisdiction": "HK",
+      "authority": "HKMA; PCPD",
+      "instrument_type": "fiat_referenced_stablecoin",
+      "instrument_label_local": "specified stablecoin",
+      "dimension": "cross_border_data",
+      "constraint_ref": "C6",
+      "requirement_summary": "Personal data is governed by the Personal Data (Privacy) Ordinance (PDPO). Cross-border data transfer governance under PDPO Section 33 remains pending final commencement. HKMA Supervisory Policy Manual provisions on outsourcing and data hosting apply.",
+      "status": "in_force",
+      "effective_date": null,
+      "source": {
+        "primary": "Personal Data (Privacy) Ordinance (PDPO); s.33 (cross-border transfer, not yet commenced)",
+        "pinpoint": "PDPO s.33 pending commencement; HKMA SPM outsourcing/data-hosting modules"
+      },
+      "secondary": [
+        {
+          "citation": "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.22 (Hong Kong — Cross-Border Data Treatment)"
+        }
+      ],
+      "interpretation_note": "Provenance: transcribed from author's Compliance Matrix v0.9.3.",
+      "interpretive_flag": {
+        "tension": "PDPO s.33 (cross-border transfer restriction) has long been enacted but not commenced; its eventual commencement would change the cross-border data posture.",
+        "resolution_channel": "PCPD / government commencement notice."
+      },
+      "confidence": "medium",
+      "last_reviewed": "2026-06-17",
+      "version_added": "0.2.0",
+      "tags": [
+        "apac",
+        "focus",
+        "from_matrix_v0.9.3"
+      ]
+    },
+    {
+      "id": "hk-frs-distribution-001",
+      "jurisdiction": "HK",
+      "authority": "HKMA; SFC",
+      "instrument_type": "fiat_referenced_stablecoin",
+      "instrument_label_local": "specified stablecoin",
+      "dimension": "distribution",
+      "requirement_summary": "Permitted offerors of FRS in Hong Kong are HKMA-licensed FRS issuers, SFC-licensed VATPs, SFC-licensed Type 1 corporations, and Authorised Institutions. Foreign-based issuers of non-HKD-linked FRS may offer to professional investors only. Unlicensed activity carries HK$5 million fine + 7 years' imprisonment + HK$100,000 per day of continuing offence. Pre-existing-issuer transitional treatment required applications by 31 Oct 2025; the closing-down period began 1 Nov 2025 for non-applicants. The April 2026 cohort contrasts distribution models: HSBC plans direct retail integration via PayMe (3.3m users) and its mobile app from H2 2026; Anchorpoint plans a phased Q2 2026 B2B2C rollout of HKDAP via authorised partners.",
+      "status": "in_force",
+      "effective_date": "2025-08-01",
+      "source": {
+        "primary": "Stablecoins Ordinance (Cap. 656), offering / distribution restrictions and offence provisions",
+        "pinpoint": "Permitted-offeror list; non-HKD FRS -> professional investors only; penalty (HK$5m + 7yrs + HK$100k/day)"
+      },
+      "secondary": [
+        {
+          "citation": "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.22 (Hong Kong — Distribution and Offering Restrictions)"
+        }
+      ],
+      "interpretation_note": "Provenance: transcribed from author's Compliance Matrix v0.9.3. The 'non-HKD FRS -> professional investors only' rule is also the HK datapoint for the monetary_sovereignty dimension (see hk-frs-monetary_sovereignty-001).",
+      "confidence": "high",
+      "last_reviewed": "2026-06-17",
+      "version_added": "0.2.0",
+      "tags": [
+        "apac",
+        "focus",
+        "from_matrix_v0.9.3"
+      ]
+    },
+    {
+      "id": "hk-frs-implementation_status-001",
+      "jurisdiction": "HK",
+      "authority": "HKMA",
+      "instrument_type": "fiat_referenced_stablecoin",
+      "instrument_label_local": "specified stablecoin",
+      "dimension": "implementation_status",
+      "requirement_summary": "Live regime. Key milestones: HKMA discussion paper (Jan 2022); FSTB/HKMA consultation (Dec 2023); conclusions + sandbox (Jul 2024); Ordinance and guidelines effective (1 Aug 2025); Ant/JD applications suspended (18-20 Oct 2025); pre-existing-issuer application deadline (31 Oct 2025); closing-down period begins (1 Nov 2025); transitional operating window ends (31 Jan 2026); first two licences granted (10 Apr 2026, HSBC = FRS02, Anchorpoint = FRS01). Expected: Anchorpoint HKDAP B2B2C launch (Q2 2026); HSBC retail launch via PayMe (H2 2026); HKMA second-cohort licences (Q3 2026).",
+      "status": "in_force",
+      "effective_date": "2025-08-01",
+      "source": {
+        "primary": "Stablecoins Ordinance (Cap. 656) commencement + HKMA licensing actions",
+        "pinpoint": "Timeline Jan 2022 -> Q3 2026; first cohort 10 Apr 2026"
+      },
+      "secondary": [
+        {
+          "citation": "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.23 (Hong Kong — Implementation Timeline)"
+        }
+      ],
+      "interpretation_note": "Provenance: transcribed from author's Compliance Matrix v0.9.3.",
+      "confidence": "high",
+      "last_reviewed": "2026-06-17",
+      "version_added": "0.2.0",
+      "tags": [
+        "apac",
+        "focus",
+        "from_matrix_v0.9.3"
+      ]
+    },
+    {
+      "id": "hk-frs-issuer_pathway-001",
+      "jurisdiction": "HK",
+      "authority": "HKMA",
+      "instrument_type": "fiat_referenced_stablecoin",
+      "instrument_label_local": "specified stablecoin",
+      "dimension": "issuer_pathway",
+      "constraint_ref": "C1",
+      "requirement_summary": "A licence is required for (1) FRS issuers in Hong Kong, (2) issuers outside HK of stablecoins referencing the HK dollar, and (3) entities actively marketing FRS to the HK public. Eligible applicants are companies incorporated in HK under the Companies Ordinance, or authorised institutions (banks / restricted-licence / deposit-taking companies under the Banking Ordinance). Shell entities or mere pre-1-Aug-2025 establishment do not qualify for transitional treatment. The first-licence cohort (10 Apr 2026) was HSBC and Anchorpoint Financial Limited (a Standard Chartered (HK)–HKT–Animoca JV intending HKDAP on a B2B2C model); no PRC-connected entities were licensed.",
+      "requirement_structured": {
+        "first_cohort": [
+          "HSBC (FRS02)",
+          "Anchorpoint Financial Limited (FRS01)"
+        ],
+        "prc_connected_in_cohort": false
+      },
+      "status": "in_force",
+      "effective_date": "2025-08-01",
+      "source": {
+        "primary": "Stablecoins Ordinance (Cap. 656), licensing provisions",
+        "pinpoint": "Licensable activities (FRS issuance / HKD-referencing / active marketing); eligibility (HK-incorporated company or authorised institution)"
+      },
+      "secondary": [
+        {
+          "citation": "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.21 (Hong Kong — Issuer Pathways and Eligibility)"
+        }
+      ],
+      "interpretation_note": "Provenance: transcribed from author's Compliance Matrix v0.9.3. The first-cohort composition signals HKMA risk appetite (banks / authorised-institution-backed JVs at or above the statutory minimum).",
+      "confidence": "high",
+      "last_reviewed": "2026-06-17",
+      "version_added": "0.2.0",
+      "tags": [
+        "apac",
+        "focus",
+        "from_matrix_v0.9.3"
+      ]
+    },
+    {
+      "id": "hk-frs-monetary_sovereignty-001",
+      "jurisdiction": "HK",
+      "authority": "HKMA",
+      "instrument_type": "fiat_referenced_stablecoin",
+      "instrument_label_local": "non-HKD-linked FRS",
+      "dimension": "monetary_sovereignty",
+      "constraint_ref": "C7",
+      "requirement_summary": "Hong Kong does not impose a quantitative non-domestic-currency usage cap of the MiCA Article 23 type, but it draws a sovereignty-adjacent line through distribution: foreign-based issuers of non-HKD-linked FRS may offer to professional investors only, while HKD-referencing stablecoins (including those issued offshore) are pulled fully inside the licensing perimeter. The effect is to privilege the domestic-currency instrument for retail use without a numeric ceiling.",
+      "requirement_structured": {
+        "cap_type": "qualitative (distribution restriction), not quantitative",
+        "non_domestic_currency_retail": "restricted (professional investors only for non-HKD FRS)"
+      },
+      "status": "in_force",
+      "effective_date": "2025-08-01",
+      "source": {
+        "primary": "Stablecoins Ordinance (Cap. 656) — HKD-referencing perimeter + non-HKD FRS professional-investor restriction",
+        "pinpoint": "Offshore HKD-referencing issuance licensable; non-HKD FRS offering limited to professional investors"
+      },
+      "secondary": [
+        {
+          "citation": "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.5 (Comparison Table — Non-domestic currency caps) and p.22"
+        }
+      ],
+      "interpretation_note": "Provenance: transcribed from author's Compliance Matrix v0.9.3. This is the HK instance of Constraint 7 (monetary sovereignty / reserve-currency asymmetry); contrast EU Art. 23 (quantitative cap) and PRC (total non-RMB prohibition).",
+      "confidence": "high",
+      "last_reviewed": "2026-06-17",
+      "version_added": "0.2.0",
+      "tags": [
+        "apac",
+        "focus",
+        "from_matrix_v0.9.3",
+        "new_dimension"
+      ]
+    },
     {
       "id": "hk-frs-permitted_activity_yield-001",
       "jurisdiction": "HK",
@@ -11,67 +573,504 @@
       "instrument_type": "fiat_referenced_stablecoin",
       "instrument_label_local": "specified stablecoin",
       "dimension": "permitted_activity_yield",
-      "requirement_summary": "<VERIFY: HKMA treatment of interest/yield paid to FRS holders under the Stablecoins Ordinance regime; confirm whether/under what conditions issuers or distributors may offer yield or activity-based incentives>",
+      "constraint_ref": "C3",
+      "requirement_summary": "The Stablecoins Ordinance Schedule 2 Section 15 (Non-interest bearing) provides that the licensee must not pay any interest on issued stablecoins. Direct payments from issuer to holder are reached by the prohibition.",
       "requirement_structured": {
-        "passive_yield_to_holder": "<VERIFY>",
-        "activity_based_rewards": "<VERIFY>"
+        "passive_yield_to_holder": "prohibited (issuer-to-holder interest)",
+        "activity_based_rewards": "not addressed by the Ordinance text; perimeter open"
       },
       "status": "in_force",
       "effective_date": "2025-08-01",
       "source": {
-        "primary": "Stablecoins Ordinance (Cap. 656), s.<VERIFY exact section>",
-        "url": "",
-        "pinpoint": "<VERIFY>"
+        "primary": "Stablecoins Ordinance (Cap. 656), Schedule 2, s.15 (Non-interest bearing)",
+        "pinpoint": "Sch. 2 s.15 — licensee must not pay any interest on issued stablecoins"
       },
       "secondary": [
         {
-          "citation": "HKMA, supervisory guideline / explanatory materials on the FRS regime, para <VERIFY>"
+          "citation": "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.22 (Hong Kong — Yield and Interest Treatment)"
         }
       ],
-      "interpretation_note": "Compare against the 'same activity, same risks, same regulation' principle HKMA applies; note interaction with SFC tokenisation/STO perimeter where settlement touches tokenised funds.",
-      "confidence": "low",
+      "interpretation_note": "Provenance: exact pinpoint (Sch. 2 s.15) transcribed from author's verified Compliance Matrix v0.9.3 — this supplies the exact section that the seed record had left as a placeholder. Compare against the US §404 / GENIUS §4(a)(11) 'solely in connection with holding' structure: the HK text is a flat issuer-to-holder prohibition and does not itself draw the bona-fide-activity line.",
+      "confidence": "high",
       "last_reviewed": "2026-06-17",
-      "version_added": "0.1.0",
+      "version_added": "0.2.0",
       "tags": [
         "seed",
         "apac",
-        "focus"
+        "focus",
+        "spine",
+        "from_matrix_v0.9.3"
+      ]
+    },
+    {
+      "id": "hk-frs-redemption-001",
+      "jurisdiction": "HK",
+      "authority": "HKMA",
+      "instrument_type": "fiat_referenced_stablecoin",
+      "instrument_label_local": "specified stablecoin",
+      "dimension": "redemption",
+      "requirement_summary": "Redemption at par value within 1 business day of a valid request. Redemption obligations are a continuing licence condition.",
+      "status": "in_force",
+      "effective_date": "2025-08-01",
+      "source": {
+        "primary": "Stablecoins Ordinance (Cap. 656), redemption requirements",
+        "pinpoint": "Par redemption within 1 business day; continuing licence condition"
+      },
+      "secondary": [
+        {
+          "citation": "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.22 (Hong Kong — Redemption Mechanics)"
+        }
+      ],
+      "interpretation_note": "Provenance: transcribed from author's Compliance Matrix v0.9.3.",
+      "confidence": "high",
+      "last_reviewed": "2026-06-17",
+      "version_added": "0.2.0",
+      "tags": [
+        "apac",
+        "focus",
+        "from_matrix_v0.9.3"
+      ]
+    },
+    {
+      "id": "hk-frs-regulatory_authority-001",
+      "jurisdiction": "HK",
+      "authority": "HKMA (primary); SFC (VATPs / Type 1 distribution)",
+      "instrument_type": "fiat_referenced_stablecoin",
+      "instrument_label_local": "specified stablecoin (fiat-referenced stablecoin, FRS)",
+      "dimension": "regulatory_authority",
+      "requirement_summary": "The Stablecoins Ordinance (Cap. 656), effective 1 August 2025, establishes the HKMA as primary regulator for FRS issuers, supported by HKMA Explanatory Notes (Licensing; Transitional Provisions), the Guideline on Supervision of Licensed Stablecoin Issuers, and the AML/CFT Guideline. The SFC regulates virtual asset trading platforms (VATPs) and Type 1 corporations authorised to offer stablecoins.",
+      "status": "in_force",
+      "effective_date": "2025-08-01",
+      "source": {
+        "primary": "Stablecoins Ordinance (Cap. 656), in force 1 Aug 2025",
+        "pinpoint": "Long title; HKMA as designated authority; supporting HKMA guidelines"
+      },
+      "secondary": [
+        {
+          "citation": "Fan, Multi-Jurisdiction Stablecoin Compliance Matrix v0.9.3 (18 May 2026), p.21 (Hong Kong — Statutory Framework / Regulators)"
+        }
+      ],
+      "interpretation_note": "Provenance: primary pinpoint transcribed from the author's own verified Compliance Matrix v0.9.3; remains subject to the standing human-verification rule (METHODOLOGY.md).",
+      "confidence": "high",
+      "last_reviewed": "2026-06-17",
+      "version_added": "0.2.0",
+      "tags": [
+        "seed",
+        "apac",
+        "focus",
+        "from_matrix_v0.9.3"
+      ]
+    },
+    {
+      "id": "hk-frs-reserve_backing-001",
+      "jurisdiction": "HK",
+      "authority": "HKMA",
+      "instrument_type": "fiat_referenced_stablecoin",
+      "instrument_label_local": "specified stablecoin",
+      "dimension": "reserve_backing",
+      "constraint_ref": "C2",
+      "requirement_summary": "100% backing at all times; the market value of reserve assets must equal or exceed the par value of circulating stablecoins, with HKMA expecting overcollateralisation. Acceptable assets: cash, bank deposits (term <= 3 months), government and central-bank securities (residual maturity <= 1 year), and tokenised forms of the foregoing. Reserves must be strictly segregated from the issuer's other assets and protected against creditor claims via statutory trust.",
+      "requirement_structured": {
+        "backing_ratio": "100% (overcollateralisation expected)",
+        "eligible_assets": [
+          "cash",
+          "bank deposits <=3mo",
+          "govt/central-bank securities <=1yr",
+          "tokenised forms thereof"
+        ],
+        "segregation": "statutory trust; creditor-remote"
+      },
+      "status": "in_force",
+      "effective_date": "2025-08-01",
+      "source": {
+        "primary": "Stablecoins Ordinance (Cap. 656), reserve / backing requirements",
+        "pinpoint": "100% backing; eligible-asset list; segregation / statutory trust"
+      },
+      "secondary": [
+        {
+          "citation": "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.21 (Hong Kong — Reserve and Backing Requirements)"
+        }
+      ],
+      "interpretation_note": "Provenance: transcribed from author's Compliance Matrix v0.9.3. Note this dimension is the split-out reserve half of the former reserve_capital; the capital half is hk-frs-capital_requirements-001.",
+      "confidence": "high",
+      "last_reviewed": "2026-06-17",
+      "version_added": "0.2.0",
+      "tags": [
+        "apac",
+        "focus",
+        "from_matrix_v0.9.3",
+        "dimension_split"
+      ]
+    },
+    {
+      "id": "sg-scs-permitted_activity_yield-001",
+      "jurisdiction": "SG",
+      "authority": "MAS",
+      "instrument_type": "fiat_referenced_stablecoin",
+      "instrument_label_local": "single-currency stablecoin (SCS)",
+      "dimension": "permitted_activity_yield",
+      "constraint_ref": "C3",
+      "requirement_summary": "Yield is not directly prohibited, but the MAS-regulated SCS label is restricted to SGD or G10-pegged tokens issued from Singapore-incorporated entities, and SCS issuers are forbidden from engaging in lending or staking. The activity prohibition (no lend/stake) is the operative yield-adjacent constraint rather than a flat interest ban.",
+      "requirement_structured": {
+        "direct_yield_ban": "not explicit",
+        "issuer_lending_or_staking": "prohibited",
+        "label_scope": "SGD or G10-pegged, Singapore-incorporated issuer"
+      },
+      "status": "in_force",
+      "effective_date": null,
+      "source": {
+        "primary": "MAS Single-Currency Stablecoin framework (Aug 2023) — issuer activity restrictions",
+        "pinpoint": "No lending/staking by SCS issuers; SGD/G10 label scope"
+      },
+      "secondary": [
+        {
+          "citation": "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.2 / p.5 (SG — Yield)"
+        }
+      ],
+      "interpretation_note": "Provenance: transcribed from author's Compliance Matrix v0.9.3. Singapore shows that the yield dimension and the activity-restriction dimension can collapse into one another — useful contrast for the C3 spine.",
+      "confidence": "high",
+      "last_reviewed": "2026-06-17",
+      "version_added": "0.2.0",
+      "tags": [
+        "sg",
+        "focus",
+        "apac",
+        "spine",
+        "from_matrix_v0.9.3"
+      ]
+    },
+    {
+      "id": "sg-scs-regulatory_authority-001",
+      "jurisdiction": "SG",
+      "authority": "MAS",
+      "instrument_type": "fiat_referenced_stablecoin",
+      "instrument_label_local": "single-currency stablecoin (SCS)",
+      "dimension": "regulatory_authority",
+      "requirement_summary": "The MAS Single-Currency Stablecoin (SCS) framework, finalised August 2023, sits alongside the Payment Services Act 2019; a separate Digital Token Service Provider (DTSP) licensing regime operates under FSMA Part 9. MAS is the sole regulator.",
+      "status": "in_force",
+      "effective_date": null,
+      "source": {
+        "primary": "MAS Single-Currency Stablecoin framework (Aug 2023); Payment Services Act 2019; FSMA Part 9 (DTSP)",
+        "pinpoint": "MAS SCS framework; PSA 2019; FSMA Part 9"
+      },
+      "secondary": [
+        {
+          "citation": "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.2 (Executive Summary) / p.5 / SG detailed entry"
+        }
+      ],
+      "interpretation_note": "Provenance: transcribed from author's Compliance Matrix v0.9.3.",
+      "confidence": "high",
+      "last_reviewed": "2026-06-17",
+      "version_added": "0.2.0",
+      "tags": [
+        "sg",
+        "focus",
+        "apac",
+        "from_matrix_v0.9.3"
+      ]
+    },
+    {
+      "id": "uk-frs-issuer_pathway-001",
+      "jurisdiction": "UK",
+      "authority": "FCA, HM Treasury",
+      "instrument_type": "fiat_referenced_stablecoin",
+      "instrument_label_local": "qualifying stablecoin",
+      "dimension": "issuer_pathway",
+      "constraint_ref": "C1",
+      "requirement_summary": "Issuers must be UK-incorporated. HM Treasury's policy note describes the regulated perimeter as triggered by any one of three lifecycle limbs (offering, redemption, backing-asset management) in the UK. However, Article 9M(2) of SI 2026/102, together with the corresponding amendment to FSMA s.418, requires all three limbs to be in the UK. This single-limb vs. all-three-limbs divergence is an open interpretive question.",
+      "status": "in_force",
+      "effective_date": "2026-02-01",
+      "source": {
+        "primary": "SI 2026/102, Art. 9M(2); FSMA s.418 (as amended); HM Treasury policy note",
+        "pinpoint": "Art. 9M(2) (all three limbs in UK) vs. HMT policy note (any one limb)"
+      },
+      "secondary": [
+        {
+          "citation": "Fan, Compliance Matrix v0.9.3 (18 May 2026), UK detailed entry / Comparison Table flag"
+        }
+      ],
+      "interpretation_note": "Provenance: transcribed from author's Compliance Matrix v0.9.3.",
+      "interpretive_flag": {
+        "tension": "Whether the UK regulated perimeter is triggered by any one lifecycle limb (HMT policy note) or requires all three limbs in the UK (SI 2026/102 Art. 9M(2) / FSMA s.418).",
+        "resolution_channel": "FCA summer 2026 policy statement."
+      },
+      "confidence": "medium",
+      "last_reviewed": "2026-06-17",
+      "version_added": "0.2.0",
+      "tags": [
+        "uk",
+        "focus",
+        "from_matrix_v0.9.3"
+      ]
+    },
+    {
+      "id": "uk-frs-permitted_activity_yield-001",
+      "jurisdiction": "UK",
+      "authority": "FCA, Bank of England",
+      "instrument_type": "fiat_referenced_stablecoin",
+      "instrument_label_local": "qualifying stablecoin",
+      "dimension": "permitted_activity_yield",
+      "constraint_ref": "C3",
+      "requirement_summary": "Yield is not expressly addressed in SI 2026/102. The Bank of England's November 2025 materials describe a 60/40 backing split and constrain pass-through of returns to holders. The detailed treatment is expected in the FCA's summer 2026 rules.",
+      "status": "consultation",
+      "effective_date": null,
+      "source": {
+        "primary": "SI 2026/102 (silent on yield); Bank of England Nov 2025 materials (60/40 backing; pass-through constrained)",
+        "pinpoint": "BoE Nov 2025 backing-split / pass-through position; FCA rules pending"
+      },
+      "secondary": [
+        {
+          "citation": "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.5 (Comparison Table — Yield to holders)"
+        }
+      ],
+      "interpretation_note": "Provenance: transcribed from author's Compliance Matrix v0.9.3. UK is the least-settled of the six on yield; carried as consultation/low confidence pending FCA rules.",
+      "interpretive_flag": {
+        "tension": "Whether and how returns may be passed through to holders is not fixed in the SI; BoE signals constraint but the FCA rule is pending.",
+        "resolution_channel": "FCA summer 2026 policy statement."
+      },
+      "confidence": "low",
+      "last_reviewed": "2026-06-17",
+      "version_added": "0.2.0",
+      "tags": [
+        "uk",
+        "focus",
+        "spine",
+        "from_matrix_v0.9.3"
+      ]
+    },
+    {
+      "id": "uk-frs-regulatory_authority-001",
+      "jurisdiction": "UK",
+      "authority": "FCA, Bank of England, HM Treasury",
+      "instrument_type": "fiat_referenced_stablecoin",
+      "instrument_label_local": "qualifying stablecoin",
+      "dimension": "regulatory_authority",
+      "requirement_summary": "The Financial Services and Markets Act 2000 (Cryptoassets) Regulations 2026, SI 2026/102, in force from February 2026, make issuing a qualifying stablecoin in the UK a regulated activity under FSMA. The FCA (conduct), Bank of England (systemic), and HM Treasury (perimeter) share authority; FCA rules are pending, with a policy statement expected summer 2026.",
+      "status": "in_force",
+      "effective_date": "2026-02-01",
+      "source": {
+        "primary": "Financial Services and Markets Act 2000 (Cryptoassets) Regulations 2026, SI 2026/102",
+        "pinpoint": "SI 2026/102; amendment to FSMA s.418 (regulated-activity perimeter)"
+      },
+      "secondary": [
+        {
+          "citation": "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.2 (Executive Summary) / p.5 / UK detailed entry"
+        }
+      ],
+      "interpretation_note": "Provenance: transcribed from author's Compliance Matrix v0.9.3.",
+      "confidence": "high",
+      "last_reviewed": "2026-06-17",
+      "version_added": "0.2.0",
+      "tags": [
+        "uk",
+        "focus",
+        "from_matrix_v0.9.3"
+      ]
+    },
+    {
+      "id": "us-pss-bank_nonbank_routing-001",
+      "jurisdiction": "US",
+      "authority": "OCC/FDIC (bank issuers); SEC/CFTC (intermediaries under CLARITY §404)",
+      "instrument_type": "payment_stablecoin",
+      "instrument_label_local": "payment stablecoin / covered party",
+      "dimension": "bank_nonbank_routing",
+      "constraint_ref": "C5",
+      "requirement_summary": "The regime separates roles along a routing chain. A bank operating as a Layer 1 issuer under the GENIUS Act operates under bank supervision; non-bank permitted issuers operate under the OCC/FDIC payment-stablecoin charter. CLARITY §404 adds an intermediary layer: 'covered parties' (digital-asset service providers and affiliates) may not pay yield on held balances, but may facilitate user-initiated activity. The author synthesises a generalisable three-layer routing architecture: (1) a compliant issuer layer (GENIUS-compliant payment stablecoin), (2) an authorised routing layer (the wallet/intermediary that executes the user's signed instruction), and (3) a yield-bearing tokenised cash-management layer (registered tokenised MMF). The binding question is which entity in the chain holds which authorisation, and whether the routing layer's action is a permitted facilitation or a prohibited yield/brokerage activity.",
+      "requirement_structured": {
+        "layers": [
+          "L1 compliant issuer (bank or non-bank PPSI)",
+          "L2 authorised routing layer (wallet/intermediary)",
+          "L3 yield-bearing tokenised cash management (registered MMF)"
+        ],
+        "binding_question": "authorisation held at each layer; facilitation vs. prohibited activity at L2"
+      },
+      "status": "proposed",
+      "effective_date": null,
+      "source": {
+        "primary": "GENIUS Act (issuer charters); CLARITY Act §404 'covered parties' (pending)",
+        "pinpoint": "Covered-party definition (digital-asset service providers + affiliates); bank vs. non-bank issuer pathways"
+      },
+      "secondary": [
+        {
+          "citation": "Fan, Cross-Border Stablecoin Architecture (Working Paper, May 2026), §4 (three-layer routing architecture) and §2.5 (Constraint 5)"
+        },
+        {
+          "citation": "Fan, Compliance Matrix v0.9.3 (18 May 2026), Pattern 1 (issuer/intermediary split) and Pattern 3"
+        }
+      ],
+      "interpretation_note": "New dimension in v0.2.0-dev. Home for the §4 three-layer routing architecture and Constraint 5. Composes with securities_classification (the L2->L3 step is where C4 and C5 meet) and permitted_activity_yield (whether L2 facilitation is 'bona fide activity').",
+      "confidence": "medium",
+      "last_reviewed": "2026-06-17",
+      "version_added": "0.2.0",
+      "tags": [
+        "anchor",
+        "us",
+        "routing",
+        "architecture",
+        "new_dimension",
+        "from_portfolio"
+      ]
+    },
+    {
+      "id": "us-pss-capital_requirements-001",
+      "jurisdiction": "US",
+      "authority": "OCC, FDIC",
+      "instrument_type": "payment_stablecoin",
+      "instrument_label_local": "payment stablecoin",
+      "dimension": "capital_requirements",
+      "constraint_ref": "C2",
+      "requirement_summary": "De novo PPSIs must hold minimum capital of the greater of $5 million or the chartering-condition amount, for 36 months. An operational backstop of 12 months of operating expenses must be held in cash, FDIC-insured deposits, or short-dated Treasuries (<=93 days). Two consecutive quarter-ends below the capital or backstop requirement trigger mandatory liquidation.",
+      "status": "proposed",
+      "effective_date": null,
+      "source": {
+        "primary": "GENIUS Act capital provisions; OCC/FDIC NPRM (de novo capital; operational backstop; liquidation trigger)",
+        "pinpoint": "min capital = greater of $5m or chartering amount (36 mo); 12-mo opex backstop; 2-quarter breach -> liquidation"
+      },
+      "secondary": [
+        {
+          "citation": "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.8 (US — Capital Requirements)"
+        }
+      ],
+      "interpretation_note": "Provenance: transcribed from author's Compliance Matrix v0.9.3. Capital half of the split reserve_capital dimension.",
+      "confidence": "medium",
+      "last_reviewed": "2026-06-17",
+      "version_added": "0.2.0",
+      "tags": [
+        "us",
+        "anchor",
+        "from_matrix_v0.9.3",
+        "dimension_split"
       ]
     },
     {
       "id": "us-pss-permitted_activity_yield-001",
       "jurisdiction": "US",
-      "authority": "SEC/CFTC/Treasury (joint rulemaking, post-enactment)",
+      "authority": "OCC, FDIC, Fed, Treasury (GENIUS); SEC/CFTC/Treasury joint rulemaking (CLARITY §404, pending)",
       "instrument_type": "payment_stablecoin",
       "instrument_label_local": "payment stablecoin",
       "dimension": "permitted_activity_yield",
-      "requirement_summary": "CLARITY Act Sec. 404(c)(1) prohibits a covered party from paying any form of interest or yield to a restricted recipient (A) solely in connection with the holding of payment stablecoins, or (B) on a payment stablecoin balance in a manner economically or functionally equivalent to interest on an interest-bearing bank deposit. Bona fide activity- or transaction-based rewards are permitted, with scope to be defined by joint SEC/CFTC/Treasury rulemaking. <VERIFY exact carve-out wording against the engrossed bill text>",
+      "constraint_ref": "C3",
+      "requirement_summary": "GENIUS Act §4(a)(11) prohibits permitted/foreign payment stablecoin issuers from paying any form of interest or yield (cash, tokens, or other consideration) to a holder 'solely in connection with the holding, use, or retention' of a payment stablecoin. The word 'solely' is the textual hinge: it reaches payments tied to the act of holding, not payments produced by some other operative event (user-initiated routing, market-making, transfers). OCC NPRM §15.10(c)(4) and FDIC NPRM §350.3(b)(4) add a rebuttable presumption that affiliate / related-third-party arrangements (including white-label) violate the prohibition, rebuttable by written non-evasion showing; the anti-evasion rule (proposed §15.10(c)(6)) treats any sidestep arrangement as a violation. Permitted: merchant-funded discounts; issuer profit-sharing with non-affiliated white-label partners without yield pass-through. The intermediary layer is the pending CLARITY Act §404, extending the prohibition to 'covered parties' (digital-asset service providers and affiliates) under prongs (A) 'solely in connection with holding' and (B) 'economically or functionally equivalent' to bank-deposit interest.",
       "requirement_structured": {
-        "passive_yield_to_holder": "prohibited",
-        "activity_based_rewards": "permitted, scope TBD by joint rulemaking",
-        "rulemaking_window": "within ~12 months / 360 days post-enactment"
+        "passive_yield_to_holder": "prohibited (GENIUS §4(a)(11))",
+        "textual_hinge": "'solely' (issuer layer) / 'economically or functionally equivalent' (CLARITY §404(c)(1)(B))",
+        "activity_based_rewards": "permitted in principle; scope TBD by joint SEC/CFTC/Treasury rulemaking",
+        "rulemaking_window": "within 12 months of CLARITY enactment",
+        "civil_penalty": "up to $5,000,000 per violation (Treasury-assessed)"
       },
       "status": "proposed",
       "effective_date": null,
       "source": {
-        "primary": "Digital Asset Market CLARITY Act of 2025 (H.R. 3633), Sec. 404(c)(1); Senate Banking Committee text (May 12, 2026)",
-        "url": "<VERIFY canonical link: congress.gov H.R.3633 / Senate Banking published text>",
-        "pinpoint": "Sec. 404(c)(1); carve-out at 404(c) <VERIFY subsection>"
+        "primary": "GENIUS Act §4(a)(11); OCC NPRM §15.10(c)(4) / anti-evasion §15.10(c)(6); FDIC NPRM §350.3(b)(4); CLARITY Act (H.R. 3633) §404(c)(1) (Tillis-Alsobrooks text, 1 May 2026; affirmed final 5 May 2026)",
+        "pinpoint": "GENIUS §4(a)(11) 'solely in connection with the holding, use, or retention'; CLARITY §404(c)(1)(A)/(B)"
       },
       "secondary": [
         {
-          "citation": "Not yet law as of June 2026; placed on Senate Legislative Calendar (General Orders) June 1, 2026; awaits reconciliation with Senate Agriculture text and House H.R. 3633, plus 60-vote floor passage"
+          "citation": "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.8 (US — Yield and Interest Treatment)"
+        },
+        {
+          "citation": "Fan, Narrowing the Section 404 Prohibition (Independent Policy Brief, 6 May 2026; SSRN), §VI six-factor test"
         }
       ],
-      "interpretation_note": "ANCHOR / LIVE WINDOW. The bona-fide-activity boundary is unsettled and still being shaped: SEC Crypto Task Force written-input channel is open now; the main comment window is the post-enactment joint NPRM. Routing into 1940-Act registered tokenised MMFs is argued to fall outside the prohibition because the operative step is the user's signed authorisation, not the holding. Track NPRM timing for a substantive comment.",
+      "interpretation_note": "ANCHOR / LIVE WINDOW. CLARITY §404 passed Senate Banking 15-9 on 14 May 2026 and awaits floor passage. The bona-fide-activity boundary is the open question; the author's position is that user-initiated routing into 1940-Act registered tokenised MMFs falls outside the prohibition because the operative step is the user's signed authorisation, not the holding (see securities_classification + bank_nonbank_routing records).",
+      "interpretive_flag": {
+        "tension": "'bona fide activity' is undefined in the statute; the issuer-layer 'solely' and intermediary-layer 'economically or functionally equivalent' comparators leave the routing/market-making carve-out unsettled.",
+        "resolution_channel": "Post-enactment joint SEC/CFTC/Treasury NPRM (12-month window); Senate Banking Committee Report as upstream legislative history; SEC Crypto Task Force written-input channel (open now)."
+      },
       "confidence": "medium",
       "last_reviewed": "2026-06-17",
-      "version_added": "0.1.0",
+      "version_added": "0.2.0",
       "tags": [
         "anchor",
         "us",
+        "spine",
         "live-window",
-        "section-404"
+        "section-404",
+        "from_matrix_v0.9.3"
+      ]
+    },
+    {
+      "id": "us-pss-reserve_backing-001",
+      "jurisdiction": "US",
+      "authority": "OCC, FDIC",
+      "instrument_type": "payment_stablecoin",
+      "instrument_label_local": "payment stablecoin",
+      "dimension": "reserve_backing",
+      "constraint_ref": "C2",
+      "requirement_summary": "1:1 backing of outstanding payment stablecoins at fair value. Permissible reserve assets (proposed 12 CFR §15.11(b)): US currency; demand deposits at IDIs; short-term Treasury bills (<=93 days); certain reverse repos (incl. intraday); registered government MMFs (underlying Treasuries <=93 days); and tokenised forms thereof. Stablecoins and other crypto-assets are excluded. Reserves must be segregated, identifiable, held directly by the issuer or custodied at an eligible institution, and cannot be pledged, rehypothecated, or reused (narrow margin/custodial exceptions). PPSIs with issuance >= $25 billion must hold 0.5% of reserves (capped at $500m) in insured deposits/shares.",
+      "status": "proposed",
+      "effective_date": null,
+      "source": {
+        "primary": "GENIUS Act reserve provisions; proposed 12 CFR §15.11(b) (permissible reserve assets)",
+        "pinpoint": "12 CFR §15.11(b); 1:1 fair-value backing; >=$25bn -> 0.5%/$500m insured"
+      },
+      "secondary": [
+        {
+          "citation": "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.8 (US — Reserve and Backing Requirements)"
+        }
+      ],
+      "interpretation_note": "Provenance: transcribed from author's Compliance Matrix v0.9.3. Reserve half of the split reserve_capital dimension.",
+      "confidence": "medium",
+      "last_reviewed": "2026-06-17",
+      "version_added": "0.2.0",
+      "tags": [
+        "us",
+        "anchor",
+        "from_matrix_v0.9.3",
+        "dimension_split"
+      ]
+    },
+    {
+      "id": "us-pss-securities_classification-001",
+      "jurisdiction": "US",
+      "authority": "SEC (Reves/Howey); SEC/CFTC market-structure boundary under CLARITY",
+      "instrument_type": "payment_stablecoin",
+      "instrument_label_local": "payment stablecoin",
+      "dimension": "securities_classification",
+      "constraint_ref": "C4",
+      "requirement_summary": "A payment stablecoin structured to comply with the GENIUS Act (1:1 backing, no issuer yield, par redemption) is positioned as a non-security: under the Reves family-resemblance test the instrument resembles a payment/exchange medium rather than an investment note, and the absence of yield removes the principal Howey 'expectation of profit' hook. The contested boundary is not the stablecoin itself but the adjacent routing step: whether a wallet/intermediary that routes a user's payment-stablecoin balance into 1940-Act registered tokenised money market fund shares is thereby distributing securities and acting as a broker. The author's analysis (Reves' fourth factor — the presence of an alternative regulatory regime) argues registered-fund shares are already comprehensively regulated, weighing against re-characterising the routing as an unregistered securities activity.",
+      "requirement_structured": {
+        "stablecoin_itself": "non-security (GENIUS-compliant, non-yielding)",
+        "contested_step": "routing payment-stablecoin balance -> registered tokenised MMF shares (a security)",
+        "governing_tests": [
+          "Reves family-resemblance (esp. 4th factor)",
+          "Howey",
+          "broker definition under Exchange Act"
+        ]
+      },
+      "status": "proposed",
+      "effective_date": null,
+      "source": {
+        "primary": "Reves v. Ernst & Young, 494 U.S. 56 (1990); SEC v. W.J. Howey Co., 328 U.S. 293 (1946); Investment Company Act of 1940 (registered MMFs); CLARITY Act market-structure provisions (pending)",
+        "pinpoint": "Reves four-factor family-resemblance test, fourth factor (alternative regulatory regime); Howey investment-contract prongs"
+      },
+      "secondary": [
+        {
+          "citation": "Fan, When Wallets Become Brokers: The Reves Fourth Factor and the Section 404 Boundary (SSRN, May 2026)"
+        },
+        {
+          "citation": "Fan, Reves' Fourth Factor and Stablecoin Routing Across Six Jurisdictions (submitted to Columbia, May 2026)"
+        },
+        {
+          "citation": "Fan, Compliance Matrix v0.9.3 (18 May 2026), Pattern 3 (registered-investment-product parallel track)"
+        }
+      ],
+      "interpretation_note": "SECOND SPINE. This dimension is new in v0.2.0-dev and is the home for the author's largest body of work after yield. It composes directly with permitted_activity_yield (C3 x C4): the §404 yield carve-out and the securities/brokerage line are the same boundary viewed from two doctrines. Without this dimension the two Reves papers and §4 of the Architecture paper had no slot in the register.",
+      "interpretive_flag": {
+        "tension": "Whether user-initiated routing into registered tokenised MMFs is (a) a permitted bona-fide activity outside §404 and (b) outside broker-dealer / securities-distribution characterisation, or instead disguised yield + unregistered securities activity.",
+        "resolution_channel": "SEC Crypto Task Force; joint §404 rulemaking; potential Reves/Howey litigation; Committee Report language (author's §VIII proposal)."
+      },
+      "confidence": "medium",
+      "last_reviewed": "2026-06-17",
+      "version_added": "0.2.0",
+      "tags": [
+        "anchor",
+        "us",
+        "spine",
+        "securities",
+        "reves",
+        "new_dimension",
+        "from_portfolio"
       ]
     }
   ],

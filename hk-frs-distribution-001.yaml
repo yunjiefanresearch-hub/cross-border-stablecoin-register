@@ -1,0 +1,19 @@
+id: hk-frs-distribution-001
+jurisdiction: HK
+authority: "HKMA; SFC"
+instrument_type: fiat_referenced_stablecoin
+instrument_label_local: "specified stablecoin"
+dimension: distribution
+requirement_summary: "Permitted offerors of FRS in Hong Kong are HKMA-licensed FRS issuers, SFC-licensed VATPs, SFC-licensed Type 1 corporations, and Authorised Institutions. Foreign-based issuers of non-HKD-linked FRS may offer to professional investors only. Unlicensed activity carries HK$5 million fine + 7 years' imprisonment + HK$100,000 per day of continuing offence. Pre-existing-issuer transitional treatment required applications by 31 Oct 2025; the closing-down period began 1 Nov 2025 for non-applicants. The April 2026 cohort contrasts distribution models: HSBC plans direct retail integration via PayMe (3.3m users) and its mobile app from H2 2026; Anchorpoint plans a phased Q2 2026 B2B2C rollout of HKDAP via authorised partners."
+status: in_force
+effective_date: "2025-08-01"
+source:
+  primary: "Stablecoins Ordinance (Cap. 656), offering / distribution restrictions and offence provisions"
+  pinpoint: "Permitted-offeror list; non-HKD FRS -> professional investors only; penalty (HK$5m + 7yrs + HK$100k/day)"
+secondary:
+  - citation: "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.22 (Hong Kong — Distribution and Offering Restrictions)"
+interpretation_note: "Provenance: transcribed from author's Compliance Matrix v0.9.3. The 'non-HKD FRS -> professional investors only' rule is also the HK datapoint for the monetary_sovereignty dimension (see hk-frs-monetary_sovereignty-001)."
+confidence: high
+last_reviewed: "2026-06-17"
+version_added: 0.2.0
+tags: [apac, focus, from_matrix_v0.9.3]

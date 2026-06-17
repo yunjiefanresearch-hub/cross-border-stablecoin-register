@@ -1,0 +1,23 @@
+id: hk-frs-issuer_pathway-001
+jurisdiction: HK
+authority: HKMA
+instrument_type: fiat_referenced_stablecoin
+instrument_label_local: "specified stablecoin"
+dimension: issuer_pathway
+constraint_ref: C1
+requirement_summary: "A licence is required for (1) FRS issuers in Hong Kong, (2) issuers outside HK of stablecoins referencing the HK dollar, and (3) entities actively marketing FRS to the HK public. Eligible applicants are companies incorporated in HK under the Companies Ordinance, or authorised institutions (banks / restricted-licence / deposit-taking companies under the Banking Ordinance). Shell entities or mere pre-1-Aug-2025 establishment do not qualify for transitional treatment. The first-licence cohort (10 Apr 2026) was HSBC and Anchorpoint Financial Limited (a Standard Chartered (HK)–HKT–Animoca JV intending HKDAP on a B2B2C model); no PRC-connected entities were licensed."
+requirement_structured:
+  first_cohort: ["HSBC (FRS02)", "Anchorpoint Financial Limited (FRS01)"]
+  prc_connected_in_cohort: false
+status: in_force
+effective_date: "2025-08-01"
+source:
+  primary: "Stablecoins Ordinance (Cap. 656), licensing provisions"
+  pinpoint: "Licensable activities (FRS issuance / HKD-referencing / active marketing); eligibility (HK-incorporated company or authorised institution)"
+secondary:
+  - citation: "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.21 (Hong Kong — Issuer Pathways and Eligibility)"
+interpretation_note: "Provenance: transcribed from author's Compliance Matrix v0.9.3. The first-cohort composition signals HKMA risk appetite (banks / authorised-institution-backed JVs at or above the statutory minimum)."
+confidence: high
+last_reviewed: "2026-06-17"
+version_added: 0.2.0
+tags: [apac, focus, from_matrix_v0.9.3]

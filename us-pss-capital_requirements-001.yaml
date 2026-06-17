@@ -1,0 +1,20 @@
+id: us-pss-capital_requirements-001
+jurisdiction: US
+authority: "OCC, FDIC"
+instrument_type: payment_stablecoin
+instrument_label_local: "payment stablecoin"
+dimension: capital_requirements
+constraint_ref: C2
+requirement_summary: "De novo PPSIs must hold minimum capital of the greater of $5 million or the chartering-condition amount, for 36 months. An operational backstop of 12 months of operating expenses must be held in cash, FDIC-insured deposits, or short-dated Treasuries (<=93 days). Two consecutive quarter-ends below the capital or backstop requirement trigger mandatory liquidation."
+status: proposed
+effective_date: null
+source:
+  primary: "GENIUS Act capital provisions; OCC/FDIC NPRM (de novo capital; operational backstop; liquidation trigger)"
+  pinpoint: "min capital = greater of $5m or chartering amount (36 mo); 12-mo opex backstop; 2-quarter breach -> liquidation"
+secondary:
+  - citation: "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.8 (US — Capital Requirements)"
+interpretation_note: "Provenance: transcribed from author's Compliance Matrix v0.9.3. Capital half of the split reserve_capital dimension."
+confidence: medium
+last_reviewed: "2026-06-17"
+version_added: 0.2.0
+tags: [us, anchor, from_matrix_v0.9.3, dimension_split]

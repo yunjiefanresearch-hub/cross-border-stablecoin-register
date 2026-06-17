@@ -1,0 +1,24 @@
+id: us-pss-bank_nonbank_routing-001
+jurisdiction: US
+authority: "OCC/FDIC (bank issuers); SEC/CFTC (intermediaries under CLARITY §404)"
+instrument_type: payment_stablecoin
+instrument_label_local: "payment stablecoin / covered party"
+dimension: bank_nonbank_routing
+constraint_ref: C5
+requirement_summary: "The regime separates roles along a routing chain. A bank operating as a Layer 1 issuer under the GENIUS Act operates under bank supervision; non-bank permitted issuers operate under the OCC/FDIC payment-stablecoin charter. CLARITY §404 adds an intermediary layer: 'covered parties' (digital-asset service providers and affiliates) may not pay yield on held balances, but may facilitate user-initiated activity. The author synthesises a generalisable three-layer routing architecture: (1) a compliant issuer layer (GENIUS-compliant payment stablecoin), (2) an authorised routing layer (the wallet/intermediary that executes the user's signed instruction), and (3) a yield-bearing tokenised cash-management layer (registered tokenised MMF). The binding question is which entity in the chain holds which authorisation, and whether the routing layer's action is a permitted facilitation or a prohibited yield/brokerage activity."
+requirement_structured:
+  layers: ["L1 compliant issuer (bank or non-bank PPSI)", "L2 authorised routing layer (wallet/intermediary)", "L3 yield-bearing tokenised cash management (registered MMF)"]
+  binding_question: "authorisation held at each layer; facilitation vs. prohibited activity at L2"
+status: proposed
+effective_date: null
+source:
+  primary: "GENIUS Act (issuer charters); CLARITY Act §404 'covered parties' (pending)"
+  pinpoint: "Covered-party definition (digital-asset service providers + affiliates); bank vs. non-bank issuer pathways"
+secondary:
+  - citation: "Fan, Cross-Border Stablecoin Architecture (Working Paper, May 2026), §4 (three-layer routing architecture) and §2.5 (Constraint 5)"
+  - citation: "Fan, Compliance Matrix v0.9.3 (18 May 2026), Pattern 1 (issuer/intermediary split) and Pattern 3"
+interpretation_note: "New dimension in v0.2.0-dev. Home for the §4 three-layer routing architecture and Constraint 5. Composes with securities_classification (the L2->L3 step is where C4 and C5 meet) and permitted_activity_yield (whether L2 facilitation is 'bona fide activity')."
+confidence: medium
+last_reviewed: "2026-06-17"
+version_added: 0.2.0
+tags: [anchor, us, routing, architecture, new_dimension, from_portfolio]

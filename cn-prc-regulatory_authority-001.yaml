@@ -1,0 +1,28 @@
+id: cn-prc-regulatory_authority-001
+jurisdiction: CN
+authority: "PBOC; CAC; CSRC; MIIT; SAFE"
+instrument_type: other
+instrument_label_local: "虚拟货币 / stablecoin (no lawful domestic instrument)"
+dimension: regulatory_authority
+constraint_ref: C1
+requirement_summary: "No single stablecoin regulator exists because there is no lawful domestic issuance pathway; instead, a coordinated multi-agency prohibition perimeter governs. The People's Bank of China (PBOC) is the primary financial regulator and in October 2025 issued verbal guidance to PRC tech groups against private RMB-linked stablecoin issuance. The Cyberspace Administration of China (CAC) governs ICP, deep-synthesis/generative-AI content, and cross-border data flows, and joined the October 2025 guidance. The China Securities Regulatory Commission (CSRC) governs A-share issuer disclosure and has directed brokerages to pause Hong Kong tokenization activity. The Ministry of Industry and Information Technology (MIIT) and the State Administration of Foreign Exchange (SAFE) supply supporting administrative measures (telecoms/ICP and outbound-capital control respectively)."
+requirement_structured:
+  agencies:
+    PBOC: "primary financial regulator; private RMB-linked issuance guidance (Oct 2025)"
+    CAC: "cross-border data, ICP, content; joined Oct 2025 guidance"
+    CSRC: "A-share disclosure; brokerage tokenization pause"
+    MIIT: "telecoms / ICP supporting measures"
+    SAFE: "outbound capital and profit repatriation control"
+  single_stablecoin_regulator: false
+status: in_force
+effective_date: null
+source:
+  primary: "PBOC et al., Notice on Further Preventing and Disposing of Risks from Virtual Currency Trading Speculation (24 Sep 2021); supporting measures from PBOC, CAC, MIIT, SAFE"
+  pinpoint: "Multi-agency coordination; PBOC primary; CAC data/content; CSRC disclosure; MIIT/SAFE supporting"
+secondary:
+  - citation: "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.25 (Mainland China — Regulators)"
+interpretation_note: "Provenance: transcribed from author's Compliance Matrix v0.9.3. The relevant 'authority' question for PRC-connected groups is not who licenses issuance (no one does) but which agencies condition the indirect Hong Kong pathway."
+confidence: high
+last_reviewed: "2026-06-17"
+version_added: 0.2.0
+tags: [apac, focus, from_matrix_v0.9.3]

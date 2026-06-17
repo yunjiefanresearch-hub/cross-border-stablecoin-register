@@ -4,20 +4,20 @@ authority: HKMA
 instrument_type: fiat_referenced_stablecoin
 instrument_label_local: "specified stablecoin"
 dimension: permitted_activity_yield
-requirement_summary: "<VERIFY: HKMA treatment of interest/yield paid to FRS holders under the Stablecoins Ordinance regime; confirm whether/under what conditions issuers or distributors may offer yield or activity-based incentives>"
+constraint_ref: C3
+requirement_summary: "The Stablecoins Ordinance Schedule 2 Section 15 (Non-interest bearing) provides that the licensee must not pay any interest on issued stablecoins. Direct payments from issuer to holder are reached by the prohibition."
 requirement_structured:
-  passive_yield_to_holder: "<VERIFY>"
-  activity_based_rewards: "<VERIFY>"
+  passive_yield_to_holder: "prohibited (issuer-to-holder interest)"
+  activity_based_rewards: "not addressed by the Ordinance text; perimeter open"
 status: in_force
 effective_date: "2025-08-01"
 source:
-  primary: "Stablecoins Ordinance (Cap. 656), s.<VERIFY exact section>"
-  url: ""
-  pinpoint: "<VERIFY>"
+  primary: "Stablecoins Ordinance (Cap. 656), Schedule 2, s.15 (Non-interest bearing)"
+  pinpoint: "Sch. 2 s.15 — licensee must not pay any interest on issued stablecoins"
 secondary:
-  - citation: "HKMA, supervisory guideline / explanatory materials on the FRS regime, para <VERIFY>"
-interpretation_note: "Compare against the 'same activity, same risks, same regulation' principle HKMA applies; note interaction with SFC tokenisation/STO perimeter where settlement touches tokenised funds."
-confidence: low
+  - citation: "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.22 (Hong Kong — Yield and Interest Treatment)"
+interpretation_note: "Provenance: exact pinpoint (Sch. 2 s.15) transcribed from author's verified Compliance Matrix v0.9.3 — this supplies the exact section that the seed record had left as a placeholder. Compare against the US §404 / GENIUS §4(a)(11) 'solely in connection with holding' structure: the HK text is a flat issuer-to-holder prohibition and does not itself draw the bona-fide-activity line."
+confidence: high
 last_reviewed: "2026-06-17"
-version_added: 0.1.0
-tags: [seed, apac, focus]
+version_added: 0.2.0
+tags: [seed, apac, focus, spine, from_matrix_v0.9.3]

@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.org/stablecoin-rail-register/schema/record.schema.json",
   "title": "Stablecoin Rail Register — obligation record",
-  "description": "One verified (jurisdiction x instrument x dimension) regulatory fact, versioned and sourced.",
+  "description": "One verified (jurisdiction x instrument x dimension) regulatory fact, versioned and sourced. v0.2.0-dev: dimension set expanded to align with the author's eight-constraint framework (Cross-Border Stablecoin Architecture, May 2026) and the ten-dimension Compliance Matrix v0.9.3.",
   "type": "object",
   "additionalProperties": false,
   "required": ["id", "jurisdiction", "authority", "instrument_type", "dimension",
@@ -27,9 +27,18 @@
     "instrument_label_local": { "type": "string" },
     "dimension": {
       "type": "string",
-      "enum": ["regulatory_authority", "issuer_pathway", "reserve_capital",
-               "permitted_activity_yield", "redemption", "custody",
-               "aml_kyc", "cross_border_data", "distribution", "implementation_status"]
+      "description": "15-value set. Split of the former reserve_capital into reserve_backing + capital_requirements, and four dimensions added from the eight-constraint framework: securities_classification (C4), bank_nonbank_routing (C5), monetary_sovereignty (C7), disclosure_reporting (C8).",
+      "enum": ["regulatory_authority", "issuer_pathway",
+               "reserve_backing", "capital_requirements",
+               "permitted_activity_yield", "securities_classification",
+               "bank_nonbank_routing", "redemption", "custody",
+               "aml_kyc", "cross_border_data", "monetary_sovereignty",
+               "disclosure_reporting", "distribution", "implementation_status"]
+    },
+    "constraint_ref": {
+      "type": "string",
+      "description": "Optional link to the eight-constraint framework, e.g. 'C3' or 'C4xC7'.",
+      "pattern": "^C[1-8]([x×]C[1-8])*$"
     },
     "requirement_summary": { "type": "string", "minLength": 1 },
     "requirement_structured": { "type": "object", "additionalProperties": true },
@@ -58,6 +67,15 @@
       }
     },
     "interpretation_note": { "type": "string" },
+    "interpretive_flag": {
+      "type": "object",
+      "description": "Carries the Compliance Matrix's [interpretive question] flag: the open tension and its expected resolution channel.",
+      "additionalProperties": false,
+      "properties": {
+        "tension": { "type": "string" },
+        "resolution_channel": { "type": "string" }
+      }
+    },
     "confidence": { "type": "string", "enum": ["high", "medium", "low"] },
     "last_reviewed": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
     "version_added": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },

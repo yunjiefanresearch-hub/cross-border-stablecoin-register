@@ -1,0 +1,23 @@
+id: uk-frs-permitted_activity_yield-001
+jurisdiction: UK
+authority: "FCA, Bank of England"
+instrument_type: fiat_referenced_stablecoin
+instrument_label_local: "qualifying stablecoin"
+dimension: permitted_activity_yield
+constraint_ref: C3
+requirement_summary: "Yield is not expressly addressed in SI 2026/102. The Bank of England's November 2025 materials describe a 60/40 backing split and constrain pass-through of returns to holders. The detailed treatment is expected in the FCA's summer 2026 rules."
+status: consultation
+effective_date: null
+source:
+  primary: "SI 2026/102 (silent on yield); Bank of England Nov 2025 materials (60/40 backing; pass-through constrained)"
+  pinpoint: "BoE Nov 2025 backing-split / pass-through position; FCA rules pending"
+secondary:
+  - citation: "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.5 (Comparison Table — Yield to holders)"
+interpretation_note: "Provenance: transcribed from author's Compliance Matrix v0.9.3. UK is the least-settled of the six on yield; carried as consultation/low confidence pending FCA rules."
+interpretive_flag:
+  tension: "Whether and how returns may be passed through to holders is not fixed in the SI; BoE signals constraint but the FCA rule is pending."
+  resolution_channel: "FCA summer 2026 policy statement."
+confidence: low
+last_reviewed: "2026-06-17"
+version_added: 0.2.0
+tags: [uk, focus, spine, from_matrix_v0.9.3]

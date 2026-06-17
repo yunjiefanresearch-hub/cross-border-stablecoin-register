@@ -1,0 +1,24 @@
+id: hk-frs-reserve_backing-001
+jurisdiction: HK
+authority: HKMA
+instrument_type: fiat_referenced_stablecoin
+instrument_label_local: "specified stablecoin"
+dimension: reserve_backing
+constraint_ref: C2
+requirement_summary: "100% backing at all times; the market value of reserve assets must equal or exceed the par value of circulating stablecoins, with HKMA expecting overcollateralisation. Acceptable assets: cash, bank deposits (term <= 3 months), government and central-bank securities (residual maturity <= 1 year), and tokenised forms of the foregoing. Reserves must be strictly segregated from the issuer's other assets and protected against creditor claims via statutory trust."
+requirement_structured:
+  backing_ratio: "100% (overcollateralisation expected)"
+  eligible_assets: ["cash", "bank deposits <=3mo", "govt/central-bank securities <=1yr", "tokenised forms thereof"]
+  segregation: "statutory trust; creditor-remote"
+status: in_force
+effective_date: "2025-08-01"
+source:
+  primary: "Stablecoins Ordinance (Cap. 656), reserve / backing requirements"
+  pinpoint: "100% backing; eligible-asset list; segregation / statutory trust"
+secondary:
+  - citation: "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.21 (Hong Kong — Reserve and Backing Requirements)"
+interpretation_note: "Provenance: transcribed from author's Compliance Matrix v0.9.3. Note this dimension is the split-out reserve half of the former reserve_capital; the capital half is hk-frs-capital_requirements-001."
+confidence: high
+last_reviewed: "2026-06-17"
+version_added: 0.2.0
+tags: [apac, focus, from_matrix_v0.9.3, dimension_split]

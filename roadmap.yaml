@@ -1,15 +1,37 @@
 # Planned coverage. The build script renders these as planned (white) cells in COVERAGE.md
-# wherever no record yet exists. This is the visible "window" that makes the register read
-# as an actively-built standard rather than an empty repo.
-focus_jurisdictions: [HK, TW, BR, US]
-backfill_jurisdictions: [EU, UK, SG, CN]
+# wherever no record yet exists. Reoriented (v0.2.0-dev) to the jurisdictions for which a
+# verified written substrate exists (Compliance Matrix v0.9.3): US, EU, UK, SG, HK, CN.
+focus_jurisdictions: [US, HK, EU, UK, SG, CN]
+backfill_jurisdictions: [BR, TW]
 planned:
-  # jurisdiction: [dimensions targeted, with the version they are scheduled for]
-  HK:  { permitted_activity_yield: "0.1.0", issuer_pathway: "0.2.0", reserve_capital: "0.2.0", redemption: "0.2.0", custody: "0.2.0", implementation_status: "0.2.0" }
-  US:  { permitted_activity_yield: "0.1.0", issuer_pathway: "0.2.0", reserve_capital: "0.2.0" }
-  TW:  { permitted_activity_yield: "0.2.0", issuer_pathway: "0.2.0", reserve_capital: "0.2.0", implementation_status: "0.2.0" }
-  BR:  { permitted_activity_yield: "0.2.0", cross_border_data: "0.2.0", custody: "0.2.0", aml_kyc: "0.2.0" }
-  EU:  { permitted_activity_yield: "0.3.0" }
-  UK:  { permitted_activity_yield: "0.3.0" }
-  SG:  { permitted_activity_yield: "0.3.0" }
-  CN:  { permitted_activity_yield: "0.3.0" }
+  # jurisdiction: { dimension: version-scheduled }
+  US:
+    securities_classification: "0.2.0"
+    bank_nonbank_routing: "0.2.0"
+    disclosure_reporting: "0.3.0"
+    custody: "0.3.0"
+  HK:
+    monetary_sovereignty: "0.2.0"
+    securities_classification: "0.3.0"
+    disclosure_reporting: "0.3.0"
+    custody: "0.3.0"
+  EU:
+    securities_classification: "0.3.0"
+    disclosure_reporting: "0.3.0"
+    custody: "0.3.0"
+  UK:
+    capital_requirements: "0.2.0"
+    reserve_backing: "0.2.0"
+    redemption: "0.2.0"
+    disclosure_reporting: "0.3.0"
+  SG:
+    reserve_backing: "0.2.0"
+    capital_requirements: "0.2.0"
+    redemption: "0.2.0"
+    monetary_sovereignty: "0.3.0"
+  CN:
+    disclosure_reporting: "0.2.0"
+    bank_nonbank_routing: "0.3.0"
+  BR:
+    custody: "0.2.0"          # corridor substrate (BCB Res 520) — needs per-jurisdiction verify
+    monetary_sovereignty: "0.2.0"

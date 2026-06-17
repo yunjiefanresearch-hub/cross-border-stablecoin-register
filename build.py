@@ -24,9 +24,12 @@ SCHEMA = json.loads(find("record.schema.json").read_text())
 VALIDATOR = Draft202012Validator(SCHEMA)
 DIMENSIONS = SCHEMA["properties"]["dimension"]["enum"]
 DIM_SHORT = {
-    "regulatory_authority": "Auth", "issuer_pathway": "Issu", "reserve_capital": "Resv",
-    "permitted_activity_yield": "Yield*", "redemption": "Redm", "custody": "Cust",
-    "aml_kyc": "AML", "cross_border_data": "XB", "distribution": "Dist",
+    "regulatory_authority": "Auth", "issuer_pathway": "Issu",
+    "reserve_backing": "Resv", "capital_requirements": "Cap",
+    "permitted_activity_yield": "Yield*", "securities_classification": "Sec*",
+    "bank_nonbank_routing": "Rout", "redemption": "Redm", "custody": "Cust",
+    "aml_kyc": "AML", "cross_border_data": "XB", "monetary_sovereignty": "MonSov",
+    "disclosure_reporting": "Disc", "distribution": "Dist",
     "implementation_status": "Impl",
 }
 

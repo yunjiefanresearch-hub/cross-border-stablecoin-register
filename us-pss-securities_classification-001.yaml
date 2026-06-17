@@ -1,0 +1,29 @@
+id: us-pss-securities_classification-001
+jurisdiction: US
+authority: "SEC (Reves/Howey); SEC/CFTC market-structure boundary under CLARITY"
+instrument_type: payment_stablecoin
+instrument_label_local: "payment stablecoin"
+dimension: securities_classification
+constraint_ref: C4
+requirement_summary: "A payment stablecoin structured to comply with the GENIUS Act (1:1 backing, no issuer yield, par redemption) is positioned as a non-security: under the Reves family-resemblance test the instrument resembles a payment/exchange medium rather than an investment note, and the absence of yield removes the principal Howey 'expectation of profit' hook. The contested boundary is not the stablecoin itself but the adjacent routing step: whether a wallet/intermediary that routes a user's payment-stablecoin balance into 1940-Act registered tokenised money market fund shares is thereby distributing securities and acting as a broker. The author's analysis (Reves' fourth factor — the presence of an alternative regulatory regime) argues registered-fund shares are already comprehensively regulated, weighing against re-characterising the routing as an unregistered securities activity."
+requirement_structured:
+  stablecoin_itself: "non-security (GENIUS-compliant, non-yielding)"
+  contested_step: "routing payment-stablecoin balance -> registered tokenised MMF shares (a security)"
+  governing_tests: ["Reves family-resemblance (esp. 4th factor)", "Howey", "broker definition under Exchange Act"]
+status: proposed
+effective_date: null
+source:
+  primary: "Reves v. Ernst & Young, 494 U.S. 56 (1990); SEC v. W.J. Howey Co., 328 U.S. 293 (1946); Investment Company Act of 1940 (registered MMFs); CLARITY Act market-structure provisions (pending)"
+  pinpoint: "Reves four-factor family-resemblance test, fourth factor (alternative regulatory regime); Howey investment-contract prongs"
+secondary:
+  - citation: "Fan, When Wallets Become Brokers: The Reves Fourth Factor and the Section 404 Boundary (SSRN, May 2026)"
+  - citation: "Fan, Reves' Fourth Factor and Stablecoin Routing Across Six Jurisdictions (submitted to Columbia, May 2026)"
+  - citation: "Fan, Compliance Matrix v0.9.3 (18 May 2026), Pattern 3 (registered-investment-product parallel track)"
+interpretation_note: "SECOND SPINE. This dimension is new in v0.2.0-dev and is the home for the author's largest body of work after yield. It composes directly with permitted_activity_yield (C3 x C4): the §404 yield carve-out and the securities/brokerage line are the same boundary viewed from two doctrines. Without this dimension the two Reves papers and §4 of the Architecture paper had no slot in the register."
+interpretive_flag:
+  tension: "Whether user-initiated routing into registered tokenised MMFs is (a) a permitted bona-fide activity outside §404 and (b) outside broker-dealer / securities-distribution characterisation, or instead disguised yield + unregistered securities activity."
+  resolution_channel: "SEC Crypto Task Force; joint §404 rulemaking; potential Reves/Howey litigation; Committee Report language (author's §VIII proposal)."
+confidence: medium
+last_reviewed: "2026-06-17"
+version_added: 0.2.0
+tags: [anchor, us, spine, securities, reves, new_dimension, from_portfolio]

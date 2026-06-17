@@ -1,0 +1,24 @@
+id: sg-scs-permitted_activity_yield-001
+jurisdiction: SG
+authority: "MAS"
+instrument_type: fiat_referenced_stablecoin
+instrument_label_local: "single-currency stablecoin (SCS)"
+dimension: permitted_activity_yield
+constraint_ref: C3
+requirement_summary: "Yield is not directly prohibited, but the MAS-regulated SCS label is restricted to SGD or G10-pegged tokens issued from Singapore-incorporated entities, and SCS issuers are forbidden from engaging in lending or staking. The activity prohibition (no lend/stake) is the operative yield-adjacent constraint rather than a flat interest ban."
+requirement_structured:
+  direct_yield_ban: "not explicit"
+  issuer_lending_or_staking: "prohibited"
+  label_scope: "SGD or G10-pegged, Singapore-incorporated issuer"
+status: in_force
+effective_date: null
+source:
+  primary: "MAS Single-Currency Stablecoin framework (Aug 2023) — issuer activity restrictions"
+  pinpoint: "No lending/staking by SCS issuers; SGD/G10 label scope"
+secondary:
+  - citation: "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.2 / p.5 (SG — Yield)"
+interpretation_note: "Provenance: transcribed from author's Compliance Matrix v0.9.3. Singapore shows that the yield dimension and the activity-restriction dimension can collapse into one another — useful contrast for the C3 spine."
+confidence: high
+last_reviewed: "2026-06-17"
+version_added: 0.2.0
+tags: [sg, focus, apac, spine, from_matrix_v0.9.3]

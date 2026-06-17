@@ -11,4 +11,4 @@ regulatory events. Each release is tagged (semver) and archived to Zenodo with a
 | v0.x | Full 8-jurisdiction × 10-dimension matrix; richer `requirement_structured` facets per dimension. | planned |
 
 Scope discipline: depth before breadth. The differentiator is rigorous, sourced, corridor-aware
-coverage of a focused set, not 200 shallow jurisdictions.
+coverage of a focused set — not 200 shallow jurisdictions.

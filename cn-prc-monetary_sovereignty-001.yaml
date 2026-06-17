@@ -1,0 +1,25 @@
+id: cn-prc-monetary_sovereignty-001
+jurisdiction: CN
+authority: "PBOC; CAC"
+instrument_type: other
+instrument_label_local: "非人民币代币 (non-RMB currency tokens)"
+dimension: monetary_sovereignty
+constraint_ref: C7
+requirement_summary: "Mainland China occupies the prohibitive pole of the monetary-sovereignty constraint: it prohibits all non-RMB currency tokens within PRC territory outright, rather than imposing a quantitative usage cap (contrast EU Article 23) or a qualitative distribution restriction (contrast Hong Kong's professional-investor limit on non-HKD FRS). The boundary the PBOC is actively policing runs between private and state authority to issue currency-like instruments: the October 2025 verbal guidance targeted private RMB-linked or RMB-substitute issuance because PBOC concerns center on private currency challenging the e-CNY, and the April 2026 HK first-license cohort excluded both private (Ant, JD) and state-owned (BOCHK, ICBC Asia, BOCom HK, CCB Asia, PetroChina) PRC-connected applicants alike. The structural rationale is reserve-currency and monetary-sovereignty protection, with the sovereign digital currency (e-CNY) reserved as the state instrument."
+requirement_structured:
+  cap_type: "total prohibition (non-RMB tokens), not quantitative"
+  policed_boundary: "private vs state authority to issue currency-like instruments"
+  sovereign_instrument: "e-CNY"
+  spectrum_position: "prohibitive pole (vs EU quantitative cap, HK qualitative restriction)"
+status: in_force
+effective_date: null
+source:
+  primary: "PRC prohibition on non-RMB currency tokens within PRC territory; PBOC October 2025 verbal guidance (private RMB-linked / RMB-substitute issuance)"
+  pinpoint: "All non-RMB currency tokens prohibited in PRC territory; PBOC policing private vs state currency issuance, protecting e-CNY"
+secondary:
+  - citation: "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.5 (Comparison Table — Non-domestic currency caps) and pp.25-27"
+interpretation_note: "Provenance: transcribed from author's Compliance Matrix v0.9.3. This is the PRC instance of Constraint 7. The three-jurisdiction sovereignty spectrum (EU quantitative cap / HK qualitative restriction / PRC total prohibition) is the comparative payload of the author's monetary-sovereignty paper."
+confidence: high
+last_reviewed: "2026-06-17"
+version_added: 0.2.0
+tags: [apac, focus, from_matrix_v0.9.3, new_dimension]

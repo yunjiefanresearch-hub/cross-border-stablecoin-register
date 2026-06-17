@@ -1,0 +1,24 @@
+id: cn-prc-issuer_pathway-001
+jurisdiction: CN
+authority: "PBOC; CAC; MIIT; SAFE"
+instrument_type: other
+instrument_label_local: "无合法境内发行路径 (no lawful domestic issuance pathway)"
+dimension: issuer_pathway
+constraint_ref: C1
+requirement_summary: "There is no domestic stablecoin issuance pathway. The 2017 ICO Notice (94 公告) and the 2021 PBOC framework remain in force and treat token issuance and virtual-currency business activity as prohibited. The live regulatory questions for PRC-connected groups therefore concern the indirect pathway through Hong Kong and the cross-border data, capital, and disclosure constraints that condition it, not a domestic licence. The behavioral boundary observed in 2025 tracks a private/state distinction rather than a PRC-connected/non-PRC-connected one: private internet groups (Ant, JD) applied for HK licences and then withdrew in October 2025; state-linked banks expressed interest and paused; and no PRC-affiliated applicant received a licence in the April 2026 first round."
+requirement_structured:
+  domestic_pathway: "none"
+  prohibition_instruments: ["2017 ICO Notice (94 公告)", "2021 PBOC virtual-currency framework"]
+  observed_boundary: "private vs state issuance, not PRC-connected vs non-PRC-connected"
+status: in_force
+effective_date: "2021-09-24"
+source:
+  primary: "PBOC et al., Notice on Risks Associated with Token Offering and Financing (4 Sep 2017, 94 公告); PBOC Notice on Further Preventing and Disposing of Risks from Virtual Currency Trading Speculation (24 Sep 2021)"
+  pinpoint: "No domestic issuance pathway; token issuance / virtual-currency business prohibited"
+secondary:
+  - citation: "Fan, Compliance Matrix v0.9.3 (18 May 2026), pp.25-27 (Mainland China — Statutory Framework; Indirect pathway)"
+interpretation_note: "Provenance: transcribed from author's Compliance Matrix v0.9.3. The Ant/JD October 2025 suspension and the absence of any PRC-affiliated licensee in the April 2026 HK cohort are the empirical anchors for the 'stable prohibition' characterization."
+confidence: high
+last_reviewed: "2026-06-17"
+version_added: 0.2.0
+tags: [apac, focus, from_matrix_v0.9.3, prohibition]

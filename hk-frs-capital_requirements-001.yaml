@@ -1,0 +1,24 @@
+id: hk-frs-capital_requirements-001
+jurisdiction: HK
+authority: HKMA
+instrument_type: fiat_referenced_stablecoin
+instrument_label_local: "specified stablecoin"
+dimension: capital_requirements
+constraint_ref: C2
+requirement_summary: "HK$25 million minimum paid-up share capital (or currency equivalent), with HKMA empowered to require more based on business plan; HK$3 million minimum liquid capital; and excess liquid capital equivalent to at least 12 months of operating expenses. The HK$25m threshold, combined with the HK-incorporation-or-authorised-institution requirement, effectively limits applicants to banks and JV-backed large corporates."
+requirement_structured:
+  min_paid_up_capital: "HK$25,000,000"
+  min_liquid_capital: "HK$3,000,000"
+  liquidity_buffer: ">=12 months operating expenses"
+status: in_force
+effective_date: "2025-08-01"
+source:
+  primary: "Stablecoins Ordinance (Cap. 656), capital requirements"
+  pinpoint: "HK$25m paid-up; HK$3m liquid capital; 12-month opex buffer"
+secondary:
+  - citation: "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.21-22 (Hong Kong — Capital Requirements)"
+interpretation_note: "Provenance: transcribed from author's Compliance Matrix v0.9.3. Split-out capital half of the former reserve_capital dimension."
+confidence: high
+last_reviewed: "2026-06-17"
+version_added: 0.2.0
+tags: [apac, focus, from_matrix_v0.9.3, dimension_split]

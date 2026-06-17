@@ -1,0 +1,19 @@
+id: sg-scs-regulatory_authority-001
+jurisdiction: SG
+authority: "MAS"
+instrument_type: fiat_referenced_stablecoin
+instrument_label_local: "single-currency stablecoin (SCS)"
+dimension: regulatory_authority
+requirement_summary: "The MAS Single-Currency Stablecoin (SCS) framework, finalised August 2023, sits alongside the Payment Services Act 2019; a separate Digital Token Service Provider (DTSP) licensing regime operates under FSMA Part 9. MAS is the sole regulator."
+status: in_force
+effective_date: null
+source:
+  primary: "MAS Single-Currency Stablecoin framework (Aug 2023); Payment Services Act 2019; FSMA Part 9 (DTSP)"
+  pinpoint: "MAS SCS framework; PSA 2019; FSMA Part 9"
+secondary:
+  - citation: "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.2 (Executive Summary) / p.5 / SG detailed entry"
+interpretation_note: "Provenance: transcribed from author's Compliance Matrix v0.9.3."
+confidence: high
+last_reviewed: "2026-06-17"
+version_added: 0.2.0
+tags: [sg, focus, apac, from_matrix_v0.9.3]

@@ -1,0 +1,19 @@
+id: eu-emt-regulatory_authority-001
+jurisdiction: EU
+authority: "EBA, ESMA, national competent authorities (NCAs)"
+instrument_type: e_money_token
+instrument_label_local: "e-money token (EMT) / asset-referenced token (ART)"
+dimension: regulatory_authority
+requirement_summary: "The Markets in Crypto-Assets Regulation (MiCA, Reg. (EU) 2023/1114) governs EMTs and ARTs, supervised by the EBA (significant tokens), ESMA, and national competent authorities. The transitional regime ends 1 July 2026; a PSD2/MiCAR interplay question is addressed by the EBA No-Action Letter (10 June 2025)."
+status: in_force
+effective_date: null
+source:
+  primary: "Regulation (EU) 2023/1114 (MiCA)"
+  pinpoint: "MiCA Titles III (ARTs) / IV (EMTs); EBA/ESMA/NCA supervisory architecture"
+secondary:
+  - citation: "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.5 (Comparison Table) and EU detailed entry"
+interpretation_note: "Provenance: transcribed from author's Compliance Matrix v0.9.3."
+confidence: high
+last_reviewed: "2026-06-17"
+version_added: 0.2.0
+tags: [eu, focus, from_matrix_v0.9.3]

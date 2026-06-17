@@ -1,0 +1,19 @@
+id: uk-frs-regulatory_authority-001
+jurisdiction: UK
+authority: "FCA, Bank of England, HM Treasury"
+instrument_type: fiat_referenced_stablecoin
+instrument_label_local: "qualifying stablecoin"
+dimension: regulatory_authority
+requirement_summary: "The Financial Services and Markets Act 2000 (Cryptoassets) Regulations 2026, SI 2026/102, in force from February 2026, make issuing a qualifying stablecoin in the UK a regulated activity under FSMA. The FCA (conduct), Bank of England (systemic), and HM Treasury (perimeter) share authority; FCA rules are pending, with a policy statement expected summer 2026."
+status: in_force
+effective_date: "2026-02-01"
+source:
+  primary: "Financial Services and Markets Act 2000 (Cryptoassets) Regulations 2026, SI 2026/102"
+  pinpoint: "SI 2026/102; amendment to FSMA s.418 (regulated-activity perimeter)"
+secondary:
+  - citation: "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.2 (Executive Summary) / p.5 / UK detailed entry"
+interpretation_note: "Provenance: transcribed from author's Compliance Matrix v0.9.3."
+confidence: high
+last_reviewed: "2026-06-17"
+version_added: 0.2.0
+tags: [uk, focus, from_matrix_v0.9.3]

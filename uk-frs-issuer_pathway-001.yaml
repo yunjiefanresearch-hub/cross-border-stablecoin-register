@@ -1,0 +1,23 @@
+id: uk-frs-issuer_pathway-001
+jurisdiction: UK
+authority: "FCA, HM Treasury"
+instrument_type: fiat_referenced_stablecoin
+instrument_label_local: "qualifying stablecoin"
+dimension: issuer_pathway
+constraint_ref: C1
+requirement_summary: "Issuers must be UK-incorporated. HM Treasury's policy note describes the regulated perimeter as triggered by any one of three lifecycle limbs (offering, redemption, backing-asset management) in the UK. However, Article 9M(2) of SI 2026/102, together with the corresponding amendment to FSMA s.418, requires all three limbs to be in the UK. This single-limb vs. all-three-limbs divergence is an open interpretive question."
+status: in_force
+effective_date: "2026-02-01"
+source:
+  primary: "SI 2026/102, Art. 9M(2); FSMA s.418 (as amended); HM Treasury policy note"
+  pinpoint: "Art. 9M(2) (all three limbs in UK) vs. HMT policy note (any one limb)"
+secondary:
+  - citation: "Fan, Compliance Matrix v0.9.3 (18 May 2026), UK detailed entry / Comparison Table flag"
+interpretation_note: "Provenance: transcribed from author's Compliance Matrix v0.9.3."
+interpretive_flag:
+  tension: "Whether the UK regulated perimeter is triggered by any one lifecycle limb (HMT policy note) or requires all three limbs in the UK (SI 2026/102 Art. 9M(2) / FSMA s.418)."
+  resolution_channel: "FCA summer 2026 policy statement."
+confidence: medium
+last_reviewed: "2026-06-17"
+version_added: 0.2.0
+tags: [uk, focus, from_matrix_v0.9.3]

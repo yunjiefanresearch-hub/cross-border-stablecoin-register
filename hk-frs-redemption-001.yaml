@@ -1,0 +1,19 @@
+id: hk-frs-redemption-001
+jurisdiction: HK
+authority: HKMA
+instrument_type: fiat_referenced_stablecoin
+instrument_label_local: "specified stablecoin"
+dimension: redemption
+requirement_summary: "Redemption at par value within 1 business day of a valid request. Redemption obligations are a continuing licence condition."
+status: in_force
+effective_date: "2025-08-01"
+source:
+  primary: "Stablecoins Ordinance (Cap. 656), redemption requirements"
+  pinpoint: "Par redemption within 1 business day; continuing licence condition"
+secondary:
+  - citation: "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.22 (Hong Kong — Redemption Mechanics)"
+interpretation_note: "Provenance: transcribed from author's Compliance Matrix v0.9.3."
+confidence: high
+last_reviewed: "2026-06-17"
+version_added: 0.2.0
+tags: [apac, focus, from_matrix_v0.9.3]

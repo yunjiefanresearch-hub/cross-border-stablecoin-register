@@ -1,0 +1,26 @@
+id: eu-emt-monetary_sovereignty-001
+jurisdiction: EU
+authority: "EBA, ESMA, NCAs"
+instrument_type: e_money_token
+instrument_label_local: "non-EU-currency EMT"
+dimension: monetary_sovereignty
+constraint_ref: C7
+requirement_summary: "MiCA Article 23 caps the usage of non-EU-currency EMTs at EUR 200 million per day or 1 million transactions per day, measured on a quarterly-average basis. The cap applies only to use as a means of exchange within a single currency area, not to store-of-value use or to trading on crypto-asset venues. A separate reporting obligation triggers at EUR 100 million in issuance value globally. This is the canonical quantitative monetary-sovereignty cap and the clearest instance of Constraint 7."
+requirement_structured:
+  cap_type: "quantitative"
+  thresholds: ["EUR 200,000,000 / day", "1,000,000 transactions / day"]
+  measurement: "quarterly average"
+  scope: "means of exchange within a single currency area only"
+  reporting_trigger: "EUR 100,000,000 global issuance value"
+status: in_force
+effective_date: null
+source:
+  primary: "Regulation (EU) 2023/1114 (MiCA), Article 23"
+  pinpoint: "Art. 23 — non-EU-currency EMT usage caps; means-of-exchange scope"
+secondary:
+  - citation: "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.5 (Comparison Table — Non-domestic currency caps)"
+interpretation_note: "Provenance: transcribed from author's Compliance Matrix v0.9.3. The exemplar quantitative cap for the monetary_sovereignty dimension; contrast HK (qualitative, professional-investor restriction) and PRC (total prohibition)."
+confidence: high
+last_reviewed: "2026-06-17"
+version_added: 0.2.0
+tags: [eu, focus, new_dimension, from_matrix_v0.9.3]

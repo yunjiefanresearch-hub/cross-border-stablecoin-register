@@ -1,0 +1,23 @@
+id: hk-frs-cross_border_data-001
+jurisdiction: HK
+authority: "HKMA; PCPD"
+instrument_type: fiat_referenced_stablecoin
+instrument_label_local: "specified stablecoin"
+dimension: cross_border_data
+constraint_ref: C6
+requirement_summary: "Personal data is governed by the Personal Data (Privacy) Ordinance (PDPO). Cross-border data transfer governance under PDPO Section 33 remains pending final commencement. HKMA Supervisory Policy Manual provisions on outsourcing and data hosting apply."
+status: in_force
+effective_date: null
+source:
+  primary: "Personal Data (Privacy) Ordinance (PDPO); s.33 (cross-border transfer, not yet commenced)"
+  pinpoint: "PDPO s.33 pending commencement; HKMA SPM outsourcing/data-hosting modules"
+secondary:
+  - citation: "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.22 (Hong Kong — Cross-Border Data Treatment)"
+interpretation_note: "Provenance: transcribed from author's Compliance Matrix v0.9.3."
+interpretive_flag:
+  tension: "PDPO s.33 (cross-border transfer restriction) has long been enacted but not commenced; its eventual commencement would change the cross-border data posture."
+  resolution_channel: "PCPD / government commencement notice."
+confidence: medium
+last_reviewed: "2026-06-17"
+version_added: 0.2.0
+tags: [apac, focus, from_matrix_v0.9.3]

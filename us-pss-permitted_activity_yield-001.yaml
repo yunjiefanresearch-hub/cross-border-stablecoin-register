@@ -1,24 +1,30 @@
 id: us-pss-permitted_activity_yield-001
 jurisdiction: US
-authority: "SEC/CFTC/Treasury (joint rulemaking, post-enactment)"
+authority: "OCC, FDIC, Fed, Treasury (GENIUS); SEC/CFTC/Treasury joint rulemaking (CLARITY §404, pending)"
 instrument_type: payment_stablecoin
 instrument_label_local: "payment stablecoin"
 dimension: permitted_activity_yield
-requirement_summary: "CLARITY Act Sec. 404(c)(1) prohibits a covered party from paying any form of interest or yield to a restricted recipient (A) solely in connection with the holding of payment stablecoins, or (B) on a payment stablecoin balance in a manner economically or functionally equivalent to interest on an interest-bearing bank deposit. Bona fide activity- or transaction-based rewards are permitted, with scope to be defined by joint SEC/CFTC/Treasury rulemaking. <VERIFY exact carve-out wording against the engrossed bill text>"
+constraint_ref: C3
+requirement_summary: "GENIUS Act §4(a)(11) prohibits permitted/foreign payment stablecoin issuers from paying any form of interest or yield (cash, tokens, or other consideration) to a holder 'solely in connection with the holding, use, or retention' of a payment stablecoin. The word 'solely' is the textual hinge: it reaches payments tied to the act of holding, not payments produced by some other operative event (user-initiated routing, market-making, transfers). OCC NPRM §15.10(c)(4) and FDIC NPRM §350.3(b)(4) add a rebuttable presumption that affiliate / related-third-party arrangements (including white-label) violate the prohibition, rebuttable by written non-evasion showing; the anti-evasion rule (proposed §15.10(c)(6)) treats any sidestep arrangement as a violation. Permitted: merchant-funded discounts; issuer profit-sharing with non-affiliated white-label partners without yield pass-through. The intermediary layer is the pending CLARITY Act §404, extending the prohibition to 'covered parties' (digital-asset service providers and affiliates) under prongs (A) 'solely in connection with holding' and (B) 'economically or functionally equivalent' to bank-deposit interest."
 requirement_structured:
-  passive_yield_to_holder: "prohibited"
-  activity_based_rewards: "permitted, scope TBD by joint rulemaking"
-  rulemaking_window: "within ~12 months / 360 days post-enactment"
+  passive_yield_to_holder: "prohibited (GENIUS §4(a)(11))"
+  textual_hinge: "'solely' (issuer layer) / 'economically or functionally equivalent' (CLARITY §404(c)(1)(B))"
+  activity_based_rewards: "permitted in principle; scope TBD by joint SEC/CFTC/Treasury rulemaking"
+  rulemaking_window: "within 12 months of CLARITY enactment"
+  civil_penalty: "up to $5,000,000 per violation (Treasury-assessed)"
 status: proposed
 effective_date: null
 source:
-  primary: "Digital Asset Market CLARITY Act of 2025 (H.R. 3633), Sec. 404(c)(1); Senate Banking Committee text (May 12, 2026)"
-  url: "<VERIFY canonical link: congress.gov H.R.3633 / Senate Banking published text>"
-  pinpoint: "Sec. 404(c)(1); carve-out at 404(c) <VERIFY subsection>"
+  primary: "GENIUS Act §4(a)(11); OCC NPRM §15.10(c)(4) / anti-evasion §15.10(c)(6); FDIC NPRM §350.3(b)(4); CLARITY Act (H.R. 3633) §404(c)(1) (Tillis-Alsobrooks text, 1 May 2026; affirmed final 5 May 2026)"
+  pinpoint: "GENIUS §4(a)(11) 'solely in connection with the holding, use, or retention'; CLARITY §404(c)(1)(A)/(B)"
 secondary:
-  - citation: "Not yet law as of June 2026; placed on Senate Legislative Calendar (General Orders) June 1, 2026; awaits reconciliation with Senate Agriculture text and House H.R. 3633, plus 60-vote floor passage"
-interpretation_note: "ANCHOR / LIVE WINDOW. The bona-fide-activity boundary is unsettled and still being shaped: SEC Crypto Task Force written-input channel is open now; the main comment window is the post-enactment joint NPRM. Routing into 1940-Act registered tokenised MMFs is argued to fall outside the prohibition because the operative step is the user's signed authorisation, not the holding. Track NPRM timing for a substantive comment."
+  - citation: "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.8 (US — Yield and Interest Treatment)"
+  - citation: "Fan, Narrowing the Section 404 Prohibition (Independent Policy Brief, 6 May 2026; SSRN), §VI six-factor test"
+interpretation_note: "ANCHOR / LIVE WINDOW. CLARITY §404 passed Senate Banking 15-9 on 14 May 2026 and awaits floor passage. The bona-fide-activity boundary is the open question; the author's position is that user-initiated routing into 1940-Act registered tokenised MMFs falls outside the prohibition because the operative step is the user's signed authorisation, not the holding (see securities_classification + bank_nonbank_routing records)."
+interpretive_flag:
+  tension: "'bona fide activity' is undefined in the statute; the issuer-layer 'solely' and intermediary-layer 'economically or functionally equivalent' comparators leave the routing/market-making carve-out unsettled."
+  resolution_channel: "Post-enactment joint SEC/CFTC/Treasury NPRM (12-month window); Senate Banking Committee Report as upstream legislative history; SEC Crypto Task Force written-input channel (open now)."
 confidence: medium
 last_reviewed: "2026-06-17"
-version_added: 0.1.0
-tags: [anchor, us, live-window, section-404]
+version_added: 0.2.0
+tags: [anchor, us, spine, live-window, section-404, from_matrix_v0.9.3]

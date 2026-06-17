@@ -1,0 +1,19 @@
+id: hk-frs-aml_kyc-001
+jurisdiction: HK
+authority: HKMA
+instrument_type: fiat_referenced_stablecoin
+instrument_label_local: "specified stablecoin"
+dimension: aml_kyc
+requirement_summary: "The HKMA AML/CFT Guideline for licensed stablecoin issuers applies: standard FATF KYC, transaction monitoring, and suspicious-transaction reporting, plus distribution-channel KYC obligations executed via licensed VATPs and SFC Type 1 corporations."
+status: in_force
+effective_date: "2025-08-01"
+source:
+  primary: "HKMA AML/CFT Guideline for licensed stablecoin issuers (under Cap. 656)"
+  pinpoint: "FATF KYC; transaction monitoring; STR; distribution-channel KYC"
+secondary:
+  - citation: "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.22 (Hong Kong — AML/KYC Framework)"
+interpretation_note: "Provenance: transcribed from author's Compliance Matrix v0.9.3."
+confidence: high
+last_reviewed: "2026-06-17"
+version_added: 0.2.0
+tags: [apac, focus, from_matrix_v0.9.3]

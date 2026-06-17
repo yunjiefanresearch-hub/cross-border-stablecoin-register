@@ -1,0 +1,23 @@
+id: hk-frs-monetary_sovereignty-001
+jurisdiction: HK
+authority: HKMA
+instrument_type: fiat_referenced_stablecoin
+instrument_label_local: "non-HKD-linked FRS"
+dimension: monetary_sovereignty
+constraint_ref: C7
+requirement_summary: "Hong Kong does not impose a quantitative non-domestic-currency usage cap of the MiCA Article 23 type, but it draws a sovereignty-adjacent line through distribution: foreign-based issuers of non-HKD-linked FRS may offer to professional investors only, while HKD-referencing stablecoins (including those issued offshore) are pulled fully inside the licensing perimeter. The effect is to privilege the domestic-currency instrument for retail use without a numeric ceiling."
+requirement_structured:
+  cap_type: "qualitative (distribution restriction), not quantitative"
+  non_domestic_currency_retail: "restricted (professional investors only for non-HKD FRS)"
+status: in_force
+effective_date: "2025-08-01"
+source:
+  primary: "Stablecoins Ordinance (Cap. 656) — HKD-referencing perimeter + non-HKD FRS professional-investor restriction"
+  pinpoint: "Offshore HKD-referencing issuance licensable; non-HKD FRS offering limited to professional investors"
+secondary:
+  - citation: "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.5 (Comparison Table — Non-domestic currency caps) and p.22"
+interpretation_note: "Provenance: transcribed from author's Compliance Matrix v0.9.3. This is the HK instance of Constraint 7 (monetary sovereignty / reserve-currency asymmetry); contrast EU Art. 23 (quantitative cap) and PRC (total non-RMB prohibition)."
+confidence: high
+last_reviewed: "2026-06-17"
+version_added: 0.2.0
+tags: [apac, focus, from_matrix_v0.9.3, new_dimension]
