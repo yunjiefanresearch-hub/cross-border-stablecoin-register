@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+title: "Stablecoin Rail Register"
+message: "If you use this register, please cite it using the DOI of the version you used."
+type: dataset
+authors:
+  - family-names: "<YOUR SURNAME>"
+    given-names: "<YOUR GIVEN NAME>"
+    orcid: "<optional>"
+repository-code: "https://github.com/<you>/stablecoin-rail-register"
+url: "https://<you>.github.io/stablecoin-rail-register"
+abstract: >
+  An open, versioned, machine-readable register of how jurisdictions regulate the
+  permitted-activity / yield boundary on stablecoin payment rails, with a corridor-level
+  interoperability layer. Focus: APAC (Hong Kong, Taiwan) + Latin America (Brazil);
+  anchor: United States (CLARITY Act Section 404).
+keywords:
+  - stablecoin
+  - tokenized real-world assets
+  - cross-jurisdictional regulation
+  - payment rails
+  - regulatory data
+license: "CC-BY-4.0 (data) / Apache-2.0 (code)"
+version: "0.1.0"
+date-released: "2026-06-17"
+# doi: "10.5281/zenodo.XXXXXXX"   # add after the first Zenodo release

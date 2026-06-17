@@ -1,0 +1,14 @@
+# data/
+
+One YAML file per record. Filename = `id` (e.g. `hk-frs-permitted_activity_yield-001.yaml`).
+
+**Verification rule (non-negotiable).** A record counts as *verified* only when it
+contains **no `<VERIFY …>` markers** and every `source.primary` / `pinpoint` has been
+checked by a human against the primary instrument. The build script (`scripts/build.py`)
+auto-detects `<VERIFY` and marks such cells as **drafts (✍️)** in `dist/COVERAGE.md`,
+never as verified (✅). Do **not** use an AI tool to generate or "fill in" citations —
+a single fabricated source destroys the whole register's value.
+
+v0.1.0 ships with two seed records (`HK`, `US`) that are intentionally still drafts.
+The Week-1 task is to turn the **HK** and **US** `permitted_activity_yield` cells from
+✍️ → ✅ by verifying them against primary sources.

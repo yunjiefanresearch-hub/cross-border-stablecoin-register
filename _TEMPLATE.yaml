@@ -1,0 +1,23 @@
+id: hk-frs-permitted_activity_yield-001
+jurisdiction: HK
+authority: HKMA
+instrument_type: fiat_referenced_stablecoin
+instrument_label_local: "specified stablecoin"
+dimension: permitted_activity_yield
+requirement_summary: "<VERIFY: HKMA treatment of interest/yield paid to FRS holders under the Stablecoins Ordinance regime; confirm whether/under what conditions issuers or distributors may offer yield or activity-based incentives>"
+requirement_structured:
+  passive_yield_to_holder: "<VERIFY>"
+  activity_based_rewards: "<VERIFY>"
+status: in_force
+effective_date: "2025-08-01"
+source:
+  primary: "Stablecoins Ordinance (Cap. 656), s.<VERIFY exact section>"
+  url: ""
+  pinpoint: "<VERIFY>"
+secondary:
+  - citation: "HKMA, supervisory guideline / explanatory materials on the FRS regime, para <VERIFY>"
+interpretation_note: "Compare against the 'same activity, same risks, same regulation' principle HKMA applies; note interaction with SFC tokenisation/STO perimeter where settlement touches tokenised funds."
+confidence: low
+last_reviewed: "2026-06-17"
+version_added: 0.1.0
+tags: [seed, apac, focus]
