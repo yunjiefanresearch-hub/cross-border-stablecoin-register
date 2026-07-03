@@ -4,24 +4,34 @@ authority: Financial Supervisory Commission (FSC)
 instrument_type: fiat_referenced_stablecoin
 dimension: disclosure_reporting
 constraint_ref: C8
-requirement_summary: Disclosure and supervisory-coordination obligations for stablecoin issuers await the enacted
-  VAS Act; current obligations are AML-registration-based.
+requirement_summary: the Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced) sets the
+  framework; disclosure and supervisory-coordination obligations for stablecoin issuers take effect on commencement
+  and their detail awaits FSC subsidiary legislation. Current operative obligations are AML-registration-based.
 requirement_structured:
-  status: pre-regime
+  enacted_not_commenced: disclosure and supervisory-coordination obligations
   current: AML registration
-status: proposed
+  status_note: awaiting FSC subsidiary legislation and commencement
+status: transitional
 effective_date: null
 source:
-  primary: Draft Virtual Asset Service Act; AML registration regime
-  pinpoint: Disclosure/supervision — pending enactment
-interpretation_note: Authored in v0.9.2 to fill the TW.C8 constraint cell for the substrate sweep.
+  primary: Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced); AML registration regime
+  pinpoint: 'Disclosure/supervision: take effect on commencement (enacted, not commenced; detail pending subsidiary
+    legislation)'
+interpretation_note: 'Authored in v0.9.2 (constraint sweep) for TW.C8 constraint cell for the substrate sweep.
+
+
+  [v0.9.9 enactment] The Virtual Asset Service Act passed third reading on 30 Jun 2026, so this cell moves from
+  proposed to transitional (binding_status pending_proposal -> made_not_commenced), matching tw-frs-issuer_pathway-001.
+  The provision is enacted but not commenced; its operative detail awaits FSC subsidiary legislation, and the cell
+  stays non-citable (firm_summary, no resolution_text).'
 confidence: low
 claim_class: tier1_legal
-last_reviewed: '2026-06-27'
+last_reviewed: '2026-06-30'
 version_added: 0.9.2
 tags:
 - v0.9.2_cell_sweep
 - tw
 - disclosure_reporting
-- binding_pending_proposal
-binding_status: pending_proposal
+- binding_made_not_commenced
+- v0.9.9_tw_enactment
+binding_status: made_not_commenced

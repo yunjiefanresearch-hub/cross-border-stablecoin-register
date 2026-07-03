@@ -143,7 +143,7 @@ boundary_analysis:
           tokenised MMF is squarely a tokenised security, with SFC-authorised retail
           instances already live (retail tokenised MMFs authorised Q1 2025). HK gives a
           clean "yes, it is a security, and here is the regulated path".
-        record_refs: []             # GAP: write hk-frs-securities_classification-001 (planned v0.3.x)
+        record_refs: [hk-frs-securities_classification-001]   # wired v0.9.7 (record now exists)
         gap_note: "No HK securities_classification record exists yet — this sub-gate is the spec for it."
 
     clears: >
@@ -190,7 +190,7 @@ boundary_analysis:
           regime. The USD 10k eFX ceiling independently confirms eFX was never the natural
           B2B rail; the practical effect is to foreclose the "reais → USDT → settle abroad
           on-chain" eFX back-end (the Nomad/Braza-Bank-style rail).
-        record_refs: []             # target: br-vasp-cross_border_data-001 (forthcoming)
+        record_refs: [br-vasp-cross_border_data-001]   # wired v0.9.7 (record now exists)
 
       - id: br_vasp_fx_rail
         label: "VASP-in-FX rail — open but capped"
@@ -208,7 +208,7 @@ boundary_analysis:
           BCB-FX-authorised, so the cap bites. The cap — not the rail choice — is usually
           the binding constraint for B2B ticket sizes; above it the flow reverts to
           traditional câmbio (bank FX desk / DTVM).
-        record_refs: []             # target: br-vasp-issuer_pathway-001, br-vasp-cross_border_data-001
+        record_refs: [br-vasp-issuer_pathway-001, br-vasp-cross_border_data-001]   # wired v0.9.7
 
       - id: br_custody_assets
         label: "Custody, segregation & asset curation — Res 520"
@@ -231,7 +231,7 @@ boundary_analysis:
           algorithmic or opaque-reserve coin is excluded at the Brazilian custody/listing
           gate regardless of the rail. The foreign-custodian conditions are directly
           relevant to the HK/offshore custody leg of this corridor.
-        record_refs: []             # target: br-vasp-custody-001, br-vasp-reserve_backing-001, br-vasp-disclosure_reporting-001
+        record_refs: [br-vasp-custody-001, br-vasp-reserve_backing-001, br-vasp-disclosure_reporting-001]   # wired v0.9.7
 
     clears: >
       Authorised-VASP-in-FX channel (Res 521), within the per-operation cap (USD 100k

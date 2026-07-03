@@ -4,27 +4,36 @@ authority: FSC (would administer)
 instrument_type: fiat_referenced_stablecoin
 instrument_label_local: virtual asset / draft stablecoin (Virtual Asset Service Act)
 dimension: redemption
-requirement_summary: 'DRAFT: par issuance and redemption. No redemption regime is in force. Draft provisions only.'
+requirement_summary: the Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced) provides
+  for par issuance and redemption. The operative detail awaits FSC subsidiary legislation; no redemption regime
+  is yet operative.
 requirement_structured:
-  in_force: none
-  draft: par issuance and redemption
-status: proposed
+  enacted_not_commenced: par issuance and redemption
+  status_note: enacted at third reading, awaiting FSC subsidiary legislation
+status: transitional
 source:
-  primary: Draft Virtual Asset Service Act
-  pinpoint: Redemption (draft) — par issuance and redemption; NOT in force
+  primary: Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced)
+  pinpoint: 'Redemption: par issuance and redemption (enacted, not commenced; pending FSC subsidiary legislation)'
   url: https://english.ey.gov.tw/
 secondary:
 - citation: Fan, Multi-Jurisdiction Stablecoin Compliance Matrix v0.9.6 (June 2026), §Taiwan (Redemption Mechanics)
-- citation: 'Draft Virtual Asset Service Act bill (Executive Yuan referral): https://english.ey.gov.tw/. Official
+- citation: 'Virtual Asset Service Act, passed third reading 30 Jun 2026 (Executive Yuan referral: https://english.ey.gov.tw/). Official
     primary text is Chinese (law.moj.gov.tw); there is no official English translation (FSC English materials are
     summaries).'
-interpretation_note: 'Provenance: transcribed from the author''s Compliance Matrix v0.9.6; an official URL for the
-  bill/announcement is provided (source.url), but this is a draft provision and is NOT operative law, so it is not
-  upgraded and remains firm_summary. STATUS proposed: not operative law.'
+interpretation_note: 'Provenance: transcribed from the author''s Compliance Matrix v0.9.6; an official URL is provided
+  (source.url), but there is no official English primary text and made_not_commenced provisions carry no operative
+  resolution_text, so the cell stays firm_summary (non-citable). STATUS transitional: the VAS Act is enacted (third
+  reading 30 Jun 2026) but not commenced; this provision awaits FSC subsidiary legislation.
+
+
+  [v0.9.9 enactment] The Virtual Asset Service Act passed third reading on 30 Jun 2026, so this cell moves from
+  proposed to transitional (binding_status pending_proposal -> made_not_commenced), matching tw-frs-issuer_pathway-001.
+  The provision is enacted but not commenced; its operative detail awaits FSC subsidiary legislation, and the cell
+  stays non-citable (firm_summary, no resolution_text).'
 confidence: low
 claim_class: tier1_legal
 evidence_tier: firm_summary
-last_reviewed: '2026-06-27'
+last_reviewed: '2026-06-30'
 version_added: 0.4.0
 tags:
 - apac
@@ -35,5 +44,6 @@ tags:
 - v0.5.1_verification
 - draft_url_added
 - v0.7.0_claim_class
-- binding_pending_proposal
-binding_status: pending_proposal
+- binding_made_not_commenced
+- v0.9.9_tw_enactment
+binding_status: made_not_commenced

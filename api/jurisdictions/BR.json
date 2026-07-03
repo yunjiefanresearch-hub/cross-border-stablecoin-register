@@ -1,0 +1,306 @@
+{
+  "register": "Cross-Border Stablecoin Register",
+  "version": "0.9.9",
+  "generated": "2026-07-03",
+  "endpoint": "jurisdiction",
+  "guardrail": "static projection of the public register; no facts added here",
+  "data": {
+    "jurisdiction": "BR",
+    "records": [
+      {
+        "id": "br-vasp-aml_kyc-001",
+        "jurisdiction": "BR",
+        "dimension": "aml_kyc",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "resolution_text",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Res BCB 520/2025 Art. 44 (Travel Rule) + Art. 89 (two-stage phase-in: domestic by Feb 2027, international by 2 Feb 2028) + Art. 88 (authorisation adjustment period — 270-day adequação; internal controls / cybersecurity / Law 13.810/2019); Res BCB 521/2025 (KYT / self-hosted wallets)",
+        "pinpoint": "Res BCB 520/2025 (PLD/FTP obligations on SPSAVs; ≥3 responsible administrators including AML/CFT; GAFI Recs 15-16 alignment); Lei 14.478/2022",
+        "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=520"
+      },
+      {
+        "id": "br-vasp-bank_nonbank_routing-001",
+        "jurisdiction": "BR",
+        "dimension": "bank_nonbank_routing",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "resolution_text",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Lei 14.478/2022; BCB regulations",
+        "pinpoint": "Res BCB 520/2025 Art. 20 (besides SPSAVs, only commercial/exchange/investment/multiple banks, Caixa, CTVM/DTVM and FX brokers may provide intermediation/custody, with restrictions); Art. 4 (SPSAV modalities)",
+        "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=520"
+      },
+      {
+        "id": "br-vasp-capital_requirements-001",
+        "jurisdiction": "BR",
+        "dimension": "capital_requirements",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "resolution_text",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Resolução Conjunta CMN/BCB nº 14/2025; Res BCB 517/2025 (both 3 Nov 2025) — SPSAV minimum-capital methodology",
+        "pinpoint": "Resolução Conjunta CMN/BCB nº 14/2025 + Res BCB nº 517/2025 (both 3 Nov 2025): minimum capital R$10,800,000 to R$37,200,000 scaled by the set of activities performed",
+        "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=517"
+      },
+      {
+        "id": "br-vasp-cross_border_data-001",
+        "jurisdiction": "BR",
+        "dimension": "cross_border_data",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Res BCB 521/2025 (virtual assets in the FX market); Lei 14.286/2021 (Foreign Exchange Law)",
+        "pinpoint": "Res BCB 521 — per-operation caps (USD 100k SPSAV / USD 500k FX-FI when counterparty not FX-authorised); amends the Res 277/278/279 FX trio, inserting Art. 76-A into Res 277/2022 as the câmbio-inclusion hook (legal base: Lei 14.286/2021)",
+        "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=521"
+      },
+      {
+        "id": "br-vasp-custody-001",
+        "jurisdiction": "BR",
+        "dimension": "custody",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "resolution_text",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Res BCB 520/2025 — patrimonial segregation (segregação patrimonial)",
+        "pinpoint": "Res BCB 520/2025 (patrimonial segregation: client funds in individualised payment/deposit accounts; client virtual assets in segregated wallets; foreign-custodian conditions — home-country authorisation/supervision, Brazil representative, enforceable guarantees, formal segregation of Brazilian clients' assets)",
+        "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=520"
+      },
+      {
+        "id": "br-vasp-disclosure_reporting-001",
+        "jurisdiction": "BR",
+        "dimension": "disclosure_reporting",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "resolution_text",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Res BCB 520/2025 (proof-of-reserves + biennial independent audit + published reports); Res BCB 521/2025 Art. 82-A (monthly BCB reporting); IN BCB 701 (22 Jan 2026)",
+        "pinpoint": "Res BCB 520/2025 (proof of reserves; periodic audits; transparent information flows); Res BCB 521/2025 (monthly FX-operations reporting from 4 May 2026)",
+        "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=520"
+      },
+      {
+        "id": "br-vasp-issuer_pathway-001",
+        "jurisdiction": "BR",
+        "dimension": "issuer_pathway",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "resolution_text",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Res BCB 519/2025 (authorisation regime); Res BCB 520/2025 Art. 4 (provider modalities)",
+        "pinpoint": "Lei 14.478/2022 (BCB authorisation required to provide virtual-asset services); Res BCB 519/2025 (authorisation process); Res BCB 520/2025 Art. 4 (three SPSAV modalities: intermediária, custodiante, corretora), Art. 14 (sociedade limitada/anônima; ≥3 administrators; head office in Brazil); authorisation deadline 30 Oct 2026 (270 days)",
+        "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=519"
+      },
+      {
+        "id": "br-vasp-monetary_sovereignty-001",
+        "jurisdiction": "BR",
+        "dimension": "monetary_sovereignty",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "resolution_text",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Res BCB 521/2025 (FX reclassification + caps); Res BCB 561/2026 (eFX exclusion); Lei 14.286/2021",
+        "pinpoint": "Res BCB 521/2025 (amends Res 277/278/279 of 31 Dec 2022): virtual-asset services brought into the FX market — international payments/transfers, stablecoin trades, and payment of expenses abroad treated as câmbio operations; monthly reporting to the BCB from 4 May 2026",
+        "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=521"
+      },
+      {
+        "id": "br-vasp-permitted_activity_yield-001",
+        "jurisdiction": "BR",
+        "dimension": "permitted_activity_yield",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Lei 14.478/2022 (Marco Legal dos Ativos Virtuais); BCB implementing rulemaking",
+        "pinpoint": "Res BCB 520/2025 (VASPs may not offer credit to clients or raise funds from the public except via share issuance; client virtual assets may not be used for proprietary operations except staking and qualified/professional-investor transactions)",
+        "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=520"
+      },
+      {
+        "id": "br-vasp-regulatory_authority-001",
+        "jurisdiction": "BR",
+        "dimension": "regulatory_authority",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "resolution_text",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Lei 14.478/2022 (Marco Legal dos Ativos Virtuais); Decreto 11.563/2023 (BCB as VASP authority; CVM carve-out for securities tokens)",
+        "pinpoint": "Lei 14.478/2022 arts. 2-9; Decreto 11.563/2023 (BCB designated competent authority for virtual-asset services; CVM retains jurisdiction over tokens that are securities)",
+        "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2022/lei/l14478.htm"
+      },
+      {
+        "id": "br-vasp-reserve_backing-001",
+        "jurisdiction": "BR",
+        "dimension": "reserve_backing",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "resolution_text",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Res BCB 520/2025 — stablecoin definition + asset-curation / listing-policy rules",
+        "pinpoint": "Res BCB 520/2025 Art. 2, III (reserve assets of a fiat-referenced token = the fiduciary currency and public debt issued by the same governments); Arts. 64+ (asset curation; algorithmic-stablecoin prohibition; proof of reserves)",
+        "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=520"
+      },
+      {
+        "id": "br-vasp-securities_classification-001",
+        "jurisdiction": "BR",
+        "dimension": "securities_classification",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "resolution_text",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Lei 14.478/2022 + Decreto 11.563/2023 (CVM carve-out); CVM Parecer de Orientação 40; Resolução CVM 175 (investment funds)",
+        "pinpoint": "Lei 14.478/2022; Decreto 11.563/2023 (BCB over payment/VASP activity; CVM jurisdiction preserved over tokens with securities characteristics)",
+        "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2022/lei/l14478.htm"
+      }
+    ],
+    "citable_cells": [
+      {
+        "id": "br-vasp-aml_kyc-001",
+        "jurisdiction": "BR",
+        "dimension": "aml_kyc",
+        "instrument": "Res BCB 520/2025 Art. 44 (Travel Rule) + Art. 89 (two-stage phase-in: domestic by Feb 2027, international by 2 Feb 2028) + Art. 88 (authorisation adjustment period — 270-day adequação; internal controls / cybersecurity / Law 13.810/2019); Res BCB 521/2025 (KYT / self-hosted wallets)",
+        "pinpoint": "Res BCB 520/2025 (PLD/FTP obligations on SPSAVs; ≥3 responsible administrators including AML/CFT; GAFI Recs 15-16 alignment); Lei 14.478/2022",
+        "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=520",
+        "last_reviewed": "2026-06-27"
+      },
+      {
+        "id": "br-vasp-bank_nonbank_routing-001",
+        "jurisdiction": "BR",
+        "dimension": "bank_nonbank_routing",
+        "instrument": "Lei 14.478/2022; BCB regulations",
+        "pinpoint": "Res BCB 520/2025 Art. 20 (besides SPSAVs, only commercial/exchange/investment/multiple banks, Caixa, CTVM/DTVM and FX brokers may provide intermediation/custody, with restrictions); Art. 4 (SPSAV modalities)",
+        "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=520",
+        "last_reviewed": "2026-06-27"
+      },
+      {
+        "id": "br-vasp-capital_requirements-001",
+        "jurisdiction": "BR",
+        "dimension": "capital_requirements",
+        "instrument": "Resolução Conjunta CMN/BCB nº 14/2025; Res BCB 517/2025 (both 3 Nov 2025) — SPSAV minimum-capital methodology",
+        "pinpoint": "Resolução Conjunta CMN/BCB nº 14/2025 + Res BCB nº 517/2025 (both 3 Nov 2025): minimum capital R$10,800,000 to R$37,200,000 scaled by the set of activities performed",
+        "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=517",
+        "last_reviewed": "2026-06-27"
+      },
+      {
+        "id": "br-vasp-custody-001",
+        "jurisdiction": "BR",
+        "dimension": "custody",
+        "instrument": "Res BCB 520/2025 — patrimonial segregation (segregação patrimonial)",
+        "pinpoint": "Res BCB 520/2025 (patrimonial segregation: client funds in individualised payment/deposit accounts; client virtual assets in segregated wallets; foreign-custodian conditions — home-country authorisation/supervision, Brazil representative, enforceable guarantees, formal segregation of Brazilian clients' assets)",
+        "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=520",
+        "last_reviewed": "2026-06-27"
+      },
+      {
+        "id": "br-vasp-disclosure_reporting-001",
+        "jurisdiction": "BR",
+        "dimension": "disclosure_reporting",
+        "instrument": "Res BCB 520/2025 (proof-of-reserves + biennial independent audit + published reports); Res BCB 521/2025 Art. 82-A (monthly BCB reporting); IN BCB 701 (22 Jan 2026)",
+        "pinpoint": "Res BCB 520/2025 (proof of reserves; periodic audits; transparent information flows); Res BCB 521/2025 (monthly FX-operations reporting from 4 May 2026)",
+        "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=520",
+        "last_reviewed": "2026-06-27"
+      },
+      {
+        "id": "br-vasp-issuer_pathway-001",
+        "jurisdiction": "BR",
+        "dimension": "issuer_pathway",
+        "instrument": "Res BCB 519/2025 (authorisation regime); Res BCB 520/2025 Art. 4 (provider modalities)",
+        "pinpoint": "Lei 14.478/2022 (BCB authorisation required to provide virtual-asset services); Res BCB 519/2025 (authorisation process); Res BCB 520/2025 Art. 4 (three SPSAV modalities: intermediária, custodiante, corretora), Art. 14 (sociedade limitada/anônima; ≥3 administrators; head office in Brazil); authorisation deadline 30 Oct 2026 (270 days)",
+        "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=519",
+        "last_reviewed": "2026-06-27"
+      },
+      {
+        "id": "br-vasp-monetary_sovereignty-001",
+        "jurisdiction": "BR",
+        "dimension": "monetary_sovereignty",
+        "instrument": "Res BCB 521/2025 (FX reclassification + caps); Res BCB 561/2026 (eFX exclusion); Lei 14.286/2021",
+        "pinpoint": "Res BCB 521/2025 (amends Res 277/278/279 of 31 Dec 2022): virtual-asset services brought into the FX market — international payments/transfers, stablecoin trades, and payment of expenses abroad treated as câmbio operations; monthly reporting to the BCB from 4 May 2026",
+        "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=521",
+        "last_reviewed": "2026-06-27"
+      },
+      {
+        "id": "br-vasp-regulatory_authority-001",
+        "jurisdiction": "BR",
+        "dimension": "regulatory_authority",
+        "instrument": "Lei 14.478/2022 (Marco Legal dos Ativos Virtuais); Decreto 11.563/2023 (BCB as VASP authority; CVM carve-out for securities tokens)",
+        "pinpoint": "Lei 14.478/2022 arts. 2-9; Decreto 11.563/2023 (BCB designated competent authority for virtual-asset services; CVM retains jurisdiction over tokens that are securities)",
+        "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2022/lei/l14478.htm",
+        "last_reviewed": "2026-06-27"
+      },
+      {
+        "id": "br-vasp-reserve_backing-001",
+        "jurisdiction": "BR",
+        "dimension": "reserve_backing",
+        "instrument": "Res BCB 520/2025 — stablecoin definition + asset-curation / listing-policy rules",
+        "pinpoint": "Res BCB 520/2025 Art. 2, III (reserve assets of a fiat-referenced token = the fiduciary currency and public debt issued by the same governments); Arts. 64+ (asset curation; algorithmic-stablecoin prohibition; proof of reserves)",
+        "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=520",
+        "last_reviewed": "2026-06-27"
+      },
+      {
+        "id": "br-vasp-securities_classification-001",
+        "jurisdiction": "BR",
+        "dimension": "securities_classification",
+        "instrument": "Lei 14.478/2022 + Decreto 11.563/2023 (CVM carve-out); CVM Parecer de Orientação 40; Resolução CVM 175 (investment funds)",
+        "pinpoint": "Lei 14.478/2022; Decreto 11.563/2023 (BCB over payment/VASP activity; CVM jurisdiction preserved over tokens with securities characteristics)",
+        "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2022/lei/l14478.htm",
+        "last_reviewed": "2026-06-27"
+      }
+    ],
+    "outbound_classes_at_base": {
+      "US": {
+        "class": "II",
+        "rule": "destination_gate:comparability",
+        "origin_override": false
+      },
+      "EU": {
+        "class": "I",
+        "rule": "destination_gate:open_capped",
+        "origin_override": false
+      },
+      "UK": {
+        "class": "T",
+        "rule": "destination_gate:transition",
+        "origin_override": false
+      },
+      "SG": {
+        "class": "I",
+        "rule": "destination_gate:open",
+        "origin_override": false
+      },
+      "HK": {
+        "class": "I",
+        "rule": "destination_gate:open",
+        "origin_override": false
+      },
+      "CN": {
+        "class": "blocked",
+        "rule": "destination_gate:prohibition",
+        "origin_override": false
+      },
+      "BR": null,
+      "CH": {
+        "class": "I",
+        "rule": "destination_gate:open",
+        "origin_override": false
+      },
+      "AE": {
+        "class": "II",
+        "rule": "destination_gate:usage_channel",
+        "origin_override": false
+      },
+      "TW": {
+        "class": "T",
+        "rule": "destination_gate:transition",
+        "origin_override": false
+      },
+      "JP": {
+        "class": "II",
+        "rule": "destination_gate:channel",
+        "origin_override": false
+      },
+      "KR": {
+        "class": "pre_regime",
+        "rule": "destination_gate:pre_regime",
+        "origin_override": false
+      }
+    }
+  }
+}

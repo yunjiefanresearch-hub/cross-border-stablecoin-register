@@ -1,0 +1,227 @@
+{
+  "register": "Cross-Border Stablecoin Register",
+  "version": "0.9.9",
+  "generated": "2026-07-03",
+  "endpoint": "jurisdiction",
+  "guardrail": "static projection of the public register; no facts added here",
+  "data": {
+    "jurisdiction": "SG",
+    "records": [
+      {
+        "id": "sg-scs-aml_kyc-001",
+        "jurisdiction": "SG",
+        "dimension": "aml_kyc",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "MAS Notice PSN02; MAS Notice PSN03",
+        "pinpoint": "PS Act 2019 DPT licensing; MAS Notices PSN02/PSN03 (AML/CFT, travel rule)",
+        "url": ""
+      },
+      {
+        "id": "sg-scs-bank_nonbank_routing-001",
+        "jurisdiction": "SG",
+        "dimension": "bank_nonbank_routing",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "MAS Stablecoin Regulatory Framework; Payment Services Act 2019",
+        "pinpoint": "Eligible issuers (banks / major payment institutions); reserve segregation",
+        "url": null
+      },
+      {
+        "id": "sg-scs-capital_requirements-001",
+        "jurisdiction": "SG",
+        "dimension": "capital_requirements",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "finalized_policy_pending",
+        "status": "transitional",
+        "instrument": "MAS Single-Currency Stablecoin Regulatory Framework (15 Aug 2023); FSMA Part 9 (DTSP)",
+        "pinpoint": "SCS framework: base capital and liquid-asset requirements",
+        "url": "https://www.mas.gov.sg/news/media-releases/2023/mas-finalises-stablecoin-regulatory-framework"
+      },
+      {
+        "id": "sg-scs-cross_border_data-001",
+        "jurisdiction": "SG",
+        "dimension": "cross_border_data",
+        "claim_class": "tier1_legal",
+        "evidence_tier": null,
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Personal Data Protection Act 2012 (PDPA); MAS Outsourcing and Technology Risk Management Guidelines",
+        "pinpoint": "PDPA cross-border transfer safeguards; MAS data-hosting guidelines",
+        "url": ""
+      },
+      {
+        "id": "sg-scs-distribution-001",
+        "jurisdiction": "SG",
+        "dimension": "distribution",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "finalized_policy_pending",
+        "status": "transitional",
+        "instrument": "Payment Services Act 2019 / MAS Single-Currency Stablecoin Regulatory Framework",
+        "pinpoint": "SCS framework: label/disclosure on distribution",
+        "url": "https://www.mas.gov.sg/news/media-releases/2023/mas-finalises-stablecoin-regulatory-framework"
+      },
+      {
+        "id": "sg-scs-implementation_status-001",
+        "jurisdiction": "SG",
+        "dimension": "implementation_status",
+        "claim_class": "tier2_operational",
+        "evidence_tier": null,
+        "binding_status": "finalized_policy_pending",
+        "status": "transitional",
+        "instrument": "Payment Services Act 2019; MAS SCS framework; FSMA Part 9",
+        "pinpoint": "Implementation timeline — PSA 2020; SCS Aug 2023; DTSP Jun 2025; full SCS mid-2026",
+        "url": ""
+      },
+      {
+        "id": "sg-scs-issuer_pathway-001",
+        "jurisdiction": "SG",
+        "dimension": "issuer_pathway",
+        "claim_class": "tier1_legal",
+        "evidence_tier": null,
+        "binding_status": "finalized_policy_pending",
+        "status": "transitional",
+        "instrument": "Payment Services Act 2019 (PSA, amended 2022); MAS Single-Currency Stablecoin Regulatory Framework (finalised 15 Aug 2023)",
+        "pinpoint": "SCS framework — peg scope (SGD/G10, Singapore-issued); MPI licence > S$5m; Singapore incorporation",
+        "url": ""
+      },
+      {
+        "id": "sg-scs-monetary_sovereignty-001",
+        "jurisdiction": "SG",
+        "dimension": "monetary_sovereignty",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "finalized_policy_pending",
+        "status": "transitional",
+        "instrument": "MAS Stablecoin Regulatory Framework; Payment Services Act 2019",
+        "pinpoint": "SCS framework: SGD/G10 label scope; foreign-pegged tokens treated as ordinary DPTs",
+        "url": "https://www.mas.gov.sg/news/media-releases/2023/mas-finalises-stablecoin-regulatory-framework"
+      },
+      {
+        "id": "sg-scs-permitted_activity_yield-001",
+        "jurisdiction": "SG",
+        "dimension": "permitted_activity_yield",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "finalized_policy_pending",
+        "status": "transitional",
+        "instrument": "MAS Single-Currency Stablecoin framework (Aug 2023) — issuer activity restrictions",
+        "pinpoint": "SCS framework: no lending/staking by SCS issuers; SGD/G10 label scope",
+        "url": "https://www.mas.gov.sg/news/media-releases/2023/mas-finalises-stablecoin-regulatory-framework"
+      },
+      {
+        "id": "sg-scs-redemption-001",
+        "jurisdiction": "SG",
+        "dimension": "redemption",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "finalized_policy_pending",
+        "status": "transitional",
+        "instrument": "MAS Single-Currency Stablecoin Regulatory Framework (15 Aug 2023)",
+        "pinpoint": "SCS framework: redemption at par within 5 business days",
+        "url": "https://www.mas.gov.sg/news/media-releases/2023/mas-finalises-stablecoin-regulatory-framework"
+      },
+      {
+        "id": "sg-scs-regulatory_authority-001",
+        "jurisdiction": "SG",
+        "dimension": "regulatory_authority",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "MAS Single-Currency Stablecoin framework (Aug 2023); Payment Services Act 2019; FSMA Part 9 (DTSP)",
+        "pinpoint": "MAS authority under the Payment Services Act 2019",
+        "url": null
+      },
+      {
+        "id": "sg-scs-reserve_backing-001",
+        "jurisdiction": "SG",
+        "dimension": "reserve_backing",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "finalized_policy_pending",
+        "status": "transitional",
+        "instrument": "MAS Single-Currency Stablecoin Regulatory Framework (15 Aug 2023)",
+        "pinpoint": "SCS framework: 100% reserve in low-risk assets",
+        "url": "https://www.mas.gov.sg/news/media-releases/2023/mas-finalises-stablecoin-regulatory-framework"
+      },
+      {
+        "id": "sg-scs-securities_classification-001",
+        "jurisdiction": "SG",
+        "dimension": "securities_classification",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "finalized_policy_pending",
+        "status": "transitional",
+        "instrument": "Securities and Futures Act (SFA); MAS substance-over-form classification",
+        "pinpoint": "SCS framework: 'MAS-regulated stablecoin' label vs DPT classification",
+        "url": "https://www.mas.gov.sg/news/media-releases/2023/mas-finalises-stablecoin-regulatory-framework"
+      }
+    ],
+    "citable_cells": [],
+    "outbound_classes_at_base": {
+      "US": {
+        "class": "II",
+        "rule": "destination_gate:comparability",
+        "origin_override": true
+      },
+      "EU": {
+        "class": "I",
+        "rule": "destination_gate:open_capped",
+        "origin_override": true
+      },
+      "UK": {
+        "class": "T",
+        "rule": "destination_gate:transition",
+        "origin_override": true
+      },
+      "SG": null,
+      "HK": {
+        "class": "I",
+        "rule": "destination_gate:open",
+        "origin_override": true
+      },
+      "CN": {
+        "class": "blocked",
+        "rule": "destination_gate:prohibition",
+        "origin_override": true
+      },
+      "BR": {
+        "class": "II",
+        "rule": "destination_gate:fx_counterparty",
+        "origin_override": true
+      },
+      "CH": {
+        "class": "I",
+        "rule": "destination_gate:open",
+        "origin_override": true
+      },
+      "AE": {
+        "class": "II",
+        "rule": "destination_gate:usage_channel",
+        "origin_override": true
+      },
+      "TW": {
+        "class": "T",
+        "rule": "destination_gate:transition",
+        "origin_override": true
+      },
+      "JP": {
+        "class": "II",
+        "rule": "destination_gate:channel",
+        "origin_override": true
+      },
+      "KR": {
+        "class": "pre_regime",
+        "rule": "destination_gate:pre_regime",
+        "origin_override": true
+      }
+    }
+  }
+}

@@ -61,8 +61,8 @@ SIGNALS = {
            "egress_override": False, "basis": "Banking Act/Ordinance; no usage cap; FINMA holder-ID (ch-frs-* records)"},
     "AE": {"regime_status": "live",        "inbound_gate": "usage_channel",  "exportable_token": True,
            "egress_override": False, "basis": "CBUAE PTSR; Foreign Payment Token usage-channel restriction (ae-pt-* records)"},
-    "TW": {"regime_status": "pre_regime",  "inbound_gate": "pre_regime",     "exportable_token": False,
-           "egress_override": False, "basis": "AML registration in force; VAS Act a bill (tw-frs-issuer_pathway-001 status=proposed)"},
+    "TW": {"regime_status": "transition",  "inbound_gate": "transition",     "exportable_token": False,
+           "egress_override": False, "basis": "VAS Act enacted at third reading 30 Jun 2026; subsidiary legislation pending, no gazetted commencement; no exportable token yet (tw-frs-issuer_pathway-001 status=transitional)"},
     "JP": {"regime_status": "live",        "inbound_gate": "channel",        "exportable_token": True,
            "egress_override": False, "basis": "Payment Services Act EPI regime; EPIESP inbound channel-determination (jp-epi-* records)"},
     "KR": {"regime_status": "pre_regime",  "inbound_gate": "pre_regime",     "exportable_token": False,
@@ -210,7 +210,7 @@ def edge_timeline(origin, dest, events=None):
     import copy
     if events is None:
         events, _ = load_events()
-    base_date = "2026-06-27"
+    base_date = "2026-06-30"
     today_cls = compose_directed(origin, dest, SIGNALS)["class"]
     affects = lambda e: e.get("jurisdiction") in (origin, dest) and e.get("effect")
     # cumulative scheduled timeline
@@ -252,7 +252,12 @@ def compose_directed(origin, dest, signals=None):
     so, sd = S[origin], S[dest]
     # origin drag: an origin with no exportable/authorizable token cannot cross into any destination
     if not so["exportable_token"]:
-        axis = "prohibition" if so["regime_status"] == "prohibition" else "pre_regime"
+        if so["regime_status"] == "prohibition":
+            axis = "prohibition"
+        elif so["regime_status"] == "pre_regime":
+            axis = "pre_regime"
+        else:  # transition/live: enacted law but no exportable token yet (Taiwan post-enactment, pre-commencement)
+            axis = "enacted_not_commenced"
         return {"class": "III", "rule": f"origin_drag:{axis}",
                 "explain": f"{origin} has no exportable, comprehensively authorizable private token "
                            f"({so['basis']}); the lawful options are partnership/coordination, not direct issuance.",
@@ -432,7 +437,7 @@ def build_timeline():
     illustration = [edge_timeline(o, d, events) for (o, d) in
                     [("US", "UK"), ("UK", "US"), ("EU", "UK"), ("UK", "EU"), ("HK", "UK")]]
 
-    horizons = ["2026-06-27"] + sorted({e["effective_date"] for e in events
+    horizons = ["2026-06-30"] + sorted({e["effective_date"] for e in events
                                         if e.get("status") in ("scheduled", "in_force") and e.get("effective_date")})
 
     def caveated_pairs(signals):
@@ -456,7 +461,7 @@ def build_timeline():
     out = {
         "schema": "cbsr-analysis/computed_timeline",
         "status": "preview",
-        "as_of_base": meta.get("as_of_base", "2026-06-27"),
+        "as_of_base": meta.get("as_of_base", "2026-06-30"),
         "method": ("Date-aware compose(): signals_as_of(date) applies every scheduled/in_force event in "
                    "the event calendar with effective_date <= date, then re-runs the Atlas algorithm. "
                    "Contingent events (a bill not yet enacted) are never applied by date — they are "

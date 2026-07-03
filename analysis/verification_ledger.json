@@ -1,6 +1,6 @@
 {
   "schema": "cbsr/verification_ledger",
-  "version": "v0.9.7",
+  "version": "v0.9.9",
   "performed_by": "external review (web retrieval against official sources), 2026-06-27",
   "discipline": "Citability is capped by the binding status of the cited instrument, independent of whether the official text was located. resolution_text is applied ONLY where binding_status==in_force_enacted AND the proposition was confirmed against official text. made_not_commenced / finalized_policy_pending / pending_proposal cells receive the official URL + binding_status but are held at firm_summary; prohibition cells stay unset.",
   "buckets": {
@@ -986,14 +986,14 @@
     {
       "cell": "tw-frs-issuer_pathway-001",
       "jurisdiction": "TW",
-      "instrument": "VASP AML registration (in force 30 Nov 2024); Virtual Asset Service Act (bill)",
-      "binding_status": "pending_proposal",
+      "instrument": "VASP AML registration (in force 30 Nov 2024); Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced)",
+      "binding_status": "made_not_commenced",
       "official_url": "https://english.ey.gov.tw/",
-      "pinpoint": "Issuer pathway (draft) — FSC licence; share company; banks lead; NOT in force",
+      "pinpoint": "Issuer pathway: FSC licence; share company; banks lead. Enacted at third reading, not yet commenced (awaiting subsidiary legislation)",
       "verdict": "binding_status_recorded",
       "applied_tier": "firm_summary",
-      "status_after": "proposed",
-      "note": "The TW issuer regime rests on the draft Virtual Asset Service Act (虛擬資產服務法), a bill; kept proposed. NATIVE-LANGUAGE VERIFICATION (Chinese): confirmed against official FSC text — the Legislative Yuan Finance Committee completed the article-by-article first review (初審) on 3 Jun 2026 and resolved to send it to the plenary (no caucus negotiation), but it has NOT passed third reading. The draft stablecoin provisions match the register (FSC permission + prior central-bank consent; issuer = share company; min capital set by FSC; par issuance/redemption; no interest; reserves at domestic FIs, segregated). Procedurally more advanced than KR's DABA (still in subcommittee). The in-force VASP-AML registration layer is recorded separately."
+      "status_after": "transitional",
+      "note": "The TW issuer regime rests on the Virtual Asset Service Act (虛擬資產服務法), enacted at third reading on 30 Jun 2026 and moved from proposed to transitional (binding_status pending_proposal -> made_not_commenced). NATIVE-LANGUAGE VERIFICATION (Chinese): confirmed against official FSC text: the Legislative Yuan Finance Committee completed the article-by-article first review (初審) on 3 Jun 2026 and resolved to send it to the plenary (no caucus negotiation); third reading followed on 30 Jun 2026. The stablecoin provisions match the register (FSC permission + prior central-bank consent; issuer = share company; min capital set by FSC; par issuance/redemption; no interest; reserves at domestic FIs, segregated). Commencement awaits FSC subsidiary legislation (roughly nine subordinate items, indicative timetable around Q1 2027) with no gazetted date. Procedurally ahead of KR's DABA, still in subcommittee. The in-force VASP-AML registration layer is recorded separately."
     },
     {
       "cell": "kr-frs-issuer_pathway-001",

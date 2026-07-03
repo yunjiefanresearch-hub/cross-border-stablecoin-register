@@ -1,0 +1,116 @@
+{
+  "schema": "cbsr-analysis/computed_sensitivity",
+  "version": "v0.9.9",
+  "generated": "2026-07-03",
+  "as_of_base": "2026-06-30",
+  "method": "For each pending trigger (a contingent enactment or a dated commencement) the layer counts the directed edges it reclassifies, split into fan-in (edges terminating in the trigger jurisdiction) and fan-out (edges originating there), derived edge-by-edge from computed_corridor_states.json. It asserts NO new facts; every count is a re-derivation of the corridor states.",
+  "finding": "The forward map's class-level motion concentrates at the one remaining pre-regime origin (South Korea) and the two regime-in-transition destinations (the United Kingdom and Taiwan). South Korea is the single highest-sensitivity jurisdiction because it is the subject of a both-directions trigger; the prohibition destination (Mainland China) is insensitive to any positive trigger.",
+  "ranking_criteria": "Ordered by breadth (edges reclassified) first; among the regime-in-transition destinations the paper's tie-breakers are timing certainty (a gazetted commencement date outranks an ungazetted one) and resolution class (a clean Category I outranks a channelled Category II). Breadth is mechanical; the tie-breakers are the paper's.",
+  "ordering": [
+    {
+      "jurisdiction": "KR",
+      "trigger_id": "kr-daba-enacted",
+      "trigger_kind": "contingent-no-date",
+      "timing": "no gazetted date",
+      "both_directions": true,
+      "edges_reclassified": 20,
+      "fan_in": 9,
+      "fan_out": 11,
+      "changes_any_class": true,
+      "rank": 1,
+      "resolves_to": "II (channelled) inbound; Category III -> II outbound",
+      "note": "The single highest-sensitivity jurisdiction: a both-directions trigger. A single contingent enactment reclassifies the most edges of any pending trigger, lifting South Korea out of the pre-regime class inbound and out of Category III outbound.",
+      "mechanical_fan_rank": 1
+    },
+    {
+      "jurisdiction": "UK",
+      "trigger_id": "uk-systemic-regime-operative",
+      "trigger_kind": "fully-scheduled",
+      "timing": "gazetted 2027-10-25",
+      "both_directions": false,
+      "edges_reclassified": 8,
+      "fan_in": 8,
+      "fan_out": 0,
+      "changes_any_class": true,
+      "rank": 2,
+      "resolves_to": "I (clean)",
+      "note": "The highest-sensitivity scheduled jurisdiction: commencement reclassifies every inbound edge from a token-holding origin from Category T to a clean Category I on a known day, resolving the eight-pair caveat in full — the cleanest worked transition because it is dated.",
+      "mechanical_fan_rank": 3
+    },
+    {
+      "jurisdiction": "TW",
+      "trigger_id": "tw-vas-act-enacted",
+      "trigger_kind": "enacted-not-commenced",
+      "timing": "no gazetted date",
+      "both_directions": false,
+      "edges_reclassified": 9,
+      "fan_in": 9,
+      "fan_out": 0,
+      "changes_any_class": true,
+      "rank": 3,
+      "resolves_to": "II (channelled)",
+      "note": "Same lifecycle stage as the United Kingdom but resolves differently: enacted rather than scheduled (no gazetted commencement date), and inbound edges resolve to a channelled Category II rather than a clean Category I because the enacted gate is approval-based.",
+      "mechanical_fan_rank": 2
+    }
+  ],
+  "insensitive": [
+    {
+      "jurisdiction": "US",
+      "trigger_id": "us-clarity-act-enacted",
+      "trigger_kind": "contingent-no-date",
+      "timing": "no gazetted date",
+      "both_directions": false,
+      "edges_reclassified": 0,
+      "fan_in": 0,
+      "fan_out": 0,
+      "changes_any_class": false,
+      "rank": null,
+      "reason": "contingent-not-class-change",
+      "note": "A pending enactment that hardens a binding status without moving any feasibility class — the baseline class is already in force, so no corridor moves."
+    },
+    {
+      "jurisdiction": "SG",
+      "trigger_id": "sg-scs-legislation-enacted",
+      "trigger_kind": "contingent-not-class-change",
+      "timing": "no gazetted date",
+      "both_directions": false,
+      "edges_reclassified": 0,
+      "fan_in": 0,
+      "fan_out": 0,
+      "changes_any_class": false,
+      "rank": null,
+      "reason": "contingent-not-class-change",
+      "note": "A pending enactment that hardens a binding status without moving any feasibility class — the baseline class is already in force, so no corridor moves."
+    },
+    {
+      "jurisdiction": "CN",
+      "trigger_id": null,
+      "trigger_kind": "resolved-tightening-open-relaxation",
+      "timing": "no positive trigger (stable prohibition)",
+      "both_directions": false,
+      "edges_reclassified": 0,
+      "fan_in": 0,
+      "fan_out": 0,
+      "changes_any_class": false,
+      "rank": null,
+      "reason": "prohibition",
+      "note": "The prohibition destination is insensitive: no positive trigger can reach an inbound edge blocked by an issuance prohibition, so every edge terminating in the People's Republic of China is stable across the entire pending set."
+    }
+  ],
+  "disagreement_as_finding": {
+    "observation": "Taiwan's inbound fan (9 edges) is mechanically one larger than the United Kingdom's (8), because Taiwan is not itself a token-holder, so all 9 token-holding origins point inbound to it, whereas the United Kingdom's own self-edge is excluded. A breadth-only ranking would place Taiwan above the United Kingdom among the regime-in-transition destinations.",
+    "resolution": "The paper places the United Kingdom ahead on its stated tie-breakers: timing certainty (the United Kingdom has a gazetted 2027-10-25 commencement; Taiwan's is ungazetted) and resolution class (the United Kingdom resolves to a clean Category I; Taiwan to a channelled Category II). Breadth is mechanical; the tie-breakers are the paper's.",
+    "handling": "Recorded, not hidden: the layer keeps both the mechanical fan counts and the paper's ordering, and surfaces the divergence as a disagreement-as-finding — consistent with the computed-vs-authored reconciliation discipline (computed reproduces authored where they agree; where they diverge, the divergence is the finding).",
+    "feeds": "reconciliation"
+  },
+  "provenance": {
+    "clean": true,
+    "asserts_new_facts": false,
+    "note": "Every count is derived edge-by-edge from computed_corridor_states.json, itself a re-derivation of the signal compose(). The layer reshapes and orders; it introduces no fact.",
+    "reproduces": {
+      "KR_edges": 20,
+      "UK_edges": 8,
+      "TW_fan_in": 9
+    }
+  }
+}

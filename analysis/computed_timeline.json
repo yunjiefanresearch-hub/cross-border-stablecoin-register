@@ -1,7 +1,7 @@
 {
   "schema": "cbsr-analysis/computed_timeline",
   "status": "preview",
-  "as_of_base": "2026-06-27",
+  "as_of_base": "2026-06-30",
   "method": "Date-aware compose(): signals_as_of(date) applies every scheduled/in_force event in the event calendar with effective_date <= date, then re-runs the Atlas algorithm. Contingent events (a bill not yet enacted) are never applied by date — they are shown as hypothetical 'class_if_enacted' branches. Every event is a tier1_legal change in law backed by tier1_legal records (enforced); a market launch is never an event. NOT asserted authoritative.",
   "event_provenance": {
     "clean": true,
@@ -18,6 +18,7 @@
       "effective_date": "2027-10-25",
       "precision": "day",
       "claim_class": "tier1_legal",
+      "trigger_kind": "fully-scheduled",
       "effect": [
         {
           "field": "regime_status",
@@ -31,7 +32,7 @@
         }
       ],
       "basis": "FSMA 2026 framework via SI 2026/102: made 4 Feb 2026; the BoE systemic-stablecoin regime and FCA conduct regime become operative on full commencement 25 Oct 2027.",
-      "date_basis": "Gazetted commencement DAY: SI 2026/102 (FSMA 2000 (Cryptoassets) Regulations 2026) made 4 Feb 2026, full commencement 25 Oct 2027 (preparatory provisions from 25 Feb 2026). precision=day — a specific commencement date, not a modelled year.",
+      "date_basis": "Gazetted commencement DAY: SI 2026/102 (FSMA 2000 (Cryptoassets) Regulations 2026) made 4 Feb 2026, full commencement 25 Oct 2027 (preparatory provisions from 25 Feb 2026). precision=day; a specific commencement date, not a modelled year.",
       "records": [
         "uk-frs-regulatory_authority-001"
       ],
@@ -40,31 +41,27 @@
     {
       "id": "tw-vas-act-enacted",
       "jurisdiction": "TW",
-      "title": "Taiwan Virtual Asset Service Act enacted (issuer licensing regime live)",
+      "title": "Taiwan Virtual Asset Service Act commencement (subsidiary legislation brings the issuer regime into force)",
       "status": "contingent",
       "effective_date": null,
       "precision": "none",
-      "trigger": "Enactment and commencement of the Virtual Asset Service Act (currently a bill at the Executive Yuan).",
+      "trigger": "Commencement of the enacted Virtual Asset Service Act through its subsidiary legislation. The Act passed third reading on 30 Jun 2026; commencement awaits FSC subordinate rules and carries no gazetted date.",
       "claim_class": "tier1_legal",
+      "trigger_kind": "enacted-not-commenced",
       "effect": [
         {
           "field": "regime_status",
-          "from": "pre_regime",
+          "from": "transition",
           "to": "live"
         },
         {
-          "field": "exportable_token",
-          "from": false,
-          "to": true
-        },
-        {
           "field": "inbound_gate",
-          "from": "pre_regime",
+          "from": "transition",
           "to": "channel"
         }
       ],
-      "basis": "Draft Virtual Asset Service Act (Executive Yuan referral); tw-frs-issuer_pathway-001 carries the draft provisions as status=proposed.",
-      "date_basis": "No firm enactment date; inbound_gate target ('channel') is provisional pending the enacted text. The Legislative Yuan Finance Committee completed the article-by-article first review (初審) on 3 Jun 2026 and resolved to send the bill to the plenary (no caucus negotiation), but it has NOT passed third reading. Procedurally more advanced than KR's DABA (still in subcommittee).",
+      "basis": "Virtual Asset Service Act enacted at third reading 30 Jun 2026; tw-frs-issuer_pathway-001 carries the enacted provisions as status=transitional (binding_status=made_not_commenced), awaiting FSC subsidiary legislation.",
+      "date_basis": "Enacted at third reading on 30 Jun 2026, the dateline of this draft; commencement awaits subsidiary legislation (the FSC has flagged roughly nine subordinate items on an indicative timetable around Q1 2027), and no commencement date is gazetted, so this trigger is applied by no date. The Legislative Yuan Finance Committee completed the article-by-article first review (初審) on 3 Jun 2026 and resolved to send the bill to the plenary; third reading followed on 30 Jun 2026. On commencement the inbound gate moves to a channelled Category II route; the origin edges stay Category III, because enactment alone creates no exportable, comprehensively authorizable private token (issuers must still be licensed and issue under the new regime). Procedurally now ahead of KR's DABA, still in subcommittee.",
       "records": [
         "tw-frs-issuer_pathway-001"
       ]
@@ -78,6 +75,7 @@
       "precision": "none",
       "trigger": "Enactment and commencement of the Digital Asset Basic Act (currently a bill).",
       "claim_class": "tier1_legal",
+      "trigger_kind": "contingent-no-date",
       "effect": [
         {
           "field": "regime_status",
@@ -106,12 +104,13 @@
       "jurisdiction": "JP",
       "title": "Japan Act No. 66 of 2025 full enforcement (trust-type reserve relaxation)",
       "status": "scheduled",
-      "effective_date": "2026-06-13",
+      "effective_date": "2026-06-01",
       "precision": "day",
       "claim_class": "tier1_legal",
+      "trigger_kind": "dated-empty-effect",
       "effect": [],
       "basis": "Act No. 66 of 2025 relaxing trust-type reserve rules; refines an already-live EPI regime.",
-      "date_basis": "Full enforcement scheduled 13 Jun 2026 (Cabinet orders pending as of the base date). Effect on compose() is NONE — Japan is already 'live'; this refines reserve rules, not the inbound gate. Included to show the calendar distinguishes a change in law from a change in feasibility class.",
+      "date_basis": "Act No. 66 of 2025 promulgated 13 Jun 2025; took effect 1 Jun 2026 and is now in force as of the base date. Effect on compose() is NONE (control case): Japan is already 'live', so relaxing trust-type reserve composition moves no inbound gate and changes no edge class. Included to show the calendar distinguishes a change in law from a change in feasibility class. The same-date Cabinet Office Ordinance recognising equivalent foreign trust-type stablecoins is an inbound recognition pathway handled by conditioning (the existing Category II channelled treatment), not by asserting a class change here.",
       "records": [
         "jp-epi-reserve_backing-001"
       ]
@@ -125,6 +124,7 @@
       "precision": "none",
       "trigger": "Enactment of the Digital Asset Market Clarity Act (H.R. 3633). On the Senate Legislative Calendar as Calendar No. 423 (reported 1 Jun 2026); still requires Senate floor passage, reconciliation with the Senate Agriculture and House versions, and Presidential signature.",
       "claim_class": "tier1_legal",
+      "trigger_kind": "contingent-no-date",
       "effect": [
         {
           "field": "binding_status (us bank_nonbank_routing)",
@@ -160,6 +160,7 @@
       "precision": "none",
       "trigger": "Enactment of the implementing legislation for the MAS Single-Currency Stablecoin (SCS) framework (finalised 15 Aug 2023). MAS announced at the Nov 2025 Singapore FinTech Festival that it was ready to begin drafting; the framework is expected to take effect in mid-2026.",
       "claim_class": "tier1_legal",
+      "trigger_kind": "contingent-not-class-change",
       "effect": [
         {
           "field": "binding_status (sg SCS-specific cells)",
@@ -189,12 +190,77 @@
         "sg-scs-monetary_sovereignty-001",
         "sg-scs-issuer_pathway-001"
       ]
+    },
+    {
+      "id": "eu-mica-art143-transitional-expiry",
+      "jurisdiction": "EU",
+      "title": "EU MiCA Article 143(3) transitional grandfathering expiry (national side-doors close; admissible-token set narrows)",
+      "status": "scheduled",
+      "effective_date": "2026-07-01",
+      "precision": "day",
+      "claim_class": "tier1_legal",
+      "trigger_kind": "intra-regime-gating",
+      "effect": [],
+      "basis": "MiCA Article 143(3) (Reg. (EU) 2023/1114) transitional grandfathering for CASPs providing services under pre-existing national law. eu-emt-regulatory_authority-001 carries the corrected staggered framing; this event carries the dated national schedule structurally so compose()/timeline can reflect it.",
+      "date_basis": "1 July 2026 is the OUTER CAP: the longest window any Member State could grant under Article 143(3); ESMA has confirmed no extension. Beneath the cap the national windows are staggered and most have already closed: France, Malta and Luxembourg run the full window (to 1 July 2026); Germany and Ireland closed at 12 months (end 2025); Sweden at 9 months (late 2025); Finland, Latvia, Lithuania, Hungary, the Netherlands, Poland and Slovenia at 6 months (mid-2025). The deadline that binds a given corridor is the EARLIEST among the Member States it touches, not the cap. effective_date is set to the outer cap for the timeline; because the effect on feasibility class is empty (intra-regime gating, not a class transition), no compose() horizon shifts on this date.",
+      "staggered_national_windows": [
+        {
+          "member_states": [
+            "FR",
+            "MT",
+            "LU"
+          ],
+          "window_months": 18,
+          "closes": "2026-07-01",
+          "status": "full outer-cap window"
+        },
+        {
+          "member_states": [
+            "DE",
+            "IE"
+          ],
+          "window_months": 12,
+          "closes": "2025-12-30",
+          "status": "closed"
+        },
+        {
+          "member_states": [
+            "SE"
+          ],
+          "window_months": 9,
+          "closes": "2025-09-30",
+          "status": "closed"
+        },
+        {
+          "member_states": [
+            "FI",
+            "LV",
+            "LT",
+            "HU",
+            "NL",
+            "PL",
+            "SI"
+          ],
+          "window_months": 6,
+          "closes": "2025-06-30",
+          "status": "closed"
+        }
+      ],
+      "second_order": {
+        "development": "expected secondary authorization for the custody and transfer of electronic-money tokens (EMTs)",
+        "status": "open, no commencement to apply by date",
+        "note": "recorded alongside the transitional expiry as the related second-order EU development; bears on Interaction Set D (reserve composition jointly binding with monetary sovereignty), not on any feasibility class."
+      },
+      "scope_note": "Intra-regime gating: the directed model's feasibility classes capture whether a corridor can be authorized at all and by construction do not capture a change that alters WHO may operate within an already-live regime. This event closes national side-doors and narrows the set of admissible tokens without moving any class; the flagship treats the class-sensitivity measure's blind spot to this category as a stated scope limitation (§6).",
+      "records": [
+        "eu-emt-regulatory_authority-001"
+      ]
     }
   ],
   "edge_timelines": [
     {
       "edge": "EU->US",
-      "as_of_base": "2026-06-27",
+      "as_of_base": "2026-06-30",
       "today_class": "II",
       "scheduled_transitions": [],
       "pending_contingent": [
@@ -213,7 +279,7 @@
     },
     {
       "edge": "HK->BR",
-      "as_of_base": "2026-06-27",
+      "as_of_base": "2026-06-30",
       "today_class": "II",
       "scheduled_transitions": [],
       "pending_contingent": [],
@@ -221,7 +287,7 @@
     },
     {
       "edge": "HK->CN",
-      "as_of_base": "2026-06-27",
+      "as_of_base": "2026-06-30",
       "today_class": "blocked",
       "scheduled_transitions": [],
       "pending_contingent": [],
@@ -229,7 +295,7 @@
     },
     {
       "edge": "HK->US",
-      "as_of_base": "2026-06-27",
+      "as_of_base": "2026-06-30",
       "today_class": "II",
       "scheduled_transitions": [],
       "pending_contingent": [
@@ -248,7 +314,7 @@
     },
     {
       "edge": "JP->US",
-      "as_of_base": "2026-06-27",
+      "as_of_base": "2026-06-30",
       "today_class": "II",
       "scheduled_transitions": [],
       "pending_contingent": [
@@ -267,7 +333,7 @@
     },
     {
       "edge": "SG->HK",
-      "as_of_base": "2026-06-27",
+      "as_of_base": "2026-06-30",
       "today_class": "I",
       "scheduled_transitions": [],
       "pending_contingent": [
@@ -286,7 +352,7 @@
     },
     {
       "edge": "US->EU",
-      "as_of_base": "2026-06-27",
+      "as_of_base": "2026-06-30",
       "today_class": "I",
       "scheduled_transitions": [],
       "pending_contingent": [
@@ -305,7 +371,7 @@
     },
     {
       "edge": "US->HK",
-      "as_of_base": "2026-06-27",
+      "as_of_base": "2026-06-30",
       "today_class": "I",
       "scheduled_transitions": [],
       "pending_contingent": [
@@ -324,7 +390,7 @@
     },
     {
       "edge": "US->JP",
-      "as_of_base": "2026-06-27",
+      "as_of_base": "2026-06-30",
       "today_class": "II",
       "scheduled_transitions": [],
       "pending_contingent": [
@@ -345,7 +411,7 @@
   "illustration_edge_timelines": [
     {
       "edge": "US->UK",
-      "as_of_base": "2026-06-27",
+      "as_of_base": "2026-06-30",
       "today_class": "T",
       "scheduled_transitions": [
         {
@@ -386,7 +452,7 @@
     },
     {
       "edge": "UK->US",
-      "as_of_base": "2026-06-27",
+      "as_of_base": "2026-06-30",
       "today_class": "II",
       "scheduled_transitions": [
         {
@@ -417,7 +483,7 @@
     },
     {
       "edge": "EU->UK",
-      "as_of_base": "2026-06-27",
+      "as_of_base": "2026-06-30",
       "today_class": "T",
       "scheduled_transitions": [
         {
@@ -447,7 +513,7 @@
     },
     {
       "edge": "UK->EU",
-      "as_of_base": "2026-06-27",
+      "as_of_base": "2026-06-30",
       "today_class": "I",
       "scheduled_transitions": [
         {
@@ -467,7 +533,7 @@
     },
     {
       "edge": "HK->UK",
-      "as_of_base": "2026-06-27",
+      "as_of_base": "2026-06-30",
       "today_class": "T",
       "scheduled_transitions": [
         {
@@ -498,7 +564,7 @@
   ],
   "undirected_agreement_over_time": [
     {
-      "as_of": "2026-06-27",
+      "as_of": "2026-06-30",
       "undirected_agreement": "64/66",
       "transition_caveated_pairs": {
         "count": 8,
@@ -527,7 +593,36 @@
       ]
     },
     {
-      "as_of": "2026-06-13",
+      "as_of": "2026-06-01",
+      "undirected_agreement": "64/66",
+      "transition_caveated_pairs": {
+        "count": 8,
+        "pairs": [
+          "UK-US",
+          "EU-UK",
+          "SG-UK",
+          "HK-UK",
+          "BR-UK",
+          "CH-UK",
+          "AE-UK",
+          "JP-UK"
+        ]
+      },
+      "residual_findings": [
+        {
+          "pair": "UK-US",
+          "computed": "I/II*",
+          "authored": "I"
+        },
+        {
+          "pair": "EU-UK",
+          "computed": "I/II*",
+          "authored": "I"
+        }
+      ]
+    },
+    {
+      "as_of": "2026-07-01",
       "undirected_agreement": "64/66",
       "transition_caveated_pairs": {
         "count": 8,

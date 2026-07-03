@@ -261,8 +261,8 @@ for cell in ["aml_kyc","regulatory_authority","issuer_pathway","capital_requirem
       note="Lei 14.478/2022 is enacted framework law (binding status recorded); original-language text not line-verified in this pass, so the cell stays firm_summary.")
 
 # ---- TW / KR draft issuer regimes -> pending_proposal (in-force AML/user-protection layer left as verified) ----
-D["tw-frs-issuer_pathway-001"]=dict(binding_status="pending_proposal",
-  note="The TW issuer regime rests on the draft Virtual Asset Service Act (a bill); kept proposed. The in-force AML-registration layer is recorded separately.")
+D["tw-frs-issuer_pathway-001"]=dict(binding_status="made_not_commenced",
+  note="The TW issuer regime rests on the Virtual Asset Service Act, enacted at third reading 30 Jun 2026 but not commenced; status transitional, binding made_not_commenced. The in-force AML-registration layer is recorded separately.")
 D["kr-frs-issuer_pathway-001"]=dict(binding_status="pending_proposal",
   note="The KR issuer regime rests on the draft Digital Asset Basic Act (a bill); kept proposed. The in-force VAUPA layer is recorded separately.")
 
@@ -412,13 +412,14 @@ D["kr-frs-implementation_status-001"]=dict(binding_status="in_force_enacted",
         "Overall characterisation (pending, H2 2026 goal, uncertain) is confirmed."))
 
 # ---- TW: confirmed accurate and current (3 Jun 2026 first review captured); record the native-lang confirmation ----
-D["tw-frs-issuer_pathway-001"]=dict(binding_status="pending_proposal",
-  note=("The TW issuer regime rests on the draft Virtual Asset Service Act (虛擬資產服務法), a bill; kept proposed. "
-        "NATIVE-LANGUAGE VERIFICATION (Chinese): confirmed against official FSC text — the Legislative Yuan Finance "
+D["tw-frs-issuer_pathway-001"]=dict(binding_status="made_not_commenced",
+  note=("The TW issuer regime rests on the Virtual Asset Service Act (虛擬資產服務法), enacted at third reading 30 Jun 2026 "
+        "and moved from proposed to transitional (binding made_not_commenced). NATIVE-LANGUAGE VERIFICATION (Chinese): "
+        "confirmed against official FSC text: the Legislative Yuan Finance "
         "Committee completed the article-by-article first review (初審) on 3 Jun 2026 and resolved to send it to the "
-        "plenary (no caucus negotiation), but it has NOT passed third reading. The draft stablecoin provisions match "
+        "plenary (no caucus negotiation); third reading followed on 30 Jun 2026. The stablecoin provisions match "
         "the register (FSC permission + prior central-bank consent; issuer = share company; min capital set by FSC; "
-        "par issuance/redemption; no interest; reserves at domestic FIs, segregated). Procedurally more advanced than "
+        "par issuance/redemption; no interest; reserves at domestic FIs, segregated). Procedurally ahead of "
         "KR's DABA (still in subcommittee). The in-force VASP-AML registration layer is recorded separately."))
 D["tw-frs-aml_kyc-001"]=dict(binding_status="in_force_enacted",tier="resolution_text",status="in_force",
   url="https://law.moj.gov.tw/",
@@ -508,7 +509,7 @@ def apply():
         f.write_text(yaml.safe_dump(d, sort_keys=False, allow_unicode=True, width=110), encoding="utf-8")
         fb += 1
     # 3) emit the ledger audit trail
-    out = {"schema": "cbsr/verification_ledger", "version": "v0.9.7",
+    out = {"schema": "cbsr/verification_ledger", "version": "v0.9.9",
            "performed_by": f"{VERIFIED_BY}, {VERIFIED_ON}",
            "discipline": ("Citability is capped by the binding status of the cited instrument, independent of "
                           "whether the official text was located. resolution_text is applied ONLY where "

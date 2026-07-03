@@ -18,8 +18,8 @@ keywords:
   - MiCA
   - GENIUS Act
 license: CC-BY-4.0
-version: "0.9.7"
-date-released: "2026-06-27"
+version: "0.9.9"
+date-released: "2026-06-30"
 doi: "10.5281/zenodo.20730358"
 identifiers:
   - type: other

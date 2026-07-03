@@ -1,0 +1,192 @@
+{
+  "register": "Cross-Border Stablecoin Register",
+  "version": "0.9.9",
+  "generated": "2026-07-03",
+  "endpoint": "convergence",
+  "guardrail": "static projection of the public register; no facts added here",
+  "data": {
+    "schema": "cbsr-analysis/computed_convergence",
+    "version": "v0.9.9",
+    "dimension": "permitted_activity_yield",
+    "method": "Reshapes the existing permitted_activity_yield cells (one per jurisdiction) into the cross-jurisdiction view the flagship §4.5 describes. Asserts NO new facts: every field is copied from a record. The functional boundary and its per-jurisdiction placement are read from the records' binding_status / evidence_tier / source.",
+    "finding": "Independent legislative systems are converging on the same functional boundary around stablecoin yield: yield paid for merely HOLDING the instrument is prohibited, while ACTIVITY-LINKED rewards are permitted. The boundary is decided by the same functional test across jurisdictions (conversion-direction, ownership-disclosure, timing-independence, yield-attribution, audit-trail — the Architecture paper's test).",
+    "discipline": "Convergence is asserted at citable depth ONLY where the cell is tier1_legal + in_force_enacted + resolution_text AND both sides of the functional line are documented — which today is the United States alone. Singapore is recorded as a sibling restriction. In-force one-sided holder-yield prohibitions (EU, HK, JP, AE) are recorded on the prohibited side but the two-sided line is carried as backlog for them, not asserted as drawing the same line. Switzerland is the documented counter-example. Drafts are flagged as would-align-if-enacted. This is the register's own citable-purity discipline; it is what keeps the convergence a finding, not an impression.",
+    "anchor": {
+      "record_id": "us-pss-permitted_activity_yield-001",
+      "jurisdiction": "US",
+      "binding_status": "in_force_enacted",
+      "evidence_tier": "resolution_text",
+      "claim_class": "tier1_legal",
+      "instrument": "GENIUS Act §4(a)(11); OCC NPRM §15.10(c)(4) / anti-evasion §15.10(c)(6); FDIC NPRM §350.3(b)(4); CLARITY Act (H.R. 3633) §404(c)(1) (Tillis-Alsobrooks text, 1 May 2026; affirmed final 5 May 2026)",
+      "pinpoint": "GENIUS Act Sec. 4(a)(11) (no interest/yield in connection with holding, use, or retention)",
+      "url": "https://www.federalregister.gov/documents/2025/09/19/2025-18226/genius-act-implementation",
+      "citable": true,
+      "role": "anchor",
+      "line_both_sides": {
+        "holder_yield": "prohibited — GENIUS Act §4(a)(11): no interest/yield 'in connection with the holding, use, or retention' of a payment stablecoin (in force).",
+        "activity_rewards": "permitted — the pending market-structure layer (Senate Banking substitute, Tillis–Alsobrooks compromise) allows stablecoin rewards / activity-linked incentives while prohibiting yield for holding a balance (carried as a flagged pending overlay)."
+      }
+    },
+    "sibling": {
+      "record_id": "sg-scs-permitted_activity_yield-001",
+      "jurisdiction": "SG",
+      "binding_status": "finalized_policy_pending",
+      "evidence_tier": "firm_summary",
+      "claim_class": "tier1_legal",
+      "instrument": "MAS Single-Currency Stablecoin framework (Aug 2023) — issuer activity restrictions",
+      "pinpoint": "SCS framework: no lending/staking by SCS issuers; SGD/G10 label scope",
+      "url": "https://www.mas.gov.sg/news/media-releases/2023/mas-finalises-stablecoin-regulatory-framework",
+      "citable": false,
+      "role": "sibling",
+      "sibling_form": "The MAS Single-Currency Stablecoin framework forbids the issuer from lending or staking the reserve, holding the token to a pure means of payment rather than a yield product — a sibling expression of the same principle. binding_status=finalized_policy_pending, so not asserted at citable depth."
+    },
+    "counter_example": {
+      "record_id": "ch-frs-permitted_activity_yield-001",
+      "jurisdiction": "CH",
+      "binding_status": "in_force_enacted",
+      "evidence_tier": "resolution_text",
+      "claim_class": "tier1_legal",
+      "instrument": "FINMA Guidance 06/2024; Banking Ordinance Art. 5(3)(f)",
+      "pinpoint": "Yield permitted; bank guarantee must cover interest (structural constraint, not prohibition)",
+      "url": "https://www.finma.ch/en/news/2024/07/20240726-m-am-06-24-stablecoins/",
+      "citable": true,
+      "role": "counter_example",
+      "counter_form": "Paying yield to holders is NOT prohibited — the clearest survey example of a regime where holder yield is permitted but structurally constrained (FINMA Guidance 06/2024; the bank guarantee must cover interest). Recorded explicitly so the convergence is not overstated."
+    },
+    "holder_prohibition_in_force": [
+      {
+        "record_id": "eu-emt-permitted_activity_yield-001",
+        "jurisdiction": "EU",
+        "binding_status": "in_force_enacted",
+        "evidence_tier": "resolution_text",
+        "claim_class": "tier1_legal",
+        "instrument": "Regulation (EU) 2023/1114 (MiCA), Article 50",
+        "pinpoint": "Art. 50 (no interest paid to EMT holders)",
+        "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj/eng",
+        "citable": true,
+        "side": "holder-yield-prohibited (in force)",
+        "two_sided_line_status": "backlog — the holder-yield prohibition is in force and citable-quality, but the activity-rewards-permitted half is not yet verified for this jurisdiction, so the full two-sided convergence line is not asserted here."
+      },
+      {
+        "record_id": "hk-frs-permitted_activity_yield-001",
+        "jurisdiction": "HK",
+        "binding_status": "in_force_enacted",
+        "evidence_tier": "resolution_text",
+        "claim_class": "tier1_legal",
+        "instrument": "Stablecoins Ordinance (Cap. 656), Schedule 2, s.15 (Non-interest bearing)",
+        "pinpoint": "Sch. 2 s.15 (no interest on issued stablecoins)",
+        "url": "https://www.elegislation.gov.hk/hk/cap656",
+        "citable": true,
+        "side": "holder-yield-prohibited (in force)",
+        "two_sided_line_status": "backlog — the holder-yield prohibition is in force and citable-quality, but the activity-rewards-permitted half is not yet verified for this jurisdiction, so the full two-sided convergence line is not asserted here."
+      },
+      {
+        "record_id": "jp-epi-permitted_activity_yield-001",
+        "jurisdiction": "JP",
+        "binding_status": "in_force_enacted",
+        "evidence_tier": "resolution_text",
+        "claim_class": "tier1_legal",
+        "instrument": "Payment Services Act (Electronic Payment Instruments regime)",
+        "pinpoint": "Yield — holders not remunerated; issuer earns reserve interest",
+        "url": "https://laws.e-gov.go.jp/",
+        "citable": true,
+        "side": "holder-yield-prohibited (in force)",
+        "two_sided_line_status": "backlog — the holder-yield prohibition is in force and citable-quality, but the activity-rewards-permitted half is not yet verified for this jurisdiction, so the full two-sided convergence line is not asserted here."
+      },
+      {
+        "record_id": "ae-pt-permitted_activity_yield-001",
+        "jurisdiction": "AE",
+        "binding_status": "in_force_enacted",
+        "evidence_tier": "resolution_text",
+        "claim_class": "tier1_legal",
+        "instrument": "CBUAE PTSR (Circular 2/2024); ADGM-FSRA FRT framework",
+        "pinpoint": "Yield — prohibited onshore; ADGM permits reserve income but bans investment/savings promotion",
+        "url": "https://rulebook.centralbank.ae/en/rulebook/payment-token-services-regulation",
+        "citable": true,
+        "side": "holder-yield-prohibited (in force)",
+        "two_sided_line_status": "backlog — the holder-yield prohibition is in force and citable-quality, but the activity-rewards-permitted half is not yet verified for this jurisdiction, so the full two-sided convergence line is not asserted here."
+      }
+    ],
+    "draft_would_align": [
+      {
+        "record_id": "kr-frs-permitted_activity_yield-001",
+        "jurisdiction": "KR",
+        "binding_status": "pending_proposal",
+        "evidence_tier": "firm_summary",
+        "claim_class": "tier1_legal",
+        "instrument": "Draft Digital Asset Basic Act (Value-Stabilised Assets Act track)",
+        "pinpoint": "Yield (draft) — prohibition on interest/discounts to holders; NOT in force",
+        "url": "https://opinion.lawmaking.go.kr/gcom/nsmLmSts/out/2210736/detailRP",
+        "citable": false,
+        "side": "holder-yield-prohibited (DRAFT — not in force)",
+        "status_note": "The draft prohibits interest/returns to holders; would align this jurisdiction with the prohibited side if enacted (see the contingent event in the event calendar)."
+      },
+      {
+        "record_id": "tw-frs-permitted_activity_yield-001",
+        "jurisdiction": "TW",
+        "binding_status": "pending_proposal",
+        "evidence_tier": "firm_summary",
+        "claim_class": "tier1_legal",
+        "instrument": "Draft Virtual Asset Service Act",
+        "pinpoint": "Yield (draft) — prohibition on interest/other returns; NOT in force",
+        "url": "https://english.ey.gov.tw/",
+        "citable": false,
+        "side": "holder-yield-prohibited (DRAFT — not in force)",
+        "status_note": "The draft prohibits interest/returns to holders; would align this jurisdiction with the prohibited side if enacted (see the contingent event in the event calendar)."
+      }
+    ],
+    "backlog_or_not_applicable": [
+      {
+        "record_id": "uk-frs-permitted_activity_yield-001",
+        "jurisdiction": "UK",
+        "binding_status": "pending_proposal",
+        "evidence_tier": null,
+        "claim_class": "tier1_legal",
+        "instrument": "SI 2026/102 (silent on yield); Bank of England Nov 2025 materials (60/40 backing; pass-through constrained)",
+        "pinpoint": "BoE Nov 2025 backing-split / pass-through position; FCA rules pending",
+        "url": null,
+        "citable": false,
+        "status_note": "Backlog: yield is not expressly addressed in SI 2026/102; the BoE Nov-2025 pass-through position and FCA rules are pending (pending_proposal)."
+      },
+      {
+        "record_id": "br-vasp-permitted_activity_yield-001",
+        "jurisdiction": "BR",
+        "binding_status": "in_force_enacted",
+        "evidence_tier": "firm_summary",
+        "claim_class": "tier1_legal",
+        "instrument": "Lei 14.478/2022 (Marco Legal dos Ativos Virtuais); BCB implementing rulemaking",
+        "pinpoint": "Res BCB 520/2025 (VASPs may not offer credit to clients or raise funds from the public except via share issuance; client virtual assets may not be used for proprietary operations except staking and qualified/professional-investor transactions)",
+        "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=520",
+        "citable": false,
+        "status_note": "Backlog: the VASP framework and BCB implementing rulemaking are still being finalized (firm_summary); pass-through treatment not yet at resolution_text depth."
+      },
+      {
+        "record_id": "cn-prc-permitted_activity_yield-001",
+        "jurisdiction": "CN",
+        "binding_status": "prohibition",
+        "evidence_tier": null,
+        "claim_class": "tier1_legal",
+        "instrument": "PBOC et al. Notice on Preventing Token Fundraising Risks (2017); related circulars",
+        "pinpoint": "Prohibition context — no permitted issuer to which a yield rule could attach",
+        "url": null,
+        "citable": false,
+        "status_note": "Not applicable: private issuance is prohibited, so there is no lawful domestic issuer to which a yield rule could attach; the yield question does not arise."
+      }
+    ],
+    "summary_counts": {
+      "citable_two_sided_anchor": 1,
+      "sibling": 1,
+      "counter_example": 1,
+      "holder_prohibition_in_force_one_side_citable": 4,
+      "draft_would_align": 2,
+      "backlog_or_not_applicable": 3,
+      "total_jurisdictions": 12
+    },
+    "provenance": {
+      "clean": true,
+      "asserts_new_facts": false,
+      "note": "Every field is copied from an existing permitted_activity_yield record; this product only reshapes and tiers them.",
+      "generalizes_to": "The same shape applies to monetary_sovereignty and other typed dimensions; convergence is checkable because yield is one of the typed dimensions every jurisdiction record carries."
+    }
+  }
+}

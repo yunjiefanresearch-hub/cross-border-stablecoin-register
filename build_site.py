@@ -364,6 +364,8 @@ table.rtbl .tcref{font-family:var(--mono);font-size:11px;color:var(--accent)}
         <span class="reg-tag">Open Register · v__VERSION__</span>
       </div>
       <nav class="mast-links">
+        <a class="mlink" href="./corridors.html"><b>Corridor explorer</b></a>
+        <a class="mlink" href="./console.html"><b>Register console</b></a>
         <a class="mlink" href="https://doi.org/10.5281/zenodo.20730358">DOI <b>10.5281/zenodo.20730358</b></a>
         <a class="mlink" href="https://github.com/yunjiefanresearch-hub/stablecoin-rail-register">GitHub</a>
         <a class="mlink" href="./dataset.json"><b>dataset.json</b></a>
@@ -490,6 +492,24 @@ table.rtbl .tcref{font-family:var(--mono);font-size:11px;color:var(--accent)}
     <p class="sec-sub">Everything is open, versioned, and machine-readable. Cite the DOI of the version you use.</p>
     <div class="grid">
       <div class="card">
+        <span class="ct">Interactive · flagship</span>
+        <h3><a href="./corridors.html">Corridor explorer</a></h3>
+        <p>The dated feasibility matrix made tangible: a date slider over the register's own scheduled events, what-if switches for each contingent trigger (conditioning, not forecasting), the trigger-kind typology, and the yield-line convergence view. Recomputes the register's compose() in the browser.</p>
+        <span class="go"><a href="./corridors.html">Open explorer →</a></span>
+      </div>
+      <div class="card">
+        <span class="ct">Interactive · methodology</span>
+        <h3><a href="./console.html">Register console</a></h3>
+        <p>A three-axis record browser with a per-record "why not citable" x-ray, the lawyer-citable table with CSV export, the computed-vs-authored reconciliation, the integrity gate, and the verification backlog — the citable-by-construction discipline you can operate.</p>
+        <span class="go"><a href="./console.html">Open console →</a></span>
+      </div>
+      <div class="card">
+        <span class="ct">Static API · no backend</span>
+        <h3><a href="./api/index.json">JSON API</a></h3>
+        <p>A projection of the same dataset into per-endpoint static files — records, jurisdictions, events by kind, corridors, dated states, convergence, citable subset, reconciliation, worklist. Adds no facts; every file carries a provenance envelope.</p>
+        <span class="go"><a href="./api/index.json">Browse API →</a></span>
+      </div>
+      <div class="card">
         <span class="ct">Dataset</span>
         <h3><a href="./dataset.json">dataset.json</a></h3>
         <p>The full compiled register — every record with its source, pinpoint, dates, version and confidence, plus the corridor model.</p>
@@ -527,7 +547,7 @@ table.rtbl .tcref{font-family:var(--mono);font-size:11px;color:var(--accent)}
       </div>
     </div>
     <div class="agentnote">
-      <b>For agents.</b> The register is a single JSON document at <span class="gk">/dataset.json</span>, validated against a published JSON Schema, with a stable <span class="gk">id</span> per record and explicit <span class="gk">source.primary</span> · <span class="gk">source.pinpoint</span> · <span class="gk">claim_class</span> · <span class="gk">evidence_tier</span> · <span class="gk">confidence</span> · <span class="gk">version_added</span> fields. The lawyer-citable subset (<span class="gk">tier1_legal</span> + <span class="gk">in_force</span> + <span class="gk">resolution_text</span>) is precomputed as <span class="gk">citable_subset</span> in the dataset and exposed by the MCP <span class="gk">citable_law()</span> tool. A queryable <span class="gk">MCP server</span> exposes 18 typed tools over this dataset (query, compare_dimension, jurisdiction_profile, citable_law, compatibility, compose_corridor, explain_feasibility, verification_report, …) — or fetch and filter the dataset directly.
+      <b>For agents.</b> The register is a single JSON document at <span class="gk">/dataset.json</span>, validated against a published JSON Schema, with a stable <span class="gk">id</span> per record and explicit <span class="gk">source.primary</span> · <span class="gk">source.pinpoint</span> · <span class="gk">claim_class</span> · <span class="gk">evidence_tier</span> · <span class="gk">confidence</span> · <span class="gk">version_added</span> fields. The lawyer-citable subset (<span class="gk">tier1_legal</span> + <span class="gk">in_force</span> + <span class="gk">resolution_text</span>) is precomputed as <span class="gk">citable_subset</span> in the dataset and exposed by the MCP <span class="gk">citable_law()</span> tool. A queryable <span class="gk">MCP server</span> exposes a suite of typed tools over this dataset (query, compare_dimension, jurisdiction_profile, citable_law, compatibility, compose_corridor, explain_feasibility, verification_report, events_by_kind, convergence, reconciliation, records, …); see <span class="gk">docs/CONNECT_MCP.md</span> to connect it. For zero-setup access, the same views are served as static files under <span class="gk">/api/</span> (manifest at <span class="gk">/api/index.json</span>) — or fetch and filter the dataset directly.
     </div>
   </div>
 </section>
@@ -595,6 +615,11 @@ table.rtbl .tcref{font-family:var(--mono);font-size:11px;color:var(--accent)}
       <div class="rm-row">
         <span class="rm-v">v0.9.7</span>
         <div class="rm-txt"><h4>Native-language official-text verification (CN / KR / TW / BR)</h4><p>Applied the original-language pass that closes the residual flagged earlier. <b>Brazil</b>: the in-force BCB regime (Res 519/520/521, in force 2 Feb 2026) is confirmed against the official Portuguese text, and <b>10 BR cells are promoted to <code>resolution_text</code></b> against the official BCB normativo URLs (citable subset <b>36 → 46</b>); the C3 yield cell leaves <code>pending_proposal</code> for <code>in_force_enacted</code> with a "pass-through unsettled" note. <b>China</b> (material currency fix): the cited 2021 Notice was repealed by 银发〔2026〕42号 (in force 6 Feb 2026); the RMB-pegged-stablecoin overseas-issuance ban is now <b>written, in-force law</b>, not verbal guidance; CN stays the prohibition pole. <b>Korea</b>: softened the over-precise "off the subcommittee" wording and added the won-stablecoin 51% issuer-eligibility dispute. <b>Taiwan</b>: confirmed current (Finance Committee 初審 3 Jun 2026, to plenary), procedurally more advanced than KR. <span class="feat">— shipped</span></p></div>
+        <span class="tag shipped">Shipped</span>
+      </div>
+      <div class="rm-row">
+        <span class="rm-v">v0.9.8</span>
+        <div class="rm-txt"><h4>Source-layer follow-through: matrix, architecture, and corridors carry the 42号 reality</h4><p>The v0.9.7 native-language pass updated the record cells; v0.9.8 propagates the same verified facts into the hand-authored source layers that had lagged. The <b>§5.14 compatibility matrix</b> PRC prohibition axis, the <b>§3.3 architecture</b> PRC boundary (which had read "not by any single explicit prohibition"), the <b>constraint-substrate</b> C1 note, the <b>HK→CN blocked corridor</b> inbound mechanism, and <b>open question §7.2</b> now all cite <b>银发〔2026〕42号</b> (in force 6 Feb 2026, repealing the 2021 Notice; written overseas RMB-pegged-stablecoin issuance ban). The <b>HK→BR corridor</b> record_refs are wired to the now-existing BR records. Six new source-layer invariants (D1–D6) lock this in; the suite is now <b>39 checks</b>. <span class="feat">— shipped</span></p></div>
         <span class="tag shipped">Shipped</span>
       </div>
     </div>

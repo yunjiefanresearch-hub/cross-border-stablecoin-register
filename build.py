@@ -19,6 +19,13 @@ except Exception:
 import json, sys, pathlib, datetime
 import yaml
 
+# README<->build drift gate (see check_readme_counts.py). Guarded so an offline extract without the
+# module still builds; when present, it forbids a drift-prone count from being restated in README.
+try:
+    from check_readme_counts import check_readme_counts as _check_readme_counts
+except Exception:
+    _check_readme_counts = None
+
 # --- schema validation backend: prefer `jsonschema`, fall back to a dependency-free builtin ---------
 # The repo declares `jsonschema` in requirements.txt and CI uses it for full Draft 2020-12 validation.
 # But a fresh OFFLINE extract (no network, package not installed) must still build and self-validate
@@ -116,7 +123,7 @@ ROOT = pathlib.Path(__file__).resolve().parent
 
 # Single source of truth for the dataset/release version. Bump this when tagging
 # a release; keep it in step with README, CITATION.cff, and the schema $id.
-REGISTER_VERSION = "0.9.7"
+REGISTER_VERSION = "0.9.9"
 
 def find(name):
     hits = list(ROOT.rglob(name))
@@ -539,6 +546,20 @@ def load_analysis():
             analysis["computed_corridor_skeletons"] = ckobj
         except json.JSONDecodeError as e:
             errors.append(f"computed_corridor_skeletons.json: invalid JSON ({e})")
+    # optional computed convergence view (the v0.9.9 yield-line §4.5 reshape)
+    cvg = adir / "computed_convergence.json"
+    if cvg.exists():
+        try:
+            cvobj = json.loads(cvg.read_text(encoding="utf-8"))
+            if cvobj.get("schema") != "cbsr-analysis/computed_convergence":
+                errors.append("computed_convergence.json: missing/incorrect 'schema' tag")
+            prov = cvobj.get("provenance", {})
+            if prov.get("clean") is False or prov.get("asserts_new_facts") is True:
+                errors.append("convergence: provenance not clean — this view only reshapes existing "
+                              "permitted_activity_yield records and must assert no new facts")
+            analysis["computed_convergence"] = cvobj
+        except json.JSONDecodeError as e:
+            errors.append(f"computed_convergence.json: invalid JSON ({e})")
     # optional verification ledger (the v0.9.5 external primary-source pass audit trail)
     vl = adir / "verification_ledger.json"
     if vl.exists():
@@ -762,6 +783,9 @@ def main():
     errors += check_evidence_tier_requirements(recs)
     errors += check_binding_status(recs)
     errors += check_verification_ledger(recs, analysis)
+    readme_path = ROOT / "README.md"
+    if _check_readme_counts and readme_path.exists():
+        errors += _check_readme_counts(readme_path.read_text(encoding="utf-8"))
     if errors:
         print("VALIDATION FAILED:")
         for e in errors: print("  -", e)

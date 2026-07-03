@@ -1,0 +1,249 @@
+{
+  "register": "Cross-Border Stablecoin Register",
+  "version": "0.9.9",
+  "generated": "2026-07-03",
+  "endpoint": "jurisdiction",
+  "guardrail": "static projection of the public register; no facts added here",
+  "data": {
+    "jurisdiction": "TW",
+    "records": [
+      {
+        "id": "tw-frs-aml_kyc-001",
+        "jurisdiction": "TW",
+        "dimension": "aml_kyc",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "resolution_text",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Money Laundering Control Act (as amended) + VASP Registration Regulations (in force 30 Nov 2024)",
+        "pinpoint": "Money Laundering Control Act (洗錢防制法) Art. 6 (amended 31 Jul 2024); VASP registration regime in force 30 Nov 2024 (non-registration: up to 2 yr + NT$5m individuals / NT$50m entities); VASPs classified into 5 types",
+        "url": "https://law.moj.gov.tw/"
+      },
+      {
+        "id": "tw-frs-bank_nonbank_routing-001",
+        "jurisdiction": "TW",
+        "dimension": "bank_nonbank_routing",
+        "claim_class": "tier1_legal",
+        "evidence_tier": null,
+        "binding_status": "made_not_commenced",
+        "status": "transitional",
+        "instrument": "Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced)",
+        "pinpoint": "Issuance/routing architecture: delegated to FSC subsidiary legislation (enacted, not commenced)",
+        "url": null
+      },
+      {
+        "id": "tw-frs-capital_requirements-001",
+        "jurisdiction": "TW",
+        "dimension": "capital_requirements",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "made_not_commenced",
+        "status": "transitional",
+        "instrument": "Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced)",
+        "pinpoint": "Capital: FSC to specify (enacted, not commenced; figures pending FSC subsidiary legislation)",
+        "url": "https://english.ey.gov.tw/"
+      },
+      {
+        "id": "tw-frs-cross_border_data-001",
+        "jurisdiction": "TW",
+        "dimension": "cross_border_data",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Personal Data Protection Act (PDPA)",
+        "pinpoint": "Cross-border data — PDPA + competent-authority restrictions",
+        "url": ""
+      },
+      {
+        "id": "tw-frs-disclosure_reporting-001",
+        "jurisdiction": "TW",
+        "dimension": "disclosure_reporting",
+        "claim_class": "tier1_legal",
+        "evidence_tier": null,
+        "binding_status": "made_not_commenced",
+        "status": "transitional",
+        "instrument": "Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced); AML registration regime",
+        "pinpoint": "Disclosure/supervision: take effect on commencement (enacted, not commenced; detail pending subsidiary legislation)",
+        "url": null
+      },
+      {
+        "id": "tw-frs-distribution-001",
+        "jurisdiction": "TW",
+        "dimension": "distribution",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "made_not_commenced",
+        "status": "transitional",
+        "instrument": "Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced)",
+        "pinpoint": "Distribution: offering provisions take effect on commencement (enacted, not commenced; pending FSC subsidiary legislation)",
+        "url": "https://english.ey.gov.tw/"
+      },
+      {
+        "id": "tw-frs-implementation_status-001",
+        "jurisdiction": "TW",
+        "dimension": "implementation_status",
+        "claim_class": "tier2_operational",
+        "evidence_tier": "mixed",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "VASP Registration Regulations (30 Nov 2024); draft Virtual Asset Service Act (committee first review 3 Jun 2026)",
+        "pinpoint": "Timeline — AML reg in force 30 Nov 2024; VASA first review 3 Jun 2026; enactment pending",
+        "url": "https://law.moj.gov.tw/"
+      },
+      {
+        "id": "tw-frs-issuer_pathway-001",
+        "jurisdiction": "TW",
+        "dimension": "issuer_pathway",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "made_not_commenced",
+        "status": "transitional",
+        "instrument": "Virtual Asset Service Act, passed at third reading 30 Jun 2026 (committee first review 3 Jun 2026)",
+        "pinpoint": "Issuer pathway: FSC licence; share company; banks lead. Enacted at third reading, not yet commenced (awaiting subsidiary legislation)",
+        "url": "https://english.ey.gov.tw/"
+      },
+      {
+        "id": "tw-frs-monetary_sovereignty-001",
+        "jurisdiction": "TW",
+        "dimension": "monetary_sovereignty",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "made_not_commenced",
+        "status": "transitional",
+        "instrument": "CBC public statements; draft Virtual Asset Service Act",
+        "pinpoint": "Monetary sovereignty: framework enacted, operative cap and peg-currency decision pending (not commenced)",
+        "url": "https://english.ey.gov.tw/"
+      },
+      {
+        "id": "tw-frs-permitted_activity_yield-001",
+        "jurisdiction": "TW",
+        "dimension": "permitted_activity_yield",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "made_not_commenced",
+        "status": "transitional",
+        "instrument": "Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced)",
+        "pinpoint": "Yield: prohibition on interest/other returns to holders (enacted, not commenced; operative on commencement)",
+        "url": "https://english.ey.gov.tw/"
+      },
+      {
+        "id": "tw-frs-redemption-001",
+        "jurisdiction": "TW",
+        "dimension": "redemption",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "made_not_commenced",
+        "status": "transitional",
+        "instrument": "Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced)",
+        "pinpoint": "Redemption: par issuance and redemption (enacted, not commenced; pending FSC subsidiary legislation)",
+        "url": "https://english.ey.gov.tw/"
+      },
+      {
+        "id": "tw-frs-regulatory_authority-001",
+        "jurisdiction": "TW",
+        "dimension": "regulatory_authority",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "mixed",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Money Laundering Control Act (as amended) + VASP Registration Regulations (in force 30 Nov 2024); draft Virtual Asset Service Act",
+        "pinpoint": "Regulators — FSC primary (consults CBC); AML registration in force; comprehensive act in committee",
+        "url": "https://law.moj.gov.tw/"
+      },
+      {
+        "id": "tw-frs-reserve_backing-001",
+        "jurisdiction": "TW",
+        "dimension": "reserve_backing",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "made_not_commenced",
+        "status": "transitional",
+        "instrument": "Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced)",
+        "pinpoint": "Reserve/backing: full reserves at domestic FIs, segregated (enacted, not commenced; pending FSC subsidiary legislation)",
+        "url": "https://english.ey.gov.tw/"
+      },
+      {
+        "id": "tw-frs-securities_classification-001",
+        "jurisdiction": "TW",
+        "dimension": "securities_classification",
+        "claim_class": "tier1_legal",
+        "evidence_tier": null,
+        "binding_status": "made_not_commenced",
+        "status": "transitional",
+        "instrument": "Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced); AML registration regime for VASPs",
+        "pinpoint": "Securities characterization: within the FSC virtual-asset perimeter (enacted, not commenced; boundary pending subsidiary legislation)",
+        "url": null
+      }
+    ],
+    "citable_cells": [
+      {
+        "id": "tw-frs-aml_kyc-001",
+        "jurisdiction": "TW",
+        "dimension": "aml_kyc",
+        "instrument": "Money Laundering Control Act (as amended) + VASP Registration Regulations (in force 30 Nov 2024)",
+        "pinpoint": "Money Laundering Control Act (洗錢防制法) Art. 6 (amended 31 Jul 2024); VASP registration regime in force 30 Nov 2024 (non-registration: up to 2 yr + NT$5m individuals / NT$50m entities); VASPs classified into 5 types",
+        "url": "https://law.moj.gov.tw/",
+        "last_reviewed": "2026-06-27"
+      }
+    ],
+    "outbound_classes_at_base": {
+      "US": {
+        "class": "III",
+        "rule": "origin_drag:enacted_not_commenced",
+        "origin_override": false
+      },
+      "EU": {
+        "class": "III",
+        "rule": "origin_drag:enacted_not_commenced",
+        "origin_override": false
+      },
+      "UK": {
+        "class": "III",
+        "rule": "origin_drag:enacted_not_commenced",
+        "origin_override": false
+      },
+      "SG": {
+        "class": "III",
+        "rule": "origin_drag:enacted_not_commenced",
+        "origin_override": false
+      },
+      "HK": {
+        "class": "III",
+        "rule": "origin_drag:enacted_not_commenced",
+        "origin_override": false
+      },
+      "CN": {
+        "class": "III",
+        "rule": "origin_drag:enacted_not_commenced",
+        "origin_override": false
+      },
+      "BR": {
+        "class": "III",
+        "rule": "origin_drag:enacted_not_commenced",
+        "origin_override": false
+      },
+      "CH": {
+        "class": "III",
+        "rule": "origin_drag:enacted_not_commenced",
+        "origin_override": false
+      },
+      "AE": {
+        "class": "III",
+        "rule": "origin_drag:enacted_not_commenced",
+        "origin_override": false
+      },
+      "TW": null,
+      "JP": {
+        "class": "III",
+        "rule": "origin_drag:enacted_not_commenced",
+        "origin_override": false
+      },
+      "KR": {
+        "class": "III",
+        "rule": "origin_drag:enacted_not_commenced",
+        "origin_override": false
+      }
+    }
+  }
+}

@@ -1,22 +1,24 @@
-name: build
+name: CI
 
-# Enforces the register's central promise: every record validates against record.schema.json,
-# the analysis layer is structurally well-formed, and the derived artifacts (dataset.json,
-# COVERAGE.md, records.md) regenerate cleanly. Runs on every push and pull request so an invalid
-# record cannot be merged.
+# Auto-runs the same validation and build the repository runs locally, on every push and pull request.
+# It regenerates the computed layer from the living source, then asserts all invariants hold, proves every
+# negative-test gate BITES, checks the README counts, and confirms the derived artifacts are reproducible
+# (so an invalid record, a corridor that contradicts the matrix, or a stale derived artifact cannot merge).
+# This is cloud-side enforcement of the same gates; it does not affect the DOI or the data itself.
 
 on:
   push:
-    branches: [main]
+    branches: [ main, master ]
   pull_request:
-    branches: [main]
+
+permissions:
+  contents: read
 
 jobs:
   validate-and-build:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out the repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -24,30 +26,35 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
+        # jsonschema gives full JSON Schema Draft 2020-12 validation; build.py degrades gracefully to a
+        # built-in structural validator if it is absent, so a fresh offline extract still builds green.
+        run: python -m pip install -r requirements.txt
+
+      - name: Rebuild the computed layer from the living source
+        # NOTE: scripts/build_analysis.py and scripts/build_corridors.py are intentionally NOT run here.
+        # The analysis matrix and corridor edges are hand-maintained living artifacts; those generators
+        # would revert them. CI regenerates only the COMPUTED derivatives, which are pure functions of the
+        # living source (records + authored analysis), in dependency order.
         run: |
-          python -m pip install --upgrade pip
-          pip install pyyaml jsonschema
+          python scripts/compose.py
+          python build.py
+          python scripts/build_corridor_states.py
+          python scripts/build_sensitivity.py
+          python scripts/build_settlement.py
+          python build_api.py
+          python build_pages.py
+          python build_site.py
 
-      - name: Rebuild the analysis layer (compatibility matrix, interaction sets, patterns, open questions)
-        run: python scripts/build_analysis.py
+      - name: Invariants — every structural & provenance gate must hold
+        run: python run_invariants.py
 
-      - name: Rebuild the corridor layer (directed edges)
-        run: python scripts/build_corridors.py
+      - name: Negative tests — every validation gate must BITE
+        run: python run_negative_tests.py
 
-      - name: Rebuild the computed layer (compose() preview — computed-vs-authored diff)
-        run: python scripts/compose.py
+      - name: README counts must match the dataset
+        run: python check_readme_counts.py
 
-      - name: Validate all records + analysis layer and regenerate derived artifacts
-        run: python build.py
-
-      - name: Regenerate the static landing page from dataset.json
-        run: python build_site.py
-
-      - name: Fail if the build produced uncommitted changes to derived artifacts
-        run: |
-          if ! git diff --quiet -- dataset.json COVERAGE.md records.md index.html analysis/; then
-            echo "::error::Derived artifacts are out of date. Run build.py + build_site.py and commit the result."
-            git --no-pager diff --stat -- dataset.json COVERAGE.md records.md index.html analysis/
-            exit 1
-          fi
-          echo "Derived artifacts are in sync."
+      - name: No stale derived artifact — regeneration is reproducible (build date ignored)
+        # -I '"generated"' ignores hunks that only change a build timestamp, so this is not date-flaky;
+        # any real structural drift between a committed derivative and its regeneration fails the build.
+        run: git diff --exit-code -I'"generated"' -- dataset.json analysis/ api/

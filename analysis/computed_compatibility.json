@@ -67,11 +67,11 @@
       "basis": "CBUAE PTSR; Foreign Payment Token usage-channel restriction (ae-pt-* records)"
     },
     "TW": {
-      "regime_status": "pre_regime",
-      "inbound_gate": "pre_regime",
+      "regime_status": "transition",
+      "inbound_gate": "transition",
       "exportable_token": false,
       "egress_override": false,
-      "basis": "AML registration in force; VAS Act a bill (tw-frs-issuer_pathway-001 status=proposed)"
+      "basis": "VAS Act enacted at third reading 30 Jun 2026; subsidiary legislation pending, no gazetted commencement; no exportable token yet (tw-frs-issuer_pathway-001 status=transitional)"
     },
     "JP": {
       "regime_status": "live",
@@ -90,12 +90,10 @@
   },
   "pre_regime_crosscheck": {
     "from_signals": [
-      "KR",
-      "TW"
+      "KR"
     ],
     "from_records": [
-      "KR",
-      "TW"
+      "KR"
     ],
     "consistent": true
   },

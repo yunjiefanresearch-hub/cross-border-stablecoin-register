@@ -1,0 +1,166 @@
+{
+  "name": "cross-border-stablecoin-register",
+  "displayName": "Cross-Border Stablecoin Register",
+  "description": "An open, versioned register mapping how jurisdictions regulate stablecoins — clause by clause, across 15 dimensions and 12 jurisdictions — exposed as typed MCP tools over the committed dataset.json. No network, no synthesis: every tool filters and reshapes the published register, and every returned record carries its source, pinpoint, claim_class, evidence_tier and version.",
+  "version": "0.9.9",
+  "homepage": "https://github.com/yunjiefanresearch-hub/stablecoin-rail-register",
+  "doi": "10.5281/zenodo.20730358",
+  "license": "CC-BY-4.0",
+  "transport": "stdio",
+  "runtime": {
+    "language": "python",
+    "requires": "mcp[cli]",
+    "entrypoint": "mcp_server.py"
+  },
+  "mcpServers": {
+    "cross-border-stablecoin-register": {
+      "command": "python",
+      "args": [
+        "mcp_server.py"
+      ],
+      "description": "Reads ./dataset.json (no network). Use an absolute path to mcp_server.py in a real client config; if mcp is installed in a venv, set command to that venv's python."
+    }
+  },
+  "tools": [
+    {
+      "name": "about",
+      "summary": "Register metadata: name, version, record count, license, DOI, and the verification rule."
+    },
+    {
+      "name": "list_jurisdictions",
+      "summary": "List jurisdictions covered, with full name and record count."
+    },
+    {
+      "name": "list_dimensions",
+      "summary": "List the 15 dimensions with descriptions and how many records each has."
+    },
+    {
+      "name": "get_record",
+      "summary": "Return the full record (all fields including requirement_structured and interpretation_note) by its id."
+    },
+    {
+      "name": "query",
+      "summary": "Typed filter over the register."
+    },
+    {
+      "name": "compare_dimension",
+      "summary": "Compare all jurisdictions on a single dimension — the core differential view."
+    },
+    {
+      "name": "jurisdiction_profile",
+      "summary": "Return all records for one jurisdiction, ordered by the dimension framework."
+    },
+    {
+      "name": "search",
+      "summary": "Keyword search across jurisdiction, dimension, authority, requirement summary, source, and tags."
+    },
+    {
+      "name": "get_corridor",
+      "summary": "Return corridor model(s) — what clears and what breaks at each regulatory boundary along a cross-border flow."
+    },
+    {
+      "name": "coverage",
+      "summary": "Coverage matrix: for each jurisdiction × dimension, whether a record exists ('verified') or not ('planned')."
+    },
+    {
+      "name": "compatibility",
+      "summary": "Query the §5.14 pairwise compatibility matrix (all 66 jurisdiction pairs from the Architecture working paper)."
+    },
+    {
+      "name": "interaction_sets",
+      "summary": "The six constraint-interaction sets (A-F) from Architecture §2.9 — the constraint pairs through which joint binding generates composition problems, ea"
+    },
+    {
+      "name": "architectural_patterns",
+      "summary": "The Architecture paper's architectural patterns: the PRC three-pattern typology (§3.3 — direct subsidiary licensing / partnership distribution / separ"
+    },
+    {
+      "name": "open_questions",
+      "summary": "The §7 open regulatory questions (7.1–7.5) whose resolution will determine which architectural options become operationally viable, each preserved wit"
+    },
+    {
+      "name": "compose_corridor",
+      "summary": "COMPUTE the directed feasibility of an origin->destination corridor from the per-jurisdiction signal table and the Corridor Atlas algorithm (origin dr"
+    },
+    {
+      "name": "explain_feasibility",
+      "summary": "Explain WHY a corridor falls in its feasibility class: the rule that fired (origin drag vs destination gate), the justifying node-record basis for eac"
+    },
+    {
+      "name": "verification_report",
+      "summary": "The verification queue: which records are confirmed against official primary text and which are still pending."
+    },
+    {
+      "name": "verification_worklist",
+      "summary": "The primary-source verification worklist: for every still-unverified cell, exactly what is missing to reach the next evidence tier and the instrument/"
+    },
+    {
+      "name": "citable_law",
+      "summary": "The lawyer-citable subset: only records that are a proposition of law (claim_class=tier1_legal), currently in force (status=in_force), AND confirmed a"
+    },
+    {
+      "name": "event_calendar",
+      "summary": "The regulatory event calendar driving date-aware compose(): dated/contingent CHANGES IN LAW that move a jurisdiction's signal."
+    },
+    {
+      "name": "corridor_timeline",
+      "summary": "The dated future of a directed corridor: today's class, the scheduled transitions that change it (with their effective dates), and any contingent tran"
+    },
+    {
+      "name": "constraint_substrate",
+      "summary": "The constraint substrate: each (jurisdiction × constraint C1–C8) as a structured POLE from a controlled vocabulary, citing the tier1_legal record(s) i"
+    },
+    {
+      "name": "compose_via_substrate",
+      "summary": "DERIVE a directed corridor's feasibility by composing the two jurisdictions' C1–C8 poles through the interaction-set rules — the deeper engine behind "
+    },
+    {
+      "name": "stakeholder_database",
+      "summary": "The Atlas §8 stakeholder catalogue: the actor personas (issuer, distributor, regulators, treasury, holder, ...), each with its lens, the C1–C8 constra"
+    },
+    {
+      "name": "profile_for",
+      "summary": "PROJECT a directed corridor onto a stakeholder persona (Atlas §8)."
+    },
+    {
+      "name": "edge_coverage",
+      "summary": "Edge-layer coverage: how many directed corridors carry a record."
+    },
+    {
+      "name": "corridor_skeleton",
+      "summary": "Return the corridor record for a directed edge: the hand-authored RICH record if one exists, otherwise the COMPUTED SKELETON (derived feasibility clas"
+    },
+    {
+      "name": "verification_ledger",
+      "summary": "The external primary-source verification pass (v0.9.5) audit trail."
+    },
+    {
+      "name": "events_by_kind",
+      "summary": "The regulatory event calendar grouped by trigger_kind — the paper's typology of triggers by the KIND OF CERTAINTY each carries (flagship §3), not mere"
+    },
+    {
+      "name": "convergence",
+      "summary": "The cross-jurisdiction yield-line convergence view (flagship §4.5): independent legislative systems converging on the same functional boundary around "
+    },
+    {
+      "name": "reconciliation",
+      "summary": "The computed-vs-authored corridor reconciliation: for every undirected jurisdiction pair, the class the compose() engine derives from the signal table"
+    },
+    {
+      "name": "records",
+      "summary": "The evidence-axis record browser: filter the register along the axes that decide citability — claim_class (KIND: tier1_legal vs tier2_operational), ev"
+    }
+  ],
+  "guardrails": [
+    "Static/offline: the server reads the committed dataset.json and never fetches the network.",
+    "No synthesis: tools only filter and reshape published records; no facts are generated.",
+    "What-if is conditioning, not forecasting: compose_corridor(as_of=…), corridor_timeline and events_by_kind apply only the register's own scheduled/contingent changes in law, with no probabilities.",
+    "Citable-by-construction: citable_law() and records(citable_only=true) return only tier1_legal + in_force + resolution_text cells, each with an official source.url + pinpoint.",
+    "Provenance-clean derived views: convergence and the computed layer assert no new facts (asserts_new_facts=false) and are cross-checked against the authored layer via reconciliation()."
+  ],
+  "provenance": {
+    "source_of_truth": "dataset.json (compiled by build.py from the YAML records + analysis/ layer)",
+    "asserts_new_facts": false,
+    "note": "This manifest's tool list is generated from mcp_server.py; connect via docs/CONNECT_MCP.md."
+  }
+}

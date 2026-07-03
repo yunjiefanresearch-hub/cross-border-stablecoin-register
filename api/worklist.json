@@ -1,0 +1,697 @@
+{
+  "register": "Cross-Border Stablecoin Register",
+  "version": "0.9.9",
+  "generated": "2026-07-03",
+  "endpoint": "verification_worklist",
+  "guardrail": "static projection of the public register; no facts added here",
+  "data": {
+    "headline": {
+      "tier1_legal_unverified": 23,
+      "all_unverified_lack_url": false,
+      "by_jurisdiction": {
+        "UK": 8,
+        "CN": 7,
+        "KR": 3,
+        "TW": 3,
+        "SG": 2
+      },
+      "by_constraint": {
+        "C1": 1,
+        "C2": 5,
+        "C3": 2,
+        "C4": 2,
+        "C5": 3,
+        "C6": 3,
+        "C8": 4
+      }
+    },
+    "status": "preview",
+    "items": [
+      {
+        "id": "cn-prc-aml_kyc-001",
+        "jurisdiction": "CN",
+        "constraint_ref": null,
+        "dimension": "aml_kyc",
+        "claim_class": "tier1_legal",
+        "status": "in_force",
+        "instrument": "Anti-Money Laundering Law of the PRC; PBOC AML/CFT regulations; 2017 ICO Notice (94 公告)",
+        "pinpoint": "AML — PRC AML Law; PBOC AML/CFT; crypto AML scrutiny under 94 公告",
+        "has_url": false,
+        "missing_for": {
+          "firm_summary": [
+            "practitioner/law-firm corroboration of the load-bearing point"
+          ],
+          "mixed": [
+            "source.url (official-text pointer)",
+            "confirmation of the core point against the text at source.pinpoint"
+          ],
+          "resolution_text": [
+            "source.url (official-text pointer)",
+            "confirmation against the official statutory/normative text at source.pinpoint"
+          ]
+        },
+        "recommended_next_tier": "resolution_text"
+      },
+      {
+        "id": "cn-prc-bank_nonbank_routing-001",
+        "jurisdiction": "CN",
+        "constraint_ref": "C5",
+        "dimension": "bank_nonbank_routing",
+        "claim_class": "tier1_legal",
+        "status": "in_force",
+        "instrument": "PBOC framework; 2021 inter-ministerial Notice",
+        "pinpoint": "Absence of a compliant issuance/routing architecture",
+        "has_url": false,
+        "missing_for": {
+          "firm_summary": [
+            "practitioner/law-firm corroboration of the load-bearing point"
+          ],
+          "mixed": [
+            "source.url (official-text pointer)",
+            "confirmation of the core point against the text at source.pinpoint"
+          ],
+          "resolution_text": [
+            "source.url (official-text pointer)",
+            "confirmation against the official statutory/normative text at source.pinpoint"
+          ]
+        },
+        "recommended_next_tier": "resolution_text"
+      },
+      {
+        "id": "cn-prc-capital_requirements-001",
+        "jurisdiction": "CN",
+        "constraint_ref": "C2",
+        "dimension": "capital_requirements",
+        "claim_class": "tier1_legal",
+        "status": "in_force",
+        "instrument": "HKMA capital rules (HK entity); SAFE outbound-investment registration; Accounting Standards for Business Enterprises",
+        "pinpoint": "Capital — N/A domestically; indirect HK HK$25m + SAFE registration + consolidation",
+        "has_url": false,
+        "missing_for": {
+          "firm_summary": [
+            "practitioner/law-firm corroboration of the load-bearing point"
+          ],
+          "mixed": [
+            "source.url (official-text pointer)",
+            "confirmation of the core point against the text at source.pinpoint"
+          ],
+          "resolution_text": [
+            "source.url (official-text pointer)",
+            "confirmation against the official statutory/normative text at source.pinpoint"
+          ]
+        },
+        "recommended_next_tier": "resolution_text"
+      },
+      {
+        "id": "cn-prc-cross_border_data-001",
+        "jurisdiction": "CN",
+        "constraint_ref": "C6",
+        "dimension": "cross_border_data",
+        "claim_class": "tier1_legal",
+        "status": "in_force",
+        "instrument": "Personal Information Protection Law (PIPL, eff. 1 Nov 2021); Data Security Law (DSL, eff. 1 Sep 2021); CAC Provisions on Promoting and Regulating Cross-Border Data Flows (22 Mar 2024)",
+        "pinpoint": "PIPL three-gate outbound transfer; DSL important-data review; March 2024 threshold relief; FTZ negative lists",
+        "has_url": false,
+        "missing_for": {
+          "firm_summary": [
+            "practitioner/law-firm corroboration of the load-bearing point"
+          ],
+          "mixed": [
+            "source.url (official-text pointer)",
+            "confirmation of the core point against the text at source.pinpoint"
+          ],
+          "resolution_text": [
+            "source.url (official-text pointer)",
+            "confirmation against the official statutory/normative text at source.pinpoint"
+          ]
+        },
+        "recommended_next_tier": "resolution_text"
+      },
+      {
+        "id": "cn-prc-distribution-001",
+        "jurisdiction": "CN",
+        "constraint_ref": "C8",
+        "dimension": "distribution",
+        "claim_class": "tier1_legal",
+        "status": "in_force",
+        "instrument": "PRC prohibition on cryptocurrency promotion/offering/trading within territory; CSRC A-share disclosure rules; SAFE outbound-capital controls; PBOC/CAC October 2025 guidance",
+        "pinpoint": "Domestic distribution prohibited; three indirect-pathway constraint layers (A-share / SAFE / PBOC-CAC)",
+        "has_url": true,
+        "missing_for": {
+          "firm_summary": [
+            "practitioner/law-firm corroboration of the load-bearing point"
+          ],
+          "mixed": [
+            "confirmation of the core point against the text at source.pinpoint"
+          ],
+          "resolution_text": [
+            "confirmation against the official statutory/normative text at source.pinpoint"
+          ]
+        },
+        "recommended_next_tier": "resolution_text"
+      },
+      {
+        "id": "cn-prc-implementation_status-001",
+        "jurisdiction": "CN",
+        "constraint_ref": null,
+        "dimension": "implementation_status",
+        "claim_class": "tier2_operational",
+        "status": "in_force",
+        "instrument": "94 公告 (2017); DSL (2021); PIPL (2021); 2024 cross-border data Provisions; HKMA April 2026 first-license cohort",
+        "pinpoint": "Implementation timeline — stable prohibition; 2017-2026 milestones",
+        "has_url": false,
+        "missing_for": {
+          "firm_summary": [
+            "practitioner/law-firm corroboration of the load-bearing point"
+          ],
+          "mixed": [
+            "source.url (official-text pointer)",
+            "confirmation of the core point against the text at source.pinpoint"
+          ],
+          "resolution_text": [
+            "source.url (official-text pointer)",
+            "confirmation against the official statutory/normative text at source.pinpoint"
+          ]
+        },
+        "recommended_next_tier": "firm_summary"
+      },
+      {
+        "id": "cn-prc-permitted_activity_yield-001",
+        "jurisdiction": "CN",
+        "constraint_ref": "C3",
+        "dimension": "permitted_activity_yield",
+        "claim_class": "tier1_legal",
+        "status": "in_force",
+        "instrument": "PBOC et al. Notice on Preventing Token Fundraising Risks (2017); related circulars",
+        "pinpoint": "Prohibition context — no permitted issuer to which a yield rule could attach",
+        "has_url": false,
+        "missing_for": {
+          "firm_summary": [
+            "practitioner/law-firm corroboration of the load-bearing point"
+          ],
+          "mixed": [
+            "source.url (official-text pointer)",
+            "confirmation of the core point against the text at source.pinpoint"
+          ],
+          "resolution_text": [
+            "source.url (official-text pointer)",
+            "confirmation against the official statutory/normative text at source.pinpoint"
+          ]
+        },
+        "recommended_next_tier": "resolution_text"
+      },
+      {
+        "id": "cn-prc-reserve_backing-001",
+        "jurisdiction": "CN",
+        "constraint_ref": "C2",
+        "dimension": "reserve_backing",
+        "claim_class": "tier1_legal",
+        "status": "in_force",
+        "instrument": "PRC prohibition on domestic issuance; HKMA reserve rules apply to HK-licensed entity (indirect pathway)",
+        "pinpoint": "Reserve — N/A domestically; indirect HK pathway + A-share consolidation",
+        "has_url": false,
+        "missing_for": {
+          "firm_summary": [
+            "practitioner/law-firm corroboration of the load-bearing point"
+          ],
+          "mixed": [
+            "source.url (official-text pointer)",
+            "confirmation of the core point against the text at source.pinpoint"
+          ],
+          "resolution_text": [
+            "source.url (official-text pointer)",
+            "confirmation against the official statutory/normative text at source.pinpoint"
+          ]
+        },
+        "recommended_next_tier": "resolution_text"
+      },
+      {
+        "id": "hk-frs-implementation_status-001",
+        "jurisdiction": "HK",
+        "constraint_ref": null,
+        "dimension": "implementation_status",
+        "claim_class": "tier2_operational",
+        "status": "in_force",
+        "instrument": "Stablecoins Ordinance (Cap. 656) commencement + HKMA licensing actions",
+        "pinpoint": "Timeline Jan 2022 -> Q3 2026; first cohort 10 Apr 2026",
+        "has_url": false,
+        "missing_for": {
+          "firm_summary": [
+            "practitioner/law-firm corroboration of the load-bearing point"
+          ],
+          "mixed": [
+            "source.url (official-text pointer)",
+            "confirmation of the core point against the text at source.pinpoint"
+          ],
+          "resolution_text": [
+            "source.url (official-text pointer)",
+            "confirmation against the official statutory/normative text at source.pinpoint"
+          ]
+        },
+        "recommended_next_tier": "firm_summary"
+      },
+      {
+        "id": "kr-frs-bank_nonbank_routing-001",
+        "jurisdiction": "KR",
+        "constraint_ref": "C5",
+        "dimension": "bank_nonbank_routing",
+        "claim_class": "tier1_legal",
+        "status": "proposed",
+        "instrument": "Draft Digital Asset Basic Act",
+        "pinpoint": "Issuance/routing architecture — pending enactment",
+        "has_url": false,
+        "missing_for": {
+          "firm_summary": [
+            "practitioner/law-firm corroboration of the load-bearing point"
+          ],
+          "mixed": [
+            "source.url (official-text pointer)",
+            "confirmation of the core point against the text at source.pinpoint"
+          ],
+          "resolution_text": [
+            "source.url (official-text pointer)",
+            "confirmation against the official statutory/normative text at source.pinpoint"
+          ]
+        },
+        "recommended_next_tier": "resolution_text"
+      },
+      {
+        "id": "kr-frs-disclosure_reporting-001",
+        "jurisdiction": "KR",
+        "constraint_ref": "C8",
+        "dimension": "disclosure_reporting",
+        "claim_class": "tier1_legal",
+        "status": "proposed",
+        "instrument": "Draft Digital Asset Basic Act",
+        "pinpoint": "Disclosure/supervision — pending enactment",
+        "has_url": false,
+        "missing_for": {
+          "firm_summary": [
+            "practitioner/law-firm corroboration of the load-bearing point"
+          ],
+          "mixed": [
+            "source.url (official-text pointer)",
+            "confirmation of the core point against the text at source.pinpoint"
+          ],
+          "resolution_text": [
+            "source.url (official-text pointer)",
+            "confirmation against the official statutory/normative text at source.pinpoint"
+          ]
+        },
+        "recommended_next_tier": "resolution_text"
+      },
+      {
+        "id": "kr-frs-securities_classification-001",
+        "jurisdiction": "KR",
+        "constraint_ref": "C4",
+        "dimension": "securities_classification",
+        "claim_class": "tier1_legal",
+        "status": "proposed",
+        "instrument": "Draft Digital Asset Basic Act",
+        "pinpoint": "Securities characterization — pending the enacted DABA",
+        "has_url": false,
+        "missing_for": {
+          "firm_summary": [
+            "practitioner/law-firm corroboration of the load-bearing point"
+          ],
+          "mixed": [
+            "source.url (official-text pointer)",
+            "confirmation of the core point against the text at source.pinpoint"
+          ],
+          "resolution_text": [
+            "source.url (official-text pointer)",
+            "confirmation against the official statutory/normative text at source.pinpoint"
+          ]
+        },
+        "recommended_next_tier": "resolution_text"
+      },
+      {
+        "id": "sg-scs-cross_border_data-001",
+        "jurisdiction": "SG",
+        "constraint_ref": "C6",
+        "dimension": "cross_border_data",
+        "claim_class": "tier1_legal",
+        "status": "in_force",
+        "instrument": "Personal Data Protection Act 2012 (PDPA); MAS Outsourcing and Technology Risk Management Guidelines",
+        "pinpoint": "PDPA cross-border transfer safeguards; MAS data-hosting guidelines",
+        "has_url": false,
+        "missing_for": {
+          "firm_summary": [
+            "practitioner/law-firm corroboration of the load-bearing point"
+          ],
+          "mixed": [
+            "source.url (official-text pointer)",
+            "confirmation of the core point against the text at source.pinpoint"
+          ],
+          "resolution_text": [
+            "source.url (official-text pointer)",
+            "confirmation against the official statutory/normative text at source.pinpoint"
+          ]
+        },
+        "recommended_next_tier": "resolution_text"
+      },
+      {
+        "id": "sg-scs-implementation_status-001",
+        "jurisdiction": "SG",
+        "constraint_ref": null,
+        "dimension": "implementation_status",
+        "claim_class": "tier2_operational",
+        "status": "transitional",
+        "instrument": "Payment Services Act 2019; MAS SCS framework; FSMA Part 9",
+        "pinpoint": "Implementation timeline — PSA 2020; SCS Aug 2023; DTSP Jun 2025; full SCS mid-2026",
+        "has_url": false,
+        "missing_for": {
+          "firm_summary": [
+            "practitioner/law-firm corroboration of the load-bearing point"
+          ],
+          "mixed": [
+            "source.url (official-text pointer)",
+            "confirmation of the core point against the text at source.pinpoint"
+          ],
+          "resolution_text": [
+            "source.url (official-text pointer)",
+            "confirmation against the official statutory/normative text at source.pinpoint"
+          ]
+        },
+        "recommended_next_tier": "firm_summary"
+      },
+      {
+        "id": "sg-scs-issuer_pathway-001",
+        "jurisdiction": "SG",
+        "constraint_ref": "C1",
+        "dimension": "issuer_pathway",
+        "claim_class": "tier1_legal",
+        "status": "transitional",
+        "instrument": "Payment Services Act 2019 (PSA, amended 2022); MAS Single-Currency Stablecoin Regulatory Framework (finalised 15 Aug 2023)",
+        "pinpoint": "SCS framework — peg scope (SGD/G10, Singapore-issued); MPI licence > S$5m; Singapore incorporation",
+        "has_url": false,
+        "missing_for": {
+          "firm_summary": [
+            "practitioner/law-firm corroboration of the load-bearing point"
+          ],
+          "mixed": [
+            "source.url (official-text pointer)",
+            "confirmation of the core point against the text at source.pinpoint"
+          ],
+          "resolution_text": [
+            "source.url (official-text pointer)",
+            "confirmation against the official statutory/normative text at source.pinpoint"
+          ]
+        },
+        "recommended_next_tier": "resolution_text"
+      },
+      {
+        "id": "tw-frs-bank_nonbank_routing-001",
+        "jurisdiction": "TW",
+        "constraint_ref": "C5",
+        "dimension": "bank_nonbank_routing",
+        "claim_class": "tier1_legal",
+        "status": "proposed",
+        "instrument": "Draft Virtual Asset Service Act",
+        "pinpoint": "Issuance/routing architecture — pending enactment",
+        "has_url": false,
+        "missing_for": {
+          "firm_summary": [
+            "practitioner/law-firm corroboration of the load-bearing point"
+          ],
+          "mixed": [
+            "source.url (official-text pointer)",
+            "confirmation of the core point against the text at source.pinpoint"
+          ],
+          "resolution_text": [
+            "source.url (official-text pointer)",
+            "confirmation against the official statutory/normative text at source.pinpoint"
+          ]
+        },
+        "recommended_next_tier": "resolution_text"
+      },
+      {
+        "id": "tw-frs-disclosure_reporting-001",
+        "jurisdiction": "TW",
+        "constraint_ref": "C8",
+        "dimension": "disclosure_reporting",
+        "claim_class": "tier1_legal",
+        "status": "proposed",
+        "instrument": "Draft Virtual Asset Service Act; AML registration regime",
+        "pinpoint": "Disclosure/supervision — pending enactment",
+        "has_url": false,
+        "missing_for": {
+          "firm_summary": [
+            "practitioner/law-firm corroboration of the load-bearing point"
+          ],
+          "mixed": [
+            "source.url (official-text pointer)",
+            "confirmation of the core point against the text at source.pinpoint"
+          ],
+          "resolution_text": [
+            "source.url (official-text pointer)",
+            "confirmation against the official statutory/normative text at source.pinpoint"
+          ]
+        },
+        "recommended_next_tier": "resolution_text"
+      },
+      {
+        "id": "tw-frs-securities_classification-001",
+        "jurisdiction": "TW",
+        "constraint_ref": "C4",
+        "dimension": "securities_classification",
+        "claim_class": "tier1_legal",
+        "status": "proposed",
+        "instrument": "Draft Virtual Asset Service Act; AML registration regime for VASPs",
+        "pinpoint": "Securities characterization — pending the enacted VAS Act",
+        "has_url": false,
+        "missing_for": {
+          "firm_summary": [
+            "practitioner/law-firm corroboration of the load-bearing point"
+          ],
+          "mixed": [
+            "source.url (official-text pointer)",
+            "confirmation of the core point against the text at source.pinpoint"
+          ],
+          "resolution_text": [
+            "source.url (official-text pointer)",
+            "confirmation against the official statutory/normative text at source.pinpoint"
+          ]
+        },
+        "recommended_next_tier": "resolution_text"
+      },
+      {
+        "id": "uk-frs-aml_kyc-001",
+        "jurisdiction": "UK",
+        "constraint_ref": null,
+        "dimension": "aml_kyc",
+        "claim_class": "tier1_legal",
+        "status": "transitional",
+        "instrument": "FSMA 2000 (Cryptoassets) Regulations 2026, SI 2026/102; Money Laundering Regulations 2017",
+        "pinpoint": "AML/KYC — full FSMA scope; MLR registration regime superseded",
+        "has_url": false,
+        "missing_for": {
+          "firm_summary": [
+            "practitioner/law-firm corroboration of the load-bearing point"
+          ],
+          "mixed": [
+            "source.url (official-text pointer)",
+            "confirmation of the core point against the text at source.pinpoint"
+          ],
+          "resolution_text": [
+            "source.url (official-text pointer)",
+            "confirmation against the official statutory/normative text at source.pinpoint"
+          ]
+        },
+        "recommended_next_tier": "resolution_text"
+      },
+      {
+        "id": "uk-frs-capital_requirements-001",
+        "jurisdiction": "UK",
+        "constraint_ref": "C2",
+        "dimension": "capital_requirements",
+        "claim_class": "tier1_legal",
+        "status": "proposed",
+        "instrument": "FCA Consultation Paper CP25/15; Bank of England systemic stablecoin proposals (10 Nov 2025)",
+        "pinpoint": "Prudential regime — FCA CP25/15 (pending); BoE systemic regime",
+        "has_url": false,
+        "missing_for": {
+          "firm_summary": [
+            "practitioner/law-firm corroboration of the load-bearing point"
+          ],
+          "mixed": [
+            "source.url (official-text pointer)",
+            "confirmation of the core point against the text at source.pinpoint"
+          ],
+          "resolution_text": [
+            "source.url (official-text pointer)",
+            "confirmation against the official statutory/normative text at source.pinpoint"
+          ]
+        },
+        "recommended_next_tier": "resolution_text"
+      },
+      {
+        "id": "uk-frs-cross_border_data-001",
+        "jurisdiction": "UK",
+        "constraint_ref": "C6",
+        "dimension": "cross_border_data",
+        "claim_class": "tier1_legal",
+        "status": "in_force",
+        "instrument": "UK GDPR (Data Protection Act 2018)",
+        "pinpoint": "Cross-border transfer — adequacy / IDTA / UK Addendum to EU SCCs",
+        "has_url": true,
+        "missing_for": {
+          "firm_summary": [
+            "practitioner/law-firm corroboration of the load-bearing point"
+          ],
+          "mixed": [
+            "confirmation of the core point against the text at source.pinpoint"
+          ],
+          "resolution_text": [
+            "confirmation against the official statutory/normative text at source.pinpoint"
+          ]
+        },
+        "recommended_next_tier": "resolution_text"
+      },
+      {
+        "id": "uk-frs-custody-001",
+        "jurisdiction": "UK",
+        "constraint_ref": "C2",
+        "dimension": "custody",
+        "claim_class": "tier1_legal",
+        "status": "transitional",
+        "instrument": "FSMA 2000 (Cryptoassets) Regulations 2026, SI 2026/102; FCA CP25/14",
+        "pinpoint": "Custody — 24-hour rule; safeguarding licence for regulated custodians",
+        "has_url": true,
+        "missing_for": {
+          "firm_summary": [
+            "practitioner/law-firm corroboration of the load-bearing point"
+          ],
+          "mixed": [
+            "confirmation of the core point against the text at source.pinpoint"
+          ],
+          "resolution_text": [
+            "confirmation against the official statutory/normative text at source.pinpoint"
+          ]
+        },
+        "recommended_next_tier": "resolution_text"
+      },
+      {
+        "id": "uk-frs-distribution-001",
+        "jurisdiction": "UK",
+        "constraint_ref": "C8",
+        "dimension": "distribution",
+        "claim_class": "tier1_legal",
+        "status": "proposed",
+        "instrument": "FSMA 2000 (Cryptoassets) Regulations 2026, SI 2026/102; HM Treasury draft amendment SI (21 Apr 2026)",
+        "pinpoint": "Distribution — offshore 'involved' test; UKQS financial-promotions carve-out; payments amendment",
+        "has_url": false,
+        "missing_for": {
+          "firm_summary": [
+            "practitioner/law-firm corroboration of the load-bearing point"
+          ],
+          "mixed": [
+            "source.url (official-text pointer)",
+            "confirmation of the core point against the text at source.pinpoint"
+          ],
+          "resolution_text": [
+            "source.url (official-text pointer)",
+            "confirmation against the official statutory/normative text at source.pinpoint"
+          ]
+        },
+        "recommended_next_tier": "resolution_text"
+      },
+      {
+        "id": "uk-frs-implementation_status-001",
+        "jurisdiction": "UK",
+        "constraint_ref": null,
+        "dimension": "implementation_status",
+        "claim_class": "tier2_operational",
+        "status": "transitional",
+        "instrument": "SI 2026/102; FCA CP25/14 & CP25/15; Bank of England proposals; HM Treasury amendment SI",
+        "pinpoint": "Implementation timeline — SI in force Feb 2026; FCA final summer 2026; full regime late 2027",
+        "has_url": false,
+        "missing_for": {
+          "firm_summary": [
+            "practitioner/law-firm corroboration of the load-bearing point"
+          ],
+          "mixed": [
+            "source.url (official-text pointer)",
+            "confirmation of the core point against the text at source.pinpoint"
+          ],
+          "resolution_text": [
+            "source.url (official-text pointer)",
+            "confirmation against the official statutory/normative text at source.pinpoint"
+          ]
+        },
+        "recommended_next_tier": "firm_summary"
+      },
+      {
+        "id": "uk-frs-permitted_activity_yield-001",
+        "jurisdiction": "UK",
+        "constraint_ref": "C3",
+        "dimension": "permitted_activity_yield",
+        "claim_class": "tier1_legal",
+        "status": "consultation",
+        "instrument": "SI 2026/102 (silent on yield); Bank of England Nov 2025 materials (60/40 backing; pass-through constrained)",
+        "pinpoint": "BoE Nov 2025 backing-split / pass-through position; FCA rules pending",
+        "has_url": false,
+        "missing_for": {
+          "firm_summary": [
+            "practitioner/law-firm corroboration of the load-bearing point"
+          ],
+          "mixed": [
+            "source.url (official-text pointer)",
+            "confirmation of the core point against the text at source.pinpoint"
+          ],
+          "resolution_text": [
+            "source.url (official-text pointer)",
+            "confirmation against the official statutory/normative text at source.pinpoint"
+          ]
+        },
+        "recommended_next_tier": "resolution_text"
+      },
+      {
+        "id": "uk-frs-redemption-001",
+        "jurisdiction": "UK",
+        "constraint_ref": null,
+        "dimension": "redemption",
+        "claim_class": "tier1_legal",
+        "status": "proposed",
+        "instrument": "FSMA 2000 (Cryptoassets) Regulations 2026, SI 2026/102",
+        "pinpoint": "Redemption — issuer-controlled; backing-asset trust structure",
+        "has_url": true,
+        "missing_for": {
+          "firm_summary": [
+            "practitioner/law-firm corroboration of the load-bearing point"
+          ],
+          "mixed": [
+            "confirmation of the core point against the text at source.pinpoint"
+          ],
+          "resolution_text": [
+            "confirmation against the official statutory/normative text at source.pinpoint"
+          ]
+        },
+        "recommended_next_tier": "resolution_text"
+      },
+      {
+        "id": "uk-frs-reserve_backing-001",
+        "jurisdiction": "UK",
+        "constraint_ref": "C2",
+        "dimension": "reserve_backing",
+        "claim_class": "tier1_legal",
+        "status": "transitional",
+        "instrument": "Financial Services and Markets Act 2000 (Cryptoassets) Regulations 2026, SI 2026/102",
+        "pinpoint": "1:1 backing; CIS/AIF carve-out for backing assets",
+        "has_url": true,
+        "missing_for": {
+          "firm_summary": [
+            "practitioner/law-firm corroboration of the load-bearing point"
+          ],
+          "mixed": [
+            "confirmation of the core point against the text at source.pinpoint"
+          ],
+          "resolution_text": [
+            "confirmation against the official statutory/normative text at source.pinpoint"
+          ]
+        },
+        "recommended_next_tier": "resolution_text"
+      }
+    ]
+  }
+}

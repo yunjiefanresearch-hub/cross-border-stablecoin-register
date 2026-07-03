@@ -1,0 +1,34 @@
+{
+  "register": "Cross-Border Stablecoin Register",
+  "version": "0.9.9",
+  "generated": "2026-07-03",
+  "endpoint": "meta",
+  "guardrail": "static projection of the public register; no facts added here",
+  "data": {
+    "version": "0.9.9",
+    "record_count": 152,
+    "jurisdictions": [
+      "US",
+      "EU",
+      "UK",
+      "SG",
+      "HK",
+      "CN",
+      "BR",
+      "CH",
+      "AE",
+      "TW",
+      "JP",
+      "KR"
+    ],
+    "as_of_base": "2026-06-30",
+    "key_dates": [
+      "2026-06-01",
+      "2026-06-30",
+      "2026-07-01",
+      "2027-10-25"
+    ],
+    "citable_count": 46,
+    "authored_corridors": 9
+  }
+}

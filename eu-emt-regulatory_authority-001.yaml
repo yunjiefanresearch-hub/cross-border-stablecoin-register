@@ -5,8 +5,12 @@ instrument_type: e_money_token
 instrument_label_local: e-money token (EMT) / asset-referenced token (ART)
 dimension: regulatory_authority
 requirement_summary: The Markets in Crypto-Assets Regulation (MiCA, Reg. (EU) 2023/1114) governs EMTs and ARTs,
-  supervised by the EBA (significant tokens), ESMA, and national competent authorities. The transitional regime
-  ends 1 July 2026; a PSD2/MiCAR interplay question is addressed by the EBA No-Action Letter (10 June 2025).
+  supervised by the EBA (significant tokens), ESMA, and national competent authorities. MiCA's Article 143(3)
+  transitional grandfathering closes on a staggered national schedule capped at 1 July 2026, the outer limit
+  (the longest window any Member State could grant; ESMA has confirmed no extension). Most Member States set
+  shorter windows and closed earlier, so the deadline binding a given corridor is the earliest among the Member
+  States it touches, not the 1 July 2026 cap. A PSD2/MiCAR interplay question is addressed by the EBA No-Action
+  Letter (10 June 2025).
 status: in_force
 effective_date: null
 source:
@@ -18,7 +22,19 @@ secondary:
 interpretation_note: 'Provenance: transcribed from author''s Compliance Matrix v0.9.3.
 
 
-  [v0.9.5 verification] Confirmed: MiCA Titles III/IV and the EBA/ESMA/NCA architecture.'
+  [v0.9.5 verification] Confirmed: MiCA Titles III/IV and the EBA/ESMA/NCA architecture.
+
+
+  [v0.9.9 correction] The Article 143(3) transitional framing was corrected from the earlier uniform
+  "ends 1 July 2026" to the staggered national schedule, verified against ESMA''s statement and the official
+  Article 143(3) grandfathering list: 1 July 2026 is the outer cap (France, Malta, Luxembourg run the full
+  window), while Germany and Ireland closed at 12 months (end 2025), Sweden at 9 months (late 2025), and
+  Finland, Latvia, Lithuania, Hungary, the Netherlands, Poland, and Slovenia at 6 months (mid-2025). The
+  binding date for a corridor is the earliest deadline among the Member States it touches. This aligns the
+  register with the flagship paper''s corrected §3.10; the citable proposition (MiCA Titles III/IV +
+  EBA/ESMA/NCA architecture, verified against the OJ text) is unchanged, so binding_status, evidence_tier,
+  and the verification block are untouched. The dated national schedule is carried structurally in the event
+  calendar (eu-mica-art143-transitional-expiry, trigger_kind=intra-regime-gating).'
 confidence: high
 claim_class: tier1_legal
 last_reviewed: '2026-06-27'
@@ -30,6 +46,7 @@ tags:
 - v0.9.5_verification
 - binding_in_force_enacted
 - resolution_text_verified
+- v0.9.9_mica_staggered_correction
 binding_status: in_force_enacted
 evidence_tier: resolution_text
 verification:

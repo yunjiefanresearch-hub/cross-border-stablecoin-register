@@ -1,7 +1,7 @@
 {
   "name": "Cross-Border Stablecoin Register",
-  "version": "0.9.7",
-  "generated": "2026-06-29",
+  "version": "0.9.9",
+  "generated": "2026-07-03",
   "record_count": 152,
   "records": [
     {
@@ -2673,7 +2673,7 @@
       "instrument_type": "e_money_token",
       "instrument_label_local": "e-money token (EMT) / asset-referenced token (ART)",
       "dimension": "regulatory_authority",
-      "requirement_summary": "The Markets in Crypto-Assets Regulation (MiCA, Reg. (EU) 2023/1114) governs EMTs and ARTs, supervised by the EBA (significant tokens), ESMA, and national competent authorities. The transitional regime ends 1 July 2026; a PSD2/MiCAR interplay question is addressed by the EBA No-Action Letter (10 June 2025).",
+      "requirement_summary": "The Markets in Crypto-Assets Regulation (MiCA, Reg. (EU) 2023/1114) governs EMTs and ARTs, supervised by the EBA (significant tokens), ESMA, and national competent authorities. MiCA's Article 143(3) transitional grandfathering closes on a staggered national schedule capped at 1 July 2026, the outer limit (the longest window any Member State could grant; ESMA has confirmed no extension). Most Member States set shorter windows and closed earlier, so the deadline binding a given corridor is the earliest among the Member States it touches, not the 1 July 2026 cap. A PSD2/MiCAR interplay question is addressed by the EBA No-Action Letter (10 June 2025).",
       "status": "in_force",
       "effective_date": null,
       "source": {
@@ -2686,7 +2686,7 @@
           "citation": "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.5 (Comparison Table) and EU detailed entry"
         }
       ],
-      "interpretation_note": "Provenance: transcribed from author's Compliance Matrix v0.9.3.\n\n[v0.9.5 verification] Confirmed: MiCA Titles III/IV and the EBA/ESMA/NCA architecture.",
+      "interpretation_note": "Provenance: transcribed from author's Compliance Matrix v0.9.3.\n\n[v0.9.5 verification] Confirmed: MiCA Titles III/IV and the EBA/ESMA/NCA architecture.\n\n[v0.9.9 correction] The Article 143(3) transitional framing was corrected from the earlier uniform \"ends 1 July 2026\" to the staggered national schedule, verified against ESMA's statement and the official Article 143(3) grandfathering list: 1 July 2026 is the outer cap (France, Malta, Luxembourg run the full window), while Germany and Ireland closed at 12 months (end 2025), Sweden at 9 months (late 2025), and Finland, Latvia, Lithuania, Hungary, the Netherlands, Poland, and Slovenia at 6 months (mid-2025). The binding date for a corridor is the earliest deadline among the Member States it touches. This aligns the register with the flagship paper's corrected §3.10; the citable proposition (MiCA Titles III/IV + EBA/ESMA/NCA architecture, verified against the OJ text) is unchanged, so binding_status, evidence_tier, and the verification block are untouched. The dated national schedule is carried structurally in the event calendar (eu-mica-art143-transitional-expiry, trigger_kind=intra-regime-gating).",
       "confidence": "high",
       "claim_class": "tier1_legal",
       "last_reviewed": "2026-06-27",
@@ -2697,7 +2697,8 @@
         "from_matrix_v0.9.3",
         "v0.9.5_verification",
         "binding_in_force_enacted",
-        "resolution_text_verified"
+        "resolution_text_verified",
+        "v0.9.9_mica_staggered_correction"
       ],
       "binding_status": "in_force_enacted",
       "evidence_tier": "resolution_text",
@@ -5407,29 +5408,30 @@
       "instrument_type": "fiat_referenced_stablecoin",
       "dimension": "bank_nonbank_routing",
       "constraint_ref": "C5",
-      "requirement_summary": "With the issuer regime still in bill form, the bank/non-bank routing architecture for compliant issuance is not yet established.",
+      "requirement_summary": "the Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced) sets the issuer regime; the bank/non-bank routing architecture for compliant issuance is delegated to FSC subsidiary legislation not yet made.",
       "requirement_structured": {
-        "status": "pre-regime",
-        "routing": "unsettled"
+        "enacted_not_commenced": "bank/non-bank routing architecture delegated to FSC subsidiary legislation",
+        "status_note": "enacted at third reading, awaiting FSC subsidiary legislation"
       },
-      "status": "proposed",
+      "status": "transitional",
       "effective_date": null,
       "source": {
-        "primary": "Draft Virtual Asset Service Act",
-        "pinpoint": "Issuance/routing architecture — pending enactment"
+        "primary": "Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced)",
+        "pinpoint": "Issuance/routing architecture: delegated to FSC subsidiary legislation (enacted, not commenced)"
       },
-      "interpretation_note": "Authored in v0.9.2 to fill the TW.C5 constraint cell for the substrate sweep.",
+      "interpretation_note": "Authored in v0.9.2 (constraint sweep) for TW.C5 constraint cell for the substrate sweep.\n\n[v0.9.9 enactment] The Virtual Asset Service Act passed third reading on 30 Jun 2026, so this cell moves from proposed to transitional (binding_status pending_proposal -> made_not_commenced), matching tw-frs-issuer_pathway-001. The provision is enacted but not commenced; its operative detail awaits FSC subsidiary legislation, and the cell stays non-citable (firm_summary, no resolution_text).",
       "confidence": "low",
       "claim_class": "tier1_legal",
-      "last_reviewed": "2026-06-27",
+      "last_reviewed": "2026-06-30",
       "version_added": "0.9.2",
       "tags": [
         "v0.9.2_cell_sweep",
         "tw",
         "bank_nonbank_routing",
-        "binding_pending_proposal"
+        "binding_made_not_commenced",
+        "v0.9.9_tw_enactment"
       ],
-      "binding_status": "pending_proposal"
+      "binding_status": "made_not_commenced"
     },
     {
       "id": "tw-frs-capital_requirements-001",
@@ -5439,15 +5441,15 @@
       "instrument_label_local": "virtual asset / draft stablecoin (Virtual Asset Service Act)",
       "dimension": "capital_requirements",
       "constraint_ref": "C2",
-      "requirement_summary": "DRAFT: capital requirements to be specified by the FSC under the Virtual Asset Service Act. No stablecoin capital regime is in force.",
+      "requirement_summary": "the Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced) delegates capital requirements for stablecoin issuers to the FSC. The specific figures await FSC subsidiary legislation; no stablecoin capital regime is yet operative.",
       "requirement_structured": {
-        "in_force": "none",
-        "draft": "FSC to specify under the Virtual Asset Service Act"
+        "enacted_not_commenced": "FSC to specify capital under the Virtual Asset Service Act",
+        "status_note": "enacted at third reading, awaiting FSC subsidiary legislation"
       },
-      "status": "proposed",
+      "status": "transitional",
       "source": {
-        "primary": "Draft Virtual Asset Service Act",
-        "pinpoint": "Capital (draft) — FSC to specify; NOT in force",
+        "primary": "Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced)",
+        "pinpoint": "Capital: FSC to specify (enacted, not commenced; figures pending FSC subsidiary legislation)",
         "url": "https://english.ey.gov.tw/"
       },
       "secondary": [
@@ -5455,14 +5457,14 @@
           "citation": "Fan, Multi-Jurisdiction Stablecoin Compliance Matrix v0.9.6 (June 2026), §Taiwan (Capital Requirements)"
         },
         {
-          "citation": "Draft Virtual Asset Service Act bill (Executive Yuan referral): https://english.ey.gov.tw/. Official primary text is Chinese (law.moj.gov.tw); there is no official English translation (FSC English materials are summaries)."
+          "citation": "Virtual Asset Service Act, passed third reading 30 Jun 2026 (Executive Yuan referral: https://english.ey.gov.tw/). Official primary text is Chinese (law.moj.gov.tw); there is no official English translation (FSC English materials are summaries)."
         }
       ],
-      "interpretation_note": "Provenance: transcribed from the author's Compliance Matrix v0.9.6; an official URL for the bill/announcement is provided (source.url), but this is a draft provision and is NOT operative law, so it is not upgraded and remains firm_summary. STATUS proposed: not operative law.",
+      "interpretation_note": "Provenance: transcribed from the author's Compliance Matrix v0.9.6; an official URL is provided (source.url), but there is no official English primary text and made_not_commenced provisions carry no operative resolution_text, so the cell stays firm_summary (non-citable). STATUS transitional: the VAS Act is enacted (third reading 30 Jun 2026) but not commenced; this provision awaits FSC subsidiary legislation.\n\n[v0.9.9 enactment] The Virtual Asset Service Act passed third reading on 30 Jun 2026, so this cell moves from proposed to transitional (binding_status pending_proposal -> made_not_commenced), matching tw-frs-issuer_pathway-001. The provision is enacted but not commenced; its operative detail awaits FSC subsidiary legislation, and the cell stays non-citable (firm_summary, no resolution_text).",
       "confidence": "low",
       "claim_class": "tier1_legal",
       "evidence_tier": "firm_summary",
-      "last_reviewed": "2026-06-27",
+      "last_reviewed": "2026-06-30",
       "version_added": "0.4.0",
       "tags": [
         "apac",
@@ -5473,9 +5475,10 @@
         "v0.5.1_verification",
         "draft_url_added",
         "v0.7.0_claim_class",
-        "binding_pending_proposal"
+        "binding_made_not_commenced",
+        "v0.9.9_tw_enactment"
       ],
-      "binding_status": "pending_proposal"
+      "binding_status": "made_not_commenced"
     },
     {
       "id": "tw-frs-cross_border_data-001",
@@ -5524,29 +5527,31 @@
       "instrument_type": "fiat_referenced_stablecoin",
       "dimension": "disclosure_reporting",
       "constraint_ref": "C8",
-      "requirement_summary": "Disclosure and supervisory-coordination obligations for stablecoin issuers await the enacted VAS Act; current obligations are AML-registration-based.",
+      "requirement_summary": "the Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced) sets the framework; disclosure and supervisory-coordination obligations for stablecoin issuers take effect on commencement and their detail awaits FSC subsidiary legislation. Current operative obligations are AML-registration-based.",
       "requirement_structured": {
-        "status": "pre-regime",
-        "current": "AML registration"
+        "enacted_not_commenced": "disclosure and supervisory-coordination obligations",
+        "current": "AML registration",
+        "status_note": "awaiting FSC subsidiary legislation and commencement"
       },
-      "status": "proposed",
+      "status": "transitional",
       "effective_date": null,
       "source": {
-        "primary": "Draft Virtual Asset Service Act; AML registration regime",
-        "pinpoint": "Disclosure/supervision — pending enactment"
+        "primary": "Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced); AML registration regime",
+        "pinpoint": "Disclosure/supervision: take effect on commencement (enacted, not commenced; detail pending subsidiary legislation)"
       },
-      "interpretation_note": "Authored in v0.9.2 to fill the TW.C8 constraint cell for the substrate sweep.",
+      "interpretation_note": "Authored in v0.9.2 (constraint sweep) for TW.C8 constraint cell for the substrate sweep.\n\n[v0.9.9 enactment] The Virtual Asset Service Act passed third reading on 30 Jun 2026, so this cell moves from proposed to transitional (binding_status pending_proposal -> made_not_commenced), matching tw-frs-issuer_pathway-001. The provision is enacted but not commenced; its operative detail awaits FSC subsidiary legislation, and the cell stays non-citable (firm_summary, no resolution_text).",
       "confidence": "low",
       "claim_class": "tier1_legal",
-      "last_reviewed": "2026-06-27",
+      "last_reviewed": "2026-06-30",
       "version_added": "0.9.2",
       "tags": [
         "v0.9.2_cell_sweep",
         "tw",
         "disclosure_reporting",
-        "binding_pending_proposal"
+        "binding_made_not_commenced",
+        "v0.9.9_tw_enactment"
       ],
-      "binding_status": "pending_proposal"
+      "binding_status": "made_not_commenced"
     },
     {
       "id": "tw-frs-distribution-001",
@@ -5555,15 +5560,15 @@
       "instrument_type": "fiat_referenced_stablecoin",
       "instrument_label_local": "virtual asset / draft stablecoin (Virtual Asset Service Act)",
       "dimension": "distribution",
-      "requirement_summary": "No stablecoin-specific distribution regime is in force. Draft provisions on offering would take effect only on enactment of the Virtual Asset Service Act. The backdrop is the central bank's control of the NTD and the offshore-NTD posture.",
+      "requirement_summary": "No stablecoin-specific distribution regime is yet operative. the Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced) sets the offering provisions, which take effect on commencement; commencement awaits FSC subsidiary legislation. The backdrop is the central bank's control of the NTD and the offshore-NTD posture.",
       "requirement_structured": {
-        "in_force": "none",
-        "draft": "offering provisions effective only on VASA enactment"
+        "enacted_not_commenced": "offering provisions take effect on commencement",
+        "status_note": "enacted at third reading, awaiting FSC subsidiary legislation"
       },
-      "status": "proposed",
+      "status": "transitional",
       "source": {
-        "primary": "Draft Virtual Asset Service Act",
-        "pinpoint": "Distribution (draft) — offering provisions on VASA enactment; NOT in force",
+        "primary": "Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced)",
+        "pinpoint": "Distribution: offering provisions take effect on commencement (enacted, not commenced; pending FSC subsidiary legislation)",
         "url": "https://english.ey.gov.tw/"
       },
       "secondary": [
@@ -5571,14 +5576,14 @@
           "citation": "Fan, Multi-Jurisdiction Stablecoin Compliance Matrix v0.9.6 (June 2026), §Taiwan (Distribution and Offering Restrictions)"
         },
         {
-          "citation": "Draft Virtual Asset Service Act bill (Executive Yuan referral): https://english.ey.gov.tw/. Official primary text is Chinese (law.moj.gov.tw); there is no official English translation (FSC English materials are summaries)."
+          "citation": "Virtual Asset Service Act, passed third reading 30 Jun 2026 (Executive Yuan referral: https://english.ey.gov.tw/). Official primary text is Chinese (law.moj.gov.tw); there is no official English translation (FSC English materials are summaries)."
         }
       ],
-      "interpretation_note": "Provenance: transcribed from the author's Compliance Matrix v0.9.6; an official URL for the bill/announcement is provided (source.url), but this is a draft provision and is NOT operative law, so it is not upgraded and remains firm_summary. STATUS proposed: not operative law.",
+      "interpretation_note": "Provenance: transcribed from the author's Compliance Matrix v0.9.6; an official URL is provided (source.url), but there is no official English primary text and made_not_commenced provisions carry no operative resolution_text, so the cell stays firm_summary (non-citable). STATUS transitional: the VAS Act is enacted (third reading 30 Jun 2026) but not commenced; this provision awaits FSC subsidiary legislation.\n\n[v0.9.9 enactment] The Virtual Asset Service Act passed third reading on 30 Jun 2026, so this cell moves from proposed to transitional (binding_status pending_proposal -> made_not_commenced), matching tw-frs-issuer_pathway-001. The provision is enacted but not commenced; its operative detail awaits FSC subsidiary legislation, and the cell stays non-citable (firm_summary, no resolution_text).",
       "confidence": "low",
       "claim_class": "tier1_legal",
       "evidence_tier": "firm_summary",
-      "last_reviewed": "2026-06-27",
+      "last_reviewed": "2026-06-30",
       "version_added": "0.4.0",
       "tags": [
         "apac",
@@ -5589,9 +5594,10 @@
         "v0.5.1_verification",
         "draft_url_added",
         "v0.7.0_claim_class",
-        "binding_pending_proposal"
+        "binding_made_not_commenced",
+        "v0.9.9_tw_enactment"
       ],
-      "binding_status": "pending_proposal"
+      "binding_status": "made_not_commenced"
     },
     {
       "id": "tw-frs-implementation_status-001",
@@ -5600,7 +5606,7 @@
       "instrument_type": "fiat_referenced_stablecoin",
       "instrument_label_local": "virtual asset / draft stablecoin (Virtual Asset Service Act)",
       "dimension": "implementation_status",
-      "requirement_summary": "Pre-comprehensive-regime (a regime under construction). Milestones: AML registration regime in force (30 November 2024); Virtual Asset Service Act drafting and legislative process (2025-2026); committee first review of the Virtual Asset Service Act completed (3 June 2026); further readings and enactment pending with no date certain. No licensed stablecoin issuers yet; peg currency officially undecided.",
+      "requirement_summary": "Pre-comprehensive-regime (a regime under construction). Milestones: AML registration regime in force (30 November 2024); Virtual Asset Service Act drafting and legislative process (2025-2026); committee first review of the Virtual Asset Service Act completed (3 June 2026); passed at third reading and enacted 30 June 2026, with commencement pending FSC subsidiary legislation (no date certain). No licensed stablecoin issuers yet; peg currency officially undecided.",
       "requirement_structured": {
         "regime_stage": "pre-comprehensive (regime under construction)",
         "milestones": [
@@ -5655,16 +5661,16 @@
       "instrument_label_local": "virtual asset / draft stablecoin (Virtual Asset Service Act)",
       "dimension": "issuer_pathway",
       "constraint_ref": "C1",
-      "requirement_summary": "No stablecoin issuer is licensed yet (no licensing regime is in force). DRAFT: the Virtual Asset Service Act would require an FSC licence for stablecoin issuance, available to a share company (corporation limited by shares), with banks expected to lead initial issuance. These are draft provisions, not operative law.",
+      "requirement_summary": "No stablecoin issuer is licensed yet: the licensing regime is enacted but not yet commenced. The Virtual Asset Service Act, passed at third reading on 30 Jun 2026, requires an FSC licence for stablecoin issuance, available to a share company (corporation limited by shares), with banks expected to lead initial issuance. The Act awaits FSC subsidiary legislation (roughly nine subordinate items, indicative timetable around Q1 2027) and has no gazetted commencement date, so these provisions are enacted law not yet in force.",
       "requirement_structured": {
-        "in_force": "no licensing regime; no issuer licensed",
-        "draft": "FSC licence; share company; banks to lead initially",
-        "status_note": "draft provisions only — not operative"
+        "in_force": "no licensing regime in force; no issuer licensed yet",
+        "enacted_not_commenced": "FSC licence; share company; banks to lead initially (VAS Act, third reading 30 Jun 2026)",
+        "status_note": "enacted at third reading, awaiting FSC subsidiary legislation; no gazetted commencement"
       },
-      "status": "proposed",
+      "status": "transitional",
       "source": {
-        "primary": "Draft Virtual Asset Service Act (committee first review 3 Jun 2026)",
-        "pinpoint": "Issuer pathway (draft) — FSC licence; share company; banks lead; NOT in force",
+        "primary": "Virtual Asset Service Act, passed at third reading 30 Jun 2026 (committee first review 3 Jun 2026)",
+        "pinpoint": "Issuer pathway: FSC licence; share company; banks lead. Enacted at third reading, not yet commenced (awaiting subsidiary legislation)",
         "url": "https://english.ey.gov.tw/"
       },
       "secondary": [
@@ -5675,14 +5681,14 @@
           "citation": "Fan, Cross-Border Stablecoin Architecture v3 (Twelve Jurisdictions, June 2026), §2.1 (Constraint 1: Issuer Eligibility)"
         },
         {
-          "citation": "Draft Virtual Asset Service Act bill (Executive Yuan referral): https://english.ey.gov.tw/. Official primary text is Chinese (law.moj.gov.tw); there is no official English translation (FSC English materials are summaries)."
+          "citation": "Virtual Asset Service Act, passed third reading 30 Jun 2026 (Executive Yuan referral: https://english.ey.gov.tw/). Official primary text is Chinese (law.moj.gov.tw); there is no official English translation (FSC English materials are summaries)."
         }
       ],
-      "interpretation_note": "Provenance: transcribed from the author's Compliance Matrix v0.9.6; an official URL for the bill/announcement is provided (source.url), but this is a draft provision and is NOT operative law, so it is not upgraded and remains firm_summary. STATUS proposed: the issuance-licensing provisions are draft, not operative (Matrix CONDITIONAL-STATUS flag). The only in-force layer is AML registration (see tw-frs-aml_kyc-001).\n\n[v0.9.5 verification] The TW issuer regime rests on the draft Virtual Asset Service Act (虛擬資產服務法), a bill; kept proposed. NATIVE-LANGUAGE VERIFICATION (Chinese): confirmed against official FSC text — the Legislative Yuan Finance Committee completed the article-by-article first review (初審) on 3 Jun 2026 and resolved to send it to the plenary (no caucus negotiation), but it has NOT passed third reading. The draft stablecoin provisions match the register (FSC permission + prior central-bank consent; issuer = share company; min capital set by FSC; par issuance/redemption; no interest; reserves at domestic FIs, segregated). Procedurally more advanced than KR's DABA (still in subcommittee). The in-force VASP-AML registration layer is recorded separately.",
+      "interpretation_note": "Provenance: transcribed from the author's Compliance Matrix v0.9.6. STATUS transitional and binding_status made_not_commenced: the Virtual Asset Service Act is enacted (third reading 30 Jun 2026) but its issuer-licensing provisions are not yet commenced, awaiting FSC subsidiary legislation with no gazetted date. Evidence tier stays firm_summary: an official URL for the bill/announcement is provided (source.url), but there is no official English primary text and made_not_commenced provisions carry no operative resolution_text, so the cell is not upgraded to citable. The only in-force layer is AML registration (see tw-frs-aml_kyc-001).\n\n[v0.9.5 verification] The TW issuer regime rests on the Virtual Asset Service Act (虛擬資產服務法). NATIVE-LANGUAGE VERIFICATION (Chinese): confirmed against official FSC text: the Legislative Yuan Finance Committee completed the article-by-article first review (初審) on 3 Jun 2026 and resolved to send it to the plenary (no caucus negotiation). The stablecoin provisions match the register (FSC permission + prior central-bank consent; issuer = share company; min capital set by FSC; par issuance/redemption; no interest; reserves at domestic FIs, segregated). Procedurally then ahead of KR's DABA, still in subcommittee. The in-force VASP-AML registration layer is recorded separately.\n\n[v0.9.9 update] The bill passed third reading on 30 Jun 2026, the dateline of this draft, moving the cell from proposed to transitional (enacted, not commenced); binding_status moved from pending_proposal to made_not_commenced. Commencement awaits FSC subsidiary legislation (roughly nine subordinate items, indicative timetable around Q1 2027) with no gazetted date. In the time engine Taiwan is now a regime-in-transition destination: inbound edges are held at Category T and resolve to a channelled Category II on commencement, while origin edges stay Category III because enactment creates no exportable token.",
       "confidence": "medium",
       "claim_class": "tier1_legal",
       "evidence_tier": "firm_summary",
-      "last_reviewed": "2026-06-27",
+      "last_reviewed": "2026-06-30",
       "version_added": "0.4.0",
       "tags": [
         "apac",
@@ -5694,9 +5700,10 @@
         "draft_url_added",
         "v0.7.0_claim_class",
         "v0.9.5_verification",
-        "binding_pending_proposal"
+        "binding_made_not_commenced",
+        "v0.9.9_verification"
       ],
-      "binding_status": "pending_proposal"
+      "binding_status": "made_not_commenced"
     },
     {
       "id": "tw-frs-monetary_sovereignty-001",
@@ -5706,18 +5713,18 @@
       "instrument_label_local": "virtual asset / draft stablecoin (Virtual Asset Service Act)",
       "dimension": "monetary_sovereignty",
       "constraint_ref": "C7",
-      "requirement_summary": "No stablecoin-specific monetary-sovereignty regime is in force. The backdrop is the central bank's control of the NTD and the offshore-NTD posture; the peg currency for a future Taiwan stablecoin (NTD vs USD) is officially undecided. A NTD-pegged stablecoin engages the central bank's monetary-sovereignty concerns directly; a USD-pegged stablecoin engages offshore-NTD and capital-flow concerns. The choice is the central monetary-sovereignty question for Taiwan.",
+      "requirement_summary": "the Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced) creates the framework, but no operative monetary-sovereignty cap is yet in force. The backdrop is the central bank's control of the NTD and the offshore-NTD posture; the peg currency for a Taiwan stablecoin (NTD vs USD) is officially undecided and is the defining open question, to be settled through commencement and FSC/CBC subsidiary rules.",
       "requirement_structured": {
-        "in_force_cap": "none",
+        "enacted_not_commenced": "framework enacted; operative cap and peg-currency decision pending",
         "backdrop": "CBC control of NTD; offshore-NTD posture",
         "peg_currency": "officially undecided (NTD vs USD)",
         "ntd_peg": "engages monetary-sovereignty concerns directly",
         "usd_peg": "engages offshore-NTD and capital-flow concerns"
       },
-      "status": "proposed",
+      "status": "transitional",
       "source": {
         "primary": "CBC public statements; draft Virtual Asset Service Act",
-        "pinpoint": "Monetary sovereignty — peg currency undecided (NTD vs USD); NTD offshore controls are the backdrop",
+        "pinpoint": "Monetary sovereignty: framework enacted, operative cap and peg-currency decision pending (not commenced)",
         "url": "https://english.ey.gov.tw/"
       },
       "secondary": [
@@ -5728,10 +5735,10 @@
           "citation": "Fan, Cross-Border Stablecoin Architecture v3 (Twelve Jurisdictions, June 2026), §5 (Taiwan — monetary-sovereignty posture)"
         },
         {
-          "citation": "Draft Virtual Asset Service Act bill (Executive Yuan referral): https://english.ey.gov.tw/. Official primary text is Chinese (law.moj.gov.tw); there is no official English translation (FSC English materials are summaries)."
+          "citation": "Virtual Asset Service Act, passed third reading 30 Jun 2026 (Executive Yuan referral: https://english.ey.gov.tw/). Official primary text is Chinese (law.moj.gov.tw); there is no official English translation (FSC English materials are summaries)."
         }
       ],
-      "interpretation_note": "Provenance: transcribed from the author's Compliance Matrix v0.9.6; an official URL for the bill/announcement is provided (source.url), but this is a draft provision and is NOT operative law, so it is not upgraded and remains firm_summary. STATUS proposed: there is no in-force C7 cap; the peg-currency decision is the defining open issue (Matrix interpretive flag).",
+      "interpretation_note": "Provenance: transcribed from the author's Compliance Matrix v0.9.6; an official URL is provided (source.url), but there is no official English primary text and made_not_commenced provisions carry no operative resolution_text, so the cell stays firm_summary (non-citable). STATUS transitional: there is no in-force C7 cap; the peg-currency decision is the defining open issue (Matrix interpretive flag).\n\n[v0.9.9 enactment] The Virtual Asset Service Act passed third reading on 30 Jun 2026, so this cell moves from proposed to transitional (binding_status pending_proposal -> made_not_commenced), matching tw-frs-issuer_pathway-001. The provision is enacted but not commenced; its operative detail awaits FSC subsidiary legislation, and the cell stays non-citable (firm_summary, no resolution_text).",
       "interpretive_flag": {
         "tension": "The peg-currency question (NTD vs USD) is the defining open issue: a NTD peg engages the central bank's monetary-sovereignty concerns; a USD peg engages offshore-NTD and capital-flow concerns.",
         "resolution_channel": "Enactment of the Virtual Asset Service Act and the central bank's ultimate posture."
@@ -5739,7 +5746,7 @@
       "confidence": "medium",
       "claim_class": "tier1_legal",
       "evidence_tier": "firm_summary",
-      "last_reviewed": "2026-06-27",
+      "last_reviewed": "2026-06-30",
       "version_added": "0.4.0",
       "tags": [
         "apac",
@@ -5750,9 +5757,10 @@
         "v0.5.1_verification",
         "draft_url_added",
         "v0.7.0_claim_class",
-        "binding_pending_proposal"
+        "binding_made_not_commenced",
+        "v0.9.9_tw_enactment"
       ],
-      "binding_status": "pending_proposal"
+      "binding_status": "made_not_commenced"
     },
     {
       "id": "tw-frs-permitted_activity_yield-001",
@@ -5762,16 +5770,16 @@
       "instrument_label_local": "virtual asset / draft stablecoin (Virtual Asset Service Act)",
       "dimension": "permitted_activity_yield",
       "constraint_ref": "C3",
-      "requirement_summary": "DRAFT: the bill prohibits paying interest or other returns to holders. No yield regime is in force. The draft yield prohibition would align Taiwan with the prohibition cluster (EU, Hong Kong) rather than the permission cluster (Switzerland, Brazil), but this is a draft provision, not operative law.",
+      "requirement_summary": "the Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced) prohibits paying interest or other returns to holders. This yield prohibition aligns Taiwan with the prohibition cluster (EU, Hong Kong) rather than the permission cluster (Switzerland, Brazil); it takes operative effect on commencement, which awaits FSC subsidiary legislation.",
       "requirement_structured": {
-        "in_force": "none",
-        "draft": "prohibition on interest or other returns to holders",
-        "would_align_with": "prohibition cluster (EU, HK)"
+        "enacted_not_commenced": "prohibition on interest or other returns to holders",
+        "would_align_with": "prohibition cluster (EU, HK)",
+        "status_note": "enacted at third reading, awaiting FSC subsidiary legislation"
       },
-      "status": "proposed",
+      "status": "transitional",
       "source": {
-        "primary": "Draft Virtual Asset Service Act",
-        "pinpoint": "Yield (draft) — prohibition on interest/other returns; NOT in force",
+        "primary": "Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced)",
+        "pinpoint": "Yield: prohibition on interest/other returns to holders (enacted, not commenced; operative on commencement)",
         "url": "https://english.ey.gov.tw/"
       },
       "secondary": [
@@ -5779,18 +5787,18 @@
           "citation": "Fan, Multi-Jurisdiction Stablecoin Compliance Matrix v0.9.6 (June 2026), §Taiwan (Yield and Interest Treatment)"
         },
         {
-          "citation": "Draft Virtual Asset Service Act bill (Executive Yuan referral): https://english.ey.gov.tw/. Official primary text is Chinese (law.moj.gov.tw); there is no official English translation (FSC English materials are summaries)."
+          "citation": "Virtual Asset Service Act, passed third reading 30 Jun 2026 (Executive Yuan referral: https://english.ey.gov.tw/). Official primary text is Chinese (law.moj.gov.tw); there is no official English translation (FSC English materials are summaries)."
         }
       ],
-      "interpretation_note": "Provenance: transcribed from the author's Compliance Matrix v0.9.6; an official URL for the bill/announcement is provided (source.url), but this is a draft provision and is NOT operative law, so it is not upgraded and remains firm_summary. STATUS proposed: not operative law. On the C3 spine, Taiwan is a draft member of the prohibition cluster.",
+      "interpretation_note": "Provenance: transcribed from the author's Compliance Matrix v0.9.6; an official URL is provided (source.url), but there is no official English primary text and made_not_commenced provisions carry no operative resolution_text, so the cell stays firm_summary (non-citable). STATUS transitional: the VAS Act is enacted (third reading 30 Jun 2026) but not commenced; this provision awaits FSC subsidiary legislation. On the C3 spine, Taiwan is now a member of the prohibition cluster (enacted at third reading 30 Jun 2026, not commenced).\n\n[v0.9.9 enactment] The Virtual Asset Service Act passed third reading on 30 Jun 2026, so this cell moves from proposed to transitional (binding_status pending_proposal -> made_not_commenced), matching tw-frs-issuer_pathway-001. The provision is enacted but not commenced; its operative detail awaits FSC subsidiary legislation, and the cell stays non-citable (firm_summary, no resolution_text).",
       "interpretive_flag": {
-        "tension": "Taiwan's draft yield prohibition aligns it with the prohibition cluster (EU, HK) rather than the permission cluster (Switzerland, Brazil), but whether it survives to enactment, and in what form, is open.",
-        "resolution_channel": "Enactment of the Virtual Asset Service Act and its final text."
+        "tension": "Taiwan's yield prohibition, enacted but not commenced, aligns it with the prohibition cluster (EU, HK) rather than the permission cluster (Switzerland, Brazil), but its commencement and the FSC subsidiary legislation remain pending.",
+        "resolution_channel": "Commencement of the Virtual Asset Service Act and its FSC subsidiary legislation."
       },
       "confidence": "medium",
       "claim_class": "tier1_legal",
       "evidence_tier": "firm_summary",
-      "last_reviewed": "2026-06-27",
+      "last_reviewed": "2026-06-30",
       "version_added": "0.4.0",
       "tags": [
         "apac",
@@ -5802,9 +5810,10 @@
         "v0.5.1_verification",
         "draft_url_added",
         "v0.7.0_claim_class",
-        "binding_pending_proposal"
+        "binding_made_not_commenced",
+        "v0.9.9_tw_enactment"
       ],
-      "binding_status": "pending_proposal"
+      "binding_status": "made_not_commenced"
     },
     {
       "id": "tw-frs-redemption-001",
@@ -5813,15 +5822,15 @@
       "instrument_type": "fiat_referenced_stablecoin",
       "instrument_label_local": "virtual asset / draft stablecoin (Virtual Asset Service Act)",
       "dimension": "redemption",
-      "requirement_summary": "DRAFT: par issuance and redemption. No redemption regime is in force. Draft provisions only.",
+      "requirement_summary": "the Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced) provides for par issuance and redemption. The operative detail awaits FSC subsidiary legislation; no redemption regime is yet operative.",
       "requirement_structured": {
-        "in_force": "none",
-        "draft": "par issuance and redemption"
+        "enacted_not_commenced": "par issuance and redemption",
+        "status_note": "enacted at third reading, awaiting FSC subsidiary legislation"
       },
-      "status": "proposed",
+      "status": "transitional",
       "source": {
-        "primary": "Draft Virtual Asset Service Act",
-        "pinpoint": "Redemption (draft) — par issuance and redemption; NOT in force",
+        "primary": "Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced)",
+        "pinpoint": "Redemption: par issuance and redemption (enacted, not commenced; pending FSC subsidiary legislation)",
         "url": "https://english.ey.gov.tw/"
       },
       "secondary": [
@@ -5829,14 +5838,14 @@
           "citation": "Fan, Multi-Jurisdiction Stablecoin Compliance Matrix v0.9.6 (June 2026), §Taiwan (Redemption Mechanics)"
         },
         {
-          "citation": "Draft Virtual Asset Service Act bill (Executive Yuan referral): https://english.ey.gov.tw/. Official primary text is Chinese (law.moj.gov.tw); there is no official English translation (FSC English materials are summaries)."
+          "citation": "Virtual Asset Service Act, passed third reading 30 Jun 2026 (Executive Yuan referral: https://english.ey.gov.tw/). Official primary text is Chinese (law.moj.gov.tw); there is no official English translation (FSC English materials are summaries)."
         }
       ],
-      "interpretation_note": "Provenance: transcribed from the author's Compliance Matrix v0.9.6; an official URL for the bill/announcement is provided (source.url), but this is a draft provision and is NOT operative law, so it is not upgraded and remains firm_summary. STATUS proposed: not operative law.",
+      "interpretation_note": "Provenance: transcribed from the author's Compliance Matrix v0.9.6; an official URL is provided (source.url), but there is no official English primary text and made_not_commenced provisions carry no operative resolution_text, so the cell stays firm_summary (non-citable). STATUS transitional: the VAS Act is enacted (third reading 30 Jun 2026) but not commenced; this provision awaits FSC subsidiary legislation.\n\n[v0.9.9 enactment] The Virtual Asset Service Act passed third reading on 30 Jun 2026, so this cell moves from proposed to transitional (binding_status pending_proposal -> made_not_commenced), matching tw-frs-issuer_pathway-001. The provision is enacted but not commenced; its operative detail awaits FSC subsidiary legislation, and the cell stays non-citable (firm_summary, no resolution_text).",
       "confidence": "low",
       "claim_class": "tier1_legal",
       "evidence_tier": "firm_summary",
-      "last_reviewed": "2026-06-27",
+      "last_reviewed": "2026-06-30",
       "version_added": "0.4.0",
       "tags": [
         "apac",
@@ -5847,9 +5856,10 @@
         "v0.5.1_verification",
         "draft_url_added",
         "v0.7.0_claim_class",
-        "binding_pending_proposal"
+        "binding_made_not_commenced",
+        "v0.9.9_tw_enactment"
       ],
-      "binding_status": "pending_proposal"
+      "binding_status": "made_not_commenced"
     },
     {
       "id": "tw-frs-regulatory_authority-001",
@@ -5858,7 +5868,7 @@
       "instrument_type": "fiat_referenced_stablecoin",
       "instrument_label_local": "virtual asset / draft stablecoin (Virtual Asset Service Act)",
       "dimension": "regulatory_authority",
-      "requirement_summary": "Two layers, only one in force. In force: AML registration under the amended Money Laundering Control Act and the VASP Registration Regulations (effective 30 November 2024). Draft (not in force): the Virtual Asset Service Act, a comprehensive bill that would create FSC licensing for virtual-asset services including stablecoin issuance, with mandatory central-bank consultation; committee first review completed 3 June 2026. The FSC is the primary regulator and consults the Central Bank of the Republic of China (Taiwan) (CBC) on stablecoin matters.",
+      "requirement_summary": "Two layers, only one in force. In force: AML registration under the amended Money Laundering Control Act and the VASP Registration Regulations (effective 30 November 2024). Enacted but not commenced: the Virtual Asset Service Act, a comprehensive statute creating FSC licensing for virtual-asset services including stablecoin issuance, with mandatory central-bank consultation; passed at third reading 30 June 2026, awaiting FSC subsidiary legislation for commencement. The FSC is the primary regulator and consults the Central Bank of the Republic of China (Taiwan) (CBC) on stablecoin matters.",
       "requirement_structured": {
         "in_force_layer": "AML registration (amended Money Laundering Control Act + VASP Registration Regulations, 30 Nov 2024)",
         "draft_layer": "Virtual Asset Service Act (FSC licensing; committee first review 3 Jun 2026; not in force)",
@@ -5906,15 +5916,15 @@
       "instrument_label_local": "virtual asset / draft stablecoin (Virtual Asset Service Act)",
       "dimension": "reserve_backing",
       "constraint_ref": "C2",
-      "requirement_summary": "DRAFT: full reserves held at domestic financial institutions, segregated from the issuer's own property. No reserve regime is in force (AML registration does not impose reserve requirements). Draft provisions only.",
+      "requirement_summary": "the Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced) requires full reserves held at domestic financial institutions, segregated from the issuer's own property. The operative reserve detail awaits FSC subsidiary legislation; the only in-force layer is AML registration, which imposes no reserve requirements.",
       "requirement_structured": {
-        "in_force": "none",
-        "draft": "full reserves at domestic financial institutions, segregated from issuer property"
+        "enacted_not_commenced": "full reserves at domestic financial institutions, segregated from issuer property",
+        "status_note": "enacted at third reading, awaiting FSC subsidiary legislation; only AML registration operative"
       },
-      "status": "proposed",
+      "status": "transitional",
       "source": {
-        "primary": "Draft Virtual Asset Service Act",
-        "pinpoint": "Reserve/backing (draft) — full reserves at domestic FIs, segregated; NOT in force",
+        "primary": "Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced)",
+        "pinpoint": "Reserve/backing: full reserves at domestic FIs, segregated (enacted, not commenced; pending FSC subsidiary legislation)",
         "url": "https://english.ey.gov.tw/"
       },
       "secondary": [
@@ -5922,14 +5932,14 @@
           "citation": "Fan, Multi-Jurisdiction Stablecoin Compliance Matrix v0.9.6 (June 2026), §Taiwan (Reserve and Backing Requirements)"
         },
         {
-          "citation": "Draft Virtual Asset Service Act bill (Executive Yuan referral): https://english.ey.gov.tw/. Official primary text is Chinese (law.moj.gov.tw); there is no official English translation (FSC English materials are summaries)."
+          "citation": "Virtual Asset Service Act, passed third reading 30 Jun 2026 (Executive Yuan referral: https://english.ey.gov.tw/). Official primary text is Chinese (law.moj.gov.tw); there is no official English translation (FSC English materials are summaries)."
         }
       ],
-      "interpretation_note": "Provenance: transcribed from the author's Compliance Matrix v0.9.6; an official URL for the bill/announcement is provided (source.url), but this is a draft provision and is NOT operative law, so it is not upgraded and remains firm_summary. STATUS proposed: not operative law.",
+      "interpretation_note": "Provenance: transcribed from the author's Compliance Matrix v0.9.6; an official URL is provided (source.url), but there is no official English primary text and made_not_commenced provisions carry no operative resolution_text, so the cell stays firm_summary (non-citable). STATUS transitional: the VAS Act is enacted (third reading 30 Jun 2026) but not commenced; this provision awaits FSC subsidiary legislation.\n\n[v0.9.9 enactment] The Virtual Asset Service Act passed third reading on 30 Jun 2026, so this cell moves from proposed to transitional (binding_status pending_proposal -> made_not_commenced), matching tw-frs-issuer_pathway-001. The provision is enacted but not commenced; its operative detail awaits FSC subsidiary legislation, and the cell stays non-citable (firm_summary, no resolution_text).",
       "confidence": "medium",
       "claim_class": "tier1_legal",
       "evidence_tier": "firm_summary",
-      "last_reviewed": "2026-06-27",
+      "last_reviewed": "2026-06-30",
       "version_added": "0.4.0",
       "tags": [
         "apac",
@@ -5940,9 +5950,10 @@
         "v0.5.1_verification",
         "draft_url_added",
         "v0.7.0_claim_class",
-        "binding_pending_proposal"
+        "binding_made_not_commenced",
+        "v0.9.9_tw_enactment"
       ],
-      "binding_status": "pending_proposal"
+      "binding_status": "made_not_commenced"
     },
     {
       "id": "tw-frs-securities_classification-001",
@@ -5951,29 +5962,30 @@
       "instrument_type": "fiat_referenced_stablecoin",
       "dimension": "securities_classification",
       "constraint_ref": "C4",
-      "requirement_summary": "Under the draft Virtual Asset Service Act, the securities characterization of stablecoins is not yet fixed; today VASPs operate under AML registration without a settled securities classification.",
+      "requirement_summary": "Under the Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced), the securities characterization of stablecoins sits within the FSC's virtual-asset perimeter, but the operative boundary awaits FSC subsidiary legislation; today VASPs operate under AML registration without a settled securities classification.",
       "requirement_structured": {
-        "status": "draft VAS Act",
-        "securities": "unsettled"
+        "enacted_not_commenced": "securities characterization within the FSC virtual-asset perimeter",
+        "securities": "boundary pending FSC subsidiary legislation"
       },
-      "status": "proposed",
+      "status": "transitional",
       "effective_date": null,
       "source": {
-        "primary": "Draft Virtual Asset Service Act; AML registration regime for VASPs",
-        "pinpoint": "Securities characterization — pending the enacted VAS Act"
+        "primary": "Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced); AML registration regime for VASPs",
+        "pinpoint": "Securities characterization: within the FSC virtual-asset perimeter (enacted, not commenced; boundary pending subsidiary legislation)"
       },
-      "interpretation_note": "Authored in v0.9.2 to fill the TW.C4 constraint cell for the substrate sweep.",
+      "interpretation_note": "Authored in v0.9.2 (constraint sweep) for TW.C4 constraint cell for the substrate sweep.\n\n[v0.9.9 enactment] The Virtual Asset Service Act passed third reading on 30 Jun 2026, so this cell moves from proposed to transitional (binding_status pending_proposal -> made_not_commenced), matching tw-frs-issuer_pathway-001. The provision is enacted but not commenced; its operative detail awaits FSC subsidiary legislation, and the cell stays non-citable (firm_summary, no resolution_text).",
       "confidence": "low",
       "claim_class": "tier1_legal",
-      "last_reviewed": "2026-06-27",
+      "last_reviewed": "2026-06-30",
       "version_added": "0.9.2",
       "tags": [
         "v0.9.2_cell_sweep",
         "tw",
         "securities_classification",
-        "binding_pending_proposal"
+        "binding_made_not_commenced",
+        "v0.9.9_tw_enactment"
       ],
-      "binding_status": "pending_proposal"
+      "binding_status": "made_not_commenced"
     },
     {
       "id": "uk-frs-aml_kyc-001",
@@ -7093,7 +7105,9 @@
               "label": "Settlement into tokenised funds — SFC securities perimeter",
               "requirement": "Where the flow routes a stablecoin balance into a tokenised money-market fund, that fund is a \"tokenised security\" under the SFO (an interest in a CIS). The SFC's Tokenised Securities Circular (2 Nov 2023, 23EC52/23EC53) applies \"same business, same risks, same rules\" on a see-through basis; dealing/ distribution needs the relevant SFC licence (Type 1, etc.). Absent SFC authorisation under Part IV SFO / prospectus compliance, the offer is PI-only.\n",
               "analysis": "HK analogue of the US Reves/§404 securities-classification spine: in HK a tokenised MMF is squarely a tokenised security, with SFC-authorised retail instances already live (retail tokenised MMFs authorised Q1 2025). HK gives a clean \"yes, it is a security, and here is the regulated path\".\n",
-              "record_refs": [],
+              "record_refs": [
+                "hk-frs-securities_classification-001"
+              ],
               "gap_note": "No HK securities_classification record exists yet — this sub-gate is the spec for it."
             }
           ],
@@ -7119,21 +7133,30 @@
               "label": "eFX rail — closing to crypto on the external leg",
               "requirement": "Res 561 (pub. 30 Apr 2026; in force 1 Oct 2026; amends Res 277/2022, which regulates the FX Law, Lei 14.286/2021) bars eFX providers from settling the external leg — provider ↔ foreign counterparty (contraparte no exterior) — with virtual assets; settlement must be via an FX operation or a non-resident BRL (reais) account. eFX is the mass/low-value retail rail: per-operation ceilings of USD 10k (unilateral transfers; same-owner transfers; and, new under 561, financial/capital-market investment transfers); it is not a high-value B2B rail.\n",
               "analysis": "The ban is specific to the eFX settlement leg, not a general stablecoin ban — crypto trading, custody, and other arrangements remain permitted under the VASP regime. The USD 10k eFX ceiling independently confirms eFX was never the natural B2B rail; the practical effect is to foreclose the \"reais → USDT → settle abroad on-chain\" eFX back-end (the Nomad/Braza-Bank-style rail).\n",
-              "record_refs": []
+              "record_refs": [
+                "br-vasp-cross_border_data-001"
+              ]
             },
             {
               "id": "br_vasp_fx_rail",
               "label": "VASP-in-FX rail — open but capped",
               "requirement": "Res 521 (pub. 10 Nov 2025; in force 2 Feb 2026; amends the FX-law trio Res 277/278/279 that regulate Lei 14.286/2021 — inserting Art. 76-A into Res 277 as the \"ativos virtuais no mercado de câmbio\" hook) brings authorised VASPs' (SPSAVs') virtual-asset international payments/transfers into the FX market as legitimate câmbio operations, subject to a per-operation cap that bites WHEN THE FOREIGN COUNTERPARTY IS NOT a BCB-FX-authorised institution: USD 100k for a SPSAV; USD 500k for an FX-authorised institution (bank / DTVM / CTVM / corretora de câmbio). Audit + monthly FX reporting to the BCB from 4 May 2026.\n",
               "analysis": "For a USD-stablecoin B2B settlement the foreign counterparty is typically not BCB-FX-authorised, so the cap bites. The cap — not the rail choice — is usually the binding constraint for B2B ticket sizes; above it the flow reverts to traditional câmbio (bank FX desk / DTVM).\n",
-              "record_refs": []
+              "record_refs": [
+                "br-vasp-issuer_pathway-001",
+                "br-vasp-cross_border_data-001"
+              ]
             },
             {
               "id": "br_custody_assets",
               "label": "Custody, segregation & asset curation — Res 520",
               "requirement": "Res 520 (in force 2 Feb 2026) requires a documented patrimonial-segregation policy (Art. 28–30): client fiat in individualised accounts; client virtual assets in wallets distinct from the provider's own-operation wallets; the methods used for proof of reserves; and an independent audit of the provider's and clients' virtual assets on a BIENNIAL basis at reasonable-assurance level (Art. 30 III), with the report publicly disclosed on the provider's website (Art. 30 §1). Up to 5% own-asset co-mingling is allowed for immediate liquidity if identified/recorded. Asset curation (Art. 64+) PROHIBITS offering/intermediating algorithmic stablecoins or any fiat-pegged token without effective, verifiable liquid-asset backing; the \"ativo de reserva\" is defined as fiat + government bonds issued by the same government. Foreign custodians may be used only under home- country authorisation/supervision, with a Brazil representative, enforceable guarantees, formal segregation of Brazilian clients' assets, and record access.\n",
               "analysis": "A USD stablecoin used in this corridor must be an auditable-reserve coin; an algorithmic or opaque-reserve coin is excluded at the Brazilian custody/listing gate regardless of the rail. The foreign-custodian conditions are directly relevant to the HK/offshore custody leg of this corridor.\n",
-              "record_refs": []
+              "record_refs": [
+                "br-vasp-custody-001",
+                "br-vasp-reserve_backing-001",
+                "br-vasp-disclosure_reporting-001"
+              ]
             }
           ],
           "clears": "Authorised-VASP-in-FX channel (Res 521), within the per-operation cap (USD 100k SPSAV / USD 500k FX-authorised institution where the foreign counterparty is not BCB-FX-authorised), with audit + monthly FX reporting from 4 May 2026 and Res 520 custody/segregation (Art. 28–30: proof-of-reserves, biennial reasonable-assurance audit, public report), using an auditable-reserve (non-algorithmic) stablecoin.\n",
@@ -7263,7 +7286,7 @@
       "infrastructure_overlap": "mBridge (shared multi-central-bank-digital-currency axis)",
       "inbound_mechanism": {
         "test": "Destination prohibition",
-        "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
+        "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. The prohibition is written, in-force law: 银发〔2026〕42号 (eight-ministry Notice, in force 6 Feb 2026; it repealed the 2021 Notice 银发〔2021〕237号) bars unauthorised overseas issuance of RMB-pegged stablecoins (未经许可，境内外任何主体不得在境外发行挂钩人民币的稳定币) and PRC-controlled entities issuing virtual currencies abroad. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
         "administrator": "PBOC / CAC / SAFE"
       },
       "note": "The mirror corridor is blocked at the destination. No foreign stablecoin, including an HKD-referenced one, may circulate in the mainland as a payment instrument. Only the regulatory and digital-financial archetypes are meaningful, and only at the level of data and capital flows. The contrast with the (also Category III) PRC->HK direction is the clearest single illustration of why corridors must be directed.",
@@ -8097,7 +8120,7 @@
       "source": "Fan, Cross-Border Stablecoin Architecture v3 (Twelve Jurisdictions, June 2026), §3.3, §4, §6",
       "prc_three_pattern_typology": {
         "source": "Fan, Cross-Border Stablecoin Architecture v3 (Twelve Jurisdictions, June 2026), §3.3 (Three Architectural Patterns)",
-        "boundary": "The cross-border PRC boundary is the practical consequence of the joint operation of Constraints 1 (issuer eligibility) and 6 (cross-border payment and data sovereignty) (Interaction Set A). It is an emergent regulatory pattern established by the public record (absence of PRC-connected entities from the April 2026 HKMA first cohort; the Oct 2025 Ant/JD application withdrawals; the absence of state-owned bank affiliates despite Sep 2025 activity; the Oct 2025 CSRC tokenization guidance), not by any single explicit prohibition.",
+        "boundary": "The cross-border PRC boundary is the practical consequence of the joint operation of Constraints 1 (issuer eligibility) and 6 (cross-border payment and data sovereignty) (Interaction Set A). As of Feb 2026 it is also anchored by an explicit written prohibition: 银发〔2026〕42号 (eight-ministry Notice, in force 6 Feb 2026; it repealed the 2021 Notice 银发〔2021〕237号) bars unauthorised overseas issuance of RMB-pegged stablecoins (未经许可，境内外任何主体不得在境外发行挂钩人民币的稳定币) and PRC-controlled entities issuing virtual currencies abroad, and restricts onshore RWA tokenisation (with CSRC 公告〔2026〕1号 guidance on offshore ABS-token issuance). What remains emergent (rather than categorically prohibited) is the Direct-Subsidiary-via-Hong-Kong pathway: the public record (absence of PRC-connected entities from the April 2026 HKMA first cohort; the Oct 2025 Ant/JD application withdrawals; the absence of state-owned bank affiliates despite Sep 2025 activity; the Oct 2025 CSRC tokenization guidance) shows it constrained by the data-sharing pattern, not by a categorical exclusion under the Stablecoins Ordinance.",
         "patterns": [
           {
             "id": "A",
@@ -8261,12 +8284,14 @@
         "III": "Composition problem unresolved — the constraints interact in ways the public regulatory record does not currently resolve; configurations may be analytically derivable but their viability depends on regulatory developments not yet completed."
       },
       "category_iii_axes": {
-        "prohibition": "The PRC prohibition axis: issuance is prohibited; the §3.3 three-pattern typology supplies the responsive architectures.",
-        "pre_regime": "The Taiwan / South Korea pre-regime axis: issuance is not prohibited but not yet authorizable (the enabling statute remains a bill); partnership and dual-authorization options become available only on enactment.",
-        "prohibition+pre_regime": "Both ends are unavailable (PRC prohibition x Taiwan pre-regime), with an additional cross-strait political dimension.",
-        "counterparty_conditional": "The Brazil cross-border leg: the câmbio reclassification and the 1 Oct 2026 closure of the retail eFX rail leave the permitted channel running through a licensed VASP with an FX-authorised counterparty or within the per-operation cap."
+        "prohibition": "The PRC prohibition axis: issuance is prohibited (now by explicit written law, 银发〔2026〕42号, in force 6 Feb 2026, which repealed the 2021 Notice and bars overseas RMB-pegged-stablecoin issuance and extraterritorial issuance by PRC-controlled entities); the §3.3 three-pattern typology supplies the responsive architectures.",
+        "pre_regime": "The South Korea pre-regime axis: issuance is not prohibited but not yet authorizable (the Digital Asset Basic Act remains a bill); partnership and dual-authorization options become available only on enactment. Taiwan left this axis on 30 Jun 2026 when the VAS Act was enacted, moving to the enacted_not_commenced axis.",
+        "counterparty_conditional": "The Brazil cross-border leg: the câmbio reclassification and the 1 Oct 2026 closure of the retail eFX rail leave the permitted channel running through a licensed VASP with an FX-authorised counterparty or within the per-operation cap.",
+        "enacted_not_commenced": "The Taiwan enacted-but-not-commenced axis: the Virtual Asset Service Act passed third reading on 30 Jun 2026 but awaits FSC subsidiary legislation with no gazetted commencement, so no exportable token exists yet. Origin edges drag to Category III; inbound edges are held at Category T and resolve to a channelled Category II on commencement. Distinct from pre-regime (no regime at all) and from prohibition.",
+        "prohibition+enacted_not_commenced": "PRC prohibition combined with Taiwan's enacted-but-not-commenced status: Category III on both legs for different reasons, plus a cross-strait political dimension.",
+        "pre_regime+enacted_not_commenced": "Korea pre-regime combined with Taiwan enacted-but-not-commenced: neither leg has an exportable token, so Category III on both sides, for different reasons."
       },
-      "summary_observation": "No surveyed pair exhibits unilateral authorization recognition permitting a single entity to operate as issuer in both jurisdictions under one authorization; Category I (dual authorization) and Category II (partnership distribution) are the standard configurations. Category III arises along three axes (PRC prohibition; Taiwan/Korea pre-regime; the counterparty-conditional Brazil leg). As of June 2026 there is no cross-border stablecoin operation in production crossing any Category III pair through direct subsidiary architecture; production solutions are Category II partnership arrangements (Ant International + Circle as anchor) or are limited to non-Category-III pairs.",
+      "summary_observation": "No surveyed pair exhibits unilateral authorization recognition permitting a single entity to operate as issuer in both jurisdictions under one authorization; Category I (dual authorization) and Category II (partnership distribution) are the standard configurations. Category III arises along several axes (PRC prohibition; Korea pre-regime; Taiwan enacted-but-not-commenced; the counterparty-conditional Brazil leg). As of June 2026 there is no cross-border stablecoin operation in production crossing any Category III pair through direct subsidiary architecture; production solutions are Category II partnership arrangements (Ant International + Circle as anchor) or are limited to non-Category-III pairs.",
       "pairs": [
         {
           "pair": "AE-BR",
@@ -8389,8 +8414,8 @@
             "A",
             "F"
           ],
-          "note": "Taiwan pre-regime; UAE PTSR + free-zone regimes on the UAE leg; only AML registration on the TW leg.",
-          "category_iii_axis": "pre_regime"
+          "note": "Taiwan enacted-but-not-commenced (VAS Act third reading 30 Jun 2026; awaiting FSC subsidiary legislation, no gazetted commencement): no exportable token yet, so the TW leg drags the pair to Category III; UAE PTSR + free-zone regimes on the UAE leg; only AML registration operative on the TW side. Inbound-to-Taiwan edges are held at Category T and resolve to a channelled Category II on commencement.",
+          "category_iii_axis": "enacted_not_commenced"
         },
         {
           "pair": "AE-UK",
@@ -8525,8 +8550,8 @@
             "A",
             "F"
           ],
-          "note": "Taiwan pre-regime; Brazilian licensed-PSAV regime + câmbio reclassification on the Brazil leg; only AML registration on the TW leg.",
-          "category_iii_axis": "pre_regime"
+          "note": "Taiwan enacted-but-not-commenced (VAS Act third reading 30 Jun 2026; awaiting FSC subsidiary legislation, no gazetted commencement): no exportable token yet, so the TW leg drags the pair to Category III; Brazilian licensed-PSAV regime + câmbio reclassification on the Brazil leg; only AML registration operative on the TW side. Inbound-to-Taiwan edges are held at Category T and resolve to a channelled Category II on commencement.",
+          "category_iii_axis": "enacted_not_commenced"
         },
         {
           "pair": "BR-UK",
@@ -8647,8 +8672,8 @@
             "C",
             "F"
           ],
-          "note": "Taiwan pre-regime; the Swiss regime on the Swiss leg; only AML registration on the TW leg.",
-          "category_iii_axis": "pre_regime"
+          "note": "Taiwan enacted-but-not-commenced (VAS Act third reading 30 Jun 2026; awaiting FSC subsidiary legislation, no gazetted commencement): no exportable token yet, so the TW leg drags the pair to Category III; the Swiss regime on the Swiss leg; only AML registration operative on the TW side. Inbound-to-Taiwan edges are held at Category T and resolve to a channelled Category II on commencement.",
+          "category_iii_axis": "enacted_not_commenced"
         },
         {
           "pair": "CH-UK",
@@ -8760,8 +8785,8 @@
             "A",
             "F"
           ],
-          "note": "Combines prohibition (PRC) with pre-regime status (Taiwan): no direct issuance architecture on either side; the cross-strait political relationship further removes this pair from the resolvable set.",
-          "category_iii_axis": "prohibition+pre_regime"
+          "note": "Combines PRC prohibition with Taiwan's enacted-but-not-commenced status (VAS Act third reading 30 Jun 2026, awaiting subsidiary legislation): no direct issuance architecture on either side, and the cross-strait political relationship further removes this pair from the resolvable set. Category III on both axes, but for different reasons: PRC prohibits issuance, while Taiwan has enacted law not yet operative and no exportable token yet.",
+          "category_iii_axis": "prohibition+enacted_not_commenced"
         },
         {
           "pair": "CN-UK",
@@ -8861,8 +8886,8 @@
             "A",
             "F"
           ],
-          "note": "Taiwan pre-regime; MiCA (incl. Article 58(3)) on the EU leg, only AML registration on the TW leg.",
-          "category_iii_axis": "pre_regime"
+          "note": "Taiwan enacted-but-not-commenced (VAS Act third reading 30 Jun 2026; awaiting FSC subsidiary legislation, no gazetted commencement): no exportable token yet, so the TW leg drags the pair to Category III; MiCA (incl. Article 58(3)) on the EU leg; only AML registration operative on the TW side. Inbound-to-Taiwan edges are held at Category T and resolve to a channelled Category II on commencement.",
+          "category_iii_axis": "enacted_not_commenced"
         },
         {
           "pair": "EU-UK",
@@ -8931,7 +8956,7 @@
             "A",
             "F"
           ],
-          "note": "Dual authorization/partnership; BIS Project Ensemble (HKMA+MAS) provides an institutional interoperability channel, though it is not part of the stablecoin licensing regime."
+          "note": "Dual authorization/partnership; Project Ensemble (HKMA-led) provides an institutional interoperability channel, though it is not part of the stablecoin licensing regime."
         },
         {
           "pair": "HK-TW",
@@ -8944,8 +8969,8 @@
             "A",
             "F"
           ],
-          "note": "Taiwan pre-regime; HKMA FRS regime on the Hong Kong leg; only AML registration on the TW leg; an additional cross-strait political dimension the public record does not resolve.",
-          "category_iii_axis": "pre_regime"
+          "note": "Taiwan enacted-but-not-commenced (VAS Act third reading 30 Jun 2026; awaiting FSC subsidiary legislation, no gazetted commencement): no exportable token yet, so the TW leg drags the pair to Category III; HKMA FRS regime on the Hong Kong leg; only AML registration operative on the TW side; an additional cross-strait political dimension the public record does not resolve. Inbound-to-Taiwan edges are held at Category T and resolve to a channelled Category II on commencement.",
+          "category_iii_axis": "enacted_not_commenced"
         },
         {
           "pair": "HK-UK",
@@ -9018,8 +9043,8 @@
             "E",
             "F"
           ],
-          "note": "Taiwan pre-regime (VASA a bill); the PSA EPI regime on the JP leg. Pre-regime Category III, distinct from the mainland prohibition.",
-          "category_iii_axis": "pre_regime"
+          "note": "Taiwan enacted-but-not-commenced (VAS Act third reading 30 Jun 2026; awaiting FSC subsidiary legislation, no gazetted commencement): no exportable token yet, so the TW leg drags the pair to Category III; the PSA EPI regime on the JP leg. Category III via origin-drag, distinct from the mainland prohibition; inbound-to-Taiwan edges are held at Category T and resolve to a channelled Category II on commencement.",
+          "category_iii_axis": "enacted_not_commenced"
         },
         {
           "pair": "JP-UK",
@@ -9076,8 +9101,8 @@
             "D",
             "F"
           ],
-          "note": "Both jurisdictions pre-comprehensive-regime: no issuance authorization on either leg; only AML registration on the TW leg and only the VAUPA on the KR leg.",
-          "category_iii_axis": "pre_regime"
+          "note": "Korea is pre-regime (DABA un-enacted) and Taiwan is enacted-but-not-commenced (VAS Act third reading 30 Jun 2026, awaiting subsidiary legislation): neither leg has an exportable token, so the pair is Category III on both sides, but for different reasons: Korea has no comprehensive regime yet, while Taiwan has enacted law not yet operative. Only the VAUPA on the KR leg and only AML registration on the TW leg.",
+          "category_iii_axis": "pre_regime+enacted_not_commenced"
         },
         {
           "pair": "KR-UK",
@@ -9121,8 +9146,8 @@
             "A",
             "F"
           ],
-          "note": "Taiwan pre-regime; MAS-SCS + DTSP perimeter on the Singapore leg; only AML registration on the TW leg.",
-          "category_iii_axis": "pre_regime"
+          "note": "Taiwan enacted-but-not-commenced (VAS Act third reading 30 Jun 2026; awaiting FSC subsidiary legislation, no gazetted commencement): no exportable token yet, so the TW leg drags the pair to Category III; MAS-SCS + DTSP perimeter on the Singapore leg; only AML registration operative on the TW side. Inbound-to-Taiwan edges are held at Category T and resolve to a channelled Category II on commencement.",
+          "category_iii_axis": "enacted_not_commenced"
         },
         {
           "pair": "SG-UK",
@@ -9161,8 +9186,8 @@
             "A",
             "F"
           ],
-          "note": "Taiwan pre-regime; FCA and BoE frameworks on the UK leg; only AML registration on the TW leg.",
-          "category_iii_axis": "pre_regime"
+          "note": "Taiwan enacted-but-not-commenced (VAS Act third reading 30 Jun 2026; awaiting FSC subsidiary legislation, no gazetted commencement): no exportable token yet, so the TW leg drags the pair to Category III; FCA and BoE frameworks on the UK leg; only AML registration operative on the TW side. Inbound-to-Taiwan edges are held at Category T and resolve to a channelled Category II on commencement. (Both are regime-in-transition, but the UK exports an authorizable token and Taiwan does not yet.)",
+          "category_iii_axis": "enacted_not_commenced"
         },
         {
           "pair": "TW-US",
@@ -9175,8 +9200,8 @@
             "A",
             "F"
           ],
-          "note": "Taiwan pre-regime (VASA a bill); neither dual authorization nor partnership available on the TW side; only AML registration operative. Distinct from PRC prohibition: not prohibited, not yet authorizable.",
-          "category_iii_axis": "pre_regime"
+          "note": "Taiwan enacted-but-not-commenced (VAS Act third reading 30 Jun 2026; awaiting FSC subsidiary legislation, no gazetted commencement): the issuer regime is enacted but not operative and there is no exportable token yet, so neither dual authorization nor partnership is available on the TW side and the pair is Category III via origin-drag; only AML registration operative. Distinct from PRC prohibition (not prohibited) and from Korea's pre-regime status (Taiwan has enacted law); inbound-to-Taiwan edges are held at Category T and resolve to a channelled Category II on commencement.",
+          "category_iii_axis": "enacted_not_commenced"
         },
         {
           "pair": "UK-US",
@@ -9196,11 +9221,13 @@
     "open_questions": {
       "schema": "cbsr-analysis/open_questions",
       "source": "Fan, Cross-Border Stablecoin Architecture v3 (Twelve Jurisdictions, June 2026), §7 (Implementation and Open Questions)",
-      "note": "Sections 7.1-7.4 are the four developments the paper identifies as determining which architectural options become operationally viable; 7.5 is the BIS wholesale-settlement infrastructure-implications question. Each is preserved with its conditional regulatory status.",
+      "note": "Sections 7.1-7.4 are the four developments the paper identifies as determining which architectural options become operationally viable; 7.5 is the wholesale-settlement infrastructure-implications question. Each is preserved with its conditional regulatory status.  v0.9.9: each open question now carries a trigger_kind aligning it with the flagship §3 typology (7.3 parameterization §3.7; 7.4 open-compositional §3.8; 7.2 resolved-tightening §3.9; 7.1 and 7.5 open-compositional). These are the non-horizon-moving trigger kinds, carried here rather than in the event calendar because none has a commencement to apply by date.",
       "questions": [
         {
           "id": "7.1",
           "title": "Joint NPRM architecture (§404 implementation)",
+          "trigger_kind": "open-compositional",
+          "trigger_kind_basis": "§3.8-adjacent: the joint NPRM is information/rulemaking whose resolution feeds the routing and market-structure architecture; contingent on CLARITY enactment, no commencement to apply by date.",
           "question": "What will the joint Notice of Proposed Rulemaking that CLARITY §404 (as reported) directs the SEC, CFTC, and Treasury to issue within twelve months of enactment actually contain?",
           "affects": "The §4 yield-separation architecture and the permitted/prohibited boundary for routing arrangements.",
           "status": "unresolved",
@@ -9209,19 +9236,24 @@
         {
           "id": "7.2",
           "title": "People's Republic of China boundary stability",
-          "question": "Will the PRC boundary observed in October 2025 and April 2026 hold, relax, or tighten?",
+          "trigger_kind": "resolved-tightening",
+          "trigger_kind_basis": "§3.9: the PRC boundary's Feb-2026 written tightening (银发〔2026〕42号) is settled in the tightening direction while a reversing relaxation stays open.",
+          "question": "The PRC boundary tightened in writing in Feb 2026 (银发〔2026〕42号). Will it hold at that level, tighten further, or relax?",
           "affects": "The §3.3 three-pattern typology (especially Pattern A viability).",
           "status": "unresolved",
           "material_developments": [
-            "PRC modifies the cross-border data framework to facilitate HKMA supervisor-to-supervisor information-sharing;",
+            "RESOLVED (tightening): 银发〔2026〕42号 (in force 6 Feb 2026) put the prohibition into explicit written law — overseas RMB-pegged-stablecoin issuance banned, extraterritorial issuance by PRC-controlled entities banned, onshore RWA tokenisation restricted (CSRC 公告〔2026〕1号);",
+            "STILL-OPEN (relaxation paths): PRC modifies the cross-border data framework to facilitate HKMA supervisor-to-supervisor information-sharing;",
             "the HKMA announces a second cohort including one or more PRC-connected entities;",
             "the PRC publicly authorizes state-owned bank HK affiliates to apply/operate under HK licences."
           ],
-          "conditional_flag": "None of the three developments has occurred as of publication; the §3.3 patterns are configured against the boundary as currently observed."
+          "conditional_flag": "The tightening has occurred (42号). None of the three relaxation developments has occurred as of publication; the §3.3 patterns are configured against the boundary as currently observed."
         },
         {
           "id": "7.3",
           "title": "Operationalization of the Article 58(3) cap",
+          "trigger_kind": "parameterization",
+          "trigger_kind_basis": "§3.7: operationalization of the Article 58(3) means-of-exchange cap — sharpens the operative content of a constraint already in force without moving any class.",
           "question": "How will the EBA operationalize the Article 58(3) means-of-exchange cap (adopted methodology guidance and Member State competent-authority practice)?",
           "affects": "The §5.14 cross-currency cross-border analysis for USD-referenced stablecoins in the EU.",
           "status": "unresolved",
@@ -9230,6 +9262,8 @@
         {
           "id": "7.4",
           "title": "HKMA second-cohort composition",
+          "trigger_kind": "open-compositional",
+          "trigger_kind_basis": "§3.8: the HKMA second-cohort composition is information, not a change in law; its resolution feeds the PRC boundary-stability question (7.2).",
           "question": "What will the composition of the second cohort of HKMA stablecoin licences be (currency coverage; PRC-connected applicants; USD-referenced products)?",
           "affects": "US x HK and EU x HK pair feasibility; PRC boundary stability (§7.2).",
           "status": "unresolved",
@@ -9237,7 +9271,9 @@
         },
         {
           "id": "7.5",
-          "title": "BIS Project Agorá and Project Ensemble implications",
+          "title": "Project Agorá (BIS-led) and Project Ensemble (HKMA-led) implications",
+          "trigger_kind": "open-compositional",
+          "trigger_kind_basis": "§5: the wholesale-settlement experiments are an open compositional/infrastructure question feeding the geopolitical-fracture reading; softer evidence tier, not a class-level trigger.",
           "question": "How will the wholesale-settlement experiments (Project Agorá, Project Ensemble, mBridge) interact with private stablecoin architectures at the infrastructure layer?",
           "affects": "The Digital-Financial corridor archetype and infrastructure-axis membership across edges.",
           "status": "unresolved",
@@ -9314,11 +9350,11 @@
           "basis": "CBUAE PTSR; Foreign Payment Token usage-channel restriction (ae-pt-* records)"
         },
         "TW": {
-          "regime_status": "pre_regime",
-          "inbound_gate": "pre_regime",
+          "regime_status": "transition",
+          "inbound_gate": "transition",
           "exportable_token": false,
           "egress_override": false,
-          "basis": "AML registration in force; VAS Act a bill (tw-frs-issuer_pathway-001 status=proposed)"
+          "basis": "VAS Act enacted at third reading 30 Jun 2026; subsidiary legislation pending, no gazetted commencement; no exportable token yet (tw-frs-issuer_pathway-001 status=transitional)"
         },
         "JP": {
           "regime_status": "live",
@@ -9337,12 +9373,10 @@
       },
       "pre_regime_crosscheck": {
         "from_signals": [
-          "KR",
-          "TW"
+          "KR"
         ],
         "from_records": [
-          "KR",
-          "TW"
+          "KR"
         ],
         "consistent": true
       },
@@ -10098,12 +10132,12 @@
     },
     "event_calendar": {
       "schema": "cbsr-analysis/event_calendar",
-      "version": "v0.9.6",
-      "as_of_base": "2026-06-27",
-      "note": "Dated and contingent CHANGES IN LAW that move a jurisdiction's compose() signal. Every event is a tier1_legal event (a commencement/enactment), never a market launch — a product going live is tier2_operational and is recorded in a record's operational_notes, not here. 'scheduled' events have an effective_date and are applied by compose(as_of>=date); 'contingent' events have no firm date (a bill not yet enacted) and are NEVER applied by date — compose surfaces them as pending transitions that would change the verdict if enacted. The signal fields and their meaning are defined in scripts/compose.py. v0.9.5: UK commencement re-pinned to the gazetted day 2027-10-25 (SI 2026/102), precision=day, per the external verification — shifting every date-aware UK verdict by ~10 months. v0.9.6: added two contingent 'if enacted' events the verification surfaced as closest-to-flipping (US CLARITY Act, Senate Calendar No. 423; Singapore SCS implementing legislation, expected mid-2026). Both are contingent (no fixed date), so they do not move any compose(as_of) horizon yet; they are the standing machinery so that when a commencement date is fixed, the dependent cells' binding_status flips automatically.",
+      "version": "v0.9.9",
+      "as_of_base": "2026-06-30",
+      "note": "Dated and contingent CHANGES IN LAW that move a jurisdiction's compose() signal. Every event is a tier1_legal event (a commencement/enactment), never a market launch, a product going live is tier2_operational and is recorded in a record's operational_notes, not here. 'scheduled' events have an effective_date and are applied by compose(as_of>=date); 'contingent' events have no firm date (a bill not yet enacted) and are NEVER applied by date; compose surfaces them as pending transitions that would change the verdict if enacted. The signal fields and their meaning are defined in scripts/compose.py. v0.9.5: UK commencement re-pinned to the gazetted day 2027-10-25 (SI 2026/102), precision=day, per the external verification, shifting every date-aware UK verdict by ~10 months. v0.9.6: added two contingent 'if enacted' events the verification surfaced as closest-to-flipping (US CLARITY Act, Senate Calendar No. 423; Singapore SCS implementing legislation, expected mid-2026). Both are contingent (no fixed date), so they do not move any compose(as_of) horizon yet; they are the standing machinery so that when a commencement date is fixed, the dependent cells' binding_status flips automatically.  v0.9.9: (a) every event now carries a trigger_kind implementing the flagship §3 typology (see trigger_kind_legend); (b) added the 7th event, the EU MiCA Article 143(3) transitional expiry, as a structured intra-regime-gating item with the staggered national schedule and the second-order EMT-custody development, so the register itself carries the event the flagship §3.10 attributes to it (previously only in the eu-emt-regulatory_authority-001 requirement_summary prose, and in the old uniform framing). Its feasibility-class effect is empty, mirroring the JP control case, so it moves no compose() horizon.",
       "status_values": {
         "scheduled": "legislated/announced with an effective_date (may carry precision=year); applied when as_of >= effective_date",
-        "contingent": "depends on an enactment that has not happened (no firm date); never applied by date, only surfaced as a pending transition",
+        "contingent": "depends on a development that has not occurred or carries no firm date (an unenacted bill, or an enacted law awaiting commencement with no gazetted date); never applied by date, only surfaced as a pending transition",
         "in_force": "already effective as of the base date; applied unconditionally"
       },
       "events": [
@@ -10115,6 +10149,7 @@
           "effective_date": "2027-10-25",
           "precision": "day",
           "claim_class": "tier1_legal",
+          "trigger_kind": "fully-scheduled",
           "effect": [
             {
               "field": "regime_status",
@@ -10128,7 +10163,7 @@
             }
           ],
           "basis": "FSMA 2026 framework via SI 2026/102: made 4 Feb 2026; the BoE systemic-stablecoin regime and FCA conduct regime become operative on full commencement 25 Oct 2027.",
-          "date_basis": "Gazetted commencement DAY: SI 2026/102 (FSMA 2000 (Cryptoassets) Regulations 2026) made 4 Feb 2026, full commencement 25 Oct 2027 (preparatory provisions from 25 Feb 2026). precision=day — a specific commencement date, not a modelled year.",
+          "date_basis": "Gazetted commencement DAY: SI 2026/102 (FSMA 2000 (Cryptoassets) Regulations 2026) made 4 Feb 2026, full commencement 25 Oct 2027 (preparatory provisions from 25 Feb 2026). precision=day; a specific commencement date, not a modelled year.",
           "records": [
             "uk-frs-regulatory_authority-001"
           ],
@@ -10137,31 +10172,27 @@
         {
           "id": "tw-vas-act-enacted",
           "jurisdiction": "TW",
-          "title": "Taiwan Virtual Asset Service Act enacted (issuer licensing regime live)",
+          "title": "Taiwan Virtual Asset Service Act commencement (subsidiary legislation brings the issuer regime into force)",
           "status": "contingent",
           "effective_date": null,
           "precision": "none",
-          "trigger": "Enactment and commencement of the Virtual Asset Service Act (currently a bill at the Executive Yuan).",
+          "trigger": "Commencement of the enacted Virtual Asset Service Act through its subsidiary legislation. The Act passed third reading on 30 Jun 2026; commencement awaits FSC subordinate rules and carries no gazetted date.",
           "claim_class": "tier1_legal",
+          "trigger_kind": "enacted-not-commenced",
           "effect": [
             {
               "field": "regime_status",
-              "from": "pre_regime",
+              "from": "transition",
               "to": "live"
             },
             {
-              "field": "exportable_token",
-              "from": false,
-              "to": true
-            },
-            {
               "field": "inbound_gate",
-              "from": "pre_regime",
+              "from": "transition",
               "to": "channel"
             }
           ],
-          "basis": "Draft Virtual Asset Service Act (Executive Yuan referral); tw-frs-issuer_pathway-001 carries the draft provisions as status=proposed.",
-          "date_basis": "No firm enactment date; inbound_gate target ('channel') is provisional pending the enacted text. The Legislative Yuan Finance Committee completed the article-by-article first review (初審) on 3 Jun 2026 and resolved to send the bill to the plenary (no caucus negotiation), but it has NOT passed third reading. Procedurally more advanced than KR's DABA (still in subcommittee).",
+          "basis": "Virtual Asset Service Act enacted at third reading 30 Jun 2026; tw-frs-issuer_pathway-001 carries the enacted provisions as status=transitional (binding_status=made_not_commenced), awaiting FSC subsidiary legislation.",
+          "date_basis": "Enacted at third reading on 30 Jun 2026, the dateline of this draft; commencement awaits subsidiary legislation (the FSC has flagged roughly nine subordinate items on an indicative timetable around Q1 2027), and no commencement date is gazetted, so this trigger is applied by no date. The Legislative Yuan Finance Committee completed the article-by-article first review (初審) on 3 Jun 2026 and resolved to send the bill to the plenary; third reading followed on 30 Jun 2026. On commencement the inbound gate moves to a channelled Category II route; the origin edges stay Category III, because enactment alone creates no exportable, comprehensively authorizable private token (issuers must still be licensed and issue under the new regime). Procedurally now ahead of KR's DABA, still in subcommittee.",
           "records": [
             "tw-frs-issuer_pathway-001"
           ]
@@ -10175,6 +10206,7 @@
           "precision": "none",
           "trigger": "Enactment and commencement of the Digital Asset Basic Act (currently a bill).",
           "claim_class": "tier1_legal",
+          "trigger_kind": "contingent-no-date",
           "effect": [
             {
               "field": "regime_status",
@@ -10203,12 +10235,13 @@
           "jurisdiction": "JP",
           "title": "Japan Act No. 66 of 2025 full enforcement (trust-type reserve relaxation)",
           "status": "scheduled",
-          "effective_date": "2026-06-13",
+          "effective_date": "2026-06-01",
           "precision": "day",
           "claim_class": "tier1_legal",
+          "trigger_kind": "dated-empty-effect",
           "effect": [],
           "basis": "Act No. 66 of 2025 relaxing trust-type reserve rules; refines an already-live EPI regime.",
-          "date_basis": "Full enforcement scheduled 13 Jun 2026 (Cabinet orders pending as of the base date). Effect on compose() is NONE — Japan is already 'live'; this refines reserve rules, not the inbound gate. Included to show the calendar distinguishes a change in law from a change in feasibility class.",
+          "date_basis": "Act No. 66 of 2025 promulgated 13 Jun 2025; took effect 1 Jun 2026 and is now in force as of the base date. Effect on compose() is NONE (control case): Japan is already 'live', so relaxing trust-type reserve composition moves no inbound gate and changes no edge class. Included to show the calendar distinguishes a change in law from a change in feasibility class. The same-date Cabinet Office Ordinance recognising equivalent foreign trust-type stablecoins is an inbound recognition pathway handled by conditioning (the existing Category II channelled treatment), not by asserting a class change here.",
           "records": [
             "jp-epi-reserve_backing-001"
           ]
@@ -10222,6 +10255,7 @@
           "precision": "none",
           "trigger": "Enactment of the Digital Asset Market Clarity Act (H.R. 3633). On the Senate Legislative Calendar as Calendar No. 423 (reported 1 Jun 2026); still requires Senate floor passage, reconciliation with the Senate Agriculture and House versions, and Presidential signature.",
           "claim_class": "tier1_legal",
+          "trigger_kind": "contingent-no-date",
           "effect": [
             {
               "field": "binding_status (us bank_nonbank_routing)",
@@ -10257,6 +10291,7 @@
           "precision": "none",
           "trigger": "Enactment of the implementing legislation for the MAS Single-Currency Stablecoin (SCS) framework (finalised 15 Aug 2023). MAS announced at the Nov 2025 Singapore FinTech Festival that it was ready to begin drafting; the framework is expected to take effect in mid-2026.",
           "claim_class": "tier1_legal",
+          "trigger_kind": "contingent-not-class-change",
           "effect": [
             {
               "field": "binding_status (sg SCS-specific cells)",
@@ -10286,13 +10321,93 @@
             "sg-scs-monetary_sovereignty-001",
             "sg-scs-issuer_pathway-001"
           ]
+        },
+        {
+          "id": "eu-mica-art143-transitional-expiry",
+          "jurisdiction": "EU",
+          "title": "EU MiCA Article 143(3) transitional grandfathering expiry (national side-doors close; admissible-token set narrows)",
+          "status": "scheduled",
+          "effective_date": "2026-07-01",
+          "precision": "day",
+          "claim_class": "tier1_legal",
+          "trigger_kind": "intra-regime-gating",
+          "effect": [],
+          "basis": "MiCA Article 143(3) (Reg. (EU) 2023/1114) transitional grandfathering for CASPs providing services under pre-existing national law. eu-emt-regulatory_authority-001 carries the corrected staggered framing; this event carries the dated national schedule structurally so compose()/timeline can reflect it.",
+          "date_basis": "1 July 2026 is the OUTER CAP: the longest window any Member State could grant under Article 143(3); ESMA has confirmed no extension. Beneath the cap the national windows are staggered and most have already closed: France, Malta and Luxembourg run the full window (to 1 July 2026); Germany and Ireland closed at 12 months (end 2025); Sweden at 9 months (late 2025); Finland, Latvia, Lithuania, Hungary, the Netherlands, Poland and Slovenia at 6 months (mid-2025). The deadline that binds a given corridor is the EARLIEST among the Member States it touches, not the cap. effective_date is set to the outer cap for the timeline; because the effect on feasibility class is empty (intra-regime gating, not a class transition), no compose() horizon shifts on this date.",
+          "staggered_national_windows": [
+            {
+              "member_states": [
+                "FR",
+                "MT",
+                "LU"
+              ],
+              "window_months": 18,
+              "closes": "2026-07-01",
+              "status": "full outer-cap window"
+            },
+            {
+              "member_states": [
+                "DE",
+                "IE"
+              ],
+              "window_months": 12,
+              "closes": "2025-12-30",
+              "status": "closed"
+            },
+            {
+              "member_states": [
+                "SE"
+              ],
+              "window_months": 9,
+              "closes": "2025-09-30",
+              "status": "closed"
+            },
+            {
+              "member_states": [
+                "FI",
+                "LV",
+                "LT",
+                "HU",
+                "NL",
+                "PL",
+                "SI"
+              ],
+              "window_months": 6,
+              "closes": "2025-06-30",
+              "status": "closed"
+            }
+          ],
+          "second_order": {
+            "development": "expected secondary authorization for the custody and transfer of electronic-money tokens (EMTs)",
+            "status": "open, no commencement to apply by date",
+            "note": "recorded alongside the transitional expiry as the related second-order EU development; bears on Interaction Set D (reserve composition jointly binding with monetary sovereignty), not on any feasibility class."
+          },
+          "scope_note": "Intra-regime gating: the directed model's feasibility classes capture whether a corridor can be authorized at all and by construction do not capture a change that alters WHO may operate within an already-live regime. This event closes national side-doors and narrows the set of admissible tokens without moving any class; the flagship treats the class-sensitivity measure's blind spot to this category as a stated scope limitation (§6).",
+          "records": [
+            "eu-emt-regulatory_authority-001"
+          ]
         }
-      ]
+      ],
+      "trigger_kind_legend": {
+        "purpose": "Every event carries a trigger_kind: the paper's typology of regulatory triggers by the kind of certainty each carries (flagship §3). It separates the one kind that moves a dated horizon from the kinds that do not, and names the intra-regime gating change a class-centric reading misses.",
+        "kinds": {
+          "fully-scheduled": "gazetted commencement date; applied by that date; the ONLY kind that moves a horizon (§3.1, UK).",
+          "enacted-not-commenced": "passed into law but awaiting subsidiary legislation with no gazetted commencement; partly fired (§3.3, TW).",
+          "contingent-no-date": "depends on an enactment that has not occurred; no date; surfaced only as an if-enacted branch (§3.2 US, §3.4 KR).",
+          "contingent-not-class-change": "a pending enactment that hardens a binding status without moving any class, the baseline class already in force (§3.5, SG).",
+          "parameterization": "operationalization of a constraint that already binds; sharpens the operative content of a class without moving one (§3.7, EBA, carried in open_questions).",
+          "intra-regime-gating": "a DATED change in law that alters accessibility WITHIN a live regime (who may operate; which tokens are admissible) without moving any feasibility class (§3.10, EU MiCA).",
+          "dated-empty-effect": "a dated, now-in-force change with an explicitly empty feasibility-class effect; the control case showing the calendar distinguishes a change in law from a change in feasibility class (§3.6, JP).",
+          "open-compositional": "information rather than a change in law, whose resolution feeds another jurisdiction's analysis (§3.8, HK 2nd cohort, carried in open_questions).",
+          "resolved-tightening": "an asymmetric posture: a boundary's recent movement is settled in one direction while a reversing development stays open (§3.9, PRC, carried in open_questions)."
+        },
+        "horizon_rule": "Only fully-scheduled events move a compose() horizon. dated-empty-effect and intra-regime-gating events are dated but move no feasibility class, so they appear on the timeline without changing any corridor's category, by design."
+      }
     },
     "computed_timeline": {
       "schema": "cbsr-analysis/computed_timeline",
       "status": "preview",
-      "as_of_base": "2026-06-27",
+      "as_of_base": "2026-06-30",
       "method": "Date-aware compose(): signals_as_of(date) applies every scheduled/in_force event in the event calendar with effective_date <= date, then re-runs the Atlas algorithm. Contingent events (a bill not yet enacted) are never applied by date — they are shown as hypothetical 'class_if_enacted' branches. Every event is a tier1_legal change in law backed by tier1_legal records (enforced); a market launch is never an event. NOT asserted authoritative.",
       "event_provenance": {
         "clean": true,
@@ -10309,6 +10424,7 @@
           "effective_date": "2027-10-25",
           "precision": "day",
           "claim_class": "tier1_legal",
+          "trigger_kind": "fully-scheduled",
           "effect": [
             {
               "field": "regime_status",
@@ -10322,7 +10438,7 @@
             }
           ],
           "basis": "FSMA 2026 framework via SI 2026/102: made 4 Feb 2026; the BoE systemic-stablecoin regime and FCA conduct regime become operative on full commencement 25 Oct 2027.",
-          "date_basis": "Gazetted commencement DAY: SI 2026/102 (FSMA 2000 (Cryptoassets) Regulations 2026) made 4 Feb 2026, full commencement 25 Oct 2027 (preparatory provisions from 25 Feb 2026). precision=day — a specific commencement date, not a modelled year.",
+          "date_basis": "Gazetted commencement DAY: SI 2026/102 (FSMA 2000 (Cryptoassets) Regulations 2026) made 4 Feb 2026, full commencement 25 Oct 2027 (preparatory provisions from 25 Feb 2026). precision=day; a specific commencement date, not a modelled year.",
           "records": [
             "uk-frs-regulatory_authority-001"
           ],
@@ -10331,31 +10447,27 @@
         {
           "id": "tw-vas-act-enacted",
           "jurisdiction": "TW",
-          "title": "Taiwan Virtual Asset Service Act enacted (issuer licensing regime live)",
+          "title": "Taiwan Virtual Asset Service Act commencement (subsidiary legislation brings the issuer regime into force)",
           "status": "contingent",
           "effective_date": null,
           "precision": "none",
-          "trigger": "Enactment and commencement of the Virtual Asset Service Act (currently a bill at the Executive Yuan).",
+          "trigger": "Commencement of the enacted Virtual Asset Service Act through its subsidiary legislation. The Act passed third reading on 30 Jun 2026; commencement awaits FSC subordinate rules and carries no gazetted date.",
           "claim_class": "tier1_legal",
+          "trigger_kind": "enacted-not-commenced",
           "effect": [
             {
               "field": "regime_status",
-              "from": "pre_regime",
+              "from": "transition",
               "to": "live"
             },
             {
-              "field": "exportable_token",
-              "from": false,
-              "to": true
-            },
-            {
               "field": "inbound_gate",
-              "from": "pre_regime",
+              "from": "transition",
               "to": "channel"
             }
           ],
-          "basis": "Draft Virtual Asset Service Act (Executive Yuan referral); tw-frs-issuer_pathway-001 carries the draft provisions as status=proposed.",
-          "date_basis": "No firm enactment date; inbound_gate target ('channel') is provisional pending the enacted text. The Legislative Yuan Finance Committee completed the article-by-article first review (初審) on 3 Jun 2026 and resolved to send the bill to the plenary (no caucus negotiation), but it has NOT passed third reading. Procedurally more advanced than KR's DABA (still in subcommittee).",
+          "basis": "Virtual Asset Service Act enacted at third reading 30 Jun 2026; tw-frs-issuer_pathway-001 carries the enacted provisions as status=transitional (binding_status=made_not_commenced), awaiting FSC subsidiary legislation.",
+          "date_basis": "Enacted at third reading on 30 Jun 2026, the dateline of this draft; commencement awaits subsidiary legislation (the FSC has flagged roughly nine subordinate items on an indicative timetable around Q1 2027), and no commencement date is gazetted, so this trigger is applied by no date. The Legislative Yuan Finance Committee completed the article-by-article first review (初審) on 3 Jun 2026 and resolved to send the bill to the plenary; third reading followed on 30 Jun 2026. On commencement the inbound gate moves to a channelled Category II route; the origin edges stay Category III, because enactment alone creates no exportable, comprehensively authorizable private token (issuers must still be licensed and issue under the new regime). Procedurally now ahead of KR's DABA, still in subcommittee.",
           "records": [
             "tw-frs-issuer_pathway-001"
           ]
@@ -10369,6 +10481,7 @@
           "precision": "none",
           "trigger": "Enactment and commencement of the Digital Asset Basic Act (currently a bill).",
           "claim_class": "tier1_legal",
+          "trigger_kind": "contingent-no-date",
           "effect": [
             {
               "field": "regime_status",
@@ -10397,12 +10510,13 @@
           "jurisdiction": "JP",
           "title": "Japan Act No. 66 of 2025 full enforcement (trust-type reserve relaxation)",
           "status": "scheduled",
-          "effective_date": "2026-06-13",
+          "effective_date": "2026-06-01",
           "precision": "day",
           "claim_class": "tier1_legal",
+          "trigger_kind": "dated-empty-effect",
           "effect": [],
           "basis": "Act No. 66 of 2025 relaxing trust-type reserve rules; refines an already-live EPI regime.",
-          "date_basis": "Full enforcement scheduled 13 Jun 2026 (Cabinet orders pending as of the base date). Effect on compose() is NONE — Japan is already 'live'; this refines reserve rules, not the inbound gate. Included to show the calendar distinguishes a change in law from a change in feasibility class.",
+          "date_basis": "Act No. 66 of 2025 promulgated 13 Jun 2025; took effect 1 Jun 2026 and is now in force as of the base date. Effect on compose() is NONE (control case): Japan is already 'live', so relaxing trust-type reserve composition moves no inbound gate and changes no edge class. Included to show the calendar distinguishes a change in law from a change in feasibility class. The same-date Cabinet Office Ordinance recognising equivalent foreign trust-type stablecoins is an inbound recognition pathway handled by conditioning (the existing Category II channelled treatment), not by asserting a class change here.",
           "records": [
             "jp-epi-reserve_backing-001"
           ]
@@ -10416,6 +10530,7 @@
           "precision": "none",
           "trigger": "Enactment of the Digital Asset Market Clarity Act (H.R. 3633). On the Senate Legislative Calendar as Calendar No. 423 (reported 1 Jun 2026); still requires Senate floor passage, reconciliation with the Senate Agriculture and House versions, and Presidential signature.",
           "claim_class": "tier1_legal",
+          "trigger_kind": "contingent-no-date",
           "effect": [
             {
               "field": "binding_status (us bank_nonbank_routing)",
@@ -10451,6 +10566,7 @@
           "precision": "none",
           "trigger": "Enactment of the implementing legislation for the MAS Single-Currency Stablecoin (SCS) framework (finalised 15 Aug 2023). MAS announced at the Nov 2025 Singapore FinTech Festival that it was ready to begin drafting; the framework is expected to take effect in mid-2026.",
           "claim_class": "tier1_legal",
+          "trigger_kind": "contingent-not-class-change",
           "effect": [
             {
               "field": "binding_status (sg SCS-specific cells)",
@@ -10480,12 +10596,77 @@
             "sg-scs-monetary_sovereignty-001",
             "sg-scs-issuer_pathway-001"
           ]
+        },
+        {
+          "id": "eu-mica-art143-transitional-expiry",
+          "jurisdiction": "EU",
+          "title": "EU MiCA Article 143(3) transitional grandfathering expiry (national side-doors close; admissible-token set narrows)",
+          "status": "scheduled",
+          "effective_date": "2026-07-01",
+          "precision": "day",
+          "claim_class": "tier1_legal",
+          "trigger_kind": "intra-regime-gating",
+          "effect": [],
+          "basis": "MiCA Article 143(3) (Reg. (EU) 2023/1114) transitional grandfathering for CASPs providing services under pre-existing national law. eu-emt-regulatory_authority-001 carries the corrected staggered framing; this event carries the dated national schedule structurally so compose()/timeline can reflect it.",
+          "date_basis": "1 July 2026 is the OUTER CAP: the longest window any Member State could grant under Article 143(3); ESMA has confirmed no extension. Beneath the cap the national windows are staggered and most have already closed: France, Malta and Luxembourg run the full window (to 1 July 2026); Germany and Ireland closed at 12 months (end 2025); Sweden at 9 months (late 2025); Finland, Latvia, Lithuania, Hungary, the Netherlands, Poland and Slovenia at 6 months (mid-2025). The deadline that binds a given corridor is the EARLIEST among the Member States it touches, not the cap. effective_date is set to the outer cap for the timeline; because the effect on feasibility class is empty (intra-regime gating, not a class transition), no compose() horizon shifts on this date.",
+          "staggered_national_windows": [
+            {
+              "member_states": [
+                "FR",
+                "MT",
+                "LU"
+              ],
+              "window_months": 18,
+              "closes": "2026-07-01",
+              "status": "full outer-cap window"
+            },
+            {
+              "member_states": [
+                "DE",
+                "IE"
+              ],
+              "window_months": 12,
+              "closes": "2025-12-30",
+              "status": "closed"
+            },
+            {
+              "member_states": [
+                "SE"
+              ],
+              "window_months": 9,
+              "closes": "2025-09-30",
+              "status": "closed"
+            },
+            {
+              "member_states": [
+                "FI",
+                "LV",
+                "LT",
+                "HU",
+                "NL",
+                "PL",
+                "SI"
+              ],
+              "window_months": 6,
+              "closes": "2025-06-30",
+              "status": "closed"
+            }
+          ],
+          "second_order": {
+            "development": "expected secondary authorization for the custody and transfer of electronic-money tokens (EMTs)",
+            "status": "open, no commencement to apply by date",
+            "note": "recorded alongside the transitional expiry as the related second-order EU development; bears on Interaction Set D (reserve composition jointly binding with monetary sovereignty), not on any feasibility class."
+          },
+          "scope_note": "Intra-regime gating: the directed model's feasibility classes capture whether a corridor can be authorized at all and by construction do not capture a change that alters WHO may operate within an already-live regime. This event closes national side-doors and narrows the set of admissible tokens without moving any class; the flagship treats the class-sensitivity measure's blind spot to this category as a stated scope limitation (§6).",
+          "records": [
+            "eu-emt-regulatory_authority-001"
+          ]
         }
       ],
       "edge_timelines": [
         {
           "edge": "EU->US",
-          "as_of_base": "2026-06-27",
+          "as_of_base": "2026-06-30",
           "today_class": "II",
           "scheduled_transitions": [],
           "pending_contingent": [
@@ -10504,7 +10685,7 @@
         },
         {
           "edge": "HK->BR",
-          "as_of_base": "2026-06-27",
+          "as_of_base": "2026-06-30",
           "today_class": "II",
           "scheduled_transitions": [],
           "pending_contingent": [],
@@ -10512,7 +10693,7 @@
         },
         {
           "edge": "HK->CN",
-          "as_of_base": "2026-06-27",
+          "as_of_base": "2026-06-30",
           "today_class": "blocked",
           "scheduled_transitions": [],
           "pending_contingent": [],
@@ -10520,7 +10701,7 @@
         },
         {
           "edge": "HK->US",
-          "as_of_base": "2026-06-27",
+          "as_of_base": "2026-06-30",
           "today_class": "II",
           "scheduled_transitions": [],
           "pending_contingent": [
@@ -10539,7 +10720,7 @@
         },
         {
           "edge": "JP->US",
-          "as_of_base": "2026-06-27",
+          "as_of_base": "2026-06-30",
           "today_class": "II",
           "scheduled_transitions": [],
           "pending_contingent": [
@@ -10558,7 +10739,7 @@
         },
         {
           "edge": "SG->HK",
-          "as_of_base": "2026-06-27",
+          "as_of_base": "2026-06-30",
           "today_class": "I",
           "scheduled_transitions": [],
           "pending_contingent": [
@@ -10577,7 +10758,7 @@
         },
         {
           "edge": "US->EU",
-          "as_of_base": "2026-06-27",
+          "as_of_base": "2026-06-30",
           "today_class": "I",
           "scheduled_transitions": [],
           "pending_contingent": [
@@ -10596,7 +10777,7 @@
         },
         {
           "edge": "US->HK",
-          "as_of_base": "2026-06-27",
+          "as_of_base": "2026-06-30",
           "today_class": "I",
           "scheduled_transitions": [],
           "pending_contingent": [
@@ -10615,7 +10796,7 @@
         },
         {
           "edge": "US->JP",
-          "as_of_base": "2026-06-27",
+          "as_of_base": "2026-06-30",
           "today_class": "II",
           "scheduled_transitions": [],
           "pending_contingent": [
@@ -10636,7 +10817,7 @@
       "illustration_edge_timelines": [
         {
           "edge": "US->UK",
-          "as_of_base": "2026-06-27",
+          "as_of_base": "2026-06-30",
           "today_class": "T",
           "scheduled_transitions": [
             {
@@ -10677,7 +10858,7 @@
         },
         {
           "edge": "UK->US",
-          "as_of_base": "2026-06-27",
+          "as_of_base": "2026-06-30",
           "today_class": "II",
           "scheduled_transitions": [
             {
@@ -10708,7 +10889,7 @@
         },
         {
           "edge": "EU->UK",
-          "as_of_base": "2026-06-27",
+          "as_of_base": "2026-06-30",
           "today_class": "T",
           "scheduled_transitions": [
             {
@@ -10738,7 +10919,7 @@
         },
         {
           "edge": "UK->EU",
-          "as_of_base": "2026-06-27",
+          "as_of_base": "2026-06-30",
           "today_class": "I",
           "scheduled_transitions": [
             {
@@ -10758,7 +10939,7 @@
         },
         {
           "edge": "HK->UK",
-          "as_of_base": "2026-06-27",
+          "as_of_base": "2026-06-30",
           "today_class": "T",
           "scheduled_transitions": [
             {
@@ -10789,7 +10970,7 @@
       ],
       "undirected_agreement_over_time": [
         {
-          "as_of": "2026-06-27",
+          "as_of": "2026-06-30",
           "undirected_agreement": "64/66",
           "transition_caveated_pairs": {
             "count": 8,
@@ -10818,7 +10999,36 @@
           ]
         },
         {
-          "as_of": "2026-06-13",
+          "as_of": "2026-06-01",
+          "undirected_agreement": "64/66",
+          "transition_caveated_pairs": {
+            "count": 8,
+            "pairs": [
+              "UK-US",
+              "EU-UK",
+              "SG-UK",
+              "HK-UK",
+              "BR-UK",
+              "CH-UK",
+              "AE-UK",
+              "JP-UK"
+            ]
+          },
+          "residual_findings": [
+            {
+              "pair": "UK-US",
+              "computed": "I/II*",
+              "authored": "I"
+            },
+            {
+              "pair": "EU-UK",
+              "computed": "I/II*",
+              "authored": "I"
+            }
+          ]
+        },
+        {
+          "as_of": "2026-07-01",
           "undirected_agreement": "64/66",
           "transition_caveated_pairs": {
             "count": 8,
@@ -11227,7 +11437,7 @@
             "attributes": {
               "exportable_token": false
             },
-            "note": "No domestic issuance pathway; ICO Notice (2017) and PBOC framework in force.",
+            "note": "No domestic issuance pathway; 2017 ICO Notice (94公告) policy continued and 银发〔2026〕42号 (in force 6 Feb 2026) is the operative prohibition (it repealed the 2021 Notice 银发〔2021〕237号 and broadened the banned act from token-offering financing to issuing virtual currency).",
             "derived_from": [
               "cn-prc-issuer_pathway-001"
             ]
@@ -13632,7 +13842,7 @@
           "archetypes_engaged": [],
           "inbound_mechanism": {
             "test": "Destination prohibition",
-            "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
+            "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. The prohibition is written, in-force law: 银发〔2026〕42号 (eight-ministry Notice, in force 6 Feb 2026; it repealed the 2021 Notice 银发〔2021〕237号) bars unauthorised overseas issuance of RMB-pegged stablecoins (未经许可，境内外任何主体不得在境外发行挂钩人民币的稳定币) and PRC-controlled entities issuing virtual currencies abroad. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
             "administrator": "PBOC / CAC / SAFE"
           },
           "headline": "As an HK issuer, issuance is authorization-gated; entry into CN is blocked.",
@@ -13699,7 +13909,7 @@
           ],
           "inbound_mechanism": {
             "test": "Destination prohibition",
-            "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
+            "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. The prohibition is written, in-force law: 银发〔2026〕42号 (eight-ministry Notice, in force 6 Feb 2026; it repealed the 2021 Notice 银发〔2021〕237号) bars unauthorised overseas issuance of RMB-pegged stablecoins (未经许可，境内外任何主体不得在境外发行挂钩人民币的稳定币) and PRC-controlled entities issuing virtual currencies abroad. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
             "administrator": "PBOC / CAC / SAFE"
           },
           "headline": "As a distributor/wallet into CN: pole unset — indeterminate at the substrate level; the corridor is blocked.",
@@ -13774,7 +13984,7 @@
           ],
           "inbound_mechanism": {
             "test": "Destination prohibition",
-            "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
+            "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. The prohibition is written, in-force law: 银发〔2026〕42号 (eight-ministry Notice, in force 6 Feb 2026; it repealed the 2021 Notice 银发〔2021〕237号) bars unauthorised overseas issuance of RMB-pegged stablecoins (未经许可，境内外任何主体不得在境外发行挂钩人民币的稳定币) and PRC-controlled entities issuing virtual currencies abroad. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
             "administrator": "PBOC / CAC / SAFE"
           },
           "headline": "As reserve custodian for the HK issuer: reserve must be high-quality liquid assets; the corridor is blocked.",
@@ -13831,7 +14041,7 @@
           ],
           "inbound_mechanism": {
             "test": "Destination prohibition",
-            "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
+            "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. The prohibition is written, in-force law: 银发〔2026〕42号 (eight-ministry Notice, in force 6 Feb 2026; it repealed the 2021 Notice 银发〔2021〕237号) bars unauthorised overseas issuance of RMB-pegged stablecoins (未经许可，境内外任何主体不得在境外发行挂钩人民币的稳定币) and PRC-controlled entities issuing virtual currencies abroad. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
             "administrator": "PBOC / CAC / SAFE"
           },
           "headline": "As the HK (home) regulator: no data-localization barrier to supervisory sharing; supervising outbound use into CN, the corridor is blocked.",
@@ -13898,7 +14108,7 @@
           ],
           "inbound_mechanism": {
             "test": "Destination prohibition",
-            "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
+            "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. The prohibition is written, in-force law: 银发〔2026〕42号 (eight-ministry Notice, in force 6 Feb 2026; it repealed the 2021 Notice 银发〔2021〕237号) bars unauthorised overseas issuance of RMB-pegged stablecoins (未经许可，境内外任何主体不得在境外发行挂钩人民币的稳定币) and PRC-controlled entities issuing virtual currencies abroad. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
             "administrator": "PBOC / CAC / SAFE"
           },
           "headline": "As the CN (host) regulator: foreign tokens — foreign tokens prohibited; the corridor is blocked.",
@@ -13965,7 +14175,7 @@
           ],
           "inbound_mechanism": {
             "test": "Destination prohibition",
-            "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
+            "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. The prohibition is written, in-force law: 银发〔2026〕42号 (eight-ministry Notice, in force 6 Feb 2026; it repealed the 2021 Notice 银发〔2021〕237号) bars unauthorised overseas issuance of RMB-pegged stablecoins (未经许可，境内外任何主体不得在境外发行挂钩人民币的稳定币) and PRC-controlled entities issuing virtual currencies abroad. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
             "administrator": "PBOC / CAC / SAFE"
           },
           "headline": "As a corporate treasury using the HK->CN rail: foreign tokens prohibited; feasibility is blocked.",
@@ -14020,7 +14230,7 @@
           "archetypes_engaged": [],
           "inbound_mechanism": {
             "test": "Destination prohibition",
-            "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
+            "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. The prohibition is written, in-force law: 银发〔2026〕42号 (eight-ministry Notice, in force 6 Feb 2026; it repealed the 2021 Notice 银发〔2021〕237号) bars unauthorised overseas issuance of RMB-pegged stablecoins (未经许可，境内外任何主体不得在境外发行挂钩人民币的稳定币) and PRC-controlled entities issuing virtual currencies abroad. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
             "administrator": "PBOC / CAC / SAFE"
           },
           "headline": "As an institutional holder in CN: treated as a security / unauthorized offering; the corridor is blocked.",
@@ -21480,9 +21690,194 @@
         }
       ]
     },
+    "computed_convergence": {
+      "schema": "cbsr-analysis/computed_convergence",
+      "version": "v0.9.9",
+      "dimension": "permitted_activity_yield",
+      "method": "Reshapes the existing permitted_activity_yield cells (one per jurisdiction) into the cross-jurisdiction view the flagship §4.5 describes. Asserts NO new facts: every field is copied from a record. The functional boundary and its per-jurisdiction placement are read from the records' binding_status / evidence_tier / source.",
+      "finding": "Independent legislative systems are converging on the same functional boundary around stablecoin yield: yield paid for merely HOLDING the instrument is prohibited, while ACTIVITY-LINKED rewards are permitted. The boundary is decided by the same functional test across jurisdictions (conversion-direction, ownership-disclosure, timing-independence, yield-attribution, audit-trail — the Architecture paper's test).",
+      "discipline": "Convergence is asserted at citable depth ONLY where the cell is tier1_legal + in_force_enacted + resolution_text AND both sides of the functional line are documented — which today is the United States alone. Singapore is recorded as a sibling restriction. In-force one-sided holder-yield prohibitions (EU, HK, JP, AE) are recorded on the prohibited side but the two-sided line is carried as backlog for them, not asserted as drawing the same line. Switzerland is the documented counter-example. Drafts are flagged as would-align-if-enacted. This is the register's own citable-purity discipline; it is what keeps the convergence a finding, not an impression.",
+      "anchor": {
+        "record_id": "us-pss-permitted_activity_yield-001",
+        "jurisdiction": "US",
+        "binding_status": "in_force_enacted",
+        "evidence_tier": "resolution_text",
+        "claim_class": "tier1_legal",
+        "instrument": "GENIUS Act §4(a)(11); OCC NPRM §15.10(c)(4) / anti-evasion §15.10(c)(6); FDIC NPRM §350.3(b)(4); CLARITY Act (H.R. 3633) §404(c)(1) (Tillis-Alsobrooks text, 1 May 2026; affirmed final 5 May 2026)",
+        "pinpoint": "GENIUS Act Sec. 4(a)(11) (no interest/yield in connection with holding, use, or retention)",
+        "url": "https://www.federalregister.gov/documents/2025/09/19/2025-18226/genius-act-implementation",
+        "citable": true,
+        "role": "anchor",
+        "line_both_sides": {
+          "holder_yield": "prohibited — GENIUS Act §4(a)(11): no interest/yield 'in connection with the holding, use, or retention' of a payment stablecoin (in force).",
+          "activity_rewards": "permitted — the pending market-structure layer (Senate Banking substitute, Tillis–Alsobrooks compromise) allows stablecoin rewards / activity-linked incentives while prohibiting yield for holding a balance (carried as a flagged pending overlay)."
+        }
+      },
+      "sibling": {
+        "record_id": "sg-scs-permitted_activity_yield-001",
+        "jurisdiction": "SG",
+        "binding_status": "finalized_policy_pending",
+        "evidence_tier": "firm_summary",
+        "claim_class": "tier1_legal",
+        "instrument": "MAS Single-Currency Stablecoin framework (Aug 2023) — issuer activity restrictions",
+        "pinpoint": "SCS framework: no lending/staking by SCS issuers; SGD/G10 label scope",
+        "url": "https://www.mas.gov.sg/news/media-releases/2023/mas-finalises-stablecoin-regulatory-framework",
+        "citable": false,
+        "role": "sibling",
+        "sibling_form": "The MAS Single-Currency Stablecoin framework forbids the issuer from lending or staking the reserve, holding the token to a pure means of payment rather than a yield product — a sibling expression of the same principle. binding_status=finalized_policy_pending, so not asserted at citable depth."
+      },
+      "counter_example": {
+        "record_id": "ch-frs-permitted_activity_yield-001",
+        "jurisdiction": "CH",
+        "binding_status": "in_force_enacted",
+        "evidence_tier": "resolution_text",
+        "claim_class": "tier1_legal",
+        "instrument": "FINMA Guidance 06/2024; Banking Ordinance Art. 5(3)(f)",
+        "pinpoint": "Yield permitted; bank guarantee must cover interest (structural constraint, not prohibition)",
+        "url": "https://www.finma.ch/en/news/2024/07/20240726-m-am-06-24-stablecoins/",
+        "citable": true,
+        "role": "counter_example",
+        "counter_form": "Paying yield to holders is NOT prohibited — the clearest survey example of a regime where holder yield is permitted but structurally constrained (FINMA Guidance 06/2024; the bank guarantee must cover interest). Recorded explicitly so the convergence is not overstated."
+      },
+      "holder_prohibition_in_force": [
+        {
+          "record_id": "eu-emt-permitted_activity_yield-001",
+          "jurisdiction": "EU",
+          "binding_status": "in_force_enacted",
+          "evidence_tier": "resolution_text",
+          "claim_class": "tier1_legal",
+          "instrument": "Regulation (EU) 2023/1114 (MiCA), Article 50",
+          "pinpoint": "Art. 50 (no interest paid to EMT holders)",
+          "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj/eng",
+          "citable": true,
+          "side": "holder-yield-prohibited (in force)",
+          "two_sided_line_status": "backlog — the holder-yield prohibition is in force and citable-quality, but the activity-rewards-permitted half is not yet verified for this jurisdiction, so the full two-sided convergence line is not asserted here."
+        },
+        {
+          "record_id": "hk-frs-permitted_activity_yield-001",
+          "jurisdiction": "HK",
+          "binding_status": "in_force_enacted",
+          "evidence_tier": "resolution_text",
+          "claim_class": "tier1_legal",
+          "instrument": "Stablecoins Ordinance (Cap. 656), Schedule 2, s.15 (Non-interest bearing)",
+          "pinpoint": "Sch. 2 s.15 (no interest on issued stablecoins)",
+          "url": "https://www.elegislation.gov.hk/hk/cap656",
+          "citable": true,
+          "side": "holder-yield-prohibited (in force)",
+          "two_sided_line_status": "backlog — the holder-yield prohibition is in force and citable-quality, but the activity-rewards-permitted half is not yet verified for this jurisdiction, so the full two-sided convergence line is not asserted here."
+        },
+        {
+          "record_id": "jp-epi-permitted_activity_yield-001",
+          "jurisdiction": "JP",
+          "binding_status": "in_force_enacted",
+          "evidence_tier": "resolution_text",
+          "claim_class": "tier1_legal",
+          "instrument": "Payment Services Act (Electronic Payment Instruments regime)",
+          "pinpoint": "Yield — holders not remunerated; issuer earns reserve interest",
+          "url": "https://laws.e-gov.go.jp/",
+          "citable": true,
+          "side": "holder-yield-prohibited (in force)",
+          "two_sided_line_status": "backlog — the holder-yield prohibition is in force and citable-quality, but the activity-rewards-permitted half is not yet verified for this jurisdiction, so the full two-sided convergence line is not asserted here."
+        },
+        {
+          "record_id": "ae-pt-permitted_activity_yield-001",
+          "jurisdiction": "AE",
+          "binding_status": "in_force_enacted",
+          "evidence_tier": "resolution_text",
+          "claim_class": "tier1_legal",
+          "instrument": "CBUAE PTSR (Circular 2/2024); ADGM-FSRA FRT framework",
+          "pinpoint": "Yield — prohibited onshore; ADGM permits reserve income but bans investment/savings promotion",
+          "url": "https://rulebook.centralbank.ae/en/rulebook/payment-token-services-regulation",
+          "citable": true,
+          "side": "holder-yield-prohibited (in force)",
+          "two_sided_line_status": "backlog — the holder-yield prohibition is in force and citable-quality, but the activity-rewards-permitted half is not yet verified for this jurisdiction, so the full two-sided convergence line is not asserted here."
+        }
+      ],
+      "draft_would_align": [
+        {
+          "record_id": "kr-frs-permitted_activity_yield-001",
+          "jurisdiction": "KR",
+          "binding_status": "pending_proposal",
+          "evidence_tier": "firm_summary",
+          "claim_class": "tier1_legal",
+          "instrument": "Draft Digital Asset Basic Act (Value-Stabilised Assets Act track)",
+          "pinpoint": "Yield (draft) — prohibition on interest/discounts to holders; NOT in force",
+          "url": "https://opinion.lawmaking.go.kr/gcom/nsmLmSts/out/2210736/detailRP",
+          "citable": false,
+          "side": "holder-yield-prohibited (DRAFT — not in force)",
+          "status_note": "The draft prohibits interest/returns to holders; would align this jurisdiction with the prohibited side if enacted (see the contingent event in the event calendar)."
+        },
+        {
+          "record_id": "tw-frs-permitted_activity_yield-001",
+          "jurisdiction": "TW",
+          "binding_status": "pending_proposal",
+          "evidence_tier": "firm_summary",
+          "claim_class": "tier1_legal",
+          "instrument": "Draft Virtual Asset Service Act",
+          "pinpoint": "Yield (draft) — prohibition on interest/other returns; NOT in force",
+          "url": "https://english.ey.gov.tw/",
+          "citable": false,
+          "side": "holder-yield-prohibited (DRAFT — not in force)",
+          "status_note": "The draft prohibits interest/returns to holders; would align this jurisdiction with the prohibited side if enacted (see the contingent event in the event calendar)."
+        }
+      ],
+      "backlog_or_not_applicable": [
+        {
+          "record_id": "uk-frs-permitted_activity_yield-001",
+          "jurisdiction": "UK",
+          "binding_status": "pending_proposal",
+          "evidence_tier": null,
+          "claim_class": "tier1_legal",
+          "instrument": "SI 2026/102 (silent on yield); Bank of England Nov 2025 materials (60/40 backing; pass-through constrained)",
+          "pinpoint": "BoE Nov 2025 backing-split / pass-through position; FCA rules pending",
+          "url": null,
+          "citable": false,
+          "status_note": "Backlog: yield is not expressly addressed in SI 2026/102; the BoE Nov-2025 pass-through position and FCA rules are pending (pending_proposal)."
+        },
+        {
+          "record_id": "br-vasp-permitted_activity_yield-001",
+          "jurisdiction": "BR",
+          "binding_status": "in_force_enacted",
+          "evidence_tier": "firm_summary",
+          "claim_class": "tier1_legal",
+          "instrument": "Lei 14.478/2022 (Marco Legal dos Ativos Virtuais); BCB implementing rulemaking",
+          "pinpoint": "Res BCB 520/2025 (VASPs may not offer credit to clients or raise funds from the public except via share issuance; client virtual assets may not be used for proprietary operations except staking and qualified/professional-investor transactions)",
+          "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=520",
+          "citable": false,
+          "status_note": "Backlog: the VASP framework and BCB implementing rulemaking are still being finalized (firm_summary); pass-through treatment not yet at resolution_text depth."
+        },
+        {
+          "record_id": "cn-prc-permitted_activity_yield-001",
+          "jurisdiction": "CN",
+          "binding_status": "prohibition",
+          "evidence_tier": null,
+          "claim_class": "tier1_legal",
+          "instrument": "PBOC et al. Notice on Preventing Token Fundraising Risks (2017); related circulars",
+          "pinpoint": "Prohibition context — no permitted issuer to which a yield rule could attach",
+          "url": null,
+          "citable": false,
+          "status_note": "Not applicable: private issuance is prohibited, so there is no lawful domestic issuer to which a yield rule could attach; the yield question does not arise."
+        }
+      ],
+      "summary_counts": {
+        "citable_two_sided_anchor": 1,
+        "sibling": 1,
+        "counter_example": 1,
+        "holder_prohibition_in_force_one_side_citable": 4,
+        "draft_would_align": 2,
+        "backlog_or_not_applicable": 3,
+        "total_jurisdictions": 12
+      },
+      "provenance": {
+        "clean": true,
+        "asserts_new_facts": false,
+        "note": "Every field is copied from an existing permitted_activity_yield record; this product only reshapes and tiers them.",
+        "generalizes_to": "The same shape applies to monetary_sovereignty and other typed dimensions; convergence is checkable because yield is one of the typed dimensions every jurisdiction record carries."
+      }
+    },
     "verification_ledger": {
       "schema": "cbsr/verification_ledger",
-      "version": "v0.9.7",
+      "version": "v0.9.9",
       "performed_by": "external review (web retrieval against official sources), 2026-06-27",
       "discipline": "Citability is capped by the binding status of the cited instrument, independent of whether the official text was located. resolution_text is applied ONLY where binding_status==in_force_enacted AND the proposition was confirmed against official text. made_not_commenced / finalized_policy_pending / pending_proposal cells receive the official URL + binding_status but are held at firm_summary; prohibition cells stay unset.",
       "buckets": {
@@ -22468,14 +22863,14 @@
         {
           "cell": "tw-frs-issuer_pathway-001",
           "jurisdiction": "TW",
-          "instrument": "VASP AML registration (in force 30 Nov 2024); Virtual Asset Service Act (bill)",
-          "binding_status": "pending_proposal",
+          "instrument": "VASP AML registration (in force 30 Nov 2024); Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced)",
+          "binding_status": "made_not_commenced",
           "official_url": "https://english.ey.gov.tw/",
-          "pinpoint": "Issuer pathway (draft) — FSC licence; share company; banks lead; NOT in force",
+          "pinpoint": "Issuer pathway: FSC licence; share company; banks lead. Enacted at third reading, not yet commenced (awaiting subsidiary legislation)",
           "verdict": "binding_status_recorded",
           "applied_tier": "firm_summary",
-          "status_after": "proposed",
-          "note": "The TW issuer regime rests on the draft Virtual Asset Service Act (虛擬資產服務法), a bill; kept proposed. NATIVE-LANGUAGE VERIFICATION (Chinese): confirmed against official FSC text — the Legislative Yuan Finance Committee completed the article-by-article first review (初審) on 3 Jun 2026 and resolved to send it to the plenary (no caucus negotiation), but it has NOT passed third reading. The draft stablecoin provisions match the register (FSC permission + prior central-bank consent; issuer = share company; min capital set by FSC; par issuance/redemption; no interest; reserves at domestic FIs, segregated). Procedurally more advanced than KR's DABA (still in subcommittee). The in-force VASP-AML registration layer is recorded separately."
+          "status_after": "transitional",
+          "note": "The TW issuer regime rests on the Virtual Asset Service Act (虛擬資產服務法), enacted at third reading on 30 Jun 2026 and moved from proposed to transitional (binding_status pending_proposal -> made_not_commenced). NATIVE-LANGUAGE VERIFICATION (Chinese): confirmed against official FSC text: the Legislative Yuan Finance Committee completed the article-by-article first review (初審) on 3 Jun 2026 and resolved to send it to the plenary (no caucus negotiation); third reading followed on 30 Jun 2026. The stablecoin provisions match the register (FSC permission + prior central-bank consent; issuer = share company; min capital set by FSC; par issuance/redemption; no interest; reserves at domestic FIs, segregated). Commencement awaits FSC subsidiary legislation (roughly nine subordinate items, indicative timetable around Q1 2027) with no gazetted date. Procedurally ahead of KR's DABA, still in subcommittee. The in-force VASP-AML registration layer is recorded separately."
         },
         {
           "cell": "kr-frs-issuer_pathway-001",

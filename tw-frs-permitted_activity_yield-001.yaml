@@ -5,36 +5,45 @@ instrument_type: fiat_referenced_stablecoin
 instrument_label_local: virtual asset / draft stablecoin (Virtual Asset Service Act)
 dimension: permitted_activity_yield
 constraint_ref: C3
-requirement_summary: 'DRAFT: the bill prohibits paying interest or other returns to holders. No yield regime is
-  in force. The draft yield prohibition would align Taiwan with the prohibition cluster (EU, Hong Kong) rather than
-  the permission cluster (Switzerland, Brazil), but this is a draft provision, not operative law.'
+requirement_summary: the Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced) prohibits
+  paying interest or other returns to holders. This yield prohibition aligns Taiwan with the prohibition cluster
+  (EU, Hong Kong) rather than the permission cluster (Switzerland, Brazil); it takes operative effect on commencement,
+  which awaits FSC subsidiary legislation.
 requirement_structured:
-  in_force: none
-  draft: prohibition on interest or other returns to holders
+  enacted_not_commenced: prohibition on interest or other returns to holders
   would_align_with: prohibition cluster (EU, HK)
-status: proposed
+  status_note: enacted at third reading, awaiting FSC subsidiary legislation
+status: transitional
 source:
-  primary: Draft Virtual Asset Service Act
-  pinpoint: Yield (draft) — prohibition on interest/other returns; NOT in force
+  primary: Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced)
+  pinpoint: 'Yield: prohibition on interest/other returns to holders (enacted, not commenced; operative on commencement)'
   url: https://english.ey.gov.tw/
 secondary:
 - citation: Fan, Multi-Jurisdiction Stablecoin Compliance Matrix v0.9.6 (June 2026), §Taiwan (Yield and Interest
     Treatment)
-- citation: 'Draft Virtual Asset Service Act bill (Executive Yuan referral): https://english.ey.gov.tw/. Official
-    primary text is Chinese (law.moj.gov.tw); there is no official English translation (FSC English materials are
-    summaries).'
-interpretation_note: 'Provenance: transcribed from the author''s Compliance Matrix v0.9.6; an official URL for the
-  bill/announcement is provided (source.url), but this is a draft provision and is NOT operative law, so it is not
-  upgraded and remains firm_summary. STATUS proposed: not operative law. On the C3 spine, Taiwan is a draft member
-  of the prohibition cluster.'
+- citation: 'Virtual Asset Service Act, passed third reading 30 Jun 2026 (Executive Yuan referral: https://english.ey.gov.tw/).
+    Official primary text is Chinese (law.moj.gov.tw); there is no official English translation (FSC English materials
+    are summaries).'
+interpretation_note: 'Provenance: transcribed from the author''s Compliance Matrix v0.9.6; an official URL is provided
+  (source.url), but there is no official English primary text and made_not_commenced provisions carry no operative
+  resolution_text, so the cell stays firm_summary (non-citable). STATUS transitional: the VAS Act is enacted (third
+  reading 30 Jun 2026) but not commenced; this provision awaits FSC subsidiary legislation. On the C3 spine, Taiwan
+  is now a member of the prohibition cluster (enacted at third reading 30 Jun 2026, not commenced).
+
+
+  [v0.9.9 enactment] The Virtual Asset Service Act passed third reading on 30 Jun 2026, so this cell moves from
+  proposed to transitional (binding_status pending_proposal -> made_not_commenced), matching tw-frs-issuer_pathway-001.
+  The provision is enacted but not commenced; its operative detail awaits FSC subsidiary legislation, and the cell
+  stays non-citable (firm_summary, no resolution_text).'
 interpretive_flag:
-  tension: Taiwan's draft yield prohibition aligns it with the prohibition cluster (EU, HK) rather than the permission
-    cluster (Switzerland, Brazil), but whether it survives to enactment, and in what form, is open.
-  resolution_channel: Enactment of the Virtual Asset Service Act and its final text.
+  tension: Taiwan's yield prohibition, enacted but not commenced, aligns it with the prohibition cluster (EU, HK)
+    rather than the permission cluster (Switzerland, Brazil), but its commencement and the FSC subsidiary legislation
+    remain pending.
+  resolution_channel: Commencement of the Virtual Asset Service Act and its FSC subsidiary legislation.
 confidence: medium
 claim_class: tier1_legal
 evidence_tier: firm_summary
-last_reviewed: '2026-06-27'
+last_reviewed: '2026-06-30'
 version_added: 0.4.0
 tags:
 - apac
@@ -46,5 +55,6 @@ tags:
 - v0.5.1_verification
 - draft_url_added
 - v0.7.0_claim_class
-- binding_pending_proposal
-binding_status: pending_proposal
+- binding_made_not_commenced
+- v0.9.9_tw_enactment
+binding_status: made_not_commenced

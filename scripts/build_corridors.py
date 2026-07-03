@@ -145,7 +145,7 @@ C.append(corr(
     archetypes=["RC", "DC"], interaction_sets=["A", "D", "F"],
     infrastructure_overlap="mBridge (shared multi-central-bank-digital-currency axis)",
     inbound_mechanism={"test": "Destination prohibition",
-                       "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
+                       "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. The prohibition is written, in-force law: 银发〔2026〕42号 (eight-ministry Notice, in force 6 Feb 2026; it repealed the 2021 Notice 银发〔2021〕237号) bars unauthorised overseas issuance of RMB-pegged stablecoins (未经许可，境内外任何主体不得在境外发行挂钩人民币的稳定币) and PRC-controlled entities issuing virtual currencies abroad. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
                        "administrator": "PBOC / CAC / SAFE"},
     origin_override=None,
     note="The mirror corridor is blocked at the destination. No foreign stablecoin, including an HKD-referenced one, may circulate in the mainland as a payment instrument. Only the regulatory and digital-financial archetypes are meaningful, and only at the level of data and capital flows. The contrast with the (also Category III) PRC->HK direction is the clearest single illustration of why corridors must be directed.",

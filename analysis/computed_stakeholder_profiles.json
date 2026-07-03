@@ -892,7 +892,7 @@
       "archetypes_engaged": [],
       "inbound_mechanism": {
         "test": "Destination prohibition",
-        "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
+        "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. The prohibition is written, in-force law: 银发〔2026〕42号 (eight-ministry Notice, in force 6 Feb 2026; it repealed the 2021 Notice 银发〔2021〕237号) bars unauthorised overseas issuance of RMB-pegged stablecoins (未经许可，境内外任何主体不得在境外发行挂钩人民币的稳定币) and PRC-controlled entities issuing virtual currencies abroad. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
         "administrator": "PBOC / CAC / SAFE"
       },
       "headline": "As an HK issuer, issuance is authorization-gated; entry into CN is blocked.",
@@ -959,7 +959,7 @@
       ],
       "inbound_mechanism": {
         "test": "Destination prohibition",
-        "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
+        "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. The prohibition is written, in-force law: 银发〔2026〕42号 (eight-ministry Notice, in force 6 Feb 2026; it repealed the 2021 Notice 银发〔2021〕237号) bars unauthorised overseas issuance of RMB-pegged stablecoins (未经许可，境内外任何主体不得在境外发行挂钩人民币的稳定币) and PRC-controlled entities issuing virtual currencies abroad. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
         "administrator": "PBOC / CAC / SAFE"
       },
       "headline": "As a distributor/wallet into CN: pole unset — indeterminate at the substrate level; the corridor is blocked.",
@@ -1034,7 +1034,7 @@
       ],
       "inbound_mechanism": {
         "test": "Destination prohibition",
-        "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
+        "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. The prohibition is written, in-force law: 银发〔2026〕42号 (eight-ministry Notice, in force 6 Feb 2026; it repealed the 2021 Notice 银发〔2021〕237号) bars unauthorised overseas issuance of RMB-pegged stablecoins (未经许可，境内外任何主体不得在境外发行挂钩人民币的稳定币) and PRC-controlled entities issuing virtual currencies abroad. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
         "administrator": "PBOC / CAC / SAFE"
       },
       "headline": "As reserve custodian for the HK issuer: reserve must be high-quality liquid assets; the corridor is blocked.",
@@ -1091,7 +1091,7 @@
       ],
       "inbound_mechanism": {
         "test": "Destination prohibition",
-        "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
+        "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. The prohibition is written, in-force law: 银发〔2026〕42号 (eight-ministry Notice, in force 6 Feb 2026; it repealed the 2021 Notice 银发〔2021〕237号) bars unauthorised overseas issuance of RMB-pegged stablecoins (未经许可，境内外任何主体不得在境外发行挂钩人民币的稳定币) and PRC-controlled entities issuing virtual currencies abroad. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
         "administrator": "PBOC / CAC / SAFE"
       },
       "headline": "As the HK (home) regulator: no data-localization barrier to supervisory sharing; supervising outbound use into CN, the corridor is blocked.",
@@ -1158,7 +1158,7 @@
       ],
       "inbound_mechanism": {
         "test": "Destination prohibition",
-        "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
+        "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. The prohibition is written, in-force law: 银发〔2026〕42号 (eight-ministry Notice, in force 6 Feb 2026; it repealed the 2021 Notice 银发〔2021〕237号) bars unauthorised overseas issuance of RMB-pegged stablecoins (未经许可，境内外任何主体不得在境外发行挂钩人民币的稳定币) and PRC-controlled entities issuing virtual currencies abroad. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
         "administrator": "PBOC / CAC / SAFE"
       },
       "headline": "As the CN (host) regulator: foreign tokens — foreign tokens prohibited; the corridor is blocked.",
@@ -1225,7 +1225,7 @@
       ],
       "inbound_mechanism": {
         "test": "Destination prohibition",
-        "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
+        "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. The prohibition is written, in-force law: 银发〔2026〕42号 (eight-ministry Notice, in force 6 Feb 2026; it repealed the 2021 Notice 银发〔2021〕237号) bars unauthorised overseas issuance of RMB-pegged stablecoins (未经许可，境内外任何主体不得在境外发行挂钩人民币的稳定币) and PRC-controlled entities issuing virtual currencies abroad. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
         "administrator": "PBOC / CAC / SAFE"
       },
       "headline": "As a corporate treasury using the HK->CN rail: foreign tokens prohibited; feasibility is blocked.",
@@ -1280,7 +1280,7 @@
       "archetypes_engaged": [],
       "inbound_mechanism": {
         "test": "Destination prohibition",
-        "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
+        "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. The prohibition is written, in-force law: 银发〔2026〕42号 (eight-ministry Notice, in force 6 Feb 2026; it repealed the 2021 Notice 银发〔2021〕237号) bars unauthorised overseas issuance of RMB-pegged stablecoins (未经许可，境内外任何主体不得在境外发行挂钩人民币的稳定币) and PRC-controlled entities issuing virtual currencies abroad. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
         "administrator": "PBOC / CAC / SAFE"
       },
       "headline": "As an institutional holder in CN: treated as a security / unauthorized offering; the corridor is blocked.",

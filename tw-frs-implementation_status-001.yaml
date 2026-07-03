@@ -6,8 +6,9 @@ instrument_label_local: virtual asset / draft stablecoin (Virtual Asset Service 
 dimension: implementation_status
 requirement_summary: 'Pre-comprehensive-regime (a regime under construction). Milestones: AML registration regime
   in force (30 November 2024); Virtual Asset Service Act drafting and legislative process (2025-2026); committee
-  first review of the Virtual Asset Service Act completed (3 June 2026); further readings and enactment pending
-  with no date certain. No licensed stablecoin issuers yet; peg currency officially undecided.'
+  first review of the Virtual Asset Service Act completed (3 June 2026); passed at third reading and enacted 30
+  June 2026, with commencement pending FSC subsidiary legislation (no date certain). No licensed stablecoin issuers
+  yet; peg currency officially undecided.'
 requirement_structured:
   regime_stage: pre-comprehensive (regime under construction)
   milestones:

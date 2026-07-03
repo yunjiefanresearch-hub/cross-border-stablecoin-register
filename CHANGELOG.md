@@ -7,6 +7,209 @@ Each tagged release is archived to Zenodo for a citable DOI; the **concept DOI
 [10.5281/zenodo.20730358](https://doi.org/10.5281/zenodo.20730358)** always resolves to the latest
 version, while each release below carries its own version DOI.
 
+## [0.9.9] — 2026-06-30
+
+> **Time dimension made real, and the record caught up to the dateline.** v0.9.9 does three things.
+> It backfills the MiCA transitional expiry into the register's own event calendar as a structured
+> intra-regime-gating event (so the flagship §3.10 claim is register-backed, not matrix-only). It surfaces
+> the already-computed time engine as interactive corridor/console pages, a static JSON API, and new MCP
+> tools. And, on the 30 June 2026 dateline, it records Taiwan's third-reading enactment: the register cell
+> that read "a bill" the morning of the snapshot is moved to enacted-but-not-commenced, exactly the case the
+> method exists to absorb. No claim is asserted beyond its verified backing.
+
+### Added — trigger typology and the MiCA event (Phase 1 backflow)
+- **Event calendar** (`analysis/event_calendar.json`): every event now carries a `trigger_kind` implementing
+  the flagship §3 typology, defined in a new `trigger_kind_legend`. Added the 7th event, the EU MiCA
+  Article 143(3) transitional expiry, as a structured `intra-regime-gating` item with the staggered national
+  schedule and the second-order EMT-custody development, with an explicitly empty feasibility effect
+  (mirroring the JP control case), so it moves no compose() horizon.
+- **EU EMT cell** (`eu-emt-regulatory_authority-001.yaml`): the transitional-expiry prose is corrected from
+  the old uniform "ends 1 July 2026" framing to the staggered national schedule (1 July 2026 is the outer
+  cap; the deadline binding a corridor is the earliest among the Member States it touches). The citable
+  proposition (MiCA Titles III/IV + the EBA/ESMA/NCA architecture) is unchanged; binding_status, evidence_tier,
+  url, and verification are untouched, so the ledger does not drift.
+- **Open questions** (`analysis/open_questions.json`): each carries a `trigger_kind` aligned with the §3 typology.
+- **Convergence product** (`analysis/computed_convergence.json`, folded into `dataset.json`): the §4.5 yield-line,
+  asserted at citable depth only for the US anchor, with SG as a sibling and CH as the documented counter-example.
+
+### Added — surfacing (Phase 2)
+- **Interactive pages**: `corridors.html` (time-slider corridor explorer with what-if trigger toggles and the
+  convergence view) and `console.html` (records browser with the "why not citable" x-ray, the citable-law table
+  with CSV export, computed-vs-authored reconciliation, the integrity gate, and the worklist), both inheriting
+  the site's design tokens.
+- **Static JSON API** (`api/`): per-jurisdiction, per-corridor, per-date views plus events/convergence/
+  reconciliation/corridor-states and an index manifest, each with a provenance envelope; no backend.
+- **MCP tools**: `events_by_kind`, `convergence`, `reconciliation`, and a three-axis `records`, plus a generated
+  `mcp.json` manifest and `docs/CONNECT_MCP.md`.
+
+### Changed — Taiwan recorded as enacted-but-not-commenced (30 June 2026 dateline)
+- **TW issuer cell** (`tw-frs-issuer_pathway-001.yaml`): `status` proposed → transitional, `binding_status`
+  pending_proposal → made_not_commenced, on the Virtual Asset Service Act's third-reading enactment. The
+  native-language (Chinese) verification and the 初審 first-review reference are preserved; evidence_tier stays
+  firm_summary (made_not_commenced provisions carry no operative resolution_text), and source.url is unchanged,
+  so the cell stays non-citable and the ledger does not drift.
+- **Time engine** (`scripts/compose.py`): Taiwan's base signal moves pre_regime → transition, so inbound edges
+  are held at Category T and resolve to a channelled Category II on commencement, while origin edges stay
+  Category III (enactment creates no exportable token). The origin-drag axis label gains an
+  `enacted_not_commenced` case. South Korea is now the one remaining pre-regime origin; the pre_regime
+  cross-check is {KR}. The TW commencement event drops its exportable_token effect accordingly.
+- **Verification ledger** (`analysis/verification_ledger.json`): the TW issuer entry is synced to
+  made_not_commenced / status_after transitional, url and applied_tier unchanged.
+
+### Fixed — accuracy and version consistency
+- **Version pointers**: the two working papers, `README.md`, `PACKAGE.md`, and the
+  `apply_verification.py` ledger stamp now cite CBSR **v0.9.9** (the papers had lagged at v0.9.8, which
+  predated the MiCA event they describe). Companion-work versions (Matrix v0.9.7, Architecture v0.2.8, Atlas
+  v0.2.5) and all DOIs are unchanged.
+- **Japan reserve relaxation** (`analysis/event_calendar.json`): Act No. 66 of 2025 effective date corrected
+  13 Jun 2026 → **1 Jun 2026** (promulgated 13 Jun 2025; in force 1 Jun 2026), with the date_basis rewritten to
+  the in-force framing and the same-day equivalence-recognition pathway noted as handled by conditioning.
+- **Settlement substrate attribution** (`analysis/compatibility.json`, `analysis/open_questions.json`): per the
+  flagship §5.2 correction, Project Ensemble is attributed to the HKMA (not BIS) and Project Agorá to the BIS;
+  the generic "BIS wholesale-settlement" label is dropped.
+
+### Hardening
+- **New invariant T2b** (`run_invariants.py`): asserts every event's `trigger_kind` is defined in the
+  `trigger_kind_legend`, locking the now load-bearing typology to its own legend (suite was 40 -> 41 checks; v0.9.9 completeness pass took it to 43, and the §4 sensitivity + §5.2 settlement layers to 45, and the round-4 coherence refinements (B2/B3) to 47).
+- Em-dashes removed from the newly-authored data-field prose in `event_calendar.json` and the EU EMT
+  `requirement_summary` (the shared "MiCA — Regulation (EU) 2023/1114" instrument identifier is left intact).
+- The previously-flagged cosmetic V1/V2 label mismatch in `run_invariants.py` is resolved.
+
+### Fixed — v0.9.9 completeness pass (propagating the class, not just the instance)
+- **All Virtual Asset Service Act cells now share the enacted-not-commenced state** (`tw-frs-*`): the nine
+  auxiliary VAS-Act dimension cells (reserve_backing, redemption, capital_requirements, distribution,
+  permitted_activity_yield, securities_classification, bank_nonbank_routing, disclosure_reporting,
+  monetary_sovereignty) move `proposed → transitional` / `pending_proposal → made_not_commenced`, matching
+  `issuer_pathway`. Their prose moves from "DRAFT / NOT operative law" to "enacted at third reading 30 Jun
+  2026, awaiting FSC subsidiary legislation, not yet commenced", and `source.primary` from "Draft Virtual
+  Asset Service Act" to the enacted instrument. They remain non-citable (firm_summary, no resolution_text),
+  so the citable subset stays 46, and none are in the ledger, so there is no drift. Unlike the UK, whose
+  delegated cells rest on a *separate* still-in-consultation FCA instrument (correctly pending_proposal),
+  these cells cite the *same* now-enacted Act, so they must move with it.
+- **Base date advanced 2026-06-27 → 2026-06-30** (`analysis/event_calendar.json` `as_of_base`,
+  `scripts/build_corridor_states.py` `BASE_DATE`, `scripts/compose.py`): the records encode the 30 June
+  enacted state, so the compose base date must be 30 June for temporal coherence (otherwise compose reports
+  Taiwan enacted three days early), and this aligns the base with the dateline stated in PACKAGE, both papers,
+  and this changelog. Downstream: the JP event (1 Jun) stays in the baseline, MiCA (1 Jul) and UK (2027)
+  stay future; the transition caveat is 8 at base → 0 at the 2027-10-25 horizon.
+- **CITATION.cff** version `0.9.8 → 0.9.9` and date-released `2026-06-27 → 2026-06-30` — the
+  machine-authoritative version (Zenodo/citation tools) that the earlier pointer bump missed.
+
+### Hardening — the gates that make the above stick (round 3)
+- **New invariant V3** (`run_invariants.py`): every version-declaring metadata file (CITATION.cff, README,
+  PACKAGE, ledger) must agree with `EXPECT_VERSION`. This is the gate that bites on the CITATION.cff drift
+  class — version pointers are now enforced, not merely kept in sync by hand.
+- **New invariant B1** (`run_invariants.py`): no cell whose binding_status says its instrument is enacted
+  (in_force_enacted / made_not_commenced) may describe that instrument, in its requirement_summary, as still
+  un-enacted ("not operative law", "would take effect only on enactment", "draft provisions only", "status
+  proposed", …). This bites on the "label says enacted, body says draft/bill" contradiction — the Taiwan
+  class — so a green build can no longer hide it. It is a coherence gate, not the mere legend-enumeration
+  T2b performs.
+- **Two new negative tests** (`run_negative_tests.py`): `version-consistency` (rolls CITATION.cff back to
+  0.9.8 and asserts V3 rejects it) and `binding-prose-coherence` (gives an enacted cell un-enacted prose and
+  asserts B1 rejects it), added via an `invariants_fail` checker that rebuilds and then runs the invariant
+  suite. The battery is now 7 build-gate tests + 2 invariant-gate tests = 9/9 biting; the invariant suite is
+  47/47.
+
+### Added — the two load-bearing analytical layers the papers call for (round 3)
+- **Corridor-sensitivity layer** (`analysis/computed_sensitivity.json`, `scripts/build_sensitivity.py`):
+  the §4 "load-bearing forward map" ordering, given machine support. For each pending trigger it counts the
+  directed edges reclassified, split into fan-in and fan-out, derived edge-by-edge from the corridor states
+  (no new facts). It reproduces the paper's headline — South Korea highest (a both-directions trigger, 20
+  edges = 9 in + 11 out), the United Kingdom (8) and Taiwan (9) next, Mainland China insensitive — and it
+  records the one place the mechanical count and the paper's ordering diverge (Taiwan's inbound fan of 9 is
+  one larger than the United Kingdom's 8, yet the paper ranks the United Kingdom ahead on timing certainty
+  and resolution class) as an explicit disagreement-as-finding, keeping both the paper rank and the mechanical
+  fan rank. Exposed at `api/sensitivity.json`; gated by invariant **Sen1**.
+- **Settlement-substrate bloc layer** (`analysis/computed_settlement.json`, `scripts/build_settlement.py`):
+  the §5.2 correction built out from a removed false attribution into the checkable structural claim the paper
+  asks for. It records the three experiments with their true operators — Project Agorá (BIS-led, G7-aligned,
+  dollar-routing), Project Ensemble (HKMA-led, the bridge), and mBridge (no longer BIS since the 31 Oct 2024
+  withdrawal, now PRC-and-Gulf-operated, digital-yuan-dominated) — assigns each of the twelve jurisdictions to
+  its bloc-internal substrate, and computes the per-edge `infrastructure_overlap` over all 66 corridors
+  (same-bloc / cross-bloc / Ensemble-bridge / off-experiments). Per §5.1/§5.4 it is emitted as
+  `claim_class=tier2_operational` — softer, operational-enrichment evidence, explicitly not a proposition of
+  law, and no feasibility-class conclusion in §§3-4 depends on it. Exposed at `api/settlement.json`; gated by
+  invariant **Set1**, which also enforces the Tier-2 discipline so the §5.2 reading can never be mistaken for
+  tier1_legal.
+
+### Hardening — round-4 coherence and labelling refinements (make the gates airtight)
+- **Settlement bloc label corrected** (`scripts/build_settlement.py`): the Agorá bloc is relabelled from
+  "G7-aligned" to **"Agorá-participant (dollar-routing)"**. The membership was already right
+  ({US, EU, UK, JP, KR, CH}), but Korea, Switzerland (and Agorá's Mexico) are not G7, so the "G7-aligned"
+  shorthand was looser than the data; the accurate label is the set of Agorá participants on the
+  dollar-routing rail, with the G7 anchor noted as approximate ("G7-anchored but not G7-only").
+- **V3 now covers the two working papers** (`run_invariants.py`): the *original* version drift was
+  papers-vs-metadata, so V3 now also checks the `Register (CBSR, vX.Y.Z)` string each paper cites — closing
+  that class rather than only the CITATION/README/PACKAGE/ledger pointers.
+- **B1 is no longer a lone blacklist** (`run_invariants.py`): its phrase list is expanded (conservatively —
+  "if enacted" and "not yet in force" are deliberately excluded, since a CH cell references a future bill and
+  a made_not_commenced provision is correctly "not yet in force"), and it gains two companions so coherence is
+  enforced in both directions rather than by an ever-growing list of forbidden strings:
+  - **B2** (positive companion): every `made_not_commenced` cell must AFFIRMATIVELY signal the
+    enacted-but-not-commenced status somewhere in its text — a check a novel un-enacted phrasing cannot evade.
+  - **B3** (symmetric, pending direction): every `pending_proposal` cell must signal its pending / not-yet-in-
+    force nature, so a pending cell cannot read as already in force (the mirror of the Taiwan class). The UK's
+    delegated cells pass it because they name the draft SI / consultation their pending status rests on — the
+    round-3 finding that the UK mirror is not defective is thereby encoded as a live gate.
+- **CN listed as the insensitive prohibition pole** (`scripts/build_sensitivity.py`): Mainland China has no
+  pending positive trigger, so it never appeared as a what-if branch; but §4 discusses it explicitly as THE
+  insensitive pole, so it is now listed with `edges_reclassified=0` and `reason="prohibition"` (Sen1 enforces
+  its presence). The insensitive set now matches the paper rather than silently omitting the prohibition pole.
+
+The invariant suite is now 47/47 (B2, B3 added; V3 and Sen1 widened); the negative-test battery stays 9/9.
+
+### Added — continuous integration (restored)
+- **`.github/workflows/build.yml`** was missing (the README and this changelog referenced it, but the file
+  itself had been lost), so the cloud-side check was gone even though every gate still ran locally. It is
+  restored and updated to the current living-artifact model: on every push and pull request it installs the
+  pinned dependencies, regenerates the **computed** layer from source in dependency order
+  (`compose → build → corridor_states → sensitivity → settlement → api → pages → site`), then runs
+  `run_invariants.py`, `run_negative_tests.py`, and `check_readme_counts.py`, and finally asserts the derived
+  artifacts are reproducible (`git diff --exit-code -I '"generated"'`, which ignores build timestamps so it is
+  not date-flaky). It deliberately does **not** run `scripts/build_analysis.py` or `scripts/build_corridors.py`
+  — those regenerate the hand-maintained analysis matrix and corridor edges and would revert them. This
+  affects neither the DOI nor the data; it re-adds the automatic enforcement that an invalid record, a corridor
+  that contradicts the matrix, or a stale derived artifact cannot be merged.
+
+## [0.9.8] — 2026-06-29
+
+> **Source-layer follow-through.** v0.9.7 verified the original-language regimes and updated the record
+> cells. But the hand-authored higher-level source layers (the §5.14 compatibility matrix, the §3.3
+> architecture typology, the constraint substrate, and the corridor edges) still carried the pre-42号
+> framing of China and a few stale placeholders. v0.9.8 propagates the same verified facts up into those
+> layers, so the matrix, the architecture, and the corridors no longer lag the records. No fact changes;
+> this is consistency and currency.
+
+### Changed — China 42号 now reflected across the source layers
+- **§5.14 compatibility matrix** (`build_analysis.py`): the Category-III PRC prohibition axis now cites
+  银发〔2026〕42号 (in force 6 Feb 2026, repealing the 2021 Notice; written overseas RMB-pegged-stablecoin
+  issuance ban and extraterritorial-issuance ban) rather than describing the prohibition generically.
+- **§3.3 architecture typology** (`build_analysis.py`): the PRC boundary description previously read "not by
+  any single explicit prohibition". It now records that, as of Feb 2026, the boundary is anchored by an
+  explicit written prohibition (42号), while distinguishing what remains genuinely emergent (the
+  Direct-Subsidiary-via-Hong-Kong pathway, constrained by the data-sharing pattern rather than a categorical
+  exclusion under the Stablecoins Ordinance).
+- **Constraint substrate** (`analysis/constraint_substrate.json`): the CN C1 note no longer asserts the 2021
+  "PBOC framework in force"; it cites 42号 as the operative prohibition and notes the 2021 Notice was
+  repealed and the banned act broadened.
+- **HK→CN blocked corridor** (`build_corridors.py`): the blocked-destination inbound mechanism now cites
+  42号 (the written issuance prohibition) alongside the PIPL/DSL/CAC/SAFE data and capital rules.
+- **Open question §7.2** (`build_analysis.py`): the PRC-boundary question is reframed around the Feb-2026
+  written tightening (42号 marked RESOLVED as the tightening event), with the three relaxation paths kept as
+  the still-open branch.
+
+### Changed — corridor traceability
+- **HK→BR corridor** (`hk-br-usd-stablecoin-settlement.yaml`): four `record_refs` that were empty
+  placeholders ("forthcoming" / "GAP / target …") are now wired to the BR and HK records that exist after
+  v0.9.7 (`br-vasp-cross_border_data-001`, `br-vasp-issuer_pathway-001`, `br-vasp-custody-001`,
+  `br-vasp-reserve_backing-001`, `br-vasp-disclosure_reporting-001`, `hk-frs-securities_classification-001`).
+
+### Added — invariants
+- Six source-layer invariants (`run_invariants.py` D1–D6) assert that the matrix, the architecture, the
+  substrate note, the HK→CN corridor, the HK→BR record_refs, and open question §7.2 all carry the 42号
+  reality. The suite is now **39 invariants** (was 33); `run_negative_tests.py` remains 6 gates.
+
 ## [0.9.7] — 2026-06-28
 
 > **Native-language official-text verification (CN Chinese, KR Korean, TW Chinese, BR Portuguese).** This

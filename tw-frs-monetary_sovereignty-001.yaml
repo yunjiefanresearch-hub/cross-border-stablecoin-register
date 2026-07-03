@@ -5,34 +5,39 @@ instrument_type: fiat_referenced_stablecoin
 instrument_label_local: virtual asset / draft stablecoin (Virtual Asset Service Act)
 dimension: monetary_sovereignty
 constraint_ref: C7
-requirement_summary: No stablecoin-specific monetary-sovereignty regime is in force. The backdrop is the central
-  bank's control of the NTD and the offshore-NTD posture; the peg currency for a future Taiwan stablecoin (NTD vs
-  USD) is officially undecided. A NTD-pegged stablecoin engages the central bank's monetary-sovereignty concerns
-  directly; a USD-pegged stablecoin engages offshore-NTD and capital-flow concerns. The choice is the central monetary-sovereignty
-  question for Taiwan.
+requirement_summary: the Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced) creates
+  the framework, but no operative monetary-sovereignty cap is yet in force. The backdrop is the central bank's control
+  of the NTD and the offshore-NTD posture; the peg currency for a Taiwan stablecoin (NTD vs USD) is officially undecided
+  and is the defining open question, to be settled through commencement and FSC/CBC subsidiary rules.
 requirement_structured:
-  in_force_cap: none
+  enacted_not_commenced: framework enacted; operative cap and peg-currency decision pending
   backdrop: CBC control of NTD; offshore-NTD posture
   peg_currency: officially undecided (NTD vs USD)
   ntd_peg: engages monetary-sovereignty concerns directly
   usd_peg: engages offshore-NTD and capital-flow concerns
-status: proposed
+status: transitional
 source:
   primary: CBC public statements; draft Virtual Asset Service Act
-  pinpoint: Monetary sovereignty — peg currency undecided (NTD vs USD); NTD offshore controls are the backdrop
+  pinpoint: 'Monetary sovereignty: framework enacted, operative cap and peg-currency decision pending (not commenced)'
   url: https://english.ey.gov.tw/
 secondary:
 - citation: Fan, Multi-Jurisdiction Stablecoin Compliance Matrix v0.9.6 (June 2026), §Taiwan (Distribution and Offering
     Restrictions)
 - citation: Fan, Cross-Border Stablecoin Architecture v3 (Twelve Jurisdictions, June 2026), §5 (Taiwan — monetary-sovereignty
     posture)
-- citation: 'Draft Virtual Asset Service Act bill (Executive Yuan referral): https://english.ey.gov.tw/. Official
+- citation: 'Virtual Asset Service Act, passed third reading 30 Jun 2026 (Executive Yuan referral: https://english.ey.gov.tw/). Official
     primary text is Chinese (law.moj.gov.tw); there is no official English translation (FSC English materials are
     summaries).'
-interpretation_note: 'Provenance: transcribed from the author''s Compliance Matrix v0.9.6; an official URL for the
-  bill/announcement is provided (source.url), but this is a draft provision and is NOT operative law, so it is not
-  upgraded and remains firm_summary. STATUS proposed: there is no in-force C7 cap; the peg-currency decision is
-  the defining open issue (Matrix interpretive flag).'
+interpretation_note: 'Provenance: transcribed from the author''s Compliance Matrix v0.9.6; an official URL is provided
+  (source.url), but there is no official English primary text and made_not_commenced provisions carry no operative
+  resolution_text, so the cell stays firm_summary (non-citable). STATUS transitional: there is no in-force C7 cap;
+  the peg-currency decision is the defining open issue (Matrix interpretive flag).
+
+
+  [v0.9.9 enactment] The Virtual Asset Service Act passed third reading on 30 Jun 2026, so this cell moves from
+  proposed to transitional (binding_status pending_proposal -> made_not_commenced), matching tw-frs-issuer_pathway-001.
+  The provision is enacted but not commenced; its operative detail awaits FSC subsidiary legislation, and the cell
+  stays non-citable (firm_summary, no resolution_text).'
 interpretive_flag:
   tension: 'The peg-currency question (NTD vs USD) is the defining open issue: a NTD peg engages the central bank''s
     monetary-sovereignty concerns; a USD peg engages offshore-NTD and capital-flow concerns.'
@@ -40,7 +45,7 @@ interpretive_flag:
 confidence: medium
 claim_class: tier1_legal
 evidence_tier: firm_summary
-last_reviewed: '2026-06-27'
+last_reviewed: '2026-06-30'
 version_added: 0.4.0
 tags:
 - apac
@@ -51,5 +56,6 @@ tags:
 - v0.5.1_verification
 - draft_url_added
 - v0.7.0_claim_class
-- binding_pending_proposal
-binding_status: pending_proposal
+- binding_made_not_commenced
+- v0.9.9_tw_enactment
+binding_status: made_not_commenced

@@ -113,10 +113,17 @@ architectural_patterns = {
         "source": SRC + ", §3.3 (Three Architectural Patterns)",
         "boundary": ("The cross-border PRC boundary is the practical consequence of the joint operation of "
                      "Constraints 1 (issuer eligibility) and 6 (cross-border payment and data sovereignty) "
-                     "(Interaction Set A). It is an emergent regulatory pattern established by the public record "
-                     "(absence of PRC-connected entities from the April 2026 HKMA first cohort; the Oct 2025 "
-                     "Ant/JD application withdrawals; the absence of state-owned bank affiliates despite Sep 2025 "
-                     "activity; the Oct 2025 CSRC tokenization guidance), not by any single explicit prohibition."),
+                     "(Interaction Set A). As of Feb 2026 it is also anchored by an explicit written prohibition: "
+                     "银发〔2026〕42号 (eight-ministry Notice, in force 6 Feb 2026; it repealed the 2021 Notice "
+                     "银发〔2021〕237号) bars unauthorised overseas issuance of RMB-pegged stablecoins "
+                     "(未经许可，境内外任何主体不得在境外发行挂钩人民币的稳定币) and PRC-controlled entities issuing virtual "
+                     "currencies abroad, and restricts onshore RWA tokenisation (with CSRC 公告〔2026〕1号 guidance on "
+                     "offshore ABS-token issuance). What remains emergent (rather than categorically prohibited) is the "
+                     "Direct-Subsidiary-via-Hong-Kong pathway: the public record (absence of PRC-connected entities from "
+                     "the April 2026 HKMA first cohort; the Oct 2025 Ant/JD application withdrawals; the absence of "
+                     "state-owned bank affiliates despite Sep 2025 activity; the Oct 2025 CSRC tokenization guidance) "
+                     "shows it constrained by the data-sharing pattern, not by a categorical exclusion under the "
+                     "Stablecoins Ordinance."),
         "patterns": [
             {"id": "A", "name": "Direct Subsidiary Licensing", "status": "currently_constrained",
              "description": ("A PRC-connected group seeks FRS issuance through a wholly-owned Hong Kong subsidiary "
@@ -325,7 +332,7 @@ compatibility = {
         "III": "Composition problem unresolved — the constraints interact in ways the public regulatory record does not currently resolve; configurations may be analytically derivable but their viability depends on regulatory developments not yet completed.",
     },
     "category_iii_axes": {
-        "prohibition": "The PRC prohibition axis: issuance is prohibited; the §3.3 three-pattern typology supplies the responsive architectures.",
+        "prohibition": "The PRC prohibition axis: issuance is prohibited (now by explicit written law, 银发〔2026〕42号, in force 6 Feb 2026, which repealed the 2021 Notice and bars overseas RMB-pegged-stablecoin issuance and extraterritorial issuance by PRC-controlled entities); the §3.3 three-pattern typology supplies the responsive architectures.",
         "pre_regime": "The Taiwan / South Korea pre-regime axis: issuance is not prohibited but not yet authorizable (the enabling statute remains a bill); partnership and dual-authorization options become available only on enactment.",
         "prohibition+pre_regime": "Both ends are unavailable (PRC prohibition x Taiwan pre-regime), with an additional cross-strait political dimension.",
         "counterparty_conditional": "The Brazil cross-border leg: the câmbio reclassification and the 1 Oct 2026 closure of the retail eFX rail leave the permitted channel running through a licensed VASP with an FX-authorised counterparty or within the per-operation cap.",
@@ -354,13 +361,14 @@ open_questions = {
          "affects": "The §4 yield-separation architecture and the permitted/prohibited boundary for routing arrangements.",
          "status": "unresolved", "conditional_flag": "Depends on enactment of CLARITY substantially as reported and on the joint NPRM's actual content (not yet issued)."},
         {"id": "7.2", "title": "People's Republic of China boundary stability",
-         "question": "Will the PRC boundary observed in October 2025 and April 2026 hold, relax, or tighten?",
+         "question": "The PRC boundary tightened in writing in Feb 2026 (银发〔2026〕42号). Will it hold at that level, tighten further, or relax?",
          "affects": "The §3.3 three-pattern typology (especially Pattern A viability).",
          "status": "unresolved",
-         "material_developments": ["PRC modifies the cross-border data framework to facilitate HKMA supervisor-to-supervisor information-sharing;",
+         "material_developments": ["RESOLVED (tightening): 银发〔2026〕42号 (in force 6 Feb 2026) put the prohibition into explicit written law — overseas RMB-pegged-stablecoin issuance banned, extraterritorial issuance by PRC-controlled entities banned, onshore RWA tokenisation restricted (CSRC 公告〔2026〕1号);",
+                                    "STILL-OPEN (relaxation paths): PRC modifies the cross-border data framework to facilitate HKMA supervisor-to-supervisor information-sharing;",
                                     "the HKMA announces a second cohort including one or more PRC-connected entities;",
                                     "the PRC publicly authorizes state-owned bank HK affiliates to apply/operate under HK licences."],
-         "conditional_flag": "None of the three developments has occurred as of publication; the §3.3 patterns are configured against the boundary as currently observed."},
+         "conditional_flag": "The tightening has occurred (42号). None of the three relaxation developments has occurred as of publication; the §3.3 patterns are configured against the boundary as currently observed."},
         {"id": "7.3", "title": "Operationalization of the Article 58(3) cap",
          "question": "How will the EBA operationalize the Article 58(3) means-of-exchange cap (adopted methodology guidance and Member State competent-authority practice)?",
          "affects": "The §5.14 cross-currency cross-border analysis for USD-referenced stablecoins in the EU.",

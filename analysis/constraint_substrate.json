@@ -357,7 +357,7 @@
         "attributes": {
           "exportable_token": false
         },
-        "note": "No domestic issuance pathway; ICO Notice (2017) and PBOC framework in force.",
+        "note": "No domestic issuance pathway; 2017 ICO Notice (94公告) policy continued and 银发〔2026〕42号 (in force 6 Feb 2026) is the operative prohibition (it repealed the 2021 Notice 银发〔2021〕237号 and broadened the banned act from token-offering financing to issuing virtual currency).",
         "derived_from": [
           "cn-prc-issuer_pathway-001"
         ]

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Corridor time-map · Cross-Border Stablecoin Register</title>
+<meta name="description" content="Drag a date or flip a contingent trigger and watch cross-border stablecoin corridors re-derive from the register's own rules. Conditioning, never forecasting.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --canvas:#F1F4F7; --panel:#FFFFFF; --ink:#0C1726; --ink-2:#43526B; --ink-3:#76839A;
+  --navy:#0A2540; --navy-2:#103253; --accent:#1C4E80; --accent-2:#2E6FB7;
+  --verified:#15784E; --verified-bg:#E4F1EA; --verified-line:#9FCDB5;
+  --draft:#955600; --draft-bg:#F8EEDC; --draft-line:#E0C58C;
+  --planned:#AAB3C0; --planned-bg:#E9ECF1; --planned-line:#D5DAE2;
+  --spine:#9A3D1B;
+  --rule:#D9DEE6; --rule-2:#C3CAD5;
+  /* feasibility-class palette (derived from the status hues, one per Atlas class) */
+  --cI:#15784E; --cI-bg:#E4F1EA; --cII:#1C4E80; --cII-bg:#E3ECF6;
+  --cT:#955600; --cT-bg:#F8EEDC; --cIII:#8A3423; --cIII-bg:#F6E6E2;
+  --cpre:#6B7688; --cpre-bg:#ECEEF2; --cblk:#4A2036; --cblk-bg:#EFE3EA;
+  --serif:"IBM Plex Serif",Georgia,"Times New Roman",serif;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--canvas);color:var(--ink);font-family:var(--sans);
+  font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.mono{font-family:var(--mono)}
+:focus-visible{outline:2px solid var(--accent-2);outline-offset:2px;border-radius:2px}
+.masthead{background:var(--navy);color:#EAF0F7;border-bottom:3px solid #06182B}
+.mast-top{display:flex;align-items:baseline;justify-content:space-between;gap:18px;padding:18px 0 4px;flex-wrap:wrap}
+.brand{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.wordmark{font-family:var(--serif);font-weight:600;font-size:25px;letter-spacing:-.01em;color:#fff;line-height:1}
+.reg-tag{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:#8FB0D0;
+  border:1px solid #2C4D6E;padding:3px 7px;border-radius:3px;text-transform:uppercase;white-space:nowrap}
+.mast-links{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.mlink{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:#CFE0F0;
+  border:1px solid #2C4D6E;padding:5px 9px;border-radius:4px;background:#0d2c4b}
+.mlink:hover{background:#11375c;text-decoration:none;border-color:#3a5a7c}
+.mlink.here{background:#EAF0F7;color:var(--navy);border-color:#EAF0F7}
+.mlink b{color:#fff;font-weight:600} .mlink.here b{color:var(--navy)}
+.tagline{font-family:var(--serif);font-size:16px;color:#C5D6E8;padding:6px 0 16px;max-width:820px;font-weight:500}
+.thesis{background:var(--panel);border-bottom:1px solid var(--rule)}
+.thesis .wrap{padding:30px 24px}
+.thesis p{font-family:var(--serif);font-size:19px;line-height:1.5;margin:0;color:var(--ink);max-width:880px;font-weight:500}
+.thesis .dual{font-family:var(--sans);font-size:13.5px;color:var(--ink-2);margin-top:12px;max-width:840px}
+.thesis code{font-family:var(--mono);font-size:12px;background:var(--canvas);padding:1px 5px;border-radius:3px;border:1px solid var(--rule)}
+section{padding:40px 0;border-bottom:1px solid var(--rule)}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--accent);display:flex;align-items:center;gap:10px;margin:0 0 10px}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--accent);display:inline-block}
+h2.sec{font-family:var(--serif);font-weight:600;font-size:23px;letter-spacing:-.01em;margin:0 0 6px}
+.sec-sub{color:var(--ink-2);max-width:820px;margin:0 0 20px}
+.guardrail{font-family:var(--mono);font-size:11px;color:var(--ink-3);border-left:2px solid var(--rule-2);
+  padding:2px 0 2px 10px;margin:14px 0 0;max-width:820px;line-height:1.5}
+.foot{padding:30px 0 60px;color:var(--ink-3);font-family:var(--mono);font-size:11.5px}
+.foot a{color:var(--accent)}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+
+/* --- date slider --- */
+.controls{background:var(--panel);border:1px solid var(--rule-2);border-radius:10px;padding:20px 22px;margin-bottom:22px}
+.slider-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.slider-row label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+input[type=range]{-webkit-appearance:none;appearance:none;height:4px;background:var(--rule-2);border-radius:2px;flex:1;min-width:220px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;
+  background:var(--accent);border:3px solid #fff;box-shadow:0 1px 3px rgba(10,37,64,.4);cursor:pointer}
+input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--accent);border:3px solid #fff;cursor:pointer}
+.dateout{font-family:var(--serif);font-size:22px;font-weight:600;color:var(--navy);min-width:132px}
+.datemarks{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;color:var(--ink-3);margin-top:8px}
+.datemarks span{cursor:pointer} .datemarks span:hover{color:var(--accent)}
+.activeline{font-family:var(--mono);font-size:11.5px;color:var(--ink-2);margin-top:14px;padding-top:12px;border-top:1px solid var(--rule);line-height:1.7}
+.pill{display:inline-block;font-family:var(--mono);font-size:10px;padding:2px 7px;border-radius:10px;margin:0 4px 4px 0;
+  border:1px solid var(--rule-2);background:var(--canvas)}
+.pill.moves{border-color:var(--verified-line);background:var(--verified-bg);color:var(--verified)}
+.pill.static{color:var(--ink-3)}
+/* --- what-if switches --- */
+.switches{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;padding-top:16px;border-top:1px solid var(--rule)}
+.switch{display:flex;align-items:flex-start;gap:9px;border:1px solid var(--rule-2);border-radius:8px;padding:9px 12px;
+  background:var(--canvas);cursor:pointer;max-width:260px;transition:border-color .15s,background .15s}
+.switch:hover{border-color:var(--accent-2)}
+.switch.on{border-color:var(--accent);background:#fff;box-shadow:inset 3px 0 0 var(--accent)}
+.switch.nochange.on{box-shadow:inset 3px 0 0 var(--ink-3)}
+.toggle{width:34px;height:19px;border-radius:10px;background:var(--rule-2);position:relative;flex:0 0 auto;margin-top:2px;transition:background .15s}
+.switch.on .toggle{background:var(--accent)} .switch.nochange.on .toggle{background:var(--ink-3)}
+.toggle::after{content:"";position:absolute;top:2px;left:2px;width:15px;height:15px;border-radius:50%;background:#fff;transition:left .15s}
+.switch.on .toggle::after{left:17px}
+.switch .lbl{font-size:12px;line-height:1.35} .switch .lbl b{font-weight:600}
+.switch .kind{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--ink-3);text-transform:uppercase;display:block;margin-top:2px}
+.switch .ifen{font-family:var(--mono);font-size:9.5px;color:var(--draft);font-weight:600}
+/* --- matrix --- */
+.mgrid-wrap{overflow-x:auto;border:1px solid var(--rule-2);border-radius:10px;background:var(--panel)}
+table.mgrid{border-collapse:collapse;font-family:var(--mono);width:100%;min-width:720px}
+table.mgrid th{background:#F7F9FB;color:var(--ink-3);font-size:10px;font-weight:600;padding:7px 6px;position:sticky}
+table.mgrid thead th{top:0;z-index:2} table.mgrid tbody th{left:0;z-index:1;text-align:right;border-right:1px solid var(--rule)}
+table.mgrid thead th.corner{left:0;z-index:3;text-align:left;color:var(--ink-2)}
+.cell{width:46px;height:38px;text-align:center;font-size:12px;font-weight:600;cursor:pointer;
+  border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);transition:filter .12s,box-shadow .25s;position:relative}
+.cell.diag{background:repeating-linear-gradient(45deg,#F7F9FB,#F7F9FB 4px,#eef1f5 4px,#eef1f5 8px);cursor:default}
+.cell:hover:not(.diag){filter:brightness(.94);box-shadow:inset 0 0 0 2px var(--accent)}
+.cell.moved{animation:flash 1.1s ease-out}
+@keyframes flash{0%{box-shadow:inset 0 0 0 3px var(--draft)}100%{box-shadow:inset 0 0 0 0 transparent}}
+.cell.moved::after{content:"";position:absolute;top:3px;right:3px;width:5px;height:5px;border-radius:50%;background:var(--draft)}
+.cI{background:var(--cI-bg);color:var(--cI)} .cII{background:var(--cII-bg);color:var(--cII)}
+.cT{background:var(--cT-bg);color:var(--cT)} .cIII{background:var(--cIII-bg);color:var(--cIII)}
+.cpre_regime{background:var(--cpre-bg);color:var(--cpre);font-size:9px} .cblocked{background:var(--cblk-bg);color:var(--cblk);font-size:9px}
+.clsleg{display:flex;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;color:var(--ink-2);margin:16px 0 0}
+.clsleg span{display:flex;align-items:center;gap:6px} .clsleg .sw{width:14px;height:14px;border-radius:3px;display:inline-block}
+.readout{background:var(--panel);border:1px solid var(--rule-2);border-radius:10px;padding:16px 18px;margin-top:16px;min-height:64px}
+.readout .rhead{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.readout .rbody{font-size:13.5px;color:var(--ink-2)} .readout code{font-family:var(--mono);font-size:12px;background:var(--canvas);padding:1px 5px;border-radius:3px;border:1px solid var(--rule)}
+.movelist{margin-top:8px;font-family:var(--mono);font-size:11.5px;color:var(--ink-2);line-height:1.8}
+.movelist .mv{display:inline-block;background:var(--verified-bg);border:1px solid var(--verified-line);color:var(--verified);
+  border-radius:5px;padding:1px 7px;margin:0 5px 5px 0}
+/* --- typology + convergence --- */
+.kindgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.kindcard{border:1px solid var(--rule-2);border-radius:9px;padding:13px 15px;background:var(--panel)}
+.kindcard.moves{border-left:3px solid var(--verified)} .kindcard.holds{border-left:3px solid var(--planned-line)}
+.kindcard h4{font-family:var(--mono);font-size:12px;margin:0 0 5px;color:var(--ink);letter-spacing:.02em}
+.kindcard .mv-tag{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.08em}
+.kindcard.moves .mv-tag{color:var(--verified)} .kindcard.holds .mv-tag{color:var(--ink-3)}
+.kindcard p{font-size:12px;color:var(--ink-2);margin:6px 0 0;line-height:1.5}
+.conv-wrap{background:var(--panel);border:1px solid var(--rule-2);border-radius:10px;padding:20px 22px}
+.conv-line{font-family:var(--serif);font-size:16px;color:var(--ink);font-weight:500;margin:0 0 4px}
+.conv-tiers{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;margin-top:16px}
+.tier{border-radius:8px;padding:12px 14px;border:1px solid var(--rule-2)}
+.tier h5{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;margin:0 0 6px}
+.tier.cit{background:var(--verified-bg);border-color:var(--verified-line)} .tier.cit h5{color:var(--verified)}
+.tier.sib{background:var(--cII-bg);border-color:#B9CFE6} .tier.sib h5{color:var(--cII)}
+.tier.one{background:var(--draft-bg);border-color:var(--draft-line)} .tier.one h5{color:var(--draft)}
+.tier.back{background:var(--canvas)} .tier.back h5{color:var(--ink-3)}
+.tier .js{font-family:var(--mono);font-size:12px;color:var(--ink);line-height:1.9}
+.tier .js b{background:#fff;border:1px solid var(--rule-2);border-radius:4px;padding:1px 6px;font-weight:600}
+</style></head>
+<body><header class="masthead"><div class="wrap">
+  <div class="mast-top">
+    <div class="brand"><span class="wordmark">Cross-Border Stablecoin Register</span>
+      <span class="reg-tag">v0.9.9 · public register</span></div>
+    <nav class="mast-links">
+      <a class="mlink" href="index.html">Overview</a>
+      <a class="mlink here" href="corridors.html"><b>Corridor time-map</b></a>
+      <a class="mlink" href="console.html"><b>Integrity console</b></a>
+      <a class="mlink" href="api/index.json">API</a>
+      <a class="mlink" href="MCP_SERVER.md">MCP</a>
+    </nav>
+  </div>
+  <p class="tagline">Dated, conditioned feasibility — drag a date or flip a trigger and watch corridors re-derive from the register&rsquo;s own rules.</p>
+</div></header>
+<div class="thesis"><div class="wrap"><p>The flagship's core claim is that feasibility is <em>dated</em>: the same corridor is a different legal object on different days. This page makes that literal — one slider replays scheduled law, one set of switches replays contingent branches, and the map re-derives from the register's own <code>compose()</code>.</p>
+<p class="dual">Everything is computed in your browser from the register's own signals, using the identical algorithm the MCP <code>compose_corridor(as_of=…)</code> tool runs. No server, no model, no probabilities.</p></div></div>
+
+<section><div class="wrap">
+  <p class="eyebrow">Paper I · trigger-conditioned forward map</p>
+  <h2 class="sec">Corridor feasibility, as of a date</h2>
+  <p class="sec-sub">The register composes each corridor's class from two jurisdictions' legal poles. Drag the date to apply every <em>scheduled</em> change in law up to that day and re-derive the whole 12&times;12 map; flip a <em>contingent</em> trigger to see the register's own if-enacted branch. Nothing here is a forecast — the slider only replays dated law, and each switch only replays a branch the register already records.</p>
+  <div class="controls">
+    <div class="slider-row">
+      <label for="dslider">As&nbsp;of</label>
+      <input type="range" id="dslider" min="0" max="3" value="0" step="1" aria-label="As-of date">
+      <span class="dateout mono" id="dateout"></span>
+    </div>
+    <div class="datemarks" id="datemarks"></div>
+    <div class="activeline" id="activeline"></div>
+    <div class="switches" id="switches"></div>
+  </div>
+  <div class="mgrid-wrap"><table class="mgrid" id="mgrid"><thead></thead><tbody></tbody></table></div>
+  <div class="clsleg">
+    <span><i class="sw cI"></i>I — dual authorization</span>
+    <span><i class="sw cII"></i>II — comparability / channel</span>
+    <span><i class="sw cT"></i>T — regime in transition</span>
+    <span><i class="sw cIII"></i>III — origin-drag / partnership</span>
+    <span><i class="sw cpre_regime"></i>pre-regime</span>
+    <span><i class="sw cblocked"></i>blocked</span>
+  </div>
+  <div class="readout" id="readout"><div class="rhead">Cell detail</div><div class="rbody">Tap any corridor to see how its class is derived, and what would move it.</div></div>
+  <p class="guardrail">Guardrail — the date axis applies only the register's own <code>scheduled</code>/<code>in_force</code> events (<code>signals_as_of</code>); the switches apply only its own <code>contingent</code> if-then branches, each labelled "if enacted". No probabilities, no forecasts. Rows = origin, columns = destination; the class shown is the one a token faces <em>at the destination</em>.</p>
+</div></section>
+
+<section><div class="wrap">
+  <p class="eyebrow">Second contribution · trigger typology</p>
+  <h2 class="sec">Which triggers move the map, and which don't</h2>
+  <p class="sec-sub">Not every pending change is the same kind of thing. The register tags each event by how determinate it is. Only <b>fully-scheduled</b> events move the dated horizon; contingent and intra-regime-gating events are carried, but they don't push a date on the slider — and one of them (MiCA's Article&nbsp;143(3) transitional expiry) deliberately moves <em>no class at all</em>.</p>
+  <div class="kindgrid" id="kindgrid"></div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="eyebrow">§4.5 · cross-jurisdiction convergence</p>
+  <h2 class="sec">The yield line</h2>
+  <p class="sec-sub">Independent legislatures are drawing the same functional boundary on stablecoin yield. The register asserts convergence at citable depth <em>only</em> where both sides of the line are documented in force — today, that is the United States alone. Everything else is recorded at the honest depth its evidence supports.</p>
+  <div class="conv-wrap" id="conv"></div>
+  <p class="guardrail">Guardrail — convergence is claimed only where the cell is <code>tier1_legal + in_force + resolution_text</code> and both sides of the functional line are documented; one-sided in-force prohibitions are shown on the prohibited side with the two-sided line held as backlog. This is the paper's own two-sided discipline, surfaced.</p>
+</div></section>
+
+<div class="foot"><div class="wrap">
+  Generated 2026-07-03 from <a href="dataset.json">dataset.json</a> + <a href="analysis/computed_corridor_states.json">computed_corridor_states.json</a>.
+  Runs the register's own <code>compose()</code> client-side over its own signals — <a href="api/corridor_states.json">corridor_states API</a>.
+  &nbsp;·&nbsp; <a href="index.html">Overview</a> · <a href="console.html">Integrity console</a>
+</div></div>
+
+<script id="embedded-data" type="application/json">{"version": "0.9.9", "as_of_base": "2026-06-30", "jurisdictions": ["US", "EU", "UK", "SG", "HK", "CN", "BR", "CH", "AE", "TW", "JP", "KR"], "key_dates": ["2026-06-01", "2026-06-30", "2026-07-01", "2027-10-25"], "engine": {"algorithm": "Atlas §3.2: origin-drag first (a non-exportable origin -> Category III), else the destination's inbound-gate class. Identical to scripts/compose.py compose_directed().", "signal_fields": ["egress_override", "exportable_token", "inbound_gate", "regime_status"], "gate_class": {"open": "I", "open_capped": "I", "comparability": "II", "channel": "II", "usage_channel": "II", "fx_counterparty": "II", "transition": "T", "pre_regime": "pre_regime", "prohibition": "blocked"}, "signals_base": {"US": {"regime_status": "live", "inbound_gate": "comparability", "exportable_token": true, "egress_override": false, "basis": "GENIUS Act; §18 comparability gate (us-pss-* records)"}, "EU": {"regime_status": "live", "inbound_gate": "open_capped", "exportable_token": true, "egress_override": false, "basis": "MiCA; Art. 58(3) cap — dual auth available (eu-emt-* records)"}, "UK": {"regime_status": "transition", "inbound_gate": "transition", "exportable_token": true, "egress_override": false, "basis": "FSMA 2026 conduct + systemic regimes operative 2027 (uk-frs-* records)"}, "SG": {"regime_status": "live", "inbound_gate": "open", "exportable_token": true, "egress_override": true, "basis": "MAS-SCS; June 2025 DTSP perimeter constrains offshore-to-SG (sg-frs-* records)"}, "HK": {"regime_status": "live", "inbound_gate": "open", "exportable_token": true, "egress_override": false, "basis": "Stablecoins Ordinance; HKD-only first cohort (hk-frs-* records)"}, "CN": {"regime_status": "prohibition", "inbound_gate": "prohibition", "exportable_token": false, "egress_override": true, "basis": "issuance prohibited; PIPL/DSL/CAC/SAFE on data/capital (cn-prc-* records)"}, "BR": {"regime_status": "live", "inbound_gate": "fx_counterparty", "exportable_token": true, "egress_override": false, "basis": "BCB câmbio reclassification; per-operation cap vs non-FX-authorised counterparty (br-* records)"}, "CH": {"regime_status": "live", "inbound_gate": "open", "exportable_token": true, "egress_override": false, "basis": "Banking Act/Ordinance; no usage cap; FINMA holder-ID (ch-frs-* records)"}, "AE": {"regime_status": "live", "inbound_gate": "usage_channel", "exportable_token": true, "egress_override": false, "basis": "CBUAE PTSR; Foreign Payment Token usage-channel restriction (ae-pt-* records)"}, "TW": {"regime_status": "transition", "inbound_gate": "transition", "exportable_token": false, "egress_override": false, "basis": "VAS Act enacted at third reading 30 Jun 2026; subsidiary legislation pending, no gazetted commencement; no exportable token yet (tw-frs-issuer_pathway-001 status=transitional)"}, "JP": {"regime_status": "live", "inbound_gate": "channel", "exportable_token": true, "egress_override": false, "basis": "Payment Services Act EPI regime; EPIESP inbound channel-determination (jp-epi-* records)"}, "KR": {"regime_status": "pre_regime", "inbound_gate": "pre_regime", "exportable_token": false, "egress_override": false, "basis": "VAUPA in force; DABA a bill (kr-frs-issuer_pathway-001 status=proposed)"}}, "dated_events": [{"id": "uk-systemic-regime-operative", "jurisdiction": "UK", "title": "UK systemic stablecoin regime + FCA conduct regime operative (SI 2026/102 full commencement)", "effective_date": "2027-10-25", "trigger_kind": "fully-scheduled", "effects": [{"field": "regime_status", "to": "live"}, {"field": "inbound_gate", "to": "open"}], "moves_a_class": true}, {"id": "jp-act66-2025-full-enforcement", "jurisdiction": "JP", "title": "Japan Act No. 66 of 2025 full enforcement (trust-type reserve relaxation)", "effective_date": "2026-06-01", "trigger_kind": "dated-empty-effect", "effects": [], "moves_a_class": false}, {"id": "eu-mica-art143-transitional-expiry", "jurisdiction": "EU", "title": "EU MiCA Article 143(3) transitional grandfathering expiry (national side-doors close; admissible-token set narrows)", "effective_date": "2026-07-01", "trigger_kind": "intra-regime-gating", "effects": [], "moves_a_class": false}], "contingent_triggers": [{"id": "tw-vas-act-enacted", "jurisdiction": "TW", "title": "Taiwan Virtual Asset Service Act commencement (subsidiary legislation brings the issuer regime into force)", "trigger_kind": "enacted-not-commenced", "trigger": "Commencement of the enacted Virtual Asset Service Act through its subsidiary legislation. The Act passed third reading on 30 Jun 2026; commencement awaits FSC subordinate rules and carries no gazetted date.", "basis": "Virtual Asset Service Act enacted at third reading 30 Jun 2026; tw-frs-issuer_pathway-001 carries the enacted provisions as status=transitional (binding_status=made_not_commenced), awaiting FSC subsidiary legislation.", "effects": [{"field": "regime_status", "to": "live"}, {"field": "inbound_gate", "to": "channel"}], "recorded_effects_all": ["regime_status", "inbound_gate"], "touches_signal": true}, {"id": "kr-daba-enacted", "jurisdiction": "KR", "title": "Korea Digital Asset Basic Act enacted (won-stablecoin issuer regime live)", "trigger_kind": "contingent-no-date", "trigger": "Enactment and commencement of the Digital Asset Basic Act (currently a bill).", "basis": "Draft Digital Asset Basic Act; kr-frs-issuer_pathway-001 carries the draft eligibility question as status=proposed.", "effects": [{"field": "regime_status", "to": "live"}, {"field": "exportable_token", "to": true}, {"field": "inbound_gate", "to": "channel"}], "recorded_effects_all": ["regime_status", "exportable_token", "inbound_gate"], "touches_signal": true}, {"id": "us-clarity-act-enacted", "jurisdiction": "US", "title": "US CLARITY Act enacted (digital-asset market structure; intermediary yield + routing layer live)", "trigger_kind": "contingent-no-date", "trigger": "Enactment of the Digital Asset Market Clarity Act (H.R. 3633). On the Senate Legislative Calendar as Calendar No. 423 (reported 1 Jun 2026); still requires Senate floor passage, reconciliation with the Senate Agriculture and House versions, and Presidential signature.", "basis": "GENIUS is already in force (the issuer-level layer). CLARITY is the pending market-structure layer (H.R. 3633): us-pss-bank_nonbank_routing-001 binds on it, and the us-pss-permitted_activity_yield-001 / us-pss-securities_classification-001 / us-pss-issuer_pathway-001 cells carry its Sec. 404 and market-structure parts as flagged pending overlays.", "effects": [], "recorded_effects_all": ["binding_status (us bank_nonbank_routing)", "intermediary_yield_prohibition (CLARITY Sec. 404 covered parties)", "securities_market_structure_overlay"], "touches_signal": false}, {"id": "sg-scs-legislation-enacted", "jurisdiction": "SG", "title": "Singapore SCS framework implementing legislation enacted (MAS-regulated stablecoin regime live)", "trigger_kind": "contingent-not-class-change", "trigger": "Enactment of the implementing legislation for the MAS Single-Currency Stablecoin (SCS) framework (finalised 15 Aug 2023). MAS announced at the Nov 2025 Singapore FinTech Festival that it was ready to begin drafting; the framework is expected to take effect in mid-2026.", "basis": "The PS Act 2019 DPT baseline is already in force. The SCS-specific framework is finalised MAS policy pending implementing legislation; the sg-scs-* requirement cells carry it as binding_status=finalized_policy_pending, status=transitional.", "effects": [], "recorded_effects_all": ["binding_status (sg SCS-specific cells)", "status (sg SCS-specific cells)", "MAS-regulated-stablecoin label"], "touches_signal": false}]}, "trigger_kind_legend": {"purpose": "Every event carries a trigger_kind: the paper's typology of regulatory triggers by the kind of certainty each carries (flagship §3). It separates the one kind that moves a dated horizon from the kinds that do not, and names the intra-regime gating change a class-centric reading misses.", "kinds": {"fully-scheduled": "gazetted commencement date; applied by that date; the ONLY kind that moves a horizon (§3.1, UK).", "enacted-not-commenced": "passed into law but awaiting subsidiary legislation with no gazetted commencement; partly fired (§3.3, TW).", "contingent-no-date": "depends on an enactment that has not occurred; no date; surfaced only as an if-enacted branch (§3.2 US, §3.4 KR).", "contingent-not-class-change": "a pending enactment that hardens a binding status without moving any class, the baseline class already in force (§3.5, SG).", "parameterization": "operationalization of a constraint that already binds; sharpens the operative content of a class without moving one (§3.7, EBA, carried in open_questions).", "intra-regime-gating": "a DATED change in law that alters accessibility WITHIN a live regime (who may operate; which tokens are admissible) without moving any feasibility class (§3.10, EU MiCA).", "dated-empty-effect": "a dated, now-in-force change with an explicitly empty feasibility-class effect; the control case showing the calendar distinguishes a change in law from a change in feasibility class (§3.6, JP).", "open-compositional": "information rather than a change in law, whose resolution feeds another jurisdiction's analysis (§3.8, HK 2nd cohort, carried in open_questions).", "resolved-tightening": "an asymmetric posture: a boundary's recent movement is settled in one direction while a reversing development stays open (§3.9, PRC, carried in open_questions)."}, "horizon_rule": "Only fully-scheduled events move a compose() horizon. dated-empty-effect and intra-regime-gating events are dated but move no feasibility class, so they appear on the timeline without changing any corridor's category, by design."}, "whatif_branches": [{"trigger_id": "tw-vas-act-enacted", "title": "Taiwan Virtual Asset Service Act commencement (subsidiary legislation brings the issuer regime into force)", "jurisdiction": "TW", "trigger_kind": "enacted-not-commenced", "trigger_condition": "Commencement of the enacted Virtual Asset Service Act through its subsidiary legislation. The Act passed third reading on 30 Jun 2026; commencement awaits FSC subordinate rules and carries no gazetted date.", "basis": "Virtual Asset Service Act enacted at third reading 30 Jun 2026; tw-frs-issuer_pathway-001 carries the enacted provisions as status=transitional (binding_status=made_not_commenced), awaiting FSC subsidiary legislation.", "changes_any_class": true, "note": "This trigger's register-recorded effects move a feasibility signal; the corridors below re-derive accordingly."}, {"trigger_id": "kr-daba-enacted", "title": "Korea Digital Asset Basic Act enacted (won-stablecoin issuer regime live)", "jurisdiction": "KR", "trigger_kind": "contingent-no-date", "trigger_condition": "Enactment and commencement of the Digital Asset Basic Act (currently a bill).", "basis": "Draft Digital Asset Basic Act; kr-frs-issuer_pathway-001 carries the draft eligibility question as status=proposed.", "changes_any_class": true, "note": "This trigger's register-recorded effects move a feasibility signal; the corridors below re-derive accordingly."}, {"trigger_id": "us-clarity-act-enacted", "title": "US CLARITY Act enacted (digital-asset market structure; intermediary yield + routing layer live)", "jurisdiction": "US", "trigger_kind": "contingent-no-date", "trigger_condition": "Enactment of the Digital Asset Market Clarity Act (H.R. 3633). On the Senate Legislative Calendar as Calendar No. 423 (reported 1 Jun 2026); still requires Senate floor passage, reconciliation with the Senate Agriculture and House versions, and Presidential signature.", "basis": "GENIUS is already in force (the issuer-level layer). CLARITY is the pending market-structure layer (H.R. 3633): us-pss-bank_nonbank_routing-001 binds on it, and the us-pss-permitted_activity_yield-001 / us-pss-securities_classification-001 / us-pss-issuer_pathway-001 cells carry its Sec. 404 and market-structure parts as flagged pending overlays.", "changes_any_class": false, "note": "The register records this trigger's effects on within-cell fields (binding_status / status / labels), NOT on a feasibility signal — so the register's own rules leave every corridor class unchanged. Shown as-is (conditioning, not forecasting)."}, {"trigger_id": "sg-scs-legislation-enacted", "title": "Singapore SCS framework implementing legislation enacted (MAS-regulated stablecoin regime live)", "jurisdiction": "SG", "trigger_kind": "contingent-not-class-change", "trigger_condition": "Enactment of the implementing legislation for the MAS Single-Currency Stablecoin (SCS) framework (finalised 15 Aug 2023). MAS announced at the Nov 2025 Singapore FinTech Festival that it was ready to begin drafting; the framework is expected to take effect in mid-2026.", "basis": "The PS Act 2019 DPT baseline is already in force. The SCS-specific framework is finalised MAS policy pending implementing legislation; the sg-scs-* requirement cells carry it as binding_status=finalized_policy_pending, status=transitional.", "changes_any_class": false, "note": "The register records this trigger's effects on within-cell fields (binding_status / status / labels), NOT on a feasibility signal — so the register's own rules leave every corridor class unchanged. Shown as-is (conditioning, not forecasting)."}], "date_states": [{"as_of": "2026-06-01", "active_events": [{"event_id": "jp-act66-2025-full-enforcement", "title": "Japan Act No. 66 of 2025 full enforcement (trust-type reserve relaxation)", "effective_date": "2026-06-01", "trigger_kind": "dated-empty-effect", "moves_a_class": false}], "transition_caveated_pairs": 8}, {"as_of": "2026-06-30", "active_events": [{"event_id": "jp-act66-2025-full-enforcement", "title": "Japan Act No. 66 of 2025 full enforcement (trust-type reserve relaxation)", "effective_date": "2026-06-01", "trigger_kind": "dated-empty-effect", "moves_a_class": false}], "transition_caveated_pairs": 8}, {"as_of": "2026-07-01", "active_events": [{"event_id": "jp-act66-2025-full-enforcement", "title": "Japan Act No. 66 of 2025 full enforcement (trust-type reserve relaxation)", "effective_date": "2026-06-01", "trigger_kind": "dated-empty-effect", "moves_a_class": false}, {"event_id": "eu-mica-art143-transitional-expiry", "title": "EU MiCA Article 143(3) transitional grandfathering expiry (national side-doors close; admissible-token set narrows)", "effective_date": "2026-07-01", "trigger_kind": "intra-regime-gating", "moves_a_class": false}], "transition_caveated_pairs": 8}, {"as_of": "2027-10-25", "active_events": [{"event_id": "uk-systemic-regime-operative", "title": "UK systemic stablecoin regime + FCA conduct regime operative (SI 2026/102 full commencement)", "effective_date": "2027-10-25", "trigger_kind": "fully-scheduled", "moves_a_class": true}, {"event_id": "jp-act66-2025-full-enforcement", "title": "Japan Act No. 66 of 2025 full enforcement (trust-type reserve relaxation)", "effective_date": "2026-06-01", "trigger_kind": "dated-empty-effect", "moves_a_class": false}, {"event_id": "eu-mica-art143-transitional-expiry", "title": "EU MiCA Article 143(3) transitional grandfathering expiry (national side-doors close; admissible-token set narrows)", "effective_date": "2026-07-01", "trigger_kind": "intra-regime-gating", "moves_a_class": false}], "transition_caveated_pairs": 0}], "convergence": {"schema": "cbsr-analysis/computed_convergence", "version": "v0.9.9", "dimension": "permitted_activity_yield", "method": "Reshapes the existing permitted_activity_yield cells (one per jurisdiction) into the cross-jurisdiction view the flagship §4.5 describes. Asserts NO new facts: every field is copied from a record. The functional boundary and its per-jurisdiction placement are read from the records' binding_status / evidence_tier / source.", "finding": "Independent legislative systems are converging on the same functional boundary around stablecoin yield: yield paid for merely HOLDING the instrument is prohibited, while ACTIVITY-LINKED rewards are permitted. The boundary is decided by the same functional test across jurisdictions (conversion-direction, ownership-disclosure, timing-independence, yield-attribution, audit-trail — the Architecture paper's test).", "discipline": "Convergence is asserted at citable depth ONLY where the cell is tier1_legal + in_force_enacted + resolution_text AND both sides of the functional line are documented — which today is the United States alone. Singapore is recorded as a sibling restriction. In-force one-sided holder-yield prohibitions (EU, HK, JP, AE) are recorded on the prohibited side but the two-sided line is carried as backlog for them, not asserted as drawing the same line. Switzerland is the documented counter-example. Drafts are flagged as would-align-if-enacted. This is the register's own citable-purity discipline; it is what keeps the convergence a finding, not an impression.", "anchor": {"record_id": "us-pss-permitted_activity_yield-001", "jurisdiction": "US", "binding_status": "in_force_enacted", "evidence_tier": "resolution_text", "claim_class": "tier1_legal", "instrument": "GENIUS Act §4(a)(11); OCC NPRM §15.10(c)(4) / anti-evasion §15.10(c)(6); FDIC NPRM §350.3(b)(4); CLARITY Act (H.R. 3633) §404(c)(1) (Tillis-Alsobrooks text, 1 May 2026; affirmed final 5 May 2026)", "pinpoint": "GENIUS Act Sec. 4(a)(11) (no interest/yield in connection with holding, use, or retention)", "url": "https://www.federalregister.gov/documents/2025/09/19/2025-18226/genius-act-implementation", "citable": true, "role": "anchor", "line_both_sides": {"holder_yield": "prohibited — GENIUS Act §4(a)(11): no interest/yield 'in connection with the holding, use, or retention' of a payment stablecoin (in force).", "activity_rewards": "permitted — the pending market-structure layer (Senate Banking substitute, Tillis–Alsobrooks compromise) allows stablecoin rewards / activity-linked incentives while prohibiting yield for holding a balance (carried as a flagged pending overlay)."}}, "sibling": {"record_id": "sg-scs-permitted_activity_yield-001", "jurisdiction": "SG", "binding_status": "finalized_policy_pending", "evidence_tier": "firm_summary", "claim_class": "tier1_legal", "instrument": "MAS Single-Currency Stablecoin framework (Aug 2023) — issuer activity restrictions", "pinpoint": "SCS framework: no lending/staking by SCS issuers; SGD/G10 label scope", "url": "https://www.mas.gov.sg/news/media-releases/2023/mas-finalises-stablecoin-regulatory-framework", "citable": false, "role": "sibling", "sibling_form": "The MAS Single-Currency Stablecoin framework forbids the issuer from lending or staking the reserve, holding the token to a pure means of payment rather than a yield product — a sibling expression of the same principle. binding_status=finalized_policy_pending, so not asserted at citable depth."}, "counter_example": {"record_id": "ch-frs-permitted_activity_yield-001", "jurisdiction": "CH", "binding_status": "in_force_enacted", "evidence_tier": "resolution_text", "claim_class": "tier1_legal", "instrument": "FINMA Guidance 06/2024; Banking Ordinance Art. 5(3)(f)", "pinpoint": "Yield permitted; bank guarantee must cover interest (structural constraint, not prohibition)", "url": "https://www.finma.ch/en/news/2024/07/20240726-m-am-06-24-stablecoins/", "citable": true, "role": "counter_example", "counter_form": "Paying yield to holders is NOT prohibited — the clearest survey example of a regime where holder yield is permitted but structurally constrained (FINMA Guidance 06/2024; the bank guarantee must cover interest). Recorded explicitly so the convergence is not overstated."}, "holder_prohibition_in_force": [{"record_id": "eu-emt-permitted_activity_yield-001", "jurisdiction": "EU", "binding_status": "in_force_enacted", "evidence_tier": "resolution_text", "claim_class": "tier1_legal", "instrument": "Regulation (EU) 2023/1114 (MiCA), Article 50", "pinpoint": "Art. 50 (no interest paid to EMT holders)", "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj/eng", "citable": true, "side": "holder-yield-prohibited (in force)", "two_sided_line_status": "backlog — the holder-yield prohibition is in force and citable-quality, but the activity-rewards-permitted half is not yet verified for this jurisdiction, so the full two-sided convergence line is not asserted here."}, {"record_id": "hk-frs-permitted_activity_yield-001", "jurisdiction": "HK", "binding_status": "in_force_enacted", "evidence_tier": "resolution_text", "claim_class": "tier1_legal", "instrument": "Stablecoins Ordinance (Cap. 656), Schedule 2, s.15 (Non-interest bearing)", "pinpoint": "Sch. 2 s.15 (no interest on issued stablecoins)", "url": "https://www.elegislation.gov.hk/hk/cap656", "citable": true, "side": "holder-yield-prohibited (in force)", "two_sided_line_status": "backlog — the holder-yield prohibition is in force and citable-quality, but the activity-rewards-permitted half is not yet verified for this jurisdiction, so the full two-sided convergence line is not asserted here."}, {"record_id": "jp-epi-permitted_activity_yield-001", "jurisdiction": "JP", "binding_status": "in_force_enacted", "evidence_tier": "resolution_text", "claim_class": "tier1_legal", "instrument": "Payment Services Act (Electronic Payment Instruments regime)", "pinpoint": "Yield — holders not remunerated; issuer earns reserve interest", "url": "https://laws.e-gov.go.jp/", "citable": true, "side": "holder-yield-prohibited (in force)", "two_sided_line_status": "backlog — the holder-yield prohibition is in force and citable-quality, but the activity-rewards-permitted half is not yet verified for this jurisdiction, so the full two-sided convergence line is not asserted here."}, {"record_id": "ae-pt-permitted_activity_yield-001", "jurisdiction": "AE", "binding_status": "in_force_enacted", "evidence_tier": "resolution_text", "claim_class": "tier1_legal", "instrument": "CBUAE PTSR (Circular 2/2024); ADGM-FSRA FRT framework", "pinpoint": "Yield — prohibited onshore; ADGM permits reserve income but bans investment/savings promotion", "url": "https://rulebook.centralbank.ae/en/rulebook/payment-token-services-regulation", "citable": true, "side": "holder-yield-prohibited (in force)", "two_sided_line_status": "backlog — the holder-yield prohibition is in force and citable-quality, but the activity-rewards-permitted half is not yet verified for this jurisdiction, so the full two-sided convergence line is not asserted here."}], "draft_would_align": [{"record_id": "kr-frs-permitted_activity_yield-001", "jurisdiction": "KR", "binding_status": "pending_proposal", "evidence_tier": "firm_summary", "claim_class": "tier1_legal", "instrument": "Draft Digital Asset Basic Act (Value-Stabilised Assets Act track)", "pinpoint": "Yield (draft) — prohibition on interest/discounts to holders; NOT in force", "url": "https://opinion.lawmaking.go.kr/gcom/nsmLmSts/out/2210736/detailRP", "citable": false, "side": "holder-yield-prohibited (DRAFT — not in force)", "status_note": "The draft prohibits interest/returns to holders; would align this jurisdiction with the prohibited side if enacted (see the contingent event in the event calendar)."}, {"record_id": "tw-frs-permitted_activity_yield-001", "jurisdiction": "TW", "binding_status": "pending_proposal", "evidence_tier": "firm_summary", "claim_class": "tier1_legal", "instrument": "Draft Virtual Asset Service Act", "pinpoint": "Yield (draft) — prohibition on interest/other returns; NOT in force", "url": "https://english.ey.gov.tw/", "citable": false, "side": "holder-yield-prohibited (DRAFT — not in force)", "status_note": "The draft prohibits interest/returns to holders; would align this jurisdiction with the prohibited side if enacted (see the contingent event in the event calendar)."}], "backlog_or_not_applicable": [{"record_id": "uk-frs-permitted_activity_yield-001", "jurisdiction": "UK", "binding_status": "pending_proposal", "evidence_tier": null, "claim_class": "tier1_legal", "instrument": "SI 2026/102 (silent on yield); Bank of England Nov 2025 materials (60/40 backing; pass-through constrained)", "pinpoint": "BoE Nov 2025 backing-split / pass-through position; FCA rules pending", "url": null, "citable": false, "status_note": "Backlog: yield is not expressly addressed in SI 2026/102; the BoE Nov-2025 pass-through position and FCA rules are pending (pending_proposal)."}, {"record_id": "br-vasp-permitted_activity_yield-001", "jurisdiction": "BR", "binding_status": "in_force_enacted", "evidence_tier": "firm_summary", "claim_class": "tier1_legal", "instrument": "Lei 14.478/2022 (Marco Legal dos Ativos Virtuais); BCB implementing rulemaking", "pinpoint": "Res BCB 520/2025 (VASPs may not offer credit to clients or raise funds from the public except via share issuance; client virtual assets may not be used for proprietary operations except staking and qualified/professional-investor transactions)", "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=520", "citable": false, "status_note": "Backlog: the VASP framework and BCB implementing rulemaking are still being finalized (firm_summary); pass-through treatment not yet at resolution_text depth."}, {"record_id": "cn-prc-permitted_activity_yield-001", "jurisdiction": "CN", "binding_status": "prohibition", "evidence_tier": null, "claim_class": "tier1_legal", "instrument": "PBOC et al. Notice on Preventing Token Fundraising Risks (2017); related circulars", "pinpoint": "Prohibition context — no permitted issuer to which a yield rule could attach", "url": null, "citable": false, "status_note": "Not applicable: private issuance is prohibited, so there is no lawful domestic issuer to which a yield rule could attach; the yield question does not arise."}], "summary_counts": {"citable_two_sided_anchor": 1, "sibling": 1, "counter_example": 1, "holder_prohibition_in_force_one_side_citable": 4, "draft_would_align": 2, "backlog_or_not_applicable": 3, "total_jurisdictions": 12}, "provenance": {"clean": true, "asserts_new_facts": false, "note": "Every field is copied from an existing permitted_activity_yield record; this product only reshapes and tiers them.", "generalizes_to": "The same shape applies to monetary_sovereignty and other typed dimensions; convergence is checkable because yield is one of the typed dimensions every jurisdiction record carries."}}}</script>
+<script>
+(function(){
+  "use strict";
+  var DATA = JSON.parse(document.getElementById("embedded-data").textContent);
+  var J = DATA.jurisdictions, DATES = DATA.key_dates, ENG = DATA.engine;
+  var state = { di: 0, on: {} };
+
+  // --- the register's own compose(), replicated exactly (Atlas §3.2) ---
+  function signalsAt(di, on){
+    var S = JSON.parse(JSON.stringify(ENG.signals_base));
+    var asof = DATES[di];
+    ENG.dated_events.slice().sort(function(a,b){return a.effective_date<b.effective_date?-1:1;})
+      .forEach(function(e){ if(e.effective_date<=asof){ e.effects.forEach(function(f){ if(S[e.jurisdiction]) S[e.jurisdiction][f.field]=f.to; }); } });
+    ENG.contingent_triggers.forEach(function(t){ if(on[t.id]){ t.effects.forEach(function(f){ if(S[t.jurisdiction]) S[t.jurisdiction][f.field]=f.to; }); } });
+    return S;
+  }
+  function compose(o,d,S){
+    var so=S[o], sd=S[d];
+    if(!so.exportable_token) return {cls:"III", rule:"origin_drag", why:o+" has no exportable, comprehensively authorizable private token ("+so.basis+"); the lawful route is partnership/coordination, not direct issuance."};
+    var cls=ENG.gate_class[sd.inbound_gate];
+    return {cls:cls, rule:"destination_gate:"+sd.inbound_gate, why:"At the destination, "+d+" applies an inbound gate of type '"+sd.inbound_gate+"' ("+sd.basis+"); origin "+o+" has an exportable token."};
+  }
+  function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+
+  // --- header (matrix) built once ---
+  var mg=document.getElementById("mgrid");
+  var thead="<tr><th class='corner'>from &rarr; to</th>"+J.map(function(j){return "<th>"+j+"</th>";}).join("")+"</tr>";
+  mg.querySelector("thead").innerHTML=thead;
+
+  var prevClasses={};
+  function render(animate){
+    var S=signalsAt(state.di, state.on);
+    var baseS=signalsAt(0,{});
+    var rows="";
+    J.forEach(function(o){
+      var tds="";
+      J.forEach(function(d){
+        if(o===d){ tds+="<td class='cell diag'></td>"; return; }
+        var r=compose(o,d,S), key=o+">"+d, base=compose(o,d,baseS).cls;
+        var moved = animate && prevClasses[key]!==undefined && prevClasses[key]!==r.cls;
+        var diffBase = (r.cls!==base);
+        tds+="<td class='cell c"+r.cls+(moved?" moved":"")+"' data-o='"+o+"' data-d='"+d+"' data-cls='"+r.cls+"' title='"+o+" &rarr; "+d+"'>"+r.cls+"</td>";
+        prevClasses[key]=r.cls;
+      });
+      rows+="<tr><th>"+o+"</th>"+tds+"</tr>";
+    });
+    mg.querySelector("tbody").innerHTML=rows;
+    paintActive(); 
+  }
+
+  // --- date slider ---
+  var sl=document.getElementById("dslider"), dout=document.getElementById("dateout");
+  var marks=document.getElementById("datemarks");
+  marks.innerHTML=DATES.map(function(dt,i){return "<span data-i='"+i+"'>"+dt+"</span>";}).join("");
+  marks.addEventListener("click",function(e){var s=e.target.closest("span[data-i]");if(s){sl.value=s.getAttribute("data-i");sl.dispatchEvent(new Event("input"));}});
+  sl.addEventListener("input",function(){ state.di=+sl.value; dout.textContent=DATES[state.di]; render(true); });
+
+  function paintActive(){
+    var ds=DATA.date_states[state.di]||{active_events:[],transition_caveated_pairs:0};
+    var evs=ds.active_events||[];
+    var html="<b>As of "+DATES[state.di]+"</b> &mdash; "+ds.transition_caveated_pairs+" of 66 undirected pairs still transition-caveated. ";
+    if(evs.length){ html+="Applied: "+evs.map(function(e){return "<span class='pill "+(e.moves_a_class?"moves":"static")+"' title='"+esc(e.title)+"'>"+esc(e.event_id)+(e.moves_a_class?" · moves a class":" · empty effect")+"</span>";}).join(""); }
+    else { html+="No dated events applied yet (today's live law)."; }
+    document.getElementById("activeline").innerHTML=html;
+  }
+
+  // --- what-if switches ---
+  var sw=document.getElementById("switches");
+  sw.innerHTML=DATA.whatif_branches.map(function(w){
+    var nc = !w.changes_any_class;
+    return "<div class='switch"+(nc?" nochange":"")+"' data-id='"+w.trigger_id+"' role='switch' tabindex='0' aria-checked='false'>"
+      +"<span class='toggle'></span><span class='lbl'><b>"+esc(w.title||w.trigger_id)+"</b>"
+      +"<span class='kind'>"+esc(w.trigger_kind)+"</span>"
+      +"<span class='ifen'>if enacted"+(nc?" · moves no class":"")+"</span></span></div>";
+  }).join("");
+  function toggle(el){
+    var id=el.getAttribute("data-id"); state.on[id]=!state.on[id];
+    el.classList.toggle("on",state.on[id]); el.setAttribute("aria-checked",state.on[id]?"true":"false");
+    render(true);
+    var w=DATA.whatif_branches.filter(function(x){return x.trigger_id===id;})[0];
+    if(w){ setReadout("Trigger · "+(w.title||id), (state.on[id]?"<b>ON</b> — ":"<b>OFF</b> — ")+esc(w.note)+" <br><span class='mono' style='font-size:11px;color:var(--ink-3)'>"+esc(w.trigger_condition||"")+"</span>"); }
+  }
+  sw.addEventListener("click",function(e){var el=e.target.closest(".switch");if(el)toggle(el);});
+  sw.addEventListener("keydown",function(e){var el=e.target.closest(".switch");if(el&&(e.key===" "||e.key==="Enter")){e.preventDefault();toggle(el);}});
+
+  // --- cell readout ---
+  function setReadout(head,body){document.getElementById("readout").innerHTML="<div class='rhead'>"+esc(head)+"</div><div class='rbody'>"+body+"</div>";}
+  mg.addEventListener("click",function(e){
+    var c=e.target.closest(".cell:not(.diag)"); if(!c)return;
+    var o=c.getAttribute("data-o"), d=c.getAttribute("data-d");
+    var S=signalsAt(state.di,state.on), baseS=signalsAt(0,{});
+    var r=compose(o,d,S), base=compose(o,d,baseS);
+    var body="Class <code>"+r.cls+"</code> &mdash; "+esc(r.why);
+    if(r.cls!==base.cls){ body+="<div class='movelist'>Moved from <span class='mv'>"+base.cls+"</span> (at today's base) by the state now applied.</div>"; }
+    // which movers touch this corridor
+    var movers=[];
+    DATA.date_states[state.di].active_events.forEach(function(ev){ if(ev.moves_a_class && (ev.event_id.indexOf(o.toLowerCase())===0||ev.event_id.indexOf(d.toLowerCase())===0)) movers.push(ev.event_id+" (dated)"); });
+    ENG.contingent_triggers.forEach(function(t){ if(state.on[t.id] && (t.jurisdiction===o||t.jurisdiction===d)) movers.push(t.id+" (if-enacted)"); });
+    if(movers.length) body+="<div class='movelist'>Sensitive to: "+movers.map(function(m){return "<span class='mv'>"+esc(m)+"</span>";}).join("")+"</div>";
+    setReadout(o+" &rarr; "+d, body);
+  });
+
+  // --- typology cards ---
+  var leg=DATA.trigger_kind_legend||{};
+  var moversKinds={"fully-scheduled":1};
+  document.getElementById("kindgrid").innerHTML=Object.keys(leg).map(function(k){
+    var moves=(k==="fully-scheduled");
+    return "<div class='kindcard "+(moves?"moves":"holds")+"'><h4>"+esc(k)+"</h4>"
+      +"<span class='mv-tag'>"+(moves?"moves the dated horizon":"carried · does not move the horizon")+"</span>"
+      +"<p>"+esc(leg[k])+"</p></div>";
+  }).join("");
+
+  // --- convergence ---
+  var cv=DATA.convergence||{};
+  if(cv.finding){
+    function chips(arr){return (arr||[]).map(function(x){return "<b>"+esc(x)+"</b>";}).join(" ");}
+    document.getElementById("conv").innerHTML=
+      "<p class='conv-line'>"+esc(cv.finding)+"</p>"
+      +"<div class='conv-tiers'>"
+      +"<div class='tier cit'><h5>Citable — both sides in force</h5><div class='js'>"+chips([cv.anchor].filter(Boolean).map(function(a){return typeof a==='object'?(a.jurisdiction||JSON.stringify(a)):a;}))+"</div></div>"
+      +"<div class='tier sib'><h5>Sibling restriction</h5><div class='js'>"+chips([].concat(cv.sibling||[]).map(function(a){return typeof a==='object'?(a.jurisdiction||a):a;}))+"</div></div>"
+      +"<div class='tier one'><h5>One side in force · line = backlog</h5><div class='js'>"+chips(cv.holder_prohibition_in_force)+"</div></div>"
+      +"<div class='tier back'><h5>Draft would align · counter-example · n/a</h5><div class='js'>"+chips([].concat(cv.draft_would_align||[],(cv.counter_example?["counter: "+(typeof cv.counter_example==='object'?(cv.counter_example.jurisdiction||''):cv.counter_example)]:[]),cv.backlog_or_not_applicable||[]))+"</div></div>"
+      +"</div>";
+  } else { document.getElementById("conv").innerHTML="<p class='rbody'>Convergence product unavailable.</p>"; }
+
+  // --- init + live upgrade ---
+  dout.textContent=DATES[0]; render(false);
+  fetch("api/corridor_states.json",{cache:"no-store"}).then(function(r){return r.ok?r.json():null;})
+    .then(function(j){ if(j&&j.data&&j.data.date_states){ /* live data present; snapshot already faithful */ } }).catch(function(){});
+})();
+</script>
+
+</body></html>

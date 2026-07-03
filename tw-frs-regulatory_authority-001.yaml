@@ -5,10 +5,11 @@ instrument_type: fiat_referenced_stablecoin
 instrument_label_local: virtual asset / draft stablecoin (Virtual Asset Service Act)
 dimension: regulatory_authority
 requirement_summary: 'Two layers, only one in force. In force: AML registration under the amended Money Laundering
-  Control Act and the VASP Registration Regulations (effective 30 November 2024). Draft (not in force): the Virtual
-  Asset Service Act, a comprehensive bill that would create FSC licensing for virtual-asset services including stablecoin
-  issuance, with mandatory central-bank consultation; committee first review completed 3 June 2026. The FSC is the
-  primary regulator and consults the Central Bank of the Republic of China (Taiwan) (CBC) on stablecoin matters.'
+  Control Act and the VASP Registration Regulations (effective 30 November 2024). Enacted but not commenced: the
+  Virtual Asset Service Act, a comprehensive statute creating FSC licensing for virtual-asset services including
+  stablecoin issuance, with mandatory central-bank consultation; passed at third reading 30 June 2026, awaiting
+  FSC subsidiary legislation for commencement. The FSC is the primary regulator and consults the Central Bank of
+  the Republic of China (Taiwan) (CBC) on stablecoin matters.'
 requirement_structured:
   in_force_layer: AML registration (amended Money Laundering Control Act + VASP Registration Regulations, 30 Nov
     2024)

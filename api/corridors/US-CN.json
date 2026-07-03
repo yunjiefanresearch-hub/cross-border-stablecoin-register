@@ -1,0 +1,118 @@
+{
+  "register": "Cross-Border Stablecoin Register",
+  "version": "0.9.9",
+  "generated": "2026-07-03",
+  "endpoint": "corridor",
+  "guardrail": "static projection of the public register; no facts added here",
+  "data": {
+    "corridor": "US-CN",
+    "timeline": [
+      {
+        "as_of": "2026-06-01",
+        "directed": {
+          "US->CN": {
+            "class": "blocked",
+            "rule": "destination_gate:prohibition",
+            "origin_override": false
+          },
+          "CN->US": {
+            "class": "III",
+            "rule": "origin_drag:prohibition",
+            "origin_override": true
+          }
+        },
+        "undirected": {
+          "category": "III",
+          "why": "either direction is blocked / pre-regime / origin-dragged"
+        }
+      },
+      {
+        "as_of": "2026-06-30",
+        "directed": {
+          "US->CN": {
+            "class": "blocked",
+            "rule": "destination_gate:prohibition",
+            "origin_override": false
+          },
+          "CN->US": {
+            "class": "III",
+            "rule": "origin_drag:prohibition",
+            "origin_override": true
+          }
+        },
+        "undirected": {
+          "category": "III",
+          "why": "either direction is blocked / pre-regime / origin-dragged"
+        }
+      },
+      {
+        "as_of": "2026-07-01",
+        "directed": {
+          "US->CN": {
+            "class": "blocked",
+            "rule": "destination_gate:prohibition",
+            "origin_override": false
+          },
+          "CN->US": {
+            "class": "III",
+            "rule": "origin_drag:prohibition",
+            "origin_override": true
+          }
+        },
+        "undirected": {
+          "category": "III",
+          "why": "either direction is blocked / pre-regime / origin-dragged"
+        }
+      },
+      {
+        "as_of": "2027-10-25",
+        "directed": {
+          "US->CN": {
+            "class": "blocked",
+            "rule": "destination_gate:prohibition",
+            "origin_override": false
+          },
+          "CN->US": {
+            "class": "III",
+            "rule": "origin_drag:prohibition",
+            "origin_override": true
+          }
+        },
+        "undirected": {
+          "category": "III",
+          "why": "either direction is blocked / pre-regime / origin-dragged"
+        }
+      }
+    ],
+    "whatif": [
+      {
+        "trigger_id": "tw-vas-act-enacted",
+        "trigger_kind": "enacted-not-commenced",
+        "changes_this_corridor": false,
+        "movements": [],
+        "note": "This trigger's register-recorded effects move a feasibility signal; the corridors below re-derive accordingly."
+      },
+      {
+        "trigger_id": "kr-daba-enacted",
+        "trigger_kind": "contingent-no-date",
+        "changes_this_corridor": false,
+        "movements": [],
+        "note": "This trigger's register-recorded effects move a feasibility signal; the corridors below re-derive accordingly."
+      },
+      {
+        "trigger_id": "us-clarity-act-enacted",
+        "trigger_kind": "contingent-no-date",
+        "changes_this_corridor": false,
+        "movements": [],
+        "note": "The register records this trigger's effects on within-cell fields (binding_status / status / labels), NOT on a feasibility signal — so the register's own rules leave every corridor class unchanged. Shown as-is (conditioning, not forecasting)."
+      },
+      {
+        "trigger_id": "sg-scs-legislation-enacted",
+        "trigger_kind": "contingent-not-class-change",
+        "changes_this_corridor": false,
+        "movements": [],
+        "note": "The register records this trigger's effects on within-cell fields (binding_status / status / labels), NOT on a feasibility signal — so the register's own rules leave every corridor class unchanged. Shown as-is (conditioning, not forecasting)."
+      }
+    ]
+  }
+}
