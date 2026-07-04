@@ -1,6 +1,6 @@
 {
   "schema": "cbsr-analysis/computed_settlement",
-  "version": "v0.9.9",
+  "version": "v0.9.91",
   "generated": "2026-07-04",
   "claim_class": "tier2_operational",
   "evidence_tier": "operational_enrichment",

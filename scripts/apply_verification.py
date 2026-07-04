@@ -509,7 +509,7 @@ def apply():
         f.write_text(yaml.safe_dump(d, sort_keys=False, allow_unicode=True, width=110), encoding="utf-8")
         fb += 1
     # 3) emit the ledger audit trail
-    out = {"schema": "cbsr/verification_ledger", "version": "v0.9.9",
+    out = {"schema": "cbsr/verification_ledger", "version": "v0.9.91",
            "performed_by": f"{VERIFIED_BY}, {VERIFIED_ON}",
            "discipline": ("Citability is capped by the binding status of the cited instrument, independent of "
                           "whether the official text was located. resolution_text is applied ONLY where "

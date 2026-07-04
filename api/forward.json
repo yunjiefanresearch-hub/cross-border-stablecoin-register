@@ -1,13 +1,13 @@
 {
   "register": "Cross-Border Stablecoin Register",
-  "version": "0.9.9",
+  "version": "0.9.91",
   "generated": "2026-07-04",
   "endpoint": "forward_view",
   "guardrail": "static projection of the public register; no facts added here",
   "data": {
     "schema": "cbsr-analysis/computed_forward_view",
-    "version": "v0.9.9",
-    "generated": "2026-07-04T05:31:00Z",
+    "version": "v0.9.91",
+    "generated": "2026-07-04T06:50:29Z",
     "as_of_base": "2026-06-30",
     "method": "Per-jurisdiction re-sort of the trigger register (Atlas §4.4). For each jurisdiction it lists its own pending events (flagged class-moving vs accessibility-only), the inbound and outbound directed edges that change feasibility class under the pending set (each attributed to the trigger causing it), and the counterpart jurisdictions on the other end ranked by exposure. Movements are read from computed_corridor_states.json; events from the event calendar. No new facts are asserted.",
     "reading_key": {

@@ -144,7 +144,7 @@ corridor's feasibility by composing two jurisdictions' poles **through the six i
    widens the substrate's structure, but only verifying it against the official text makes it citable.
 3. **Cross-checked, not asserted.** Where the substrate yields a *definite* class it must equal the
    signal-table `compose()`; a disagreement fails the build and must be reconciled (the same
-   computed-vs-authored discipline applied between the two engines). As of v0.9.9 the cross-check is
+   computed-vs-authored discipline applied between the two engines). As of v0.9.91 the cross-check is
    exercised across **all 132 directed edges** (115 definite, every one agreeing) — not just the
    {HK, CN, JP} triangle. Worked derivations: HK→JP = II through Japan's *channelled* C7, JP→HK = I
    through Hong Kong's *open* C7, US→EU = I (EU's capped pole), EU→US = II (the US comparability

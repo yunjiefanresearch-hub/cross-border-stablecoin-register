@@ -1,6 +1,6 @@
 {
   "register": "Cross-Border Stablecoin Register",
-  "version": "0.9.9",
+  "version": "0.9.91",
   "generated": "2026-07-04",
   "endpoint": "reconciliation",
   "guardrail": "static projection of the public register; no facts added here",

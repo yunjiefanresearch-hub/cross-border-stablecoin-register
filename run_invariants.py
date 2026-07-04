@@ -23,7 +23,7 @@ import json, glob, re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-EXPECT_VERSION = "0.9.9"
+EXPECT_VERSION = "0.9.91"
 
 def load_json(p):
     return json.loads((ROOT / p).read_text(encoding="utf-8"))
@@ -242,8 +242,8 @@ inv("P2  every shipped script has the guarded UTF-8 stdout/stderr reconfigure", 
 
 # === VERSION ===================================================================================
 build_src = (ROOT / "build.py").read_text(encoding="utf-8")
-inv("V1  REGISTER_VERSION == 0.9.9 in build.py", f'REGISTER_VERSION = "{EXPECT_VERSION}"' in build_src)
-inv("V2  dataset.register_version == 0.9.9",
+inv("V1  REGISTER_VERSION == 0.9.91 in build.py", f'REGISTER_VERSION = "{EXPECT_VERSION}"' in build_src)
+inv("V2  dataset.register_version == 0.9.91",
     (ds.get("register_version") or ds.get("version")) == EXPECT_VERSION,
     str(ds.get("register_version") or ds.get("version")))
 
@@ -262,7 +262,7 @@ _version_sources = {
     "PACKAGE.md": _ver("PACKAGE.md", r'repository \(v([0-9]+\.[0-9]+\.[0-9]+)\)'),
     "verification_ledger": (ledger.get("version") or "").lstrip("v") or None,
     # the two working papers themselves: the ORIGINAL drift was papers-vs-metadata, so V3 must cover the
-    # version string each paper cites for the register ("Register (CBSR, v0.9.9…").
+    # version string each paper cites for the register ("Register (CBSR, v0.9.91…").
     "paper:methodology": _ver("papers/Citable_by_Construction_Methodology_v0.1.0.md", r'CBSR,\s*v([0-9]+\.[0-9]+\.[0-9]+)'),
     "paper:feasibility": _ver("papers/Cross-Border_Stablecoin_Feasibility_Over_Time_v0.1.0.md", r'CBSR,\s*v([0-9]+\.[0-9]+\.[0-9]+)'),
 }

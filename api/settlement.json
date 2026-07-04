@@ -1,12 +1,12 @@
 {
   "register": "Cross-Border Stablecoin Register",
-  "version": "0.9.9",
+  "version": "0.9.91",
   "generated": "2026-07-04",
   "endpoint": "settlement",
   "guardrail": "static projection of the public register; no facts added here",
   "data": {
     "schema": "cbsr-analysis/computed_settlement",
-    "version": "v0.9.9",
+    "version": "v0.9.91",
     "generated": "2026-07-04",
     "claim_class": "tier2_operational",
     "evidence_tier": "operational_enrichment",

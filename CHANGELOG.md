@@ -7,17 +7,19 @@ Each tagged release is archived to Zenodo for a citable DOI; the **concept DOI
 [10.5281/zenodo.20730358](https://doi.org/10.5281/zenodo.20730358)** always resolves to the latest
 version, while each release below carries its own version DOI.
 
-## [0.9.9] — 2026-06-30
+## [0.9.91] — 2026-07-04
 
-> **Time dimension made real, and the record caught up to the dateline.** v0.9.9 does three things.
-> It backfills the MiCA transitional expiry into the register's own event calendar as a structured
-> intra-regime-gating event (so the flagship §3.10 claim is register-backed, not matrix-only). It surfaces
-> the already-computed time engine as interactive corridor/console pages, a static JSON API, and new MCP
-> tools. And, on the 30 June 2026 dateline, it records Taiwan's third-reading enactment: the register cell
-> that read "a bill" the morning of the snapshot is moved to enacted-but-not-commenced, exactly the case the
-> method exists to absorb. No claim is asserted beyond its verified backing.
+> **Post-release consistency patch of v0.9.9.** v0.9.9 shipped a constraint substrate that had not caught
+> up to Taiwan's 30 June 2026 dateline enactment, so its committed computed layer was internally
+> inconsistent and would not rebuild from a clean checkout. The register version moves to 0.9.91 because the
+> published v0.9.9 is immutable and this build's content differs from it. This release fixes that and hardens CI so the
+> same class of drift cannot recur; it also adds the per-jurisdiction supervisor forward view the
+> forward-feasibility paper (§4.4) calls for, promotes Japan's foreign-stablecoin recognition to a
+> first-class event, and brings the two companion papers back into sync with the register. No feasibility
+> class, corridor, or citation was changed on the strength of a new fact: the 152-record set and the
+> 46-record citable subset are unchanged, and every computed layer still reports `asserts_new_facts: false`.
 
-### Fixed (post-release consistency patch)
+### Fixed — reproducibility and cross-layer consistency
 - **Constraint substrate now reflects Taiwan's enactment.** The v0.9.9 dateline update moved Taiwan's
   records and the signal table to enacted-not-commenced, but the Taiwan C1 constraint-substrate pole was
   left at `no_pathway` (pre-regime). Re-running `scripts/substrate.py` and `scripts/build_edge_skeletons.py`
@@ -42,7 +44,7 @@ version, while each release below carries its own version DOI.
   `run_negative_tests.py`, `check_readme_counts.py`) is green and reproducible from a clean checkout;
   47/47 invariants hold and 9/9 negative tests bite.
 
-### Fixed / Added (post-release consistency patch, round 2)
+### Added — supervisor forward view, first-class Japan recognition, and a cross-jurisdiction gate
 - **Stale cross-jurisdiction reference corrected (KR).** `kr-frs-regulatory_authority-001.yaml` still read
   "Analytically paired with Taiwan as pre-regime", which contradicts §3.4 after Taiwan's 30 Jun 2026
   enactment. It now reads that Taiwan transitioned to enacted-not-commenced on 2026-06-30 and South Korea
@@ -71,17 +73,16 @@ version, while each release below carries its own version DOI.
   pending change is accessibility-only with no own-driven class movement; KR's own trigger is the
   both-directions one; provenance asserts no new facts). Added to CI ahead of `build_api.py`. MCP tools
   32 -> 33.
-- **The two derivative-paper PDFs re-exported to v0.9.9.** `pdf/Cross-Border_Stablecoin_Feasibility_Over_Time_v0.1.0.pdf`
-  and `pdf/Citable_by_Construction_Methodology_v0.1.0.pdf` still referenced CBSR v0.9.8 while their `.md`
-  sources are v0.9.9. PDF rendering is a binary generator outside the `git diff` reproducibility gate, so
-  it lagged a version. Both are re-exported from the current `.md` (pandoc + xelatex, 25 and 14 pages as
-  before) and now reference CBSR v0.9.9 with no stale v0.9.8. (Note: `pdf/DISCLOSURE.pdf` also shows
-  v0.9.8, but that is a stale SOURCE — `DISCLOSURE.md` itself reads v0.9.8 — so it is a content edit, not
-  a re-export, and is left to the maintainer.)
+- **The two derivative-paper PDFs re-exported to v0.9.91.** `pdf/Cross-Border_Stablecoin_Feasibility_Over_Time_v0.1.0.pdf`
+  and `pdf/Citable_by_Construction_Methodology_v0.1.0.pdf` are re-exported from the current `.md`
+  (pandoc + xelatex, 25 and 14 pages) and now reference CBSR v0.9.91. PDF rendering is a binary generator
+  outside the `git diff` reproducibility gate, so it had previously lagged the sources. (Note:
+  `pdf/DISCLOSURE.pdf` still shows an older version because its `DISCLOSURE.md` source does; that is a
+  content edit, not a re-export, and is left to the maintainer.)
 - **Result:** full pipeline green and reproducible in a single CI pass (exit 0 on the `git diff` gate);
   49/49 invariants hold and 10/10 negative tests bite.
 
-### Polish (post-release, round 3 — textual/alignment only, no behaviour change)
+### Polish — legend, event backing, and companion-paper alignment
 - **`horizon_rule` and the MCP `events_by_kind` note now enumerate `inbound-recognition`** alongside
   `dated-empty-effect` and `intra-regime-gating` as the dated-but-horizon-inert kinds. The principle was
   already correct (only `fully-scheduled` moves a horizon); the enumeration just omitted the new kind.
@@ -96,12 +97,21 @@ version, while each release below carries its own version DOI.
   Japan same-day kinds (`Dated-empty-effect`, `Inbound recognition`) rather than the uninformative "In
   force", the §3.11 intro count is corrected (ten -> eleven entries, matching the 11 rows), and the §3
   typology paragraph names `dated-empty-effect` and `inbound-recognition` as kinds. The Feasibility PDF is
-  re-exported (25 pages, CBSR v0.9.9). (The `Six kinds recur` phrasing in §3 counts the primary recurring
+  re-exported (25 pages, CBSR v0.9.91). (The `Six kinds recur` phrasing in §3 counts the primary recurring
   trigger kinds and is left as authored; the register now names 10 kinds in total.)
 - **Result:** unchanged behaviour; 49/49 invariants, 10/10 negative tests, single-pass reproducibility
   exit 0.
 
 
+## [0.9.9] — 2026-06-30
+
+> **Time dimension made real, and the record caught up to the dateline.** v0.9.9 does three things.
+> It backfills the MiCA transitional expiry into the register's own event calendar as a structured
+> intra-regime-gating event (so the flagship §3.10 claim is register-backed, not matrix-only). It surfaces
+> the already-computed time engine as interactive corridor/console pages, a static JSON API, and new MCP
+> tools. And, on the 30 June 2026 dateline, it records Taiwan's third-reading enactment: the register cell
+> that read "a bill" the morning of the snapshot is moved to enacted-but-not-commenced, exactly the case the
+> method exists to absorb. No claim is asserted beyond its verified backing.
 
 ### Added — trigger typology and the MiCA event (Phase 1 backflow)
 - **Event calendar** (`analysis/event_calendar.json`): every event now carries a `trigger_kind` implementing

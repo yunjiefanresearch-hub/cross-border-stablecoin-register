@@ -101,7 +101,7 @@ def build():
 
     out = {
         "schema": "cbsr-analysis/computed_settlement",
-        "version": "v0.9.9",
+        "version": "v0.9.91",
         "generated": date.today().isoformat(),
         "claim_class": "tier2_operational",
         "evidence_tier": "operational_enrichment",

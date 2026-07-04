@@ -1,11 +1,11 @@
 {
   "register": "Cross-Border Stablecoin Register",
-  "version": "0.9.9",
+  "version": "0.9.91",
   "generated": "2026-07-04",
   "endpoint": "meta",
   "guardrail": "static projection of the public register; no facts added here",
   "data": {
-    "version": "0.9.9",
+    "version": "0.9.91",
     "record_count": 152,
     "jurisdictions": [
       "US",

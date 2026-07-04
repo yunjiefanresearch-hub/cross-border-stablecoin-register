@@ -1,6 +1,6 @@
 {
   "schema": "cbsr/verification_ledger",
-  "version": "v0.9.9",
+  "version": "v0.9.91",
   "performed_by": "external review (web retrieval against official sources), 2026-06-27",
   "discipline": "Citability is capped by the binding status of the cited instrument, independent of whether the official text was located. resolution_text is applied ONLY where binding_status==in_force_enacted AND the proposition was confirmed against official text. made_not_commenced / finalized_policy_pending / pending_proposal cells receive the official URL + binding_status but are held at firm_summary; prohibition cells stay unset.",
   "buckets": {

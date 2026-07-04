@@ -102,7 +102,7 @@ def t_version_drift(root):
     # roll CITATION.cff (the machine-authoritative version) back out of sync -- the exact drift class
     # where a "bump the version" edit forgets one pointer; V3 must reject it.
     p = root / "CITATION.cff"
-    write(p, read(p).replace('version: "0.9.9"', 'version: "0.9.8"'))
+    write(p, read(p).replace('version: "0.9.91"', 'version: "0.9.8"'))
 
 def t_prose_incoherence(root):
     # give an enacted-status cell a requirement_summary that describes its own instrument as un-enacted

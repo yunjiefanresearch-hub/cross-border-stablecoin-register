@@ -123,7 +123,7 @@ ROOT = pathlib.Path(__file__).resolve().parent
 
 # Single source of truth for the dataset/release version. Bump this when tagging
 # a release; keep it in step with README, CITATION.cff, and the schema $id.
-REGISTER_VERSION = "0.9.9"
+REGISTER_VERSION = "0.9.91"
 
 def find(name):
     hits = list(ROOT.rglob(name))
