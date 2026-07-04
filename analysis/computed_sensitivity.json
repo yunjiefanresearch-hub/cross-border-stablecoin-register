@@ -1,7 +1,7 @@
 {
   "schema": "cbsr-analysis/computed_sensitivity",
   "version": "v0.9.9",
-  "generated": "2026-07-03",
+  "generated": "2026-07-04",
   "as_of_base": "2026-06-30",
   "method": "For each pending trigger (a contingent enactment or a dated commencement) the layer counts the directed edges it reclassifies, split into fan-in (edges terminating in the trigger jurisdiction) and fan-out (edges originating there), derived edge-by-edge from computed_corridor_states.json. It asserts NO new facts; every count is a re-derivation of the corridor states.",
   "finding": "The forward map's class-level motion concentrates at the one remaining pre-regime origin (South Korea) and the two regime-in-transition destinations (the United Kingdom and Taiwan). South Korea is the single highest-sensitivity jurisdiction because it is the subject of a both-directions trigger; the prohibition destination (Mainland China) is insensitive to any positive trigger.",
