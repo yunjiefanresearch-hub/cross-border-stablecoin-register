@@ -10,10 +10,10 @@
   "coverage": {
     "cells_populated": 80,
     "cells_total": 96,
-    "coverage_note": "poles exist only where a tier1_legal record backs them; the remaining unset cells are the genuinely-unsettled ones (TW/KR pre-regime, UK C7 in transition, CN C5, BR C4). Pole ASSIGNMENT is authored from the records and is itself subject to the verification backlog.",
+    "coverage_note": "poles exist only where a tier1_legal record backs them; the remaining unset cells are the genuinely-unsettled ones (KR pre-regime; UK and TW regime-in-transition, C7 unset; CN C5, BR C4). Pole ASSIGNMENT is authored from the records and is itself subject to the verification backlog.",
     "authored_corridors_definite": "9/9",
-    "directed_edges_derivable": "124/132",
-    "indeterminate_edges_note": "remaining indeterminate edges are those into UK (C7 in transition) — the time engine, not the substrate, owns that",
+    "directed_edges_derivable": "115/132",
+    "indeterminate_edges_note": "remaining indeterminate edges are those into UK and TW (regimes in transition, C7 unset) that are not already origin-dragged to III — the time engine, not the substrate, owns that",
     "fully_participating_nodes": [
       "AE",
       "BR",
@@ -24,14 +24,13 @@
       "JP",
       "KR",
       "SG",
-      "TW",
       "US"
     ]
   },
   "cross_check": {
     "disagreements_with_signal": [],
     "clean": true,
-    "scope": "checked all 132 directed edges; 124 definite, all match the signal compose()"
+    "scope": "checked all 132 directed edges; 115 definite, all match the signal compose()"
   },
   "authored_corridor_derivations": [
     {

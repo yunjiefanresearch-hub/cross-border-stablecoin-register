@@ -21,16 +21,16 @@ These were run on this exact archive immediately before packaging:
 
 - `build.py` exits 0: 152 records valid, citable subset (tier1_legal + in_force +
   resolution_text) = 46.
-- `run_invariants.py` exits 0: 47/47 invariants hold, including R1 (the README
+- `run_invariants.py` exits 0: 49/49 invariants hold, including R1 (the README
   states no drift-prone count).
-- `run_negative_tests.py` exits 0: 9/9 gates bite, including the README-counts
+- `run_negative_tests.py` exits 0: 10/10 gates bite, including the README-counts
   gate, whose injected defect is a *spelled* count.
 - `check_readme_counts.py` runs standalone: self-test passes; `--scan README.md`
   reports clean.
 
 Because the data is present, the earlier limitation of the slice (the three
 data-dependent scripts could not actually run) no longer applies: a reviewer can
-reproduce the 152-record build, the 47 invariants, and the 9 negative tests
+reproduce the 152-record build, the 49 invariants, and the 10 negative tests
 directly from this archive.
 
 ## One caveat on the validator path

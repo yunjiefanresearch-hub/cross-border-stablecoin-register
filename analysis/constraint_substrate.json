@@ -575,13 +575,14 @@
     },
     "TW": {
       "C1": {
-        "pole": "no_pathway",
+        "pole": "licence_gated",
         "attributes": {
           "exportable_token": false
         },
         "derived_from": [
           "tw-frs-issuer_pathway-001"
-        ]
+        ],
+        "note": "Approval-gated issuer pathway legislated (Virtual Asset Service Act, third reading 30 Jun 2026) but not yet commenced; no exportable token until licences issue after commencement (FSC timetable: subsidiary legislation ~Q1 2027, operator re-application ~Q1 2028). licence_gated with exportable_token:false is the enacted-not-commenced signature: a legislated pathway exists (so not no_pathway), but no token is exportable yet (so TW-origin edges stay Category III via the origin drag), mirroring the UK regime-in-transition C1 with C7 unset, so the substrate returns indeterminate inbound and the time engine owns the commencement."
       },
       "C6": {
         "pole": "open",

@@ -1,7 +1,7 @@
 {
   "name": "Cross-Border Stablecoin Register",
   "version": "0.9.9",
-  "generated": "2026-07-03",
+  "generated": "2026-07-04",
   "record_count": 152,
   "records": [
     {
@@ -4611,7 +4611,7 @@
           "citation": "FSC commencement notice for the Virtual Asset User Protection Act (19 Jul 2024): https://www.fsc.go.kr/no010101/82682."
         }
       ],
-      "interpretation_note": "Provenance: transcribed from the author's Compliance Matrix v0.9.6; the core point is confirmed against the official primary text in the v0.5.1 pass (source.url added); some operational detail remains pending and the tier is 'mixed'. Only the VAUPA user-protection layer is operative; the issuance regime is a pending bill. Analytically paired with Taiwan as pre-regime.",
+      "interpretation_note": "Provenance: transcribed from the author's Compliance Matrix v0.9.6; the core point is confirmed against the official primary text in the v0.5.1 pass (source.url added); some operational detail remains pending and the tier is 'mixed'. Only the VAUPA user-protection layer is operative; the issuance regime is a pending bill. Taiwan transitioned to enacted-not-commenced on 2026-06-30 (VAS Act third reading), so South Korea is now the sole remaining pre-regime origin, holding the both-directions pending position alone (§3.4).",
       "confidence": "high",
       "claim_class": "tier1_legal",
       "evidence_tier": "mixed",
@@ -10241,9 +10241,26 @@
           "trigger_kind": "dated-empty-effect",
           "effect": [],
           "basis": "Act No. 66 of 2025 relaxing trust-type reserve rules; refines an already-live EPI regime.",
-          "date_basis": "Act No. 66 of 2025 promulgated 13 Jun 2025; took effect 1 Jun 2026 and is now in force as of the base date. Effect on compose() is NONE (control case): Japan is already 'live', so relaxing trust-type reserve composition moves no inbound gate and changes no edge class. Included to show the calendar distinguishes a change in law from a change in feasibility class. The same-date Cabinet Office Ordinance recognising equivalent foreign trust-type stablecoins is an inbound recognition pathway handled by conditioning (the existing Category II channelled treatment), not by asserting a class change here.",
+          "date_basis": "Act No. 66 of 2025 promulgated 13 Jun 2025; took effect 1 Jun 2026 and is now in force as of the base date. Effect on compose() is NONE (control case): Japan is already 'live', so relaxing trust-type reserve composition moves no inbound gate and changes no edge class. Included to show the calendar distinguishes a change in law from a change in feasibility class. The same-date Cabinet Office Ordinance recognising equivalent foreign trust-type stablecoins is now recorded as its own first-class event (jp-foreign-stablecoin-recognition), not folded here.",
           "records": [
             "jp-epi-reserve_backing-001"
+          ]
+        },
+        {
+          "id": "jp-foreign-stablecoin-recognition",
+          "jurisdiction": "JP",
+          "title": "Japan recognises equivalent foreign trust-type stablecoins as Electronic Payment Instruments (Cabinet Office Ordinance)",
+          "status": "in_force",
+          "effective_date": "2026-06-01",
+          "precision": "day",
+          "claim_class": "tier1_legal",
+          "trigger_kind": "inbound-recognition",
+          "effect": [],
+          "basis": "Cabinet Office Ordinance effective 1 Jun 2026 recognising foreign trust-type stablecoins judged equivalent to the Japanese regime as electronic payment instruments, admitted through a registered EPIESP; opens an inbound recognition channel whose reach is set by the equivalence criteria.",
+          "date_basis": "Effective 1 Jun 2026 (same date as Act No. 66 full enforcement, but a distinct change with a different character). This is the second same-day change the paper separates at §3.6: not a domestic reserve adjustment but an inbound-side development that opens a recognition pathway for qualifying foreign trust-type stablecoins. Effect on edge class is handled by CONDITIONING, not asserted: a recognised foreign token reaches Japan through the recognition-and-registration channel the directed model already scores as Category II (channelled), and the operative reach of that channel turns on the equivalence determination (the open variable). No new class is asserted on its account beyond the existing Category II channelled treatment of inbound-to-Japan edges. This is the dated, concrete instance §5.3 refers to: recognition and equivalence functioning as the interoperability protocol of the regulatory layer, dated to a specific instrument on a specific day.",
+          "records": [
+            "jp-epi-monetary_sovereignty-001",
+            "jp-epi-issuer_pathway-001"
           ]
         },
         {
@@ -10398,10 +10415,11 @@
           "parameterization": "operationalization of a constraint that already binds; sharpens the operative content of a class without moving one (§3.7, EBA, carried in open_questions).",
           "intra-regime-gating": "a DATED change in law that alters accessibility WITHIN a live regime (who may operate; which tokens are admissible) without moving any feasibility class (§3.10, EU MiCA).",
           "dated-empty-effect": "a dated, now-in-force change with an explicitly empty feasibility-class effect; the control case showing the calendar distinguishes a change in law from a change in feasibility class (§3.6, JP).",
+          "inbound-recognition": "a dated, now-in-force change in law that opens an inbound recognition or equivalence channel for qualifying foreign instruments; its reach is set by the recognition criteria and is handled by conditioning (the existing Category II channelled treatment), so it asserts no new class (§3.6 second same-day change; §5.3 dated recognition instance, JP).",
           "open-compositional": "information rather than a change in law, whose resolution feeds another jurisdiction's analysis (§3.8, HK 2nd cohort, carried in open_questions).",
           "resolved-tightening": "an asymmetric posture: a boundary's recent movement is settled in one direction while a reversing development stays open (§3.9, PRC, carried in open_questions)."
         },
-        "horizon_rule": "Only fully-scheduled events move a compose() horizon. dated-empty-effect and intra-regime-gating events are dated but move no feasibility class, so they appear on the timeline without changing any corridor's category, by design."
+        "horizon_rule": "Only fully-scheduled events move a compose() horizon. dated-empty-effect, intra-regime-gating, and inbound-recognition events are dated but move no feasibility class, so they appear on the timeline without changing any corridor's category, by design."
       }
     },
     "computed_timeline": {
@@ -10516,9 +10534,26 @@
           "trigger_kind": "dated-empty-effect",
           "effect": [],
           "basis": "Act No. 66 of 2025 relaxing trust-type reserve rules; refines an already-live EPI regime.",
-          "date_basis": "Act No. 66 of 2025 promulgated 13 Jun 2025; took effect 1 Jun 2026 and is now in force as of the base date. Effect on compose() is NONE (control case): Japan is already 'live', so relaxing trust-type reserve composition moves no inbound gate and changes no edge class. Included to show the calendar distinguishes a change in law from a change in feasibility class. The same-date Cabinet Office Ordinance recognising equivalent foreign trust-type stablecoins is an inbound recognition pathway handled by conditioning (the existing Category II channelled treatment), not by asserting a class change here.",
+          "date_basis": "Act No. 66 of 2025 promulgated 13 Jun 2025; took effect 1 Jun 2026 and is now in force as of the base date. Effect on compose() is NONE (control case): Japan is already 'live', so relaxing trust-type reserve composition moves no inbound gate and changes no edge class. Included to show the calendar distinguishes a change in law from a change in feasibility class. The same-date Cabinet Office Ordinance recognising equivalent foreign trust-type stablecoins is now recorded as its own first-class event (jp-foreign-stablecoin-recognition), not folded here.",
           "records": [
             "jp-epi-reserve_backing-001"
+          ]
+        },
+        {
+          "id": "jp-foreign-stablecoin-recognition",
+          "jurisdiction": "JP",
+          "title": "Japan recognises equivalent foreign trust-type stablecoins as Electronic Payment Instruments (Cabinet Office Ordinance)",
+          "status": "in_force",
+          "effective_date": "2026-06-01",
+          "precision": "day",
+          "claim_class": "tier1_legal",
+          "trigger_kind": "inbound-recognition",
+          "effect": [],
+          "basis": "Cabinet Office Ordinance effective 1 Jun 2026 recognising foreign trust-type stablecoins judged equivalent to the Japanese regime as electronic payment instruments, admitted through a registered EPIESP; opens an inbound recognition channel whose reach is set by the equivalence criteria.",
+          "date_basis": "Effective 1 Jun 2026 (same date as Act No. 66 full enforcement, but a distinct change with a different character). This is the second same-day change the paper separates at §3.6: not a domestic reserve adjustment but an inbound-side development that opens a recognition pathway for qualifying foreign trust-type stablecoins. Effect on edge class is handled by CONDITIONING, not asserted: a recognised foreign token reaches Japan through the recognition-and-registration channel the directed model already scores as Category II (channelled), and the operative reach of that channel turns on the equivalence determination (the open variable). No new class is asserted on its account beyond the existing Category II channelled treatment of inbound-to-Japan edges. This is the dated, concrete instance §5.3 refers to: recognition and equivalence functioning as the interoperability protocol of the regulatory layer, dated to a specific instrument on a specific day.",
+          "records": [
+            "jp-epi-monetary_sovereignty-001",
+            "jp-epi-issuer_pathway-001"
           ]
         },
         {
@@ -11655,13 +11690,14 @@
         },
         "TW": {
           "C1": {
-            "pole": "no_pathway",
+            "pole": "licence_gated",
             "attributes": {
               "exportable_token": false
             },
             "derived_from": [
               "tw-frs-issuer_pathway-001"
-            ]
+            ],
+            "note": "Approval-gated issuer pathway legislated (Virtual Asset Service Act, third reading 30 Jun 2026) but not yet commenced; no exportable token until licences issue after commencement (FSC timetable: subsidiary legislation ~Q1 2027, operator re-application ~Q1 2028). licence_gated with exportable_token:false is the enacted-not-commenced signature: a legislated pathway exists (so not no_pathway), but no token is exportable yet (so TW-origin edges stay Category III via the origin drag), mirroring the UK regime-in-transition C1 with C7 unset, so the substrate returns indeterminate inbound and the time engine owns the commencement."
           },
           "C6": {
             "pole": "open",
@@ -11768,10 +11804,10 @@
       "coverage": {
         "cells_populated": 80,
         "cells_total": 96,
-        "coverage_note": "poles exist only where a tier1_legal record backs them; the remaining unset cells are the genuinely-unsettled ones (TW/KR pre-regime, UK C7 in transition, CN C5, BR C4). Pole ASSIGNMENT is authored from the records and is itself subject to the verification backlog.",
+        "coverage_note": "poles exist only where a tier1_legal record backs them; the remaining unset cells are the genuinely-unsettled ones (KR pre-regime; UK and TW regime-in-transition, C7 unset; CN C5, BR C4). Pole ASSIGNMENT is authored from the records and is itself subject to the verification backlog.",
         "authored_corridors_definite": "9/9",
-        "directed_edges_derivable": "124/132",
-        "indeterminate_edges_note": "remaining indeterminate edges are those into UK (C7 in transition) — the time engine, not the substrate, owns that",
+        "directed_edges_derivable": "115/132",
+        "indeterminate_edges_note": "remaining indeterminate edges are those into UK and TW (regimes in transition, C7 unset) that are not already origin-dragged to III — the time engine, not the substrate, owns that",
         "fully_participating_nodes": [
           "AE",
           "BR",
@@ -11782,14 +11818,13 @@
           "JP",
           "KR",
           "SG",
-          "TW",
           "US"
         ]
       },
       "cross_check": {
         "disagreements_with_signal": [],
         "clean": true,
-        "scope": "checked all 132 directed edges; 124 definite, all match the signal compose()"
+        "scope": "checked all 132 directed edges; 115 definite, all match the signal compose()"
       },
       "authored_corridor_derivations": [
         {
@@ -12494,9 +12529,9 @@
           "constraint_ref": "C5",
           "dimension": "bank_nonbank_routing",
           "claim_class": "tier1_legal",
-          "status": "proposed",
-          "instrument": "Draft Virtual Asset Service Act",
-          "pinpoint": "Issuance/routing architecture — pending enactment",
+          "status": "transitional",
+          "instrument": "Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced)",
+          "pinpoint": "Issuance/routing architecture: delegated to FSC subsidiary legislation (enacted, not commenced)",
           "has_url": false,
           "missing_for": {
             "firm_summary": [
@@ -12519,9 +12554,9 @@
           "constraint_ref": "C8",
           "dimension": "disclosure_reporting",
           "claim_class": "tier1_legal",
-          "status": "proposed",
-          "instrument": "Draft Virtual Asset Service Act; AML registration regime",
-          "pinpoint": "Disclosure/supervision — pending enactment",
+          "status": "transitional",
+          "instrument": "Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced); AML registration regime",
+          "pinpoint": "Disclosure/supervision: take effect on commencement (enacted, not commenced; detail pending subsidiary legislation)",
           "has_url": false,
           "missing_for": {
             "firm_summary": [
@@ -12544,9 +12579,9 @@
           "constraint_ref": "C4",
           "dimension": "securities_classification",
           "claim_class": "tier1_legal",
-          "status": "proposed",
-          "instrument": "Draft Virtual Asset Service Act; AML registration regime for VASPs",
-          "pinpoint": "Securities characterization — pending the enacted VAS Act",
+          "status": "transitional",
+          "instrument": "Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced); AML registration regime for VASPs",
+          "pinpoint": "Securities characterization: within the FSC virtual-asset perimeter (enacted, not commenced; boundary pending subsidiary legislation)",
           "has_url": false,
           "missing_for": {
             "firm_summary": [
@@ -16983,11 +17018,11 @@
       "method": "For each derivable directed edge without a hand-authored rich corridor record, derive the feasibility class (from the substrate), the inbound mechanism test + administrator (re-projected from the destination's C1/C7 record), a baseline archetype set, and the directed interaction sets. No new facts: empirical fields (infrastructure_overlap, bespoke detail, curated archetypes, prose) are left null as a per-edge enrichment backlog. Class is cross-checked against the signal compose(); every skeleton cites its backing tier1_legal records.",
       "coverage": {
         "authored_rich_corridors": 9,
-        "computed_skeletons": 115,
-        "edges_with_a_record": 124,
+        "computed_skeletons": 106,
+        "edges_with_a_record": 115,
         "edges_total": 132,
-        "indeterminate_edges": 8,
-        "indeterminate_note": "indeterminate edges are those into the UK (inbound gate in transition) that are not origin-dragged — the time engine's domain"
+        "indeterminate_edges": 17,
+        "indeterminate_note": "indeterminate edges are those into the UK and Taiwan (inbound gate in transition) that are not origin-dragged — the time engine's domain"
       },
       "cross_check": {
         "disagreements_with_signal": [],
@@ -17194,44 +17229,6 @@
             "records": [
               "ae-pt-issuer_pathway-001",
               "ae-pt-monetary_sovereignty-001",
-              "us-pss-issuer_pathway-001"
-            ],
-            "all_tier1_legal": true
-          },
-          "enrichment_status": "computed skeleton — derived fields only",
-          "enrichment_backlog": [
-            "infrastructure_overlap",
-            "bespoke_inbound_detail",
-            "curated_archetypes",
-            "prose_note",
-            "primary_source_verification"
-          ]
-        },
-        {
-          "corridor_id": "us-tw-skeleton",
-          "origin": "US",
-          "destination": "TW",
-          "direction": "directed",
-          "tier": "computed_skeleton",
-          "feasibility_class": "Pre-regime (no operative destination regime yet)",
-          "class_code": "pre_regime",
-          "compatibility_pair": "TW-US",
-          "inbound_mechanism": {
-            "test": "No operative inbound regime (draft VAS Act)",
-            "administrator": "FSC (Taiwan)",
-            "detail": null
-          },
-          "archetypes": [
-            "RC"
-          ],
-          "interaction_sets": [
-            "C"
-          ],
-          "origin_drag": false,
-          "infrastructure_overlap": null,
-          "provenance": {
-            "records": [
-              "tw-frs-issuer_pathway-001",
               "us-pss-issuer_pathway-001"
             ],
             "all_tier1_legal": true
@@ -17523,44 +17520,6 @@
               "ae-pt-issuer_pathway-001",
               "ae-pt-monetary_sovereignty-001",
               "eu-emt-issuer_pathway-001"
-            ],
-            "all_tier1_legal": true
-          },
-          "enrichment_status": "computed skeleton — derived fields only",
-          "enrichment_backlog": [
-            "infrastructure_overlap",
-            "bespoke_inbound_detail",
-            "curated_archetypes",
-            "prose_note",
-            "primary_source_verification"
-          ]
-        },
-        {
-          "corridor_id": "eu-tw-skeleton",
-          "origin": "EU",
-          "destination": "TW",
-          "direction": "directed",
-          "tier": "computed_skeleton",
-          "feasibility_class": "Pre-regime (no operative destination regime yet)",
-          "class_code": "pre_regime",
-          "compatibility_pair": "EU-TW",
-          "inbound_mechanism": {
-            "test": "No operative inbound regime (draft VAS Act)",
-            "administrator": "FSC (Taiwan)",
-            "detail": null
-          },
-          "archetypes": [
-            "RC"
-          ],
-          "interaction_sets": [
-            "C"
-          ],
-          "origin_drag": false,
-          "infrastructure_overlap": null,
-          "provenance": {
-            "records": [
-              "eu-emt-issuer_pathway-001",
-              "tw-frs-issuer_pathway-001"
             ],
             "all_tier1_legal": true
           },
@@ -17990,44 +17949,6 @@
           ]
         },
         {
-          "corridor_id": "uk-tw-skeleton",
-          "origin": "UK",
-          "destination": "TW",
-          "direction": "directed",
-          "tier": "computed_skeleton",
-          "feasibility_class": "Pre-regime (no operative destination regime yet)",
-          "class_code": "pre_regime",
-          "compatibility_pair": "TW-UK",
-          "inbound_mechanism": {
-            "test": "No operative inbound regime (draft VAS Act)",
-            "administrator": "FSC (Taiwan)",
-            "detail": null
-          },
-          "archetypes": [
-            "RC"
-          ],
-          "interaction_sets": [
-            "C"
-          ],
-          "origin_drag": false,
-          "infrastructure_overlap": null,
-          "provenance": {
-            "records": [
-              "tw-frs-issuer_pathway-001",
-              "uk-frs-issuer_pathway-001"
-            ],
-            "all_tier1_legal": true
-          },
-          "enrichment_status": "computed skeleton — derived fields only",
-          "enrichment_backlog": [
-            "infrastructure_overlap",
-            "bespoke_inbound_detail",
-            "curated_archetypes",
-            "prose_note",
-            "primary_source_verification"
-          ]
-        },
-        {
           "corridor_id": "uk-jp-skeleton",
           "origin": "UK",
           "destination": "JP",
@@ -18358,44 +18279,6 @@
           ]
         },
         {
-          "corridor_id": "sg-tw-skeleton",
-          "origin": "SG",
-          "destination": "TW",
-          "direction": "directed",
-          "tier": "computed_skeleton",
-          "feasibility_class": "Pre-regime (no operative destination regime yet)",
-          "class_code": "pre_regime",
-          "compatibility_pair": "SG-TW",
-          "inbound_mechanism": {
-            "test": "No operative inbound regime (draft VAS Act)",
-            "administrator": "FSC (Taiwan)",
-            "detail": null
-          },
-          "archetypes": [
-            "RC"
-          ],
-          "interaction_sets": [
-            "C"
-          ],
-          "origin_drag": false,
-          "infrastructure_overlap": null,
-          "provenance": {
-            "records": [
-              "sg-scs-issuer_pathway-001",
-              "tw-frs-issuer_pathway-001"
-            ],
-            "all_tier1_legal": true
-          },
-          "enrichment_status": "computed skeleton — derived fields only",
-          "enrichment_backlog": [
-            "infrastructure_overlap",
-            "bespoke_inbound_detail",
-            "curated_archetypes",
-            "prose_note",
-            "primary_source_verification"
-          ]
-        },
-        {
           "corridor_id": "sg-jp-skeleton",
           "origin": "SG",
           "destination": "JP",
@@ -18633,44 +18516,6 @@
               "ae-pt-issuer_pathway-001",
               "ae-pt-monetary_sovereignty-001",
               "hk-frs-issuer_pathway-001"
-            ],
-            "all_tier1_legal": true
-          },
-          "enrichment_status": "computed skeleton — derived fields only",
-          "enrichment_backlog": [
-            "infrastructure_overlap",
-            "bespoke_inbound_detail",
-            "curated_archetypes",
-            "prose_note",
-            "primary_source_verification"
-          ]
-        },
-        {
-          "corridor_id": "hk-tw-skeleton",
-          "origin": "HK",
-          "destination": "TW",
-          "direction": "directed",
-          "tier": "computed_skeleton",
-          "feasibility_class": "Pre-regime (no operative destination regime yet)",
-          "class_code": "pre_regime",
-          "compatibility_pair": "HK-TW",
-          "inbound_mechanism": {
-            "test": "No operative inbound regime (draft VAS Act)",
-            "administrator": "FSC (Taiwan)",
-            "detail": null
-          },
-          "archetypes": [
-            "RC"
-          ],
-          "interaction_sets": [
-            "C"
-          ],
-          "origin_drag": false,
-          "infrastructure_overlap": null,
-          "provenance": {
-            "records": [
-              "hk-frs-issuer_pathway-001",
-              "tw-frs-issuer_pathway-001"
             ],
             "all_tier1_legal": true
           },
@@ -19498,44 +19343,6 @@
           ]
         },
         {
-          "corridor_id": "br-tw-skeleton",
-          "origin": "BR",
-          "destination": "TW",
-          "direction": "directed",
-          "tier": "computed_skeleton",
-          "feasibility_class": "Pre-regime (no operative destination regime yet)",
-          "class_code": "pre_regime",
-          "compatibility_pair": "BR-TW",
-          "inbound_mechanism": {
-            "test": "No operative inbound regime (draft VAS Act)",
-            "administrator": "FSC (Taiwan)",
-            "detail": null
-          },
-          "archetypes": [
-            "RC"
-          ],
-          "interaction_sets": [
-            "C"
-          ],
-          "origin_drag": false,
-          "infrastructure_overlap": null,
-          "provenance": {
-            "records": [
-              "br-vasp-issuer_pathway-001",
-              "tw-frs-issuer_pathway-001"
-            ],
-            "all_tier1_legal": true
-          },
-          "enrichment_status": "computed skeleton — derived fields only",
-          "enrichment_backlog": [
-            "infrastructure_overlap",
-            "bespoke_inbound_detail",
-            "curated_archetypes",
-            "prose_note",
-            "primary_source_verification"
-          ]
-        },
-        {
           "corridor_id": "br-jp-skeleton",
           "origin": "BR",
           "destination": "JP",
@@ -19896,44 +19703,6 @@
               "ae-pt-issuer_pathway-001",
               "ae-pt-monetary_sovereignty-001",
               "ch-frs-issuer_pathway-001"
-            ],
-            "all_tier1_legal": true
-          },
-          "enrichment_status": "computed skeleton — derived fields only",
-          "enrichment_backlog": [
-            "infrastructure_overlap",
-            "bespoke_inbound_detail",
-            "curated_archetypes",
-            "prose_note",
-            "primary_source_verification"
-          ]
-        },
-        {
-          "corridor_id": "ch-tw-skeleton",
-          "origin": "CH",
-          "destination": "TW",
-          "direction": "directed",
-          "tier": "computed_skeleton",
-          "feasibility_class": "Pre-regime (no operative destination regime yet)",
-          "class_code": "pre_regime",
-          "compatibility_pair": "CH-TW",
-          "inbound_mechanism": {
-            "test": "No operative inbound regime (draft VAS Act)",
-            "administrator": "FSC (Taiwan)",
-            "detail": null
-          },
-          "archetypes": [
-            "RC"
-          ],
-          "interaction_sets": [
-            "C"
-          ],
-          "origin_drag": false,
-          "infrastructure_overlap": null,
-          "provenance": {
-            "records": [
-              "ch-frs-issuer_pathway-001",
-              "tw-frs-issuer_pathway-001"
             ],
             "all_tier1_legal": true
           },
@@ -20308,44 +20077,6 @@
               "ae-pt-issuer_pathway-001",
               "ch-frs-issuer_pathway-001",
               "ch-frs-monetary_sovereignty-001"
-            ],
-            "all_tier1_legal": true
-          },
-          "enrichment_status": "computed skeleton — derived fields only",
-          "enrichment_backlog": [
-            "infrastructure_overlap",
-            "bespoke_inbound_detail",
-            "curated_archetypes",
-            "prose_note",
-            "primary_source_verification"
-          ]
-        },
-        {
-          "corridor_id": "ae-tw-skeleton",
-          "origin": "AE",
-          "destination": "TW",
-          "direction": "directed",
-          "tier": "computed_skeleton",
-          "feasibility_class": "Pre-regime (no operative destination regime yet)",
-          "class_code": "pre_regime",
-          "compatibility_pair": "AE-TW",
-          "inbound_mechanism": {
-            "test": "No operative inbound regime (draft VAS Act)",
-            "administrator": "FSC (Taiwan)",
-            "detail": null
-          },
-          "archetypes": [
-            "RC"
-          ],
-          "interaction_sets": [
-            "C"
-          ],
-          "origin_drag": false,
-          "infrastructure_overlap": null,
-          "provenance": {
-            "records": [
-              "ae-pt-issuer_pathway-001",
-              "tw-frs-issuer_pathway-001"
             ],
             "all_tier1_legal": true
           },
@@ -21173,44 +20904,6 @@
           ]
         },
         {
-          "corridor_id": "jp-tw-skeleton",
-          "origin": "JP",
-          "destination": "TW",
-          "direction": "directed",
-          "tier": "computed_skeleton",
-          "feasibility_class": "Pre-regime (no operative destination regime yet)",
-          "class_code": "pre_regime",
-          "compatibility_pair": "JP-TW",
-          "inbound_mechanism": {
-            "test": "No operative inbound regime (draft VAS Act)",
-            "administrator": "FSC (Taiwan)",
-            "detail": null
-          },
-          "archetypes": [
-            "RC"
-          ],
-          "interaction_sets": [
-            "C"
-          ],
-          "origin_drag": false,
-          "infrastructure_overlap": null,
-          "provenance": {
-            "records": [
-              "jp-epi-issuer_pathway-001",
-              "tw-frs-issuer_pathway-001"
-            ],
-            "all_tier1_legal": true
-          },
-          "enrichment_status": "computed skeleton — derived fields only",
-          "enrichment_backlog": [
-            "infrastructure_overlap",
-            "bespoke_inbound_detail",
-            "curated_archetypes",
-            "prose_note",
-            "primary_source_verification"
-          ]
-        },
-        {
           "corridor_id": "jp-kr-skeleton",
           "origin": "JP",
           "destination": "KR",
@@ -21873,6 +21566,1247 @@
         "asserts_new_facts": false,
         "note": "Every field is copied from an existing permitted_activity_yield record; this product only reshapes and tiers them.",
         "generalizes_to": "The same shape applies to monetary_sovereignty and other typed dimensions; convergence is checkable because yield is one of the typed dimensions every jurisdiction record carries."
+      }
+    },
+    "computed_forward_view": {
+      "schema": "cbsr-analysis/computed_forward_view",
+      "version": "v0.9.9",
+      "generated": "2026-07-04T05:31:00Z",
+      "as_of_base": "2026-06-30",
+      "method": "Per-jurisdiction re-sort of the trigger register (Atlas §4.4). For each jurisdiction it lists its own pending events (flagged class-moving vs accessibility-only), the inbound and outbound directed edges that change feasibility class under the pending set (each attributed to the trigger causing it), and the counterpart jurisdictions on the other end ranked by exposure. Movements are read from computed_corridor_states.json; events from the event calendar. No new facts are asserted.",
+      "reading_key": {
+        "class_moving": "an inbound/outbound edge that changes feasibility class under a pending trigger",
+        "accessibility_only": "a pending event in this jurisdiction that changes who may operate or which tokens are admissible WITHIN a live regime, without moving any class (intra-regime gating, a control case, a recognition pathway, or an in-force parameterization) — §3.10/§6: a low class-sensitivity position must be read as 'no class flip pending', not 'nothing happening'"
+      },
+      "provenance": {
+        "asserts_new_facts": false,
+        "derived_from": [
+          "analysis/computed_corridor_states.json",
+          "analysis/event_calendar.json"
+        ]
+      },
+      "jurisdictions": {
+        "US": {
+          "jurisdiction": "US",
+          "own_pending_events": [
+            {
+              "event_id": "us-clarity-act-enacted",
+              "title": "US CLARITY Act enacted (digital-asset market structure; intermediary yield + routing layer live)",
+              "trigger_kind": "contingent-no-date",
+              "status": "contingent",
+              "effective_date": null,
+              "moves_class": false,
+              "accessibility_only": false
+            }
+          ],
+          "summary": {
+            "own_driven_inbound": 0,
+            "own_driven_outbound": 0,
+            "counterpart_driven_inbound": 1,
+            "counterpart_driven_outbound": 3,
+            "accessibility_only_own_events": 0
+          },
+          "inbound_reclassified": [
+            {
+              "counterpart": "KR",
+              "from": "III",
+              "to": "II",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            }
+          ],
+          "outbound_reclassified": [
+            {
+              "counterpart": "KR",
+              "from": "pre_regime",
+              "to": "II",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "TW",
+              "from": "T",
+              "to": "II",
+              "via_trigger": "tw-vas-act-enacted",
+              "trigger_jurisdiction": "TW",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "UK",
+              "from": "T",
+              "to": "I",
+              "via_trigger": "uk-systemic-regime-operative",
+              "trigger_jurisdiction": "UK",
+              "timing": "scheduled 2027-10-25"
+            }
+          ],
+          "counterpart_exposure": [
+            {
+              "counterpart": "KR",
+              "edges_affected": 2,
+              "inbound": 1,
+              "outbound": 1
+            },
+            {
+              "counterpart": "TW",
+              "edges_affected": 1,
+              "inbound": 0,
+              "outbound": 1
+            },
+            {
+              "counterpart": "UK",
+              "edges_affected": 1,
+              "inbound": 0,
+              "outbound": 1
+            }
+          ],
+          "supervisor_reading": "US has no class-moving or accessibility-changing pending event of its own. Separately, 1 inbound and 3 outbound corridor(s) of US will reclassify when counterparts enact; most exposed counterpart(s): KR (2), TW (1), UK (1)."
+        },
+        "EU": {
+          "jurisdiction": "EU",
+          "own_pending_events": [
+            {
+              "event_id": "eu-mica-art143-transitional-expiry",
+              "title": "EU MiCA Article 143(3) transitional grandfathering expiry (national side-doors close; admissible-token set narrows)",
+              "trigger_kind": "intra-regime-gating",
+              "status": "scheduled",
+              "effective_date": "2026-07-01",
+              "moves_class": false,
+              "accessibility_only": true
+            }
+          ],
+          "summary": {
+            "own_driven_inbound": 0,
+            "own_driven_outbound": 0,
+            "counterpart_driven_inbound": 1,
+            "counterpart_driven_outbound": 3,
+            "accessibility_only_own_events": 1
+          },
+          "inbound_reclassified": [
+            {
+              "counterpart": "KR",
+              "from": "III",
+              "to": "I",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            }
+          ],
+          "outbound_reclassified": [
+            {
+              "counterpart": "KR",
+              "from": "pre_regime",
+              "to": "II",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "TW",
+              "from": "T",
+              "to": "II",
+              "via_trigger": "tw-vas-act-enacted",
+              "trigger_jurisdiction": "TW",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "UK",
+              "from": "T",
+              "to": "I",
+              "via_trigger": "uk-systemic-regime-operative",
+              "trigger_jurisdiction": "UK",
+              "timing": "scheduled 2027-10-25"
+            }
+          ],
+          "counterpart_exposure": [
+            {
+              "counterpart": "KR",
+              "edges_affected": 2,
+              "inbound": 1,
+              "outbound": 1
+            },
+            {
+              "counterpart": "TW",
+              "edges_affected": 1,
+              "inbound": 0,
+              "outbound": 1
+            },
+            {
+              "counterpart": "UK",
+              "edges_affected": 1,
+              "inbound": 0,
+              "outbound": 1
+            }
+          ],
+          "supervisor_reading": "EU's own pending change is accessibility-only (intra-regime-gating): it changes who may operate and which tokens are admissible within the live regime, without moving any feasibility class. Read EU's low class-sensitivity position as 'no class flip pending', not as 'nothing happening' (§3.10/§6). Separately, 1 inbound and 3 outbound corridor(s) of EU will reclassify when counterparts enact; most exposed counterpart(s): KR (2), TW (1), UK (1)."
+        },
+        "UK": {
+          "jurisdiction": "UK",
+          "own_pending_events": [
+            {
+              "event_id": "uk-systemic-regime-operative",
+              "title": "UK systemic stablecoin regime + FCA conduct regime operative (SI 2026/102 full commencement)",
+              "trigger_kind": "fully-scheduled",
+              "status": "scheduled",
+              "effective_date": "2027-10-25",
+              "moves_class": true,
+              "accessibility_only": false
+            }
+          ],
+          "summary": {
+            "own_driven_inbound": 8,
+            "own_driven_outbound": 0,
+            "counterpart_driven_inbound": 1,
+            "counterpart_driven_outbound": 2,
+            "accessibility_only_own_events": 0
+          },
+          "inbound_reclassified": [
+            {
+              "counterpart": "AE",
+              "from": "T",
+              "to": "I",
+              "via_trigger": "uk-systemic-regime-operative",
+              "trigger_jurisdiction": "UK",
+              "timing": "scheduled 2027-10-25"
+            },
+            {
+              "counterpart": "BR",
+              "from": "T",
+              "to": "I",
+              "via_trigger": "uk-systemic-regime-operative",
+              "trigger_jurisdiction": "UK",
+              "timing": "scheduled 2027-10-25"
+            },
+            {
+              "counterpart": "CH",
+              "from": "T",
+              "to": "I",
+              "via_trigger": "uk-systemic-regime-operative",
+              "trigger_jurisdiction": "UK",
+              "timing": "scheduled 2027-10-25"
+            },
+            {
+              "counterpart": "EU",
+              "from": "T",
+              "to": "I",
+              "via_trigger": "uk-systemic-regime-operative",
+              "trigger_jurisdiction": "UK",
+              "timing": "scheduled 2027-10-25"
+            },
+            {
+              "counterpart": "HK",
+              "from": "T",
+              "to": "I",
+              "via_trigger": "uk-systemic-regime-operative",
+              "trigger_jurisdiction": "UK",
+              "timing": "scheduled 2027-10-25"
+            },
+            {
+              "counterpart": "JP",
+              "from": "T",
+              "to": "I",
+              "via_trigger": "uk-systemic-regime-operative",
+              "trigger_jurisdiction": "UK",
+              "timing": "scheduled 2027-10-25"
+            },
+            {
+              "counterpart": "KR",
+              "from": "III",
+              "to": "T",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "SG",
+              "from": "T",
+              "to": "I",
+              "via_trigger": "uk-systemic-regime-operative",
+              "trigger_jurisdiction": "UK",
+              "timing": "scheduled 2027-10-25"
+            },
+            {
+              "counterpart": "US",
+              "from": "T",
+              "to": "I",
+              "via_trigger": "uk-systemic-regime-operative",
+              "trigger_jurisdiction": "UK",
+              "timing": "scheduled 2027-10-25"
+            }
+          ],
+          "outbound_reclassified": [
+            {
+              "counterpart": "KR",
+              "from": "pre_regime",
+              "to": "II",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "TW",
+              "from": "T",
+              "to": "II",
+              "via_trigger": "tw-vas-act-enacted",
+              "trigger_jurisdiction": "TW",
+              "timing": "contingent (if enacted)"
+            }
+          ],
+          "counterpart_exposure": [
+            {
+              "counterpart": "KR",
+              "edges_affected": 2,
+              "inbound": 1,
+              "outbound": 1
+            },
+            {
+              "counterpart": "AE",
+              "edges_affected": 1,
+              "inbound": 1,
+              "outbound": 0
+            },
+            {
+              "counterpart": "BR",
+              "edges_affected": 1,
+              "inbound": 1,
+              "outbound": 0
+            },
+            {
+              "counterpart": "CH",
+              "edges_affected": 1,
+              "inbound": 1,
+              "outbound": 0
+            },
+            {
+              "counterpart": "EU",
+              "edges_affected": 1,
+              "inbound": 1,
+              "outbound": 0
+            },
+            {
+              "counterpart": "HK",
+              "edges_affected": 1,
+              "inbound": 1,
+              "outbound": 0
+            },
+            {
+              "counterpart": "JP",
+              "edges_affected": 1,
+              "inbound": 1,
+              "outbound": 0
+            },
+            {
+              "counterpart": "SG",
+              "edges_affected": 1,
+              "inbound": 1,
+              "outbound": 0
+            },
+            {
+              "counterpart": "TW",
+              "edges_affected": 1,
+              "inbound": 0,
+              "outbound": 1
+            },
+            {
+              "counterpart": "US",
+              "edges_affected": 1,
+              "inbound": 1,
+              "outbound": 0
+            }
+          ],
+          "supervisor_reading": "UK's own pending trigger reclassifies 8 inbound and 0 outbound corridor(s). Separately, 1 inbound and 2 outbound corridor(s) of UK will reclassify when counterparts enact; most exposed counterpart(s): KR (2), TW (1)."
+        },
+        "SG": {
+          "jurisdiction": "SG",
+          "own_pending_events": [
+            {
+              "event_id": "sg-scs-legislation-enacted",
+              "title": "Singapore SCS framework implementing legislation enacted (MAS-regulated stablecoin regime live)",
+              "trigger_kind": "contingent-not-class-change",
+              "status": "contingent",
+              "effective_date": null,
+              "moves_class": false,
+              "accessibility_only": true
+            }
+          ],
+          "summary": {
+            "own_driven_inbound": 0,
+            "own_driven_outbound": 0,
+            "counterpart_driven_inbound": 1,
+            "counterpart_driven_outbound": 3,
+            "accessibility_only_own_events": 1
+          },
+          "inbound_reclassified": [
+            {
+              "counterpart": "KR",
+              "from": "III",
+              "to": "I",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            }
+          ],
+          "outbound_reclassified": [
+            {
+              "counterpart": "KR",
+              "from": "pre_regime",
+              "to": "II",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "TW",
+              "from": "T",
+              "to": "II",
+              "via_trigger": "tw-vas-act-enacted",
+              "trigger_jurisdiction": "TW",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "UK",
+              "from": "T",
+              "to": "I",
+              "via_trigger": "uk-systemic-regime-operative",
+              "trigger_jurisdiction": "UK",
+              "timing": "scheduled 2027-10-25"
+            }
+          ],
+          "counterpart_exposure": [
+            {
+              "counterpart": "KR",
+              "edges_affected": 2,
+              "inbound": 1,
+              "outbound": 1
+            },
+            {
+              "counterpart": "TW",
+              "edges_affected": 1,
+              "inbound": 0,
+              "outbound": 1
+            },
+            {
+              "counterpart": "UK",
+              "edges_affected": 1,
+              "inbound": 0,
+              "outbound": 1
+            }
+          ],
+          "supervisor_reading": "SG's own pending change is accessibility-only (contingent-not-class-change): it changes who may operate and which tokens are admissible within the live regime, without moving any feasibility class. Read SG's low class-sensitivity position as 'no class flip pending', not as 'nothing happening' (§3.10/§6). Separately, 1 inbound and 3 outbound corridor(s) of SG will reclassify when counterparts enact; most exposed counterpart(s): KR (2), TW (1), UK (1)."
+        },
+        "HK": {
+          "jurisdiction": "HK",
+          "own_pending_events": [],
+          "summary": {
+            "own_driven_inbound": 0,
+            "own_driven_outbound": 0,
+            "counterpart_driven_inbound": 1,
+            "counterpart_driven_outbound": 3,
+            "accessibility_only_own_events": 0
+          },
+          "inbound_reclassified": [
+            {
+              "counterpart": "KR",
+              "from": "III",
+              "to": "I",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            }
+          ],
+          "outbound_reclassified": [
+            {
+              "counterpart": "KR",
+              "from": "pre_regime",
+              "to": "II",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "TW",
+              "from": "T",
+              "to": "II",
+              "via_trigger": "tw-vas-act-enacted",
+              "trigger_jurisdiction": "TW",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "UK",
+              "from": "T",
+              "to": "I",
+              "via_trigger": "uk-systemic-regime-operative",
+              "trigger_jurisdiction": "UK",
+              "timing": "scheduled 2027-10-25"
+            }
+          ],
+          "counterpart_exposure": [
+            {
+              "counterpart": "KR",
+              "edges_affected": 2,
+              "inbound": 1,
+              "outbound": 1
+            },
+            {
+              "counterpart": "TW",
+              "edges_affected": 1,
+              "inbound": 0,
+              "outbound": 1
+            },
+            {
+              "counterpart": "UK",
+              "edges_affected": 1,
+              "inbound": 0,
+              "outbound": 1
+            }
+          ],
+          "supervisor_reading": "HK has no class-moving or accessibility-changing pending event of its own. Separately, 1 inbound and 3 outbound corridor(s) of HK will reclassify when counterparts enact; most exposed counterpart(s): KR (2), TW (1), UK (1)."
+        },
+        "CN": {
+          "jurisdiction": "CN",
+          "own_pending_events": [],
+          "summary": {
+            "own_driven_inbound": 0,
+            "own_driven_outbound": 0,
+            "counterpart_driven_inbound": 1,
+            "counterpart_driven_outbound": 0,
+            "accessibility_only_own_events": 0
+          },
+          "inbound_reclassified": [
+            {
+              "counterpart": "KR",
+              "from": "III",
+              "to": "blocked",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            }
+          ],
+          "outbound_reclassified": [],
+          "counterpart_exposure": [
+            {
+              "counterpart": "KR",
+              "edges_affected": 1,
+              "inbound": 1,
+              "outbound": 0
+            }
+          ],
+          "supervisor_reading": "CN has no class-moving or accessibility-changing pending event of its own. Separately, 1 inbound and 0 outbound corridor(s) of CN will reclassify when counterparts enact; most exposed counterpart(s): KR (1)."
+        },
+        "BR": {
+          "jurisdiction": "BR",
+          "own_pending_events": [],
+          "summary": {
+            "own_driven_inbound": 0,
+            "own_driven_outbound": 0,
+            "counterpart_driven_inbound": 1,
+            "counterpart_driven_outbound": 3,
+            "accessibility_only_own_events": 0
+          },
+          "inbound_reclassified": [
+            {
+              "counterpart": "KR",
+              "from": "III",
+              "to": "II",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            }
+          ],
+          "outbound_reclassified": [
+            {
+              "counterpart": "KR",
+              "from": "pre_regime",
+              "to": "II",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "TW",
+              "from": "T",
+              "to": "II",
+              "via_trigger": "tw-vas-act-enacted",
+              "trigger_jurisdiction": "TW",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "UK",
+              "from": "T",
+              "to": "I",
+              "via_trigger": "uk-systemic-regime-operative",
+              "trigger_jurisdiction": "UK",
+              "timing": "scheduled 2027-10-25"
+            }
+          ],
+          "counterpart_exposure": [
+            {
+              "counterpart": "KR",
+              "edges_affected": 2,
+              "inbound": 1,
+              "outbound": 1
+            },
+            {
+              "counterpart": "TW",
+              "edges_affected": 1,
+              "inbound": 0,
+              "outbound": 1
+            },
+            {
+              "counterpart": "UK",
+              "edges_affected": 1,
+              "inbound": 0,
+              "outbound": 1
+            }
+          ],
+          "supervisor_reading": "BR has no class-moving or accessibility-changing pending event of its own. Separately, 1 inbound and 3 outbound corridor(s) of BR will reclassify when counterparts enact; most exposed counterpart(s): KR (2), TW (1), UK (1)."
+        },
+        "CH": {
+          "jurisdiction": "CH",
+          "own_pending_events": [],
+          "summary": {
+            "own_driven_inbound": 0,
+            "own_driven_outbound": 0,
+            "counterpart_driven_inbound": 1,
+            "counterpart_driven_outbound": 3,
+            "accessibility_only_own_events": 0
+          },
+          "inbound_reclassified": [
+            {
+              "counterpart": "KR",
+              "from": "III",
+              "to": "I",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            }
+          ],
+          "outbound_reclassified": [
+            {
+              "counterpart": "KR",
+              "from": "pre_regime",
+              "to": "II",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "TW",
+              "from": "T",
+              "to": "II",
+              "via_trigger": "tw-vas-act-enacted",
+              "trigger_jurisdiction": "TW",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "UK",
+              "from": "T",
+              "to": "I",
+              "via_trigger": "uk-systemic-regime-operative",
+              "trigger_jurisdiction": "UK",
+              "timing": "scheduled 2027-10-25"
+            }
+          ],
+          "counterpart_exposure": [
+            {
+              "counterpart": "KR",
+              "edges_affected": 2,
+              "inbound": 1,
+              "outbound": 1
+            },
+            {
+              "counterpart": "TW",
+              "edges_affected": 1,
+              "inbound": 0,
+              "outbound": 1
+            },
+            {
+              "counterpart": "UK",
+              "edges_affected": 1,
+              "inbound": 0,
+              "outbound": 1
+            }
+          ],
+          "supervisor_reading": "CH has no class-moving or accessibility-changing pending event of its own. Separately, 1 inbound and 3 outbound corridor(s) of CH will reclassify when counterparts enact; most exposed counterpart(s): KR (2), TW (1), UK (1)."
+        },
+        "AE": {
+          "jurisdiction": "AE",
+          "own_pending_events": [],
+          "summary": {
+            "own_driven_inbound": 0,
+            "own_driven_outbound": 0,
+            "counterpart_driven_inbound": 1,
+            "counterpart_driven_outbound": 3,
+            "accessibility_only_own_events": 0
+          },
+          "inbound_reclassified": [
+            {
+              "counterpart": "KR",
+              "from": "III",
+              "to": "II",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            }
+          ],
+          "outbound_reclassified": [
+            {
+              "counterpart": "KR",
+              "from": "pre_regime",
+              "to": "II",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "TW",
+              "from": "T",
+              "to": "II",
+              "via_trigger": "tw-vas-act-enacted",
+              "trigger_jurisdiction": "TW",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "UK",
+              "from": "T",
+              "to": "I",
+              "via_trigger": "uk-systemic-regime-operative",
+              "trigger_jurisdiction": "UK",
+              "timing": "scheduled 2027-10-25"
+            }
+          ],
+          "counterpart_exposure": [
+            {
+              "counterpart": "KR",
+              "edges_affected": 2,
+              "inbound": 1,
+              "outbound": 1
+            },
+            {
+              "counterpart": "TW",
+              "edges_affected": 1,
+              "inbound": 0,
+              "outbound": 1
+            },
+            {
+              "counterpart": "UK",
+              "edges_affected": 1,
+              "inbound": 0,
+              "outbound": 1
+            }
+          ],
+          "supervisor_reading": "AE has no class-moving or accessibility-changing pending event of its own. Separately, 1 inbound and 3 outbound corridor(s) of AE will reclassify when counterparts enact; most exposed counterpart(s): KR (2), TW (1), UK (1)."
+        },
+        "TW": {
+          "jurisdiction": "TW",
+          "own_pending_events": [
+            {
+              "event_id": "tw-vas-act-enacted",
+              "title": "Taiwan Virtual Asset Service Act commencement (subsidiary legislation brings the issuer regime into force)",
+              "trigger_kind": "enacted-not-commenced",
+              "status": "contingent",
+              "effective_date": null,
+              "moves_class": true,
+              "accessibility_only": false
+            }
+          ],
+          "summary": {
+            "own_driven_inbound": 9,
+            "own_driven_outbound": 0,
+            "counterpart_driven_inbound": 1,
+            "counterpart_driven_outbound": 0,
+            "accessibility_only_own_events": 0
+          },
+          "inbound_reclassified": [
+            {
+              "counterpart": "AE",
+              "from": "T",
+              "to": "II",
+              "via_trigger": "tw-vas-act-enacted",
+              "trigger_jurisdiction": "TW",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "BR",
+              "from": "T",
+              "to": "II",
+              "via_trigger": "tw-vas-act-enacted",
+              "trigger_jurisdiction": "TW",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "CH",
+              "from": "T",
+              "to": "II",
+              "via_trigger": "tw-vas-act-enacted",
+              "trigger_jurisdiction": "TW",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "EU",
+              "from": "T",
+              "to": "II",
+              "via_trigger": "tw-vas-act-enacted",
+              "trigger_jurisdiction": "TW",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "HK",
+              "from": "T",
+              "to": "II",
+              "via_trigger": "tw-vas-act-enacted",
+              "trigger_jurisdiction": "TW",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "JP",
+              "from": "T",
+              "to": "II",
+              "via_trigger": "tw-vas-act-enacted",
+              "trigger_jurisdiction": "TW",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "KR",
+              "from": "III",
+              "to": "T",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "SG",
+              "from": "T",
+              "to": "II",
+              "via_trigger": "tw-vas-act-enacted",
+              "trigger_jurisdiction": "TW",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "UK",
+              "from": "T",
+              "to": "II",
+              "via_trigger": "tw-vas-act-enacted",
+              "trigger_jurisdiction": "TW",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "US",
+              "from": "T",
+              "to": "II",
+              "via_trigger": "tw-vas-act-enacted",
+              "trigger_jurisdiction": "TW",
+              "timing": "contingent (if enacted)"
+            }
+          ],
+          "outbound_reclassified": [],
+          "counterpart_exposure": [
+            {
+              "counterpart": "AE",
+              "edges_affected": 1,
+              "inbound": 1,
+              "outbound": 0
+            },
+            {
+              "counterpart": "BR",
+              "edges_affected": 1,
+              "inbound": 1,
+              "outbound": 0
+            },
+            {
+              "counterpart": "CH",
+              "edges_affected": 1,
+              "inbound": 1,
+              "outbound": 0
+            },
+            {
+              "counterpart": "EU",
+              "edges_affected": 1,
+              "inbound": 1,
+              "outbound": 0
+            },
+            {
+              "counterpart": "HK",
+              "edges_affected": 1,
+              "inbound": 1,
+              "outbound": 0
+            },
+            {
+              "counterpart": "JP",
+              "edges_affected": 1,
+              "inbound": 1,
+              "outbound": 0
+            },
+            {
+              "counterpart": "KR",
+              "edges_affected": 1,
+              "inbound": 1,
+              "outbound": 0
+            },
+            {
+              "counterpart": "SG",
+              "edges_affected": 1,
+              "inbound": 1,
+              "outbound": 0
+            },
+            {
+              "counterpart": "UK",
+              "edges_affected": 1,
+              "inbound": 1,
+              "outbound": 0
+            },
+            {
+              "counterpart": "US",
+              "edges_affected": 1,
+              "inbound": 1,
+              "outbound": 0
+            }
+          ],
+          "supervisor_reading": "TW's own pending trigger reclassifies 9 inbound and 0 outbound corridor(s). Separately, 1 inbound and 0 outbound corridor(s) of TW will reclassify when counterparts enact; most exposed counterpart(s): KR (1)."
+        },
+        "JP": {
+          "jurisdiction": "JP",
+          "own_pending_events": [
+            {
+              "event_id": "jp-act66-2025-full-enforcement",
+              "title": "Japan Act No. 66 of 2025 full enforcement (trust-type reserve relaxation)",
+              "trigger_kind": "dated-empty-effect",
+              "status": "scheduled",
+              "effective_date": "2026-06-01",
+              "moves_class": false,
+              "accessibility_only": true
+            },
+            {
+              "event_id": "jp-foreign-stablecoin-recognition",
+              "title": "Japan recognises equivalent foreign trust-type stablecoins as Electronic Payment Instruments (Cabinet Office Ordinance)",
+              "trigger_kind": "inbound-recognition",
+              "status": "in_force",
+              "effective_date": "2026-06-01",
+              "moves_class": false,
+              "accessibility_only": true
+            }
+          ],
+          "summary": {
+            "own_driven_inbound": 0,
+            "own_driven_outbound": 0,
+            "counterpart_driven_inbound": 1,
+            "counterpart_driven_outbound": 3,
+            "accessibility_only_own_events": 2
+          },
+          "inbound_reclassified": [
+            {
+              "counterpart": "KR",
+              "from": "III",
+              "to": "II",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            }
+          ],
+          "outbound_reclassified": [
+            {
+              "counterpart": "KR",
+              "from": "pre_regime",
+              "to": "II",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "TW",
+              "from": "T",
+              "to": "II",
+              "via_trigger": "tw-vas-act-enacted",
+              "trigger_jurisdiction": "TW",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "UK",
+              "from": "T",
+              "to": "I",
+              "via_trigger": "uk-systemic-regime-operative",
+              "trigger_jurisdiction": "UK",
+              "timing": "scheduled 2027-10-25"
+            }
+          ],
+          "counterpart_exposure": [
+            {
+              "counterpart": "KR",
+              "edges_affected": 2,
+              "inbound": 1,
+              "outbound": 1
+            },
+            {
+              "counterpart": "TW",
+              "edges_affected": 1,
+              "inbound": 0,
+              "outbound": 1
+            },
+            {
+              "counterpart": "UK",
+              "edges_affected": 1,
+              "inbound": 0,
+              "outbound": 1
+            }
+          ],
+          "supervisor_reading": "JP's own pending change is accessibility-only (dated-empty-effect, inbound-recognition): it changes who may operate and which tokens are admissible within the live regime, without moving any feasibility class. Read JP's low class-sensitivity position as 'no class flip pending', not as 'nothing happening' (§3.10/§6). Separately, 1 inbound and 3 outbound corridor(s) of JP will reclassify when counterparts enact; most exposed counterpart(s): KR (2), TW (1), UK (1)."
+        },
+        "KR": {
+          "jurisdiction": "KR",
+          "own_pending_events": [
+            {
+              "event_id": "kr-daba-enacted",
+              "title": "Korea Digital Asset Basic Act enacted (won-stablecoin issuer regime live)",
+              "trigger_kind": "contingent-no-date",
+              "status": "contingent",
+              "effective_date": null,
+              "moves_class": true,
+              "accessibility_only": false
+            }
+          ],
+          "summary": {
+            "own_driven_inbound": 9,
+            "own_driven_outbound": 11,
+            "counterpart_driven_inbound": 0,
+            "counterpart_driven_outbound": 0,
+            "accessibility_only_own_events": 0
+          },
+          "inbound_reclassified": [
+            {
+              "counterpart": "AE",
+              "from": "pre_regime",
+              "to": "II",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "BR",
+              "from": "pre_regime",
+              "to": "II",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "CH",
+              "from": "pre_regime",
+              "to": "II",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "EU",
+              "from": "pre_regime",
+              "to": "II",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "HK",
+              "from": "pre_regime",
+              "to": "II",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "JP",
+              "from": "pre_regime",
+              "to": "II",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "SG",
+              "from": "pre_regime",
+              "to": "II",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "UK",
+              "from": "pre_regime",
+              "to": "II",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "US",
+              "from": "pre_regime",
+              "to": "II",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            }
+          ],
+          "outbound_reclassified": [
+            {
+              "counterpart": "AE",
+              "from": "III",
+              "to": "II",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "BR",
+              "from": "III",
+              "to": "II",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "CH",
+              "from": "III",
+              "to": "I",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "CN",
+              "from": "III",
+              "to": "blocked",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "EU",
+              "from": "III",
+              "to": "I",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "HK",
+              "from": "III",
+              "to": "I",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "JP",
+              "from": "III",
+              "to": "II",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "SG",
+              "from": "III",
+              "to": "I",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "TW",
+              "from": "III",
+              "to": "T",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "UK",
+              "from": "III",
+              "to": "T",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            },
+            {
+              "counterpart": "US",
+              "from": "III",
+              "to": "II",
+              "via_trigger": "kr-daba-enacted",
+              "trigger_jurisdiction": "KR",
+              "timing": "contingent (if enacted)"
+            }
+          ],
+          "counterpart_exposure": [
+            {
+              "counterpart": "AE",
+              "edges_affected": 2,
+              "inbound": 1,
+              "outbound": 1
+            },
+            {
+              "counterpart": "BR",
+              "edges_affected": 2,
+              "inbound": 1,
+              "outbound": 1
+            },
+            {
+              "counterpart": "CH",
+              "edges_affected": 2,
+              "inbound": 1,
+              "outbound": 1
+            },
+            {
+              "counterpart": "EU",
+              "edges_affected": 2,
+              "inbound": 1,
+              "outbound": 1
+            },
+            {
+              "counterpart": "HK",
+              "edges_affected": 2,
+              "inbound": 1,
+              "outbound": 1
+            },
+            {
+              "counterpart": "JP",
+              "edges_affected": 2,
+              "inbound": 1,
+              "outbound": 1
+            },
+            {
+              "counterpart": "SG",
+              "edges_affected": 2,
+              "inbound": 1,
+              "outbound": 1
+            },
+            {
+              "counterpart": "UK",
+              "edges_affected": 2,
+              "inbound": 1,
+              "outbound": 1
+            },
+            {
+              "counterpart": "US",
+              "edges_affected": 2,
+              "inbound": 1,
+              "outbound": 1
+            },
+            {
+              "counterpart": "CN",
+              "edges_affected": 1,
+              "inbound": 0,
+              "outbound": 1
+            },
+            {
+              "counterpart": "TW",
+              "edges_affected": 1,
+              "inbound": 0,
+              "outbound": 1
+            }
+          ],
+          "supervisor_reading": "KR's own pending trigger reclassifies 9 inbound and 11 outbound corridor(s) (a both-directions change at a pre-regime origin)."
+        }
       }
     },
     "verification_ledger": {

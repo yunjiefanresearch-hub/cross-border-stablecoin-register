@@ -34,13 +34,22 @@ jobs:
         # NOTE: scripts/build_analysis.py and scripts/build_corridors.py are intentionally NOT run here.
         # The analysis matrix and corridor edges are hand-maintained living artifacts; those generators
         # would revert them. CI regenerates only the COMPUTED derivatives, which are pure functions of the
-        # living source (records + authored analysis), in dependency order.
+        # living source (records + hand-maintained poles + authored analysis), in dependency order.
+        # substrate.py / build_edge_skeletons.py / stakeholders.py / build_worklist.py are pure derivatives
+        # of the records + constraint_substrate.json poles and MUST run before build.py (which reads and
+        # cross-checks their outputs), so the reproducibility gate below also covers them and a stale
+        # substrate/skeleton/worklist can no longer be committed.
         run: |
           python scripts/compose.py
+          python scripts/substrate.py
+          python scripts/build_edge_skeletons.py
+          python scripts/stakeholders.py
+          python scripts/build_worklist.py
           python build.py
           python scripts/build_corridor_states.py
           python scripts/build_sensitivity.py
           python scripts/build_settlement.py
+          python scripts/build_forward_view.py
           python build_api.py
           python build_pages.py
           python build_site.py

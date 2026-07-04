@@ -197,12 +197,12 @@ def build_substrate():
                                  "discipline": "every pole cites tier1_legal records; the substrate never rests on a market fact"},
         "coverage": {"cells_populated": populated, "cells_total": 96,
                      "coverage_note": ("poles exist only where a tier1_legal record backs them; the remaining "
-                                       "unset cells are the genuinely-unsettled ones (TW/KR pre-regime, UK C7 in "
-                                       "transition, CN C5, BR C4). Pole ASSIGNMENT is authored from the records and "
-                                       "is itself subject to the verification backlog."),
+                                       "unset cells are the genuinely-unsettled ones (KR pre-regime; UK and TW "
+                                       "regime-in-transition, C7 unset; CN C5, BR C4). Pole ASSIGNMENT is authored "
+                                       "from the records and is itself subject to the verification backlog."),
                      "authored_corridors_definite": f"{definite_authored}/{len(authored)}",
                      "directed_edges_derivable": f"{len(derivable)}/{len(all_edges)}",
-                     "indeterminate_edges_note": "remaining indeterminate edges are those into UK (C7 in transition) — the time engine, not the substrate, owns that",
+                     "indeterminate_edges_note": "remaining indeterminate edges are those into UK and TW (regimes in transition, C7 unset) that are not already origin-dragged to III — the time engine, not the substrate, owns that",
                      "fully_participating_nodes": nodes_full},
         "cross_check": {"disagreements_with_signal": sorted({e["edge"] for e in disagreements}),
                         "clean": not disagreements,

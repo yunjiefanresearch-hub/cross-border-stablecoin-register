@@ -560,6 +560,20 @@ def load_analysis():
             analysis["computed_convergence"] = cvobj
         except json.JSONDecodeError as e:
             errors.append(f"computed_convergence.json: invalid JSON ({e})")
+    # optional per-jurisdiction supervisor forward view (the §4.4 re-sort)
+    fvw = adir / "computed_forward_view.json"
+    if fvw.exists():
+        try:
+            fvobj = json.loads(fvw.read_text(encoding="utf-8"))
+            if fvobj.get("schema") != "cbsr-analysis/computed_forward_view":
+                errors.append("computed_forward_view.json: missing/incorrect 'schema' tag")
+            prov = fvobj.get("provenance", {})
+            if prov.get("asserts_new_facts") is True:
+                errors.append("forward_view: provenance not clean — this view only re-sorts existing events "
+                              "and corridor-state movements and must assert no new facts")
+            analysis["computed_forward_view"] = fvobj
+        except json.JSONDecodeError as e:
+            errors.append(f"computed_forward_view.json: invalid JSON ({e})")
     # optional verification ledger (the v0.9.5 external primary-source pass audit trail)
     vl = adir / "verification_ledger.json"
     if vl.exists():

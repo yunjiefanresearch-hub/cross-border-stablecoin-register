@@ -1,7 +1,7 @@
 {
   "register": "Cross-Border Stablecoin Register",
   "version": "0.9.9",
-  "generated": "2026-07-03",
+  "generated": "2026-07-04",
   "endpoint": "citable",
   "guardrail": "human-verified propositions of law only; operational facts excluded by construction",
   "filter": {

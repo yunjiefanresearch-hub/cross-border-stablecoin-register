@@ -135,16 +135,17 @@ corridor's feasibility by composing two jurisdictions' poles **through the six i
    verifying each assignment against the primary text is part of the verification backlog.
 2. **It never guesses.** A pole exists only where a record backs it; where a load-bearing pole is unset,
    `compose_via_substrate` returns **`indeterminate`** and names the missing poles. After the v0.9.2
-   cell sweep the substrate covers **80/96 cells** and derives **9/9** authored corridors and **124/132**
-   directed edges — the eight indeterminate ones are the non-prohibited origins *into the UK*, whose
-   inbound gate is in transition (the time engine, not the substrate, owns that). Coverage is still an
-   honest readout, not a façade: the sixteen unset poles are the genuinely-unsettled cells (TW/KR
-   pre-regime, UK C7, CN C5, BR C4), and the verification pass stays *load-bearing* — populating a cell
+   cell sweep and the v0.9.9 Taiwan enactment the substrate covers **80/96 cells** and derives **9/9**
+   authored corridors and **115/132**
+   directed edges — the seventeen indeterminate ones are the non-prohibited origins *into the UK and
+   Taiwan*, whose inbound gates are in transition (the time engine, not the substrate, owns that). Coverage is still an
+   honest readout, not a façade: the sixteen unset poles are the genuinely-unsettled cells (KR
+   pre-regime; TW and UK regime-in-transition, C7 unset; CN C5, BR C4), and the verification pass stays *load-bearing* — populating a cell
    widens the substrate's structure, but only verifying it against the official text makes it citable.
 3. **Cross-checked, not asserted.** Where the substrate yields a *definite* class it must equal the
    signal-table `compose()`; a disagreement fails the build and must be reconciled (the same
-   computed-vs-authored discipline applied between the two engines). As of v0.9.2 the cross-check is
-   exercised across **all 132 directed edges** (124 definite, every one agreeing) — not just the
+   computed-vs-authored discipline applied between the two engines). As of v0.9.9 the cross-check is
+   exercised across **all 132 directed edges** (115 definite, every one agreeing) — not just the
    {HK, CN, JP} triangle. Worked derivations: HK→JP = II through Japan's *channelled* C7, JP→HK = I
    through Hong Kong's *open* C7, US→EU = I (EU's capped pole), EU→US = II (the US comparability
    channel) — the rules composing constraints correctly on real poles, not looked-up values.

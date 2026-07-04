@@ -4,7 +4,7 @@
 Invariants prove the gates PASS on good data. These prove the gates BITE on bad data: a validation gate
 that never rejects anything is not a gate. Each test copies the register to a throwaway temp directory,
 introduces one targeted defect there, runs `build.py`, and asserts the build FAILS. The originals are
-never modified. Nine distinct gates are exercised — seven in build.py's main(), two in run_invariants.py
+never modified. Ten distinct gates are exercised — seven in build.py's main(), three in run_invariants.py
 (rebuilt, then asserted to reject):
 
   1. schema-enum             — an out-of-enum binding_status must be rejected by schema validation
@@ -16,6 +16,7 @@ never modified. Nine distinct gates are exercised — seven in build.py's main()
   7. readme-counts           — a spelled drift-prone count in README must be rejected
   8. version-consistency     — CITATION.cff (machine-authoritative) out of sync with EXPECT_VERSION (V3)
   9. binding-prose-coherence — an enacted-status cell whose prose calls its own instrument un-enacted (B1)
+ 10. xref-pre-regime         — a note calling ANOTHER jurisdiction pre-regime while its signal disagrees (X1)
 
 Run from the register root:
     python run_negative_tests.py
@@ -111,6 +112,14 @@ def t_prose_incoherence(root):
                  "DRAFT: capital to be specified by the FSC. No stablecoin capital regime is in force. "
                  "Draft provisions only. STATUS proposed: not operative law."))
 
+def t_xref_pre_regime(root):
+    # inject a stale cross-jurisdiction state reference: call Taiwan (signal=transition, after 30 Jun 2026)
+    # pre-regime from another jurisdiction's note -- the exact drift class the earlier KR note carried,
+    # which the CI reproducibility gate and B1/B3 both miss; X1 must reject it.
+    yaml_set(root / "us-pss-reserve_backing-001.yaml",
+             lambda d: d.__setitem__("interpretation_note",
+                 "US reserve backing rule. Analytically paired with Taiwan as pre-regime."))
+
 TESTS = [
     ("schema-enum             (out-of-enum binding_status)", t_schema_enum, build_fails),
     ("binding-status-cap      (prohibition -> resolution_text)", t_binding_cap, build_fails),
@@ -121,6 +130,7 @@ TESTS = [
     ("readme-counts           (spelled drift-prone count in README)", t_readme_counts, build_fails),
     ("version-consistency     (CITATION.cff version out of sync)", t_version_drift, invariants_fail),
     ("binding-prose-coherence (enacted cell, un-enacted prose)", t_prose_incoherence, invariants_fail),
+    ("xref-pre-regime         (note calls another jurisdiction pre-regime; signal disagrees)", t_xref_pre_regime, invariants_fail),
 ]
 
 def main():

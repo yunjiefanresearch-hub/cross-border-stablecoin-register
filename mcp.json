@@ -143,6 +143,10 @@
       "summary": "The cross-jurisdiction yield-line convergence view (flagship §4.5): independent legislative systems converging on the same functional boundary around "
     },
     {
+      "name": "forward_view",
+      "summary": "The per-jurisdiction supervisor forward view (Atlas §4.4): the trigger register re-sorted by jurisdiction into pending events, inbound/outbound edges that reclassify (own-trigger vs counterpart-driven), and ranked counterpart exposure; asserts no new facts."
+    },
+    {
       "name": "reconciliation",
       "summary": "The computed-vs-authored corridor reconciliation: for every undirected jurisdiction pair, the class the compose() engine derives from the signal table"
     },

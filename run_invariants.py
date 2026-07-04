@@ -119,8 +119,8 @@ inv("A1  analysis layer present (66 pairs, 6 interaction sets, 5 open questions)
 inv("A2  substrate 80/96 cells, cross-check clean",
     substrate.get("coverage", {}).get("cells_populated") == 80 and substrate.get("cross_check", {}).get("clean") is True,
     str(substrate.get("coverage", {}).get("cells_populated")))
-inv("A3  edge layer 124/132 with a record, cross-check clean",
-    skeletons.get("coverage", {}).get("edges_with_a_record") == 124
+inv("A3  edge layer 115/132 with a record, cross-check clean (TW inbound now regime-in-transition, indeterminate like UK)",
+    skeletons.get("coverage", {}).get("edges_with_a_record") == 115
     and skeletons.get("cross_check", {}).get("clean") is True,
     str(skeletons.get("coverage", {})))
 prc = comp.get("pre_regime_crosscheck", {})
@@ -132,8 +132,8 @@ inv("A4  pre_regime cross-check is {KR} (TW now enacted-not-commenced), consiste
 
 # === TIME ENGINE ===============================================================================
 events = an.get("event_calendar", {}).get("events", [])
-inv("T1  event calendar has 7 events, provenance clean",
-    len(events) == 7 and timeline.get("event_provenance", {}).get("clean") is True, f"events={len(events)}")
+inv("T1  event calendar has 8 events, provenance clean",
+    len(events) == 8 and timeline.get("event_provenance", {}).get("clean") is True, f"events={len(events)}")
 inv("T2  every event is tier1_legal; contingent events carry no effective_date",
     all(e.get("claim_class") == "tier1_legal" for e in events)
     and all(not e.get("effective_date") for e in events if e.get("status") == "contingent"))
@@ -366,6 +366,72 @@ try:
         _sett_ok, f"tier={_sett.get('claim_class')} edges={len(_sett.get('edges', []))} counts_sum={sum(_sett.get('counts', {}).values())}")
 except Exception as _e:
     inv("Set1 settlement-substrate bloc layer present (§5.2)", False, repr(_e))
+
+# === FORWARD-VIEW GATE (Atlas §4.4) ============================================================
+try:
+    _fv = an.get("computed_forward_view", {})
+    _fvj = _fv.get("jurisdictions", {})
+    _eu_sum = (_fvj.get("EU", {})).get("summary", {})
+    _kr_sum = (_fvj.get("KR", {})).get("summary", {})
+    _fv_ok = (
+        _fv.get("schema") == "cbsr-analysis/computed_forward_view"
+        and len(_fvj) == 12
+        and _fv.get("provenance", {}).get("asserts_new_facts") is False
+        # EU: its own pending change is accessibility-only, with no own-driven class movement (§4.4 example)
+        and _eu_sum.get("accessibility_only_own_events", 0) >= 1
+        and _eu_sum.get("own_driven_inbound", 0) == 0 and _eu_sum.get("own_driven_outbound", 0) == 0
+        # KR: its own trigger is the both-directions one (own-driven inbound AND outbound)
+        and _kr_sum.get("own_driven_inbound", 0) > 0 and _kr_sum.get("own_driven_outbound", 0) > 0
+    )
+    inv("F1  forward view well-formed (12 jurisdictions; EU own change accessibility-only; KR own both-directions; no new facts)",
+        _fv_ok, f"jur={len(_fvj)} eu_own_class={_eu_sum.get('own_driven_inbound', 0) + _eu_sum.get('own_driven_outbound', 0)} "
+                f"kr_own=({_kr_sum.get('own_driven_inbound', 0)},{_kr_sum.get('own_driven_outbound', 0)}) "
+                f"new_facts={_fv.get('provenance', {}).get('asserts_new_facts')}")
+except Exception as _e:
+    inv("F1  forward view present (§4.4)", False, repr(_e))
+
+# === CROSS-JURISDICTION STATE-REFERENCE GATE ===================================================
+# A hand-written note that describes ANOTHER jurisdiction's regime state is outside the CI
+# reproducibility gate (it is not a pure derivative) and outside B1/B3 (which only check a cell's
+# OWN binding-status wording). This lint closes that drift form: it fails if any record's prose
+# calls another jurisdiction "pre-regime" while that jurisdiction's signal is not pre_regime — the
+# exact class that let a stale "paired with Taiwan as pre-regime" note survive an earlier review.
+try:
+    _sys.path.insert(0, str(ROOT / "scripts"))
+    import compose as _SIG
+    _NAME2CODE = {
+        "United States": "US", "European Union": "EU", "United Kingdom": "UK", "Singapore": "SG",
+        "Hong Kong": "HK", "Mainland China": "CN", "China": "CN", "Brazil": "BR", "Switzerland": "CH",
+        "United Arab Emirates": "AE", "Taiwan": "TW", "Japan": "JP", "South Korea": "KR", "Korea": "KR",
+    }
+    _PRE = re.compile(r"pre[-_ ]regime", re.I)
+    # a past-tense / transition marker in the window means the sentence describes a jurisdiction
+    # LEAVING pre-regime, not asserting it currently is one
+    _NEG = re.compile(r"\b(was|were|until|before|no longer|left|previously|transition|transitioned|"
+                      r"enacted|ceased|had been|used to)\b", re.I)
+    _xref_violations = []
+    for r in records:
+        own = r.get("jurisdiction")
+        for _field in ("requirement_summary", "interpretation_note", "basis", "note"):
+            txt = r.get(_field)
+            if not isinstance(txt, str):
+                continue
+            for m in _PRE.finditer(txt):
+                window = txt[max(0, m.start() - 70): m.end() + 70]
+                if _NEG.search(window):
+                    continue
+                for name, code in _NAME2CODE.items():
+                    if code == own:
+                        continue
+                    if re.search(r"\b" + re.escape(name) + r"\b", window):
+                        rs = _SIG.SIGNALS.get(code, {}).get("regime_status")
+                        if rs != "pre_regime":
+                            _xref_violations.append(
+                                f"{r['id']}.{_field}: calls {name} ({code}) pre-regime, but its signal is '{rs}'")
+    inv("X1  no record's prose calls another jurisdiction pre-regime while its signal is not pre_regime",
+        not _xref_violations, " | ".join(_xref_violations[:5]))
+except Exception as _e:
+    inv("X1  cross-jurisdiction state-reference gate available", False, repr(_e))
 
 # === README DRIFT GATE =========================================================================
 try:

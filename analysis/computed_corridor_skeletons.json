@@ -5,11 +5,11 @@
   "method": "For each derivable directed edge without a hand-authored rich corridor record, derive the feasibility class (from the substrate), the inbound mechanism test + administrator (re-projected from the destination's C1/C7 record), a baseline archetype set, and the directed interaction sets. No new facts: empirical fields (infrastructure_overlap, bespoke detail, curated archetypes, prose) are left null as a per-edge enrichment backlog. Class is cross-checked against the signal compose(); every skeleton cites its backing tier1_legal records.",
   "coverage": {
     "authored_rich_corridors": 9,
-    "computed_skeletons": 115,
-    "edges_with_a_record": 124,
+    "computed_skeletons": 106,
+    "edges_with_a_record": 115,
     "edges_total": 132,
-    "indeterminate_edges": 8,
-    "indeterminate_note": "indeterminate edges are those into the UK (inbound gate in transition) that are not origin-dragged — the time engine's domain"
+    "indeterminate_edges": 17,
+    "indeterminate_note": "indeterminate edges are those into the UK and Taiwan (inbound gate in transition) that are not origin-dragged — the time engine's domain"
   },
   "cross_check": {
     "disagreements_with_signal": [],
@@ -216,44 +216,6 @@
         "records": [
           "ae-pt-issuer_pathway-001",
           "ae-pt-monetary_sovereignty-001",
-          "us-pss-issuer_pathway-001"
-        ],
-        "all_tier1_legal": true
-      },
-      "enrichment_status": "computed skeleton — derived fields only",
-      "enrichment_backlog": [
-        "infrastructure_overlap",
-        "bespoke_inbound_detail",
-        "curated_archetypes",
-        "prose_note",
-        "primary_source_verification"
-      ]
-    },
-    {
-      "corridor_id": "us-tw-skeleton",
-      "origin": "US",
-      "destination": "TW",
-      "direction": "directed",
-      "tier": "computed_skeleton",
-      "feasibility_class": "Pre-regime (no operative destination regime yet)",
-      "class_code": "pre_regime",
-      "compatibility_pair": "TW-US",
-      "inbound_mechanism": {
-        "test": "No operative inbound regime (draft VAS Act)",
-        "administrator": "FSC (Taiwan)",
-        "detail": null
-      },
-      "archetypes": [
-        "RC"
-      ],
-      "interaction_sets": [
-        "C"
-      ],
-      "origin_drag": false,
-      "infrastructure_overlap": null,
-      "provenance": {
-        "records": [
-          "tw-frs-issuer_pathway-001",
           "us-pss-issuer_pathway-001"
         ],
         "all_tier1_legal": true
@@ -545,44 +507,6 @@
           "ae-pt-issuer_pathway-001",
           "ae-pt-monetary_sovereignty-001",
           "eu-emt-issuer_pathway-001"
-        ],
-        "all_tier1_legal": true
-      },
-      "enrichment_status": "computed skeleton — derived fields only",
-      "enrichment_backlog": [
-        "infrastructure_overlap",
-        "bespoke_inbound_detail",
-        "curated_archetypes",
-        "prose_note",
-        "primary_source_verification"
-      ]
-    },
-    {
-      "corridor_id": "eu-tw-skeleton",
-      "origin": "EU",
-      "destination": "TW",
-      "direction": "directed",
-      "tier": "computed_skeleton",
-      "feasibility_class": "Pre-regime (no operative destination regime yet)",
-      "class_code": "pre_regime",
-      "compatibility_pair": "EU-TW",
-      "inbound_mechanism": {
-        "test": "No operative inbound regime (draft VAS Act)",
-        "administrator": "FSC (Taiwan)",
-        "detail": null
-      },
-      "archetypes": [
-        "RC"
-      ],
-      "interaction_sets": [
-        "C"
-      ],
-      "origin_drag": false,
-      "infrastructure_overlap": null,
-      "provenance": {
-        "records": [
-          "eu-emt-issuer_pathway-001",
-          "tw-frs-issuer_pathway-001"
         ],
         "all_tier1_legal": true
       },
@@ -1012,44 +936,6 @@
       ]
     },
     {
-      "corridor_id": "uk-tw-skeleton",
-      "origin": "UK",
-      "destination": "TW",
-      "direction": "directed",
-      "tier": "computed_skeleton",
-      "feasibility_class": "Pre-regime (no operative destination regime yet)",
-      "class_code": "pre_regime",
-      "compatibility_pair": "TW-UK",
-      "inbound_mechanism": {
-        "test": "No operative inbound regime (draft VAS Act)",
-        "administrator": "FSC (Taiwan)",
-        "detail": null
-      },
-      "archetypes": [
-        "RC"
-      ],
-      "interaction_sets": [
-        "C"
-      ],
-      "origin_drag": false,
-      "infrastructure_overlap": null,
-      "provenance": {
-        "records": [
-          "tw-frs-issuer_pathway-001",
-          "uk-frs-issuer_pathway-001"
-        ],
-        "all_tier1_legal": true
-      },
-      "enrichment_status": "computed skeleton — derived fields only",
-      "enrichment_backlog": [
-        "infrastructure_overlap",
-        "bespoke_inbound_detail",
-        "curated_archetypes",
-        "prose_note",
-        "primary_source_verification"
-      ]
-    },
-    {
       "corridor_id": "uk-jp-skeleton",
       "origin": "UK",
       "destination": "JP",
@@ -1380,44 +1266,6 @@
       ]
     },
     {
-      "corridor_id": "sg-tw-skeleton",
-      "origin": "SG",
-      "destination": "TW",
-      "direction": "directed",
-      "tier": "computed_skeleton",
-      "feasibility_class": "Pre-regime (no operative destination regime yet)",
-      "class_code": "pre_regime",
-      "compatibility_pair": "SG-TW",
-      "inbound_mechanism": {
-        "test": "No operative inbound regime (draft VAS Act)",
-        "administrator": "FSC (Taiwan)",
-        "detail": null
-      },
-      "archetypes": [
-        "RC"
-      ],
-      "interaction_sets": [
-        "C"
-      ],
-      "origin_drag": false,
-      "infrastructure_overlap": null,
-      "provenance": {
-        "records": [
-          "sg-scs-issuer_pathway-001",
-          "tw-frs-issuer_pathway-001"
-        ],
-        "all_tier1_legal": true
-      },
-      "enrichment_status": "computed skeleton — derived fields only",
-      "enrichment_backlog": [
-        "infrastructure_overlap",
-        "bespoke_inbound_detail",
-        "curated_archetypes",
-        "prose_note",
-        "primary_source_verification"
-      ]
-    },
-    {
       "corridor_id": "sg-jp-skeleton",
       "origin": "SG",
       "destination": "JP",
@@ -1655,44 +1503,6 @@
           "ae-pt-issuer_pathway-001",
           "ae-pt-monetary_sovereignty-001",
           "hk-frs-issuer_pathway-001"
-        ],
-        "all_tier1_legal": true
-      },
-      "enrichment_status": "computed skeleton — derived fields only",
-      "enrichment_backlog": [
-        "infrastructure_overlap",
-        "bespoke_inbound_detail",
-        "curated_archetypes",
-        "prose_note",
-        "primary_source_verification"
-      ]
-    },
-    {
-      "corridor_id": "hk-tw-skeleton",
-      "origin": "HK",
-      "destination": "TW",
-      "direction": "directed",
-      "tier": "computed_skeleton",
-      "feasibility_class": "Pre-regime (no operative destination regime yet)",
-      "class_code": "pre_regime",
-      "compatibility_pair": "HK-TW",
-      "inbound_mechanism": {
-        "test": "No operative inbound regime (draft VAS Act)",
-        "administrator": "FSC (Taiwan)",
-        "detail": null
-      },
-      "archetypes": [
-        "RC"
-      ],
-      "interaction_sets": [
-        "C"
-      ],
-      "origin_drag": false,
-      "infrastructure_overlap": null,
-      "provenance": {
-        "records": [
-          "hk-frs-issuer_pathway-001",
-          "tw-frs-issuer_pathway-001"
         ],
         "all_tier1_legal": true
       },
@@ -2520,44 +2330,6 @@
       ]
     },
     {
-      "corridor_id": "br-tw-skeleton",
-      "origin": "BR",
-      "destination": "TW",
-      "direction": "directed",
-      "tier": "computed_skeleton",
-      "feasibility_class": "Pre-regime (no operative destination regime yet)",
-      "class_code": "pre_regime",
-      "compatibility_pair": "BR-TW",
-      "inbound_mechanism": {
-        "test": "No operative inbound regime (draft VAS Act)",
-        "administrator": "FSC (Taiwan)",
-        "detail": null
-      },
-      "archetypes": [
-        "RC"
-      ],
-      "interaction_sets": [
-        "C"
-      ],
-      "origin_drag": false,
-      "infrastructure_overlap": null,
-      "provenance": {
-        "records": [
-          "br-vasp-issuer_pathway-001",
-          "tw-frs-issuer_pathway-001"
-        ],
-        "all_tier1_legal": true
-      },
-      "enrichment_status": "computed skeleton — derived fields only",
-      "enrichment_backlog": [
-        "infrastructure_overlap",
-        "bespoke_inbound_detail",
-        "curated_archetypes",
-        "prose_note",
-        "primary_source_verification"
-      ]
-    },
-    {
       "corridor_id": "br-jp-skeleton",
       "origin": "BR",
       "destination": "JP",
@@ -2918,44 +2690,6 @@
           "ae-pt-issuer_pathway-001",
           "ae-pt-monetary_sovereignty-001",
           "ch-frs-issuer_pathway-001"
-        ],
-        "all_tier1_legal": true
-      },
-      "enrichment_status": "computed skeleton — derived fields only",
-      "enrichment_backlog": [
-        "infrastructure_overlap",
-        "bespoke_inbound_detail",
-        "curated_archetypes",
-        "prose_note",
-        "primary_source_verification"
-      ]
-    },
-    {
-      "corridor_id": "ch-tw-skeleton",
-      "origin": "CH",
-      "destination": "TW",
-      "direction": "directed",
-      "tier": "computed_skeleton",
-      "feasibility_class": "Pre-regime (no operative destination regime yet)",
-      "class_code": "pre_regime",
-      "compatibility_pair": "CH-TW",
-      "inbound_mechanism": {
-        "test": "No operative inbound regime (draft VAS Act)",
-        "administrator": "FSC (Taiwan)",
-        "detail": null
-      },
-      "archetypes": [
-        "RC"
-      ],
-      "interaction_sets": [
-        "C"
-      ],
-      "origin_drag": false,
-      "infrastructure_overlap": null,
-      "provenance": {
-        "records": [
-          "ch-frs-issuer_pathway-001",
-          "tw-frs-issuer_pathway-001"
         ],
         "all_tier1_legal": true
       },
@@ -3330,44 +3064,6 @@
           "ae-pt-issuer_pathway-001",
           "ch-frs-issuer_pathway-001",
           "ch-frs-monetary_sovereignty-001"
-        ],
-        "all_tier1_legal": true
-      },
-      "enrichment_status": "computed skeleton — derived fields only",
-      "enrichment_backlog": [
-        "infrastructure_overlap",
-        "bespoke_inbound_detail",
-        "curated_archetypes",
-        "prose_note",
-        "primary_source_verification"
-      ]
-    },
-    {
-      "corridor_id": "ae-tw-skeleton",
-      "origin": "AE",
-      "destination": "TW",
-      "direction": "directed",
-      "tier": "computed_skeleton",
-      "feasibility_class": "Pre-regime (no operative destination regime yet)",
-      "class_code": "pre_regime",
-      "compatibility_pair": "AE-TW",
-      "inbound_mechanism": {
-        "test": "No operative inbound regime (draft VAS Act)",
-        "administrator": "FSC (Taiwan)",
-        "detail": null
-      },
-      "archetypes": [
-        "RC"
-      ],
-      "interaction_sets": [
-        "C"
-      ],
-      "origin_drag": false,
-      "infrastructure_overlap": null,
-      "provenance": {
-        "records": [
-          "ae-pt-issuer_pathway-001",
-          "tw-frs-issuer_pathway-001"
         ],
         "all_tier1_legal": true
       },
@@ -4182,44 +3878,6 @@
           "ae-pt-issuer_pathway-001",
           "ae-pt-monetary_sovereignty-001",
           "jp-epi-issuer_pathway-001"
-        ],
-        "all_tier1_legal": true
-      },
-      "enrichment_status": "computed skeleton — derived fields only",
-      "enrichment_backlog": [
-        "infrastructure_overlap",
-        "bespoke_inbound_detail",
-        "curated_archetypes",
-        "prose_note",
-        "primary_source_verification"
-      ]
-    },
-    {
-      "corridor_id": "jp-tw-skeleton",
-      "origin": "JP",
-      "destination": "TW",
-      "direction": "directed",
-      "tier": "computed_skeleton",
-      "feasibility_class": "Pre-regime (no operative destination regime yet)",
-      "class_code": "pre_regime",
-      "compatibility_pair": "JP-TW",
-      "inbound_mechanism": {
-        "test": "No operative inbound regime (draft VAS Act)",
-        "administrator": "FSC (Taiwan)",
-        "detail": null
-      },
-      "archetypes": [
-        "RC"
-      ],
-      "interaction_sets": [
-        "C"
-      ],
-      "origin_drag": false,
-      "infrastructure_overlap": null,
-      "provenance": {
-        "records": [
-          "jp-epi-issuer_pathway-001",
-          "tw-frs-issuer_pathway-001"
         ],
         "all_tier1_legal": true
       },

@@ -1,7 +1,7 @@
 {
   "register": "Cross-Border Stablecoin Register",
   "version": "0.9.9",
-  "generated": "2026-07-03",
+  "generated": "2026-07-04",
   "endpoint": "date_matrix",
   "guardrail": "static projection of the public register; no facts added here",
   "data": {
@@ -985,6 +985,13 @@
         "title": "Japan Act No. 66 of 2025 full enforcement (trust-type reserve relaxation)",
         "effective_date": "2026-06-01",
         "trigger_kind": "dated-empty-effect",
+        "moves_a_class": false
+      },
+      {
+        "event_id": "jp-foreign-stablecoin-recognition",
+        "title": "Japan recognises equivalent foreign trust-type stablecoins as Electronic Payment Instruments (Cabinet Office Ordinance)",
+        "effective_date": "2026-06-01",
+        "trigger_kind": "inbound-recognition",
         "moves_a_class": false
       },
       {

@@ -17,6 +17,92 @@ version, while each release below carries its own version DOI.
 > that read "a bill" the morning of the snapshot is moved to enacted-but-not-commenced, exactly the case the
 > method exists to absorb. No claim is asserted beyond its verified backing.
 
+### Fixed (post-release consistency patch)
+- **Constraint substrate now reflects Taiwan's enactment.** The v0.9.9 dateline update moved Taiwan's
+  records and the signal table to enacted-not-commenced, but the Taiwan C1 constraint-substrate pole was
+  left at `no_pathway` (pre-regime). Re-running `scripts/substrate.py` and `scripts/build_edge_skeletons.py`
+  therefore produced a definite `pre_regime` class for the nine inbound edges into Taiwan that disagreed
+  with the signal `compose()` (which reads Category T, regime-in-transition), and `build.py` failed on that
+  cross-check. Taiwan's C1 pole is now `licence_gated` with `exportable_token:false` (the
+  enacted-not-commenced signature: a legislated approval-gated pathway exists, but no token is exportable
+  until licences issue), mirroring the UK regime-in-transition treatment. `compose_via_substrate` now
+  returns `indeterminate` inbound (the time engine owns the commencement) and Category III outbound via the
+  origin drag, matching the signal compose. The stale `computed_substrate.json`,
+  `computed_corridor_skeletons.json`, and `verification_worklist.json` (which still described Taiwan as a
+  draft bill) are regenerated. Edge-layer coverage moves 124/132 to 115/132 (the nine Taiwan inbound edges
+  join the eight UK ones as regime-in-transition indeterminate); invariant **A3** and the METHODOLOGY
+  substrate paragraph are updated to match.
+- **CI now regenerates every pure derivative before `build.py`.** `scripts/substrate.py`,
+  `scripts/build_edge_skeletons.py`, `scripts/stakeholders.py`, and `scripts/build_worklist.py` are added to
+  the CI regeneration block ahead of `build.py`, so the reproducibility gate (a `git diff` on `dataset.json`,
+  `analysis/`, and `api/`) also covers them and a stale substrate, skeleton, or worklist can no longer be
+  committed. This closes the drift class that let the Taiwan substrate lag: these four generators ship
+  artifacts but were not previously re-run in CI.
+- **Result:** the full documented pipeline (all generators, then `build.py`, `run_invariants.py`,
+  `run_negative_tests.py`, `check_readme_counts.py`) is green and reproducible from a clean checkout;
+  47/47 invariants hold and 9/9 negative tests bite.
+
+### Fixed / Added (post-release consistency patch, round 2)
+- **Stale cross-jurisdiction reference corrected (KR).** `kr-frs-regulatory_authority-001.yaml` still read
+  "Analytically paired with Taiwan as pre-regime", which contradicts §3.4 after Taiwan's 30 Jun 2026
+  enactment. It now reads that Taiwan transitioned to enacted-not-commenced on 2026-06-30 and South Korea
+  is the sole remaining pre-regime origin, holding the both-directions pending position alone. This drift
+  form (a hand-written note describing ANOTHER jurisdiction's state) sits outside the CI reproducibility
+  gate and outside B1/B3 (which only check a cell's own binding-status wording).
+- **New gate X1 closes that drift form.** A lint fails the invariant suite if any record's prose calls
+  another jurisdiction pre-regime while that jurisdiction's signal is not pre_regime; a matching negative
+  test (`xref-pre-regime`) proves it bites. Invariants 47 -> 49 (with F1 below); negative tests 9 -> 10.
+- **Japan foreign-stablecoin recognition is now a first-class event.** The same-date Cabinet Office
+  Ordinance (effective 1 Jun 2026) recognising equivalent foreign trust-type stablecoins was folded into
+  the Act No. 66 event's prose; it is now its own event `jp-foreign-stablecoin-recognition` with a new
+  `inbound-recognition` trigger kind (a dated, in-force change that opens an inbound recognition channel
+  handled by conditioning, asserting no new class), backed by the JP C7 channelled-admission record. This
+  is the second same-day change §3.6 separates and the dated recognition instance §5.3 uses. Event count
+  7 -> 8; invariant T1 updated.
+- **New per-jurisdiction supervisor forward view (Atlas §4.4).** `scripts/build_forward_view.py` emits
+  `analysis/computed_forward_view.json`, re-sorting the trigger register BY JURISDICTION: each
+  jurisdiction's own pending events (flagged class-moving vs accessibility-only), the inbound and outbound
+  edges that reclassify under the pending set (split into own-trigger-driven vs counterpart-driven and
+  attributed to the trigger causing each), the counterpart jurisdictions ranked by exposure, and a
+  supervisor_reading. It asserts no new facts (re-projects `computed_corridor_states.json` +
+  `event_calendar.json`). Surfaced as `api/forward.json` and a `forward` block on each
+  `api/jurisdictions/{X}.json`, and as MCP tool `forward_view(jurisdiction)` (bundled into `dataset.json`
+  so the tool can read it). New invariant **F1** checks it is well-formed (12 jurisdictions; the EU's own
+  pending change is accessibility-only with no own-driven class movement; KR's own trigger is the
+  both-directions one; provenance asserts no new facts). Added to CI ahead of `build_api.py`. MCP tools
+  32 -> 33.
+- **The two derivative-paper PDFs re-exported to v0.9.9.** `pdf/Cross-Border_Stablecoin_Feasibility_Over_Time_v0.1.0.pdf`
+  and `pdf/Citable_by_Construction_Methodology_v0.1.0.pdf` still referenced CBSR v0.9.8 while their `.md`
+  sources are v0.9.9. PDF rendering is a binary generator outside the `git diff` reproducibility gate, so
+  it lagged a version. Both are re-exported from the current `.md` (pandoc + xelatex, 25 and 14 pages as
+  before) and now reference CBSR v0.9.9 with no stale v0.9.8. (Note: `pdf/DISCLOSURE.pdf` also shows
+  v0.9.8, but that is a stale SOURCE — `DISCLOSURE.md` itself reads v0.9.8 — so it is a content edit, not
+  a re-export, and is left to the maintainer.)
+- **Result:** full pipeline green and reproducible in a single CI pass (exit 0 on the `git diff` gate);
+  49/49 invariants hold and 10/10 negative tests bite.
+
+### Polish (post-release, round 3 — textual/alignment only, no behaviour change)
+- **`horizon_rule` and the MCP `events_by_kind` note now enumerate `inbound-recognition`** alongside
+  `dated-empty-effect` and `intra-regime-gating` as the dated-but-horizon-inert kinds. The principle was
+  already correct (only `fully-scheduled` moves a horizon); the enumeration just omitted the new kind.
+- **The Japan recognition event is now dual-backed.** `jp-foreign-stablecoin-recognition` cited only the
+  C7 channelled-admission cell (`jp-epi-monetary_sovereignty-001`, the most on-point: it is the
+  recognition-and-registration channel §86 scores as Category II). It now also cites the C1 issuer/EPIESP
+  cell (`jp-epi-issuer_pathway-001`), since a recognised foreign token reaches Japan only through a
+  registered EPIESP; both are tier1_legal + in_force, so the backing is stronger and the event-provenance
+  gate still holds.
+- **Companion paper aligned to the register's 10-kind legend (§3).** The register's `inbound-recognition`
+  was a kind the paper's typology named only in passing; the Feasibility paper's §3.11 table now names both
+  Japan same-day kinds (`Dated-empty-effect`, `Inbound recognition`) rather than the uninformative "In
+  force", the §3.11 intro count is corrected (ten -> eleven entries, matching the 11 rows), and the §3
+  typology paragraph names `dated-empty-effect` and `inbound-recognition` as kinds. The Feasibility PDF is
+  re-exported (25 pages, CBSR v0.9.9). (The `Six kinds recur` phrasing in §3 counts the primary recurring
+  trigger kinds and is left as authored; the register now names 10 kinds in total.)
+- **Result:** unchanged behaviour; 49/49 invariants, 10/10 negative tests, single-pass reproducibility
+  exit 0.
+
+
+
 ### Added — trigger typology and the MiCA event (Phase 1 backflow)
 - **Event calendar** (`analysis/event_calendar.json`): every event now carries a `trigger_kind` implementing
   the flagship §3 typology, defined in a new `trigger_kind_legend`. Added the 7th event, the EU MiCA

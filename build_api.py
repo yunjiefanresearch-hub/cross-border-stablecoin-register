@@ -31,6 +31,8 @@ SENS_PATH = ROOT / "analysis" / "computed_sensitivity.json"
 SENS = json.loads(SENS_PATH.read_text(encoding="utf-8")) if SENS_PATH.exists() else {}
 SETT_PATH = ROOT / "analysis" / "computed_settlement.json"
 SETT = json.loads(SETT_PATH.read_text(encoding="utf-8")) if SETT_PATH.exists() else {}
+FV_PATH = ROOT / "analysis" / "computed_forward_view.json"
+FV = json.loads(FV_PATH.read_text(encoding="utf-8")) if FV_PATH.exists() else {}
 
 RECORDS = DS["records"]
 J12 = STATES["jurisdictions"]
@@ -80,6 +82,7 @@ def build():
                      {"axes": ["claim_class", "evidence_tier", "binding_status"]})))
 
     # per-jurisdiction
+    _fvj = (FV.get("jurisdictions") or {})
     for j in J12:
         jr = [s for s in slim if s["jurisdiction"] == j]
         cit = [c for c in DS["citable_subset"]["records"] if c["jurisdiction"] == j]
@@ -87,6 +90,7 @@ def build():
         written.append(_w(f"jurisdictions/{j}.json", _envelope("jurisdiction", {
             "jurisdiction": j, "records": jr, "citable_cells": cit,
             "outbound_classes_at_base": sig,
+            "forward": _fvj.get(j, {}),  # §4.4 supervisor forward view: pending events + reclassified edges + counterpart exposure
         })))
 
     # ---- events + by-kind ----------------------------------------------------
@@ -159,6 +163,10 @@ def build():
     if SETT:
         written.append(_w("settlement.json", _envelope("settlement", SETT)))
 
+    # ---- per-jurisdiction supervisor forward view (§4.4 re-sort) -------------
+    if FV:
+        written.append(_w("forward.json", _envelope("forward_view", FV)))
+
     # ---- verification worklist (honest residual) ----------------------------
     wl = DS["analysis"]["verification_worklist"]
     written.append(_w("worklist.json", _envelope("verification_worklist", {
@@ -178,6 +186,7 @@ def build():
         "convergence": "convergence.json" if CONV else None,
         "sensitivity": "sensitivity.json" if SENS else None,
         "settlement": "settlement.json" if SETT else None,
+        "forward": "forward.json" if FV else None,
         "citable": "citable.json",
         "reconciliation": "reconciliation.json",
         "worklist": "worklist.json",

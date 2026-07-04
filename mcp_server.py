@@ -120,7 +120,7 @@ def about() -> dict:
             "constraint_substrate": f"{COMPUTED_SUBSTRATE.get('coverage', {}).get('cells_populated', 0)}/96 C1-C8 poles populated — see constraint_substrate()",
             "deep_compose": "compose_via_substrate(origin, destination) derives feasibility through the interaction-set rules; indeterminate where poles are unset",
         },
-        "tool_count": 23,
+        "tool_count": 33,
         "verification_rule": (
             "A record is verified only when it has no open markers AND a human has checked "
             "every source.primary and pinpoint against the instrument itself. Citations are "
@@ -911,8 +911,8 @@ def events_by_kind(kind: Optional[str] = None) -> dict:
 
     Returns the trigger_kind_legend (purpose, per-kind definitions, and the horizon rule), the events
     bucketed by trigger_kind, and a per-kind moves_a_horizon flag. Optional `kind` filter (e.g.
-    'fully-scheduled', 'intra-regime-gating', 'dated-empty-effect', 'contingent-no-date',
-    'enacted-not-commenced', 'contingent-not-class-change').
+    'fully-scheduled', 'intra-regime-gating', 'dated-empty-effect', 'inbound-recognition',
+    'contingent-no-date', 'enacted-not-commenced', 'contingent-not-class-change').
     """
     if not EVENT_CALENDAR:
         return {"error": "event calendar not present (run scripts/compose.py then build.py)"}
@@ -938,9 +938,10 @@ def events_by_kind(kind: Optional[str] = None) -> dict:
         "horizon_rule": legend.get("horizon_rule"),
         "legend": legend,
         "note": ("Only fully-scheduled events with a non-empty effect move a compose() horizon. "
-                 "dated-empty-effect and intra-regime-gating events are dated but move no feasibility "
-                 "class; contingent kinds have no date and are surfaced only as if-enacted branches. "
-                 "This grouping asserts no new facts — trigger_kind is a field on each event."),
+                 "dated-empty-effect, intra-regime-gating, and inbound-recognition events are dated "
+                 "but move no feasibility class; contingent kinds have no date and are surfaced only "
+                 "as if-enacted branches. This grouping asserts no new facts — trigger_kind is a field "
+                 "on each event."),
     }
 
 
@@ -988,6 +989,48 @@ def convergence(side: Optional[str] = None) -> dict:
         "backlog_or_not_applicable": c.get("backlog_or_not_applicable"),
         "summary_counts": c.get("summary_counts"),
         "provenance": c.get("provenance"),
+    }
+
+
+COMPUTED_FORWARD_VIEW: dict = ANALYSIS.get("computed_forward_view", {})
+
+
+@mcp.tool()
+def forward_view(jurisdiction: Optional[str] = None) -> dict:
+    """
+    The per-jurisdiction supervisor forward view (Atlas §4.4): the trigger register re-sorted BY
+    JURISDICTION rather than by trigger, into the view a supervisory reader actually needs. For a
+    jurisdiction it answers: which pending developments will change the corridors INTO and OUT OF my
+    jurisdiction, and which counterpart jurisdictions am I most exposed to. Each jurisdiction carries its
+    own pending events (flagged class-moving vs accessibility-only), the inbound and outbound directed
+    edges that change feasibility class under the pending set (each attributed to the trigger causing it
+    and split into own-trigger-driven vs counterpart-driven), the counterpart jurisdictions on the other
+    end ranked by exposure, and a one-line supervisor_reading. It asserts NO new facts: every movement is
+    read from the corridor-state precompute and every event from the event calendar.
+
+    This is the view §4.4 calls the change that makes the forward map usable to supervisory readers: it
+    turns "the EU is low-sensitivity" into the operational statement that the EU's own pending change
+    (the MiCA 143(3) expiry) is accessibility-only and moves no class, while separately a set of the EU's
+    corridors will reclassify when counterparts enact. Pass `jurisdiction` (e.g. 'EU', 'KR') for one
+    jurisdiction; omit it for all twelve plus the reading key.
+    """
+    if not COMPUTED_FORWARD_VIEW:
+        return {"error": "forward view not present (run scripts/build_forward_view.py then build.py)"}
+    fv = COMPUTED_FORWARD_VIEW
+    per = fv.get("jurisdictions", {})
+    if jurisdiction:
+        j = jurisdiction.upper()
+        if j not in per:
+            return {"error": f"unknown jurisdiction {jurisdiction!r}", "valid": sorted(per.keys())}
+        return {"as_of_base": fv.get("as_of_base"), "jurisdiction": j,
+                "forward": per[j], "reading_key": fv.get("reading_key"),
+                "provenance": fv.get("provenance")}
+    return {
+        "as_of_base": fv.get("as_of_base"),
+        "method": fv.get("method"),
+        "reading_key": fv.get("reading_key"),
+        "jurisdictions": per,
+        "provenance": fv.get("provenance"),
     }
 
 

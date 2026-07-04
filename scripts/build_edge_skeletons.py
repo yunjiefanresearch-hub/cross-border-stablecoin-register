@@ -135,7 +135,7 @@ def build_edge_skeletons():
             "edges_with_a_record": len(authored) + len(skeletons),
             "edges_total": len(J12) * (len(J12) - 1),
             "indeterminate_edges": n_indeterminate,
-            "indeterminate_note": "indeterminate edges are those into the UK (inbound gate in transition) that are not origin-dragged — the time engine's domain",
+            "indeterminate_note": "indeterminate edges are those into the UK and Taiwan (inbound gate in transition) that are not origin-dragged — the time engine's domain",
         },
         "cross_check": {"disagreements_with_signal": disagreements, "clean": not disagreements},
         "provenance": {"nontier1_skeletons": bad_prov, "clean": not bad_prov},

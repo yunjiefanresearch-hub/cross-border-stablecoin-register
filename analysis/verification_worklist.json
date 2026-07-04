@@ -417,9 +417,9 @@
       "constraint_ref": "C5",
       "dimension": "bank_nonbank_routing",
       "claim_class": "tier1_legal",
-      "status": "proposed",
-      "instrument": "Draft Virtual Asset Service Act",
-      "pinpoint": "Issuance/routing architecture — pending enactment",
+      "status": "transitional",
+      "instrument": "Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced)",
+      "pinpoint": "Issuance/routing architecture: delegated to FSC subsidiary legislation (enacted, not commenced)",
       "has_url": false,
       "missing_for": {
         "firm_summary": [
@@ -442,9 +442,9 @@
       "constraint_ref": "C8",
       "dimension": "disclosure_reporting",
       "claim_class": "tier1_legal",
-      "status": "proposed",
-      "instrument": "Draft Virtual Asset Service Act; AML registration regime",
-      "pinpoint": "Disclosure/supervision — pending enactment",
+      "status": "transitional",
+      "instrument": "Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced); AML registration regime",
+      "pinpoint": "Disclosure/supervision: take effect on commencement (enacted, not commenced; detail pending subsidiary legislation)",
       "has_url": false,
       "missing_for": {
         "firm_summary": [
@@ -467,9 +467,9 @@
       "constraint_ref": "C4",
       "dimension": "securities_classification",
       "claim_class": "tier1_legal",
-      "status": "proposed",
-      "instrument": "Draft Virtual Asset Service Act; AML registration regime for VASPs",
-      "pinpoint": "Securities characterization — pending the enacted VAS Act",
+      "status": "transitional",
+      "instrument": "Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced); AML registration regime for VASPs",
+      "pinpoint": "Securities characterization: within the FSC virtual-asset perimeter (enacted, not commenced; boundary pending subsidiary legislation)",
       "has_url": false,
       "missing_for": {
         "firm_summary": [

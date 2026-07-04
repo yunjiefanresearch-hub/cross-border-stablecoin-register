@@ -1,7 +1,7 @@
 {
   "schema": "cbsr-analysis/computed_corridor_states",
   "version": "v0.9.9",
-  "generated": "2026-07-03",
+  "generated": "2026-07-04",
   "as_of_base": "2026-06-30",
   "jurisdictions": [
     "US",
@@ -34,10 +34,11 @@
       "parameterization": "operationalization of a constraint that already binds; sharpens the operative content of a class without moving one (§3.7, EBA, carried in open_questions).",
       "intra-regime-gating": "a DATED change in law that alters accessibility WITHIN a live regime (who may operate; which tokens are admissible) without moving any feasibility class (§3.10, EU MiCA).",
       "dated-empty-effect": "a dated, now-in-force change with an explicitly empty feasibility-class effect; the control case showing the calendar distinguishes a change in law from a change in feasibility class (§3.6, JP).",
+      "inbound-recognition": "a dated, now-in-force change in law that opens an inbound recognition or equivalence channel for qualifying foreign instruments; its reach is set by the recognition criteria and is handled by conditioning (the existing Category II channelled treatment), so it asserts no new class (§3.6 second same-day change; §5.3 dated recognition instance, JP).",
       "open-compositional": "information rather than a change in law, whose resolution feeds another jurisdiction's analysis (§3.8, HK 2nd cohort, carried in open_questions).",
       "resolved-tightening": "an asymmetric posture: a boundary's recent movement is settled in one direction while a reversing development stays open (§3.9, PRC, carried in open_questions)."
     },
-    "horizon_rule": "Only fully-scheduled events move a compose() horizon. dated-empty-effect and intra-regime-gating events are dated but move no feasibility class, so they appear on the timeline without changing any corridor's category, by design."
+    "horizon_rule": "Only fully-scheduled events move a compose() horizon. dated-empty-effect, intra-regime-gating, and inbound-recognition events are dated but move no feasibility class, so they appear on the timeline without changing any corridor's category, by design."
   },
   "engine": {
     "algorithm": "Atlas §3.2: origin-drag first (a non-exportable origin -> Category III), else the destination's inbound-gate class. Identical to scripts/compose.py compose_directed().",
@@ -169,6 +170,15 @@
         "title": "Japan Act No. 66 of 2025 full enforcement (trust-type reserve relaxation)",
         "effective_date": "2026-06-01",
         "trigger_kind": "dated-empty-effect",
+        "effects": [],
+        "moves_a_class": false
+      },
+      {
+        "id": "jp-foreign-stablecoin-recognition",
+        "jurisdiction": "JP",
+        "title": "Japan recognises equivalent foreign trust-type stablecoins as Electronic Payment Instruments (Cabinet Office Ordinance)",
+        "effective_date": "2026-06-01",
+        "trigger_kind": "inbound-recognition",
         "effects": [],
         "moves_a_class": false
       },
@@ -1248,6 +1258,13 @@
           "effective_date": "2026-06-01",
           "trigger_kind": "dated-empty-effect",
           "moves_a_class": false
+        },
+        {
+          "event_id": "jp-foreign-stablecoin-recognition",
+          "title": "Japan recognises equivalent foreign trust-type stablecoins as Electronic Payment Instruments (Cabinet Office Ordinance)",
+          "effective_date": "2026-06-01",
+          "trigger_kind": "inbound-recognition",
+          "moves_a_class": false
         }
       ],
       "changes_vs_base": []
@@ -2227,6 +2244,13 @@
           "effective_date": "2026-06-01",
           "trigger_kind": "dated-empty-effect",
           "moves_a_class": false
+        },
+        {
+          "event_id": "jp-foreign-stablecoin-recognition",
+          "title": "Japan recognises equivalent foreign trust-type stablecoins as Electronic Payment Instruments (Cabinet Office Ordinance)",
+          "effective_date": "2026-06-01",
+          "trigger_kind": "inbound-recognition",
+          "moves_a_class": false
         }
       ],
       "changes_vs_base": []
@@ -3205,6 +3229,13 @@
           "title": "Japan Act No. 66 of 2025 full enforcement (trust-type reserve relaxation)",
           "effective_date": "2026-06-01",
           "trigger_kind": "dated-empty-effect",
+          "moves_a_class": false
+        },
+        {
+          "event_id": "jp-foreign-stablecoin-recognition",
+          "title": "Japan recognises equivalent foreign trust-type stablecoins as Electronic Payment Instruments (Cabinet Office Ordinance)",
+          "effective_date": "2026-06-01",
+          "trigger_kind": "inbound-recognition",
           "moves_a_class": false
         },
         {
@@ -4198,6 +4229,13 @@
           "title": "Japan Act No. 66 of 2025 full enforcement (trust-type reserve relaxation)",
           "effective_date": "2026-06-01",
           "trigger_kind": "dated-empty-effect",
+          "moves_a_class": false
+        },
+        {
+          "event_id": "jp-foreign-stablecoin-recognition",
+          "title": "Japan recognises equivalent foreign trust-type stablecoins as Electronic Payment Instruments (Cabinet Office Ordinance)",
+          "effective_date": "2026-06-01",
+          "trigger_kind": "inbound-recognition",
           "moves_a_class": false
         },
         {

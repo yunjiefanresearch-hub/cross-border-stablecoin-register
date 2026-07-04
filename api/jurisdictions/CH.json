@@ -1,7 +1,7 @@
 {
   "register": "Cross-Border Stablecoin Register",
   "version": "0.9.9",
-  "generated": "2026-07-03",
+  "generated": "2026-07-04",
   "endpoint": "jurisdiction",
   "guardrail": "static projection of the public register; no facts added here",
   "data": {
@@ -289,6 +289,74 @@
         "rule": "destination_gate:pre_regime",
         "origin_override": false
       }
+    },
+    "forward": {
+      "jurisdiction": "CH",
+      "own_pending_events": [],
+      "summary": {
+        "own_driven_inbound": 0,
+        "own_driven_outbound": 0,
+        "counterpart_driven_inbound": 1,
+        "counterpart_driven_outbound": 3,
+        "accessibility_only_own_events": 0
+      },
+      "inbound_reclassified": [
+        {
+          "counterpart": "KR",
+          "from": "III",
+          "to": "I",
+          "via_trigger": "kr-daba-enacted",
+          "trigger_jurisdiction": "KR",
+          "timing": "contingent (if enacted)"
+        }
+      ],
+      "outbound_reclassified": [
+        {
+          "counterpart": "KR",
+          "from": "pre_regime",
+          "to": "II",
+          "via_trigger": "kr-daba-enacted",
+          "trigger_jurisdiction": "KR",
+          "timing": "contingent (if enacted)"
+        },
+        {
+          "counterpart": "TW",
+          "from": "T",
+          "to": "II",
+          "via_trigger": "tw-vas-act-enacted",
+          "trigger_jurisdiction": "TW",
+          "timing": "contingent (if enacted)"
+        },
+        {
+          "counterpart": "UK",
+          "from": "T",
+          "to": "I",
+          "via_trigger": "uk-systemic-regime-operative",
+          "trigger_jurisdiction": "UK",
+          "timing": "scheduled 2027-10-25"
+        }
+      ],
+      "counterpart_exposure": [
+        {
+          "counterpart": "KR",
+          "edges_affected": 2,
+          "inbound": 1,
+          "outbound": 1
+        },
+        {
+          "counterpart": "TW",
+          "edges_affected": 1,
+          "inbound": 0,
+          "outbound": 1
+        },
+        {
+          "counterpart": "UK",
+          "edges_affected": 1,
+          "inbound": 0,
+          "outbound": 1
+        }
+      ],
+      "supervisor_reading": "CH has no class-moving or accessibility-changing pending event of its own. Separately, 1 inbound and 3 outbound corridor(s) of CH will reclassify when counterparts enact; most exposed counterpart(s): KR (2), TW (1), UK (1)."
     }
   }
 }

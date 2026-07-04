@@ -110,9 +110,26 @@
       "trigger_kind": "dated-empty-effect",
       "effect": [],
       "basis": "Act No. 66 of 2025 relaxing trust-type reserve rules; refines an already-live EPI regime.",
-      "date_basis": "Act No. 66 of 2025 promulgated 13 Jun 2025; took effect 1 Jun 2026 and is now in force as of the base date. Effect on compose() is NONE (control case): Japan is already 'live', so relaxing trust-type reserve composition moves no inbound gate and changes no edge class. Included to show the calendar distinguishes a change in law from a change in feasibility class. The same-date Cabinet Office Ordinance recognising equivalent foreign trust-type stablecoins is an inbound recognition pathway handled by conditioning (the existing Category II channelled treatment), not by asserting a class change here.",
+      "date_basis": "Act No. 66 of 2025 promulgated 13 Jun 2025; took effect 1 Jun 2026 and is now in force as of the base date. Effect on compose() is NONE (control case): Japan is already 'live', so relaxing trust-type reserve composition moves no inbound gate and changes no edge class. Included to show the calendar distinguishes a change in law from a change in feasibility class. The same-date Cabinet Office Ordinance recognising equivalent foreign trust-type stablecoins is now recorded as its own first-class event (jp-foreign-stablecoin-recognition), not folded here.",
       "records": [
         "jp-epi-reserve_backing-001"
+      ]
+    },
+    {
+      "id": "jp-foreign-stablecoin-recognition",
+      "jurisdiction": "JP",
+      "title": "Japan recognises equivalent foreign trust-type stablecoins as Electronic Payment Instruments (Cabinet Office Ordinance)",
+      "status": "in_force",
+      "effective_date": "2026-06-01",
+      "precision": "day",
+      "claim_class": "tier1_legal",
+      "trigger_kind": "inbound-recognition",
+      "effect": [],
+      "basis": "Cabinet Office Ordinance effective 1 Jun 2026 recognising foreign trust-type stablecoins judged equivalent to the Japanese regime as electronic payment instruments, admitted through a registered EPIESP; opens an inbound recognition channel whose reach is set by the equivalence criteria.",
+      "date_basis": "Effective 1 Jun 2026 (same date as Act No. 66 full enforcement, but a distinct change with a different character). This is the second same-day change the paper separates at §3.6: not a domestic reserve adjustment but an inbound-side development that opens a recognition pathway for qualifying foreign trust-type stablecoins. Effect on edge class is handled by CONDITIONING, not asserted: a recognised foreign token reaches Japan through the recognition-and-registration channel the directed model already scores as Category II (channelled), and the operative reach of that channel turns on the equivalence determination (the open variable). No new class is asserted on its account beyond the existing Category II channelled treatment of inbound-to-Japan edges. This is the dated, concrete instance §5.3 refers to: recognition and equivalence functioning as the interoperability protocol of the regulatory layer, dated to a specific instrument on a specific day.",
+      "records": [
+        "jp-epi-monetary_sovereignty-001",
+        "jp-epi-issuer_pathway-001"
       ]
     },
     {
