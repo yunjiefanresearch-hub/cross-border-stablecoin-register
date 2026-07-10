@@ -33,6 +33,10 @@ SETT_PATH = ROOT / "analysis" / "computed_settlement.json"
 SETT = json.loads(SETT_PATH.read_text(encoding="utf-8")) if SETT_PATH.exists() else {}
 FV_PATH = ROOT / "analysis" / "computed_forward_view.json"
 FV = json.loads(FV_PATH.read_text(encoding="utf-8")) if FV_PATH.exists() else {}
+CD_PATH = ROOT / "analysis" / "computed_corridors_directed.json"
+CD = json.loads(CD_PATH.read_text(encoding="utf-8")) if CD_PATH.exists() else {}
+ST_PATH = ROOT / "analysis" / "signal_table.json"
+ST = json.loads(ST_PATH.read_text(encoding="utf-8")) if ST_PATH.exists() else {}
 
 RECORDS = DS["records"]
 J12 = STATES["jurisdictions"]
@@ -136,6 +140,29 @@ def build():
             written.append(_w(f"corridors/{key}.json", _envelope("corridor", {
                 "corridor": key, "timeline": timeline, "whatif": whatif})))
 
+    # ---- directed-132 corridor layer (every ordered pair, one directed edge each) ----
+    # Projection of analysis/computed_corridors_directed.json: 9 authored + 106 skeletons +
+    # 17 transition edges = 132. Every class_code is DERIVED from analysis/signal_table.json by
+    # tools/class_rule.py; compatibility_category is enforced against the §5.14 pair by build.py
+    # (check_directed_cross_layer) and run_invariants.py (DC1–DC4).
+    if CD:
+        for e in CD.get("edges", []):
+            key = f"{e['origin']}-{e['destination']}"
+            written.append(_w(f"corridors_directed/{key}.json", _envelope("corridor_directed", e)))
+        written.append(_w("corridors_directed.json", _envelope("corridors_directed_index", {
+            "coverage": CD.get("coverage", {}),
+            "cross_check": CD.get("cross_check", {}),
+            "provenance": CD.get("provenance", {}),
+            "note": CD.get("note"),
+            "edges": {f"{e['origin']}-{e['destination']}": f"corridors_directed/{e['origin']}-{e['destination']}.json"
+                      for e in CD.get("edges", [])},
+        })))
+
+    # ---- the signal table the directed classes are derived from --------------
+    # Published so an agent can re-derive every class itself instead of trusting the class column.
+    if ST:
+        written.append(_w("signal_table.json", _envelope("signal_table", ST)))
+
     # ---- convergence ---------------------------------------------------------
     if CONV:
         written.append(_w("convergence.json", _envelope("convergence", CONV)))
@@ -183,6 +210,8 @@ def build():
         "corridor_states": "corridor_states.json",
         "dates": {st["as_of"]: f"dates/{st['as_of']}.json" for st in STATES["date_states"]},
         "corridors": corridor_keys,
+        "corridors_directed": "corridors_directed.json" if CD else None,
+        "signal_table": "signal_table.json" if ST else None,
         "convergence": "convergence.json" if CONV else None,
         "sensitivity": "sensitivity.json" if SENS else None,
         "settlement": "settlement.json" if SETT else None,
@@ -198,6 +227,14 @@ def build():
     }))
 
     print(f"wrote api/ — {len(written) + 1} JSON files")
+    if CD:
+        cc = CD.get("coverage", {})
+        print(f"  corridors_directed: {cc.get('edges_total')} directed edges "
+              f"({cc.get('authored')}+{cc.get('computed_skeleton')}+{cc.get('computed_transition')}) "
+              f"under api/corridors_directed/ + index; classes {cc.get('class_distribution')}")
+    if ST:
+        print(f"  signal_table: the 60 signals + the published class rule, so a consumer can "
+              f"re-derive all 132 classes rather than trust them")
     print(f"  meta, records (+{len(J12)} jurisdictions), events (+by_kind),")
     print(f"  corridor_states (+{len(STATES['date_states'])} dates, +{len(corridor_keys)} corridors),")
     print(f"  convergence, citable ({DS['citable_subset']['count']}), reconciliation, worklist, index")

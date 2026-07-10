@@ -1,0 +1,58 @@
+{
+  "register": "Cross-Border Stablecoin Register",
+  "version": "0.10.1",
+  "generated": "2026-07-10",
+  "endpoint": "corridor_directed",
+  "guardrail": "static projection of the public register; no facts added here",
+  "data": {
+    "corridor_id": "tw-kr-directed",
+    "name": "TW -> KR (NTD->KRW directed edge)",
+    "schema": "corridor/v3-directed-edge",
+    "origin": "TW",
+    "destination": "KR",
+    "direction": "directed",
+    "currencies": "NTD -> KRW",
+    "feasibility_class": "Pre-regime (no operative destination regime yet)",
+    "class_code": "pre_regime",
+    "compatibility_category": "III",
+    "compatibility_pair": "KR-TW",
+    "archetypes": [
+      "RC",
+      "DC"
+    ],
+    "interaction_sets": [
+      "C"
+    ],
+    "infrastructure_overlap": {
+      "bloc": "none",
+      "note": "TW on no shared wholesale-settlement experiment; KR on Project Agora. At least one end off the shared experiments."
+    },
+    "inbound_mechanism": {
+      "test": "No operative inbound regime (draft DABA)",
+      "administrator": "FSC (Korea)",
+      "detail": "A destination with no authorizable issuance pathway dominates the origin’s issuance gap: there is nothing to receive into, whatever the origin holds."
+    },
+    "origin_drag": false,
+    "materialized_from": "computed_skeleton",
+    "class_basis": {
+      "rule": "destination_no_regime",
+      "governing_jurisdiction": "KR",
+      "signal": "inbound_gate",
+      "signal_value": "none",
+      "claim_class": "tier1_legal",
+      "binding_status": "no_regime",
+      "evidence_tier": "mixed",
+      "instrument": "No operative inbound issuance-authorization regime to receive into (draft DABA).",
+      "record_ref": "kr-frs-monetary_sovereignty-001",
+      "record_ref_meta": {
+        "dimension": "monetary_sovereignty",
+        "match": "same_instrument",
+        "record_binding_status": "pending_proposal",
+        "record_evidence_tier": "firm_summary",
+        "record_claim_class": "tier1_legal",
+        "note": "As KR.token_regime: `pending_proposal` (the bill exists) vs `no_regime` (nothing operative).",
+        "divergence": "As KR.token_regime: `pending_proposal` (the bill exists) vs `no_regime` (nothing operative)."
+      }
+    }
+  }
+}

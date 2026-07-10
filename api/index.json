@@ -1,11 +1,11 @@
 {
   "register": "Cross-Border Stablecoin Register",
-  "version": "0.9.91",
-  "generated": "2026-07-04",
+  "version": "0.10.1",
+  "generated": "2026-07-10",
   "endpoint": "index",
   "guardrail": "static projection of the public register; no facts added here",
   "description": "Static JSON API for the Cross-Border Stablecoin Register. All endpoints are projections of the public dataset.json; fetch any file directly.",
-  "endpoint_count": 95,
+  "endpoint_count": 229,
   "data": {
     "meta": "meta.json",
     "records": "records.json",
@@ -100,6 +100,8 @@
       "corridors/US-TW.json",
       "corridors/US-UK.json"
     ],
+    "corridors_directed": "corridors_directed.json",
+    "signal_table": "signal_table.json",
     "convergence": "convergence.json",
     "sensitivity": "sensitivity.json",
     "settlement": "settlement.json",

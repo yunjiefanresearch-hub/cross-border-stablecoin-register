@@ -10,7 +10,7 @@ permitted-activity / yield boundary and securities classification), with a query
 derivation disagrees with the papers. Built from primary sources, citable by DOI.
 
 **Focus (twelve jurisdictions):** US · Hong Kong · EU · UK · Singapore · Mainland China · Brazil · Switzerland · United Arab Emirates · Taiwan · Japan · South Korea  ·  **Doctrinal anchor:** United States (CLARITY Act §404 / GENIUS Act)
-**Status:** v0.9.91 · **Cadence:** quarterly diffs + event patches · **License:** CC-BY-4.0 (data) / Apache-2.0 (code)
+**Status:** v0.10.1 · **Cadence:** quarterly diffs + event patches · **License:** CC-BY-4.0 (data) / Apache-2.0 (code)
 
 ---
 

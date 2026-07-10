@@ -1,0 +1,65 @@
+{
+  "register": "Cross-Border Stablecoin Register",
+  "version": "0.10.1",
+  "generated": "2026-07-10",
+  "endpoint": "corridor_directed",
+  "guardrail": "static projection of the public register; no facts added here",
+  "data": {
+    "corridor_id": "kr-hk-directed",
+    "name": "KR -> HK (KRW->HKD directed edge)",
+    "schema": "corridor/v3-directed-edge",
+    "origin": "KR",
+    "destination": "HK",
+    "direction": "directed",
+    "currencies": "KRW -> HKD",
+    "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+    "class_code": "III",
+    "compatibility_category": "III",
+    "compatibility_pair": "HK-KR",
+    "archetypes": [
+      "RC",
+      "DC"
+    ],
+    "interaction_sets": [
+      "C"
+    ],
+    "infrastructure_overlap": {
+      "bloc": "cross-bloc",
+      "note": "KR on Project Agora; HK on Project Ensemble + mBridge. Rival bloc rails, not mutually interoperable: no shared production or pilot settlement rail (commercial rails subject to both regimes)."
+    },
+    "inbound_mechanism": {
+      "test": "HKMA stablecoin licensing",
+      "administrator": "HKMA",
+      "detail": null
+    },
+    "origin_drag": true,
+    "materialized_from": "computed_skeleton",
+    "class_basis": {
+      "rule": "origin_drag",
+      "governing_jurisdiction": "KR",
+      "signal": "token_regime",
+      "signal_value": "none",
+      "claim_class": "tier1_legal",
+      "binding_status": "no_regime",
+      "evidence_tier": "mixed",
+      "instrument": "Virtual Asset User Protection Act (in force 2024-07-19) is a user-protection and market-abuse statute, not an issuance-licensing framework; domestic won-stablecoin issuance is effectively prohibited. The Digital Asset Basic Act remains an un-enacted bill (National Assembly Political Affairs Committee subcommittee).",
+      "record_ref": "kr-frs-issuer_pathway-001",
+      "record_ref_meta": {
+        "dimension": "issuer_pathway",
+        "match": "same_instrument",
+        "record_binding_status": "pending_proposal",
+        "record_evidence_tier": "firm_summary",
+        "record_claim_class": "tier1_legal",
+        "note": "Vocabulary divergence: the register codes the draft Digital Asset Basic Act as `pending_proposal` (there IS a bill); the signal codes the absence of an operative issuance regime as `no_regime` (there is nothing in force to authorize under). Same instruments, different question asked of them.",
+        "divergence": "Vocabulary divergence: the register codes the draft Digital Asset Basic Act as `pending_proposal` (there IS a bill); the signal codes the absence of an operative issuance regime as `no_regime` (there is nothing in force to authorize under). Same instruments, different question asked of them."
+      }
+    },
+    "origin_override": {
+      "flag": "origin-egress override",
+      "status": "conditional_dormant",
+      "basis": "Korean foreign-exchange controls; Atlas v0.2.5 carries '[conditional origin-egress override (Korea FX, dormant)]' on all 11 KR-> rows -- conditional and dormant because there is no exportable won token for them to bite on.",
+      "administrator": "MOEF / Bank of Korea (foreign-exchange controls)",
+      "detail": null
+    }
+  }
+}

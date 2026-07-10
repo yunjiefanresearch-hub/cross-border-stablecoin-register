@@ -1,0 +1,65 @@
+{
+  "register": "Cross-Border Stablecoin Register",
+  "version": "0.10.1",
+  "generated": "2026-07-10",
+  "endpoint": "corridor_directed",
+  "guardrail": "static projection of the public register; no facts added here",
+  "data": {
+    "corridor_id": "sg-ae-directed",
+    "name": "SG -> AE (SGD->AED directed edge)",
+    "schema": "corridor/v3-directed-edge",
+    "origin": "SG",
+    "destination": "AE",
+    "direction": "directed",
+    "currencies": "SGD -> AED",
+    "feasibility_class": "Category II (determination / channel required)",
+    "class_code": "II",
+    "compatibility_category": "I/II",
+    "compatibility_pair": "AE-SG",
+    "archetypes": [
+      "RC",
+      "SC",
+      "TC",
+      "DC"
+    ],
+    "interaction_sets": [
+      "D"
+    ],
+    "infrastructure_overlap": {
+      "bloc": "none",
+      "note": "SG on Project Ensemble; AE on mBridge. At least one end off the shared experiments."
+    },
+    "inbound_mechanism": {
+      "test": "CBUAE Payment Token Services licensing (usage channel)",
+      "administrator": "CBUAE",
+      "detail": null
+    },
+    "origin_drag": false,
+    "materialized_from": "computed_skeleton",
+    "class_basis": {
+      "rule": "destination_gate",
+      "governing_jurisdiction": "AE",
+      "signal": "inbound_gate",
+      "signal_value": "channel",
+      "claim_class": "tier1_legal",
+      "binding_status": "in_force_enacted",
+      "evidence_tier": "firm_summary",
+      "instrument": "CBUAE Payment Token Services registration (usage channel): a foreign token may be used onshore only to purchase virtual assets; merchant payment requires a Dirham payment token.",
+      "record_ref": "ae-pt-monetary_sovereignty-001",
+      "record_ref_meta": {
+        "dimension": "monetary_sovereignty",
+        "match": "same_instrument",
+        "record_binding_status": "in_force_enacted",
+        "record_evidence_tier": "resolution_text",
+        "record_claim_class": "tier1_legal"
+      }
+    },
+    "origin_override": {
+      "flag": "origin-egress override",
+      "status": "active",
+      "basis": "MAS Digital Token Service Provider statement (June 2025): unlicensed Singapore-based operations serving offshore customers are constrained, so the origin co-governs an otherwise destination-gated edge.",
+      "administrator": "MAS",
+      "detail": null
+    }
+  }
+}

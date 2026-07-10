@@ -7,6 +7,179 @@ Each tagged release is archived to Zenodo for a citable DOI; the **concept DOI
 [10.5281/zenodo.20730358](https://doi.org/10.5281/zenodo.20730358)** always resolves to the latest
 version, while each release below carries its own version DOI.
 
+## [0.10.1] — 2026-07-09
+
+> **Forward/sensitivity regeneration from the corrected corridor layer (consistency fix; no new legal facts).**
+> v0.10.0's directed-corridor layer already scored the eight inbound-US edges as regime-in-transition (T,
+> resolving to Category II when the GENIUS §18 foreign-issuer comparability gate commences — outer cap
+> 2027-01-18), but three derived files still framed the US as live and left it out of the sensitivity
+> ordering. This release re-derives them from the corrected corridor layer.
+
+- **`computed_sensitivity.json`** — ordering corrected from `KR 20 / UK 8 / TW 9` (US insensitive) to
+  **`KR 21 / TW 18 / UK 8 / US 8`**; the insensitive set becomes **`SG, CN`**. US moves in as an 8-edge
+  class-mover via `us-genius-act-effective` (§18 comparability-gate commencement).
+- **`computed_forward_view.json`** — the US block now carries its own class-moving pending event
+  (`us-genius-act-effective`, dated 2027-01-18) with `own_driven_inbound: 8`, replacing the prior
+  "US has no class-moving pending event of its own."
+- **`computed_timeline.json`** — inbound-US `edge_timelines` aligned to the directed layer
+  (`today_class: T`; scheduled `us-genius-act-effective → II`).
+- **API** — `api/sensitivity.json`, `api/forward.json` re-projected; `api/meta.json` bumped.
+- **Tooling** — `tools/regen_forward_sensitivity.py` added; the write is gated by two cross-checks
+  (scheduled transitions match each edge's own `as_of_timeline`; recomputed edge counts match the
+  ordering written). The GENIUS *issuer* layer remains correctly recorded as in force; only the §18
+  gate is treated as not-yet-operative. See `BUILD_NOTE_v0.10.1_forward-sensitivity-regeneration.md`
+  for the declared residual (`computed_corridor_states.json` date-state engine, deferred to v0.10.2).
+
+**Release-consistency completion (this patch).** The 0.10.1 bump is now propagated across *every*
+version-declaring artifact, the forward/sensitivity layer is reproducible from the register's own
+scripts, and the two stale gates are cleared, so the suite is fully green:
+
+- **Reproducibility of the forward/sensitivity layer (root-cause fix).** The v0.10.1 regeneration had
+  originally been performed by an out-of-band tool that sourced the corrected transition set from the
+  mapper **frontend** (JSX), so a canonical rebuild reverted it (KR back to 20) and CI's
+  `git diff --exit-code` would have failed. The corrected forward transition set (scheduled + contingent,
+  proven edge-for-edge identical to the directed layer, 132/132) is now frozen as a first-class,
+  version-controlled register input at **`analysis/forward_transition_set.json`**, and the regeneration
+  is a **pipeline-native, JSX-free** step at **`scripts/regen_forward_sensitivity.py`**, wired into
+  `.github/workflows/build.yml` after `build_forward_view.py`. A full rebuild now *reproduces*
+  `KR 21 [11in/10out] / TW 18 / UK 8 / US 8` (verified byte-stable across two runs). The former
+  `tools/regen_forward_sensitivity.py` is retained as a superseded shim that delegates to the new step.
+
+- **Version coherence.** `build.py` (`REGISTER_VERSION`), `dataset.json`, `mcp.json`, `README.md`
+  (`Status:`), `PACKAGE.md`, the verification ledger, both companion papers (`CBSR, v0.10.x`), and the
+  entire `api/` projection now all read **0.10.1**. Previously only `CITATION.cff` had advanced, leaving
+  the repo mid-bump. The `api/` tree was rebuilt from the corrected analysis layer, so its
+  forward/sensitivity/per-jurisdiction files now match the v0.10.1 regeneration (KR 21 [11in/10out], US
+  in transition) rather than the pre-regeneration snapshot.
+- **`Sen1` invariant** updated to assert the *regenerated* ordering (`KR 21 [11in/10out]`, `TW 18`,
+  `UK 8`, `US 8`; insensitive `{SG, CN}`) instead of the frozen pre-regeneration headline. The gate
+  tracks the load-bearing directed layer, not a stale constant. **57/57 invariants hold.**
+- **`P2` invariant** satisfied: the guarded UTF-8 console block was added to the two scripts that lacked
+  it (`tools/build_compute.py`, `tools/regen_forward_sensitivity.py` — the latter being the new v0.10.1
+  regeneration tool whose omission first tripped the gate).
+- **`version-consistency` negative test** made version-agnostic (reads the current declared version and
+  rolls it back) so it keeps biting across future bumps instead of no-op'ing once the version moves on.
+  **10/10 negative tests bite.**
+
+## [0.10.0] — 2026-07-09
+
+> **The directed-132 corridor layer, and a published class rule.** Every ordered pair of the twelve
+> jurisdictions (12 × 11 = 132) now carries a directed-edge record, closing the "115/132 edges with a
+> record (17 indeterminate)" gap the v0.9.91 build reported: the corridor layer is no longer nine
+> flagship corridors plus a skeleton, it is the whole graph. More consequentially, the *class rule* that
+> turns per-jurisdiction signals into a corridor class is now **published, executable, and re-run on
+> every build** (`tools/class_rule.py` over `analysis/signal_table.json`), instead of living upstream as
+> an unpublished function whose output arrived as a finished `class_code` column. Two substantive
+> corrections follow from that, and both change the published map. Because the register version, the
+> corridor-artifact `register_version`, and the artifact revision had drifted apart (0.9.91 / 0.9.9 /
+> 0.10.0), this release collapses them into one number.
+
+### Added — the directed-132 layer
+
+- `analysis/computed_corridors_directed.json` — all 132 directed edges, unifying the register's own
+  three production shapes (9 authored corridors + 106 computed skeletons + 17 event-calendar transition
+  edges) into one artifact. Class distribution `{I: 32, II: 24, III: 29, T: 25, blocked: 11,
+  pre_regime: 11}`. Built by `scripts/build_corridors_directed.py`.
+- `analysis/signal_table.json` — the 60 per-jurisdiction signals (5 per jurisdiction) from which every
+  class is derived, each bound to the node record that justifies it. Generated by
+  `scripts/gen_signal_table.py` from `analysis/signal_table.source.json` (the curated, primary-source
+  signal *values*) joined to the 152 node records; the source file's sha256 is stamped, so an unreviewed
+  edit to a value is detectable (`SG4`).
+- `class_basis` on every edge — which precedence step decided the class, on whose signal, of what
+  `claim_class`, resting on which instrument at what `binding_status`, with a `record_ref` into the node
+  record. The three-axis evidence model of *Citable by Construction* now reaches the corridor layer.
+- Typed triggers: `as_of_timeline` on exactly the 25 `T` edges, each event tagged
+  `gazetted` | `outer_cap` | `ungazetted`, so a capped horizon is never read as a gazetted date.
+- The Atlas's origin-egress override on all 33 CN/SG/KR outbound rows (it had sat on exactly one edge).
+- API: `api/corridors_directed/<ORIGIN>-<DEST>.json` × 132, `api/corridors_directed.json` (index) and
+  `api/signal_table.json`, so an agent can **re-derive** all 132 classes rather than trust the column.
+  `api/index.json` endpoint count 95 → 229.
+- `tools/` — the published class rule, an independent re-derivation (`recompute_classes.py`), a
+  17-gate verifier, a 31-case negative-test suite, the executable migration spec, and a schema
+  cross-check. `docs/` gains the errata, the signal-table note, the verification backlog, and the
+  nine independent audit reviews.
+
+### Changed — two corrections to the published map
+
+- **The class rule is destination-first (NF-1).** A destination prohibition or pre-regime absence
+  dominates an origin-side issuance gap, as *Corridor Atlas* v0.2.5 §3.4/§4.1 states. Four edges move:
+  `TW→CN` and `KR→CN` from `III` to `blocked` (a prohibition is not a "partnership route"), and
+  `CN→KR` and `TW→KR` from `III` to `pre_regime`. The old rule read those edges in the optimistic
+  direction while their own prose read "issuance and circulation prohibited".
+- **The United States is enacted-not-commenced (E1 / F-US-1 / E8 / VB-06).** GENIUS Act §20 makes the
+  Act effective on the earlier of 18 January 2027 or 120 days after final regulations; at the
+  2026-06-30 snapshot only proposed rules had issued. The §18 comparability gate is therefore **not yet
+  available**, and the 8 token-holder→US edges move `II` → `T` with a `scheduled_with_cap` trigger.
+  This is a **second dated horizon, earlier than the United Kingdom's 25 October 2027**. The prior
+  coding let the market observation "no determination has been granted" do a proposition of law's work.
+- Both papers are corrected accordingly (`papers/*.md`): the abstract, §1.3, §3.2, §3.7, §4.2 and §7 of
+  *Feasibility Over Time*, with a correction banner and `docs/PAPER_ERRATA.md` archived alongside.
+  The compiled PDFs under `pdf/` predate these corrections and must be re-exported from the `.md`.
+
+### Fixed — reproducibility
+
+- `scripts/build_analysis.py` had drifted from its own committed output: re-running it *regressed*
+  Taiwan's `enacted_not_commenced` axis on 11 pairs, dropped the `trigger_kind` fields from
+  `open_questions.json`, and reinstated two Project-Ensemble/Agorá attributions that errata E7 had
+  already corrected ("BIS Project Ensemble"). The builder now reproduces `analysis/compatibility.json`
+  and `analysis/open_questions.json` byte-for-byte, so the full canonical sequence can run in CI without
+  silently reverting hand-applied corrections. This was a latent reproducibility failure, not a
+  cosmetic one: the register's committed data could not be rebuilt from the register's own scripts.
+
+### Added — gates (the numbers are load-bearing, not decorative)
+
+- `run_invariants.py` **49 → 57**. `DC1`–`DC4` (coverage, §5.14 category agreement, provenance
+  partition, self cross-check) and, new here, `DC5`–`DC8`:
+  - `DC5` re-derives **all 132 class codes** from the published rule on every build, so a hand-edited
+    class cannot survive a build;
+  - `DC6` re-runs the signal table's own `SIG1`/`SIG2`/`SIG3` provenance gates;
+  - `DC7` flips **every** `tier2_operational` market signal and asserts **0 classes move** — the
+    signal-provenance guarantee of *Citable by Construction* §4.2, proved empirically rather than
+    asserted (the control, `TIER1-LIVE`, flips one legal signal and moves 9);
+  - `DC8` enforces the `T` ⇔ `as_of_timeline` biconditional and the 33-row origin-override rule.
+- `build.py` gains `check_directed_cross_layer` (category vs §5.14, hard error) and
+  `check_directed_signal_provenance` (`SP1`–`SP4`): every class rests on a `tier1_legal` signal; every
+  `record_ref` resolves to a real `tier1_legal` node record; a same-instrument binding-status
+  disagreement must be **declared**; a null locator must state its reason (citation firewall).
+- The portability gates `P1`/`P2` now also cover `tools/`.
+- `tools/verify_corridors_directed.py` gains `DC4d`, which re-derives every edge's
+  `compatibility_category` from `analysis/compatibility.json` itself. In the audit repository this could
+  not run (the §5.14 matrix was not shipped), so `DC4c` was a self-attestation; here it is an
+  independent check, retiring the "cannot disagree by construction" objection (audit finding F6).
+
+### Closed — verification backlog
+
+- **VB-11 / finding C1 (corridor-layer face).** The audit's signal table shipped `record_ref: null` on
+  all 60 signals because the 152 node records were not published with it, and fabricating locators was
+  correctly declined. The register *does* publish them, so the locators are now supplied: 39 signals
+  bound (all 24 class-driving ones), 21 carrying an explicit, reasoned `record_ref_gap` — 12 market
+  facts, which may never be given a legal locator, and 9 `none`-valued egress overrides, where the
+  absence of a restriction is not an instrument.
+- Binding the signals to the records surfaced **20 record-binding findings** (10 on class-driving
+  signals), published as data in `analysis/signal_table.json` and reconciled away in neither direction,
+  per the computed-versus-authored discipline. The load-bearing one *is* errata E1: the node record
+  codes the GENIUS **Act** as `in_force_enacted`; the signal codes the **§18 gate** as
+  `made_not_commenced`. Act-enacted is not section-operative.
+- **VB-09 stays open** and is now visible in the data: the US and UK `token_regime` signals rest on
+  instruments (state trust/money-transmitter regimes; the Electronic Money Regulations 2011) that the
+  register does not carry as records, so their locators are tagged `match: related_dimension`, never
+  `same_instrument`. If that reading is wrong, all 22 outbound US/UK edges fall to Category III.
+
+### Changed — version collapse
+
+- The register (`0.9.91`), the corridor artifact's `register_version` (`0.9.9`) and its
+  `artifact_revision` (`0.10.0`) were three numbers for one object. They are now one: **0.10.0**,
+  enforced by invariants `V1`/`V2`/`V3`/`L1` across `build.py`, `dataset.json`, `CITATION.cff`,
+  `README.md`, `PACKAGE.md`, the verification ledger and both papers. Companion-work versions
+  (Matrix v0.9.7, Architecture v0.2.8, Atlas v0.2.5) are unchanged — they are different works.
+
+### Unchanged
+
+- The 152 node records, the 46-record citable subset, the 9 authored corridors, the 66-pair §5.14
+  matrix, and the 6 interaction sets. **No legal record was edited by this release.** Where a record
+  and a signal disagree, the disagreement is published as a finding; a legal record is corrected by a
+  primary-source verification pass, not by a build script.
+
 ## [0.9.91] — 2026-07-04
 
 > **Post-release consistency patch of v0.9.9.** v0.9.9 shipped a constraint substrate that had not caught

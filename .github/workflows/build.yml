@@ -31,25 +31,36 @@ jobs:
         run: python -m pip install -r requirements.txt
 
       - name: Rebuild the computed layer from the living source
-        # NOTE: scripts/build_analysis.py and scripts/build_corridors.py are intentionally NOT run here.
-        # The analysis matrix and corridor edges are hand-maintained living artifacts; those generators
-        # would revert them. CI regenerates only the COMPUTED derivatives, which are pure functions of the
-        # living source (records + hand-maintained poles + authored analysis), in dependency order.
-        # substrate.py / build_edge_skeletons.py / stakeholders.py / build_worklist.py are pure derivatives
-        # of the records + constraint_substrate.json poles and MUST run before build.py (which reads and
-        # cross-checks their outputs), so the reproducibility gate below also covers them and a stale
-        # substrate/skeleton/worklist can no longer be committed.
+        # v0.10.0: scripts/build_analysis.py IS now run here. Through v0.9.91 it was excluded because it
+        # "would revert" the hand-maintained analysis matrix — which was true, and was a latent
+        # reproducibility failure rather than a property of the design: the committed
+        # analysis/compatibility.json and analysis/open_questions.json could not be rebuilt from the
+        # committed builder (it still called Taiwan pre-regime on 11 pairs, dropped the trigger_kind
+        # fields, and carried two "BIS Project Ensemble" attributions errata E7 had corrected). The
+        # builder now reproduces both artifacts byte-for-byte, so CI runs it and the reproducibility gate
+        # below covers it. scripts/build_corridors.py remains excluded: the 9 authored corridors are
+        # hand-maintained source, not a derivative.
+        #
+        # gen_signal_table.py must precede build_corridors_directed.py (which reads the signal table),
+        # and both must precede build.py (which validates the directed layer and re-checks its
+        # signal provenance). substrate.py / build_edge_skeletons.py / stakeholders.py / build_worklist.py
+        # are pure derivatives of the records + constraint_substrate.json poles and MUST run before
+        # build.py, so a stale substrate/skeleton/worklist can no longer be committed.
         run: |
+          python scripts/build_analysis.py
           python scripts/compose.py
           python scripts/substrate.py
           python scripts/build_edge_skeletons.py
           python scripts/stakeholders.py
           python scripts/build_worklist.py
+          python scripts/gen_signal_table.py
+          python scripts/build_corridors_directed.py
           python build.py
           python scripts/build_corridor_states.py
           python scripts/build_sensitivity.py
           python scripts/build_settlement.py
           python scripts/build_forward_view.py
+          python scripts/regen_forward_sensitivity.py
           python build_api.py
           python build_pages.py
           python build_site.py
@@ -62,6 +73,28 @@ jobs:
 
       - name: README counts must match the dataset
         run: python check_readme_counts.py
+
+      - name: Directed-132 layer — 17 hard gates on the corridor artifact
+        run: python tools/verify_corridors_directed.py
+
+      - name: Directed-132 layer — every gate must BITE (31 negative cases + 2 controls)
+        run: python tools/run_negative_tests.py
+
+      - name: The class rule is real — all 132 classes re-derived; market signals proved inert
+        # PR1 reproduces every class_code from the published rule over the published signal table;
+        # TIER2-INERT flips every tier2_operational signal and asserts 0 classes move; the TIER1-LIVE
+        # control flips one tier1_legal signal and asserts classes DO move (a class function that read
+        # nothing would also pass TIER2-INERT).
+        run: python tools/recompute_classes.py --prove-tier2-inert
+
+      - name: The v0.10.0 fold-in is complete — the migration script is a no-op
+        run: python tools/migrate_from_v0_9_92.py --check analysis/computed_corridors_directed.json
+
+      - name: Schema is executed as a gate, not shipped as documentation
+        run: python tools/schema_reference_crosscheck.py
+
+      - name: The verification backlog is well-formed and its open items are declared
+        run: python tools/check_verification_backlog.py
 
       - name: No stale derived artifact — regeneration is reproducible (build date ignored)
         # -I '"generated"' ignores hunks that only change a build timestamp, so this is not date-flaky;

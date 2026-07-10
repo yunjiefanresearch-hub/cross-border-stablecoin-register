@@ -1,0 +1,567 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/yunjiefan/cbsr-corridor-audit/schema/corridor_directed.schema.json",
+  "title": "CBSR directed corridor edge (v0.10.0)",
+  "description": "Schema for one directed edge in analysis/computed_corridors_directed.json. Thirteen fields are universal across all 132 edges and are REQUIRED; the remainder are optional enrichment. This file is dependency-free to check: tools/verify_corridors_directed.py ships a minimal executor that validates every edge against THIS file, so the verifier and the schema cannot disagree, and tools/schema_reference_crosscheck.py re-validates the same corpus with the independent `jsonschema` reference implementation when it is installed. v0.10.0 adds `class_basis` (REQUIRED: the three-axis evidence model -- which precedence step decided this edge's class, on whose signal, of what claim_class, resting on an instrument of what binding_status), tightens `as_of_timeline` events into a typed shape with the trigger typology (`scheduled` / `scheduled_with_cap` / `contingent` and a `date_kind`), and structures `origin_override`. Historical note: through v0.9.99 `claim_class` and `binding_status` were not even schema fields at this layer, so the lawyer-citable intersection was undefined, not merely empty (eighth review NF-5). They now exist, are required on every edge, and are gated (EV1).",
+  "type": "object",
+  "required": [
+    "corridor_id",
+    "name",
+    "schema",
+    "origin",
+    "destination",
+    "direction",
+    "feasibility_class",
+    "class_code",
+    "class_basis",
+    "compatibility_category",
+    "compatibility_pair",
+    "interaction_sets",
+    "materialized_from"
+  ],
+  "additionalProperties": true,
+  "$comment": "additionalProperties stays TRUE deliberately. The register's enrichment layer is open by design (Citable by Construction, §7.2: the dimension set is domain-specific and grows). Setting it to false would reject future authored fields and convert a forward-compatible corpus into a brittle one. Every field the corpus USES is nevertheless declared below, so an undeclared key is now a signal that something new arrived -- surfaced by the verifier as lint m6, not by a schema failure.",
+  "properties": {
+    "corridor_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "schema": {
+      "enum": [
+        "corridor/v3-directed-edge",
+        "corridor/v2-rich"
+      ],
+      "description": "Two tags are in use. v3-directed-edge is current; v2-rich is the legacy tag still on the HK->BR seed edge. Both validate; migrating the seed edge to v3 is tracked as lint m1 by the verifier, not enforced here."
+    },
+    "origin": {
+      "$ref": "#/$defs/jurisdiction"
+    },
+    "destination": {
+      "$ref": "#/$defs/jurisdiction"
+    },
+    "direction": {
+      "const": "directed"
+    },
+    "currencies": {
+      "type": "string"
+    },
+    "feasibility_class": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Human-readable prose for the DIRECTED class. Should lead with the same category as `class_code`; the one authored edge whose prose leads with the UNDIRECTED pair category (HK->BR, prose 'Category I/II', class_code 'II') is surfaced as non-fatal lint m5."
+    },
+    "class_code": {
+      "enum": [
+        "I",
+        "II",
+        "III",
+        "T",
+        "blocked",
+        "pre_regime"
+      ],
+      "description": "The DIRECTED feasibility class. DERIVED, never authored: tools/class_rule.py:class_of applies the Corridor Atlas v0.2.5 destination-first precedence to data/signal_table.json. Precedence: destination prohibition > destination no-regime > origin drag > destination in-transition > operative gate type."
+    },
+    "compatibility_category": {
+      "description": "The UNDIRECTED pair category from the §5.14 matrix. Must equal the linked pair's category (enforced cross-layer in the full build: DC2). Distinct from `class_code`: 'I/II' is a legal value here and never a legal `class_code`.",
+      "enum": [
+        "I",
+        "II",
+        "III",
+        "I/II",
+        "T",
+        "blocked",
+        "pre_regime"
+      ]
+    },
+    "compatibility_pair": {
+      "type": "string",
+      "description": "Foreign key into the undirected §5.14 matrix: the canonical alphabetical key of {origin,destination}, e.g. 'UK-US'. Recomputed by the verifier as DC4a.",
+      "pattern": "^[A-Z]{2}-[A-Z]{2}$"
+    },
+    "archetypes": {
+      "type": "array",
+      "description": "Corridor archetypes: RC regulatory-comparability, SC sovereignty-constrained, TC transitional, DC digital-financial.",
+      "items": {
+        "enum": [
+          "RC",
+          "SC",
+          "TC",
+          "DC"
+        ]
+      }
+    },
+    "interaction_sets": {
+      "type": "array",
+      "description": "The Architecture paper's six constraint-interaction sets. Per-direction refinement; may differ from the undirected pair's sets.",
+      "items": {
+        "enum": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ]
+      }
+    },
+    "infrastructure_overlap": {
+      "type": "object",
+      "description": "Structured wholesale-settlement-substrate tag (v0.9.93; was free text through v0.9.92). `bloc` is the machine-consumable partition value, checked on ALL 132 edges by verifier IB1 (authored edges are no longer exempt); `note` is optional prose. Tier-2 operational enrichment, NOT a proposition of law.",
+      "required": [
+        "bloc"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "bloc": {
+          "enum": [
+            "agora",
+            "mbridge",
+            "ensemble",
+            "cross-bloc",
+            "none"
+          ],
+          "description": "Settlement-substrate partition for THIS directed edge. agora/mbridge/ensemble = both ends share that experiment; cross-bloc = ends on rival blocs (Agora vs mBridge); none = at least one end off the shared experiments."
+        },
+        "note": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Optional human-readable gloss. Never consumed by IB1: the enum in `bloc` is authoritative, so no prose-prefix heuristic can misclassify an edge (the failure mode that hid the US<->HK cross-bloc edges through v0.9.92)."
+        }
+      }
+    },
+    "inbound_mechanism": {
+      "type": "object",
+      "properties": {
+        "test": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "administrator": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "detail": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "origin_drag": {
+      "type": [
+        "boolean"
+      ],
+      "description": "True exactly on the 29 edges whose class was decided by origin drag (the origin has no exportable authorizable token IN LAW -- token_regime, a tier1_legal signal, not token_in_issue). False where the destination's gate decided the class first, including the four tokenless-origin edges into a prohibition (CN) or a pre-regime (KR) destination. Cross-checked against class_basis.rule by gate EV1."
+    },
+    "origin_override": {
+      "type": "object",
+      "description": "Atlas v0.2.5 s.3.3: 'an origin that imposes an export or egress restriction contributes an origin-override flag'. Present on exactly the 33 edges out of CN (active: mainland capital controls), SG (active: MAS DTSP statement) and KR (conditional_dormant: Korea FX -- dormant because no exportable won token exists for it to bite on). Through v0.9.99 the flag sat on ONE edge and no gate checked it; gate OO1 now does.",
+      "required": [
+        "flag",
+        "status",
+        "basis"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "flag": {
+          "const": "origin-egress override"
+        },
+        "status": {
+          "enum": [
+            "active",
+            "conditional_dormant"
+          ]
+        },
+        "basis": {
+          "type": "string",
+          "minLength": 1
+        },
+        "administrator": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "detail": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "materialized_from": {
+      "enum": [
+        "authored",
+        "computed_skeleton",
+        "computed_transition"
+      ],
+      "description": "Provenance partition of the 132 edges: 9 authored + 106 computed_skeleton + 17 computed_transition (verifier DC3)."
+    },
+    "as_of_timeline": {
+      "type": "object",
+      "description": "Present on exactly the 25 `T` edges and on no others (gate TL2). The trigger typology of Feasibility Over Time s.3 is now expressible: `status` distinguishes a gazetted commencement (`scheduled`, UK 2027-10-25) from an earlier-of outer cap (`scheduled_with_cap`, US <= 2027-01-18, may fall sooner) from an enacted instrument with no gazetted commencement (`contingent`, TW). Through v0.9.99 only two slots existed and the US had no timeline at all.",
+      "required": [
+        "today_class",
+        "as_of_base",
+        "scheduled",
+        "contingent"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "today_class": {
+          "enum": [
+            "T"
+          ]
+        },
+        "as_of_base": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "scheduled": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/trigger_event"
+          }
+        },
+        "contingent": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/trigger_event"
+          }
+        }
+      }
+    },
+    "divergence": {
+      "type": "object",
+      "description": "Declared computed-vs-authored / directed-vs-undirected difference (labelled-preview discipline: a disagreement is surfaced as a finding, never silently reconciled).",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "evidence_tier": {
+      "enum": [
+        "resolution_text",
+        "mixed",
+        "firm_summary",
+        "unset"
+      ],
+      "description": "Provenance strength, per the three-axis evidence model (Citable by Construction s.2.2). resolution_text = confirmed against the official text; mixed = core point confirmed, operational detail pending; firm_summary = practitioner-corroborated. From v0.10.0 the binding-status CAP of s.3.1/s.4.2 (a resolution_text record must be in_force_enacted) IS enforced -- but on data/signal_table.json, by gate SIG2, not on this field. On the edge itself `evidence_tier` remains a declared label for the 8 authored edges; the per-record citable-integrity and ledger gates run in the FULL register's build, which is not shipped here (finding C1)."
+    },
+    "valid_as_of": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}(-[0-9]{2})?$",
+      "description": "ISO date or year-month. Both granularities occur in the corpus (8 edges at month precision, 1 at day precision)."
+    },
+    "last_reviewed": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}(-[0-9]{2})?$"
+    },
+    "version_added": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "version_corrected": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "confidence": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "authored_source_file": {
+      "type": "string",
+      "pattern": "\\.ya?ml$",
+      "description": "The root corridor YAML this authored edge was materialized from."
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "note": {
+      "type": "string"
+    },
+    "source": {
+      "type": "object"
+    },
+    "legs": {
+      "type": "array"
+    },
+    "flow": {
+      "type": "string"
+    },
+    "boundary_analysis": {
+      "type": "array"
+    },
+    "watch_list": {
+      "type": "array"
+    },
+    "key_constraint": {
+      "type": "string"
+    },
+    "us_doctrinal_link": {
+      "type": "string"
+    },
+    "phase_in_note": {
+      "type": "string"
+    },
+    "reviewed_against": {
+      "type": "string"
+    },
+    "verification_backlog": {
+      "type": "array",
+      "description": "Structured honest-residual backlog for THIS edge (v0.9.93). An open verification question lives here, not inline in an authoritative prose field: this is where the HK->BR seed edge's former inline 'CONFIRM date against SFC source' marker (lint m4) was re-homed.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string",
+            "description": "The edge field the open question is about."
+          },
+          "instrument": {
+            "type": "string"
+          },
+          "open_question": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "open",
+              "resolved"
+            ]
+          }
+        }
+      }
+    },
+    "class_basis": {
+      "type": "object",
+      "description": "WHY this edge has the class it has, as data rather than as prose. `rule` names the precedence step that fired; `governing_jurisdiction` is the origin for origin_drag and the destination otherwise; `signal` is the one signal read; `claim_class` MUST be tier1_legal (the signal-provenance gate of Citable by Construction s.4.2 -- a derived legal conclusion may never rest on a market fact); `binding_status` is the binding state of the instrument the class rests on; `record_ref` is the id of the node record carrying that instrument, and is now POPULATED (register v0.10.0 closes finding C1 / backlog VB-11 by shipping the 152 node records). It stays a bare locator string: the metadata that qualifies it lives in `record_ref_meta`, so a citation is never diluted by the caveat attached to it. Re-checked in full by verifier gate EV1.",
+      "required": [
+        "rule",
+        "governing_jurisdiction",
+        "signal",
+        "signal_value",
+        "claim_class",
+        "binding_status",
+        "instrument"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "rule": {
+          "enum": [
+            "destination_prohibition",
+            "destination_no_regime",
+            "origin_drag",
+            "destination_in_transition",
+            "destination_gate"
+          ]
+        },
+        "governing_jurisdiction": {
+          "$ref": "#/$defs/jurisdiction"
+        },
+        "signal": {
+          "enum": [
+            "inbound_gate",
+            "token_regime"
+          ],
+          "description": "The only two signals class_of reads. `token_in_issue` (tier2_operational) is never read -- NF-3."
+        },
+        "signal_value": {
+          "enum": [
+            "authorization",
+            "channel",
+            "comparability",
+            "prohibited",
+            "none",
+            "authorizable",
+            "not_commenced"
+          ],
+          "description": "The value of the one signal that fired. For an inbound_gate: authorization|channel|comparability|prohibited|none. For a token_regime: authorizable|not_commenced|prohibited|none. EV1 checks that the value implies the class -- e.g. a `destination_gate` edge on an `authorization` gate must be Category I, on a `channel` or `comparability` gate Category II."
+        },
+        "claim_class": {
+          "enum": [
+            "tier1_legal",
+            "tier2_operational"
+          ],
+          "description": "The kind of claim the class-driving signal makes. BOTH values are representable here on purpose: a schema that could not express the violation could not be used to detect it. The DISCIPLINE -- that a derived legal conclusion may rest only on a proposition of law, never on a market fact -- is enforced by the build gate EV1, not by this enum. That division is the argument of Citable by Construction s.4.1: 'a subset defined only by self-reported tags is a promise, not a guarantee'; the schema records the shape, the gate enforces the rule, and a negative test proves the gate bites."
+        },
+        "binding_status": {
+          "enum": [
+            "in_force_enacted",
+            "made_not_commenced",
+            "finalized_policy_pending",
+            "pending_proposal",
+            "no_regime"
+          ],
+          "description": "Binding state of the INSTRUMENT the class rests on -- distinct from the signal's legal EFFECT. Mainland China's prohibition instrument (银发〔2026〕42号) is `in_force_enacted` even though its effect is `prohibited`; conflating the two is what makes a naive check reject a correct edge. The effect lives in `signal_value`."
+        },
+        "evidence_tier": {
+          "enum": [
+            "resolution_text",
+            "mixed",
+            "firm_summary",
+            "unset"
+          ]
+        },
+        "instrument": {
+          "type": "string",
+          "minLength": 1
+        },
+        "record_ref": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The id of the node record carrying the instrument this class rests on (e.g. `us-pss-monetary_sovereignty-001`), or null where no record carries it and a locator would be a fabrication (citation firewall)."
+        },
+        "record_ref_meta": {
+          "type": "object",
+          "description": "Qualifies the locator without diluting it. `match: same_instrument` means the record rests on the very instrument the class rests on; `related_dimension` means the record covers the same dimension under a DIFFERENT instrument (US and UK token_regime -- backlog VB-09). `divergence` is required wherever a same_instrument record's binding_status differs from the signal's (the load-bearing case is US s.18: Act-enacted vs section-operative -- errata E1).",
+          "additionalProperties": false,
+          "required": [
+            "match"
+          ],
+          "properties": {
+            "dimension": {
+              "type": "string"
+            },
+            "match": {
+              "enum": [
+                "same_instrument",
+                "related_dimension"
+              ]
+            },
+            "record_binding_status": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "record_evidence_tier": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "record_claim_class": {
+              "type": "string"
+            },
+            "backlog_ref": {
+              "type": "string"
+            },
+            "note": {
+              "type": "string"
+            },
+            "divergence": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
+        "record_ref_gap": {
+          "type": "object",
+          "description": "Why no locator is offered, where record_ref is null. Never absent-and-silent.",
+          "additionalProperties": false,
+          "required": [
+            "reason"
+          ],
+          "properties": {
+            "reason": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "jurisdiction": {
+      "enum": [
+        "US",
+        "EU",
+        "UK",
+        "SG",
+        "HK",
+        "CN",
+        "BR",
+        "CH",
+        "AE",
+        "JP",
+        "TW",
+        "KR"
+      ],
+      "description": "The twelve jurisdictions of the register. Tokenless origins (no exportable authorizable token): CN, TW, KR."
+    },
+    "trigger_event": {
+      "type": "object",
+      "required": [
+        "event_id",
+        "status",
+        "resolves_to"
+      ],
+      "additionalProperties": false,
+      "description": "One change in law that would move this edge's class. Per Feasibility Over Time s.2.1 the event is always a tier1_legal commencement, enactment, or instrument taking effect -- never a market launch, a registration, or a licence cohort.",
+      "properties": {
+        "event_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "effective_date": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "date_kind": {
+          "enum": [
+            "gazetted",
+            "outer_cap",
+            "ungazetted"
+          ],
+          "description": "gazetted = a fixed commencement day. outer_cap = an earlier-of upper bound that may resolve sooner (GENIUS s.20). ungazetted = enacted, commencement date not yet set."
+        },
+        "status": {
+          "enum": [
+            "scheduled",
+            "scheduled_with_cap",
+            "contingent"
+          ]
+        },
+        "resolves_to": {
+          "enum": [
+            "I",
+            "II"
+          ]
+        },
+        "basis": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

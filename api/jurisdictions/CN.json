@@ -1,7 +1,7 @@
 {
   "register": "Cross-Border Stablecoin Register",
-  "version": "0.9.91",
-  "generated": "2026-07-04",
+  "version": "0.10.1",
+  "generated": "2026-07-10",
   "endpoint": "jurisdiction",
   "guardrail": "static projection of the public register; no facts added here",
   "data": {
@@ -217,30 +217,30 @@
       "summary": {
         "own_driven_inbound": 0,
         "own_driven_outbound": 0,
-        "counterpart_driven_inbound": 1,
-        "counterpart_driven_outbound": 0,
+        "counterpart_driven_inbound": 0,
+        "counterpart_driven_outbound": 1,
         "accessibility_only_own_events": 0
       },
-      "inbound_reclassified": [
+      "inbound_reclassified": [],
+      "outbound_reclassified": [
         {
           "counterpart": "KR",
-          "from": "III",
-          "to": "blocked",
+          "from": "pre_regime",
+          "to": "III",
           "via_trigger": "kr-daba-enacted",
           "trigger_jurisdiction": "KR",
           "timing": "contingent (if enacted)"
         }
       ],
-      "outbound_reclassified": [],
       "counterpart_exposure": [
         {
           "counterpart": "KR",
           "edges_affected": 1,
-          "inbound": 1,
-          "outbound": 0
+          "inbound": 0,
+          "outbound": 1
         }
       ],
-      "supervisor_reading": "CN has no class-moving or accessibility-changing pending event of its own. Separately, 1 inbound and 0 outbound corridor(s) of CN will reclassify when counterparts enact; most exposed counterpart(s): KR (1)."
+      "supervisor_reading": "CN has no class-moving or accessibility-changing pending event of its own. Separately, 0 inbound and 1 outbound corridor(s) reclassify when counterparts enact. Most exposed counterpart(s): KR (1)."
     }
   }
 }

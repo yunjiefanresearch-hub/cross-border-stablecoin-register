@@ -1,6 +1,6 @@
 # CBSR — package manifest
 
-This archive is the **full Cross-Border Stablecoin Register repository (v0.9.91)**,
+This archive is the **full Cross-Border Stablecoin Register repository (v0.10.1)**,
 not a thin slice, with the two working papers and the three governance documents
 included. It contains the YAML records, the schemas, the build, the analysis
 layer, the MCP server, and the verification harness, so the register can be
@@ -101,8 +101,9 @@ to be selected.
   scan uses (kept out of this file deliberately, so the published repository
   carries no trace of it). Early pre-membrane traces are most likely to hide there.
 - Resolved (was cosmetic, pre-existing): the V1/V2 label strings in
-  `run_invariants.py` now track `EXPECT_VERSION` and read "0.9.91", matching the
-  logic they check; the earlier "0.9.7" label / mismatched-logic wording is gone.
+  `run_invariants.py` now interpolate `EXPECT_VERSION` directly, so the label and
+  the logic it checks can never drift apart across a version bump; the earlier
+  hardcoded-version label / mismatched-logic wording is gone.
 
 ## Membrane
 

@@ -1,0 +1,76 @@
+{
+  "register": "Cross-Border Stablecoin Register",
+  "version": "0.10.1",
+  "generated": "2026-07-10",
+  "endpoint": "corridor_directed",
+  "guardrail": "static projection of the public register; no facts added here",
+  "data": {
+    "corridor_id": "ae-us-directed",
+    "name": "AE -> US (AED->USD directed edge)",
+    "schema": "corridor/v3-directed-edge",
+    "origin": "AE",
+    "destination": "US",
+    "direction": "directed",
+    "currencies": "AED -> USD",
+    "feasibility_class": "Regime-in-transition (destination regime enacted, not yet operative; resolves to Category II on the earlier of 2027-01-18 or 120 days after final rules)",
+    "class_code": "T",
+    "compatibility_category": "I/II",
+    "compatibility_pair": "AE-US",
+    "archetypes": [
+      "RC",
+      "SC",
+      "TC",
+      "DC"
+    ],
+    "interaction_sets": [
+      "D"
+    ],
+    "infrastructure_overlap": {
+      "bloc": "cross-bloc",
+      "note": "AE on mBridge; US on Project Agora. Rival bloc rails, not mutually interoperable: no shared production or pilot settlement rail (commercial rails subject to both regimes)."
+    },
+    "inbound_mechanism": {
+      "test": "GENIUS Act §18 comparability determination + OCC registration; US-held reserves — enacted 2025-07-18, gate not yet operative (§20)",
+      "administrator": "US Treasury (Stablecoin Certification Review Committee) / OCC",
+      "detail": "The §18 pathway (unilateral Treasury comparability determination on SCRC recommendation + OCC registration + US-held reserves) is NOT YET AVAILABLE: per §20 the Act takes effect on the earlier of 2027-01-18 (18 months after enactment) or 120 days after the primary federal payment stablecoin regulators issue final regulations, and at the 2026-06-30 snapshot only proposed rules had issued (OCC NPRM, FR 2026-03-02, comments closed 2026-05-01; FDIC and FinCEN/OFAC NPRMs 2026-04-10; Treasury §4(c) NPRM April 2026). Earlier prose read ‘none granted to date’, which states a MARKET observation (no determination has been made) where a proposition of law is required (the gate is not in force) — the claim-class error Citable by Construction §2.1 exists to prevent."
+    },
+    "origin_drag": false,
+    "materialized_from": "computed_skeleton",
+    "class_basis": {
+      "rule": "destination_in_transition",
+      "governing_jurisdiction": "US",
+      "signal": "inbound_gate",
+      "signal_value": "comparability",
+      "claim_class": "tier1_legal",
+      "binding_status": "made_not_commenced",
+      "evidence_tier": "mixed",
+      "instrument": "GENIUS Act s.18 (foreign payment-stablecoin issuer comparability determination by the Secretary of the Treasury on SCRC recommendation + OCC registration + US-held reserves), effective per s.20 on the earlier of 18 months after enactment (2027-01-18) or 120 days after the primary federal payment stablecoin regulators issue final regulations.",
+      "record_ref": "us-pss-monetary_sovereignty-001",
+      "record_ref_meta": {
+        "dimension": "monetary_sovereignty",
+        "match": "same_instrument",
+        "record_binding_status": "in_force_enacted",
+        "record_evidence_tier": "firm_summary",
+        "record_claim_class": "tier1_legal",
+        "backlog_ref": "VB-06",
+        "note": "`us-pss-monetary_sovereignty-001` cites the GENIUS Act, pinpoint 'Foreign payment stablecoin issuers — comparability determination and registration' — the same §18 gate the signal names. The record codes the ACT as in_force_enacted (it is: enacted 2025-07-18); the signal codes the GATE, which §20 makes effective on the earlier of 2027-01-18 or final-rules + 120 days. Act-enacted is not section-operative. This is errata E1 / VB-06, and it is the divergence that moves the 8 inbound-US edges from II to T.",
+        "divergence": "`us-pss-monetary_sovereignty-001` cites the GENIUS Act, pinpoint 'Foreign payment stablecoin issuers — comparability determination and registration' — the same §18 gate the signal names. The record codes the ACT as in_force_enacted (it is: enacted 2025-07-18); the signal codes the GATE, which §20 makes effective on the earlier of 2027-01-18 or final-rules + 120 days. Act-enacted is not section-operative. This is errata E1 / VB-06, and it is the divergence that moves the 8 inbound-US edges from II to T."
+      }
+    },
+    "as_of_timeline": {
+      "today_class": "T",
+      "as_of_base": "2026-06-30",
+      "scheduled": [
+        {
+          "event_id": "us-genius-act-effective",
+          "effective_date": "2027-01-18",
+          "date_kind": "outer_cap",
+          "status": "scheduled_with_cap",
+          "resolves_to": "II",
+          "basis": "GENIUS Act s.18 (foreign payment-stablecoin issuer comparability determination by the Secretary of the Treasury on SCRC recommendation + OCC registration + US-held reserves), effective per s.20 on the earlier of 18 months after enactment (2027-01-18) or 120 days after the primary federal payment stablecoin regulators issue final regulations."
+        }
+      ],
+      "contingent": []
+    }
+  }
+}

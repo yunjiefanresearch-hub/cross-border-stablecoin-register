@@ -1,0 +1,61 @@
+{
+  "register": "Cross-Border Stablecoin Register",
+  "version": "0.10.1",
+  "generated": "2026-07-10",
+  "endpoint": "corridor_directed",
+  "guardrail": "static projection of the public register; no facts added here",
+  "data": {
+    "corridor_id": "us-sg-directed",
+    "name": "US -> SG (USD->SGD directed edge)",
+    "schema": "corridor/v3-directed-edge",
+    "origin": "US",
+    "destination": "SG",
+    "direction": "directed",
+    "currencies": "USD -> SGD",
+    "feasibility_class": "Category I (dual authorization available)",
+    "class_code": "I",
+    "compatibility_category": "I/II",
+    "compatibility_pair": "SG-US",
+    "archetypes": [
+      "RC",
+      "SC",
+      "TC",
+      "DC"
+    ],
+    "interaction_sets": [
+      "C",
+      "D"
+    ],
+    "infrastructure_overlap": {
+      "bloc": "none",
+      "note": "US on Project Agora; SG on Project Ensemble. At least one end off the shared experiments."
+    },
+    "inbound_mechanism": {
+      "test": "MAS single-currency-stablecoin recognition; foreign-pegged tokens treated as DPTs",
+      "administrator": "MAS",
+      "detail": null
+    },
+    "origin_drag": false,
+    "materialized_from": "computed_skeleton",
+    "class_basis": {
+      "rule": "destination_gate",
+      "governing_jurisdiction": "SG",
+      "signal": "inbound_gate",
+      "signal_value": "authorization",
+      "claim_class": "tier1_legal",
+      "binding_status": "in_force_enacted",
+      "evidence_tier": "firm_summary",
+      "instrument": "MAS single-currency-stablecoin recognition; foreign-pegged tokens treated as digital payment tokens under the Payment Services Act 2019.",
+      "record_ref": "sg-scs-monetary_sovereignty-001",
+      "record_ref_meta": {
+        "dimension": "monetary_sovereignty",
+        "match": "same_instrument",
+        "record_binding_status": "finalized_policy_pending",
+        "record_evidence_tier": "firm_summary",
+        "record_claim_class": "tier1_legal",
+        "note": "Same bundling as SG.token_regime: the class rests on the in-force PSA 2019 baseline, the record is coded by the pending SCS layer.",
+        "divergence": "Same bundling as SG.token_regime: the class rests on the in-force PSA 2019 baseline, the record is coded by the pending SCS layer."
+      }
+    }
+  }
+}

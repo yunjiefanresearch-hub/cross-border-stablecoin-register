@@ -123,7 +123,7 @@ ROOT = pathlib.Path(__file__).resolve().parent
 
 # Single source of truth for the dataset/release version. Bump this when tagging
 # a release; keep it in step with README, CITATION.cff, and the schema $id.
-REGISTER_VERSION = "0.9.91"
+REGISTER_VERSION = "0.10.1"
 
 def find(name):
     hits = list(ROOT.rglob(name))
@@ -342,6 +342,81 @@ def check_cross_layer(corridors, analysis):
                               f"§5.14 {pair} {pair_sets} but no valid `divergence` field declares it")
             else:
                 declared += 1
+    return errors
+
+def check_directed_cross_layer(analysis):
+    """Hard invariant on the directed-132 layer: every directed edge's compatibility_category must
+    equal the category of its §5.14 pair. Category-only by design — a directed edge carries the
+    Atlas per-direction interaction-set refinement, which legitimately differs from the undirected
+    pair, so only the category is a hard cross-layer relationship."""
+    errors = []
+    if not analysis:
+        return errors
+    directed = analysis.get("computed_corridors_directed")
+    compat = analysis.get("compatibility")
+    if not directed or not compat:
+        return errors
+    pairs = {p["pair"]: p for p in compat.get("pairs", [])}
+    for e in directed.get("edges", []):
+        pair = e.get("compatibility_pair")
+        row = pairs.get(pair)
+        if row is None:
+            errors.append(f"directed edge {e.get('corridor_id')}: compatibility_pair {pair!r} not found in the §5.14 matrix")
+        elif e.get("compatibility_category") != row.get("category"):
+            errors.append(f"directed edge {e.get('corridor_id')}: category {e.get('compatibility_category')!r} "
+                          f"contradicts §5.14 {pair} category {row.get('category')!r}")
+    return errors
+
+def check_directed_signal_provenance(analysis, recs):
+    """Hard invariant on the derived corridor classes (v0.10.0). The signal-provenance gate of
+    `Citable by Construction` §4.2 says a computed legal conclusion may never rest on a market fact.
+    The directed layer's `class_basis` states, per edge, exactly which signal decided the class.
+    This gate re-checks, against the register's own records, that:
+
+      SP1  every class-driving signal is `tier1_legal` (never a tier2_operational market fact);
+      SP2  every `class_basis.record_ref` resolves to a real, `tier1_legal` node record — a locator
+           offered to a reader must point at a record that exists;
+      SP3  a `record_ref` at `match: same_instrument` whose record disagrees with the signal about
+           binding status must DECLARE the divergence (disagreement is a finding, never silent);
+      SP4  a null `record_ref` carries a stated `record_ref_gap.reason` (citation firewall: an
+           absent locator is explained, never merely absent).
+    """
+    errors = []
+    if not analysis:
+        return errors
+    directed = analysis.get("computed_corridors_directed")
+    if not directed:
+        return errors
+    by_id = {r.get("id"): r for r in recs}
+    for e in directed.get("edges", []):
+        eid = e.get("corridor_id")
+        cb = e.get("class_basis")
+        if not isinstance(cb, dict):
+            errors.append(f"directed edge {eid}: no class_basis — the class is authored, not derived (EV1)")
+            continue
+        if cb.get("claim_class") != "tier1_legal":
+            errors.append(f"directed edge {eid}: class rests on a {cb.get('claim_class')!r} signal; a "
+                          f"derived legal conclusion may only rest on a proposition of law (SP1)")
+        ref = cb.get("record_ref")
+        if ref is None:
+            gap = cb.get("record_ref_gap") or {}
+            if not gap.get("reason"):
+                errors.append(f"directed edge {eid}: class_basis.record_ref is null with no stated "
+                              f"record_ref_gap.reason (SP4 / citation firewall)")
+            continue
+        rec = by_id.get(ref)
+        if rec is None:
+            errors.append(f"directed edge {eid}: class_basis.record_ref {ref!r} resolves to no node record (SP2)")
+            continue
+        if rec.get("claim_class") != "tier1_legal":
+            errors.append(f"directed edge {eid}: record_ref {ref!r} is {rec.get('claim_class')!r}, not "
+                          f"tier1_legal (SP2)")
+        meta = cb.get("record_ref_meta") or {}
+        if meta.get("match") == "same_instrument" and \
+                rec.get("binding_status") != cb.get("binding_status") and not meta.get("divergence"):
+            errors.append(f"directed edge {eid}: record_ref {ref!r} binding_status "
+                          f"{rec.get('binding_status')!r} != class_basis {cb.get('binding_status')!r} at "
+                          f"match=same_instrument, with no declared divergence (SP3)")
     return errors
 
 def render_records(recs):
@@ -584,6 +659,34 @@ def load_analysis():
             analysis["verification_ledger"] = vobj
         except json.JSONDecodeError as e:
             errors.append(f"verification_ledger.json: invalid JSON ({e})")
+    # directed-132 corridor layer (unifies authored + skeletons + transition edges; v0.10.0)
+    cd132 = adir / "computed_corridors_directed.json"
+    if cd132.exists():
+        try:
+            dobj = json.loads(cd132.read_text(encoding="utf-8"))
+            if dobj.get("schema") != "cbsr-analysis/computed_corridors_directed":
+                errors.append("computed_corridors_directed.json: missing/incorrect 'schema' tag")
+            prov = dobj.get("provenance", {})
+            if prov.get("clean") is False:
+                errors.append("directed-132 corridors: provenance not clean — the directed layer must "
+                              "inherit the skeletons' tier1_legal signal provenance")
+            xc = dobj.get("cross_check", {})
+            if xc.get("clean") is False:
+                errors.append(f"directed-132 corridors: self cross-check failed — category mismatches "
+                              f"{xc.get('category_mismatches')}")
+            analysis["computed_corridors_directed"] = dobj
+        except json.JSONDecodeError as e:
+            errors.append(f"computed_corridors_directed.json: invalid JSON ({e})")
+    # the signal table the directed layer's classes are derived from (v0.10.0)
+    st = adir / "signal_table.json"
+    if st.exists():
+        try:
+            sobj = json.loads(st.read_text(encoding="utf-8"))
+            if sobj.get("schema") != "cbsr-analysis/signal_table":
+                errors.append("signal_table.json: missing/incorrect 'schema' tag")
+            analysis["signal_table"] = sobj
+        except json.JSONDecodeError as e:
+            errors.append(f"signal_table.json: invalid JSON ({e})")
     return (analysis or None), errors
 
 def evidence_tier_summary(recs):
@@ -792,6 +895,8 @@ def main():
     analysis, aerrors = load_analysis()
     errors += aerrors
     errors += check_cross_layer(corridors, analysis)
+    errors += check_directed_cross_layer(analysis)
+    errors += check_directed_signal_provenance(analysis, recs)
     errors += check_citable_integrity(recs)
     errors += check_citable_purity(recs)
     errors += check_evidence_tier_requirements(recs)
@@ -879,6 +984,23 @@ def main():
             print(f"     edge layer: {cv.get('authored_rich_corridors')} rich + {cv.get('computed_skeletons')} "
                   f"computed skeletons = {cv.get('edges_with_a_record')}/{cv.get('edges_total')} edges with a record "
                   f"({cv.get('indeterminate_edges')} indeterminate); cross-check clean={ck.get('cross_check', {}).get('clean')}.")
+        cd = analysis.get("computed_corridors_directed")
+        if cd:
+            cc = cd.get("coverage", {})
+            n_cb = sum(1 for e in cd.get("edges", []) if e.get("class_basis"))
+            n_ref = sum(1 for e in cd.get("edges", []) if (e.get("class_basis") or {}).get("record_ref"))
+            print(f"     directed-132 layer: {cc.get('edges_total')}/{cc.get('ordered_pairs_expected')} ordered pairs "
+                  f"({cc.get('authored')} authored + {cc.get('computed_skeleton')} skeleton + {cc.get('computed_transition')} transition); "
+                  f"category vs §5.14 enforced (self-check clean={cd.get('cross_check', {}).get('clean')}).")
+            print(f"     directed classes: {cc.get('class_distribution')}; derived by class_rule over the "
+                  f"signal table — class_basis {n_cb}/{cc.get('edges_total')}, record_ref {n_ref}/{cc.get('edges_total')}; "
+                  f"{cc.get('timeline_edges')} typed timeline edges.")
+        stbl = analysis.get("signal_table")
+        if stbl:
+            f = stbl.get("record_binding_findings", {})
+            n_sig = sum(1 for j in stbl.get("signals", {}).values() for v in j.values() if isinstance(v, dict))
+            print(f"     signal table: {n_sig} signals across 12 jurisdictions; {f.get('count', 0)} record-binding "
+                  f"finding(s) ({f.get('class_driving_count', 0)} on class-driving signals), surfaced not reconciled.")
     print("     wrote dataset.json, COVERAGE.md, records.md")
 
 if __name__ == "__main__":

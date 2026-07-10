@@ -1,0 +1,59 @@
+{
+  "register": "Cross-Border Stablecoin Register",
+  "version": "0.10.1",
+  "generated": "2026-07-10",
+  "endpoint": "corridor_directed",
+  "guardrail": "static projection of the public register; no facts added here",
+  "data": {
+    "corridor_id": "uk-hk-directed",
+    "name": "UK -> HK (GBP->HKD directed edge)",
+    "schema": "corridor/v3-directed-edge",
+    "origin": "UK",
+    "destination": "HK",
+    "direction": "directed",
+    "currencies": "GBP -> HKD",
+    "feasibility_class": "Category I (dual authorization available)",
+    "class_code": "I",
+    "compatibility_category": "I/II",
+    "compatibility_pair": "HK-UK",
+    "archetypes": [
+      "RC",
+      "SC",
+      "TC",
+      "DC"
+    ],
+    "interaction_sets": [
+      "C",
+      "D"
+    ],
+    "infrastructure_overlap": {
+      "bloc": "cross-bloc",
+      "note": "UK on Project Agora; HK on Project Ensemble + mBridge. Rival bloc rails, not mutually interoperable: no shared production or pilot settlement rail (commercial rails subject to both regimes)."
+    },
+    "inbound_mechanism": {
+      "test": "HKMA stablecoin licensing",
+      "administrator": "HKMA",
+      "detail": null
+    },
+    "origin_drag": false,
+    "materialized_from": "computed_skeleton",
+    "class_basis": {
+      "rule": "destination_gate",
+      "governing_jurisdiction": "HK",
+      "signal": "inbound_gate",
+      "signal_value": "authorization",
+      "claim_class": "tier1_legal",
+      "binding_status": "in_force_enacted",
+      "evidence_tier": "firm_summary",
+      "instrument": "HKMA fiat-referenced-stablecoin licence under Cap. 656.",
+      "record_ref": "hk-frs-monetary_sovereignty-001",
+      "record_ref_meta": {
+        "dimension": "monetary_sovereignty",
+        "match": "same_instrument",
+        "record_binding_status": "in_force_enacted",
+        "record_evidence_tier": "resolution_text",
+        "record_claim_class": "tier1_legal"
+      }
+    }
+  }
+}

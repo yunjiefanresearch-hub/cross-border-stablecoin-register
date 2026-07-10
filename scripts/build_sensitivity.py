@@ -169,7 +169,7 @@ def build():
 
     out = {
         "schema": "cbsr-analysis/computed_sensitivity",
-        "version": "v0.9.91",
+        "version": "v0.10.0",
         "generated": date.today().isoformat(),
         "as_of_base": base,
         "method": ("For each pending trigger (a contingent enactment or a dated commencement) the layer counts the "

@@ -1,7 +1,7 @@
 {
   "schema": "cbsr-analysis/computed_settlement",
-  "version": "v0.9.91",
-  "generated": "2026-07-04",
+  "version": "v0.10.0",
+  "generated": "2026-07-10",
   "claim_class": "tier2_operational",
   "evidence_tier": "operational_enrichment",
   "method": "The three wholesale-settlement experiments are recorded with their true operators (the §5.2 correction), each of the twelve jurisdictions is assigned to the bloc-internal substrate its rail belongs to, and every undirected corridor is then classified by whether its two ends sit on the same bloc substrate, on opposite blocs, on the Ensemble bridge, or off the shared experiments. The per-edge classification is deterministic given the public memberships.",

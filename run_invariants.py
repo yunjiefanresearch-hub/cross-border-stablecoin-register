@@ -23,7 +23,7 @@ import json, glob, re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-EXPECT_VERSION = "0.9.91"
+EXPECT_VERSION = "0.10.1"
 
 def load_json(p):
     return json.loads((ROOT / p).read_text(encoding="utf-8"))
@@ -35,7 +35,8 @@ def load_json(p):
 # copy will not build. A self-disciplining project should have controlled failure messages too.
 _REQUIRED = ["dataset.json", "analysis/verification_ledger.json", "analysis/computed_compatibility.json",
              "analysis/computed_timeline.json", "analysis/computed_substrate.json",
-             "analysis/computed_corridor_skeletons.json"]
+             "analysis/computed_corridor_skeletons.json", "analysis/computed_corridors_directed.json",
+             "analysis/signal_table.json"]
 _missing = [p for p in _REQUIRED if not (ROOT / p).exists()]
 if _missing:
     print("Cannot run invariants: the built register was not found in this directory.")
@@ -53,6 +54,8 @@ comp = load_json("analysis/computed_compatibility.json")
 timeline = load_json("analysis/computed_timeline.json")
 substrate = load_json("analysis/computed_substrate.json")
 skeletons = load_json("analysis/computed_corridor_skeletons.json")
+directed = load_json("analysis/computed_corridors_directed.json")
+signal_table = load_json("analysis/signal_table.json")
 
 BLOCKED = {"prohibition", "no_regime", "pending_proposal", "made_not_commenced", "finalized_policy_pending"}
 BINDING_ENUM = {"in_force_enacted", "made_not_commenced", "finalized_policy_pending",
@@ -211,7 +214,10 @@ inv("D6  open question 7.2 records the Feb-2026 written tightening (42号)",
     "银发〔2026〕42号" in json.dumps(q72, ensure_ascii=False))
 
 # === PORTABILITY (the v0.9.7 engineering fix) ==================================================
-py_files = sorted(glob.glob(str(ROOT / "*.py")) + glob.glob(str(ROOT / "scripts" / "*.py")))
+# v0.10.0: the portability gate now also covers tools/ — the directed-corridor verifier, the class
+# rule and the negative-test suite all print §, — and CJK instrument names (银发〔2026〕42号).
+py_files = sorted(glob.glob(str(ROOT / "*.py")) + glob.glob(str(ROOT / "scripts" / "*.py"))
+                  + glob.glob(str(ROOT / "tools" / "*.py")))
 def io_calls_have_encoding(text):
     for m in re.finditer(r"\.(read_text|write_text)\(", text):
         i = m.end() - 1; depth = 0; j = i; n = len(text)
@@ -242,8 +248,8 @@ inv("P2  every shipped script has the guarded UTF-8 stdout/stderr reconfigure", 
 
 # === VERSION ===================================================================================
 build_src = (ROOT / "build.py").read_text(encoding="utf-8")
-inv("V1  REGISTER_VERSION == 0.9.91 in build.py", f'REGISTER_VERSION = "{EXPECT_VERSION}"' in build_src)
-inv("V2  dataset.register_version == 0.9.91",
+inv(f"V1  REGISTER_VERSION == {EXPECT_VERSION} in build.py", f'REGISTER_VERSION = "{EXPECT_VERSION}"' in build_src)
+inv(f"V2  dataset.register_version == {EXPECT_VERSION}",
     (ds.get("register_version") or ds.get("version")) == EXPECT_VERSION,
     str(ds.get("register_version") or ds.get("version")))
 
@@ -262,7 +268,7 @@ _version_sources = {
     "PACKAGE.md": _ver("PACKAGE.md", r'repository \(v([0-9]+\.[0-9]+\.[0-9]+)\)'),
     "verification_ledger": (ledger.get("version") or "").lstrip("v") or None,
     # the two working papers themselves: the ORIGINAL drift was papers-vs-metadata, so V3 must cover the
-    # version string each paper cites for the register ("Register (CBSR, v0.9.91…").
+    # version string each paper cites for the register ("Register (CBSR, v0.10.0…").
     "paper:methodology": _ver("papers/Citable_by_Construction_Methodology_v0.1.0.md", r'CBSR,\s*v([0-9]+\.[0-9]+\.[0-9]+)'),
     "paper:feasibility": _ver("papers/Cross-Border_Stablecoin_Feasibility_Over_Time_v0.1.0.md", r'CBSR,\s*v([0-9]+\.[0-9]+\.[0-9]+)'),
 }
@@ -335,16 +341,26 @@ try:
     _sens = load_json("analysis/computed_sensitivity.json")
     _byj = {r["jurisdiction"]: r for r in _sens.get("ordering", [])}
     _ins = {r["jurisdiction"]: r for r in _sens.get("insensitive", [])}
+    # v0.10.1 regeneration: the forward/sensitivity layer was brought into line with the authoritative
+    # directed-corridor layer, which scores the eight inbound-US edges as regime-in-transition (T) until the
+    # GENIUS §18 foreign-comparability gate commences (outer cap 2027-01-18). That moved the US into the
+    # ordering (US=8, its own inbound edges) and pushed the counts to KR 21 / TW 18 / UK 8 / US 8, with the
+    # insensitive pole now {SG, CN} (CN still by prohibition). See BUILD_NOTE_v0.10.1. The gate tracks the
+    # DATA (the load-bearing directed layer), not a frozen paper headline: it reproduces the regenerated
+    # ordering where the products agree and still records the breadth-vs-paper divergence as a finding.
     _sens_ok = (
-        _byj.get("KR", {}).get("edges_reclassified") == 20 and _byj.get("KR", {}).get("fan_in") == 9
-        and _byj.get("KR", {}).get("fan_out") == 11
+        _byj.get("KR", {}).get("edges_reclassified") == 21 and _byj.get("KR", {}).get("fan_in") == 11
+        and _byj.get("KR", {}).get("fan_out") == 10
+        and _byj.get("TW", {}).get("edges_reclassified") == 18
         and _byj.get("UK", {}).get("edges_reclassified") == 8
+        and _byj.get("US", {}).get("edges_reclassified") == 8
         and _byj.get("TW", {}).get("fan_in") == 9
-        and _ins.get("CN", {}).get("reason") == "prohibition"  # the paper's insensitive pole is listed explicitly
+        and _ins.get("CN", {}).get("reason") == "prohibition"  # prohibition pole is listed explicitly
+        and "SG" in _ins  # v0.10.1: SG joins the insensitive set once the US moves into the ordering
         and _sens.get("disagreement_as_finding") is not None
         and _sens.get("provenance", {}).get("asserts_new_facts") is False)
-    inv("Sen1 sensitivity layer reproduces §4 (KR=20 [9in/11out], UK=8, TW fan-in=9; CN insensitive/prohibition); no new facts",
-        _sens_ok, f"KR={_byj.get('KR',{}).get('edges_reclassified')} UK={_byj.get('UK',{}).get('edges_reclassified')} TW_in={_byj.get('TW',{}).get('fan_in')} CN={_ins.get('CN',{}).get('reason')}")
+    inv("Sen1 sensitivity layer reproduces §4 as regenerated in v0.10.1 (KR=21 [11in/10out], TW=18, UK=8, US=8; insensitive {SG,CN}, CN prohibition); no new facts",
+        _sens_ok, f"KR={_byj.get('KR',{}).get('edges_reclassified')} [{_byj.get('KR',{}).get('fan_in')}in/{_byj.get('KR',{}).get('fan_out')}out] TW={_byj.get('TW',{}).get('edges_reclassified')} UK={_byj.get('UK',{}).get('edges_reclassified')} US={_byj.get('US',{}).get('edges_reclassified')} insensitive={sorted(_ins)}")
 except Exception as _e:
     inv("Sen1 corridor-sensitivity layer present and reproduces §4 headline", False, repr(_e))
 
@@ -442,6 +458,96 @@ try:
         not _readme_errs, " | ".join(_readme_errs))
 except Exception as _e:
     inv("R1  README.md drift gate available", False, repr(_e))
+
+# === DIRECTED-132 CORRIDOR LAYER ===============================================================
+# The unified directed edge layer (analysis/computed_corridors_directed.json): every ordered pair
+# of the twelve jurisdictions carries one directed-edge record. DC1–DC4 are the structural
+# invariants; DC5–DC8 are the v0.10.0 additions that make the derivation itself load-bearing —
+# the class column is re-derived from the published rule on every run, so a hand-edit to a class
+# cannot survive the build.
+try:
+    _dedges = directed.get("edges", [])
+    _pairs514 = {p["pair"]: p for p in an.get("compatibility", {}).get("pairs", [])}
+    _J12 = an.get("jurisdictions") or ["US", "EU", "UK", "SG", "HK", "CN", "BR", "CH", "AE", "JP", "TW", "KR"]
+    _ordered = {(o, d) for o in _J12 for d in _J12 if o != d}
+    _seen = {(e.get("origin"), e.get("destination")) for e in _dedges}
+    inv("DC1 directed layer covers all 132 ordered pairs",
+        len(_dedges) == 132 and _seen == _ordered,
+        f"{len(_dedges)} edges; missing {sorted(_ordered - _seen)[:5]}")
+
+    _cat_mismatch = []
+    _no_pair = []
+    for e in _dedges:
+        pr = e.get("compatibility_pair")
+        row = _pairs514.get(pr)
+        if not pr or row is None:
+            _no_pair.append(f"{e.get('corridor_id')}({pr})")
+            continue
+        if e.get("compatibility_category") != row.get("category"):
+            _cat_mismatch.append(f"{e.get('corridor_id')}: {e.get('compatibility_category')!r}!=§5.14 {pr} {row.get('category')!r}")
+    inv("DC2 every directed edge's compatibility_category matches its §5.14 pair",
+        not _cat_mismatch and not _no_pair,
+        (" | ".join(_cat_mismatch[:4]) + ("; no-pair: " + ", ".join(_no_pair[:4]) if _no_pair else "")))
+
+    _cov = directed.get("coverage", {})
+    _sum = (_cov.get("authored", 0) + _cov.get("computed_skeleton", 0) + _cov.get("computed_transition", 0))
+    inv("DC3 provenance partitions the 132 (authored + skeleton + transition)",
+        _sum == 132 and _cov.get("edges_total") == 132,
+        f"authored {_cov.get('authored')} + skeleton {_cov.get('computed_skeleton')} + "
+        f"transition {_cov.get('computed_transition')} = {_sum}")
+
+    inv("DC4 directed layer self cross-check is clean",
+        directed.get("cross_check", {}).get("clean") is True,
+        str(directed.get("cross_check", {}).get("category_mismatches"))[:200])
+except Exception as _e:
+    inv("DC1 directed-132 corridor layer available", False, repr(_e))
+
+# --- DC5–DC8: the derivation is re-run here, not trusted --------------------------------------
+try:
+    import sys as _sys2
+    _sys2.path.insert(0, str(ROOT / "tools"))
+    import class_rule as _cr
+
+    _sigs = signal_table["signals"]
+    _bad = []
+    for e in directed["edges"]:
+        o, d = e["origin"], e["destination"]
+        want_cls, want_rule = _cr.class_of(o, d, _sigs)
+        if e.get("class_code") != want_cls:
+            _bad.append(f"{o}->{d}: {e.get('class_code')!r} != rule {want_cls!r}")
+        elif (e.get("class_basis") or {}).get("rule") != want_rule:
+            _bad.append(f"{o}->{d}: class_basis.rule != {want_rule!r}")
+    inv("DC5 every one of the 132 class_codes is reproduced by the published rule over the signal table",
+        not _bad, " | ".join(_bad[:4]))
+
+    _prov = _cr.check_signal_provenance(signal_table) + _cr.check_gate_values(signal_table)
+    inv("DC6 signal table passes SIG1/SIG2/SIG3 (class-driving signals are tier1_legal; "
+        "resolution_text implies in_force_enacted)", not _prov, " | ".join(_prov[:3]))
+
+    # tier2 inertness, re-proved on every build: flip every market signal, assert no class moves
+    import copy as _copy
+    _flipped = _copy.deepcopy(_sigs)
+    for _j in _cr.J12:
+        _t = _flipped[_j].get("token_in_issue")
+        if isinstance(_t, dict):
+            _t["value"] = not _t["value"]
+    _moved = [f"{o}->{d}" for o in _cr.J12 for d in _cr.J12 if o != d
+              and _cr.class_of(o, d, _flipped)[0] != _cr.class_of(o, d, _sigs)[0]]
+    inv("DC7 flipping every tier2_operational market signal moves 0 classes "
+        "(a derived legal conclusion never rests on a market fact)", not _moved, str(_moved[:5]))
+
+    _tl_bad = [f"{e['origin']}->{e['destination']}"
+               for e in directed["edges"]
+               if (e.get("class_code") == "T") != ("as_of_timeline" in e)]
+    _ov_want = {(e["origin"], e["destination"]) for e in directed["edges"]
+                if _sigs[e["origin"]]["egress_override"]["value"] != "none"}
+    _ov_have = {(e["origin"], e["destination"]) for e in directed["edges"]
+                if isinstance(e.get("origin_override"), dict)}
+    inv("DC8 class T <-> as_of_timeline, and origin_override sits on exactly the Atlas's 33 rows",
+        not _tl_bad and _ov_want == _ov_have,
+        f"timeline {_tl_bad[:3]}; override symdiff {sorted(_ov_want ^ _ov_have)[:4]}")
+except Exception as _e:
+    inv("DC5 the published class rule is runnable over the signal table", False, repr(_e))
 
 # === report ====================================================================================
 passed = sum(1 for ok, _, _ in results if ok)

@@ -1,7 +1,7 @@
 {
   "register": "Cross-Border Stablecoin Register",
-  "version": "0.9.91",
-  "generated": "2026-07-04",
+  "version": "0.10.1",
+  "generated": "2026-07-10",
   "endpoint": "jurisdiction",
   "guardrail": "static projection of the public register; no facts added here",
   "data": {
@@ -306,7 +306,7 @@
           "event_id": "jp-act66-2025-full-enforcement",
           "title": "Japan Act No. 66 of 2025 full enforcement (trust-type reserve relaxation)",
           "trigger_kind": "dated-empty-effect",
-          "status": "scheduled",
+          "status": "in_force",
           "effective_date": "2026-06-01",
           "moves_class": false,
           "accessibility_only": true
@@ -324,8 +324,8 @@
       "summary": {
         "own_driven_inbound": 0,
         "own_driven_outbound": 0,
-        "counterpart_driven_inbound": 1,
-        "counterpart_driven_outbound": 3,
+        "counterpart_driven_inbound": 2,
+        "counterpart_driven_outbound": 4,
         "accessibility_only_own_events": 2
       },
       "inbound_reclassified": [
@@ -335,6 +335,14 @@
           "to": "II",
           "via_trigger": "kr-daba-enacted",
           "trigger_jurisdiction": "KR",
+          "timing": "contingent (if enacted)"
+        },
+        {
+          "counterpart": "TW",
+          "from": "III",
+          "to": "II",
+          "via_trigger": "tw-vas-act-enacted",
+          "trigger_jurisdiction": "TW",
           "timing": "contingent (if enacted)"
         }
       ],
@@ -362,6 +370,14 @@
           "via_trigger": "uk-systemic-regime-operative",
           "trigger_jurisdiction": "UK",
           "timing": "scheduled 2027-10-25"
+        },
+        {
+          "counterpart": "US",
+          "from": "T",
+          "to": "II",
+          "via_trigger": "us-genius-act-effective",
+          "trigger_jurisdiction": "US",
+          "timing": "scheduled ≤2027-01-18 (outer cap)"
         }
       ],
       "counterpart_exposure": [
@@ -373,8 +389,8 @@
         },
         {
           "counterpart": "TW",
-          "edges_affected": 1,
-          "inbound": 0,
+          "edges_affected": 2,
+          "inbound": 1,
           "outbound": 1
         },
         {
@@ -382,9 +398,15 @@
           "edges_affected": 1,
           "inbound": 0,
           "outbound": 1
+        },
+        {
+          "counterpart": "US",
+          "edges_affected": 1,
+          "inbound": 0,
+          "outbound": 1
         }
       ],
-      "supervisor_reading": "JP's own pending change is accessibility-only (dated-empty-effect, inbound-recognition): it changes who may operate and which tokens are admissible within the live regime, without moving any feasibility class. Read JP's low class-sensitivity position as 'no class flip pending', not as 'nothing happening' (§3.10/§6). Separately, 1 inbound and 3 outbound corridor(s) of JP will reclassify when counterparts enact; most exposed counterpart(s): KR (2), TW (1), UK (1)."
+      "supervisor_reading": "JP's own pending change is accessibility-only (dated-empty-effect, inbound-recognition): it changes who may operate and which tokens are admissible within the live regime, without moving any feasibility class. Read JP's low class-sensitivity position as 'no class flip pending', not as 'nothing happening' (§3.10/§6). Separately, 2 inbound and 4 outbound corridor(s) reclassify when counterparts enact. Most exposed counterpart(s): KR (2), TW (2), UK (1), US (1)."
     }
   }
 }

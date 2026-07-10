@@ -45,4 +45,4 @@ The backlog driving the next primary-source pass (also exposed by the MCP `verif
 - `resolution_text` 48 · `mixed` 14 · `firm_summary` 63 · **`unset` 27 (largest backlog)**
 - The `unset` records are the legacy seven-jurisdiction set: CN 8, HK 1, KR 3, SG 3, TW 3, UK 9. These predate the `evidence_tier` field and are the declared next target.
 
-_Verified cells: 152 · draft cells: 0 · planned cells: 24. Generated 2026-07-04._
+_Verified cells: 152 · draft cells: 0 · planned cells: 24. Generated 2026-07-10._

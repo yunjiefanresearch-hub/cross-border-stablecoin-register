@@ -1,0 +1,89 @@
+{
+  "register": "Cross-Border Stablecoin Register",
+  "version": "0.10.1",
+  "generated": "2026-07-10",
+  "endpoint": "corridor_directed",
+  "guardrail": "static projection of the public register; no facts added here",
+  "data": {
+    "corridor_id": "us-eu-usd-eur-settlement",
+    "name": "United States -> European Union (USD->EUR settlement)",
+    "schema": "corridor/v3-directed-edge",
+    "origin": "US",
+    "destination": "EU",
+    "direction": "directed",
+    "currencies": "USD -> EUR",
+    "feasibility_class": "Category I (dual authorization available) — scale-capped",
+    "compatibility_category": "I/II",
+    "compatibility_pair": "EU-US",
+    "divergence": {
+      "kind": "interaction_sets",
+      "against_pair": "EU-US",
+      "pair_interaction_sets": [
+        "B",
+        "D"
+      ],
+      "edge_interaction_sets": [
+        "A",
+        "C",
+        "D"
+      ],
+      "reason": "Directed-edge operative interaction sets (Corridor Atlas v0.2.5 §5, read at the destination inbound gate for THIS direction) differ from the undirected pairwise sets (Architecture §5.14). The Atlas generalizes the §5.12/§5.14 undirected pairs into directed edges and re-derives the operative interaction sets per direction; the compatibility CATEGORY agrees, the interaction-set list may differ by direction. This divergence is declared, not silent."
+    },
+    "archetypes": [
+      "RC",
+      "SC",
+      "TC",
+      "DC"
+    ],
+    "interaction_sets": [
+      "A",
+      "C",
+      "D"
+    ],
+    "infrastructure_overlap": {
+      "bloc": "agora",
+      "note": "Both ends on Project Agora (US and EU)."
+    },
+    "inbound_mechanism": {
+      "test": "MiCA EMT authorization wall + Article 58(3) means-of-exchange cap",
+      "detail": "A non-EUR token faces enhanced reporting and, once significant and used as a means of exchange, the Article 58(3) ceiling (one million transactions/day and EUR 200m/day — both thresholds, per MiCA Art. 23(1) applied mutatis mutandis; EBA operative methodology pending). A EUR sister EMT via a MiCA-authorized issuer avoids the cap.",
+      "administrator": "EBA / national competent authorities"
+    },
+    "note": "Demand is high and the corridor is operable, but the binding question is scale, not permission. A dollar token can be distributed via a MiCA-authorized issuer, yet once significant and used as a means of exchange it meets the Article 58(3) ceiling; the uncapped route is a euro sister token (Circle's euro authorization is the working example). An unauthorized dollar token cannot be lawfully distributed at all (the Tether delisting lesson).",
+    "source": {
+      "primary": "Fan, Cross-Border Digital-Finance Corridor Atlas v0.2.5 (June 2026), §5.1 (United States -> European Union)",
+      "secondary": "Fan, Cross-Border Stablecoin Architecture v3 (Twelve Jurisdictions, June 2026), §5.14 (EU x US: Category I/II hybrid — undirected §5.14 pair; see this edge's `divergence` field)"
+    },
+    "valid_as_of": "2026-06",
+    "evidence_tier": "firm_summary",
+    "version_added": "0.5.0",
+    "tags": [
+      "corridor",
+      "directed_edge",
+      "from_atlas_v0.2.5",
+      "v0.5.0_corridor_layer"
+    ],
+    "materialized_from": "authored",
+    "authored_source_file": "us-eu-usd-eur-settlement.yaml",
+    "class_code": "I",
+    "origin_drag": false,
+    "class_basis": {
+      "rule": "destination_gate",
+      "governing_jurisdiction": "EU",
+      "signal": "inbound_gate",
+      "signal_value": "authorization",
+      "claim_class": "tier1_legal",
+      "binding_status": "in_force_enacted",
+      "evidence_tier": "mixed",
+      "instrument": "MiCA authorization wall (Titles III/IV) with the Art. 58(3) means-of-exchange ceiling extending Arts. 22/23/24(3) mutatis mutandis to EMTs denominated in a non-Member-State currency. Art. 23(1) is CONJUNCTIVE: 1,000,000 transactions/day AND EUR 200,000,000/day (quarterly average).",
+      "record_ref": "eu-emt-monetary_sovereignty-001",
+      "record_ref_meta": {
+        "dimension": "monetary_sovereignty",
+        "match": "same_instrument",
+        "record_binding_status": "in_force_enacted",
+        "record_evidence_tier": "resolution_text",
+        "record_claim_class": "tier1_legal"
+      }
+    }
+  }
+}

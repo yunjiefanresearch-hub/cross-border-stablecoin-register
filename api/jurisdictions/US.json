@@ -1,7 +1,7 @@
 {
   "register": "Cross-Border Stablecoin Register",
-  "version": "0.9.91",
-  "generated": "2026-07-04",
+  "version": "0.10.1",
+  "generated": "2026-07-10",
   "endpoint": "jurisdiction",
   "guardrail": "static projection of the public register; no facts added here",
   "data": {
@@ -216,19 +216,19 @@
       "jurisdiction": "US",
       "own_pending_events": [
         {
-          "event_id": "us-clarity-act-enacted",
-          "title": "US CLARITY Act enacted (digital-asset market structure; intermediary yield + routing layer live)",
-          "trigger_kind": "contingent-no-date",
-          "status": "contingent",
-          "effective_date": null,
-          "moves_class": false,
+          "event_id": "us-genius-act-effective",
+          "title": "US GENIUS Act §18 foreign-issuer comparability gate commences (enacted-not-commenced; outer cap ≤ 2027-01-18)",
+          "trigger_kind": "scheduled-with-cap",
+          "status": "scheduled",
+          "effective_date": "2027-01-18",
+          "moves_class": true,
           "accessibility_only": false
         }
       ],
       "summary": {
-        "own_driven_inbound": 0,
+        "own_driven_inbound": 8,
         "own_driven_outbound": 0,
-        "counterpart_driven_inbound": 1,
+        "counterpart_driven_inbound": 2,
         "counterpart_driven_outbound": 3,
         "accessibility_only_own_events": 0
       },
@@ -236,9 +236,17 @@
         {
           "counterpart": "KR",
           "from": "III",
-          "to": "II",
+          "to": "T",
           "via_trigger": "kr-daba-enacted",
           "trigger_jurisdiction": "KR",
+          "timing": "contingent (if enacted)"
+        },
+        {
+          "counterpart": "TW",
+          "from": "III",
+          "to": "T",
+          "via_trigger": "tw-vas-act-enacted",
+          "trigger_jurisdiction": "TW",
           "timing": "contingent (if enacted)"
         }
       ],
@@ -277,8 +285,8 @@
         },
         {
           "counterpart": "TW",
-          "edges_affected": 1,
-          "inbound": 0,
+          "edges_affected": 2,
+          "inbound": 1,
           "outbound": 1
         },
         {
@@ -288,7 +296,7 @@
           "outbound": 1
         }
       ],
-      "supervisor_reading": "US has no class-moving or accessibility-changing pending event of its own. Separately, 1 inbound and 3 outbound corridor(s) of US will reclassify when counterparts enact; most exposed counterpart(s): KR (2), TW (1), UK (1)."
+      "supervisor_reading": "US's own pending trigger reclassifies 8 inbound and 0 outbound corridor(s). This is the FIRST dated horizon (outer cap ≤2027-01-18), earlier than the UK's gazetted 2027-10-25. Separately, 2 inbound and 3 outbound corridor(s) reclassify when counterparts enact. Most exposed counterpart(s): KR (2), TW (2), UK (1)."
     }
   }
 }

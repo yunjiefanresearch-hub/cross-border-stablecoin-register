@@ -100,9 +100,15 @@ def t_readme_counts(root):
 
 def t_version_drift(root):
     # roll CITATION.cff (the machine-authoritative version) back out of sync -- the exact drift class
-    # where a "bump the version" edit forgets one pointer; V3 must reject it.
+    # where a "bump the version" edit forgets one pointer; V3 must reject it. Version-agnostic: read the
+    # current declared version and roll it back, so this perturbation keeps biting across future bumps
+    # rather than silently no-op'ing when the version string moves on.
+    import re as _re
     p = root / "CITATION.cff"
-    write(p, read(p).replace('version: "0.9.91"', 'version: "0.9.8"'))
+    txt = read(p)
+    m = _re.search(r'(?m)^version:\s*"?([0-9]+\.[0-9]+\.[0-9]+)"?', txt)
+    assert m, "CITATION.cff has no parseable version line for the drift perturbation to target"
+    write(p, txt[:m.start(1)] + "0.0.1-drift" + txt[m.end(1):])
 
 def t_prose_incoherence(root):
     # give an enacted-status cell a requirement_summary that describes its own instrument as un-enacted
