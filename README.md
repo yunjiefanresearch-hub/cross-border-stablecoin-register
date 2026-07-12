@@ -7,6 +7,8 @@ An open, versioned, machine-readable register of how jurisdictions regulate stab
 **Focus (twelve jurisdictions):** US · Hong Kong · EU · UK · Singapore · Mainland China · Brazil · Switzerland · United Arab Emirates · Taiwan · Japan · South Korea  ·  **Doctrinal anchor:** United States (CLARITY Act §404 / GENIUS Act)
 **Status:** v0.10.1 · **Cadence:** quarterly diffs + event patches · **License:** CC-BY-4.0 (data) / Apache-2.0 (code)
 
+**[Open the interactive map](https://yunjiefanresearch-hub.github.io/cbsr-mapper/)** · all 132 directed corridors across the twelve jurisdictions, recomputed from the register, with a movable as-of date.
+
 ---
 
 ## What this is, and what it is not
@@ -41,7 +43,9 @@ Runs on any locale: every file read and write passes `encoding="utf-8"` and the 
 - Schemas (the standards): [`record.schema.json`](record.schema.json) · [`corridor.schema.json`](corridor.schema.json) · [`analysis.schema.json`](analysis.schema.json) · vocabulary: [`taxonomy.md`](taxonomy.md)
 - Add a record: copy [`_TEMPLATE.yaml`](_TEMPLATE.yaml); see [`CONTRIBUTING.md`](CONTRIBUTING.md)
 
-**Explore it.** [`index.html`](index.html) is a self-contained static site with the coverage matrix, a sortable multi-filter table, and the pairwise compatibility matrix (click any cell for the category, interaction sets, and binding constraint of that jurisdiction pair). It deploys as-is to GitHub Pages or Netlify with no build step; publish the repo root.
+**Explore it.** **Open the interactive map.** [The live corridor map](https://yunjiefanresearch-hub.github.io/cbsr-mapper/) carries all 132 directed corridors across the twelve jurisdictions. Every class in it is recomputed from the register rather than hard-coded. Move the as-of date forward to a pending regime's commencement and the affected corridors reclassify. The citable subset exports as CSV, BibTeX, `CITATION.cff`, or PDF.
+
+**Explore the register itself.** [`index.html`](index.html) is a self-contained static site with the coverage matrix, a sortable multi-filter table, and the pairwise compatibility matrix (click any cell for the category, interaction sets, and binding constraint of that jurisdiction pair). It deploys as-is to GitHub Pages or Netlify with no build step; publish the repo root.
 
 **Query it from an agent.** [`mcp_server.py`](mcp_server.py) wraps the dataset in typed tools over the Model Context Protocol: node-layer tools (`query`, `compare_dimension`, `jurisdiction_profile`, `search`, `coverage`, `get_corridor`, and others), the lawyer-citable tool (`citable_law`), analysis-layer tools (`compatibility`, `interaction_sets`, `architectural_patterns`, `open_questions`), computing tools (`compose_corridor`, `explain_feasibility`, `verification_report`), time-engine tools (`compose_corridor(as_of=…)`, `corridor_timeline`, `event_calendar`), substrate tools (`constraint_substrate`, `compose_via_substrate`), the verification worklist (`verification_worklist`), the stakeholder projection (`stakeholder_database`, `profile_for`), and the edge layer (`edge_coverage`, `corridor_skeleton`). See [`MCP_SERVER.md`](MCP_SERVER.md).
 
@@ -135,11 +139,20 @@ Each tagged release is archived to Zenodo for a DOI; see [`CITATION.cff`](CITATI
 
 ## Roadmap and methodology
 
-[`ROADMAP.md`](ROADMAP.md) · [`METHODOLOGY.md`](METHODOLOGY.md) · [`CHANGELOG.md`](CHANGELOG.md) · [`CONTRIBUTING.md`](CONTRIBUTING.md) · [`MCP_SERVER.md`](MCP_SERVER.md)
+[`ROADMAP.md`](ROADMAP.md) · [`METHODOLOGY.md`](METHODOLOGY.md) · [`CHANGELOG.md`](CHANGELOG.md) · [`CONTRIBUTING.md`](CONTRIBUTING.md) · [`MCP_SERVER.md`](MCP_SERVER.md) · [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md)
 
 ## Name and identifiers
 
-The canonical name is `Cross-Border Stablecoin Register` (CBSR). It foregrounds the differentiator, a cross-jurisdictional comparison rather than a single-jurisdiction tracker, and reads as a standing reference object rather than a payments product. The citable anchor is the DOI, not a domain. One identifier intentionally lags the name: the repository slug and GitHub Pages URL remain `stablecoin-rail-register` (the project's original name), and the schema `$id` and the MCP path example follow that slug. The slug is retained deliberately so that existing repository links, the Zenodo DOI, and the published schema `$id` stay stable; renaming the repo would break inbound references and the schema identifier for no functional gain. Everywhere the project is named to a reader (this README, the `CITATION.cff` title, the `LICENSE` headers, the dataset `name`, the landing page) it is CBSR; where a URL or stable identifier is involved, the legacy slug is canonical.
+The canonical name is `Cross-Border Stablecoin Register` (CBSR). It foregrounds the differentiator, a cross-jurisdictional comparison rather than a single-jurisdiction tracker, and reads as a standing reference object rather than a payments product. The citable anchor is the DOI, not a domain.
+
+The project began life as `stablecoin-rail-register`. The repository has since been renamed, and the live slug is `cross-border-stablecoin-register`. Use that one. A link to the old slug survives only on GitHub's rename redirect, and the old GitHub Pages URL no longer resolves at all, so any hard-coded reference to it is a dead link.
+
+Two identifiers keep the legacy slug on purpose:
+
+- The schema `$id` in [`record.schema.json`](record.schema.json), [`corridor.schema.json`](corridor.schema.json), and [`analysis.schema.json`](analysis.schema.json). A JSON Schema `$id` is an identifier, not a locator: it does not need to resolve, and changing it would break every consumer that pinned the published schema, for no functional gain.
+- The MCP path example in [`MCP_SERVER.md`](MCP_SERVER.md), which follows the schema `$id`.
+
+So: where the project is named to a reader (this README, the `CITATION.cff` title, the `LICENSE` headers, the dataset `name`, the landing page), it is CBSR. Where a stable identifier is involved, the legacy slug is retained deliberately. Where a live URL is involved, use `cross-border-stablecoin-register`.
 
 ## Maintainer
 
