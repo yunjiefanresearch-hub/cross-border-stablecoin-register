@@ -281,6 +281,21 @@ _bad_ver = {k: v for k, v in _version_sources.items() if v != EXPECT_VERSION}
 inv("V3  all version-declaring artifacts agree with EXPECT_VERSION (CITATION.cff/README/PACKAGE/ledger + both papers)",
     not _bad_ver, f"expected {EXPECT_VERSION}; mismatches: {_bad_ver}")
 
+# V4: the README's front page states "all 132 directed corridors" — twice, next to the map link. That is
+# the headline number a reader sees first, and check_readme_counts.py did not cover it: its coverage-count
+# pattern requires the noun to be followed by a verb (reproduced/derived/covered), and "132 directed
+# corridors ACROSS the twelve jurisdictions" is a bare noun phrase, so it slipped through. Add a
+# thirteenth jurisdiction and 132 silently becomes 156 while the front page keeps claiming 132.
+#
+# The policy is not "no numbers in the README" — V3 already lets the README state the version and then
+# checks it. Same treatment here: state the number, and gate it against the artifact that generates it.
+_readme_txt = (ROOT / "README.md").read_text(encoding="utf-8")
+_n_directed = len(ds["analysis"]["computed_corridors_directed"]["edges"])
+_claimed = [int(m) for m in re.findall(r"\b(\d+)\s+directed\s+corridors?\b", _readme_txt, re.I)]
+inv(f"V4  every 'N directed corridors' claim in README equals the built directed layer ({_n_directed})",
+    all(c == _n_directed for c in _claimed),
+    f"README claims {_claimed}; dataset has {_n_directed}")
+
 # B1: no record may describe its OWN instrument as still un-enacted while its binding_status says the
 # instrument IS enacted (in_force_enacted / made_not_commenced). This bites on the "label says
 # enacted-not-commenced, body still says draft/bill/not-operative-law" contradiction — the Taiwan class
