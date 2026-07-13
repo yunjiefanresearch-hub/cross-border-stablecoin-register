@@ -12,6 +12,8 @@ derivation disagrees with the papers. Built from primary sources, citable by DOI
 **Focus (twelve jurisdictions):** US · Hong Kong · EU · UK · Singapore · Mainland China · Brazil · Switzerland · United Arab Emirates · Taiwan · Japan · South Korea  ·  **Doctrinal anchor:** United States (CLARITY Act §404 / GENIUS Act)
 **Status:** v0.10.1 · **Cadence:** quarterly diffs + event patches · **License:** CC-BY-4.0 (data) / Apache-2.0 (code) — see [`LICENSING.md`](LICENSING.md)
 
+**[Open the interactive map](https://yunjiefanresearch-hub.github.io/cbsr-mapper/)** · all 132 directed corridors across the twelve jurisdictions, recomputed from the register, with a movable as-of date.
+
 ---
 
 ## What this is — and what it is not
@@ -64,10 +66,9 @@ contradicts the matrix, or a stale derived artifact cannot be merged.
 - Schemas (the standards): [`record.schema.json`](record.schema.json) · [`corridor.schema.json`](corridor.schema.json) · [`analysis.schema.json`](analysis.schema.json) · vocabulary: [`taxonomy.md`](taxonomy.md)
 - Add a record: copy [`_TEMPLATE.yaml`](_TEMPLATE.yaml); see [`CONTRIBUTING.md`](CONTRIBUTING.md)
 
-**Explore it.** [`index.html`](index.html) is a self-contained static site with the coverage
-**matrix**, a sortable multi-filter **table**, and the **pairwise compatibility matrix** (click any
-cell for the category, interaction sets, and binding constraint of that jurisdiction pair). Deploys
-as-is to GitHub Pages or Netlify (no build step; publish the repo root).
+**Open the interactive map.** [The live corridor map](https://yunjiefanresearch-hub.github.io/cbsr-mapper/) carries all 132 directed corridors across the twelve jurisdictions. Every class in it is recomputed from the register rather than hard-coded. Move the as-of date forward to a pending regime's commencement and the affected corridors reclassify. The citable subset exports as CSV, BibTeX, `CITATION.cff`, or PDF.
+
+**Explore the register itself.** [`index.html`](index.html) is a self-contained static site with the coverage matrix, a sortable multi-filter table, and the pairwise compatibility matrix (click any cell for the category, interaction sets, and binding constraint of that jurisdiction pair). It deploys as-is to GitHub Pages or Netlify with no build step; publish the repo root.
 
 **Query it from an agent — one line, nothing to clone:**
 
@@ -300,7 +301,7 @@ Each tagged release is archived to **Zenodo** for a DOI — see [`CITATION.cff`]
 Cite the DOI of the version you used.
 
 ## Roadmap & methodology
-[`ROADMAP.md`](ROADMAP.md) · [`METHODOLOGY.md`](METHODOLOGY.md) · [`CHANGELOG.md`](CHANGELOG.md) · [`CONTRIBUTING.md`](CONTRIBUTING.md) · [`MCP_SERVER.md`](MCP_SERVER.md)
+[`ROADMAP.md`](ROADMAP.md) · [`METHODOLOGY.md`](METHODOLOGY.md) · [`CHANGELOG.md`](CHANGELOG.md) · [`CONTRIBUTING.md`](CONTRIBUTING.md) · [`MCP_SERVER.md`](MCP_SERVER.md) · [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md)
 
 ## Name & identifiers
 The canonical name is **`Cross-Border Stablecoin Register` (CBSR)** — it foregrounds the
@@ -308,17 +309,25 @@ differentiator (a cross-jurisdictional comparison, not a single-jurisdiction tra
 standing reference object rather than a payments product. The citable anchor is the **DOI**, not a
 domain.
 
-The repository slug is **`cross-border-stablecoin-register`**, and every live identifier now follows
-it: the three schema `$id`s, `CITATION.cff`, `mcp.json`, the MCP client path examples, and the
-generated landing page. The project was originally `stablecoin-rail-register`; through v0.10.1 the
-schema `$id`s still pointed at that slug's GitHub Pages path, which the rename had already made
-non-canonical — a stale identifier of exactly the kind this register exists to catch. The published
-schemas are now self-consistent with the repository that publishes them, and
-`tools/check_identifiers.py` fails the build if they ever diverge again.
+The repository slug is **`cross-border-stablecoin-register`**, and every live identifier follows it:
+the schema `$id`s, `CITATION.cff`, `mcp.json`, the MCP client examples, and the generated landing page.
+
+The project began as `stablecoin-rail-register`. The repository has since been renamed; a link to the
+old slug survives only on GitHub's rename redirect, and **the old GitHub Pages URL no longer resolves
+at all** — which is exactly the problem, because through v0.10.1 the schema `$id`s still pointed at it.
+A JSON Schema `$id` is formally an identifier rather than a locator, so it is not *required* to
+dereference; but an identifier shaped like a URL, which consumers will try to fetch, and which returns
+404, is the worst of both readings. A register whose whole proposition is that its citations resolve to
+primary sources cannot publish schema identifiers that do not. Nothing had pinned the old `$id`, so
+this was the cheapest moment in the project's life to fix it — the cost of carrying a dead identifier
+only rises. The schemas are now self-consistent with the repository that publishes them, and
+[`tools/check_identifiers.py`](tools/check_identifiers.py) fails the build if they diverge again. That
+check immediately caught a further `$id`, in `tools/corridor_directed.schema.json`, pointing at a
+repository that never existed.
 
 Two places still say `stablecoin-rail-register`, deliberately: `CHANGELOG.md` and the v0.5.0 build
-note. Those are dated records of what was true when they were written, and rewriting history to
-match the present is precisely the failure mode the evidence discipline forbids.
+note. Those are dated records of what was true when they were written, and rewriting history to match
+the present is precisely the failure mode the evidence discipline forbids.
 
 ## Maintainer
 **Founder & maintainer:** Yunjie Fan — independent research on cross-jurisdictional digital-asset
