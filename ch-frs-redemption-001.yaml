@@ -1,0 +1,40 @@
+id: ch-frs-redemption-001
+jurisdiction: CH
+authority: FINMA
+instrument_type: fiat_referenced_stablecoin
+instrument_label_local: stablecoin (Banking Act; bank-guarantee or licensed-institution pathway)
+dimension: redemption
+requirement_summary: Redemption is a payment claim against the issuer (or, on issuer default, against the guaranteeing
+  bank). There is no statutory at-par redemption mandate; the claim is contractual, backed by the guarantee. Stablecoin
+  holders are not deposit-insured — the bank guarantee, not deposit insurance, is the protection.
+requirement_structured:
+  redemption: contractual payment claim vs issuer; vs guaranteeing bank on issuer default
+  statutory_par_mandate: none
+  deposit_insurance: no (guarantee, not insurance, is the protection)
+status: in_force
+source:
+  primary: Banking Ordinance Art. 5(3)(f); FINMA Guidance 06/2024
+  pinpoint: Redemption — contractual claim vs issuer / guaranteeing bank; no statutory par mandate; not deposit-insured
+  url: https://www.finma.ch/en/news/2024/07/20240726-m-am-06-24-stablecoins/
+secondary:
+- citation: Fan, Multi-Jurisdiction Stablecoin Compliance Matrix v0.9.6 (June 2026), §Switzerland (Redemption Mechanics)
+- citation: FINMA Guidance 06/2024 (Stablecoins, 26 July 2024) — official English PDF available.
+interpretation_note: 'Provenance: transcribed from the author''s Compliance Matrix v0.9.6; the core point is confirmed
+  against the official primary text in the v0.5.1 pass (source.url added); some operational detail remains pending
+  and the tier is ''mixed''. Contrast the at-par mandates of HK (1 business day), SG (5 business days), and the
+  EU (par at any time): Switzerland has no statutory par mandate.'
+confidence: medium
+claim_class: tier1_legal
+evidence_tier: mixed
+last_reviewed: '2026-06-27'
+version_added: 0.4.0
+tags:
+- europe
+- focus
+- from_matrix_v0.9.6
+- v0.4.0_expansion
+- v0.5.1_verification
+- mixed_partial_verified
+- v0.7.0_claim_class
+- binding_in_force_enacted
+binding_status: in_force_enacted

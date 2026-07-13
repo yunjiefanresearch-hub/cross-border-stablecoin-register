@@ -1,0 +1,47 @@
+{
+  "register": "Cross-Border Stablecoin Register",
+  "version": "0.10.1",
+  "generated": "2026-07-10",
+  "endpoint": "events_by_kind",
+  "guardrail": "static projection of the public register; no facts added here",
+  "trigger_kind_legend": {
+    "purpose": "Every event carries a trigger_kind: the paper's typology of regulatory triggers by the kind of certainty each carries (flagship §3). It separates the one kind that moves a dated horizon from the kinds that do not, and names the intra-regime gating change a class-centric reading misses.",
+    "kinds": {
+      "fully-scheduled": "gazetted commencement date; applied by that date; the ONLY kind that moves a horizon (§3.1, UK).",
+      "enacted-not-commenced": "passed into law but awaiting subsidiary legislation with no gazetted commencement; partly fired (§3.3, TW).",
+      "contingent-no-date": "depends on an enactment that has not occurred; no date; surfaced only as an if-enacted branch (§3.2 US, §3.4 KR).",
+      "contingent-not-class-change": "a pending enactment that hardens a binding status without moving any class, the baseline class already in force (§3.5, SG).",
+      "parameterization": "operationalization of a constraint that already binds; sharpens the operative content of a class without moving one (§3.7, EBA, carried in open_questions).",
+      "intra-regime-gating": "a DATED change in law that alters accessibility WITHIN a live regime (who may operate; which tokens are admissible) without moving any feasibility class (§3.10, EU MiCA).",
+      "dated-empty-effect": "a dated, now-in-force change with an explicitly empty feasibility-class effect; the control case showing the calendar distinguishes a change in law from a change in feasibility class (§3.6, JP).",
+      "inbound-recognition": "a dated, now-in-force change in law that opens an inbound recognition or equivalence channel for qualifying foreign instruments; its reach is set by the recognition criteria and is handled by conditioning (the existing Category II channelled treatment), so it asserts no new class (§3.6 second same-day change; §5.3 dated recognition instance, JP).",
+      "open-compositional": "information rather than a change in law, whose resolution feeds another jurisdiction's analysis (§3.8, HK 2nd cohort, carried in open_questions).",
+      "resolved-tightening": "an asymmetric posture: a boundary's recent movement is settled in one direction while a reversing development stays open (§3.9, PRC, carried in open_questions)."
+    },
+    "horizon_rule": "Only fully-scheduled events move a compose() horizon. dated-empty-effect, intra-regime-gating, and inbound-recognition events are dated but move no feasibility class, so they appear on the timeline without changing any corridor's category, by design."
+  },
+  "data": {
+    "fully-scheduled": [
+      "uk-systemic-regime-operative"
+    ],
+    "enacted-not-commenced": [
+      "tw-vas-act-enacted"
+    ],
+    "contingent-no-date": [
+      "kr-daba-enacted",
+      "us-clarity-act-enacted"
+    ],
+    "dated-empty-effect": [
+      "jp-act66-2025-full-enforcement"
+    ],
+    "inbound-recognition": [
+      "jp-foreign-stablecoin-recognition"
+    ],
+    "contingent-not-class-change": [
+      "sg-scs-legislation-enacted"
+    ],
+    "intra-regime-gating": [
+      "eu-mica-art143-transitional-expiry"
+    ]
+  }
+}

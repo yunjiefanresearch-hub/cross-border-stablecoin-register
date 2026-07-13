@@ -1,0 +1,159 @@
+{
+  "schema": "cbsr-corridor-audit/verification_backlog",
+  "version": "0.10.0",
+  "generated": "2026-07-08",
+  "discipline": "Citable by Construction §6.2: the residual — the records not yet confirmed against the official text — must be published as first-class, queryable data, not concealed behind the headline counts. The gates are defenses against misuse, not a cure for ignorance; only a primary-source verification pass retires an item. This file is that published residual for the corridor layer, machine-checkable by tools/check_verification_backlog.py.",
+  "status_values": [
+    "open",
+    "partially_confirmed",
+    "confirmed",
+    "confirmed_prior_review_not_reverified",
+    "confirmed_and_applied"
+  ],
+  "items": [
+    {
+      "id": "VB-01",
+      "claim": "The GENIUS/CLARITY stablecoin-yield compromise is the 'Tillis–Alsobrooks' provision.",
+      "jurisdiction": "US",
+      "affects": "Feasibility Over Time §3.2, §4.5 (naming only); no corridor feasibility class depends on it",
+      "status": "partially_confirmed",
+      "confirmed": "Alsobrooks's lead role on the yield compromise and the Gallego + Alsobrooks committee crossover votes are confirmed against the public record.",
+      "open_question": "The 'Tillis' half of the attribution has not been independently confirmed (plausible: Tillis sits on the Senate Banking Committee). Pin it to a primary source before asserting the joint naming.",
+      "evidence_tier": "firm_summary",
+      "raised_by": "review 2 (asserted correct); review 3 (Tillis half flagged unverified)"
+    },
+    {
+      "id": "VB-02",
+      "claim": "Singapore is a member of Project Ensemble (corridor INFRA ensemble = {HK, SG}).",
+      "jurisdiction": "SG",
+      "affects": "corridor INFRA partition; the two SG<->HK 'ensemble' edges' bloc tag and note (2 of 132)",
+      "status": "open",
+      "confirmed": "Project Ensemble is HKMA-led; HKMA–MAS tokenization cooperation exists; SG runs MAS Project Guardian.",
+      "open_question": "SG's FORMAL membership of Project Ensemble (as distinct from an Ensemble–Guardian alignment) is not confirmed. If SG is not a formal member, the SG<->HK relationship is an alignment rather than a shared substrate. The bloc enum stays a defensible Tier-2 operational judgment, and the edge note now states the caveat explicitly rather than asserting membership.",
+      "evidence_tier": "firm_summary",
+      "raised_by": "review 3"
+    },
+    {
+      "id": "VB-03",
+      "claim": "Japan Act No. 66 of 2025 was promulgated on 13 June 2025.",
+      "jurisdiction": "JP",
+      "affects": "Feasibility Over Time §3.6 (a pinpoint date). The load-bearing effective date (2026-06-01) is separately confirmed.",
+      "status": "confirmed",
+      "confirmed": "Verified in the eighth review: 令和7年法律第66号 was established 2025-06-06 and PROMULGATED 2025-06-13; the 2026-06-01 in-force date and the foreign-stablecoin recognition (Cabinet Office Ordinance promulgated 2026-05-19, in force 2026-06-01) are confirmed.",
+      "open_question": null,
+      "evidence_tier": "resolution_text",
+      "raised_by": "review 3 (flagged); review 8 (closed against primary dates)"
+    },
+    {
+      "id": "VB-04",
+      "claim": "PRC 银发〔2026〕42号 (in force 2026-02-06) has the content described in Feasibility Over Time §3.9.",
+      "jurisdiction": "CN",
+      "affects": "Feasibility Over Time §3.9; CN stays blocked regardless, so no corridor class depended on it",
+      "status": "confirmed",
+      "confirmed": "Verified in the fourth review against the primary source (PBoC 条法司 original page): '本通知自发布之日起施行…237号同时废止'. (Review 1 had also reported verbatim confirmation.)",
+      "open_question": null,
+      "evidence_tier": "resolution_text",
+      "raised_by": "review 3 (relied on review 1); closed by review 4 (primary source)"
+    },
+    {
+      "id": "VB-05",
+      "claim": "SFC circular permitting secondary trading of tokenised SFC-authorised products, 20 Apr 2026.",
+      "jurisdiction": "HK",
+      "affects": "authored edge hk-br-usd-stablecoin-settlement-001, boundary_analysis[0].sources[3] (also carried on that edge's own verification_backlog field)",
+      "status": "open",
+      "confirmed": null,
+      "open_question": "Confirm the exact publication date (20 Apr 2026) against the primary SFC source. This is the per-edge CONFIRM marker re-homed in v0.9.93, mirrored here for central tracking.",
+      "evidence_tier": "firm_summary",
+      "raised_by": "verifier lint m4 (v0.9.92)"
+    },
+    {
+      "id": "VB-06",
+      "claim": "The United States is a LIVE destination at the 2026-06-30 snapshot: the 8 token-holder inbound edges read Category II with no as_of_timeline, driven by a GENIUS Act §18 comparability gate treated as operative.",
+      "jurisdiction": "US",
+      "affects": "HIGH PRIORITY. The 8 token-holder->US edges (coded Category II with NO as_of_timeline, i.e. treated as live today); the paper's headline 'only one pending transition carries a future date (UK 2027-10-25)'; and the §4.2 corridor-sensitivity ordering.",
+      "status": "confirmed_and_applied",
+      "confirmed": "FALSE, and now corrected in the artifact. GENIUS Act §20 sets the effective date at the earlier of 18 months after enactment (2027-01-18) or 120 days after the primary federal payment stablecoin regulators issue final regulations. At the 2026-06-30 snapshot only PROPOSED rules existed (OCC NPRM published FR 2026-03-02, comments closed 2026-05-01; FDIC and FinCEN/OFAC NPRMs 2026-04-10; Treasury §4(c) NPRM April 2026; NCUA proposal February 2026). Verified against Congress.gov (S.394 as enacted, §§18 and 20), the Federal Register and OCC Bulletin 2026-3 by the fifth, eighth and ninth reviews. So the §18 inbound gate was NOT YET AVAILABLE, and the 8 edges are `T` with a scheduled_with_cap trigger at 2027-01-18.",
+      "open_question": "Nothing on the classification. Two consequences remain UPSTREAM: (1) the Feasibility Over Time headline/abstract still claims a single dated horizon (UK 2027-10-25) when the US horizon is a second and EARLIER one (errata E1); (2) §3.2 still says 'the GENIUS Act is in force' (errata F-US-1). The artifact correction landed in v0.10.0: 8 edges II -> T, the §18 prose rewritten from 'none granted to date' (a market observation) to 'not yet in force' (a proposition of law -- errata E8), a `scheduled_with_cap` trigger added, and verifier gate CF1 now anchors US = `T` so the regression cannot return silently (a negative test proves it bites).",
+      "evidence_tier": "resolution_text",
+      "raised_by": "review 4 (flagged); review 5 (confirmed against primary sources); review 6 (outer-cap nuance + paper-headline contradiction); review 9 (re-verified and APPLIED to the artifact)"
+    },
+    {
+      "id": "VB-07",
+      "claim": "The MiCA Art. 58(3) means-of-exchange ceiling triggers on EITHER 1 million transactions/day OR EUR 200m/day.",
+      "jurisdiction": "EU",
+      "affects": "US->EU edge inbound_mechanism.detail (corrected in v0.9.95); the same 'or' wording in Feasibility Over Time §3.7 and the Compliance Matrix, which are upstream and still say 'or'",
+      "status": "partially_confirmed",
+      "confirmed": "The statutory text is CONJUNCTIVE: MiCA Art. 23(1) (applied to EMTs mutatis mutandis by Art. 58(3)) requires the issuer to stop issuing only when transactions are 'higher than 1 million ... and EUR 200 000 000 respectively'. The artifact was corrected 'or' -> 'and' in v0.9.95 (F-EU).",
+      "open_question": "Propagate the 'or' -> 'and' correction to the upstream papers (§3.7, Matrix); the artifact (v0.9.95) and data/signal_table.json (v0.10.0) both carry the conjunctive text. Separately, the EBA operative methodology for measuring the cap is not finalized, so how the conjunctive threshold is measured in practice remains open.",
+      "evidence_tier": "mixed",
+      "raised_by": "review 4"
+    },
+    {
+      "id": "VB-08",
+      "claim": "Feasibility §3.10's per-country MiCA transitional-window table, and 'ESMA confirmed no extension on 2026-04-17'.",
+      "jurisdiction": "EU",
+      "affects": "Feasibility Over Time §3.10 (the finest-grained dated passage in the paper); no corridor class depends on it (EU stays operative)",
+      "status": "open",
+      "confirmed": null,
+      "open_question": "The eighth review found this section carries no VB entry and no record_ref, and secondary sources conflict: Lithuania cited as both 6 and 12 months; Poland listed as '6 months, closed mid-2025' though Poland has NO national MiCA implementing law (its crypto bill was rejected a third time in June 2026), so 'grace period closed' vs 'never opened' are different; and the 'ESMA 2026-04-17 no-extension' date appears only in secondary commentary (ESMA's formal transitional-measures statement is 2024-12-17). Downgrade the per-country table and the 2026-04-17 date to firm_summary until checked against ESMA's official Art. 143(3) list and statement text.",
+      "evidence_tier": "firm_summary",
+      "raised_by": "review 8"
+    },
+    {
+      "id": "VB-09",
+      "claim": "The United States and the United Kingdom are token-holding origins at the 2026-06-30 snapshot: US state trust/money-transmitter regimes and the UK Electronic Money Regulations 2011 respectively authorize issuance of an exportable stablecoin TODAY, in law, while each jurisdiction's comprehensive new regime is not yet in force.",
+      "jurisdiction": "US UK",
+      "affects": "HIGH PRIORITY (structural). `token_regime` in data/signal_table.json for US and UK, which drives origin drag and therefore the class of all 22 outbound-US and outbound-UK edges. If this reading is wrong, those 22 edges fall to Category III and the entire I/II structure of the map changes.",
+      "status": "open",
+      "confirmed": "The eighth review's NF-3 established what the signal MUST NOT be: origin drag cannot read `token_in_issue` (a tier2_operational market fact that USDC and GBP e-money tokens circulate), because Citable by Construction §4.2's signal-provenance gate makes a class-driving signal resting on a market fact a build-failing violation. v0.10.0 therefore drives origin drag from `token_regime`, a tier1_legal signal, and states the reading explicitly rather than leaving it implicit in a market record. The class function is proved never to read the market signal (`recompute_classes.py --prove-tier2-inert`).",
+      "open_question": "Confirm against the primary instruments that a US state-qualified issuer and a UK authorized electronic-money institution each hold an 'exportable, comprehensively authorizable private token' in the Corridor Atlas's sense. The Atlas defines the term but does not pin it to an instrument. Two defensible readings exist: (a) origin drag fires only where NO authorizable regime exists (the reading v0.10.0 adopts, under which US/UK stay token-holders), or (b) it fires whenever the comprehensive regime is not in force (under which both collapse to III). This is the single decision with the largest unexamined footprint in the whole layer, and it is now visible instead of buried.",
+      "evidence_tier": "firm_summary",
+      "raised_by": "review 8 (NF-3, as a reductio); review 9 (made explicit as a published signal)"
+    },
+    {
+      "id": "VB-10",
+      "claim": "Korea's outbound edges carry a conditional, dormant origin-egress override (Korea FX), as Corridor Atlas v0.2.5's edge register states on all 11 KR rows.",
+      "jurisdiction": "KR",
+      "affects": "origin_override.status on the 11 KR-> edges (verifier gate OO1). No feasibility class depends on it: all 11 are already decided by origin drag or by the destination.",
+      "status": "open",
+      "confirmed": "Atlas v0.2.5's per-edge register carries '[conditional origin-egress override (Korea FX, dormant)]' on every KR row, while its §3.3 prose names only Mainland China and Singapore as override origins. The register (edge table) is the more specific statement and is followed here.",
+      "open_question": "Pin the Korean foreign-exchange instrument and its administering authority to a primary source, and confirm the 'dormant' characterisation (dormant because there is no exportable won token for the control to bite on). Until then the administrator string 'MOEF / Bank of Korea (foreign-exchange controls)' is a firm_summary attribution, and the Atlas's own §3.3/edge-register mismatch should be reconciled upstream.",
+      "evidence_tier": "firm_summary",
+      "raised_by": "review 9 (populating the ~99%-absent origin_override signal)"
+    },
+    {
+      "id": "VB-11",
+      "claim": "Every signal in data/signal_table.json can be traced to a record in the 152 upstream node records via a `record_ref`.",
+      "jurisdiction": "US EU UK SG HK CN BR CH AE JP TW KR",
+      "affects": "data/signal_table.json (`record_ref` is null on all 60 signals) and every edge's `class_basis.record_ref`. This is the corridor-layer face of critical finding C1.",
+      "status": "confirmed_and_applied",
+      "confirmed": "CLOSED at register v0.10.0. The 152 node records are published in this repository, so the locator can be supplied instead of declined. scripts/gen_signal_table.py binds every signal to the node record carrying its instrument: 39 of the 60 signals now carry a record_ref, and the remaining 21 carry an explicit, reasoned record_ref_gap (12 token_in_issue market facts, which may never be given a legal locator, and 9 `none`-valued egress overrides, where the absence of an export restriction is not an instrument). All 24 class-driving signals (token_regime + inbound_gate x 12) are bound, and every one of the 132 edges carries a class_basis.record_ref. Enforced by build.py:check_directed_signal_provenance (SP1-SP4).",
+      "open_question": "None on the locator. What binding the signals to the records SURFACED is carried instead as 20 record_binding_findings in analysis/signal_table.json: 10 of them on class-driving signals. The load-bearing one is US.inbound_gate, where us-pss-monetary_sovereignty-001 codes the GENIUS Act as in_force_enacted (the Act is enacted) while the signal codes the s.18 GATE as made_not_commenced (s.20 sets its effective date) -- errata E1/VB-06, surfaced as a finding rather than resolved by overwriting either layer. VB-09 (whether US state trust regimes and the UK EMRs 2011 constitute an exportable authorizable token) stays OPEN and is now visible in the data as `match: related_dimension` on those two signals.",
+      "evidence_tier": "unset",
+      "raised_by": "review 9 (on publishing the signal table)",
+      "closed_at": "register v0.10.0"
+    }
+  ],
+  "resolved_since_snapshot": [
+    {
+      "id": "VB-R1",
+      "claim": "Taiwan's Virtual Asset Service Act prohibits issuer-paid yield / interest.",
+      "jurisdiction": "TW",
+      "affects": "Feasibility Over Time §4.5 (the cross-jurisdictional yield-line convergence, which listed TW in backlog)",
+      "status": "confirmed",
+      "confirmed": "The enacted text (third reading 2026-06-30) prohibits issuer-paid yield; Compliance Matrix v0.9.7 already groups Taiwan in the prohibition cluster (EU, HK).",
+      "note": "Upgrades the §4.5 yield-line for Taiwan from backlog to confirmed: the convergence is STRONGER than the paper claimed at the snapshot. An upstream paper revision can cite TW at the same depth as US and SG. Applied in v0.10.0: TW.token_regime / TW.inbound_gate in data/signal_table.json, and verifier gate CF1's TW anchor.",
+      "raised_by": "review 3"
+    },
+    {
+      "id": "VB-R2",
+      "claim": "The 'reward-for-holding-period is prohibited' yield line is expressed most clearly and earliest by MiCA Art. 50, in a jurisdiction the register already covers.",
+      "jurisdiction": "EU",
+      "affects": "Feasibility Over Time §4.5 (the yield-line convergence, documented at citable depth for US + SG only)",
+      "status": "confirmed",
+      "confirmed": "MiCA Art. 50 prohibits granting interest on e-money tokens and expressly treats any remuneration or other benefit related to the length of time an EMT is held as interest, in force from 2024-06-30. With Taiwan's VASA issuer-yield prohibition (VB-R1) and the Korea Ahn draft's prohibition on interest/discount/other reward to holders, the functional yield line is evidenced across ~5 jurisdictions, not the 1.5 the paper claims.",
+      "note": "The fourth review flags this as an UNDER-statement (the mirror of an over-statement, and equally a discipline issue): the paper should raise the yield-line's documented breadth. Not a corridor-artifact change; an upstream §4.5 upgrade. Applied in v0.10.0: EU.yield_line in data/signal_table.json carries MiCA Art. 50 at citable depth; the yield line is now evidenced in the table for US, EU, SG, TW and (as a draft) KR.",
+      "raised_by": "review 4"
+    }
+  ]
+}

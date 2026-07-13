@@ -1,0 +1,4372 @@
+{
+  "schema": "cbsr-analysis/computed_corridor_skeletons",
+  "version": "0.9.4",
+  "status": "preview",
+  "method": "For each derivable directed edge without a hand-authored rich corridor record, derive the feasibility class (from the substrate), the inbound mechanism test + administrator (re-projected from the destination's C1/C7 record), a baseline archetype set, and the directed interaction sets. No new facts: empirical fields (infrastructure_overlap, bespoke detail, curated archetypes, prose) are left null as a per-edge enrichment backlog. Class is cross-checked against the signal compose(); every skeleton cites its backing tier1_legal records.",
+  "coverage": {
+    "authored_rich_corridors": 9,
+    "computed_skeletons": 106,
+    "edges_with_a_record": 115,
+    "edges_total": 132,
+    "indeterminate_edges": 17,
+    "indeterminate_note": "indeterminate edges are those into the UK and Taiwan (inbound gate in transition) that are not origin-dragged — the time engine's domain"
+  },
+  "cross_check": {
+    "disagreements_with_signal": [],
+    "clean": true
+  },
+  "provenance": {
+    "nontier1_skeletons": [],
+    "clean": true
+  },
+  "skeletons": [
+    {
+      "corridor_id": "us-sg-skeleton",
+      "origin": "US",
+      "destination": "SG",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category I (dual authorization available)",
+      "class_code": "I",
+      "compatibility_pair": "SG-US",
+      "inbound_mechanism": {
+        "test": "MAS single-currency-stablecoin recognition; foreign-pegged tokens treated as DPTs",
+        "administrator": "MAS",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C",
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "sg-scs-issuer_pathway-001",
+          "sg-scs-monetary_sovereignty-001",
+          "us-pss-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "us-cn-skeleton",
+      "origin": "US",
+      "destination": "CN",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Blocked at destination (issuance / circulation prohibited)",
+      "class_code": "blocked",
+      "compatibility_pair": "CN-US",
+      "inbound_mechanism": {
+        "test": "Issuance and circulation prohibited",
+        "administrator": "PBOC / CAC",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "cn-prc-regulatory_authority-001",
+          "us-pss-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "us-br-skeleton",
+      "origin": "US",
+      "destination": "BR",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category II (determination / channel required)",
+      "class_code": "II",
+      "compatibility_pair": "BR-US",
+      "inbound_mechanism": {
+        "test": "BCB VASP / FX-counterparty channel",
+        "administrator": "Banco Central do Brasil",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "br-vasp-issuer_pathway-001",
+          "br-vasp-monetary_sovereignty-001",
+          "us-pss-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "us-ch-skeleton",
+      "origin": "US",
+      "destination": "CH",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category I (dual authorization available)",
+      "class_code": "I",
+      "compatibility_pair": "CH-US",
+      "inbound_mechanism": {
+        "test": "FINMA authorization (banking / DLT framework)",
+        "administrator": "FINMA",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C",
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ch-frs-issuer_pathway-001",
+          "ch-frs-monetary_sovereignty-001",
+          "us-pss-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "us-ae-skeleton",
+      "origin": "US",
+      "destination": "AE",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category II (determination / channel required)",
+      "class_code": "II",
+      "compatibility_pair": "AE-US",
+      "inbound_mechanism": {
+        "test": "CBUAE Payment Token Services licensing (usage channel)",
+        "administrator": "CBUAE",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ae-pt-issuer_pathway-001",
+          "ae-pt-monetary_sovereignty-001",
+          "us-pss-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "us-kr-skeleton",
+      "origin": "US",
+      "destination": "KR",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Pre-regime (no operative destination regime yet)",
+      "class_code": "pre_regime",
+      "compatibility_pair": "KR-US",
+      "inbound_mechanism": {
+        "test": "No operative inbound regime (draft DABA)",
+        "administrator": "FSC (Korea)",
+        "detail": null
+      },
+      "archetypes": [
+        "RC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "kr-frs-issuer_pathway-001",
+          "us-pss-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "eu-sg-skeleton",
+      "origin": "EU",
+      "destination": "SG",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category I (dual authorization available)",
+      "class_code": "I",
+      "compatibility_pair": "EU-SG",
+      "inbound_mechanism": {
+        "test": "MAS single-currency-stablecoin recognition; foreign-pegged tokens treated as DPTs",
+        "administrator": "MAS",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C",
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "eu-emt-issuer_pathway-001",
+          "sg-scs-issuer_pathway-001",
+          "sg-scs-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "eu-hk-skeleton",
+      "origin": "EU",
+      "destination": "HK",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category I (dual authorization available)",
+      "class_code": "I",
+      "compatibility_pair": "EU-HK",
+      "inbound_mechanism": {
+        "test": "HKMA stablecoin licensing",
+        "administrator": "HKMA",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C",
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "eu-emt-issuer_pathway-001",
+          "hk-frs-issuer_pathway-001",
+          "hk-frs-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "eu-cn-skeleton",
+      "origin": "EU",
+      "destination": "CN",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Blocked at destination (issuance / circulation prohibited)",
+      "class_code": "blocked",
+      "compatibility_pair": "CN-EU",
+      "inbound_mechanism": {
+        "test": "Issuance and circulation prohibited",
+        "administrator": "PBOC / CAC",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "cn-prc-regulatory_authority-001",
+          "eu-emt-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "eu-br-skeleton",
+      "origin": "EU",
+      "destination": "BR",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category II (determination / channel required)",
+      "class_code": "II",
+      "compatibility_pair": "BR-EU",
+      "inbound_mechanism": {
+        "test": "BCB VASP / FX-counterparty channel",
+        "administrator": "Banco Central do Brasil",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "br-vasp-issuer_pathway-001",
+          "br-vasp-monetary_sovereignty-001",
+          "eu-emt-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "eu-ch-skeleton",
+      "origin": "EU",
+      "destination": "CH",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category I (dual authorization available)",
+      "class_code": "I",
+      "compatibility_pair": "CH-EU",
+      "inbound_mechanism": {
+        "test": "FINMA authorization (banking / DLT framework)",
+        "administrator": "FINMA",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C",
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ch-frs-issuer_pathway-001",
+          "ch-frs-monetary_sovereignty-001",
+          "eu-emt-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "eu-ae-skeleton",
+      "origin": "EU",
+      "destination": "AE",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category II (determination / channel required)",
+      "class_code": "II",
+      "compatibility_pair": "AE-EU",
+      "inbound_mechanism": {
+        "test": "CBUAE Payment Token Services licensing (usage channel)",
+        "administrator": "CBUAE",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ae-pt-issuer_pathway-001",
+          "ae-pt-monetary_sovereignty-001",
+          "eu-emt-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "eu-jp-skeleton",
+      "origin": "EU",
+      "destination": "JP",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category II (determination / channel required)",
+      "class_code": "II",
+      "compatibility_pair": "EU-JP",
+      "inbound_mechanism": {
+        "test": "PSA Electronic Payment Instruments channel (registered EPIESP)",
+        "administrator": "FSA (Japan)",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "eu-emt-issuer_pathway-001",
+          "jp-epi-issuer_pathway-001",
+          "jp-epi-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "eu-kr-skeleton",
+      "origin": "EU",
+      "destination": "KR",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Pre-regime (no operative destination regime yet)",
+      "class_code": "pre_regime",
+      "compatibility_pair": "EU-KR",
+      "inbound_mechanism": {
+        "test": "No operative inbound regime (draft DABA)",
+        "administrator": "FSC (Korea)",
+        "detail": null
+      },
+      "archetypes": [
+        "RC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "eu-emt-issuer_pathway-001",
+          "kr-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "uk-us-skeleton",
+      "origin": "UK",
+      "destination": "US",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category II (determination / channel required)",
+      "class_code": "II",
+      "compatibility_pair": "UK-US",
+      "inbound_mechanism": {
+        "test": "GENIUS Act §18 comparability determination + OCC registration; US-held reserves",
+        "administrator": "US Treasury (SCRC) / OCC",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "uk-frs-issuer_pathway-001",
+          "us-pss-issuer_pathway-001",
+          "us-pss-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "uk-eu-skeleton",
+      "origin": "UK",
+      "destination": "EU",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category I (dual authorization available)",
+      "class_code": "I",
+      "compatibility_pair": "EU-UK",
+      "inbound_mechanism": {
+        "test": "MiCA authorization; significant-EMT scale caps (Art. 23)",
+        "administrator": "EBA / ESMA / national competent authorities",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "eu-emt-issuer_pathway-001",
+          "eu-emt-monetary_sovereignty-001",
+          "uk-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "uk-sg-skeleton",
+      "origin": "UK",
+      "destination": "SG",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category I (dual authorization available)",
+      "class_code": "I",
+      "compatibility_pair": "SG-UK",
+      "inbound_mechanism": {
+        "test": "MAS single-currency-stablecoin recognition; foreign-pegged tokens treated as DPTs",
+        "administrator": "MAS",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C",
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "sg-scs-issuer_pathway-001",
+          "sg-scs-monetary_sovereignty-001",
+          "uk-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "uk-hk-skeleton",
+      "origin": "UK",
+      "destination": "HK",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category I (dual authorization available)",
+      "class_code": "I",
+      "compatibility_pair": "HK-UK",
+      "inbound_mechanism": {
+        "test": "HKMA stablecoin licensing",
+        "administrator": "HKMA",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C",
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "hk-frs-issuer_pathway-001",
+          "hk-frs-monetary_sovereignty-001",
+          "uk-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "uk-cn-skeleton",
+      "origin": "UK",
+      "destination": "CN",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Blocked at destination (issuance / circulation prohibited)",
+      "class_code": "blocked",
+      "compatibility_pair": "CN-UK",
+      "inbound_mechanism": {
+        "test": "Issuance and circulation prohibited",
+        "administrator": "PBOC / CAC",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "cn-prc-regulatory_authority-001",
+          "uk-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "uk-br-skeleton",
+      "origin": "UK",
+      "destination": "BR",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category II (determination / channel required)",
+      "class_code": "II",
+      "compatibility_pair": "BR-UK",
+      "inbound_mechanism": {
+        "test": "BCB VASP / FX-counterparty channel",
+        "administrator": "Banco Central do Brasil",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "br-vasp-issuer_pathway-001",
+          "br-vasp-monetary_sovereignty-001",
+          "uk-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "uk-ch-skeleton",
+      "origin": "UK",
+      "destination": "CH",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category I (dual authorization available)",
+      "class_code": "I",
+      "compatibility_pair": "CH-UK",
+      "inbound_mechanism": {
+        "test": "FINMA authorization (banking / DLT framework)",
+        "administrator": "FINMA",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C",
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ch-frs-issuer_pathway-001",
+          "ch-frs-monetary_sovereignty-001",
+          "uk-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "uk-ae-skeleton",
+      "origin": "UK",
+      "destination": "AE",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category II (determination / channel required)",
+      "class_code": "II",
+      "compatibility_pair": "AE-UK",
+      "inbound_mechanism": {
+        "test": "CBUAE Payment Token Services licensing (usage channel)",
+        "administrator": "CBUAE",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ae-pt-issuer_pathway-001",
+          "ae-pt-monetary_sovereignty-001",
+          "uk-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "uk-jp-skeleton",
+      "origin": "UK",
+      "destination": "JP",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category II (determination / channel required)",
+      "class_code": "II",
+      "compatibility_pair": "JP-UK",
+      "inbound_mechanism": {
+        "test": "PSA Electronic Payment Instruments channel (registered EPIESP)",
+        "administrator": "FSA (Japan)",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "jp-epi-issuer_pathway-001",
+          "jp-epi-monetary_sovereignty-001",
+          "uk-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "uk-kr-skeleton",
+      "origin": "UK",
+      "destination": "KR",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Pre-regime (no operative destination regime yet)",
+      "class_code": "pre_regime",
+      "compatibility_pair": "KR-UK",
+      "inbound_mechanism": {
+        "test": "No operative inbound regime (draft DABA)",
+        "administrator": "FSC (Korea)",
+        "detail": null
+      },
+      "archetypes": [
+        "RC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "kr-frs-issuer_pathway-001",
+          "uk-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "sg-us-skeleton",
+      "origin": "SG",
+      "destination": "US",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category II (determination / channel required)",
+      "class_code": "II",
+      "compatibility_pair": "SG-US",
+      "inbound_mechanism": {
+        "test": "GENIUS Act §18 comparability determination + OCC registration; US-held reserves",
+        "administrator": "US Treasury (SCRC) / OCC",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "sg-scs-issuer_pathway-001",
+          "us-pss-issuer_pathway-001",
+          "us-pss-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "sg-eu-skeleton",
+      "origin": "SG",
+      "destination": "EU",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category I (dual authorization available)",
+      "class_code": "I",
+      "compatibility_pair": "EU-SG",
+      "inbound_mechanism": {
+        "test": "MiCA authorization; significant-EMT scale caps (Art. 23)",
+        "administrator": "EBA / ESMA / national competent authorities",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "eu-emt-issuer_pathway-001",
+          "eu-emt-monetary_sovereignty-001",
+          "sg-scs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "sg-cn-skeleton",
+      "origin": "SG",
+      "destination": "CN",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Blocked at destination (issuance / circulation prohibited)",
+      "class_code": "blocked",
+      "compatibility_pair": "CN-SG",
+      "inbound_mechanism": {
+        "test": "Issuance and circulation prohibited",
+        "administrator": "PBOC / CAC",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "cn-prc-regulatory_authority-001",
+          "sg-scs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "sg-br-skeleton",
+      "origin": "SG",
+      "destination": "BR",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category II (determination / channel required)",
+      "class_code": "II",
+      "compatibility_pair": "BR-SG",
+      "inbound_mechanism": {
+        "test": "BCB VASP / FX-counterparty channel",
+        "administrator": "Banco Central do Brasil",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "br-vasp-issuer_pathway-001",
+          "br-vasp-monetary_sovereignty-001",
+          "sg-scs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "sg-ch-skeleton",
+      "origin": "SG",
+      "destination": "CH",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category I (dual authorization available)",
+      "class_code": "I",
+      "compatibility_pair": "CH-SG",
+      "inbound_mechanism": {
+        "test": "FINMA authorization (banking / DLT framework)",
+        "administrator": "FINMA",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C",
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ch-frs-issuer_pathway-001",
+          "ch-frs-monetary_sovereignty-001",
+          "sg-scs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "sg-ae-skeleton",
+      "origin": "SG",
+      "destination": "AE",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category II (determination / channel required)",
+      "class_code": "II",
+      "compatibility_pair": "AE-SG",
+      "inbound_mechanism": {
+        "test": "CBUAE Payment Token Services licensing (usage channel)",
+        "administrator": "CBUAE",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ae-pt-issuer_pathway-001",
+          "ae-pt-monetary_sovereignty-001",
+          "sg-scs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "sg-jp-skeleton",
+      "origin": "SG",
+      "destination": "JP",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category II (determination / channel required)",
+      "class_code": "II",
+      "compatibility_pair": "JP-SG",
+      "inbound_mechanism": {
+        "test": "PSA Electronic Payment Instruments channel (registered EPIESP)",
+        "administrator": "FSA (Japan)",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "jp-epi-issuer_pathway-001",
+          "jp-epi-monetary_sovereignty-001",
+          "sg-scs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "sg-kr-skeleton",
+      "origin": "SG",
+      "destination": "KR",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Pre-regime (no operative destination regime yet)",
+      "class_code": "pre_regime",
+      "compatibility_pair": "KR-SG",
+      "inbound_mechanism": {
+        "test": "No operative inbound regime (draft DABA)",
+        "administrator": "FSC (Korea)",
+        "detail": null
+      },
+      "archetypes": [
+        "RC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "kr-frs-issuer_pathway-001",
+          "sg-scs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "hk-eu-skeleton",
+      "origin": "HK",
+      "destination": "EU",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category I (dual authorization available)",
+      "class_code": "I",
+      "compatibility_pair": "EU-HK",
+      "inbound_mechanism": {
+        "test": "MiCA authorization; significant-EMT scale caps (Art. 23)",
+        "administrator": "EBA / ESMA / national competent authorities",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "eu-emt-issuer_pathway-001",
+          "eu-emt-monetary_sovereignty-001",
+          "hk-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "hk-sg-skeleton",
+      "origin": "HK",
+      "destination": "SG",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category I (dual authorization available)",
+      "class_code": "I",
+      "compatibility_pair": "HK-SG",
+      "inbound_mechanism": {
+        "test": "MAS single-currency-stablecoin recognition; foreign-pegged tokens treated as DPTs",
+        "administrator": "MAS",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C",
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "hk-frs-issuer_pathway-001",
+          "sg-scs-issuer_pathway-001",
+          "sg-scs-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "hk-ch-skeleton",
+      "origin": "HK",
+      "destination": "CH",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category I (dual authorization available)",
+      "class_code": "I",
+      "compatibility_pair": "CH-HK",
+      "inbound_mechanism": {
+        "test": "FINMA authorization (banking / DLT framework)",
+        "administrator": "FINMA",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C",
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ch-frs-issuer_pathway-001",
+          "ch-frs-monetary_sovereignty-001",
+          "hk-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "hk-ae-skeleton",
+      "origin": "HK",
+      "destination": "AE",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category II (determination / channel required)",
+      "class_code": "II",
+      "compatibility_pair": "AE-HK",
+      "inbound_mechanism": {
+        "test": "CBUAE Payment Token Services licensing (usage channel)",
+        "administrator": "CBUAE",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ae-pt-issuer_pathway-001",
+          "ae-pt-monetary_sovereignty-001",
+          "hk-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "hk-jp-skeleton",
+      "origin": "HK",
+      "destination": "JP",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category II (determination / channel required)",
+      "class_code": "II",
+      "compatibility_pair": "HK-JP",
+      "inbound_mechanism": {
+        "test": "PSA Electronic Payment Instruments channel (registered EPIESP)",
+        "administrator": "FSA (Japan)",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "hk-frs-issuer_pathway-001",
+          "jp-epi-issuer_pathway-001",
+          "jp-epi-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "hk-kr-skeleton",
+      "origin": "HK",
+      "destination": "KR",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Pre-regime (no operative destination regime yet)",
+      "class_code": "pre_regime",
+      "compatibility_pair": "HK-KR",
+      "inbound_mechanism": {
+        "test": "No operative inbound regime (draft DABA)",
+        "administrator": "FSC (Korea)",
+        "detail": null
+      },
+      "archetypes": [
+        "RC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "hk-frs-issuer_pathway-001",
+          "kr-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "cn-us-skeleton",
+      "origin": "CN",
+      "destination": "US",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+      "class_code": "III",
+      "compatibility_pair": "CN-US",
+      "inbound_mechanism": {
+        "test": "GENIUS Act §18 comparability determination + OCC registration; US-held reserves",
+        "administrator": "US Treasury (SCRC) / OCC",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": true,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "cn-prc-regulatory_authority-001",
+          "us-pss-issuer_pathway-001",
+          "us-pss-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "cn-eu-skeleton",
+      "origin": "CN",
+      "destination": "EU",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+      "class_code": "III",
+      "compatibility_pair": "CN-EU",
+      "inbound_mechanism": {
+        "test": "MiCA authorization; significant-EMT scale caps (Art. 23)",
+        "administrator": "EBA / ESMA / national competent authorities",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": true,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "cn-prc-regulatory_authority-001",
+          "eu-emt-issuer_pathway-001",
+          "eu-emt-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "cn-uk-skeleton",
+      "origin": "CN",
+      "destination": "UK",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+      "class_code": "III",
+      "compatibility_pair": "CN-UK",
+      "inbound_mechanism": {
+        "test": "FSMA 2026 regime — in transition (systemic regime pending)",
+        "administrator": "FCA / Bank of England",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": true,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "cn-prc-regulatory_authority-001",
+          "uk-frs-issuer_pathway-001",
+          "uk-frs-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "cn-sg-skeleton",
+      "origin": "CN",
+      "destination": "SG",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+      "class_code": "III",
+      "compatibility_pair": "CN-SG",
+      "inbound_mechanism": {
+        "test": "MAS single-currency-stablecoin recognition; foreign-pegged tokens treated as DPTs",
+        "administrator": "MAS",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": true,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "cn-prc-regulatory_authority-001",
+          "sg-scs-issuer_pathway-001",
+          "sg-scs-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "cn-hk-skeleton",
+      "origin": "CN",
+      "destination": "HK",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+      "class_code": "III",
+      "compatibility_pair": "CN-HK",
+      "inbound_mechanism": {
+        "test": "HKMA stablecoin licensing",
+        "administrator": "HKMA",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": true,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "cn-prc-regulatory_authority-001",
+          "hk-frs-issuer_pathway-001",
+          "hk-frs-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "cn-br-skeleton",
+      "origin": "CN",
+      "destination": "BR",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+      "class_code": "III",
+      "compatibility_pair": "BR-CN",
+      "inbound_mechanism": {
+        "test": "BCB VASP / FX-counterparty channel",
+        "administrator": "Banco Central do Brasil",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": true,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "br-vasp-issuer_pathway-001",
+          "br-vasp-monetary_sovereignty-001",
+          "cn-prc-regulatory_authority-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "cn-ch-skeleton",
+      "origin": "CN",
+      "destination": "CH",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+      "class_code": "III",
+      "compatibility_pair": "CH-CN",
+      "inbound_mechanism": {
+        "test": "FINMA authorization (banking / DLT framework)",
+        "administrator": "FINMA",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": true,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ch-frs-issuer_pathway-001",
+          "ch-frs-monetary_sovereignty-001",
+          "cn-prc-regulatory_authority-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "cn-ae-skeleton",
+      "origin": "CN",
+      "destination": "AE",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+      "class_code": "III",
+      "compatibility_pair": "AE-CN",
+      "inbound_mechanism": {
+        "test": "CBUAE Payment Token Services licensing (usage channel)",
+        "administrator": "CBUAE",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": true,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ae-pt-issuer_pathway-001",
+          "ae-pt-monetary_sovereignty-001",
+          "cn-prc-regulatory_authority-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "cn-tw-skeleton",
+      "origin": "CN",
+      "destination": "TW",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+      "class_code": "III",
+      "compatibility_pair": "CN-TW",
+      "inbound_mechanism": {
+        "test": "No operative inbound regime (draft VAS Act)",
+        "administrator": "FSC (Taiwan)",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": true,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "cn-prc-regulatory_authority-001",
+          "tw-frs-issuer_pathway-001",
+          "tw-frs-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "cn-jp-skeleton",
+      "origin": "CN",
+      "destination": "JP",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+      "class_code": "III",
+      "compatibility_pair": "CN-JP",
+      "inbound_mechanism": {
+        "test": "PSA Electronic Payment Instruments channel (registered EPIESP)",
+        "administrator": "FSA (Japan)",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": true,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "cn-prc-regulatory_authority-001",
+          "jp-epi-issuer_pathway-001",
+          "jp-epi-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "cn-kr-skeleton",
+      "origin": "CN",
+      "destination": "KR",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+      "class_code": "III",
+      "compatibility_pair": "CN-KR",
+      "inbound_mechanism": {
+        "test": "No operative inbound regime (draft DABA)",
+        "administrator": "FSC (Korea)",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": true,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "cn-prc-regulatory_authority-001",
+          "kr-frs-issuer_pathway-001",
+          "kr-frs-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "br-us-skeleton",
+      "origin": "BR",
+      "destination": "US",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category II (determination / channel required)",
+      "class_code": "II",
+      "compatibility_pair": "BR-US",
+      "inbound_mechanism": {
+        "test": "GENIUS Act §18 comparability determination + OCC registration; US-held reserves",
+        "administrator": "US Treasury (SCRC) / OCC",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "br-vasp-issuer_pathway-001",
+          "us-pss-issuer_pathway-001",
+          "us-pss-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "br-eu-skeleton",
+      "origin": "BR",
+      "destination": "EU",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category I (dual authorization available)",
+      "class_code": "I",
+      "compatibility_pair": "BR-EU",
+      "inbound_mechanism": {
+        "test": "MiCA authorization; significant-EMT scale caps (Art. 23)",
+        "administrator": "EBA / ESMA / national competent authorities",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "br-vasp-issuer_pathway-001",
+          "eu-emt-issuer_pathway-001",
+          "eu-emt-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "br-sg-skeleton",
+      "origin": "BR",
+      "destination": "SG",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category I (dual authorization available)",
+      "class_code": "I",
+      "compatibility_pair": "BR-SG",
+      "inbound_mechanism": {
+        "test": "MAS single-currency-stablecoin recognition; foreign-pegged tokens treated as DPTs",
+        "administrator": "MAS",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C",
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "br-vasp-issuer_pathway-001",
+          "sg-scs-issuer_pathway-001",
+          "sg-scs-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "br-hk-skeleton",
+      "origin": "BR",
+      "destination": "HK",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category I (dual authorization available)",
+      "class_code": "I",
+      "compatibility_pair": "BR-HK",
+      "inbound_mechanism": {
+        "test": "HKMA stablecoin licensing",
+        "administrator": "HKMA",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C",
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "br-vasp-issuer_pathway-001",
+          "hk-frs-issuer_pathway-001",
+          "hk-frs-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "br-cn-skeleton",
+      "origin": "BR",
+      "destination": "CN",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Blocked at destination (issuance / circulation prohibited)",
+      "class_code": "blocked",
+      "compatibility_pair": "BR-CN",
+      "inbound_mechanism": {
+        "test": "Issuance and circulation prohibited",
+        "administrator": "PBOC / CAC",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "br-vasp-issuer_pathway-001",
+          "cn-prc-regulatory_authority-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "br-ch-skeleton",
+      "origin": "BR",
+      "destination": "CH",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category I (dual authorization available)",
+      "class_code": "I",
+      "compatibility_pair": "BR-CH",
+      "inbound_mechanism": {
+        "test": "FINMA authorization (banking / DLT framework)",
+        "administrator": "FINMA",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C",
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "br-vasp-issuer_pathway-001",
+          "ch-frs-issuer_pathway-001",
+          "ch-frs-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "br-ae-skeleton",
+      "origin": "BR",
+      "destination": "AE",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category II (determination / channel required)",
+      "class_code": "II",
+      "compatibility_pair": "AE-BR",
+      "inbound_mechanism": {
+        "test": "CBUAE Payment Token Services licensing (usage channel)",
+        "administrator": "CBUAE",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ae-pt-issuer_pathway-001",
+          "ae-pt-monetary_sovereignty-001",
+          "br-vasp-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "br-jp-skeleton",
+      "origin": "BR",
+      "destination": "JP",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category II (determination / channel required)",
+      "class_code": "II",
+      "compatibility_pair": "BR-JP",
+      "inbound_mechanism": {
+        "test": "PSA Electronic Payment Instruments channel (registered EPIESP)",
+        "administrator": "FSA (Japan)",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "br-vasp-issuer_pathway-001",
+          "jp-epi-issuer_pathway-001",
+          "jp-epi-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "br-kr-skeleton",
+      "origin": "BR",
+      "destination": "KR",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Pre-regime (no operative destination regime yet)",
+      "class_code": "pre_regime",
+      "compatibility_pair": "BR-KR",
+      "inbound_mechanism": {
+        "test": "No operative inbound regime (draft DABA)",
+        "administrator": "FSC (Korea)",
+        "detail": null
+      },
+      "archetypes": [
+        "RC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "br-vasp-issuer_pathway-001",
+          "kr-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "ch-us-skeleton",
+      "origin": "CH",
+      "destination": "US",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category II (determination / channel required)",
+      "class_code": "II",
+      "compatibility_pair": "CH-US",
+      "inbound_mechanism": {
+        "test": "GENIUS Act §18 comparability determination + OCC registration; US-held reserves",
+        "administrator": "US Treasury (SCRC) / OCC",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ch-frs-issuer_pathway-001",
+          "us-pss-issuer_pathway-001",
+          "us-pss-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "ch-eu-skeleton",
+      "origin": "CH",
+      "destination": "EU",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category I (dual authorization available)",
+      "class_code": "I",
+      "compatibility_pair": "CH-EU",
+      "inbound_mechanism": {
+        "test": "MiCA authorization; significant-EMT scale caps (Art. 23)",
+        "administrator": "EBA / ESMA / national competent authorities",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ch-frs-issuer_pathway-001",
+          "eu-emt-issuer_pathway-001",
+          "eu-emt-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "ch-sg-skeleton",
+      "origin": "CH",
+      "destination": "SG",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category I (dual authorization available)",
+      "class_code": "I",
+      "compatibility_pair": "CH-SG",
+      "inbound_mechanism": {
+        "test": "MAS single-currency-stablecoin recognition; foreign-pegged tokens treated as DPTs",
+        "administrator": "MAS",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C",
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ch-frs-issuer_pathway-001",
+          "sg-scs-issuer_pathway-001",
+          "sg-scs-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "ch-hk-skeleton",
+      "origin": "CH",
+      "destination": "HK",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category I (dual authorization available)",
+      "class_code": "I",
+      "compatibility_pair": "CH-HK",
+      "inbound_mechanism": {
+        "test": "HKMA stablecoin licensing",
+        "administrator": "HKMA",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C",
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ch-frs-issuer_pathway-001",
+          "hk-frs-issuer_pathway-001",
+          "hk-frs-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "ch-cn-skeleton",
+      "origin": "CH",
+      "destination": "CN",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Blocked at destination (issuance / circulation prohibited)",
+      "class_code": "blocked",
+      "compatibility_pair": "CH-CN",
+      "inbound_mechanism": {
+        "test": "Issuance and circulation prohibited",
+        "administrator": "PBOC / CAC",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ch-frs-issuer_pathway-001",
+          "cn-prc-regulatory_authority-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "ch-br-skeleton",
+      "origin": "CH",
+      "destination": "BR",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category II (determination / channel required)",
+      "class_code": "II",
+      "compatibility_pair": "BR-CH",
+      "inbound_mechanism": {
+        "test": "BCB VASP / FX-counterparty channel",
+        "administrator": "Banco Central do Brasil",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "br-vasp-issuer_pathway-001",
+          "br-vasp-monetary_sovereignty-001",
+          "ch-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "ch-ae-skeleton",
+      "origin": "CH",
+      "destination": "AE",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category II (determination / channel required)",
+      "class_code": "II",
+      "compatibility_pair": "AE-CH",
+      "inbound_mechanism": {
+        "test": "CBUAE Payment Token Services licensing (usage channel)",
+        "administrator": "CBUAE",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ae-pt-issuer_pathway-001",
+          "ae-pt-monetary_sovereignty-001",
+          "ch-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "ch-jp-skeleton",
+      "origin": "CH",
+      "destination": "JP",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category II (determination / channel required)",
+      "class_code": "II",
+      "compatibility_pair": "CH-JP",
+      "inbound_mechanism": {
+        "test": "PSA Electronic Payment Instruments channel (registered EPIESP)",
+        "administrator": "FSA (Japan)",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ch-frs-issuer_pathway-001",
+          "jp-epi-issuer_pathway-001",
+          "jp-epi-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "ch-kr-skeleton",
+      "origin": "CH",
+      "destination": "KR",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Pre-regime (no operative destination regime yet)",
+      "class_code": "pre_regime",
+      "compatibility_pair": "CH-KR",
+      "inbound_mechanism": {
+        "test": "No operative inbound regime (draft DABA)",
+        "administrator": "FSC (Korea)",
+        "detail": null
+      },
+      "archetypes": [
+        "RC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ch-frs-issuer_pathway-001",
+          "kr-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "ae-us-skeleton",
+      "origin": "AE",
+      "destination": "US",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category II (determination / channel required)",
+      "class_code": "II",
+      "compatibility_pair": "AE-US",
+      "inbound_mechanism": {
+        "test": "GENIUS Act §18 comparability determination + OCC registration; US-held reserves",
+        "administrator": "US Treasury (SCRC) / OCC",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ae-pt-issuer_pathway-001",
+          "us-pss-issuer_pathway-001",
+          "us-pss-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "ae-eu-skeleton",
+      "origin": "AE",
+      "destination": "EU",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category I (dual authorization available)",
+      "class_code": "I",
+      "compatibility_pair": "AE-EU",
+      "inbound_mechanism": {
+        "test": "MiCA authorization; significant-EMT scale caps (Art. 23)",
+        "administrator": "EBA / ESMA / national competent authorities",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ae-pt-issuer_pathway-001",
+          "eu-emt-issuer_pathway-001",
+          "eu-emt-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "ae-sg-skeleton",
+      "origin": "AE",
+      "destination": "SG",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category I (dual authorization available)",
+      "class_code": "I",
+      "compatibility_pair": "AE-SG",
+      "inbound_mechanism": {
+        "test": "MAS single-currency-stablecoin recognition; foreign-pegged tokens treated as DPTs",
+        "administrator": "MAS",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C",
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ae-pt-issuer_pathway-001",
+          "sg-scs-issuer_pathway-001",
+          "sg-scs-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "ae-hk-skeleton",
+      "origin": "AE",
+      "destination": "HK",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category I (dual authorization available)",
+      "class_code": "I",
+      "compatibility_pair": "AE-HK",
+      "inbound_mechanism": {
+        "test": "HKMA stablecoin licensing",
+        "administrator": "HKMA",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C",
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ae-pt-issuer_pathway-001",
+          "hk-frs-issuer_pathway-001",
+          "hk-frs-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "ae-cn-skeleton",
+      "origin": "AE",
+      "destination": "CN",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Blocked at destination (issuance / circulation prohibited)",
+      "class_code": "blocked",
+      "compatibility_pair": "AE-CN",
+      "inbound_mechanism": {
+        "test": "Issuance and circulation prohibited",
+        "administrator": "PBOC / CAC",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ae-pt-issuer_pathway-001",
+          "cn-prc-regulatory_authority-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "ae-br-skeleton",
+      "origin": "AE",
+      "destination": "BR",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category II (determination / channel required)",
+      "class_code": "II",
+      "compatibility_pair": "AE-BR",
+      "inbound_mechanism": {
+        "test": "BCB VASP / FX-counterparty channel",
+        "administrator": "Banco Central do Brasil",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ae-pt-issuer_pathway-001",
+          "br-vasp-issuer_pathway-001",
+          "br-vasp-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "ae-ch-skeleton",
+      "origin": "AE",
+      "destination": "CH",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category I (dual authorization available)",
+      "class_code": "I",
+      "compatibility_pair": "AE-CH",
+      "inbound_mechanism": {
+        "test": "FINMA authorization (banking / DLT framework)",
+        "administrator": "FINMA",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C",
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ae-pt-issuer_pathway-001",
+          "ch-frs-issuer_pathway-001",
+          "ch-frs-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "ae-jp-skeleton",
+      "origin": "AE",
+      "destination": "JP",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category II (determination / channel required)",
+      "class_code": "II",
+      "compatibility_pair": "AE-JP",
+      "inbound_mechanism": {
+        "test": "PSA Electronic Payment Instruments channel (registered EPIESP)",
+        "administrator": "FSA (Japan)",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ae-pt-issuer_pathway-001",
+          "jp-epi-issuer_pathway-001",
+          "jp-epi-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "ae-kr-skeleton",
+      "origin": "AE",
+      "destination": "KR",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Pre-regime (no operative destination regime yet)",
+      "class_code": "pre_regime",
+      "compatibility_pair": "AE-KR",
+      "inbound_mechanism": {
+        "test": "No operative inbound regime (draft DABA)",
+        "administrator": "FSC (Korea)",
+        "detail": null
+      },
+      "archetypes": [
+        "RC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ae-pt-issuer_pathway-001",
+          "kr-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "tw-us-skeleton",
+      "origin": "TW",
+      "destination": "US",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+      "class_code": "III",
+      "compatibility_pair": "TW-US",
+      "inbound_mechanism": {
+        "test": "GENIUS Act §18 comparability determination + OCC registration; US-held reserves",
+        "administrator": "US Treasury (SCRC) / OCC",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": true,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "tw-frs-issuer_pathway-001",
+          "us-pss-issuer_pathway-001",
+          "us-pss-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "tw-eu-skeleton",
+      "origin": "TW",
+      "destination": "EU",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+      "class_code": "III",
+      "compatibility_pair": "EU-TW",
+      "inbound_mechanism": {
+        "test": "MiCA authorization; significant-EMT scale caps (Art. 23)",
+        "administrator": "EBA / ESMA / national competent authorities",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": true,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "eu-emt-issuer_pathway-001",
+          "eu-emt-monetary_sovereignty-001",
+          "tw-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "tw-uk-skeleton",
+      "origin": "TW",
+      "destination": "UK",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+      "class_code": "III",
+      "compatibility_pair": "TW-UK",
+      "inbound_mechanism": {
+        "test": "FSMA 2026 regime — in transition (systemic regime pending)",
+        "administrator": "FCA / Bank of England",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": true,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "tw-frs-issuer_pathway-001",
+          "uk-frs-issuer_pathway-001",
+          "uk-frs-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "tw-sg-skeleton",
+      "origin": "TW",
+      "destination": "SG",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+      "class_code": "III",
+      "compatibility_pair": "SG-TW",
+      "inbound_mechanism": {
+        "test": "MAS single-currency-stablecoin recognition; foreign-pegged tokens treated as DPTs",
+        "administrator": "MAS",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": true,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "sg-scs-issuer_pathway-001",
+          "sg-scs-monetary_sovereignty-001",
+          "tw-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "tw-hk-skeleton",
+      "origin": "TW",
+      "destination": "HK",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+      "class_code": "III",
+      "compatibility_pair": "HK-TW",
+      "inbound_mechanism": {
+        "test": "HKMA stablecoin licensing",
+        "administrator": "HKMA",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": true,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "hk-frs-issuer_pathway-001",
+          "hk-frs-monetary_sovereignty-001",
+          "tw-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "tw-cn-skeleton",
+      "origin": "TW",
+      "destination": "CN",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+      "class_code": "III",
+      "compatibility_pair": "CN-TW",
+      "inbound_mechanism": {
+        "test": "Issuance and circulation prohibited",
+        "administrator": "PBOC / CAC",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": true,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "cn-prc-monetary_sovereignty-001",
+          "cn-prc-regulatory_authority-001",
+          "tw-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "tw-br-skeleton",
+      "origin": "TW",
+      "destination": "BR",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+      "class_code": "III",
+      "compatibility_pair": "BR-TW",
+      "inbound_mechanism": {
+        "test": "BCB VASP / FX-counterparty channel",
+        "administrator": "Banco Central do Brasil",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": true,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "br-vasp-issuer_pathway-001",
+          "br-vasp-monetary_sovereignty-001",
+          "tw-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "tw-ch-skeleton",
+      "origin": "TW",
+      "destination": "CH",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+      "class_code": "III",
+      "compatibility_pair": "CH-TW",
+      "inbound_mechanism": {
+        "test": "FINMA authorization (banking / DLT framework)",
+        "administrator": "FINMA",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": true,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ch-frs-issuer_pathway-001",
+          "ch-frs-monetary_sovereignty-001",
+          "tw-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "tw-ae-skeleton",
+      "origin": "TW",
+      "destination": "AE",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+      "class_code": "III",
+      "compatibility_pair": "AE-TW",
+      "inbound_mechanism": {
+        "test": "CBUAE Payment Token Services licensing (usage channel)",
+        "administrator": "CBUAE",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": true,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ae-pt-issuer_pathway-001",
+          "ae-pt-monetary_sovereignty-001",
+          "tw-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "tw-jp-skeleton",
+      "origin": "TW",
+      "destination": "JP",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+      "class_code": "III",
+      "compatibility_pair": "JP-TW",
+      "inbound_mechanism": {
+        "test": "PSA Electronic Payment Instruments channel (registered EPIESP)",
+        "administrator": "FSA (Japan)",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": true,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "jp-epi-issuer_pathway-001",
+          "jp-epi-monetary_sovereignty-001",
+          "tw-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "tw-kr-skeleton",
+      "origin": "TW",
+      "destination": "KR",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+      "class_code": "III",
+      "compatibility_pair": "KR-TW",
+      "inbound_mechanism": {
+        "test": "No operative inbound regime (draft DABA)",
+        "administrator": "FSC (Korea)",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": true,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "kr-frs-issuer_pathway-001",
+          "kr-frs-monetary_sovereignty-001",
+          "tw-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "jp-eu-skeleton",
+      "origin": "JP",
+      "destination": "EU",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category I (dual authorization available)",
+      "class_code": "I",
+      "compatibility_pair": "EU-JP",
+      "inbound_mechanism": {
+        "test": "MiCA authorization; significant-EMT scale caps (Art. 23)",
+        "administrator": "EBA / ESMA / national competent authorities",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "eu-emt-issuer_pathway-001",
+          "eu-emt-monetary_sovereignty-001",
+          "jp-epi-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "jp-sg-skeleton",
+      "origin": "JP",
+      "destination": "SG",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category I (dual authorization available)",
+      "class_code": "I",
+      "compatibility_pair": "JP-SG",
+      "inbound_mechanism": {
+        "test": "MAS single-currency-stablecoin recognition; foreign-pegged tokens treated as DPTs",
+        "administrator": "MAS",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C",
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "jp-epi-issuer_pathway-001",
+          "sg-scs-issuer_pathway-001",
+          "sg-scs-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "jp-hk-skeleton",
+      "origin": "JP",
+      "destination": "HK",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category I (dual authorization available)",
+      "class_code": "I",
+      "compatibility_pair": "HK-JP",
+      "inbound_mechanism": {
+        "test": "HKMA stablecoin licensing",
+        "administrator": "HKMA",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C",
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "hk-frs-issuer_pathway-001",
+          "hk-frs-monetary_sovereignty-001",
+          "jp-epi-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "jp-cn-skeleton",
+      "origin": "JP",
+      "destination": "CN",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Blocked at destination (issuance / circulation prohibited)",
+      "class_code": "blocked",
+      "compatibility_pair": "CN-JP",
+      "inbound_mechanism": {
+        "test": "Issuance and circulation prohibited",
+        "administrator": "PBOC / CAC",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "cn-prc-regulatory_authority-001",
+          "jp-epi-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "jp-br-skeleton",
+      "origin": "JP",
+      "destination": "BR",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category II (determination / channel required)",
+      "class_code": "II",
+      "compatibility_pair": "BR-JP",
+      "inbound_mechanism": {
+        "test": "BCB VASP / FX-counterparty channel",
+        "administrator": "Banco Central do Brasil",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "br-vasp-issuer_pathway-001",
+          "br-vasp-monetary_sovereignty-001",
+          "jp-epi-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "jp-ch-skeleton",
+      "origin": "JP",
+      "destination": "CH",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category I (dual authorization available)",
+      "class_code": "I",
+      "compatibility_pair": "CH-JP",
+      "inbound_mechanism": {
+        "test": "FINMA authorization (banking / DLT framework)",
+        "administrator": "FINMA",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C",
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ch-frs-issuer_pathway-001",
+          "ch-frs-monetary_sovereignty-001",
+          "jp-epi-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "jp-ae-skeleton",
+      "origin": "JP",
+      "destination": "AE",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category II (determination / channel required)",
+      "class_code": "II",
+      "compatibility_pair": "AE-JP",
+      "inbound_mechanism": {
+        "test": "CBUAE Payment Token Services licensing (usage channel)",
+        "administrator": "CBUAE",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "SC",
+        "TC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "D"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ae-pt-issuer_pathway-001",
+          "ae-pt-monetary_sovereignty-001",
+          "jp-epi-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "jp-kr-skeleton",
+      "origin": "JP",
+      "destination": "KR",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Pre-regime (no operative destination regime yet)",
+      "class_code": "pre_regime",
+      "compatibility_pair": "JP-KR",
+      "inbound_mechanism": {
+        "test": "No operative inbound regime (draft DABA)",
+        "administrator": "FSC (Korea)",
+        "detail": null
+      },
+      "archetypes": [
+        "RC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": false,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "jp-epi-issuer_pathway-001",
+          "kr-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "kr-us-skeleton",
+      "origin": "KR",
+      "destination": "US",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+      "class_code": "III",
+      "compatibility_pair": "KR-US",
+      "inbound_mechanism": {
+        "test": "GENIUS Act §18 comparability determination + OCC registration; US-held reserves",
+        "administrator": "US Treasury (SCRC) / OCC",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": true,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "kr-frs-issuer_pathway-001",
+          "us-pss-issuer_pathway-001",
+          "us-pss-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "kr-eu-skeleton",
+      "origin": "KR",
+      "destination": "EU",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+      "class_code": "III",
+      "compatibility_pair": "EU-KR",
+      "inbound_mechanism": {
+        "test": "MiCA authorization; significant-EMT scale caps (Art. 23)",
+        "administrator": "EBA / ESMA / national competent authorities",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": true,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "eu-emt-issuer_pathway-001",
+          "eu-emt-monetary_sovereignty-001",
+          "kr-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "kr-uk-skeleton",
+      "origin": "KR",
+      "destination": "UK",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+      "class_code": "III",
+      "compatibility_pair": "KR-UK",
+      "inbound_mechanism": {
+        "test": "FSMA 2026 regime — in transition (systemic regime pending)",
+        "administrator": "FCA / Bank of England",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": true,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "kr-frs-issuer_pathway-001",
+          "uk-frs-issuer_pathway-001",
+          "uk-frs-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "kr-sg-skeleton",
+      "origin": "KR",
+      "destination": "SG",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+      "class_code": "III",
+      "compatibility_pair": "KR-SG",
+      "inbound_mechanism": {
+        "test": "MAS single-currency-stablecoin recognition; foreign-pegged tokens treated as DPTs",
+        "administrator": "MAS",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": true,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "kr-frs-issuer_pathway-001",
+          "sg-scs-issuer_pathway-001",
+          "sg-scs-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "kr-hk-skeleton",
+      "origin": "KR",
+      "destination": "HK",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+      "class_code": "III",
+      "compatibility_pair": "HK-KR",
+      "inbound_mechanism": {
+        "test": "HKMA stablecoin licensing",
+        "administrator": "HKMA",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": true,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "hk-frs-issuer_pathway-001",
+          "hk-frs-monetary_sovereignty-001",
+          "kr-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "kr-cn-skeleton",
+      "origin": "KR",
+      "destination": "CN",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+      "class_code": "III",
+      "compatibility_pair": "CN-KR",
+      "inbound_mechanism": {
+        "test": "Issuance and circulation prohibited",
+        "administrator": "PBOC / CAC",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": true,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "cn-prc-monetary_sovereignty-001",
+          "cn-prc-regulatory_authority-001",
+          "kr-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "kr-br-skeleton",
+      "origin": "KR",
+      "destination": "BR",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+      "class_code": "III",
+      "compatibility_pair": "BR-KR",
+      "inbound_mechanism": {
+        "test": "BCB VASP / FX-counterparty channel",
+        "administrator": "Banco Central do Brasil",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": true,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "br-vasp-issuer_pathway-001",
+          "br-vasp-monetary_sovereignty-001",
+          "kr-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "kr-ch-skeleton",
+      "origin": "KR",
+      "destination": "CH",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+      "class_code": "III",
+      "compatibility_pair": "CH-KR",
+      "inbound_mechanism": {
+        "test": "FINMA authorization (banking / DLT framework)",
+        "administrator": "FINMA",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": true,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ch-frs-issuer_pathway-001",
+          "ch-frs-monetary_sovereignty-001",
+          "kr-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "kr-ae-skeleton",
+      "origin": "KR",
+      "destination": "AE",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+      "class_code": "III",
+      "compatibility_pair": "AE-KR",
+      "inbound_mechanism": {
+        "test": "CBUAE Payment Token Services licensing (usage channel)",
+        "administrator": "CBUAE",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": true,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "ae-pt-issuer_pathway-001",
+          "ae-pt-monetary_sovereignty-001",
+          "kr-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "kr-tw-skeleton",
+      "origin": "KR",
+      "destination": "TW",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+      "class_code": "III",
+      "compatibility_pair": "KR-TW",
+      "inbound_mechanism": {
+        "test": "No operative inbound regime (draft VAS Act)",
+        "administrator": "FSC (Taiwan)",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": true,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "kr-frs-issuer_pathway-001",
+          "tw-frs-issuer_pathway-001",
+          "tw-frs-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    },
+    {
+      "corridor_id": "kr-jp-skeleton",
+      "origin": "KR",
+      "destination": "JP",
+      "direction": "directed",
+      "tier": "computed_skeleton",
+      "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+      "class_code": "III",
+      "compatibility_pair": "JP-KR",
+      "inbound_mechanism": {
+        "test": "PSA Electronic Payment Instruments channel (registered EPIESP)",
+        "administrator": "FSA (Japan)",
+        "detail": null
+      },
+      "archetypes": [
+        "RC",
+        "DC"
+      ],
+      "interaction_sets": [
+        "C"
+      ],
+      "origin_drag": true,
+      "infrastructure_overlap": null,
+      "provenance": {
+        "records": [
+          "jp-epi-issuer_pathway-001",
+          "jp-epi-monetary_sovereignty-001",
+          "kr-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true
+      },
+      "enrichment_status": "computed skeleton — derived fields only",
+      "enrichment_backlog": [
+        "infrastructure_overlap",
+        "bespoke_inbound_detail",
+        "curated_archetypes",
+        "prose_note",
+        "primary_source_verification"
+      ]
+    }
+  ]
+}

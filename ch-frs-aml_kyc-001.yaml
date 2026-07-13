@@ -1,0 +1,45 @@
+id: ch-frs-aml_kyc-001
+jurisdiction: CH
+authority: FINMA
+instrument_type: fiat_referenced_stablecoin
+instrument_label_local: stablecoin (Banking Act; bank-guarantee or licensed-institution pathway)
+dimension: aml_kyc
+requirement_summary: 'FINMA Guidance 06/2024 imposes the strictest AML posture in the survey: the issuer must identify
+  every holder, including intermediate holders, treating each as a customer, and anonymous transfers are prohibited.
+  Full AMLA obligations apply and the FATF travel rule applies.'
+requirement_structured:
+  holder_identification: every holder, including intermediate holders, treated as a customer
+  anonymous_transfers: prohibited
+  regime: full AMLA + FATF travel rule
+status: in_force
+source:
+  primary: FINMA Guidance 06/2024; Anti-Money Laundering Act (AMLA)
+  pinpoint: AML — identify every holder incl. intermediate holders; anonymous transfers prohibited
+  url: https://www.finma.ch/en/news/2024/07/20240726-m-am-06-24-stablecoins/
+secondary:
+- citation: Fan, Multi-Jurisdiction Stablecoin Compliance Matrix v0.9.6 (June 2026), §Switzerland (AML / KYC Framework)
+- citation: FINMA Guidance 06/2024 (Stablecoins, 26 July 2024) — official English PDF available.
+interpretation_note: 'Provenance: transcribed from the author''s Compliance Matrix v0.9.6; VERIFIED against the
+  official primary text in the v0.5.1 verification pass (source.url is the official instrument). The identify-every-holder
+  rule is the strictest AML posture in the survey and the binding practical constraint on Swiss-issued-token composability
+  and transferability.'
+interpretive_flag:
+  tension: The requirement to identify every holder (including intermediate holders) materially constrains transferability
+    and composability, because each holder in a transfer chain is treated as an issuer customer; how this applies
+    to composable/DeFi contexts is unsettled.
+  resolution_channel: FINMA guidance updates on holder identification in composable contexts.
+confidence: high
+claim_class: tier1_legal
+evidence_tier: resolution_text
+last_reviewed: '2026-06-27'
+version_added: 0.4.0
+tags:
+- europe
+- focus
+- from_matrix_v0.9.6
+- v0.4.0_expansion
+- v0.5.1_verification
+- resolution_text_verified
+- v0.7.0_claim_class
+- binding_in_force_enacted
+binding_status: in_force_enacted

@@ -1,0 +1,144 @@
+{
+  "schema": "cbsr-analysis/architectural_patterns",
+  "source": "Fan, Cross-Border Stablecoin Architecture v3 (Twelve Jurisdictions, June 2026), §3.3, §4, §6",
+  "prc_three_pattern_typology": {
+    "source": "Fan, Cross-Border Stablecoin Architecture v3 (Twelve Jurisdictions, June 2026), §3.3 (Three Architectural Patterns)",
+    "boundary": "The cross-border PRC boundary is the practical consequence of the joint operation of Constraints 1 (issuer eligibility) and 6 (cross-border payment and data sovereignty) (Interaction Set A). As of Feb 2026 it is also anchored by an explicit written prohibition: 银发〔2026〕42号 (eight-ministry Notice, in force 6 Feb 2026; it repealed the 2021 Notice 银发〔2021〕237号) bars unauthorised overseas issuance of RMB-pegged stablecoins (未经许可，境内外任何主体不得在境外发行挂钩人民币的稳定币) and PRC-controlled entities issuing virtual currencies abroad, and restricts onshore RWA tokenisation (with CSRC 公告〔2026〕1号 guidance on offshore ABS-token issuance). What remains emergent (rather than categorically prohibited) is the Direct-Subsidiary-via-Hong-Kong pathway: the public record (absence of PRC-connected entities from the April 2026 HKMA first cohort; the Oct 2025 Ant/JD application withdrawals; the absence of state-owned bank affiliates despite Sep 2025 activity; the Oct 2025 CSRC tokenization guidance) shows it constrained by the data-sharing pattern, not by a categorical exclusion under the Stablecoins Ordinance.",
+    "patterns": [
+      {
+        "id": "A",
+        "name": "Direct Subsidiary Licensing",
+        "status": "currently_constrained",
+        "description": "A PRC-connected group seeks FRS issuance through a wholly-owned Hong Kong subsidiary licensed under the Stablecoins Ordinance. Architecturally simplest and commercially most efficient (preserves equity control), and formally available (the Ordinance does not categorically exclude PRC-connected applicants).",
+        "binding_constraint": "Interaction Set A: PRC cross-border data law (PIPL, DSL, the March 2024 CAC Cross-Border Provisions) limits the subsidiary's ability to share supervisory data with the HKMA and offshore counterparties as the supervisor expects.",
+        "viability_conditions": [
+          "PRC modifies the cross-border data framework to permit supervisor-to-supervisor information-sharing with the HKMA on acceptable terms, OR",
+          "the HKMA modifies its posture toward PRC-connected applicants."
+        ]
+      },
+      {
+        "id": "B",
+        "name": "Partnership Distribution",
+        "status": "operationally_implemented",
+        "description": "The PRC-connected group does not seek direct issuance; it partners with an already-licensed third-party issuer as a distribution partner. The group holds no reserves and has none of the issuer's disclosure/reporting obligations; it provides distribution access through existing commercial relationships and payment infrastructure.",
+        "public_anchor": "The July 2025 Ant International announcement of a Circle USDC integration into Ant International's cross-border payment infrastructure; deployment in any jurisdiction is contingent on Circle's regulatory standing there.",
+        "limitation": "Does not give the group equity-based participation in issuance economics: the reserve yield accrues to the partner issuer, not the group. Adequate where the commercial interest is payment-infrastructure value; unsatisfactory where it is reserve-yield capture."
+      },
+      {
+        "id": "C",
+        "name": "Separated-Entity Architecture",
+        "status": "constraint_derived_analytical_option",
+        "description": "An analytical option suggested by the constraint framework but not confirmed by any public deployed example. Asks whether the four PRC-side constraints admit any configuration in which a licensable front-office entity is operationally connected to a PRC-side counterparty without yielding consolidation, control attribution, or excess cross-border data/capital flows. Specified at the level of the constraints, not any particular configuration.",
+        "four_prc_constraints": [
+          "Accounting consolidation under the Accounting Standards for Business Enterprises (control = multi-factor).",
+          "Related-party transaction disclosure under CSRC rules (material transactions).",
+          "Outbound capital movement approval/registration under the SAFE framework (above thresholds).",
+          "Data flows under PIPL, DSL, and the March 2024 CAC Cross-Border Provisions."
+        ],
+        "viability_conditions": [
+          "HKMA posture toward formally-compliant-but-operationally-connected applicants (unknown);",
+          "PRC posture toward outbound service/technology-cooperation arrangements (unknown);",
+          "commercial viability vs Pattern B given greater operational complexity (uncertain)."
+        ]
+      }
+    ],
+    "selection_logic": "Pattern B is adequate and currently implementable where the objective is payment-infrastructure integration without equity participation. Pattern C is the analytical option where the objective is reserve-yield capture and the operator accepts regulatory uncertainty. Pattern A becomes viable only if the boundary changes. Hybrid/per-jurisdiction selection is possible (e.g., Pattern B for the EU via a MiCA partner, Pattern A for the UK via direct SI 2026/102 authorization)."
+  },
+  "three_layer_routing_architecture": {
+    "source": "Fan, Cross-Border Stablecoin Architecture v3 (Twelve Jurisdictions, June 2026), §4, §6 (Routing Architecture Design)",
+    "summary": "A portable architecture separating yield-bearing tokenized cash management from payment-stablecoin functionality, anchored in the SEC's 24 Feb 2026 §6(c) relief for the WisdomTree Treasury MMF Digital Fund (WTGXX) and the Ant International-Circle example.",
+    "layers": [
+      {
+        "layer": 1,
+        "name": "Compliant payment stablecoin",
+        "description": "A non-yield-bearing payment stablecoin compliant with the local stablecoin regime (GENIUS / MiCA EMT / SI 2026/102 / MAS-SCS / HK Stablecoins Ordinance)."
+      },
+      {
+        "layer": 2,
+        "name": "User-authorized routing",
+        "description": "A routing function providing user-directed conversion between Layers 1 and 3, with audit-trail capability. Its regulatory status is broker-dealer (or broker-dealer-plus-authorized-agent)."
+      },
+      {
+        "layer": 3,
+        "name": "Yield-bearing tokenized cash management",
+        "description": "Shares of a registered investment company (or non-US equivalent: UCITS / AIF) whose portfolio generates yield; a distinct ownership position held by the user."
+      }
+    ],
+    "routing_layer_functions": [
+      "Provide the user interface for the conversion election (affirmative election per conversion; disclose distinct ownership).",
+      "Execute the conversion at the user's elected timing (transmit instruction to counterparties; settle).",
+      "Record each conversion in the audit trail.",
+      "Execute the reverse conversion (redeem Layer 3 shares; acquire Layer 1 balances).",
+      "Distribute the Layer 3 yield to the user as a Layer 3 holder (not in connection with the Layer 1 balance).",
+      "Report tax and regulatory information to the user, tax authorities, and supervisors."
+    ],
+    "operational_test_section_4_4": {
+      "purpose": "The five factors that determine whether a routing arrangement falls on the permitted side of the §404 boundary (the boundary is functional: it depends on the operational facts).",
+      "factors": [
+        {
+          "factor": 1,
+          "name": "Direction of the Conversion",
+          "test": "User-directed, not issuer- or intermediary-directed; affirmative election per conversion, capable of being withheld; no intermediary discretion. Automated sweeps without per-conversion election fail."
+        },
+        {
+          "factor": 2,
+          "name": "Disclosure of the Distinct Ownership Position",
+          "test": "The intermediary must disclose, and the user must understand, that the investment-company shares are a distinct ownership position (a security) from the stablecoin balance (not a security). Failure if the user is unaware conversion occurred."
+        },
+        {
+          "factor": 3,
+          "name": "Timing Independence",
+          "test": "Timing determined by the user, not the intermediary's algorithm or the issuer's instruction; the user can defer indefinitely and withdraw. Conversion triggered by non-overridable automated rules fails."
+        },
+        {
+          "factor": 4,
+          "name": "Yield Attribution",
+          "test": "Yield attributed to the user as a Layer 3 holder and paid by the investment company / its transfer agent; not paid by the stablecoin issuer, an affiliate, or an intermediary acting as the issuer's authorized agent. Accounting/operational separation must be clear."
+        },
+        {
+          "factor": 5,
+          "name": "Audit Trail",
+          "test": "Each conversion records the user's election, time, amount, price, parties, and resulting positions; available to the user, supervisors, and (on dispute) counsel. The audit trail is the evidentiary mechanism for the functional boundary."
+        }
+      ]
+    },
+    "design_principles": [
+      {
+        "principle": 1,
+        "name": "Separation of payment and yield functions at the protocol level",
+        "derivation": "C3 (yield prohibition) x C4 (securities classification)",
+        "statement": "The separation between Layer 1 (non-yielding) and Layer 3 (yield-bearing security) must be substantive, not nominal: distinct legal instruments, authorization, accounting, and disclosure."
+      },
+      {
+        "principle": 2,
+        "name": "User-directed routing between layers",
+        "derivation": "§4.4 Factor 1 (direction) + Factor 3 (timing)",
+        "statement": "The Layer 1 <-> Layer 3 connection must be user-initiated and user-controlled, distinguishing the pattern from issuer-side yield arrangements within the §404 prohibition."
+      },
+      {
+        "principle": 3,
+        "name": "Audit trail integrity",
+        "derivation": "C8 (disclosure/coordination) + §4.4 Factor 5",
+        "statement": "Each routing event generates a verifiable record (election, time, amount, price, parties, positions) — the evidentiary mechanism establishing the user-directed character to supervisors and courts."
+      },
+      {
+        "principle": 4,
+        "name": "Per-jurisdiction authorization of each layer",
+        "derivation": "C1 (issuer eligibility) + C5 (bank/non-bank) operating cross-jurisdictionally",
+        "statement": "Each layer must be authorized in each operating jurisdiction under the applicable regime (Layer 1 stablecoin regime; Layer 3 funds regime; Layer 2 securities/intermediary regime). The pattern is one; the authorizations are multiple."
+      },
+      {
+        "principle": 5,
+        "name": "Cross-jurisdictional portability of the pattern",
+        "derivation": "§4.6 cross-jurisdictional compatibility analysis",
+        "statement": "The design principles apply analogously in each receiving jurisdiction; only the specific authorizations differ. The architectural pattern is not intrinsically US-specific."
+      },
+      {
+        "principle": 6,
+        "name": "Configurability against open regulatory developments",
+        "derivation": "§7 open questions",
+        "statement": "Architectural elements should be configurable so the operator can respond to the §7.1-§7.4 developments without fundamental redesign."
+      }
+    ]
+  }
+}

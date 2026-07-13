@@ -1,0 +1,28 @@
+id: ae-pt-bank_nonbank_routing-001
+jurisdiction: AE
+authority: Central Bank of the UAE (CBUAE)
+instrument_type: payment_stablecoin
+dimension: bank_nonbank_routing
+constraint_ref: C5
+requirement_summary: The CBUAE licenses payment-token issuers; the regime admits bank and non-bank issuers under
+  the payment-token charter rather than a bank-only model.
+requirement_structured:
+  licence: CBUAE
+  bank_only: false
+status: in_force
+effective_date: null
+source:
+  primary: CBUAE Payment Token Services Regulation (2024)
+  pinpoint: Licensing of bank and non-bank payment-token issuers
+interpretation_note: Authored in v0.9.2 to fill the AE.C5 constraint cell for the substrate sweep.
+confidence: medium
+claim_class: tier1_legal
+evidence_tier: firm_summary
+last_reviewed: '2026-06-27'
+version_added: 0.9.2
+tags:
+- v0.9.2_cell_sweep
+- ae
+- bank_nonbank_routing
+- binding_in_force_enacted
+binding_status: in_force_enacted

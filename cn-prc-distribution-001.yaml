@@ -1,0 +1,52 @@
+id: cn-prc-distribution-001
+jurisdiction: CN
+authority: PBOC; CSRC; SAFE; CAC
+instrument_type: other
+instrument_label_local: 推广与发售 (promotion and offering)
+dimension: distribution
+constraint_ref: C8
+requirement_summary: 'All cryptocurrency promotion, offering, and trading is prohibited within PRC territory, so
+  there is no domestic distribution channel. For PRC-connected groups operating via Hong Kong, the indirect pathway
+  carries three independent layers of constraint: (i) A-share listing rules (a Hong Kong subsidiary''s stablecoin
+  activities are subject to related-party-transaction disclosure, results consolidate into the listed parent under
+  the Accounting Standards for Business Enterprises, and the CSRC may require special disclosure or pre-notification);
+  (ii) SAFE outbound-capital control (capital injections into the HK subsidiary, profit repatriation, and intra-group
+  financing are subject to SAFE registration and quota limits); and (iii) PBOC/CAC supervisory posture: the 2026
+  Notice (银发〔2026〕42号, in force 6 Feb 2026) now puts in writing the prohibition on private RMB-pegged stablecoin
+  issuance, replacing the unpublished 2025 signalling and adding an explicit extraterritorial issuance ban.'
+requirement_structured:
+  domestic_distribution: prohibited (all crypto promotion/offering/trading)
+  indirect_hk_pathway_layers:
+    a_share_disclosure: related-party disclosure; consolidation; CSRC special disclosure/pre-notification
+    safe_capital: registration + quota on injections, repatriation, intra-group financing
+    pboc_cac_posture: Oct 2025 verbal guidance; behavioral effect without published rule
+status: in_force
+effective_date: null
+source:
+  primary: PRC prohibition on cryptocurrency promotion/offering/trading within territory; CSRC A-share disclosure
+    rules; SAFE outbound-capital controls; PBOC/CAC October 2025 guidance
+  pinpoint: Domestic distribution prohibited; three indirect-pathway constraint layers (A-share / SAFE / PBOC-CAC)
+  url: https://www.csrc.gov.cn/csrc/c100028/c7614318/content.shtml
+secondary:
+- citation: Fan, Multi-Jurisdiction Stablecoin Compliance Matrix v0.9.6 (June 2026), §Mainland China (Distribution
+    and Offering Restrictions; Indirect pathway constraints) [re-pinned from v0.9.3]
+interpretation_note: 'Provenance: transcribed from the author''s Compliance Matrix (re-pinned to v0.9.6; originally
+  v0.9.3). Mapped to C8 (disclosure/reporting/supervisory coordination) because the operative constraints on the
+  indirect pathway are disclosure-, capital-control-, and supervisory-posture constraints rather than a product
+  distribution rule.
+
+
+  [v0.9.5 verification] NATIVE-LANGUAGE VERIFICATION (Chinese): the unpublished 2025 PBOC/CAC signalling is now
+  written law (银发〔2026〕42号).'
+confidence: high
+claim_class: tier1_legal
+last_reviewed: '2026-06-17'
+version_added: 0.2.0
+tags:
+- apac
+- focus
+- from_matrix_v0.9.6
+- prohibition
+- v0.9.5_verification
+- binding_prohibition
+binding_status: prohibition

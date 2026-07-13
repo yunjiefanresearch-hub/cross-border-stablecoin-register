@@ -1,0 +1,65 @@
+{
+  "register": "Cross-Border Stablecoin Register",
+  "version": "0.10.1",
+  "generated": "2026-07-10",
+  "endpoint": "corridor_directed",
+  "guardrail": "static projection of the public register; no facts added here",
+  "data": {
+    "corridor_id": "cn-uk-directed",
+    "name": "CN -> UK (CNY->GBP directed edge)",
+    "schema": "corridor/v3-directed-edge",
+    "origin": "CN",
+    "destination": "UK",
+    "direction": "directed",
+    "currencies": "CNY -> GBP",
+    "feasibility_class": "Category III (no direct issuance; partnership / coordination route)",
+    "class_code": "III",
+    "compatibility_category": "III",
+    "compatibility_pair": "CN-UK",
+    "archetypes": [
+      "RC",
+      "DC"
+    ],
+    "interaction_sets": [
+      "C"
+    ],
+    "infrastructure_overlap": {
+      "bloc": "cross-bloc",
+      "note": "CN on mBridge; UK on Project Agora. Rival bloc rails, not mutually interoperable: no shared production or pilot settlement rail (commercial rails subject to both regimes)."
+    },
+    "inbound_mechanism": {
+      "test": "FSMA 2026 regime — in transition (systemic regime pending)",
+      "administrator": "FCA / Bank of England",
+      "detail": null
+    },
+    "origin_drag": true,
+    "materialized_from": "computed_skeleton",
+    "class_basis": {
+      "rule": "origin_drag",
+      "governing_jurisdiction": "CN",
+      "signal": "token_regime",
+      "signal_value": "prohibited",
+      "claim_class": "tier1_legal",
+      "binding_status": "in_force_enacted",
+      "evidence_tier": "resolution_text",
+      "instrument": "Eight-ministry Notice 银发〔2026〕42号, in force on publication 2026-02-06 (repealing 银发〔2021〕237号): no unapproved offshore issuance of renminbi-pegged stablecoins; extraterritorial bar on PRC entities and their controlled offshore affiliates issuing virtual currencies abroad; restriction on onshore real-world-asset tokenization. Paired with CSRC 公告〔2026〕1号.",
+      "record_ref": "cn-prc-issuer_pathway-001",
+      "record_ref_meta": {
+        "dimension": "issuer_pathway",
+        "match": "same_instrument",
+        "record_binding_status": "prohibition",
+        "record_evidence_tier": "firm_summary",
+        "record_claim_class": "tier1_legal",
+        "note": "Vocabulary divergence only: the register's binding_status enum carries `prohibition` as a first-class value; the curated signal writes `in_force_enacted` of the prohibiting instrument (银发〔2026〕42号, in force 2026-02-06). Same instrument, same fact, two encodings.",
+        "divergence": "Vocabulary divergence only: the register's binding_status enum carries `prohibition` as a first-class value; the curated signal writes `in_force_enacted` of the prohibiting instrument (银发〔2026〕42号, in force 2026-02-06). Same instrument, same fact, two encodings."
+      }
+    },
+    "origin_override": {
+      "flag": "origin-egress override",
+      "status": "active",
+      "basis": "Mainland capital-flow controls (SAFE) and the cross-border data framework (PIPL, DSL, CAC).",
+      "administrator": "SAFE / CAC / PBOC",
+      "detail": null
+    }
+  }
+}

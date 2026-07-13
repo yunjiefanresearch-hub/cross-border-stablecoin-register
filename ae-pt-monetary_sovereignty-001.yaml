@@ -1,0 +1,53 @@
+id: ae-pt-monetary_sovereignty-001
+jurisdiction: AE
+authority: CBUAE
+instrument_type: payment_stablecoin
+instrument_label_local: Payment Token (Dirham Payment Token / Foreign Payment Token)
+dimension: monetary_sovereignty
+constraint_ref: C7
+requirement_summary: 'The CBUAE PTSR imposes a channel restriction grounded in monetary sovereignty: no merchant
+  may accept a virtual asset as payment for goods or services unless it is a Dirham Payment Token from a CBUAE-licensed
+  issuer. Foreign payment tokens may be accepted only to buy virtual assets or derivatives, not for general onshore
+  payments. This is a usage-channel restriction, not an aggregate cap — there is no volume ceiling, but foreign
+  tokens are excluded from the general-payments channel, which is reserved for CBUAE-licensed Dirham Payment Tokens.'
+requirement_structured:
+  mechanism: usage channel restriction (not an aggregate cap)
+  rule: general onshore payments reserved to CBUAE-licensed Dirham Payment Tokens
+  foreign_tokens: usable only to buy virtual assets or derivatives, not general payments
+  contrast: EU Art. 23 quantitative cap vs UAE channel restriction
+status: in_force
+source:
+  primary: CBUAE Payment Token Services Regulation (Circular 2/2024)
+  pinpoint: Channel restriction — merchants may accept only CBUAE-licensed Dirham Payment Tokens for goods/services;
+    foreign tokens VA/derivative-only
+  url: https://rulebook.centralbank.ae/en/rulebook/payment-token-services-regulation
+secondary:
+- citation: Fan, Multi-Jurisdiction Stablecoin Compliance Matrix v0.9.6 (June 2026), §United Arab Emirates (Distribution
+    and Offering Restrictions)
+- citation: 'Fan, Cross-Border Stablecoin Architecture v3 (Twelve Jurisdictions, June 2026), §2.7 / §5 (Constraint
+    7: Monetary Sovereignty)'
+- citation: CBUAE Payment Token Services Regulation (Circular 2/2024) — published in English (authoritative) and
+    Arabic.
+interpretation_note: 'Provenance: transcribed from the author''s Compliance Matrix v0.9.6; VERIFIED against the
+  official primary text in the v0.5.1 verification pass (source.url is the official instrument). The UAE channel
+  restriction is a distinct C7 mechanism: it caps the use case (general payments) rather than the volume, reserving
+  the merchant-acceptance channel for AED tokens (Matrix Tier 2 correction: channel restriction, not aggregate cap).'
+interpretive_flag:
+  tension: Whether free-zone USD tokens can be used in onshore commerce through any compliant structure, given the
+    channel restriction reserving general payments to CBUAE-licensed Dirham Payment Tokens.
+  resolution_channel: CBUAE enforcement practice; any CBUAE/free-zone harmonization.
+confidence: high
+claim_class: tier1_legal
+evidence_tier: resolution_text
+last_reviewed: '2026-06-27'
+version_added: 0.4.0
+tags:
+- mideast
+- focus
+- from_matrix_v0.9.6
+- v0.4.0_expansion
+- v0.5.1_verification
+- resolution_text_verified
+- v0.7.0_claim_class
+- binding_in_force_enacted
+binding_status: in_force_enacted

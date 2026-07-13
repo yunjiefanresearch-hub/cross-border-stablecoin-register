@@ -1,0 +1,38 @@
+id: ae-pt-cross_border_data-001
+jurisdiction: AE
+authority: CBUAE / DIFC / ADGM
+instrument_type: payment_stablecoin
+instrument_label_local: Payment Token (Dirham Payment Token / Foreign Payment Token)
+dimension: cross_border_data
+constraint_ref: C6
+requirement_summary: The Federal Personal Data Protection Law (PDPL) applies onshore. The DIFC and ADGM have their
+  own data-protection regimes (DIFC Data Protection Law; ADGM Data Protection Regulations). Cross-border data-transfer
+  rules vary by zone.
+requirement_structured:
+  onshore: Federal Personal Data Protection Law (PDPL)
+  difc: DIFC Data Protection Law
+  adgm: ADGM Data Protection Regulations
+  transfer_rules: vary by zone
+status: in_force
+source:
+  primary: Federal Personal Data Protection Law (PDPL); DIFC Data Protection Law; ADGM Data Protection Regulations
+  pinpoint: Cross-border data — PDPL onshore; DIFC/ADGM own regimes; transfer rules vary by zone
+  url: ''
+secondary:
+- citation: Fan, Multi-Jurisdiction Stablecoin Compliance Matrix v0.9.6 (June 2026), §United Arab Emirates (Cross-Border
+    Data Treatment)
+interpretation_note: 'Provenance: transcribed from the author''s Compliance Matrix v0.9.6; pending primary-source
+  verification.'
+confidence: medium
+claim_class: tier1_legal
+evidence_tier: firm_summary
+last_reviewed: '2026-06-27'
+version_added: 0.4.0
+tags:
+- mideast
+- focus
+- from_matrix_v0.9.6
+- v0.4.0_expansion
+- v0.7.0_claim_class
+- binding_in_force_enacted
+binding_status: in_force_enacted

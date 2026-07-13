@@ -1,0 +1,384 @@
+{
+  "register": "Cross-Border Stablecoin Register",
+  "version": "0.10.1",
+  "generated": "2026-07-10",
+  "endpoint": "jurisdiction",
+  "guardrail": "static projection of the public register; no facts added here",
+  "data": {
+    "jurisdiction": "CH",
+    "records": [
+      {
+        "id": "ch-frs-aml_kyc-001",
+        "jurisdiction": "CH",
+        "dimension": "aml_kyc",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "resolution_text",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "FINMA Guidance 06/2024; Anti-Money Laundering Act (AMLA)",
+        "pinpoint": "AML — identify every holder incl. intermediate holders; anonymous transfers prohibited",
+        "url": "https://www.finma.ch/en/news/2024/07/20240726-m-am-06-24-stablecoins/"
+      },
+      {
+        "id": "ch-frs-bank_nonbank_routing-001",
+        "jurisdiction": "CH",
+        "dimension": "bank_nonbank_routing",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Banking Act; DLT Act (2021); FINMA stablecoin guidance",
+        "pinpoint": "Banking-licence vs. DLT-framework routing for issuance",
+        "url": null
+      },
+      {
+        "id": "ch-frs-capital_requirements-001",
+        "jurisdiction": "CH",
+        "dimension": "capital_requirements",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "mixed",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Banking Act / FinTech-licence framework; FINMA Guidance 06/2024",
+        "pinpoint": "Capital — per licence for licensed institutions; no separate schedule under the guarantee pathway",
+        "url": "https://www.fedlex.admin.ch/eli/cc/1934/121/de"
+      },
+      {
+        "id": "ch-frs-cross_border_data-001",
+        "jurisdiction": "CH",
+        "dimension": "cross_border_data",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Federal Act on Data Protection (revised FADP, in force Sep 2023)",
+        "pinpoint": "Cross-border transfer — adequacy or safeguards; EU adequacy maintained",
+        "url": ""
+      },
+      {
+        "id": "ch-frs-disclosure_reporting-001",
+        "jurisdiction": "CH",
+        "dimension": "disclosure_reporting",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "FINMA stablecoin guidance; AMLA",
+        "pinpoint": "AML, disclosure and supervisory reporting expectations",
+        "url": null
+      },
+      {
+        "id": "ch-frs-distribution-001",
+        "jurisdiction": "CH",
+        "dimension": "distribution",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "mixed",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "FINMA Guidance 06/2024; Banking Act framework",
+        "pinpoint": "Distribution — no caps/channel restriction; guarantee + holder-ID are the practical limits",
+        "url": "https://www.finma.ch/en/news/2024/07/20240726-m-am-06-24-stablecoins/"
+      },
+      {
+        "id": "ch-frs-implementation_status-001",
+        "jurisdiction": "CH",
+        "dimension": "implementation_status",
+        "claim_class": "tier2_operational",
+        "evidence_tier": "mixed",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "FINMA Guidance 06/2024; FinIA-amendment consultation (closed 6 Feb 2026)",
+        "pinpoint": "Timeline — guidance Jul 2024; FinIA consultation closed 6 Feb 2026; 6-bank CHF sandbox 8 Apr 2026",
+        "url": "https://www.finma.ch/en/news/2024/07/20240726-m-am-06-24-stablecoins/"
+      },
+      {
+        "id": "ch-frs-issuer_pathway-001",
+        "jurisdiction": "CH",
+        "dimension": "issuer_pathway",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "resolution_text",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Banking Act Art. 1b (FinTech licence); Banking Ordinance Art. 5(3)(f) (deposit exclusion); FINMA Guidance 06/2024",
+        "pinpoint": "Issuer pathways — licensed-institution vs bank-guarantee exemption (BankO Art. 5(3)(f))",
+        "url": "https://www.fedlex.admin.ch/eli/cc/2014/273/de"
+      },
+      {
+        "id": "ch-frs-monetary_sovereignty-001",
+        "jurisdiction": "CH",
+        "dimension": "monetary_sovereignty",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "resolution_text",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "FINMA Guidance 06/2024 (no usage cap); Banking Act framework",
+        "pinpoint": "Monetary sovereignty — no usage cap; foreign-currency tokens unrestricted",
+        "url": "https://www.fedlex.admin.ch/eli/cc/2014/273/de"
+      },
+      {
+        "id": "ch-frs-permitted_activity_yield-001",
+        "jurisdiction": "CH",
+        "dimension": "permitted_activity_yield",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "resolution_text",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "FINMA Guidance 06/2024; Banking Ordinance Art. 5(3)(f)",
+        "pinpoint": "Yield permitted; bank guarantee must cover interest (structural constraint, not prohibition)",
+        "url": "https://www.finma.ch/en/news/2024/07/20240726-m-am-06-24-stablecoins/"
+      },
+      {
+        "id": "ch-frs-redemption-001",
+        "jurisdiction": "CH",
+        "dimension": "redemption",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "mixed",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Banking Ordinance Art. 5(3)(f); FINMA Guidance 06/2024",
+        "pinpoint": "Redemption — contractual claim vs issuer / guaranteeing bank; no statutory par mandate; not deposit-insured",
+        "url": "https://www.finma.ch/en/news/2024/07/20240726-m-am-06-24-stablecoins/"
+      },
+      {
+        "id": "ch-frs-regulatory_authority-001",
+        "jurisdiction": "CH",
+        "dimension": "regulatory_authority",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "resolution_text",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Banking Act and Banking Ordinance; FINMA Guidance 06/2024 (Stablecoins)",
+        "pinpoint": "FINMA as primary stablecoin supervisor; SNB for systemic FMIs; no bespoke statute",
+        "url": "https://www.fedlex.admin.ch/eli/cc/1934/121/de"
+      },
+      {
+        "id": "ch-frs-reserve_backing-001",
+        "jurisdiction": "CH",
+        "dimension": "reserve_backing",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "resolution_text",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Banking Ordinance Art. 5(3)(f); FINMA Guidance 06/2024; Collective Investment Schemes Act (CISA)",
+        "pinpoint": "Reserve/backing — no statutory schedule; guarantee covers principal + interest; CISA characterization risk",
+        "url": "https://www.fedlex.admin.ch/eli/cc/2014/273/de"
+      },
+      {
+        "id": "ch-frs-securities_classification-001",
+        "jurisdiction": "CH",
+        "dimension": "securities_classification",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "mixed",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Collective Investment Schemes Act (CISA); FINMA Guidance 06/2024",
+        "pinpoint": "CISA characterization where assets are held for the account of holders",
+        "url": "https://www.finma.ch/en/news/2024/07/20240726-m-am-06-24-stablecoins/"
+      }
+    ],
+    "citable_cells": [
+      {
+        "id": "ch-frs-aml_kyc-001",
+        "jurisdiction": "CH",
+        "dimension": "aml_kyc",
+        "instrument": "FINMA Guidance 06/2024; Anti-Money Laundering Act (AMLA)",
+        "pinpoint": "AML — identify every holder incl. intermediate holders; anonymous transfers prohibited",
+        "url": "https://www.finma.ch/en/news/2024/07/20240726-m-am-06-24-stablecoins/",
+        "last_reviewed": "2026-06-27"
+      },
+      {
+        "id": "ch-frs-issuer_pathway-001",
+        "jurisdiction": "CH",
+        "dimension": "issuer_pathway",
+        "instrument": "Banking Act Art. 1b (FinTech licence); Banking Ordinance Art. 5(3)(f) (deposit exclusion); FINMA Guidance 06/2024",
+        "pinpoint": "Issuer pathways — licensed-institution vs bank-guarantee exemption (BankO Art. 5(3)(f))",
+        "url": "https://www.fedlex.admin.ch/eli/cc/2014/273/de",
+        "last_reviewed": "2026-06-27"
+      },
+      {
+        "id": "ch-frs-monetary_sovereignty-001",
+        "jurisdiction": "CH",
+        "dimension": "monetary_sovereignty",
+        "instrument": "FINMA Guidance 06/2024 (no usage cap); Banking Act framework",
+        "pinpoint": "Monetary sovereignty — no usage cap; foreign-currency tokens unrestricted",
+        "url": "https://www.fedlex.admin.ch/eli/cc/2014/273/de",
+        "last_reviewed": "2026-06-27"
+      },
+      {
+        "id": "ch-frs-permitted_activity_yield-001",
+        "jurisdiction": "CH",
+        "dimension": "permitted_activity_yield",
+        "instrument": "FINMA Guidance 06/2024; Banking Ordinance Art. 5(3)(f)",
+        "pinpoint": "Yield permitted; bank guarantee must cover interest (structural constraint, not prohibition)",
+        "url": "https://www.finma.ch/en/news/2024/07/20240726-m-am-06-24-stablecoins/",
+        "last_reviewed": "2026-06-27"
+      },
+      {
+        "id": "ch-frs-regulatory_authority-001",
+        "jurisdiction": "CH",
+        "dimension": "regulatory_authority",
+        "instrument": "Banking Act and Banking Ordinance; FINMA Guidance 06/2024 (Stablecoins)",
+        "pinpoint": "FINMA as primary stablecoin supervisor; SNB for systemic FMIs; no bespoke statute",
+        "url": "https://www.fedlex.admin.ch/eli/cc/1934/121/de",
+        "last_reviewed": "2026-06-27"
+      },
+      {
+        "id": "ch-frs-reserve_backing-001",
+        "jurisdiction": "CH",
+        "dimension": "reserve_backing",
+        "instrument": "Banking Ordinance Art. 5(3)(f); FINMA Guidance 06/2024; Collective Investment Schemes Act (CISA)",
+        "pinpoint": "Reserve/backing — no statutory schedule; guarantee covers principal + interest; CISA characterization risk",
+        "url": "https://www.fedlex.admin.ch/eli/cc/2014/273/de",
+        "last_reviewed": "2026-06-27"
+      }
+    ],
+    "outbound_classes_at_base": {
+      "US": {
+        "class": "II",
+        "rule": "destination_gate:comparability",
+        "origin_override": false
+      },
+      "EU": {
+        "class": "I",
+        "rule": "destination_gate:open_capped",
+        "origin_override": false
+      },
+      "UK": {
+        "class": "T",
+        "rule": "destination_gate:transition",
+        "origin_override": false
+      },
+      "SG": {
+        "class": "I",
+        "rule": "destination_gate:open",
+        "origin_override": false
+      },
+      "HK": {
+        "class": "I",
+        "rule": "destination_gate:open",
+        "origin_override": false
+      },
+      "CN": {
+        "class": "blocked",
+        "rule": "destination_gate:prohibition",
+        "origin_override": false
+      },
+      "BR": {
+        "class": "II",
+        "rule": "destination_gate:fx_counterparty",
+        "origin_override": false
+      },
+      "CH": null,
+      "AE": {
+        "class": "II",
+        "rule": "destination_gate:usage_channel",
+        "origin_override": false
+      },
+      "TW": {
+        "class": "T",
+        "rule": "destination_gate:transition",
+        "origin_override": false
+      },
+      "JP": {
+        "class": "II",
+        "rule": "destination_gate:channel",
+        "origin_override": false
+      },
+      "KR": {
+        "class": "pre_regime",
+        "rule": "destination_gate:pre_regime",
+        "origin_override": false
+      }
+    },
+    "forward": {
+      "jurisdiction": "CH",
+      "own_pending_events": [],
+      "summary": {
+        "own_driven_inbound": 0,
+        "own_driven_outbound": 0,
+        "counterpart_driven_inbound": 2,
+        "counterpart_driven_outbound": 4,
+        "accessibility_only_own_events": 0
+      },
+      "inbound_reclassified": [
+        {
+          "counterpart": "KR",
+          "from": "III",
+          "to": "I",
+          "via_trigger": "kr-daba-enacted",
+          "trigger_jurisdiction": "KR",
+          "timing": "contingent (if enacted)"
+        },
+        {
+          "counterpart": "TW",
+          "from": "III",
+          "to": "I",
+          "via_trigger": "tw-vas-act-enacted",
+          "trigger_jurisdiction": "TW",
+          "timing": "contingent (if enacted)"
+        }
+      ],
+      "outbound_reclassified": [
+        {
+          "counterpart": "KR",
+          "from": "pre_regime",
+          "to": "II",
+          "via_trigger": "kr-daba-enacted",
+          "trigger_jurisdiction": "KR",
+          "timing": "contingent (if enacted)"
+        },
+        {
+          "counterpart": "TW",
+          "from": "T",
+          "to": "II",
+          "via_trigger": "tw-vas-act-enacted",
+          "trigger_jurisdiction": "TW",
+          "timing": "contingent (if enacted)"
+        },
+        {
+          "counterpart": "UK",
+          "from": "T",
+          "to": "I",
+          "via_trigger": "uk-systemic-regime-operative",
+          "trigger_jurisdiction": "UK",
+          "timing": "scheduled 2027-10-25"
+        },
+        {
+          "counterpart": "US",
+          "from": "T",
+          "to": "II",
+          "via_trigger": "us-genius-act-effective",
+          "trigger_jurisdiction": "US",
+          "timing": "scheduled ≤2027-01-18 (outer cap)"
+        }
+      ],
+      "counterpart_exposure": [
+        {
+          "counterpart": "KR",
+          "edges_affected": 2,
+          "inbound": 1,
+          "outbound": 1
+        },
+        {
+          "counterpart": "TW",
+          "edges_affected": 2,
+          "inbound": 1,
+          "outbound": 1
+        },
+        {
+          "counterpart": "UK",
+          "edges_affected": 1,
+          "inbound": 0,
+          "outbound": 1
+        },
+        {
+          "counterpart": "US",
+          "edges_affected": 1,
+          "inbound": 0,
+          "outbound": 1
+        }
+      ],
+      "supervisor_reading": "CH has no class-moving or accessibility-changing pending event of its own. Separately, 2 inbound and 4 outbound corridor(s) reclassify when counterparts enact. Most exposed counterpart(s): KR (2), TW (2), UK (1), US (1)."
+    }
+  }
+}

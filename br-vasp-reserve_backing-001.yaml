@@ -1,0 +1,61 @@
+id: br-vasp-reserve_backing-001
+jurisdiction: BR
+authority: BCB
+instrument_type: fiat_referenced_stablecoin
+instrument_label_local: ativo virtual referenciado em moeda fiduciária (stablecoin)
+dimension: reserve_backing
+constraint_ref: C2
+requirement_summary: For a fiat-referenced virtual asset (stablecoin), Res BCB 520/2025 defines the reserve assets
+  as the fiduciary currency plus public debt issued by the same governments that issue those currencies (Art. 2,
+  III), requires proof of reserves, and prohibits algorithmic reserve control with public disclosure of the criteria
+  (Arts. 64+). In force 2 Feb 2026.
+requirement_structured:
+  algorithmic_stablecoins: prohibited
+  unbacked_fiat_pegged_tokens: prohibited
+  eligible_reserve_assets:
+  - fiat currency
+  - public-debt securities
+  listing_policy: board-approved; white-paper / code / backing review
+status: in_force
+effective_date: '2026-02-02'
+source:
+  primary: Res BCB 520/2025 — stablecoin definition + asset-curation / listing-policy rules
+  url: https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=520
+  pinpoint: Res BCB 520/2025 Art. 2, III (reserve assets of a fiat-referenced token = the fiduciary currency and
+    public debt issued by the same governments); Arts. 64+ (asset curation; algorithmic-stablecoin prohibition;
+    proof of reserves)
+secondary:
+- citation: Global Legal Insights, Blockchain & Cryptocurrency Laws 2026 — Brazil (9 Mar 2026)
+  url: https://www.globallegalinsights.com/practice-areas/blockchain-cryptocurrency-laws-and-regulations/brazil/
+interpretation_note: 'Provenance: corridor fieldwork, corroborated to rule level (algorithmic-stablecoin prohibition
+  + fiat/public-debt-only backing confirmed). This is the Brazilian gate that excludes algorithmic / opaque-reserve
+  coins regardless of rail and underpins the corridor''s ''auditable-reserve-only'' constraint.
+
+
+  [v0.9.5 verification] NATIVE-LANGUAGE VERIFICATION (Portuguese): confirmed against the official BCB text. The
+  Lei 14.478/2022 framework as implemented by Res BCB 519/520/521 (in force 2 Feb 2026) is enacted law, so this
+  cell is promoted to resolution_text.'
+confidence: high
+claim_class: tier1_legal
+evidence_tier: resolution_text
+last_reviewed: '2026-06-27'
+version_added: 0.3.1
+tags:
+- latam
+- focus
+- firm_analysis_corroborated_2026-06
+- v0.9.5_verification
+- binding_in_force_enacted
+- resolution_text_verified
+binding_status: in_force_enacted
+verification:
+  verified_by: external review (web retrieval against official sources)
+  verified_on: '2026-06-27'
+  method: official_text
+  against:
+    instrument: Lei 14.478/2022 + Res BCB 519/520/521 (in force 2 Feb 2026) + Res Conjunta CMN/BCB 14/2025 + Res
+      BCB 517/2025 + Decreto 11.563/2023
+    url: https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=520
+    pinpoint: Res BCB 520/2025 Art. 2, III (reserve assets of a fiat-referenced token = the fiduciary currency and
+      public debt issued by the same governments); Arts. 64+ (asset curation; algorithmic-stablecoin prohibition;
+      proof of reserves)

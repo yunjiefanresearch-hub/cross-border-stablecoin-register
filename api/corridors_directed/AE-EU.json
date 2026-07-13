@@ -1,0 +1,58 @@
+{
+  "register": "Cross-Border Stablecoin Register",
+  "version": "0.10.1",
+  "generated": "2026-07-10",
+  "endpoint": "corridor_directed",
+  "guardrail": "static projection of the public register; no facts added here",
+  "data": {
+    "corridor_id": "ae-eu-directed",
+    "name": "AE -> EU (AED->EUR directed edge)",
+    "schema": "corridor/v3-directed-edge",
+    "origin": "AE",
+    "destination": "EU",
+    "direction": "directed",
+    "currencies": "AED -> EUR",
+    "feasibility_class": "Category I (dual authorization available)",
+    "class_code": "I",
+    "compatibility_category": "I/II",
+    "compatibility_pair": "AE-EU",
+    "archetypes": [
+      "RC",
+      "SC",
+      "TC",
+      "DC"
+    ],
+    "interaction_sets": [
+      "D"
+    ],
+    "infrastructure_overlap": {
+      "bloc": "cross-bloc",
+      "note": "AE on mBridge; EU on Project Agora. Rival bloc rails, not mutually interoperable: no shared production or pilot settlement rail (commercial rails subject to both regimes)."
+    },
+    "inbound_mechanism": {
+      "test": "MiCA authorization; significant-EMT scale caps (Art. 23)",
+      "administrator": "EBA / ESMA / national competent authorities",
+      "detail": null
+    },
+    "origin_drag": false,
+    "materialized_from": "computed_skeleton",
+    "class_basis": {
+      "rule": "destination_gate",
+      "governing_jurisdiction": "EU",
+      "signal": "inbound_gate",
+      "signal_value": "authorization",
+      "claim_class": "tier1_legal",
+      "binding_status": "in_force_enacted",
+      "evidence_tier": "mixed",
+      "instrument": "MiCA authorization wall (Titles III/IV) with the Art. 58(3) means-of-exchange ceiling extending Arts. 22/23/24(3) mutatis mutandis to EMTs denominated in a non-Member-State currency. Art. 23(1) is CONJUNCTIVE: 1,000,000 transactions/day AND EUR 200,000,000/day (quarterly average).",
+      "record_ref": "eu-emt-monetary_sovereignty-001",
+      "record_ref_meta": {
+        "dimension": "monetary_sovereignty",
+        "match": "same_instrument",
+        "record_binding_status": "in_force_enacted",
+        "record_evidence_tier": "resolution_text",
+        "record_claim_class": "tier1_legal"
+      }
+    }
+  }
+}

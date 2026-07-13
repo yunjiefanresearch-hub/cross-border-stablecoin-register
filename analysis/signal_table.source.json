@@ -1,0 +1,614 @@
+{
+  "schema": "cbsr-analysis/signal_table",
+  "version": "0.10.0",
+  "generated": "2026-07-08",
+  "register_version": "0.9.9",
+  "as_of": "2026-06-30",
+  "what_this_is": "HAND-CURATED SOURCE of record for the per-jurisdiction signal VALUES. Vendored verbatim from the CBSR corridor audit v0.10.0 (data/signal_table.json), whose values were written from the primary-source legal facts and which CONTRADICT the pre-v0.10.0 corridor artifact on 12 of the 132 edges. scripts/gen_signal_table.py joins these values to the register's 152 node records and emits analysis/signal_table.json (the built artifact). Edit signal VALUES here; never edit the built file.",
+  "independence_note": "This table was NOT reverse-engineered from the shipped class_codes -- the failure mode docs/PROPOSAL_signal_table.md warned about. It was written from the primary-source legal facts and it CONTRADICTS the v0.9.99 artifact on 12 of the 132 edges (8 inbound-US: II -> T, per GENIUS s.20; TW->CN and KR->CN: III -> blocked; CN->KR and TW->KR: III -> pre_regime, per the Atlas's destination-first precedence). Those 12 edges were then corrected in the artifact, not the table. A signal table that agrees with the artifact by construction proves nothing; one that overturns it proves the recompute is real.",
+  "record_ref_status": "null on every signal. A record_ref points into the 152 upstream node records, which are not shipped (audit finding C1). Rather than fabricate locators, each signal carries the `instrument` it rests on, an `evidence_tier`, and where applicable the verification-backlog id that confirmed it. Populating record_ref is the C1 follow-up; see docs/verification_backlog.json VB-09.",
+  "axes": {
+    "claim_class": [
+      "tier1_legal",
+      "tier2_operational"
+    ],
+    "evidence_tier": [
+      "resolution_text",
+      "mixed",
+      "firm_summary",
+      "unset"
+    ],
+    "binding_status": [
+      "in_force_enacted",
+      "made_not_commenced",
+      "finalized_policy_pending",
+      "pending_proposal",
+      "no_regime",
+      null
+    ]
+  },
+  "gates_over_this_file": {
+    "SIG1": "signal-provenance (Citable by Construction s.4.2): every signal the class function READS must be claim_class == tier1_legal. `token_in_issue` is tier2_operational and is never read -- proved by a negative test that flips it and asserts no class moves.",
+    "SIG2": "binding-status cap (Citable by Construction s.3.1/s.4.2): a signal at evidence_tier == resolution_text must have binding_status == in_force_enacted. This is why the US and UK inbound gates are capped at `mixed` even though their statutory text has been read: an instrument must be IN FORCE, not merely located, to carry the top provenance tier. The cap is what produces the US -> `T` reclassification (VB-06/E1).",
+    "SIG3": "every tier1_legal signal carries a non-empty `instrument` string.",
+    "PR1": "tools/recompute_classes.py: class_of(origin, destination) over this table reproduces all 132 class_codes and all as_of_timeline resolves_to values in the artifact, exactly."
+  },
+  "class_rule": {
+    "name": "destination-first precedence (Corridor Atlas v0.2.5, s.3.4 and s.4.1)",
+    "atlas_quote": "Three classes are determined entirely by the destination ... the destination sets the class on every edge except the twenty-seven where an origin-side issuance gap overrides it.",
+    "precedence": [
+      "1. inbound_gate.value == 'prohibited'  -> blocked      (destination prohibition dominates: Atlas 'every edge terminating in Mainland China is Blocked')",
+      "2. inbound_gate.value == 'none'        -> pre_regime   (destination has no authorizable pathway to receive into)",
+      "3. origin token_regime.value != 'authorizable' -> III  (origin drag: no exportable, comprehensively authorizable token)",
+      "4. inbound_gate.binding_status == 'made_not_commenced' -> T (regime adopted, not yet operative)",
+      "5. otherwise the operative gate type: authorization -> I; channel|comparability -> II"
+    ],
+    "why_origin_drag_ranks_third": "A prohibition and a pre-regime absence are terminal facts about the destination: no origin-side token, present or future, can complete the corridor. Category III means 'the composition is unresolved; partnership or coordination routes remain', which is FALSE where the destination bans the instrument outright. Ranking origin drag above them (as the artifact did through v0.9.99) produced TW->CN and KR->CN reading `III` -- 'partnership route' -- while their own prose read 'Issuance and circulation prohibited'. That is the eighth review's NF-1, in the optimistic direction. Fixed in v0.10.0.",
+    "origin_drag_reads_a_legal_signal": "Origin drag reads `token_regime` (tier1_legal: is there an authorizable issuance regime IN FORCE at the origin?), never `token_in_issue` (tier2_operational: does a circulating token exist?). This is NF-3. The distinction is load-bearing for the US: no federal payment-stablecoin authorization is in force (GENIUS s.20), but state trust / money-transmitter regimes authorize USD payment-stablecoin issuance today, so token_regime == authorizable on a LEGAL ground, not because USDC happens to exist. The same reading keeps the UK a token-holding origin (EMRs 2011 e-money) while its NEW comprehensive regime is made-not-commenced."
+  },
+  "signals": {
+    "US": {
+      "jurisdiction_name": "United States",
+      "token_regime": {
+        "value": "authorizable",
+        "claim_class": "tier1_legal",
+        "binding_status": "in_force_enacted",
+        "instrument": "State trust-company / money-transmitter regimes authorizing USD payment-stablecoin issuance (e.g. NYDFS 23 NYCRR Part 200). The federal layer (GENIUS Act, Pub. L. 119-27, enacted 2025-07-18) is NOT yet in force: s.3's issuance prohibition bites only from the s.20 effective date.",
+        "operative_date": null,
+        "evidence_tier": "firm_summary",
+        "note": "Origin-drag input. Whether a state-authorized issuer counts as an 'exportable, comprehensively authorizable token' for Atlas purposes is the open question in VB-09. If the answer is no, all 11 outbound-US edges fall to III and the I/II structure changes -- the reductio the eighth review's NF-3 raised. Stated here rather than left implicit in a market record.",
+        "backlog_ref": "VB-09"
+      },
+      "inbound_gate": {
+        "value": "comparability",
+        "claim_class": "tier1_legal",
+        "binding_status": "made_not_commenced",
+        "instrument": "GENIUS Act s.18 (foreign payment-stablecoin issuer comparability determination by the Secretary of the Treasury on SCRC recommendation + OCC registration + US-held reserves), effective per s.20 on the earlier of 18 months after enactment (2027-01-18) or 120 days after the primary federal payment stablecoin regulators issue final regulations.",
+        "operative_date": "2027-01-18",
+        "date_kind": "outer_cap",
+        "resolves_to": "II",
+        "evidence_tier": "mixed",
+        "evidence_tier_cap_reason": "SIG2: the instrument is made_not_commenced, so it cannot carry resolution_text however carefully its text has been read (Citable by Construction s.2.3, s.3.1). Its s.20 effective-date rule IS confirmed against the primary record.",
+        "snapshot_fact": "At 2026-06-30 no final implementing regulations had issued: OCC NPRM (published FR 2026-03-02, comments closed 2026-05-01), FDIC NPRM and FinCEN/OFAC joint NPRM (both 2026-04-10), Treasury s.4(c) NPRM (April 2026), NCUA proposal (February 2026). So the 2027-01-18 outer cap binds, and it may fall sooner.",
+        "backlog_ref": "VB-06",
+        "note": "This single signal is the correction that drives E1 / F-US-1 / E8: the s.18 gate is NOT 'available but unused', it is NOT YET AVAILABLE. Coding it as an in-force Category II gate let a market observation ('none granted to date') do a proposition of law's work."
+      },
+      "egress_override": {
+        "value": "none",
+        "claim_class": "tier1_legal",
+        "binding_status": null,
+        "instrument": "No general export/egress restriction on outbound USD stablecoins.",
+        "evidence_tier": "firm_summary"
+      },
+      "yield_line": {
+        "value": "prohibited_for_holding",
+        "claim_class": "tier1_legal",
+        "binding_status": "made_not_commenced",
+        "instrument": "GENIUS Act s.4(a)(11): no issuer-paid yield to holders 'solely in connection with the holding, use, or retention' of a payment stablecoin.",
+        "evidence_tier": "mixed",
+        "note": "Feasibility s.4.5 enrichment. Never read by the class function."
+      },
+      "token_in_issue": {
+        "value": true,
+        "claim_class": "tier2_operational",
+        "binding_status": null,
+        "instrument": null,
+        "evidence_tier": "firm_summary",
+        "note": "MARKET FACT (USDC, PYUSD, ... in circulation). ENRICHMENT ONLY. Must never touch class_code -- SIG1. A negative test flips this value and asserts all 132 classes are unchanged."
+      }
+    },
+    "EU": {
+      "jurisdiction_name": "European Union",
+      "token_regime": {
+        "value": "authorizable",
+        "claim_class": "tier1_legal",
+        "binding_status": "in_force_enacted",
+        "instrument": "MiCA (Reg. (EU) 2023/1114) Title IV: e-money-token authorization; applicable from 2024-06-30.",
+        "operative_date": null,
+        "evidence_tier": "firm_summary"
+      },
+      "inbound_gate": {
+        "value": "authorization",
+        "claim_class": "tier1_legal",
+        "binding_status": "in_force_enacted",
+        "instrument": "MiCA authorization wall (Titles III/IV) with the Art. 58(3) means-of-exchange ceiling extending Arts. 22/23/24(3) mutatis mutandis to EMTs denominated in a non-Member-State currency. Art. 23(1) is CONJUNCTIVE: 1,000,000 transactions/day AND EUR 200,000,000/day (quarterly average).",
+        "operative_date": null,
+        "resolves_to": "I",
+        "evidence_tier": "mixed",
+        "note": "The 'and' (not 'or') is F-EU / VB-07; the papers still write 'or' (errata E2). The EBA operative measurement methodology is pending -- an open parameterization (Feasibility s.3.7), which sharpens the class without moving it.",
+        "backlog_ref": "VB-07"
+      },
+      "egress_override": {
+        "value": "none",
+        "claim_class": "tier1_legal",
+        "binding_status": null,
+        "instrument": "No MiCA export/egress restriction on outbound EMTs.",
+        "evidence_tier": "firm_summary"
+      },
+      "yield_line": {
+        "value": "prohibited_for_holding",
+        "claim_class": "tier1_legal",
+        "binding_status": "in_force_enacted",
+        "instrument": "MiCA Art. 50: no interest on EMTs; remuneration or other benefit related to the length of time an EMT is held is treated as interest. In force 2024-06-30.",
+        "evidence_tier": "firm_summary",
+        "backlog_ref": "VB-R2"
+      },
+      "token_in_issue": {
+        "value": true,
+        "claim_class": "tier2_operational",
+        "binding_status": null,
+        "instrument": null,
+        "evidence_tier": "firm_summary",
+        "note": "MARKET FACT. ENRICHMENT ONLY."
+      }
+    },
+    "UK": {
+      "jurisdiction_name": "United Kingdom",
+      "token_regime": {
+        "value": "authorizable",
+        "claim_class": "tier1_legal",
+        "binding_status": "in_force_enacted",
+        "instrument": "Electronic Money Regulations 2011 (SI 2011/99): GBP e-money issuance is authorizable today. The NEW comprehensive regime (FSMA 2000 (Cryptoassets) Regulations 2026, SI 2026/102) is made-not-commenced and does not remove the existing pathway.",
+        "operative_date": null,
+        "evidence_tier": "firm_summary",
+        "backlog_ref": "VB-09"
+      },
+      "inbound_gate": {
+        "value": "authorization",
+        "claim_class": "tier1_legal",
+        "binding_status": "made_not_commenced",
+        "instrument": "FSMA 2000 (Cryptoassets) Regulations 2026, SI 2026/102 (made 2026-02-04; preparatory provisions 2026-02-25; full commencement 2027-10-25), at which point the Bank of England systemic-stablecoin regime and the FCA conduct regime become operative.",
+        "operative_date": "2027-10-25",
+        "date_kind": "gazetted",
+        "resolves_to": "I",
+        "evidence_tier": "mixed",
+        "evidence_tier_cap_reason": "SIG2: made_not_commenced cannot carry resolution_text.",
+        "note": "The three-limb territorial perimeter remains interpretively open (FCA policy statement); that affects what falls inside the perimeter, not the commencement date."
+      },
+      "egress_override": {
+        "value": "none",
+        "claim_class": "tier1_legal",
+        "binding_status": null,
+        "instrument": "No export/egress restriction.",
+        "evidence_tier": "firm_summary"
+      },
+      "yield_line": {
+        "value": "restricted",
+        "claim_class": "tier1_legal",
+        "binding_status": "made_not_commenced",
+        "instrument": "FCA/BoE stablecoin conduct rules (pending commencement).",
+        "evidence_tier": "firm_summary"
+      },
+      "token_in_issue": {
+        "value": true,
+        "claim_class": "tier2_operational",
+        "binding_status": null,
+        "instrument": null,
+        "evidence_tier": "firm_summary",
+        "note": "MARKET FACT (GBP e-money issuers). ENRICHMENT ONLY."
+      }
+    },
+    "SG": {
+      "jurisdiction_name": "Singapore",
+      "token_regime": {
+        "value": "authorizable",
+        "claim_class": "tier1_legal",
+        "binding_status": "in_force_enacted",
+        "instrument": "Payment Services Act 2019 digital-payment-token baseline (in force). The Single-Currency Stablecoin framework is finalized policy pending implementing legislation and does not gate the baseline.",
+        "operative_date": null,
+        "evidence_tier": "firm_summary"
+      },
+      "inbound_gate": {
+        "value": "authorization",
+        "claim_class": "tier1_legal",
+        "binding_status": "in_force_enacted",
+        "instrument": "MAS single-currency-stablecoin recognition; foreign-pegged tokens treated as digital payment tokens under the Payment Services Act 2019.",
+        "operative_date": null,
+        "resolves_to": "I",
+        "evidence_tier": "firm_summary"
+      },
+      "egress_override": {
+        "value": "active",
+        "claim_class": "tier1_legal",
+        "binding_status": "in_force_enacted",
+        "instrument": "MAS Digital Token Service Provider statement (June 2025): unlicensed Singapore-based operations serving offshore customers are constrained, so the origin co-governs an otherwise destination-gated edge.",
+        "evidence_tier": "firm_summary",
+        "note": "Atlas v0.2.5 s.3.3: 'an origin that imposes an export or egress restriction (Mainland China, Singapore) contributes an origin-override flag.' Carried on all 11 SG-> edges from v0.10.0 (gate OO1)."
+      },
+      "yield_line": {
+        "value": "restricted",
+        "claim_class": "tier1_legal",
+        "binding_status": "finalized_policy_pending",
+        "instrument": "SCS framework: issuer may not lend or stake the reserve.",
+        "evidence_tier": "firm_summary"
+      },
+      "token_in_issue": {
+        "value": true,
+        "claim_class": "tier2_operational",
+        "binding_status": null,
+        "instrument": null,
+        "evidence_tier": "firm_summary",
+        "note": "MARKET FACT. ENRICHMENT ONLY."
+      }
+    },
+    "HK": {
+      "jurisdiction_name": "Hong Kong",
+      "token_regime": {
+        "value": "authorizable",
+        "claim_class": "tier1_legal",
+        "binding_status": "in_force_enacted",
+        "instrument": "Stablecoins Ordinance (Cap. 656), in force 2025-08-01. First issuer licences granted 2026-04-10 (HSBC; Anchorpoint Financial Limited).",
+        "operative_date": null,
+        "evidence_tier": "firm_summary"
+      },
+      "inbound_gate": {
+        "value": "authorization",
+        "claim_class": "tier1_legal",
+        "binding_status": "in_force_enacted",
+        "instrument": "HKMA fiat-referenced-stablecoin licence under Cap. 656.",
+        "operative_date": null,
+        "resolves_to": "I",
+        "evidence_tier": "firm_summary"
+      },
+      "egress_override": {
+        "value": "none",
+        "claim_class": "tier1_legal",
+        "binding_status": null,
+        "instrument": "No export/egress restriction.",
+        "evidence_tier": "firm_summary"
+      },
+      "yield_line": {
+        "value": "prohibited_for_holding",
+        "claim_class": "tier1_legal",
+        "binding_status": "in_force_enacted",
+        "instrument": "Cap. 656 issuer conduct requirements.",
+        "evidence_tier": "firm_summary"
+      },
+      "token_in_issue": {
+        "value": true,
+        "claim_class": "tier2_operational",
+        "binding_status": null,
+        "instrument": null,
+        "evidence_tier": "firm_summary",
+        "note": "MARKET FACT (first cohort, HKD-referenced). ENRICHMENT ONLY."
+      }
+    },
+    "CN": {
+      "jurisdiction_name": "Mainland China",
+      "token_regime": {
+        "value": "prohibited",
+        "claim_class": "tier1_legal",
+        "binding_status": "in_force_enacted",
+        "instrument": "Eight-ministry Notice 银发〔2026〕42号, in force on publication 2026-02-06 (repealing 银发〔2021〕237号): no unapproved offshore issuance of renminbi-pegged stablecoins; extraterritorial bar on PRC entities and their controlled offshore affiliates issuing virtual currencies abroad; restriction on onshore real-world-asset tokenization. Paired with CSRC 公告〔2026〕1号.",
+        "operative_date": null,
+        "evidence_tier": "resolution_text",
+        "backlog_ref": "VB-04"
+      },
+      "inbound_gate": {
+        "value": "prohibited",
+        "claim_class": "tier1_legal",
+        "binding_status": "in_force_enacted",
+        "instrument": "Eight-ministry Notice 银发〔2026〕42号 (in force 2026-02-06): issuance and circulation of foreign stablecoins as a payment instrument is prohibited; cross-border data and capital flows are additionally gated by PIPL, DSL, CAC and SAFE.",
+        "operative_date": null,
+        "resolves_to": null,
+        "evidence_tier": "resolution_text",
+        "backlog_ref": "VB-04",
+        "note": "Anchored by verifier gate CF1. Under the destination-first precedence this makes ALL 11 inbound-CN edges `blocked` -- including TW->CN and KR->CN, which read `III` through v0.9.99 (NF-1)."
+      },
+      "egress_override": {
+        "value": "active",
+        "claim_class": "tier1_legal",
+        "binding_status": "in_force_enacted",
+        "instrument": "Mainland capital-flow controls (SAFE) and the cross-border data framework (PIPL, DSL, CAC).",
+        "evidence_tier": "firm_summary",
+        "note": "Atlas v0.2.5 carries '[origin-egress override (mainland capital controls)]' on all 11 CN-> rows."
+      },
+      "yield_line": {
+        "value": "n_a",
+        "claim_class": "tier1_legal",
+        "binding_status": "in_force_enacted",
+        "instrument": "No permitted issuance, so no yield rule to cite.",
+        "evidence_tier": "resolution_text"
+      },
+      "token_in_issue": {
+        "value": false,
+        "claim_class": "tier2_operational",
+        "binding_status": null,
+        "instrument": null,
+        "evidence_tier": "firm_summary",
+        "note": "MARKET FACT. ENRICHMENT ONLY."
+      }
+    },
+    "BR": {
+      "jurisdiction_name": "Brazil",
+      "token_regime": {
+        "value": "authorizable",
+        "claim_class": "tier1_legal",
+        "binding_status": "in_force_enacted",
+        "instrument": "BCB Resolutions 519/520/521 (virtual-asset service provider authorization and the foreign-exchange channel); Resolution 561 bars the eFX crypto leg.",
+        "operative_date": null,
+        "evidence_tier": "firm_summary"
+      },
+      "inbound_gate": {
+        "value": "channel",
+        "claim_class": "tier1_legal",
+        "binding_status": "in_force_enacted",
+        "instrument": "BCB VASP authorization + the Resolution 521 counterparty-conditional câmbio channel (licensed VASP only).",
+        "operative_date": null,
+        "resolves_to": "II",
+        "evidence_tier": "firm_summary"
+      },
+      "egress_override": {
+        "value": "none",
+        "claim_class": "tier1_legal",
+        "binding_status": null,
+        "instrument": "No export/egress restriction.",
+        "evidence_tier": "firm_summary"
+      },
+      "yield_line": {
+        "value": "unverified",
+        "claim_class": "tier1_legal",
+        "binding_status": null,
+        "instrument": "Not yet read against the primary instrument -- declared backlog (Feasibility s.4.5 residual).",
+        "evidence_tier": "unset"
+      },
+      "token_in_issue": {
+        "value": true,
+        "claim_class": "tier2_operational",
+        "binding_status": null,
+        "instrument": null,
+        "evidence_tier": "firm_summary",
+        "note": "MARKET FACT. ENRICHMENT ONLY."
+      }
+    },
+    "CH": {
+      "jurisdiction_name": "Switzerland",
+      "token_regime": {
+        "value": "authorizable",
+        "claim_class": "tier1_legal",
+        "binding_status": "in_force_enacted",
+        "instrument": "Banking Act / DLT Act framework; FINMA authorization (bank, fintech or DLT licence) with a bank guarantee and holder identification.",
+        "operative_date": null,
+        "evidence_tier": "firm_summary"
+      },
+      "inbound_gate": {
+        "value": "authorization",
+        "claim_class": "tier1_legal",
+        "binding_status": "in_force_enacted",
+        "instrument": "FINMA authorization (banking / DLT framework).",
+        "operative_date": null,
+        "resolves_to": "I",
+        "evidence_tier": "firm_summary"
+      },
+      "egress_override": {
+        "value": "none",
+        "claim_class": "tier1_legal",
+        "binding_status": null,
+        "instrument": "No export/egress restriction.",
+        "evidence_tier": "firm_summary"
+      },
+      "yield_line": {
+        "value": "unverified",
+        "claim_class": "tier1_legal",
+        "binding_status": null,
+        "instrument": "Declared backlog.",
+        "evidence_tier": "unset"
+      },
+      "token_in_issue": {
+        "value": true,
+        "claim_class": "tier2_operational",
+        "binding_status": null,
+        "instrument": null,
+        "evidence_tier": "firm_summary",
+        "note": "MARKET FACT. ENRICHMENT ONLY."
+      }
+    },
+    "AE": {
+      "jurisdiction_name": "United Arab Emirates",
+      "token_regime": {
+        "value": "authorizable",
+        "claim_class": "tier1_legal",
+        "binding_status": "in_force_enacted",
+        "instrument": "CBUAE Payment Token Services Regulation: Dirham payment tokens are authorizable onshore.",
+        "operative_date": null,
+        "evidence_tier": "firm_summary"
+      },
+      "inbound_gate": {
+        "value": "channel",
+        "claim_class": "tier1_legal",
+        "binding_status": "in_force_enacted",
+        "instrument": "CBUAE Payment Token Services registration (usage channel): a foreign token may be used onshore only to purchase virtual assets; merchant payment requires a Dirham payment token.",
+        "operative_date": null,
+        "resolves_to": "II",
+        "evidence_tier": "firm_summary"
+      },
+      "egress_override": {
+        "value": "none",
+        "claim_class": "tier1_legal",
+        "binding_status": null,
+        "instrument": "No export/egress restriction.",
+        "evidence_tier": "firm_summary"
+      },
+      "yield_line": {
+        "value": "unverified",
+        "claim_class": "tier1_legal",
+        "binding_status": null,
+        "instrument": "Declared backlog.",
+        "evidence_tier": "unset"
+      },
+      "token_in_issue": {
+        "value": true,
+        "claim_class": "tier2_operational",
+        "binding_status": null,
+        "instrument": null,
+        "evidence_tier": "firm_summary",
+        "note": "MARKET FACT. ENRICHMENT ONLY."
+      }
+    },
+    "JP": {
+      "jurisdiction_name": "Japan",
+      "token_regime": {
+        "value": "authorizable",
+        "claim_class": "tier1_legal",
+        "binding_status": "in_force_enacted",
+        "instrument": "Payment Services Act Electronic Payment Instruments regime (in force 2023-06-01); closed issuer trichotomy of bank, registered funds-transfer provider, and trust company / trust bank. Act No. 66 of 2025 (promulgated 2025-06-13, in force 2026-06-01) relaxed trust-type reserve composition.",
+        "operative_date": null,
+        "evidence_tier": "mixed",
+        "backlog_ref": "VB-03"
+      },
+      "inbound_gate": {
+        "value": "channel",
+        "claim_class": "tier1_legal",
+        "binding_status": "in_force_enacted",
+        "instrument": "PSA Electronic Payment Instruments channel through a registered EPIESP (reserves in Japan; foreign-issuer non-solicitation). Cabinet Office Ordinance promulgated 2026-05-19, in force 2026-06-01, recognises equivalent foreign trust-type stablecoins as electronic payment instruments, subject to (i) an equivalent home licence, (ii) appropriately managed and audited reserves, and (iii) an information-sharing / cooperation arrangement between the home regulator and the JFSA.",
+        "operative_date": null,
+        "resolves_to": "II",
+        "evidence_tier": "mixed",
+        "note": "Condition (iii) is the hardest gate and the one Feasibility s.5.3 omits (errata F-JP-1); it closes the pathway to jurisdictions with no JFSA MOU and corroborates the s.5.2 bloc structure."
+      },
+      "egress_override": {
+        "value": "none",
+        "claim_class": "tier1_legal",
+        "binding_status": null,
+        "instrument": "No export/egress restriction.",
+        "evidence_tier": "firm_summary"
+      },
+      "yield_line": {
+        "value": "unverified",
+        "claim_class": "tier1_legal",
+        "binding_status": null,
+        "instrument": "Declared backlog.",
+        "evidence_tier": "unset"
+      },
+      "token_in_issue": {
+        "value": true,
+        "claim_class": "tier2_operational",
+        "binding_status": null,
+        "instrument": null,
+        "evidence_tier": "firm_summary",
+        "note": "MARKET FACT. ENRICHMENT ONLY."
+      }
+    },
+    "TW": {
+      "jurisdiction_name": "Taiwan",
+      "token_regime": {
+        "value": "not_commenced",
+        "claim_class": "tier1_legal",
+        "binding_status": "made_not_commenced",
+        "instrument": "Virtual Asset Service Act, passed at third reading 2026-06-30; commencement set separately by the Executive Yuan, pending nine items of subsidiary legislation (FSC timetable: earliest Q1 2027). Until commencement only the AML registration regime (amended Money Laundering Control Act, operative 2024-11-30) is in force -- registration is not issuance authorization.",
+        "operative_date": null,
+        "evidence_tier": "mixed",
+        "backlog_ref": "VB-R1",
+        "evidence_tier_cap_reason": "SIG2: made_not_commenced cannot carry resolution_text.",
+        "note": "Enactment is not commencement: no exportable authorizable token exists, so origin drag still fires on all TW-> edges whose destination does not already foreclose them."
+      },
+      "inbound_gate": {
+        "value": "channel",
+        "claim_class": "tier1_legal",
+        "binding_status": "made_not_commenced",
+        "instrument": "Virtual Asset Service Act: issuance and the inbound treatment of offshore stablecoins are conditioned on approval by the FSC AND the Central Bank of the Republic of China (Taiwan) -- dual approval, not FSC-with-CBC-consulted. Issuer-paid yield is prohibited. Roughly a 21-month operator transition.",
+        "operative_date": null,
+        "date_kind": "contingent",
+        "resolves_to": "II",
+        "evidence_tier": "mixed",
+        "backlog_ref": "VB-R1",
+        "note": "Anchored by verifier gate CF1 (TW = `T`). No gazetted commencement date, so the trigger is contingent and moves no horizon."
+      },
+      "egress_override": {
+        "value": "none",
+        "claim_class": "tier1_legal",
+        "binding_status": null,
+        "instrument": "Atlas v0.2.5 carries no origin-override on the TW-> rows.",
+        "evidence_tier": "firm_summary"
+      },
+      "yield_line": {
+        "value": "prohibited_for_holding",
+        "claim_class": "tier1_legal",
+        "binding_status": "made_not_commenced",
+        "instrument": "VAS Act: issuer-paid yield prohibited.",
+        "evidence_tier": "mixed",
+        "backlog_ref": "VB-R1"
+      },
+      "token_in_issue": {
+        "value": false,
+        "claim_class": "tier2_operational",
+        "binding_status": null,
+        "instrument": null,
+        "evidence_tier": "firm_summary",
+        "note": "MARKET FACT. ENRICHMENT ONLY."
+      }
+    },
+    "KR": {
+      "jurisdiction_name": "South Korea",
+      "token_regime": {
+        "value": "none",
+        "claim_class": "tier1_legal",
+        "binding_status": "no_regime",
+        "instrument": "Virtual Asset User Protection Act (in force 2024-07-19) is a user-protection and market-abuse statute, not an issuance-licensing framework; domestic won-stablecoin issuance is effectively prohibited. The Digital Asset Basic Act remains an un-enacted bill (National Assembly Political Affairs Committee subcommittee).",
+        "operative_date": null,
+        "evidence_tier": "mixed"
+      },
+      "inbound_gate": {
+        "value": "none",
+        "claim_class": "tier1_legal",
+        "binding_status": "no_regime",
+        "instrument": "No operative inbound issuance-authorization regime to receive into (draft DABA).",
+        "operative_date": null,
+        "resolves_to": null,
+        "evidence_tier": "mixed",
+        "note": "Under destination-first this makes ALL 11 inbound-KR edges `pre_regime` -- including CN->KR and TW->KR, which read `III` through v0.9.99 (NF-1)."
+      },
+      "egress_override": {
+        "value": "conditional_dormant",
+        "claim_class": "tier1_legal",
+        "binding_status": "in_force_enacted",
+        "instrument": "Korean foreign-exchange controls; Atlas v0.2.5 carries '[conditional origin-egress override (Korea FX, dormant)]' on all 11 KR-> rows -- conditional and dormant because there is no exportable won token for them to bite on.",
+        "evidence_tier": "firm_summary",
+        "backlog_ref": "VB-10"
+      },
+      "yield_line": {
+        "value": "prohibited_for_holding",
+        "claim_class": "tier1_legal",
+        "binding_status": "pending_proposal",
+        "instrument": "The leading DABA draft bars interest, discount or other reward to holders.",
+        "evidence_tier": "firm_summary",
+        "note": "A DRAFT provision -- cited in Feasibility s.4.5 as supporting evidence for the yield-line convergence, never as binding law."
+      },
+      "token_in_issue": {
+        "value": false,
+        "claim_class": "tier2_operational",
+        "binding_status": null,
+        "instrument": null,
+        "evidence_tier": "firm_summary",
+        "note": "MARKET FACT. ENRICHMENT ONLY."
+      }
+    }
+  },
+  "settlement_blocs": {
+    "claim_class": "tier2_operational",
+    "note": "Tier-2 operational enrichment, NOT a proposition of law (Feasibility s.5.1 concedes this explicitly). Drives infrastructure_overlap.bloc (verifier IB1) and NEVER class_code.",
+    "agora": [
+      "US",
+      "EU",
+      "UK",
+      "CH",
+      "JP",
+      "KR"
+    ],
+    "mbridge": [
+      "CN",
+      "HK",
+      "AE"
+    ],
+    "ensemble": [
+      "HK",
+      "SG"
+    ],
+    "caveats": {
+      "SG_ensemble": "SG's FORMAL Project Ensemble membership is unconfirmed (VB-02); the HKMA-Ensemble / MAS-Guardian tie may be an alignment, not a shared substrate.",
+      "agora_is_not_G7": "Project Agorá's seven central banks include the Bank of Korea and the Bank of Mexico; 'seven central banks convened by the BIS around major reserve currencies' is accurate, 'the G7-aligned bloc' is not (errata E7).",
+      "mbridge_is_not_PRC_and_Gulf": "Post-BIS-withdrawal (2024-10-31) mBridge continues with China, Hong Kong, Thailand, the UAE and Saudi Arabia. Thailand is neither PRC nor Gulf (errata E7).",
+      "KR_tension": "Korea is simultaneously an Agorá member and the register's sole pre-regime origin -- the settlement-bloc axis and the regulatory-maturity axis are not co-linear. A finding, not a defect."
+    }
+  }
+}

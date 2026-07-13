@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yunjiefanresearch-hub.github.io/cross-border-stablecoin-register/analysis.schema.json",
+  "title": "CBSR Analysis Layer",
+  "description": "Shape of the analysis-layer artifacts (analysis/*.json) — the queryable encoding of the Cross-Border Stablecoin Architecture v3 working paper's payload: the six constraint-interaction sets (§2.9), the architectural patterns (§3.3 PRC typology, §4/§6 three-layer routing, §4.4 operational test, §6.1 design principles), the §5.14 pairwise compatibility matrix, and the §7 open questions. build.py validates these structurally and folds them into dataset.json under `analysis`.",
+  "type": "object",
+  "$defs": {
+    "interaction_sets": {
+      "type": "object",
+      "required": ["schema", "source", "sets"],
+      "properties": {
+        "schema": {"const": "cbsr-analysis/interaction_sets"},
+        "source": {"type": "string"},
+        "note": {"type": "string"},
+        "sets": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": {
+            "type": "object",
+            "required": ["id", "name", "constraints", "mechanism"],
+            "properties": {
+              "id": {"type": "string", "enum": ["A", "B", "C", "D", "E", "F"]},
+              "name": {"type": "string"},
+              "constraints": {"type": "string", "description": "The constraint pair, e.g. 'C1xC6'."},
+              "mechanism": {"type": "string"},
+              "worked_example": {"type": "string"}
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "compatibility": {
+      "type": "object",
+      "required": ["schema", "source", "jurisdictions", "pair_count", "categories", "pairs"],
+      "properties": {
+        "schema": {"const": "cbsr-analysis/compatibility"},
+        "source": {"type": "string"},
+        "jurisdictions": {"type": "array", "items": {"type": "string"}, "minItems": 12, "maxItems": 12},
+        "pair_count": {"type": "integer", "const": 66},
+        "categories": {"type": "object"},
+        "category_iii_axes": {"type": "object"},
+        "summary_observation": {"type": "string"},
+        "pairs": {
+          "type": "array",
+          "minItems": 66,
+          "maxItems": 66,
+          "items": {
+            "type": "object",
+            "required": ["pair", "jurisdictions", "category", "interaction_sets", "note"],
+            "properties": {
+              "pair": {"type": "string", "pattern": "^[A-Z]{2}-[A-Z]{2}$"},
+              "jurisdictions": {"type": "array", "items": {"type": "string"}, "minItems": 2, "maxItems": 2},
+              "category": {"type": "string", "enum": ["I", "I/II", "II", "III"]},
+              "interaction_sets": {"type": "array", "items": {"type": "string", "enum": ["A", "B", "C", "D", "E", "F"]}},
+              "category_iii_axis": {"type": "string", "enum": ["prohibition", "pre_regime", "prohibition+pre_regime", "counterparty_conditional"]},
+              "note": {"type": "string"}
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "open_questions": {
+      "type": "object",
+      "required": ["schema", "source", "questions"],
+      "properties": {
+        "schema": {"const": "cbsr-analysis/open_questions"},
+        "source": {"type": "string"},
+        "note": {"type": "string"},
+        "questions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "title", "question", "status"],
+            "properties": {
+              "id": {"type": "string"},
+              "title": {"type": "string"},
+              "question": {"type": "string"},
+              "affects": {"type": "string"},
+              "status": {"type": "string"},
+              "conditional_flag": {"type": "string"},
+              "material_developments": {"type": "array", "items": {"type": "string"}}
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "architectural_patterns": {
+      "type": "object",
+      "required": ["schema", "source"],
+      "properties": {
+        "schema": {"const": "cbsr-analysis/architectural_patterns"},
+        "source": {"type": "string"},
+        "prc_three_pattern_typology": {"type": "object"},
+        "three_layer_routing_architecture": {"type": "object"}
+      },
+      "additionalProperties": true
+    }
+  },
+  "comment": "Each analysis/*.json file conforms to the correspondingly-named definition in $defs. The build pipeline (build.py load_analysis) enforces the load-bearing invariants: the compatibility matrix must contain all 66 unordered pairs of the 12 jurisdictions, with valid categories and interaction sets."
+}

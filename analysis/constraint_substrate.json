@@ -1,0 +1,679 @@
+{
+  "schema": "cbsr-analysis/constraint_substrate",
+  "version": "0.9.2",
+  "status": "preview",
+  "note": "The constraint substrate gives each (jurisdiction x constraint C1-C8) a structured POLE from a controlled vocabulary, each citing the tier1_legal record(s) it is transcribed from. compose_via_substrate() derives a corridor's feasibility by composing two jurisdictions' poles through the six interaction-set rules (analysis/interaction_sets.json), instead of reading a hand-curated inbound gate. A pole is present ONLY where a tier1_legal record backs it; cells with no record are absent and read as 'unset', and the deriver returns 'indeterminate' for any corridor whose load-bearing poles are unset rather than guessing. Pole ASSIGNMENT is currently authored (transcribed from the records); verifying each assignment against the primary text is part of the verification backlog — exactly the liability that bounds this layer's coverage.",
+  "pole_vocabulary": {
+    "C1": [
+      "open",
+      "licence_gated",
+      "closed_set",
+      "host_currency_first",
+      "no_pathway",
+      "prohibition"
+    ],
+    "C2": [
+      "prescribed_hqla",
+      "prescribed_flex",
+      "informational"
+    ],
+    "C3": [
+      "permitted",
+      "prohibited_issuer",
+      "prohibited_incl_agents",
+      "silent"
+    ],
+    "C4": [
+      "payment_instrument",
+      "contested_routing",
+      "security"
+    ],
+    "C5": [
+      "bank_only",
+      "bank_and_nonbank",
+      "layered_separation",
+      "unset"
+    ],
+    "C6": [
+      "open",
+      "transfer_gated",
+      "localized",
+      "restrictive"
+    ],
+    "C7": [
+      "open",
+      "usage_capped",
+      "channelled",
+      "prohibition"
+    ],
+    "C8": [
+      "coordinated",
+      "constrained"
+    ]
+  },
+  "attribute_keys": {
+    "exportable_token": "C1 — whether an authorizable, exportable private token exists (origin-drag input)",
+    "blocks_supervisory_sharing": "C6 — whether data-sovereignty constraints limit supervisory information-sharing (Set A input)",
+    "supervisory_sharing": "C8 — whether the entity can satisfy host supervisory information-sharing (Set A / F input)"
+  },
+  "cells": {
+    "US": {
+      "C2": {
+        "pole": "prescribed_hqla",
+        "derived_from": [
+          "us-pss-reserve_backing-001"
+        ]
+      },
+      "C3": {
+        "pole": "prohibited_incl_agents",
+        "derived_from": [
+          "us-pss-permitted_activity_yield-001"
+        ]
+      },
+      "C4": {
+        "pole": "contested_routing",
+        "note": "GENIUS payment stablecoin positioned outside the securities perimeter; the routing-into-yield step is the contested boundary.",
+        "derived_from": [
+          "us-pss-securities_classification-001"
+        ]
+      },
+      "C5": {
+        "pole": "bank_and_nonbank",
+        "derived_from": [
+          "us-pss-bank_nonbank_routing-001"
+        ]
+      },
+      "C1": {
+        "pole": "licence_gated",
+        "attributes": {
+          "exportable_token": true
+        },
+        "derived_from": [
+          "us-pss-issuer_pathway-001"
+        ]
+      },
+      "C7": {
+        "pole": "channelled",
+        "derived_from": [
+          "us-pss-monetary_sovereignty-001"
+        ]
+      },
+      "C6": {
+        "pole": "open",
+        "attributes": {
+          "blocks_supervisory_sharing": false
+        },
+        "derived_from": [
+          "us-pss-cross_border_data-001"
+        ]
+      },
+      "C8": {
+        "pole": "coordinated",
+        "attributes": {
+          "supervisory_sharing": true
+        },
+        "derived_from": [
+          "us-pss-disclosure_reporting-001"
+        ]
+      }
+    },
+    "EU": {
+      "C2": {
+        "pole": "prescribed_hqla",
+        "derived_from": [
+          "eu-emt-reserve_backing-001"
+        ]
+      },
+      "C3": {
+        "pole": "prohibited_issuer",
+        "derived_from": [
+          "eu-emt-permitted_activity_yield-001"
+        ]
+      },
+      "C7": {
+        "pole": "usage_capped",
+        "note": "MiCA Art. 23 caps non-EU-currency EMT usage at EUR 200m/day or 1m tx/day; dual authorization otherwise available.",
+        "derived_from": [
+          "eu-emt-monetary_sovereignty-001"
+        ]
+      },
+      "C1": {
+        "pole": "licence_gated",
+        "attributes": {
+          "exportable_token": true
+        },
+        "derived_from": [
+          "eu-emt-issuer_pathway-001"
+        ]
+      },
+      "C6": {
+        "pole": "open",
+        "attributes": {
+          "blocks_supervisory_sharing": false
+        },
+        "derived_from": [
+          "eu-emt-cross_border_data-001"
+        ]
+      },
+      "C8": {
+        "pole": "coordinated",
+        "attributes": {
+          "supervisory_sharing": true
+        },
+        "derived_from": [
+          "eu-emt-disclosure_reporting-001"
+        ]
+      },
+      "C4": {
+        "pole": "payment_instrument",
+        "derived_from": [
+          "eu-emt-securities_classification-001"
+        ]
+      },
+      "C5": {
+        "pole": "bank_and_nonbank",
+        "derived_from": [
+          "eu-emt-bank_nonbank_routing-001"
+        ]
+      }
+    },
+    "UK": {
+      "C1": {
+        "pole": "licence_gated",
+        "attributes": {
+          "exportable_token": true
+        },
+        "derived_from": [
+          "uk-frs-issuer_pathway-001"
+        ]
+      },
+      "C6": {
+        "pole": "open",
+        "attributes": {
+          "blocks_supervisory_sharing": false
+        },
+        "derived_from": [
+          "uk-frs-cross_border_data-001"
+        ]
+      },
+      "C8": {
+        "pole": "coordinated",
+        "attributes": {
+          "supervisory_sharing": true
+        },
+        "derived_from": [
+          "uk-frs-distribution-001"
+        ]
+      },
+      "C2": {
+        "pole": "prescribed_hqla",
+        "derived_from": [
+          "uk-frs-custody-001"
+        ]
+      },
+      "C3": {
+        "pole": "prohibited_issuer",
+        "derived_from": [
+          "uk-frs-permitted_activity_yield-001"
+        ]
+      },
+      "C4": {
+        "pole": "payment_instrument",
+        "derived_from": [
+          "uk-frs-securities_classification-001"
+        ]
+      },
+      "C5": {
+        "pole": "bank_and_nonbank",
+        "derived_from": [
+          "uk-frs-bank_nonbank_routing-001"
+        ]
+      }
+    },
+    "SG": {
+      "C1": {
+        "pole": "licence_gated",
+        "attributes": {
+          "exportable_token": true
+        },
+        "derived_from": [
+          "sg-scs-issuer_pathway-001"
+        ]
+      },
+      "C7": {
+        "pole": "open",
+        "derived_from": [
+          "sg-scs-monetary_sovereignty-001"
+        ]
+      },
+      "C6": {
+        "pole": "open",
+        "attributes": {
+          "blocks_supervisory_sharing": false
+        },
+        "derived_from": [
+          "sg-scs-cross_border_data-001"
+        ]
+      },
+      "C8": {
+        "pole": "coordinated",
+        "attributes": {
+          "supervisory_sharing": true
+        },
+        "derived_from": [
+          "sg-scs-distribution-001"
+        ]
+      },
+      "C2": {
+        "pole": "prescribed_hqla",
+        "derived_from": [
+          "sg-scs-reserve_backing-001"
+        ]
+      },
+      "C3": {
+        "pole": "prohibited_issuer",
+        "derived_from": [
+          "sg-scs-permitted_activity_yield-001"
+        ]
+      },
+      "C4": {
+        "pole": "payment_instrument",
+        "derived_from": [
+          "sg-scs-securities_classification-001"
+        ]
+      },
+      "C5": {
+        "pole": "bank_and_nonbank",
+        "derived_from": [
+          "sg-scs-bank_nonbank_routing-001"
+        ]
+      }
+    },
+    "HK": {
+      "C1": {
+        "pole": "licence_gated",
+        "attributes": {
+          "exportable_token": true
+        },
+        "note": "Licence required for FRS issuers and for HKD-referencing issuers outside HK; first cohort HKD-focused but an authorizable token exists.",
+        "derived_from": [
+          "hk-frs-issuer_pathway-001"
+        ]
+      },
+      "C2": {
+        "pole": "prescribed_hqla",
+        "derived_from": [
+          "hk-frs-capital_requirements-001"
+        ]
+      },
+      "C3": {
+        "pole": "prohibited_issuer",
+        "derived_from": [
+          "hk-frs-permitted_activity_yield-001"
+        ]
+      },
+      "C6": {
+        "pole": "open",
+        "attributes": {
+          "blocks_supervisory_sharing": false
+        },
+        "note": "PDPO governs personal data; not a data-localization/supervisory-sharing blocker.",
+        "derived_from": [
+          "hk-frs-cross_border_data-001"
+        ]
+      },
+      "C7": {
+        "pole": "open",
+        "note": "No aggregate usage cap on non-HKD tokens at the monetary-sovereignty layer.",
+        "derived_from": [
+          "hk-frs-monetary_sovereignty-001"
+        ]
+      },
+      "C8": {
+        "pole": "coordinated",
+        "attributes": {
+          "supervisory_sharing": true
+        },
+        "derived_from": [
+          "hk-frs-disclosure_reporting-001"
+        ]
+      },
+      "C4": {
+        "pole": "payment_instrument",
+        "derived_from": [
+          "hk-frs-securities_classification-001"
+        ]
+      },
+      "C5": {
+        "pole": "bank_and_nonbank",
+        "derived_from": [
+          "hk-frs-bank_nonbank_routing-001"
+        ]
+      }
+    },
+    "CN": {
+      "C1": {
+        "pole": "prohibition",
+        "attributes": {
+          "exportable_token": false
+        },
+        "note": "No domestic issuance pathway; 2017 ICO Notice (94公告) policy continued and 银发〔2026〕42号 (in force 6 Feb 2026) is the operative prohibition (it repealed the 2021 Notice 银发〔2021〕237号 and broadened the banned act from token-offering financing to issuing virtual currency).",
+        "derived_from": [
+          "cn-prc-issuer_pathway-001"
+        ]
+      },
+      "C2": {
+        "pole": "informational",
+        "note": "Capital rules not operative because issuance is prohibited.",
+        "derived_from": [
+          "cn-prc-capital_requirements-001"
+        ]
+      },
+      "C6": {
+        "pole": "transfer_gated",
+        "attributes": {
+          "blocks_supervisory_sharing": true
+        },
+        "note": "PIPL/DSL transfer gates and important-data rules reach non-PRC firms; constrain supervisory information-sharing.",
+        "derived_from": [
+          "cn-prc-cross_border_data-001"
+        ]
+      },
+      "C7": {
+        "pole": "prohibition",
+        "note": "Issuance prohibited; no admitted foreign-token usage channel.",
+        "derived_from": [
+          "cn-prc-monetary_sovereignty-001"
+        ]
+      },
+      "C8": {
+        "pole": "constrained",
+        "attributes": {
+          "supervisory_sharing": false
+        },
+        "derived_from": [
+          "cn-prc-distribution-001"
+        ]
+      },
+      "C3": {
+        "pole": "silent",
+        "derived_from": [
+          "cn-prc-permitted_activity_yield-001"
+        ]
+      },
+      "C4": {
+        "pole": "security",
+        "derived_from": [
+          "cn-prc-securities_classification-001"
+        ]
+      }
+    },
+    "BR": {
+      "C1": {
+        "pole": "licence_gated",
+        "attributes": {
+          "exportable_token": true
+        },
+        "derived_from": [
+          "br-vasp-issuer_pathway-001"
+        ]
+      },
+      "C7": {
+        "pole": "channelled",
+        "derived_from": [
+          "br-vasp-monetary_sovereignty-001"
+        ]
+      },
+      "C6": {
+        "pole": "open",
+        "attributes": {
+          "blocks_supervisory_sharing": false
+        },
+        "derived_from": [
+          "br-vasp-cross_border_data-001"
+        ]
+      },
+      "C8": {
+        "pole": "coordinated",
+        "attributes": {
+          "supervisory_sharing": true
+        },
+        "derived_from": [
+          "br-vasp-disclosure_reporting-001"
+        ]
+      },
+      "C2": {
+        "pole": "prescribed_hqla",
+        "derived_from": [
+          "br-vasp-capital_requirements-001"
+        ]
+      },
+      "C3": {
+        "pole": "silent",
+        "derived_from": [
+          "br-vasp-permitted_activity_yield-001"
+        ]
+      },
+      "C5": {
+        "pole": "bank_and_nonbank",
+        "derived_from": [
+          "br-vasp-bank_nonbank_routing-001"
+        ]
+      }
+    },
+    "CH": {
+      "C1": {
+        "pole": "licence_gated",
+        "attributes": {
+          "exportable_token": true
+        },
+        "derived_from": [
+          "ch-frs-issuer_pathway-001"
+        ]
+      },
+      "C7": {
+        "pole": "open",
+        "derived_from": [
+          "ch-frs-monetary_sovereignty-001"
+        ]
+      },
+      "C6": {
+        "pole": "open",
+        "attributes": {
+          "blocks_supervisory_sharing": false
+        },
+        "derived_from": [
+          "ch-frs-cross_border_data-001"
+        ]
+      },
+      "C8": {
+        "pole": "coordinated",
+        "attributes": {
+          "supervisory_sharing": true
+        },
+        "derived_from": [
+          "ch-frs-disclosure_reporting-001"
+        ]
+      },
+      "C2": {
+        "pole": "prescribed_hqla",
+        "derived_from": [
+          "ch-frs-reserve_backing-001"
+        ]
+      },
+      "C3": {
+        "pole": "prohibited_issuer",
+        "derived_from": [
+          "ch-frs-permitted_activity_yield-001"
+        ]
+      },
+      "C5": {
+        "pole": "layered_separation",
+        "derived_from": [
+          "ch-frs-bank_nonbank_routing-001"
+        ]
+      }
+    },
+    "AE": {
+      "C1": {
+        "pole": "licence_gated",
+        "attributes": {
+          "exportable_token": true
+        },
+        "derived_from": [
+          "ae-pt-issuer_pathway-001"
+        ]
+      },
+      "C7": {
+        "pole": "channelled",
+        "derived_from": [
+          "ae-pt-monetary_sovereignty-001"
+        ]
+      },
+      "C6": {
+        "pole": "open",
+        "attributes": {
+          "blocks_supervisory_sharing": false
+        },
+        "derived_from": [
+          "ae-pt-cross_border_data-001"
+        ]
+      },
+      "C8": {
+        "pole": "coordinated",
+        "attributes": {
+          "supervisory_sharing": true
+        },
+        "derived_from": [
+          "ae-pt-distribution-001"
+        ]
+      },
+      "C2": {
+        "pole": "prescribed_hqla",
+        "derived_from": [
+          "ae-pt-reserve_backing-001"
+        ]
+      },
+      "C3": {
+        "pole": "prohibited_issuer",
+        "derived_from": [
+          "ae-pt-permitted_activity_yield-001"
+        ]
+      },
+      "C4": {
+        "pole": "payment_instrument",
+        "derived_from": [
+          "ae-pt-securities_classification-001"
+        ]
+      },
+      "C5": {
+        "pole": "bank_and_nonbank",
+        "derived_from": [
+          "ae-pt-bank_nonbank_routing-001"
+        ]
+      }
+    },
+    "TW": {
+      "C1": {
+        "pole": "licence_gated",
+        "attributes": {
+          "exportable_token": false
+        },
+        "derived_from": [
+          "tw-frs-issuer_pathway-001"
+        ],
+        "note": "Approval-gated issuer pathway legislated (Virtual Asset Service Act, third reading 30 Jun 2026) but not yet commenced; no exportable token until licences issue after commencement (FSC timetable: subsidiary legislation ~Q1 2027, operator re-application ~Q1 2028). licence_gated with exportable_token:false is the enacted-not-commenced signature: a legislated pathway exists (so not no_pathway), but no token is exportable yet (so TW-origin edges stay Category III via the origin drag), mirroring the UK regime-in-transition C1 with C7 unset, so the substrate returns indeterminate inbound and the time engine owns the commencement."
+      },
+      "C6": {
+        "pole": "open",
+        "attributes": {
+          "blocks_supervisory_sharing": false
+        },
+        "derived_from": [
+          "tw-frs-cross_border_data-001"
+        ]
+      }
+    },
+    "JP": {
+      "C1": {
+        "pole": "closed_set",
+        "attributes": {
+          "exportable_token": true
+        },
+        "note": "Closed trichotomy (bank / funds-transfer / trust); distribution via registered EPIESP.",
+        "derived_from": [
+          "jp-epi-issuer_pathway-001"
+        ]
+      },
+      "C2": {
+        "pole": "prescribed_flex",
+        "derived_from": [
+          "jp-epi-capital_requirements-001"
+        ]
+      },
+      "C3": {
+        "pole": "prohibited_issuer",
+        "derived_from": [
+          "jp-epi-permitted_activity_yield-001"
+        ]
+      },
+      "C6": {
+        "pole": "open",
+        "attributes": {
+          "blocks_supervisory_sharing": false
+        },
+        "derived_from": [
+          "jp-epi-cross_border_data-001"
+        ]
+      },
+      "C7": {
+        "pole": "channelled",
+        "note": "Foreign tokens admitted via a registered EPIESP holding JP reserves equal to customer holdings.",
+        "derived_from": [
+          "jp-epi-monetary_sovereignty-001"
+        ]
+      },
+      "C8": {
+        "pole": "coordinated",
+        "attributes": {
+          "supervisory_sharing": true
+        },
+        "derived_from": [
+          "jp-epi-disclosure_reporting-001"
+        ]
+      },
+      "C4": {
+        "pole": "payment_instrument",
+        "derived_from": [
+          "jp-epi-securities_classification-001"
+        ]
+      },
+      "C5": {
+        "pole": "layered_separation",
+        "derived_from": [
+          "jp-epi-bank_nonbank_routing-001"
+        ]
+      }
+    },
+    "KR": {
+      "C1": {
+        "pole": "no_pathway",
+        "attributes": {
+          "exportable_token": false
+        },
+        "derived_from": [
+          "kr-frs-issuer_pathway-001"
+        ]
+      },
+      "C6": {
+        "pole": "open",
+        "attributes": {
+          "blocks_supervisory_sharing": false
+        },
+        "derived_from": [
+          "kr-frs-cross_border_data-001"
+        ]
+      }
+    }
+  }
+}

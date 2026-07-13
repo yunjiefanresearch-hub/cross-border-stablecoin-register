@@ -1,0 +1,64 @@
+{
+  "register": "Cross-Border Stablecoin Register",
+  "version": "0.10.1",
+  "generated": "2026-07-10",
+  "endpoint": "corridor_directed",
+  "guardrail": "static projection of the public register; no facts added here",
+  "data": {
+    "corridor_id": "sg-kr-directed",
+    "name": "SG -> KR (SGD->KRW directed edge)",
+    "schema": "corridor/v3-directed-edge",
+    "origin": "SG",
+    "destination": "KR",
+    "direction": "directed",
+    "currencies": "SGD -> KRW",
+    "feasibility_class": "Pre-regime (no operative destination regime yet)",
+    "class_code": "pre_regime",
+    "compatibility_category": "III",
+    "compatibility_pair": "KR-SG",
+    "archetypes": [
+      "RC"
+    ],
+    "interaction_sets": [
+      "C"
+    ],
+    "infrastructure_overlap": {
+      "bloc": "none",
+      "note": "SG on Project Ensemble; KR on Project Agora. At least one end off the shared experiments."
+    },
+    "inbound_mechanism": {
+      "test": "No operative inbound regime (draft DABA)",
+      "administrator": "FSC (Korea)",
+      "detail": null
+    },
+    "origin_drag": false,
+    "materialized_from": "computed_skeleton",
+    "class_basis": {
+      "rule": "destination_no_regime",
+      "governing_jurisdiction": "KR",
+      "signal": "inbound_gate",
+      "signal_value": "none",
+      "claim_class": "tier1_legal",
+      "binding_status": "no_regime",
+      "evidence_tier": "mixed",
+      "instrument": "No operative inbound issuance-authorization regime to receive into (draft DABA).",
+      "record_ref": "kr-frs-monetary_sovereignty-001",
+      "record_ref_meta": {
+        "dimension": "monetary_sovereignty",
+        "match": "same_instrument",
+        "record_binding_status": "pending_proposal",
+        "record_evidence_tier": "firm_summary",
+        "record_claim_class": "tier1_legal",
+        "note": "As KR.token_regime: `pending_proposal` (the bill exists) vs `no_regime` (nothing operative).",
+        "divergence": "As KR.token_regime: `pending_proposal` (the bill exists) vs `no_regime` (nothing operative)."
+      }
+    },
+    "origin_override": {
+      "flag": "origin-egress override",
+      "status": "active",
+      "basis": "MAS Digital Token Service Provider statement (June 2025): unlicensed Singapore-based operations serving offshore customers are constrained, so the origin co-governs an otherwise destination-gated edge.",
+      "administrator": "MAS",
+      "detail": null
+    }
+  }
+}

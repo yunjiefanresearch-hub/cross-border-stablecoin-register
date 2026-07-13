@@ -1,0 +1,83 @@
+{
+  "register": "Cross-Border Stablecoin Register",
+  "version": "0.10.1",
+  "generated": "2026-07-10",
+  "endpoint": "corridor_directed",
+  "guardrail": "static projection of the public register; no facts added here",
+  "data": {
+    "corridor_id": "sg-tw-directed",
+    "name": "SG -> TW (SGD->NTD directed edge)",
+    "schema": "corridor/v3-directed-edge",
+    "origin": "SG",
+    "destination": "TW",
+    "direction": "directed",
+    "currencies": "SGD -> NTD",
+    "feasibility_class": "Regime-in-transition (destination regime adopted, not yet operative; resolves to Category II at pending (contingent, no gazetted date))",
+    "class_code": "T",
+    "compatibility_category": "III",
+    "compatibility_pair": "SG-TW",
+    "archetypes": [
+      "RC",
+      "SC",
+      "TC",
+      "DC"
+    ],
+    "interaction_sets": [
+      "A",
+      "F"
+    ],
+    "infrastructure_overlap": {
+      "bloc": "none",
+      "note": "SG on Project Ensemble; TW on no shared wholesale-settlement experiment. At least one end off the shared experiments."
+    },
+    "inbound_mechanism": {
+      "test": "Virtual Asset Service Act enacted 2026-06-30; FSC-approval inbound gate on commencement",
+      "administrator": "FSC + CBC (dual approval)",
+      "detail": null
+    },
+    "as_of_timeline": {
+      "today_class": "T",
+      "as_of_base": "2026-06-30",
+      "scheduled": [],
+      "contingent": [
+        {
+          "event_id": "tw-vas-act-commencement",
+          "effective_date": null,
+          "date_kind": "ungazetted",
+          "status": "contingent",
+          "resolves_to": "II",
+          "basis": "Virtual Asset Service Act: issuance and the inbound treatment of offshore stablecoins are conditioned on approval by the FSC AND the Central Bank of the Republic of China (Taiwan) -- dual approval, not FSC-with-CBC-consulted. Issuer-paid yield is prohibited. Roughly a 21-month operator transition."
+        }
+      ]
+    },
+    "materialized_from": "computed_transition",
+    "origin_drag": false,
+    "class_basis": {
+      "rule": "destination_in_transition",
+      "governing_jurisdiction": "TW",
+      "signal": "inbound_gate",
+      "signal_value": "channel",
+      "claim_class": "tier1_legal",
+      "binding_status": "made_not_commenced",
+      "evidence_tier": "mixed",
+      "instrument": "Virtual Asset Service Act: issuance and the inbound treatment of offshore stablecoins are conditioned on approval by the FSC AND the Central Bank of the Republic of China (Taiwan) -- dual approval, not FSC-with-CBC-consulted. Issuer-paid yield is prohibited. Roughly a 21-month operator transition.",
+      "record_ref": "tw-frs-monetary_sovereignty-001",
+      "record_ref_meta": {
+        "dimension": "monetary_sovereignty",
+        "match": "related_dimension",
+        "record_binding_status": "made_not_commenced",
+        "record_evidence_tier": "firm_summary",
+        "record_claim_class": "tier1_legal",
+        "backlog_ref": "VB-R1",
+        "note": "`tw-frs-monetary_sovereignty-001` still cites the 'draft Virtual Asset Service Act'. The Act was passed at third reading on 2026-06-30 and is enacted, not draft. The signal is correct and the record's source prose is stale — the node-record face of finding F-TW. Recorded here rather than silently corrected: a legal record is edited by a verification pass, not by a build script."
+      }
+    },
+    "origin_override": {
+      "flag": "origin-egress override",
+      "status": "active",
+      "basis": "MAS Digital Token Service Provider statement (June 2025): unlicensed Singapore-based operations serving offshore customers are constrained, so the origin co-governs an otherwise destination-gated edge.",
+      "administrator": "MAS",
+      "detail": null
+    }
+  }
+}

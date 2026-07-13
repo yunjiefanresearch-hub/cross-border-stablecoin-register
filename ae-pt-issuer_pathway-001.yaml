@@ -1,0 +1,51 @@
+id: ae-pt-issuer_pathway-001
+jurisdiction: AE
+authority: CBUAE / VARA / FSRA / DFSA
+instrument_type: payment_stablecoin
+instrument_label_local: Payment Token (Dirham Payment Token / Foreign Payment Token)
+dimension: issuer_pathway
+constraint_ref: C1
+requirement_summary: Onshore, a Dirham Payment Token (DPT) may be issued only by a CBUAE-licensed, UAE-incorporated
+  entity; a Foreign Payment Token (FPT) is a registered foreign issuer's token that may be used only to purchase
+  virtual assets or derivatives, not for general payments. Banks may issue payment tokens through a subsidiary.
+  Free-zone issuers operate under the VARA/FSRA/DFSA frameworks but cannot issue AED tokens — AED issuance is reserved
+  to the CBUAE regime.
+requirement_structured:
+  dpt_onshore: CBUAE-licensed, UAE-incorporated entity
+  fpt_onshore: registered foreign issuer; usable only for VA/derivative purchases
+  banks: may issue via a subsidiary
+  free_zone: VARA/FSRA/DFSA frameworks; cannot issue AED tokens
+status: in_force
+source:
+  primary: CBUAE PTSR (Circular 2/2024); VARA / ADGM-FSRA / DIFC-DFSA frameworks
+  pinpoint: Issuer pathways — DPT (CBUAE-licensed); FPT (foreign, VA/derivative-only); bank subsidiary; free-zone
+    cannot issue AED
+  url: https://rulebook.centralbank.ae/en/rulebook/payment-token-services-regulation
+secondary:
+- citation: Fan, Multi-Jurisdiction Stablecoin Compliance Matrix v0.9.6 (June 2026), §United Arab Emirates (Issuer
+    Pathways and Eligibility)
+- citation: 'Fan, Cross-Border Stablecoin Architecture v3 (Twelve Jurisdictions, June 2026), §2.1 (Constraint 1:
+    Issuer Eligibility)'
+- citation: CBUAE Payment Token Services Regulation (Circular 2/2024) — published in English (authoritative) and
+    Arabic.
+- citation: 'Free-zone issuance pathways: VARA Annex 1 (Fiat-Referenced Virtual Assets Issuance Rules) https://rulebooks.vara.ae/rulebook/annex-1-fiat-referenced-virtual-assets-issuance-rules;
+    ADGM FSRA FRT framework https://www.adgm.com/media/announcements/adgm-fsra-finalises-regulatory-framework-for-regulated-activities-involving-fiat-referenced-tokens.'
+interpretation_note: 'Provenance: transcribed from the author''s Compliance Matrix v0.9.6; VERIFIED against the
+  official primary text in the v0.5.1 verification pass (source.url is the official instrument). The AED-issuance
+  carve-out (free zones cannot issue AED) is the constraint that ties issuer eligibility to the monetary-sovereignty
+  channel restriction (see ae-pt-monetary_sovereignty-001).'
+confidence: high
+claim_class: tier1_legal
+evidence_tier: resolution_text
+last_reviewed: '2026-06-27'
+version_added: 0.4.0
+tags:
+- mideast
+- focus
+- from_matrix_v0.9.6
+- v0.4.0_expansion
+- v0.5.1_verification
+- resolution_text_verified
+- v0.7.0_claim_class
+- binding_in_force_enacted
+binding_status: in_force_enacted

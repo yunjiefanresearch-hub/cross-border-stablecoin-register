@@ -1,0 +1,68 @@
+id: br-vasp-securities_classification-001
+jurisdiction: BR
+authority: CVM (securities-like tokens); BCB (virtual-asset payments/custody)
+instrument_type: tokenized_security
+instrument_label_local: token caracterizado como valor mobiliário
+dimension: securities_classification
+constraint_ref: C4
+requirement_summary: Lei 14.478/2022 and Decreto 11.563/2023 preserve CVM jurisdiction over virtual assets that
+  are securities (valores mobiliários) and over investor-protection issues; the functional securities-vs-virtual-asset
+  distinction follows CVM Parecer de Orientação 40. A token with collective-investment / securities characteristics
+  is regulated by the CVM, not (only) by the BCB SPSAV regime. Brazilian investment funds — the natural routing
+  destination — are governed by Resolução CVM 175. A USD-referenced payment stablecoin is treated by the BCB as
+  a foreign-exchange instrument rather than a security.
+requirement_structured:
+  securities_authority: CVM
+  classification_instrument: CVM Parecer de Orientação 40
+  funds_framework: Resolução CVM 175
+  bcb_view_of_usd_stablecoin: foreign-exchange instrument (not a security)
+status: in_force
+effective_date: '2026-02-02'
+source:
+  primary: Lei 14.478/2022 + Decreto 11.563/2023 (CVM carve-out); CVM Parecer de Orientação 40; Resolução CVM 175
+    (investment funds)
+  url: https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2022/lei/l14478.htm
+  pinpoint: Lei 14.478/2022; Decreto 11.563/2023 (BCB over payment/VASP activity; CVM jurisdiction preserved over
+    tokens with securities characteristics)
+secondary:
+- citation: Global Legal Insights, Brazil 2026 (CVM Parecer de Orientação 40; securities vs virtual-asset)
+  url: https://www.globallegalinsights.com/practice-areas/blockchain-cryptocurrency-laws-and-regulations/brazil/
+- citation: Chainalysis (2023 decree maintains CVM jurisdiction over securities-like tokens)
+  url: https://www.chainalysis.com/blog/brazil-crypto-asset-regulatory-framework-2025/
+interpretation_note: 'Provenance: corridor fieldwork. Brazilian C4 analogue of the US Reves/§404 securities-classification
+  spine — but Brazil''s contribution is token classification + asset curation (Parecer 40 + Res 520), NOT a developed
+  routing-into-tokenised-fund story; the CVM-175 tokenised-fund routing analysis is net-new work that would feed
+  the ''Reves'' Fourth Factor / Routing Across Six Jurisdictions'' paper.
+
+
+  [v0.9.5 verification] NATIVE-LANGUAGE VERIFICATION (Portuguese): confirmed against the official BCB text. The
+  Lei 14.478/2022 framework as implemented by Res BCB 519/520/521 (in force 2 Feb 2026) is enacted law, so this
+  cell is promoted to resolution_text.'
+interpretive_flag:
+  tension: Whether a Brazilian tokenised money-market-fund routing arrangement crosses from BCB (payments) into
+    CVM (securities) regulation is undeveloped in the public record.
+  resolution_channel: CVM rulemaking / no-action; future analysis
+confidence: high
+claim_class: tier1_legal
+evidence_tier: resolution_text
+last_reviewed: '2026-06-27'
+version_added: 0.3.1
+tags:
+- latam
+- focus
+- firm_analysis_corroborated_2026-06
+- c4_spine
+- v0.9.5_verification
+- binding_in_force_enacted
+- resolution_text_verified
+binding_status: in_force_enacted
+verification:
+  verified_by: external review (web retrieval against official sources)
+  verified_on: '2026-06-27'
+  method: official_text
+  against:
+    instrument: Lei 14.478/2022 + Res BCB 519/520/521 (in force 2 Feb 2026) + Res Conjunta CMN/BCB 14/2025 + Res
+      BCB 517/2025 + Decreto 11.563/2023
+    url: https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2022/lei/l14478.htm
+    pinpoint: Lei 14.478/2022; Decreto 11.563/2023 (BCB over payment/VASP activity; CVM jurisdiction preserved over
+      tokens with securities characteristics)

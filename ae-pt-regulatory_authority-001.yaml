@@ -1,0 +1,47 @@
+id: ae-pt-regulatory_authority-001
+jurisdiction: AE
+authority: CBUAE (onshore); VARA / ADGM-FSRA / DIFC-DFSA (free zones)
+instrument_type: payment_stablecoin
+instrument_label_local: Payment Token (Dirham Payment Token / Foreign Payment Token)
+dimension: regulatory_authority
+requirement_summary: 'The UAE operates a federal-versus-free-zone split. Onshore, the Central Bank of the UAE (CBUAE)
+  Payment Token Services Regulation (PTSR, Circular 2/2024) governs payment-token issuance and use. The financial
+  free zones run their own fiat-referenced-token regimes: VARA (Dubai, outside the DIFC); the ADGM Financial Services
+  Regulatory Authority (FSRA) under its Fiat-Referenced Token (FRT) framework; and the DIFC''s Dubai Financial Services
+  Authority (DFSA) under its Crypto Token rules.'
+requirement_structured:
+  split: federal (onshore) vs financial free zones
+  onshore: CBUAE PTSR (Circular 2/2024)
+  free_zones:
+  - VARA (Dubai ex-DIFC)
+  - ADGM-FSRA (FRT framework)
+  - DIFC-DFSA (Crypto Token rules)
+status: in_force
+source:
+  primary: CBUAE Payment Token Services Regulation (Circular 2/2024); VARA / ADGM-FSRA / DIFC-DFSA frameworks
+  pinpoint: Regulators — CBUAE onshore; VARA / ADGM-FSRA / DIFC-DFSA free zones
+  url: https://rulebook.centralbank.ae/en/rulebook/payment-token-services-regulation
+secondary:
+- citation: Fan, Multi-Jurisdiction Stablecoin Compliance Matrix v0.9.6 (June 2026), §United Arab Emirates (Statutory
+    Framework / Regulators)
+- citation: CBUAE Payment Token Services Regulation (Circular 2/2024) — published in English (authoritative) and
+    Arabic.
+interpretation_note: 'Provenance: transcribed from the author''s Compliance Matrix v0.9.6; VERIFIED against the
+  official primary text in the v0.5.1 verification pass (source.url is the official instrument). The four-regulator
+  split is the structural hallmark: onshore and free-zone regimes are distinct perimeters, not a single national
+  regime (Matrix Tier 2 correction).'
+confidence: high
+claim_class: tier1_legal
+evidence_tier: resolution_text
+last_reviewed: '2026-06-27'
+version_added: 0.4.0
+tags:
+- mideast
+- focus
+- from_matrix_v0.9.6
+- v0.4.0_expansion
+- v0.5.1_verification
+- resolution_text_verified
+- v0.7.0_claim_class
+- binding_in_force_enacted
+binding_status: in_force_enacted

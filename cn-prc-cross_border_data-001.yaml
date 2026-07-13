@@ -1,0 +1,54 @@
+id: cn-prc-cross_border_data-001
+jurisdiction: CN
+authority: CAC; PBOC
+instrument_type: other
+instrument_label_local: 出境数据 (cross-border data); wallet KYC / merchant onboarding data
+dimension: cross_border_data
+constraint_ref: C6
+requirement_summary: 'Even where issuance is prohibited, stablecoin-related personal data (wallet KYC and merchant-onboarding
+  data tied to PRC residents) falls within PIPL outbound-transfer scope and is the binding constraint that reaches
+  non-PRC-affiliated cross-border firms. PIPL (effective 1 Nov 2021) requires that any cross-border transfer of
+  personal information satisfy one of three gates: (a) a CAC security assessment, (b) personal-information-protection
+  certification by a CAC-approved body, or (c) a CAC Standard Contract. The Data Security Law (DSL, effective 1
+  Sep 2021) subjects cross-border transfer of ''important data'' to security review. The 22 March 2024 Provisions
+  on Promoting and Regulating Cross-Border Data Flows raise the thresholds for mandatory security assessment, giving
+  partial relief for routine business data (e.g. HR and contract-performance data). Free Trade Zone negative lists
+  (Shanghai, Beijing, Hainan, and others) provide additional zone-specific relief.'
+requirement_structured:
+  pipl_transfer_gates:
+  - CAC security assessment
+  - CAC-approved certification
+  - CAC Standard Contract
+  dsl_important_data: cross-border transfer subject to security review
+  march_2024_provisions: raises mandatory-assessment thresholds; partial relief for routine business data
+  ftz_relief: zone-specific negative lists (Shanghai/Beijing/Hainan/etc.)
+  reaches_non_prc_firms: true
+status: in_force
+effective_date: '2021-11-01'
+source:
+  primary: Personal Information Protection Law (PIPL, eff. 1 Nov 2021); Data Security Law (DSL, eff. 1 Sep 2021);
+    CAC Provisions on Promoting and Regulating Cross-Border Data Flows (22 Mar 2024)
+  pinpoint: PIPL three-gate outbound transfer; DSL important-data review; March 2024 threshold relief; FTZ negative
+    lists
+secondary:
+- citation: Fan, Multi-Jurisdiction Stablecoin Compliance Matrix v0.9.6 (June 2026), §Mainland China (Cross-Border
+    Data Treatment) [re-pinned from v0.9.3]
+interpretation_note: 'Provenance: transcribed from the author''s Compliance Matrix (re-pinned to v0.9.6; originally
+  v0.9.3). This is the one PRC constraint that binds firms with no PRC entity affiliation: when their KYC/onboarding
+  flows touch PRC-resident personal data, the PIPL and DSL gates apply regardless of where the stablecoin is issued.
+
+
+  [v0.9.5 verification] PIPL/DSL/CAC data regime is in force, but the specific outbound-transfer thresholds were
+  NOT line-verified against original-language official text in this pass; kept unset.'
+confidence: high
+claim_class: tier1_legal
+last_reviewed: '2026-06-17'
+version_added: 0.2.0
+tags:
+- apac
+- focus
+- from_matrix_v0.9.6
+- data_sovereignty
+- v0.9.5_verification
+- binding_in_force_enacted
+binding_status: in_force_enacted

@@ -1,0 +1,4028 @@
+{
+  "schema": "cbsr-analysis/computed_stakeholder_profiles",
+  "version": "0.9.4",
+  "status": "preview",
+  "method": "profile_for(stakeholder, edge) re-projects the derived corridor class, the substrate poles, and the edge inbound mechanism through each Atlas §8 persona. No new legal facts: every line is read from an existing record and every profile cites its backing tier1_legal records. Profiles are preview and inherit the verification status of the cells they read.",
+  "personas": [
+    "issuer",
+    "distributor",
+    "reserve_custodian",
+    "home_regulator",
+    "host_regulator",
+    "corporate_treasury",
+    "token_holder"
+  ],
+  "corridors_projected": [
+    "EU->US",
+    "HK->BR",
+    "HK->CN",
+    "HK->US",
+    "JP->US",
+    "SG->HK",
+    "US->EU",
+    "US->HK",
+    "US->JP"
+  ],
+  "provenance": {
+    "records_cited": 51,
+    "missing_records": [],
+    "nontier1_profiles": [],
+    "clean": true
+  },
+  "profiles": [
+    {
+      "edge": "EU->US",
+      "stakeholder": "issuer",
+      "label": "Stablecoin issuer (L1)",
+      "lens": "May I issue, and will my token be admitted into the destination?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "SC"
+      ],
+      "inbound_mechanism": {
+        "test": "GENIUS Act §18 comparability determination",
+        "detail": "Unilateral Treasury comparability determination (on SCRC recommendation) + OCC registration + US-held reserves; none granted to date.",
+        "administrator": "US Treasury (Stablecoin Certification Review Committee) / OCC"
+      },
+      "headline": "As an EU issuer, issuance is authorization-gated; entry into US is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "EU",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "licence_gated",
+          "record": "eu-emt-issuer_pathway-001",
+          "implication": "issuance is authorization-gated"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "EU",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "eu-emt-reserve_backing-001",
+          "implication": "reserve must be high-quality liquid assets"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "licence_gated",
+          "record": "us-pss-issuer_pathway-001",
+          "implication": "issuance is authorization-gated"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "channelled",
+          "record": "us-pss-monetary_sovereignty-001",
+          "implication": "foreign tokens admitted only via a determination / channel"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "eu-emt-issuer_pathway-001",
+          "eu-emt-reserve_backing-001",
+          "us-pss-issuer_pathway-001",
+          "us-pss-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 4 cell(s), 3 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "EU->US",
+      "stakeholder": "distributor",
+      "label": "Distributor / wallet / PSP (L2 routing)",
+      "lens": "What may I do in the routing chain without becoming an unlicensed issuer or broker?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "DC"
+      ],
+      "inbound_mechanism": {
+        "test": "GENIUS Act §18 comparability determination",
+        "detail": "Unilateral Treasury comparability determination (on SCRC recommendation) + OCC registration + US-held reserves; none granted to date.",
+        "administrator": "US Treasury (Stablecoin Certification Review Committee) / OCC"
+      },
+      "headline": "As a distributor/wallet into US: bank and non-bank issuers admitted; the corridor is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "EU",
+          "side_constraint": "C5",
+          "constraint_name": "bank/non-bank routing",
+          "pole": "bank_and_nonbank",
+          "record": "eu-emt-bank_nonbank_routing-001",
+          "implication": "bank and non-bank issuers admitted"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "EU",
+          "side_constraint": "C3",
+          "constraint_name": "yield",
+          "pole": "prohibited_issuer",
+          "record": "eu-emt-permitted_activity_yield-001",
+          "implication": "issuer may not pay yield"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C5",
+          "constraint_name": "bank/non-bank routing",
+          "pole": "bank_and_nonbank",
+          "record": "us-pss-bank_nonbank_routing-001",
+          "implication": "bank and non-bank issuers admitted"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C3",
+          "constraint_name": "yield",
+          "pole": "prohibited_incl_agents",
+          "record": "us-pss-permitted_activity_yield-001",
+          "implication": "issuer and agents may not pay yield"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C4",
+          "constraint_name": "securities classification",
+          "pole": "contested_routing",
+          "record": "us-pss-securities_classification-001",
+          "implication": "classification turns on the routing structure"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "eu-emt-bank_nonbank_routing-001",
+          "eu-emt-permitted_activity_yield-001",
+          "us-pss-bank_nonbank_routing-001",
+          "us-pss-permitted_activity_yield-001",
+          "us-pss-securities_classification-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 5 cell(s), 2 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "EU->US",
+      "stakeholder": "reserve_custodian",
+      "label": "Reserve custodian",
+      "lens": "What reserve composition and segregation must I hold, and is data sharing constrained?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "RC",
+        "SC"
+      ],
+      "inbound_mechanism": {
+        "test": "GENIUS Act §18 comparability determination",
+        "detail": "Unilateral Treasury comparability determination (on SCRC recommendation) + OCC registration + US-held reserves; none granted to date.",
+        "administrator": "US Treasury (Stablecoin Certification Review Committee) / OCC"
+      },
+      "headline": "As reserve custodian for the EU issuer: reserve must be high-quality liquid assets; the corridor is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "EU",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "eu-emt-reserve_backing-001",
+          "implication": "reserve must be high-quality liquid assets"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "EU",
+          "side_constraint": "C6",
+          "constraint_name": "cross-border/data",
+          "pole": "open",
+          "record": "eu-emt-cross_border_data-001",
+          "implication": "no data-localization barrier to supervisory sharing"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "us-pss-reserve_backing-001",
+          "implication": "reserve must be high-quality liquid assets"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "eu-emt-cross_border_data-001",
+          "eu-emt-reserve_backing-001",
+          "us-pss-reserve_backing-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 3 cell(s), 2 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "EU->US",
+      "stakeholder": "home_regulator",
+      "label": "Home (origin) regulator",
+      "lens": "Can I supervise outbound use and share information with the host?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "RC"
+      ],
+      "inbound_mechanism": {
+        "test": "GENIUS Act §18 comparability determination",
+        "detail": "Unilateral Treasury comparability determination (on SCRC recommendation) + OCC registration + US-held reserves; none granted to date.",
+        "administrator": "US Treasury (Stablecoin Certification Review Committee) / OCC"
+      },
+      "headline": "As the EU (home) regulator: no data-localization barrier to supervisory sharing; supervising outbound use into US, the corridor is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "EU",
+          "side_constraint": "C6",
+          "constraint_name": "cross-border/data",
+          "pole": "open",
+          "record": "eu-emt-cross_border_data-001",
+          "implication": "no data-localization barrier to supervisory sharing"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "EU",
+          "side_constraint": "C8",
+          "constraint_name": "disclosure/supervisory",
+          "pole": "coordinated",
+          "record": "eu-emt-disclosure_reporting-001",
+          "implication": "supervisory coordination available"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "EU",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "usage_capped",
+          "record": "eu-emt-monetary_sovereignty-001",
+          "implication": "scale / usage capped"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C8",
+          "constraint_name": "disclosure/supervisory",
+          "pole": "coordinated",
+          "record": "us-pss-disclosure_reporting-001",
+          "implication": "supervisory coordination available"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "eu-emt-cross_border_data-001",
+          "eu-emt-disclosure_reporting-001",
+          "eu-emt-monetary_sovereignty-001",
+          "us-pss-disclosure_reporting-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 4 cell(s), 3 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "EU->US",
+      "stakeholder": "host_regulator",
+      "label": "Host (destination) regulator",
+      "lens": "Under what conditions may a foreign token circulate here?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "RC"
+      ],
+      "inbound_mechanism": {
+        "test": "GENIUS Act §18 comparability determination",
+        "detail": "Unilateral Treasury comparability determination (on SCRC recommendation) + OCC registration + US-held reserves; none granted to date.",
+        "administrator": "US Treasury (Stablecoin Certification Review Committee) / OCC"
+      },
+      "headline": "As the US (host) regulator: foreign tokens — foreign tokens admitted only via a determination / channel; the corridor is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "EU",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "licence_gated",
+          "record": "eu-emt-issuer_pathway-001",
+          "implication": "issuance is authorization-gated"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "licence_gated",
+          "record": "us-pss-issuer_pathway-001",
+          "implication": "issuance is authorization-gated"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "channelled",
+          "record": "us-pss-monetary_sovereignty-001",
+          "implication": "foreign tokens admitted only via a determination / channel"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C8",
+          "constraint_name": "disclosure/supervisory",
+          "pole": "coordinated",
+          "record": "us-pss-disclosure_reporting-001",
+          "implication": "supervisory coordination available"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "eu-emt-issuer_pathway-001",
+          "us-pss-disclosure_reporting-001",
+          "us-pss-issuer_pathway-001",
+          "us-pss-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 4 cell(s), 3 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "EU->US",
+      "stakeholder": "corporate_treasury",
+      "label": "Corporate treasury (rail user)",
+      "lens": "Can I move value on this rail, at scale, and how do I book it?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "DC"
+      ],
+      "inbound_mechanism": {
+        "test": "GENIUS Act §18 comparability determination",
+        "detail": "Unilateral Treasury comparability determination (on SCRC recommendation) + OCC registration + US-held reserves; none granted to date.",
+        "administrator": "US Treasury (Stablecoin Certification Review Committee) / OCC"
+      },
+      "headline": "As a corporate treasury using the EU->US rail: foreign tokens admitted only via a determination / channel; feasibility is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "EU",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "eu-emt-reserve_backing-001",
+          "implication": "reserve must be high-quality liquid assets"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "channelled",
+          "record": "us-pss-monetary_sovereignty-001",
+          "implication": "foreign tokens admitted only via a determination / channel"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C4",
+          "constraint_name": "securities classification",
+          "pole": "contested_routing",
+          "record": "us-pss-securities_classification-001",
+          "implication": "classification turns on the routing structure"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "eu-emt-reserve_backing-001",
+          "us-pss-monetary_sovereignty-001",
+          "us-pss-securities_classification-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 3 cell(s), 2 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "EU->US",
+      "stakeholder": "token_holder",
+      "label": "Institutional holder / investor (TC)",
+      "lens": "What am I holding — is it a security, is it yield-bearing, is the reserve sound?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "TC"
+      ],
+      "inbound_mechanism": {
+        "test": "GENIUS Act §18 comparability determination",
+        "detail": "Unilateral Treasury comparability determination (on SCRC recommendation) + OCC registration + US-held reserves; none granted to date.",
+        "administrator": "US Treasury (Stablecoin Certification Review Committee) / OCC"
+      },
+      "headline": "As an institutional holder in US: classification turns on the routing structure; the corridor is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "EU",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "eu-emt-reserve_backing-001",
+          "implication": "reserve must be high-quality liquid assets"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C4",
+          "constraint_name": "securities classification",
+          "pole": "contested_routing",
+          "record": "us-pss-securities_classification-001",
+          "implication": "classification turns on the routing structure"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C3",
+          "constraint_name": "yield",
+          "pole": "prohibited_incl_agents",
+          "record": "us-pss-permitted_activity_yield-001",
+          "implication": "issuer and agents may not pay yield"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "eu-emt-reserve_backing-001",
+          "us-pss-permitted_activity_yield-001",
+          "us-pss-securities_classification-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 3 cell(s), 1 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "HK->BR",
+      "stakeholder": "issuer",
+      "label": "Stablecoin issuer (L1)",
+      "lens": "May I issue, and will my token be admitted into the destination?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [],
+      "inbound_mechanism": null,
+      "headline": "As an HK issuer, issuance is authorization-gated; entry into BR is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "licence_gated",
+          "record": "hk-frs-issuer_pathway-001",
+          "implication": "issuance is authorization-gated"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "hk-frs-capital_requirements-001",
+          "implication": "reserve must be high-quality liquid assets"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "BR",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "licence_gated",
+          "record": "br-vasp-issuer_pathway-001",
+          "implication": "issuance is authorization-gated"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "BR",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "channelled",
+          "record": "br-vasp-monetary_sovereignty-001",
+          "implication": "foreign tokens admitted only via a determination / channel"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "br-vasp-issuer_pathway-001",
+          "br-vasp-monetary_sovereignty-001",
+          "hk-frs-capital_requirements-001",
+          "hk-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 4 cell(s), 0 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "HK->BR",
+      "stakeholder": "distributor",
+      "label": "Distributor / wallet / PSP (L2 routing)",
+      "lens": "What may I do in the routing chain without becoming an unlicensed issuer or broker?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [],
+      "inbound_mechanism": null,
+      "headline": "As a distributor/wallet into BR: bank and non-bank issuers admitted; the corridor is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C5",
+          "constraint_name": "bank/non-bank routing",
+          "pole": "bank_and_nonbank",
+          "record": "hk-frs-bank_nonbank_routing-001",
+          "implication": "bank and non-bank issuers admitted"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C3",
+          "constraint_name": "yield",
+          "pole": "prohibited_issuer",
+          "record": "hk-frs-permitted_activity_yield-001",
+          "implication": "issuer may not pay yield"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "BR",
+          "side_constraint": "C5",
+          "constraint_name": "bank/non-bank routing",
+          "pole": "bank_and_nonbank",
+          "record": "br-vasp-bank_nonbank_routing-001",
+          "implication": "bank and non-bank issuers admitted"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "BR",
+          "side_constraint": "C3",
+          "constraint_name": "yield",
+          "pole": "silent",
+          "record": "br-vasp-permitted_activity_yield-001",
+          "implication": "yield treatment unsettled"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "BR",
+          "side_constraint": "C4",
+          "constraint_name": "securities classification",
+          "pole": null,
+          "implication": "pole unset — indeterminate at the substrate level"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "br-vasp-bank_nonbank_routing-001",
+          "br-vasp-permitted_activity_yield-001",
+          "hk-frs-bank_nonbank_routing-001",
+          "hk-frs-permitted_activity_yield-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 4 cell(s), 2 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "HK->BR",
+      "stakeholder": "reserve_custodian",
+      "label": "Reserve custodian",
+      "lens": "What reserve composition and segregation must I hold, and is data sharing constrained?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [],
+      "inbound_mechanism": null,
+      "headline": "As reserve custodian for the HK issuer: reserve must be high-quality liquid assets; the corridor is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "hk-frs-capital_requirements-001",
+          "implication": "reserve must be high-quality liquid assets"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C6",
+          "constraint_name": "cross-border/data",
+          "pole": "open",
+          "record": "hk-frs-cross_border_data-001",
+          "implication": "no data-localization barrier to supervisory sharing"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "BR",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "br-vasp-capital_requirements-001",
+          "implication": "reserve must be high-quality liquid assets"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "br-vasp-capital_requirements-001",
+          "hk-frs-capital_requirements-001",
+          "hk-frs-cross_border_data-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 3 cell(s), 1 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "HK->BR",
+      "stakeholder": "home_regulator",
+      "label": "Home (origin) regulator",
+      "lens": "Can I supervise outbound use and share information with the host?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [],
+      "inbound_mechanism": null,
+      "headline": "As the HK (home) regulator: no data-localization barrier to supervisory sharing; supervising outbound use into BR, the corridor is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C6",
+          "constraint_name": "cross-border/data",
+          "pole": "open",
+          "record": "hk-frs-cross_border_data-001",
+          "implication": "no data-localization barrier to supervisory sharing"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C8",
+          "constraint_name": "disclosure/supervisory",
+          "pole": "coordinated",
+          "record": "hk-frs-disclosure_reporting-001",
+          "implication": "supervisory coordination available"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "open",
+          "record": "hk-frs-monetary_sovereignty-001",
+          "implication": "no usage cap; dual authorization available"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "BR",
+          "side_constraint": "C8",
+          "constraint_name": "disclosure/supervisory",
+          "pole": "coordinated",
+          "record": "br-vasp-disclosure_reporting-001",
+          "implication": "supervisory coordination available"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "br-vasp-disclosure_reporting-001",
+          "hk-frs-cross_border_data-001",
+          "hk-frs-disclosure_reporting-001",
+          "hk-frs-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 4 cell(s), 2 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "HK->BR",
+      "stakeholder": "host_regulator",
+      "label": "Host (destination) regulator",
+      "lens": "Under what conditions may a foreign token circulate here?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [],
+      "inbound_mechanism": null,
+      "headline": "As the BR (host) regulator: foreign tokens — foreign tokens admitted only via a determination / channel; the corridor is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "licence_gated",
+          "record": "hk-frs-issuer_pathway-001",
+          "implication": "issuance is authorization-gated"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "BR",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "licence_gated",
+          "record": "br-vasp-issuer_pathway-001",
+          "implication": "issuance is authorization-gated"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "BR",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "channelled",
+          "record": "br-vasp-monetary_sovereignty-001",
+          "implication": "foreign tokens admitted only via a determination / channel"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "BR",
+          "side_constraint": "C8",
+          "constraint_name": "disclosure/supervisory",
+          "pole": "coordinated",
+          "record": "br-vasp-disclosure_reporting-001",
+          "implication": "supervisory coordination available"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "br-vasp-disclosure_reporting-001",
+          "br-vasp-issuer_pathway-001",
+          "br-vasp-monetary_sovereignty-001",
+          "hk-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 4 cell(s), 0 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "HK->BR",
+      "stakeholder": "corporate_treasury",
+      "label": "Corporate treasury (rail user)",
+      "lens": "Can I move value on this rail, at scale, and how do I book it?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [],
+      "inbound_mechanism": null,
+      "headline": "As a corporate treasury using the HK->BR rail: foreign tokens admitted only via a determination / channel; feasibility is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "hk-frs-capital_requirements-001",
+          "implication": "reserve must be high-quality liquid assets"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "BR",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "channelled",
+          "record": "br-vasp-monetary_sovereignty-001",
+          "implication": "foreign tokens admitted only via a determination / channel"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "BR",
+          "side_constraint": "C4",
+          "constraint_name": "securities classification",
+          "pole": null,
+          "implication": "pole unset — indeterminate at the substrate level"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "br-vasp-monetary_sovereignty-001",
+          "hk-frs-capital_requirements-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 2 cell(s), 0 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "HK->BR",
+      "stakeholder": "token_holder",
+      "label": "Institutional holder / investor (TC)",
+      "lens": "What am I holding — is it a security, is it yield-bearing, is the reserve sound?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [],
+      "inbound_mechanism": null,
+      "headline": "As an institutional holder in BR: pole unset — indeterminate at the substrate level; the corridor is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "hk-frs-capital_requirements-001",
+          "implication": "reserve must be high-quality liquid assets"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "BR",
+          "side_constraint": "C4",
+          "constraint_name": "securities classification",
+          "pole": null,
+          "implication": "pole unset — indeterminate at the substrate level"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "BR",
+          "side_constraint": "C3",
+          "constraint_name": "yield",
+          "pole": "silent",
+          "record": "br-vasp-permitted_activity_yield-001",
+          "implication": "yield treatment unsettled"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "br-vasp-permitted_activity_yield-001",
+          "hk-frs-capital_requirements-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 2 cell(s), 1 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "HK->CN",
+      "stakeholder": "issuer",
+      "label": "Stablecoin issuer (L1)",
+      "lens": "May I issue, and will my token be admitted into the destination?",
+      "corridor_class": "blocked",
+      "signal_class": "blocked",
+      "agree_with_signal": true,
+      "archetypes_engaged": [],
+      "inbound_mechanism": {
+        "test": "Destination prohibition",
+        "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. The prohibition is written, in-force law: 银发〔2026〕42号 (eight-ministry Notice, in force 6 Feb 2026; it repealed the 2021 Notice 银发〔2021〕237号) bars unauthorised overseas issuance of RMB-pegged stablecoins (未经许可，境内外任何主体不得在境外发行挂钩人民币的稳定币) and PRC-controlled entities issuing virtual currencies abroad. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
+        "administrator": "PBOC / CAC / SAFE"
+      },
+      "headline": "As an HK issuer, issuance is authorization-gated; entry into CN is blocked.",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "licence_gated",
+          "record": "hk-frs-issuer_pathway-001",
+          "implication": "issuance is authorization-gated"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "hk-frs-capital_requirements-001",
+          "implication": "reserve must be high-quality liquid assets"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "CN",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "prohibition",
+          "record": "cn-prc-issuer_pathway-001",
+          "implication": "issuance prohibited"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "CN",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "prohibition",
+          "record": "cn-prc-monetary_sovereignty-001",
+          "implication": "foreign tokens prohibited"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "cn-prc-issuer_pathway-001",
+          "cn-prc-monetary_sovereignty-001",
+          "hk-frs-capital_requirements-001",
+          "hk-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 4 cell(s), 2 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "HK->CN",
+      "stakeholder": "distributor",
+      "label": "Distributor / wallet / PSP (L2 routing)",
+      "lens": "What may I do in the routing chain without becoming an unlicensed issuer or broker?",
+      "corridor_class": "blocked",
+      "signal_class": "blocked",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "DC"
+      ],
+      "inbound_mechanism": {
+        "test": "Destination prohibition",
+        "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. The prohibition is written, in-force law: 银发〔2026〕42号 (eight-ministry Notice, in force 6 Feb 2026; it repealed the 2021 Notice 银发〔2021〕237号) bars unauthorised overseas issuance of RMB-pegged stablecoins (未经许可，境内外任何主体不得在境外发行挂钩人民币的稳定币) and PRC-controlled entities issuing virtual currencies abroad. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
+        "administrator": "PBOC / CAC / SAFE"
+      },
+      "headline": "As a distributor/wallet into CN: pole unset — indeterminate at the substrate level; the corridor is blocked.",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C5",
+          "constraint_name": "bank/non-bank routing",
+          "pole": "bank_and_nonbank",
+          "record": "hk-frs-bank_nonbank_routing-001",
+          "implication": "bank and non-bank issuers admitted"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C3",
+          "constraint_name": "yield",
+          "pole": "prohibited_issuer",
+          "record": "hk-frs-permitted_activity_yield-001",
+          "implication": "issuer may not pay yield"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "CN",
+          "side_constraint": "C5",
+          "constraint_name": "bank/non-bank routing",
+          "pole": null,
+          "implication": "pole unset — indeterminate at the substrate level"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "CN",
+          "side_constraint": "C3",
+          "constraint_name": "yield",
+          "pole": "silent",
+          "record": "cn-prc-permitted_activity_yield-001",
+          "implication": "yield treatment unsettled"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "CN",
+          "side_constraint": "C4",
+          "constraint_name": "securities classification",
+          "pole": "security",
+          "record": "cn-prc-securities_classification-001",
+          "implication": "treated as a security / unauthorized offering"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "cn-prc-permitted_activity_yield-001",
+          "cn-prc-securities_classification-001",
+          "hk-frs-bank_nonbank_routing-001",
+          "hk-frs-permitted_activity_yield-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 4 cell(s), 3 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "HK->CN",
+      "stakeholder": "reserve_custodian",
+      "label": "Reserve custodian",
+      "lens": "What reserve composition and segregation must I hold, and is data sharing constrained?",
+      "corridor_class": "blocked",
+      "signal_class": "blocked",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "RC"
+      ],
+      "inbound_mechanism": {
+        "test": "Destination prohibition",
+        "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. The prohibition is written, in-force law: 银发〔2026〕42号 (eight-ministry Notice, in force 6 Feb 2026; it repealed the 2021 Notice 银发〔2021〕237号) bars unauthorised overseas issuance of RMB-pegged stablecoins (未经许可，境内外任何主体不得在境外发行挂钩人民币的稳定币) and PRC-controlled entities issuing virtual currencies abroad. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
+        "administrator": "PBOC / CAC / SAFE"
+      },
+      "headline": "As reserve custodian for the HK issuer: reserve must be high-quality liquid assets; the corridor is blocked.",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "hk-frs-capital_requirements-001",
+          "implication": "reserve must be high-quality liquid assets"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C6",
+          "constraint_name": "cross-border/data",
+          "pole": "open",
+          "record": "hk-frs-cross_border_data-001",
+          "implication": "no data-localization barrier to supervisory sharing"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "CN",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "informational",
+          "record": "cn-prc-capital_requirements-001",
+          "implication": "reserve disclosure only"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "cn-prc-capital_requirements-001",
+          "hk-frs-capital_requirements-001",
+          "hk-frs-cross_border_data-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 3 cell(s), 2 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "HK->CN",
+      "stakeholder": "home_regulator",
+      "label": "Home (origin) regulator",
+      "lens": "Can I supervise outbound use and share information with the host?",
+      "corridor_class": "blocked",
+      "signal_class": "blocked",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "RC"
+      ],
+      "inbound_mechanism": {
+        "test": "Destination prohibition",
+        "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. The prohibition is written, in-force law: 银发〔2026〕42号 (eight-ministry Notice, in force 6 Feb 2026; it repealed the 2021 Notice 银发〔2021〕237号) bars unauthorised overseas issuance of RMB-pegged stablecoins (未经许可，境内外任何主体不得在境外发行挂钩人民币的稳定币) and PRC-controlled entities issuing virtual currencies abroad. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
+        "administrator": "PBOC / CAC / SAFE"
+      },
+      "headline": "As the HK (home) regulator: no data-localization barrier to supervisory sharing; supervising outbound use into CN, the corridor is blocked.",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C6",
+          "constraint_name": "cross-border/data",
+          "pole": "open",
+          "record": "hk-frs-cross_border_data-001",
+          "implication": "no data-localization barrier to supervisory sharing"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C8",
+          "constraint_name": "disclosure/supervisory",
+          "pole": "coordinated",
+          "record": "hk-frs-disclosure_reporting-001",
+          "implication": "supervisory coordination available"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "open",
+          "record": "hk-frs-monetary_sovereignty-001",
+          "implication": "no usage cap; dual authorization available"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "CN",
+          "side_constraint": "C8",
+          "constraint_name": "disclosure/supervisory",
+          "pole": "constrained",
+          "record": "cn-prc-distribution-001",
+          "implication": "supervisory coordination constrained"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "cn-prc-distribution-001",
+          "hk-frs-cross_border_data-001",
+          "hk-frs-disclosure_reporting-001",
+          "hk-frs-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 4 cell(s), 3 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "HK->CN",
+      "stakeholder": "host_regulator",
+      "label": "Host (destination) regulator",
+      "lens": "Under what conditions may a foreign token circulate here?",
+      "corridor_class": "blocked",
+      "signal_class": "blocked",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "RC"
+      ],
+      "inbound_mechanism": {
+        "test": "Destination prohibition",
+        "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. The prohibition is written, in-force law: 银发〔2026〕42号 (eight-ministry Notice, in force 6 Feb 2026; it repealed the 2021 Notice 银发〔2021〕237号) bars unauthorised overseas issuance of RMB-pegged stablecoins (未经许可，境内外任何主体不得在境外发行挂钩人民币的稳定币) and PRC-controlled entities issuing virtual currencies abroad. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
+        "administrator": "PBOC / CAC / SAFE"
+      },
+      "headline": "As the CN (host) regulator: foreign tokens — foreign tokens prohibited; the corridor is blocked.",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "licence_gated",
+          "record": "hk-frs-issuer_pathway-001",
+          "implication": "issuance is authorization-gated"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "CN",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "prohibition",
+          "record": "cn-prc-issuer_pathway-001",
+          "implication": "issuance prohibited"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "CN",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "prohibition",
+          "record": "cn-prc-monetary_sovereignty-001",
+          "implication": "foreign tokens prohibited"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "CN",
+          "side_constraint": "C8",
+          "constraint_name": "disclosure/supervisory",
+          "pole": "constrained",
+          "record": "cn-prc-distribution-001",
+          "implication": "supervisory coordination constrained"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "cn-prc-distribution-001",
+          "cn-prc-issuer_pathway-001",
+          "cn-prc-monetary_sovereignty-001",
+          "hk-frs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 4 cell(s), 3 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "HK->CN",
+      "stakeholder": "corporate_treasury",
+      "label": "Corporate treasury (rail user)",
+      "lens": "Can I move value on this rail, at scale, and how do I book it?",
+      "corridor_class": "blocked",
+      "signal_class": "blocked",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "DC"
+      ],
+      "inbound_mechanism": {
+        "test": "Destination prohibition",
+        "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. The prohibition is written, in-force law: 银发〔2026〕42号 (eight-ministry Notice, in force 6 Feb 2026; it repealed the 2021 Notice 银发〔2021〕237号) bars unauthorised overseas issuance of RMB-pegged stablecoins (未经许可，境内外任何主体不得在境外发行挂钩人民币的稳定币) and PRC-controlled entities issuing virtual currencies abroad. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
+        "administrator": "PBOC / CAC / SAFE"
+      },
+      "headline": "As a corporate treasury using the HK->CN rail: foreign tokens prohibited; feasibility is blocked.",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "hk-frs-capital_requirements-001",
+          "implication": "reserve must be high-quality liquid assets"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "CN",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "prohibition",
+          "record": "cn-prc-monetary_sovereignty-001",
+          "implication": "foreign tokens prohibited"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "CN",
+          "side_constraint": "C4",
+          "constraint_name": "securities classification",
+          "pole": "security",
+          "record": "cn-prc-securities_classification-001",
+          "implication": "treated as a security / unauthorized offering"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "cn-prc-monetary_sovereignty-001",
+          "cn-prc-securities_classification-001",
+          "hk-frs-capital_requirements-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 3 cell(s), 2 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "HK->CN",
+      "stakeholder": "token_holder",
+      "label": "Institutional holder / investor (TC)",
+      "lens": "What am I holding — is it a security, is it yield-bearing, is the reserve sound?",
+      "corridor_class": "blocked",
+      "signal_class": "blocked",
+      "agree_with_signal": true,
+      "archetypes_engaged": [],
+      "inbound_mechanism": {
+        "test": "Destination prohibition",
+        "detail": "No foreign stablecoin may circulate as a payment instrument in the mainland and no mainland entity may issue one. The prohibition is written, in-force law: 银发〔2026〕42号 (eight-ministry Notice, in force 6 Feb 2026; it repealed the 2021 Notice 银发〔2021〕237号) bars unauthorised overseas issuance of RMB-pegged stablecoins (未经许可，境内外任何主体不得在境外发行挂钩人民币的稳定币) and PRC-controlled entities issuing virtual currencies abroad. PRC cross-border data and capital rules (PIPL, DSL, CAC Cross-Border Provisions, SAFE) govern any data or capital leg.",
+        "administrator": "PBOC / CAC / SAFE"
+      },
+      "headline": "As an institutional holder in CN: treated as a security / unauthorized offering; the corridor is blocked.",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "hk-frs-capital_requirements-001",
+          "implication": "reserve must be high-quality liquid assets"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "CN",
+          "side_constraint": "C4",
+          "constraint_name": "securities classification",
+          "pole": "security",
+          "record": "cn-prc-securities_classification-001",
+          "implication": "treated as a security / unauthorized offering"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "CN",
+          "side_constraint": "C3",
+          "constraint_name": "yield",
+          "pole": "silent",
+          "record": "cn-prc-permitted_activity_yield-001",
+          "implication": "yield treatment unsettled"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "cn-prc-permitted_activity_yield-001",
+          "cn-prc-securities_classification-001",
+          "hk-frs-capital_requirements-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 3 cell(s), 2 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "HK->US",
+      "stakeholder": "issuer",
+      "label": "Stablecoin issuer (L1)",
+      "lens": "May I issue, and will my token be admitted into the destination?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "SC"
+      ],
+      "inbound_mechanism": {
+        "test": "GENIUS Act §18 comparability determination",
+        "detail": "Unilateral Treasury comparability determination (on SCRC recommendation) + OCC registration + US-held reserves; none granted to date.",
+        "administrator": "US Treasury (Stablecoin Certification Review Committee) / OCC"
+      },
+      "headline": "As an HK issuer, issuance is authorization-gated; entry into US is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "licence_gated",
+          "record": "hk-frs-issuer_pathway-001",
+          "implication": "issuance is authorization-gated"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "hk-frs-capital_requirements-001",
+          "implication": "reserve must be high-quality liquid assets"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "licence_gated",
+          "record": "us-pss-issuer_pathway-001",
+          "implication": "issuance is authorization-gated"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "channelled",
+          "record": "us-pss-monetary_sovereignty-001",
+          "implication": "foreign tokens admitted only via a determination / channel"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "hk-frs-capital_requirements-001",
+          "hk-frs-issuer_pathway-001",
+          "us-pss-issuer_pathway-001",
+          "us-pss-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 4 cell(s), 1 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "HK->US",
+      "stakeholder": "distributor",
+      "label": "Distributor / wallet / PSP (L2 routing)",
+      "lens": "What may I do in the routing chain without becoming an unlicensed issuer or broker?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "DC"
+      ],
+      "inbound_mechanism": {
+        "test": "GENIUS Act §18 comparability determination",
+        "detail": "Unilateral Treasury comparability determination (on SCRC recommendation) + OCC registration + US-held reserves; none granted to date.",
+        "administrator": "US Treasury (Stablecoin Certification Review Committee) / OCC"
+      },
+      "headline": "As a distributor/wallet into US: bank and non-bank issuers admitted; the corridor is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C5",
+          "constraint_name": "bank/non-bank routing",
+          "pole": "bank_and_nonbank",
+          "record": "hk-frs-bank_nonbank_routing-001",
+          "implication": "bank and non-bank issuers admitted"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C3",
+          "constraint_name": "yield",
+          "pole": "prohibited_issuer",
+          "record": "hk-frs-permitted_activity_yield-001",
+          "implication": "issuer may not pay yield"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C5",
+          "constraint_name": "bank/non-bank routing",
+          "pole": "bank_and_nonbank",
+          "record": "us-pss-bank_nonbank_routing-001",
+          "implication": "bank and non-bank issuers admitted"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C3",
+          "constraint_name": "yield",
+          "pole": "prohibited_incl_agents",
+          "record": "us-pss-permitted_activity_yield-001",
+          "implication": "issuer and agents may not pay yield"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C4",
+          "constraint_name": "securities classification",
+          "pole": "contested_routing",
+          "record": "us-pss-securities_classification-001",
+          "implication": "classification turns on the routing structure"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "hk-frs-bank_nonbank_routing-001",
+          "hk-frs-permitted_activity_yield-001",
+          "us-pss-bank_nonbank_routing-001",
+          "us-pss-permitted_activity_yield-001",
+          "us-pss-securities_classification-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 5 cell(s), 2 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "HK->US",
+      "stakeholder": "reserve_custodian",
+      "label": "Reserve custodian",
+      "lens": "What reserve composition and segregation must I hold, and is data sharing constrained?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "RC",
+        "SC"
+      ],
+      "inbound_mechanism": {
+        "test": "GENIUS Act §18 comparability determination",
+        "detail": "Unilateral Treasury comparability determination (on SCRC recommendation) + OCC registration + US-held reserves; none granted to date.",
+        "administrator": "US Treasury (Stablecoin Certification Review Committee) / OCC"
+      },
+      "headline": "As reserve custodian for the HK issuer: reserve must be high-quality liquid assets; the corridor is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "hk-frs-capital_requirements-001",
+          "implication": "reserve must be high-quality liquid assets"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C6",
+          "constraint_name": "cross-border/data",
+          "pole": "open",
+          "record": "hk-frs-cross_border_data-001",
+          "implication": "no data-localization barrier to supervisory sharing"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "us-pss-reserve_backing-001",
+          "implication": "reserve must be high-quality liquid assets"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "hk-frs-capital_requirements-001",
+          "hk-frs-cross_border_data-001",
+          "us-pss-reserve_backing-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 3 cell(s), 1 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "HK->US",
+      "stakeholder": "home_regulator",
+      "label": "Home (origin) regulator",
+      "lens": "Can I supervise outbound use and share information with the host?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "RC"
+      ],
+      "inbound_mechanism": {
+        "test": "GENIUS Act §18 comparability determination",
+        "detail": "Unilateral Treasury comparability determination (on SCRC recommendation) + OCC registration + US-held reserves; none granted to date.",
+        "administrator": "US Treasury (Stablecoin Certification Review Committee) / OCC"
+      },
+      "headline": "As the HK (home) regulator: no data-localization barrier to supervisory sharing; supervising outbound use into US, the corridor is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C6",
+          "constraint_name": "cross-border/data",
+          "pole": "open",
+          "record": "hk-frs-cross_border_data-001",
+          "implication": "no data-localization barrier to supervisory sharing"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C8",
+          "constraint_name": "disclosure/supervisory",
+          "pole": "coordinated",
+          "record": "hk-frs-disclosure_reporting-001",
+          "implication": "supervisory coordination available"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "open",
+          "record": "hk-frs-monetary_sovereignty-001",
+          "implication": "no usage cap; dual authorization available"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C8",
+          "constraint_name": "disclosure/supervisory",
+          "pole": "coordinated",
+          "record": "us-pss-disclosure_reporting-001",
+          "implication": "supervisory coordination available"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "hk-frs-cross_border_data-001",
+          "hk-frs-disclosure_reporting-001",
+          "hk-frs-monetary_sovereignty-001",
+          "us-pss-disclosure_reporting-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 4 cell(s), 3 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "HK->US",
+      "stakeholder": "host_regulator",
+      "label": "Host (destination) regulator",
+      "lens": "Under what conditions may a foreign token circulate here?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "RC"
+      ],
+      "inbound_mechanism": {
+        "test": "GENIUS Act §18 comparability determination",
+        "detail": "Unilateral Treasury comparability determination (on SCRC recommendation) + OCC registration + US-held reserves; none granted to date.",
+        "administrator": "US Treasury (Stablecoin Certification Review Committee) / OCC"
+      },
+      "headline": "As the US (host) regulator: foreign tokens — foreign tokens admitted only via a determination / channel; the corridor is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "licence_gated",
+          "record": "hk-frs-issuer_pathway-001",
+          "implication": "issuance is authorization-gated"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "licence_gated",
+          "record": "us-pss-issuer_pathway-001",
+          "implication": "issuance is authorization-gated"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "channelled",
+          "record": "us-pss-monetary_sovereignty-001",
+          "implication": "foreign tokens admitted only via a determination / channel"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C8",
+          "constraint_name": "disclosure/supervisory",
+          "pole": "coordinated",
+          "record": "us-pss-disclosure_reporting-001",
+          "implication": "supervisory coordination available"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "hk-frs-issuer_pathway-001",
+          "us-pss-disclosure_reporting-001",
+          "us-pss-issuer_pathway-001",
+          "us-pss-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 4 cell(s), 2 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "HK->US",
+      "stakeholder": "corporate_treasury",
+      "label": "Corporate treasury (rail user)",
+      "lens": "Can I move value on this rail, at scale, and how do I book it?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "DC"
+      ],
+      "inbound_mechanism": {
+        "test": "GENIUS Act §18 comparability determination",
+        "detail": "Unilateral Treasury comparability determination (on SCRC recommendation) + OCC registration + US-held reserves; none granted to date.",
+        "administrator": "US Treasury (Stablecoin Certification Review Committee) / OCC"
+      },
+      "headline": "As a corporate treasury using the HK->US rail: foreign tokens admitted only via a determination / channel; feasibility is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "hk-frs-capital_requirements-001",
+          "implication": "reserve must be high-quality liquid assets"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "channelled",
+          "record": "us-pss-monetary_sovereignty-001",
+          "implication": "foreign tokens admitted only via a determination / channel"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C4",
+          "constraint_name": "securities classification",
+          "pole": "contested_routing",
+          "record": "us-pss-securities_classification-001",
+          "implication": "classification turns on the routing structure"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "hk-frs-capital_requirements-001",
+          "us-pss-monetary_sovereignty-001",
+          "us-pss-securities_classification-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 3 cell(s), 1 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "HK->US",
+      "stakeholder": "token_holder",
+      "label": "Institutional holder / investor (TC)",
+      "lens": "What am I holding — is it a security, is it yield-bearing, is the reserve sound?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "TC"
+      ],
+      "inbound_mechanism": {
+        "test": "GENIUS Act §18 comparability determination",
+        "detail": "Unilateral Treasury comparability determination (on SCRC recommendation) + OCC registration + US-held reserves; none granted to date.",
+        "administrator": "US Treasury (Stablecoin Certification Review Committee) / OCC"
+      },
+      "headline": "As an institutional holder in US: classification turns on the routing structure; the corridor is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "HK",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "hk-frs-capital_requirements-001",
+          "implication": "reserve must be high-quality liquid assets"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C4",
+          "constraint_name": "securities classification",
+          "pole": "contested_routing",
+          "record": "us-pss-securities_classification-001",
+          "implication": "classification turns on the routing structure"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C3",
+          "constraint_name": "yield",
+          "pole": "prohibited_incl_agents",
+          "record": "us-pss-permitted_activity_yield-001",
+          "implication": "issuer and agents may not pay yield"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "hk-frs-capital_requirements-001",
+          "us-pss-permitted_activity_yield-001",
+          "us-pss-securities_classification-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 3 cell(s), 0 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "JP->US",
+      "stakeholder": "issuer",
+      "label": "Stablecoin issuer (L1)",
+      "lens": "May I issue, and will my token be admitted into the destination?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "SC"
+      ],
+      "inbound_mechanism": {
+        "test": "GENIUS Act §18 comparability determination",
+        "detail": "Unilateral Treasury comparability determination (on SCRC recommendation) + OCC registration + US-held reserves; none granted to date.",
+        "administrator": "US Treasury (Stablecoin Certification Review Committee) / OCC"
+      },
+      "headline": "As an JP issuer, issuance limited to a defined set of entities; entry into US is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "JP",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "closed_set",
+          "record": "jp-epi-issuer_pathway-001",
+          "implication": "issuance limited to a defined set of entities"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "JP",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_flex",
+          "record": "jp-epi-capital_requirements-001",
+          "implication": "reserve prescribed with some flexibility"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "licence_gated",
+          "record": "us-pss-issuer_pathway-001",
+          "implication": "issuance is authorization-gated"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "channelled",
+          "record": "us-pss-monetary_sovereignty-001",
+          "implication": "foreign tokens admitted only via a determination / channel"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "jp-epi-capital_requirements-001",
+          "jp-epi-issuer_pathway-001",
+          "us-pss-issuer_pathway-001",
+          "us-pss-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 4 cell(s), 2 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "JP->US",
+      "stakeholder": "distributor",
+      "label": "Distributor / wallet / PSP (L2 routing)",
+      "lens": "What may I do in the routing chain without becoming an unlicensed issuer or broker?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "DC"
+      ],
+      "inbound_mechanism": {
+        "test": "GENIUS Act §18 comparability determination",
+        "detail": "Unilateral Treasury comparability determination (on SCRC recommendation) + OCC registration + US-held reserves; none granted to date.",
+        "administrator": "US Treasury (Stablecoin Certification Review Committee) / OCC"
+      },
+      "headline": "As a distributor/wallet into US: bank and non-bank issuers admitted; the corridor is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "JP",
+          "side_constraint": "C5",
+          "constraint_name": "bank/non-bank routing",
+          "pole": "layered_separation",
+          "record": "jp-epi-bank_nonbank_routing-001",
+          "implication": "roles separated by licensed function"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "JP",
+          "side_constraint": "C3",
+          "constraint_name": "yield",
+          "pole": "prohibited_issuer",
+          "record": "jp-epi-permitted_activity_yield-001",
+          "implication": "issuer may not pay yield"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C5",
+          "constraint_name": "bank/non-bank routing",
+          "pole": "bank_and_nonbank",
+          "record": "us-pss-bank_nonbank_routing-001",
+          "implication": "bank and non-bank issuers admitted"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C3",
+          "constraint_name": "yield",
+          "pole": "prohibited_incl_agents",
+          "record": "us-pss-permitted_activity_yield-001",
+          "implication": "issuer and agents may not pay yield"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C4",
+          "constraint_name": "securities classification",
+          "pole": "contested_routing",
+          "record": "us-pss-securities_classification-001",
+          "implication": "classification turns on the routing structure"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "jp-epi-bank_nonbank_routing-001",
+          "jp-epi-permitted_activity_yield-001",
+          "us-pss-bank_nonbank_routing-001",
+          "us-pss-permitted_activity_yield-001",
+          "us-pss-securities_classification-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 5 cell(s), 2 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "JP->US",
+      "stakeholder": "reserve_custodian",
+      "label": "Reserve custodian",
+      "lens": "What reserve composition and segregation must I hold, and is data sharing constrained?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "RC",
+        "SC"
+      ],
+      "inbound_mechanism": {
+        "test": "GENIUS Act §18 comparability determination",
+        "detail": "Unilateral Treasury comparability determination (on SCRC recommendation) + OCC registration + US-held reserves; none granted to date.",
+        "administrator": "US Treasury (Stablecoin Certification Review Committee) / OCC"
+      },
+      "headline": "As reserve custodian for the JP issuer: reserve prescribed with some flexibility; the corridor is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "JP",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_flex",
+          "record": "jp-epi-capital_requirements-001",
+          "implication": "reserve prescribed with some flexibility"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "JP",
+          "side_constraint": "C6",
+          "constraint_name": "cross-border/data",
+          "pole": "open",
+          "record": "jp-epi-cross_border_data-001",
+          "implication": "no data-localization barrier to supervisory sharing"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "us-pss-reserve_backing-001",
+          "implication": "reserve must be high-quality liquid assets"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "jp-epi-capital_requirements-001",
+          "jp-epi-cross_border_data-001",
+          "us-pss-reserve_backing-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 3 cell(s), 2 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "JP->US",
+      "stakeholder": "home_regulator",
+      "label": "Home (origin) regulator",
+      "lens": "Can I supervise outbound use and share information with the host?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "RC"
+      ],
+      "inbound_mechanism": {
+        "test": "GENIUS Act §18 comparability determination",
+        "detail": "Unilateral Treasury comparability determination (on SCRC recommendation) + OCC registration + US-held reserves; none granted to date.",
+        "administrator": "US Treasury (Stablecoin Certification Review Committee) / OCC"
+      },
+      "headline": "As the JP (home) regulator: no data-localization barrier to supervisory sharing; supervising outbound use into US, the corridor is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "JP",
+          "side_constraint": "C6",
+          "constraint_name": "cross-border/data",
+          "pole": "open",
+          "record": "jp-epi-cross_border_data-001",
+          "implication": "no data-localization barrier to supervisory sharing"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "JP",
+          "side_constraint": "C8",
+          "constraint_name": "disclosure/supervisory",
+          "pole": "coordinated",
+          "record": "jp-epi-disclosure_reporting-001",
+          "implication": "supervisory coordination available"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "JP",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "channelled",
+          "record": "jp-epi-monetary_sovereignty-001",
+          "implication": "foreign tokens admitted only via a determination / channel"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C8",
+          "constraint_name": "disclosure/supervisory",
+          "pole": "coordinated",
+          "record": "us-pss-disclosure_reporting-001",
+          "implication": "supervisory coordination available"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "jp-epi-cross_border_data-001",
+          "jp-epi-disclosure_reporting-001",
+          "jp-epi-monetary_sovereignty-001",
+          "us-pss-disclosure_reporting-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 4 cell(s), 3 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "JP->US",
+      "stakeholder": "host_regulator",
+      "label": "Host (destination) regulator",
+      "lens": "Under what conditions may a foreign token circulate here?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "RC"
+      ],
+      "inbound_mechanism": {
+        "test": "GENIUS Act §18 comparability determination",
+        "detail": "Unilateral Treasury comparability determination (on SCRC recommendation) + OCC registration + US-held reserves; none granted to date.",
+        "administrator": "US Treasury (Stablecoin Certification Review Committee) / OCC"
+      },
+      "headline": "As the US (host) regulator: foreign tokens — foreign tokens admitted only via a determination / channel; the corridor is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "JP",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "closed_set",
+          "record": "jp-epi-issuer_pathway-001",
+          "implication": "issuance limited to a defined set of entities"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "licence_gated",
+          "record": "us-pss-issuer_pathway-001",
+          "implication": "issuance is authorization-gated"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "channelled",
+          "record": "us-pss-monetary_sovereignty-001",
+          "implication": "foreign tokens admitted only via a determination / channel"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C8",
+          "constraint_name": "disclosure/supervisory",
+          "pole": "coordinated",
+          "record": "us-pss-disclosure_reporting-001",
+          "implication": "supervisory coordination available"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "jp-epi-issuer_pathway-001",
+          "us-pss-disclosure_reporting-001",
+          "us-pss-issuer_pathway-001",
+          "us-pss-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 4 cell(s), 2 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "JP->US",
+      "stakeholder": "corporate_treasury",
+      "label": "Corporate treasury (rail user)",
+      "lens": "Can I move value on this rail, at scale, and how do I book it?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "DC"
+      ],
+      "inbound_mechanism": {
+        "test": "GENIUS Act §18 comparability determination",
+        "detail": "Unilateral Treasury comparability determination (on SCRC recommendation) + OCC registration + US-held reserves; none granted to date.",
+        "administrator": "US Treasury (Stablecoin Certification Review Committee) / OCC"
+      },
+      "headline": "As a corporate treasury using the JP->US rail: foreign tokens admitted only via a determination / channel; feasibility is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "JP",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_flex",
+          "record": "jp-epi-capital_requirements-001",
+          "implication": "reserve prescribed with some flexibility"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "channelled",
+          "record": "us-pss-monetary_sovereignty-001",
+          "implication": "foreign tokens admitted only via a determination / channel"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C4",
+          "constraint_name": "securities classification",
+          "pole": "contested_routing",
+          "record": "us-pss-securities_classification-001",
+          "implication": "classification turns on the routing structure"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "jp-epi-capital_requirements-001",
+          "us-pss-monetary_sovereignty-001",
+          "us-pss-securities_classification-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 3 cell(s), 2 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "JP->US",
+      "stakeholder": "token_holder",
+      "label": "Institutional holder / investor (TC)",
+      "lens": "What am I holding — is it a security, is it yield-bearing, is the reserve sound?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "TC"
+      ],
+      "inbound_mechanism": {
+        "test": "GENIUS Act §18 comparability determination",
+        "detail": "Unilateral Treasury comparability determination (on SCRC recommendation) + OCC registration + US-held reserves; none granted to date.",
+        "administrator": "US Treasury (Stablecoin Certification Review Committee) / OCC"
+      },
+      "headline": "As an institutional holder in US: classification turns on the routing structure; the corridor is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "JP",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_flex",
+          "record": "jp-epi-capital_requirements-001",
+          "implication": "reserve prescribed with some flexibility"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C4",
+          "constraint_name": "securities classification",
+          "pole": "contested_routing",
+          "record": "us-pss-securities_classification-001",
+          "implication": "classification turns on the routing structure"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "US",
+          "side_constraint": "C3",
+          "constraint_name": "yield",
+          "pole": "prohibited_incl_agents",
+          "record": "us-pss-permitted_activity_yield-001",
+          "implication": "issuer and agents may not pay yield"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "jp-epi-capital_requirements-001",
+          "us-pss-permitted_activity_yield-001",
+          "us-pss-securities_classification-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 3 cell(s), 1 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "SG->HK",
+      "stakeholder": "issuer",
+      "label": "Stablecoin issuer (L1)",
+      "lens": "May I issue, and will my token be admitted into the destination?",
+      "corridor_class": "I",
+      "signal_class": "I",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "SC"
+      ],
+      "inbound_mechanism": {
+        "test": "HKMA fiat-referenced-stablecoin licence",
+        "detail": "Licence required to issue in Hong Kong or to issue an HKD-referenced token; the first cohort is HKD-only and bank-led, so a non-HKD or crypto-native issuer needs a later licence or partnership.",
+        "administrator": "HKMA"
+      },
+      "headline": "As an SG issuer, issuance is authorization-gated; entry into HK is broadly feasible (Category I).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "SG",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "licence_gated",
+          "record": "sg-scs-issuer_pathway-001",
+          "implication": "issuance is authorization-gated"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "SG",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "sg-scs-reserve_backing-001",
+          "implication": "reserve must be high-quality liquid assets"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "HK",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "licence_gated",
+          "record": "hk-frs-issuer_pathway-001",
+          "implication": "issuance is authorization-gated"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "HK",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "open",
+          "record": "hk-frs-monetary_sovereignty-001",
+          "implication": "no usage cap; dual authorization available"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "hk-frs-issuer_pathway-001",
+          "hk-frs-monetary_sovereignty-001",
+          "sg-scs-issuer_pathway-001",
+          "sg-scs-reserve_backing-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 4 cell(s), 2 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "SG->HK",
+      "stakeholder": "distributor",
+      "label": "Distributor / wallet / PSP (L2 routing)",
+      "lens": "What may I do in the routing chain without becoming an unlicensed issuer or broker?",
+      "corridor_class": "I",
+      "signal_class": "I",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "DC"
+      ],
+      "inbound_mechanism": {
+        "test": "HKMA fiat-referenced-stablecoin licence",
+        "detail": "Licence required to issue in Hong Kong or to issue an HKD-referenced token; the first cohort is HKD-only and bank-led, so a non-HKD or crypto-native issuer needs a later licence or partnership.",
+        "administrator": "HKMA"
+      },
+      "headline": "As a distributor/wallet into HK: bank and non-bank issuers admitted; the corridor is broadly feasible (Category I).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "SG",
+          "side_constraint": "C5",
+          "constraint_name": "bank/non-bank routing",
+          "pole": "bank_and_nonbank",
+          "record": "sg-scs-bank_nonbank_routing-001",
+          "implication": "bank and non-bank issuers admitted"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "SG",
+          "side_constraint": "C3",
+          "constraint_name": "yield",
+          "pole": "prohibited_issuer",
+          "record": "sg-scs-permitted_activity_yield-001",
+          "implication": "issuer may not pay yield"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "HK",
+          "side_constraint": "C5",
+          "constraint_name": "bank/non-bank routing",
+          "pole": "bank_and_nonbank",
+          "record": "hk-frs-bank_nonbank_routing-001",
+          "implication": "bank and non-bank issuers admitted"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "HK",
+          "side_constraint": "C3",
+          "constraint_name": "yield",
+          "pole": "prohibited_issuer",
+          "record": "hk-frs-permitted_activity_yield-001",
+          "implication": "issuer may not pay yield"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "HK",
+          "side_constraint": "C4",
+          "constraint_name": "securities classification",
+          "pole": "payment_instrument",
+          "record": "hk-frs-securities_classification-001",
+          "implication": "treated as a payment instrument, not a security"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "hk-frs-bank_nonbank_routing-001",
+          "hk-frs-permitted_activity_yield-001",
+          "hk-frs-securities_classification-001",
+          "sg-scs-bank_nonbank_routing-001",
+          "sg-scs-permitted_activity_yield-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 5 cell(s), 4 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "SG->HK",
+      "stakeholder": "reserve_custodian",
+      "label": "Reserve custodian",
+      "lens": "What reserve composition and segregation must I hold, and is data sharing constrained?",
+      "corridor_class": "I",
+      "signal_class": "I",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "RC",
+        "SC"
+      ],
+      "inbound_mechanism": {
+        "test": "HKMA fiat-referenced-stablecoin licence",
+        "detail": "Licence required to issue in Hong Kong or to issue an HKD-referenced token; the first cohort is HKD-only and bank-led, so a non-HKD or crypto-native issuer needs a later licence or partnership.",
+        "administrator": "HKMA"
+      },
+      "headline": "As reserve custodian for the SG issuer: reserve must be high-quality liquid assets; the corridor is broadly feasible (Category I).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "SG",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "sg-scs-reserve_backing-001",
+          "implication": "reserve must be high-quality liquid assets"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "SG",
+          "side_constraint": "C6",
+          "constraint_name": "cross-border/data",
+          "pole": "open",
+          "record": "sg-scs-cross_border_data-001",
+          "implication": "no data-localization barrier to supervisory sharing"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "HK",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "hk-frs-capital_requirements-001",
+          "implication": "reserve must be high-quality liquid assets"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "hk-frs-capital_requirements-001",
+          "sg-scs-cross_border_data-001",
+          "sg-scs-reserve_backing-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 3 cell(s), 2 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "SG->HK",
+      "stakeholder": "home_regulator",
+      "label": "Home (origin) regulator",
+      "lens": "Can I supervise outbound use and share information with the host?",
+      "corridor_class": "I",
+      "signal_class": "I",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "RC"
+      ],
+      "inbound_mechanism": {
+        "test": "HKMA fiat-referenced-stablecoin licence",
+        "detail": "Licence required to issue in Hong Kong or to issue an HKD-referenced token; the first cohort is HKD-only and bank-led, so a non-HKD or crypto-native issuer needs a later licence or partnership.",
+        "administrator": "HKMA"
+      },
+      "headline": "As the SG (home) regulator: no data-localization barrier to supervisory sharing; supervising outbound use into HK, the corridor is broadly feasible (Category I).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "SG",
+          "side_constraint": "C6",
+          "constraint_name": "cross-border/data",
+          "pole": "open",
+          "record": "sg-scs-cross_border_data-001",
+          "implication": "no data-localization barrier to supervisory sharing"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "SG",
+          "side_constraint": "C8",
+          "constraint_name": "disclosure/supervisory",
+          "pole": "coordinated",
+          "record": "sg-scs-distribution-001",
+          "implication": "supervisory coordination available"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "SG",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "open",
+          "record": "sg-scs-monetary_sovereignty-001",
+          "implication": "no usage cap; dual authorization available"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "HK",
+          "side_constraint": "C8",
+          "constraint_name": "disclosure/supervisory",
+          "pole": "coordinated",
+          "record": "hk-frs-disclosure_reporting-001",
+          "implication": "supervisory coordination available"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "hk-frs-disclosure_reporting-001",
+          "sg-scs-cross_border_data-001",
+          "sg-scs-distribution-001",
+          "sg-scs-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 4 cell(s), 4 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "SG->HK",
+      "stakeholder": "host_regulator",
+      "label": "Host (destination) regulator",
+      "lens": "Under what conditions may a foreign token circulate here?",
+      "corridor_class": "I",
+      "signal_class": "I",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "RC"
+      ],
+      "inbound_mechanism": {
+        "test": "HKMA fiat-referenced-stablecoin licence",
+        "detail": "Licence required to issue in Hong Kong or to issue an HKD-referenced token; the first cohort is HKD-only and bank-led, so a non-HKD or crypto-native issuer needs a later licence or partnership.",
+        "administrator": "HKMA"
+      },
+      "headline": "As the HK (host) regulator: foreign tokens — no usage cap; dual authorization available; the corridor is broadly feasible (Category I).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "SG",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "licence_gated",
+          "record": "sg-scs-issuer_pathway-001",
+          "implication": "issuance is authorization-gated"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "HK",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "licence_gated",
+          "record": "hk-frs-issuer_pathway-001",
+          "implication": "issuance is authorization-gated"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "HK",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "open",
+          "record": "hk-frs-monetary_sovereignty-001",
+          "implication": "no usage cap; dual authorization available"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "HK",
+          "side_constraint": "C8",
+          "constraint_name": "disclosure/supervisory",
+          "pole": "coordinated",
+          "record": "hk-frs-disclosure_reporting-001",
+          "implication": "supervisory coordination available"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "hk-frs-disclosure_reporting-001",
+          "hk-frs-issuer_pathway-001",
+          "hk-frs-monetary_sovereignty-001",
+          "sg-scs-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 4 cell(s), 2 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "SG->HK",
+      "stakeholder": "corporate_treasury",
+      "label": "Corporate treasury (rail user)",
+      "lens": "Can I move value on this rail, at scale, and how do I book it?",
+      "corridor_class": "I",
+      "signal_class": "I",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "DC"
+      ],
+      "inbound_mechanism": {
+        "test": "HKMA fiat-referenced-stablecoin licence",
+        "detail": "Licence required to issue in Hong Kong or to issue an HKD-referenced token; the first cohort is HKD-only and bank-led, so a non-HKD or crypto-native issuer needs a later licence or partnership.",
+        "administrator": "HKMA"
+      },
+      "headline": "As a corporate treasury using the SG->HK rail: no usage cap; dual authorization available; feasibility is broadly feasible (Category I).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "SG",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "sg-scs-reserve_backing-001",
+          "implication": "reserve must be high-quality liquid assets"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "HK",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "open",
+          "record": "hk-frs-monetary_sovereignty-001",
+          "implication": "no usage cap; dual authorization available"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "HK",
+          "side_constraint": "C4",
+          "constraint_name": "securities classification",
+          "pole": "payment_instrument",
+          "record": "hk-frs-securities_classification-001",
+          "implication": "treated as a payment instrument, not a security"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "hk-frs-monetary_sovereignty-001",
+          "hk-frs-securities_classification-001",
+          "sg-scs-reserve_backing-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 3 cell(s), 2 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "SG->HK",
+      "stakeholder": "token_holder",
+      "label": "Institutional holder / investor (TC)",
+      "lens": "What am I holding — is it a security, is it yield-bearing, is the reserve sound?",
+      "corridor_class": "I",
+      "signal_class": "I",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "TC"
+      ],
+      "inbound_mechanism": {
+        "test": "HKMA fiat-referenced-stablecoin licence",
+        "detail": "Licence required to issue in Hong Kong or to issue an HKD-referenced token; the first cohort is HKD-only and bank-led, so a non-HKD or crypto-native issuer needs a later licence or partnership.",
+        "administrator": "HKMA"
+      },
+      "headline": "As an institutional holder in HK: treated as a payment instrument, not a security; the corridor is broadly feasible (Category I).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "SG",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "sg-scs-reserve_backing-001",
+          "implication": "reserve must be high-quality liquid assets"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "HK",
+          "side_constraint": "C4",
+          "constraint_name": "securities classification",
+          "pole": "payment_instrument",
+          "record": "hk-frs-securities_classification-001",
+          "implication": "treated as a payment instrument, not a security"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "HK",
+          "side_constraint": "C3",
+          "constraint_name": "yield",
+          "pole": "prohibited_issuer",
+          "record": "hk-frs-permitted_activity_yield-001",
+          "implication": "issuer may not pay yield"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "hk-frs-permitted_activity_yield-001",
+          "hk-frs-securities_classification-001",
+          "sg-scs-reserve_backing-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 3 cell(s), 2 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "US->EU",
+      "stakeholder": "issuer",
+      "label": "Stablecoin issuer (L1)",
+      "lens": "May I issue, and will my token be admitted into the destination?",
+      "corridor_class": "I",
+      "signal_class": "I",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "SC"
+      ],
+      "inbound_mechanism": {
+        "test": "MiCA EMT authorization wall + Article 58(3) means-of-exchange cap",
+        "detail": "A non-EUR token faces enhanced reporting and, once significant and used as a means of exchange, the Article 58(3) ceiling (one million transactions/day or EUR 200m/day). A EUR sister EMT via a MiCA-authorized issuer avoids the cap.",
+        "administrator": "EBA / national competent authorities"
+      },
+      "headline": "As an US issuer, issuance is authorization-gated; entry into EU is broadly feasible (Category I).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "licence_gated",
+          "record": "us-pss-issuer_pathway-001",
+          "implication": "issuance is authorization-gated"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "us-pss-reserve_backing-001",
+          "implication": "reserve must be high-quality liquid assets"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "EU",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "licence_gated",
+          "record": "eu-emt-issuer_pathway-001",
+          "implication": "issuance is authorization-gated"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "EU",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "usage_capped",
+          "record": "eu-emt-monetary_sovereignty-001",
+          "implication": "scale / usage capped"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "eu-emt-issuer_pathway-001",
+          "eu-emt-monetary_sovereignty-001",
+          "us-pss-issuer_pathway-001",
+          "us-pss-reserve_backing-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 4 cell(s), 1 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "US->EU",
+      "stakeholder": "distributor",
+      "label": "Distributor / wallet / PSP (L2 routing)",
+      "lens": "What may I do in the routing chain without becoming an unlicensed issuer or broker?",
+      "corridor_class": "I",
+      "signal_class": "I",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "DC"
+      ],
+      "inbound_mechanism": {
+        "test": "MiCA EMT authorization wall + Article 58(3) means-of-exchange cap",
+        "detail": "A non-EUR token faces enhanced reporting and, once significant and used as a means of exchange, the Article 58(3) ceiling (one million transactions/day or EUR 200m/day). A EUR sister EMT via a MiCA-authorized issuer avoids the cap.",
+        "administrator": "EBA / national competent authorities"
+      },
+      "headline": "As a distributor/wallet into EU: bank and non-bank issuers admitted; the corridor is broadly feasible (Category I).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C5",
+          "constraint_name": "bank/non-bank routing",
+          "pole": "bank_and_nonbank",
+          "record": "us-pss-bank_nonbank_routing-001",
+          "implication": "bank and non-bank issuers admitted"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C3",
+          "constraint_name": "yield",
+          "pole": "prohibited_incl_agents",
+          "record": "us-pss-permitted_activity_yield-001",
+          "implication": "issuer and agents may not pay yield"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "EU",
+          "side_constraint": "C5",
+          "constraint_name": "bank/non-bank routing",
+          "pole": "bank_and_nonbank",
+          "record": "eu-emt-bank_nonbank_routing-001",
+          "implication": "bank and non-bank issuers admitted"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "EU",
+          "side_constraint": "C3",
+          "constraint_name": "yield",
+          "pole": "prohibited_issuer",
+          "record": "eu-emt-permitted_activity_yield-001",
+          "implication": "issuer may not pay yield"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "EU",
+          "side_constraint": "C4",
+          "constraint_name": "securities classification",
+          "pole": "payment_instrument",
+          "record": "eu-emt-securities_classification-001",
+          "implication": "treated as a payment instrument, not a security"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "eu-emt-bank_nonbank_routing-001",
+          "eu-emt-permitted_activity_yield-001",
+          "eu-emt-securities_classification-001",
+          "us-pss-bank_nonbank_routing-001",
+          "us-pss-permitted_activity_yield-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 5 cell(s), 3 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "US->EU",
+      "stakeholder": "reserve_custodian",
+      "label": "Reserve custodian",
+      "lens": "What reserve composition and segregation must I hold, and is data sharing constrained?",
+      "corridor_class": "I",
+      "signal_class": "I",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "RC",
+        "SC"
+      ],
+      "inbound_mechanism": {
+        "test": "MiCA EMT authorization wall + Article 58(3) means-of-exchange cap",
+        "detail": "A non-EUR token faces enhanced reporting and, once significant and used as a means of exchange, the Article 58(3) ceiling (one million transactions/day or EUR 200m/day). A EUR sister EMT via a MiCA-authorized issuer avoids the cap.",
+        "administrator": "EBA / national competent authorities"
+      },
+      "headline": "As reserve custodian for the US issuer: reserve must be high-quality liquid assets; the corridor is broadly feasible (Category I).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "us-pss-reserve_backing-001",
+          "implication": "reserve must be high-quality liquid assets"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C6",
+          "constraint_name": "cross-border/data",
+          "pole": "open",
+          "record": "us-pss-cross_border_data-001",
+          "implication": "no data-localization barrier to supervisory sharing"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "EU",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "eu-emt-reserve_backing-001",
+          "implication": "reserve must be high-quality liquid assets"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "eu-emt-reserve_backing-001",
+          "us-pss-cross_border_data-001",
+          "us-pss-reserve_backing-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 3 cell(s), 2 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "US->EU",
+      "stakeholder": "home_regulator",
+      "label": "Home (origin) regulator",
+      "lens": "Can I supervise outbound use and share information with the host?",
+      "corridor_class": "I",
+      "signal_class": "I",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "RC"
+      ],
+      "inbound_mechanism": {
+        "test": "MiCA EMT authorization wall + Article 58(3) means-of-exchange cap",
+        "detail": "A non-EUR token faces enhanced reporting and, once significant and used as a means of exchange, the Article 58(3) ceiling (one million transactions/day or EUR 200m/day). A EUR sister EMT via a MiCA-authorized issuer avoids the cap.",
+        "administrator": "EBA / national competent authorities"
+      },
+      "headline": "As the US (home) regulator: no data-localization barrier to supervisory sharing; supervising outbound use into EU, the corridor is broadly feasible (Category I).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C6",
+          "constraint_name": "cross-border/data",
+          "pole": "open",
+          "record": "us-pss-cross_border_data-001",
+          "implication": "no data-localization barrier to supervisory sharing"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C8",
+          "constraint_name": "disclosure/supervisory",
+          "pole": "coordinated",
+          "record": "us-pss-disclosure_reporting-001",
+          "implication": "supervisory coordination available"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "channelled",
+          "record": "us-pss-monetary_sovereignty-001",
+          "implication": "foreign tokens admitted only via a determination / channel"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "EU",
+          "side_constraint": "C8",
+          "constraint_name": "disclosure/supervisory",
+          "pole": "coordinated",
+          "record": "eu-emt-disclosure_reporting-001",
+          "implication": "supervisory coordination available"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "eu-emt-disclosure_reporting-001",
+          "us-pss-cross_border_data-001",
+          "us-pss-disclosure_reporting-001",
+          "us-pss-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 4 cell(s), 4 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "US->EU",
+      "stakeholder": "host_regulator",
+      "label": "Host (destination) regulator",
+      "lens": "Under what conditions may a foreign token circulate here?",
+      "corridor_class": "I",
+      "signal_class": "I",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "RC"
+      ],
+      "inbound_mechanism": {
+        "test": "MiCA EMT authorization wall + Article 58(3) means-of-exchange cap",
+        "detail": "A non-EUR token faces enhanced reporting and, once significant and used as a means of exchange, the Article 58(3) ceiling (one million transactions/day or EUR 200m/day). A EUR sister EMT via a MiCA-authorized issuer avoids the cap.",
+        "administrator": "EBA / national competent authorities"
+      },
+      "headline": "As the EU (host) regulator: foreign tokens — scale / usage capped; the corridor is broadly feasible (Category I).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "licence_gated",
+          "record": "us-pss-issuer_pathway-001",
+          "implication": "issuance is authorization-gated"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "EU",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "licence_gated",
+          "record": "eu-emt-issuer_pathway-001",
+          "implication": "issuance is authorization-gated"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "EU",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "usage_capped",
+          "record": "eu-emt-monetary_sovereignty-001",
+          "implication": "scale / usage capped"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "EU",
+          "side_constraint": "C8",
+          "constraint_name": "disclosure/supervisory",
+          "pole": "coordinated",
+          "record": "eu-emt-disclosure_reporting-001",
+          "implication": "supervisory coordination available"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "eu-emt-disclosure_reporting-001",
+          "eu-emt-issuer_pathway-001",
+          "eu-emt-monetary_sovereignty-001",
+          "us-pss-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 4 cell(s), 2 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "US->EU",
+      "stakeholder": "corporate_treasury",
+      "label": "Corporate treasury (rail user)",
+      "lens": "Can I move value on this rail, at scale, and how do I book it?",
+      "corridor_class": "I",
+      "signal_class": "I",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "DC"
+      ],
+      "inbound_mechanism": {
+        "test": "MiCA EMT authorization wall + Article 58(3) means-of-exchange cap",
+        "detail": "A non-EUR token faces enhanced reporting and, once significant and used as a means of exchange, the Article 58(3) ceiling (one million transactions/day or EUR 200m/day). A EUR sister EMT via a MiCA-authorized issuer avoids the cap.",
+        "administrator": "EBA / national competent authorities"
+      },
+      "headline": "As a corporate treasury using the US->EU rail: scale / usage capped; feasibility is broadly feasible (Category I).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "us-pss-reserve_backing-001",
+          "implication": "reserve must be high-quality liquid assets"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "EU",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "usage_capped",
+          "record": "eu-emt-monetary_sovereignty-001",
+          "implication": "scale / usage capped"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "EU",
+          "side_constraint": "C4",
+          "constraint_name": "securities classification",
+          "pole": "payment_instrument",
+          "record": "eu-emt-securities_classification-001",
+          "implication": "treated as a payment instrument, not a security"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "eu-emt-monetary_sovereignty-001",
+          "eu-emt-securities_classification-001",
+          "us-pss-reserve_backing-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 3 cell(s), 1 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "US->EU",
+      "stakeholder": "token_holder",
+      "label": "Institutional holder / investor (TC)",
+      "lens": "What am I holding — is it a security, is it yield-bearing, is the reserve sound?",
+      "corridor_class": "I",
+      "signal_class": "I",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "TC"
+      ],
+      "inbound_mechanism": {
+        "test": "MiCA EMT authorization wall + Article 58(3) means-of-exchange cap",
+        "detail": "A non-EUR token faces enhanced reporting and, once significant and used as a means of exchange, the Article 58(3) ceiling (one million transactions/day or EUR 200m/day). A EUR sister EMT via a MiCA-authorized issuer avoids the cap.",
+        "administrator": "EBA / national competent authorities"
+      },
+      "headline": "As an institutional holder in EU: treated as a payment instrument, not a security; the corridor is broadly feasible (Category I).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "us-pss-reserve_backing-001",
+          "implication": "reserve must be high-quality liquid assets"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "EU",
+          "side_constraint": "C4",
+          "constraint_name": "securities classification",
+          "pole": "payment_instrument",
+          "record": "eu-emt-securities_classification-001",
+          "implication": "treated as a payment instrument, not a security"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "EU",
+          "side_constraint": "C3",
+          "constraint_name": "yield",
+          "pole": "prohibited_issuer",
+          "record": "eu-emt-permitted_activity_yield-001",
+          "implication": "issuer may not pay yield"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "eu-emt-permitted_activity_yield-001",
+          "eu-emt-securities_classification-001",
+          "us-pss-reserve_backing-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 3 cell(s), 1 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "US->HK",
+      "stakeholder": "issuer",
+      "label": "Stablecoin issuer (L1)",
+      "lens": "May I issue, and will my token be admitted into the destination?",
+      "corridor_class": "I",
+      "signal_class": "I",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "SC"
+      ],
+      "inbound_mechanism": {
+        "test": "HKMA fiat-referenced-stablecoin licence",
+        "detail": "Licence required to issue in Hong Kong or to issue an HKD-referenced token anywhere; the first cohort is HKD-only and bank-led, so a non-HKD or crypto-native issuer needs a later licence or a partnership with a licensed issuer.",
+        "administrator": "HKMA"
+      },
+      "headline": "As an US issuer, issuance is authorization-gated; entry into HK is broadly feasible (Category I).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "licence_gated",
+          "record": "us-pss-issuer_pathway-001",
+          "implication": "issuance is authorization-gated"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "us-pss-reserve_backing-001",
+          "implication": "reserve must be high-quality liquid assets"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "HK",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "licence_gated",
+          "record": "hk-frs-issuer_pathway-001",
+          "implication": "issuance is authorization-gated"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "HK",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "open",
+          "record": "hk-frs-monetary_sovereignty-001",
+          "implication": "no usage cap; dual authorization available"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "hk-frs-issuer_pathway-001",
+          "hk-frs-monetary_sovereignty-001",
+          "us-pss-issuer_pathway-001",
+          "us-pss-reserve_backing-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 4 cell(s), 0 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "US->HK",
+      "stakeholder": "distributor",
+      "label": "Distributor / wallet / PSP (L2 routing)",
+      "lens": "What may I do in the routing chain without becoming an unlicensed issuer or broker?",
+      "corridor_class": "I",
+      "signal_class": "I",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "DC"
+      ],
+      "inbound_mechanism": {
+        "test": "HKMA fiat-referenced-stablecoin licence",
+        "detail": "Licence required to issue in Hong Kong or to issue an HKD-referenced token anywhere; the first cohort is HKD-only and bank-led, so a non-HKD or crypto-native issuer needs a later licence or a partnership with a licensed issuer.",
+        "administrator": "HKMA"
+      },
+      "headline": "As a distributor/wallet into HK: bank and non-bank issuers admitted; the corridor is broadly feasible (Category I).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C5",
+          "constraint_name": "bank/non-bank routing",
+          "pole": "bank_and_nonbank",
+          "record": "us-pss-bank_nonbank_routing-001",
+          "implication": "bank and non-bank issuers admitted"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C3",
+          "constraint_name": "yield",
+          "pole": "prohibited_incl_agents",
+          "record": "us-pss-permitted_activity_yield-001",
+          "implication": "issuer and agents may not pay yield"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "HK",
+          "side_constraint": "C5",
+          "constraint_name": "bank/non-bank routing",
+          "pole": "bank_and_nonbank",
+          "record": "hk-frs-bank_nonbank_routing-001",
+          "implication": "bank and non-bank issuers admitted"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "HK",
+          "side_constraint": "C3",
+          "constraint_name": "yield",
+          "pole": "prohibited_issuer",
+          "record": "hk-frs-permitted_activity_yield-001",
+          "implication": "issuer may not pay yield"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "HK",
+          "side_constraint": "C4",
+          "constraint_name": "securities classification",
+          "pole": "payment_instrument",
+          "record": "hk-frs-securities_classification-001",
+          "implication": "treated as a payment instrument, not a security"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "hk-frs-bank_nonbank_routing-001",
+          "hk-frs-permitted_activity_yield-001",
+          "hk-frs-securities_classification-001",
+          "us-pss-bank_nonbank_routing-001",
+          "us-pss-permitted_activity_yield-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 5 cell(s), 3 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "US->HK",
+      "stakeholder": "reserve_custodian",
+      "label": "Reserve custodian",
+      "lens": "What reserve composition and segregation must I hold, and is data sharing constrained?",
+      "corridor_class": "I",
+      "signal_class": "I",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "RC",
+        "SC"
+      ],
+      "inbound_mechanism": {
+        "test": "HKMA fiat-referenced-stablecoin licence",
+        "detail": "Licence required to issue in Hong Kong or to issue an HKD-referenced token anywhere; the first cohort is HKD-only and bank-led, so a non-HKD or crypto-native issuer needs a later licence or a partnership with a licensed issuer.",
+        "administrator": "HKMA"
+      },
+      "headline": "As reserve custodian for the US issuer: reserve must be high-quality liquid assets; the corridor is broadly feasible (Category I).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "us-pss-reserve_backing-001",
+          "implication": "reserve must be high-quality liquid assets"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C6",
+          "constraint_name": "cross-border/data",
+          "pole": "open",
+          "record": "us-pss-cross_border_data-001",
+          "implication": "no data-localization barrier to supervisory sharing"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "HK",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "hk-frs-capital_requirements-001",
+          "implication": "reserve must be high-quality liquid assets"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "hk-frs-capital_requirements-001",
+          "us-pss-cross_border_data-001",
+          "us-pss-reserve_backing-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 3 cell(s), 1 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "US->HK",
+      "stakeholder": "home_regulator",
+      "label": "Home (origin) regulator",
+      "lens": "Can I supervise outbound use and share information with the host?",
+      "corridor_class": "I",
+      "signal_class": "I",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "RC"
+      ],
+      "inbound_mechanism": {
+        "test": "HKMA fiat-referenced-stablecoin licence",
+        "detail": "Licence required to issue in Hong Kong or to issue an HKD-referenced token anywhere; the first cohort is HKD-only and bank-led, so a non-HKD or crypto-native issuer needs a later licence or a partnership with a licensed issuer.",
+        "administrator": "HKMA"
+      },
+      "headline": "As the US (home) regulator: no data-localization barrier to supervisory sharing; supervising outbound use into HK, the corridor is broadly feasible (Category I).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C6",
+          "constraint_name": "cross-border/data",
+          "pole": "open",
+          "record": "us-pss-cross_border_data-001",
+          "implication": "no data-localization barrier to supervisory sharing"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C8",
+          "constraint_name": "disclosure/supervisory",
+          "pole": "coordinated",
+          "record": "us-pss-disclosure_reporting-001",
+          "implication": "supervisory coordination available"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "channelled",
+          "record": "us-pss-monetary_sovereignty-001",
+          "implication": "foreign tokens admitted only via a determination / channel"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "HK",
+          "side_constraint": "C8",
+          "constraint_name": "disclosure/supervisory",
+          "pole": "coordinated",
+          "record": "hk-frs-disclosure_reporting-001",
+          "implication": "supervisory coordination available"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "hk-frs-disclosure_reporting-001",
+          "us-pss-cross_border_data-001",
+          "us-pss-disclosure_reporting-001",
+          "us-pss-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 4 cell(s), 4 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "US->HK",
+      "stakeholder": "host_regulator",
+      "label": "Host (destination) regulator",
+      "lens": "Under what conditions may a foreign token circulate here?",
+      "corridor_class": "I",
+      "signal_class": "I",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "RC"
+      ],
+      "inbound_mechanism": {
+        "test": "HKMA fiat-referenced-stablecoin licence",
+        "detail": "Licence required to issue in Hong Kong or to issue an HKD-referenced token anywhere; the first cohort is HKD-only and bank-led, so a non-HKD or crypto-native issuer needs a later licence or a partnership with a licensed issuer.",
+        "administrator": "HKMA"
+      },
+      "headline": "As the HK (host) regulator: foreign tokens — no usage cap; dual authorization available; the corridor is broadly feasible (Category I).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "licence_gated",
+          "record": "us-pss-issuer_pathway-001",
+          "implication": "issuance is authorization-gated"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "HK",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "licence_gated",
+          "record": "hk-frs-issuer_pathway-001",
+          "implication": "issuance is authorization-gated"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "HK",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "open",
+          "record": "hk-frs-monetary_sovereignty-001",
+          "implication": "no usage cap; dual authorization available"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "HK",
+          "side_constraint": "C8",
+          "constraint_name": "disclosure/supervisory",
+          "pole": "coordinated",
+          "record": "hk-frs-disclosure_reporting-001",
+          "implication": "supervisory coordination available"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "hk-frs-disclosure_reporting-001",
+          "hk-frs-issuer_pathway-001",
+          "hk-frs-monetary_sovereignty-001",
+          "us-pss-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 4 cell(s), 1 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "US->HK",
+      "stakeholder": "corporate_treasury",
+      "label": "Corporate treasury (rail user)",
+      "lens": "Can I move value on this rail, at scale, and how do I book it?",
+      "corridor_class": "I",
+      "signal_class": "I",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "DC"
+      ],
+      "inbound_mechanism": {
+        "test": "HKMA fiat-referenced-stablecoin licence",
+        "detail": "Licence required to issue in Hong Kong or to issue an HKD-referenced token anywhere; the first cohort is HKD-only and bank-led, so a non-HKD or crypto-native issuer needs a later licence or a partnership with a licensed issuer.",
+        "administrator": "HKMA"
+      },
+      "headline": "As a corporate treasury using the US->HK rail: no usage cap; dual authorization available; feasibility is broadly feasible (Category I).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "us-pss-reserve_backing-001",
+          "implication": "reserve must be high-quality liquid assets"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "HK",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "open",
+          "record": "hk-frs-monetary_sovereignty-001",
+          "implication": "no usage cap; dual authorization available"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "HK",
+          "side_constraint": "C4",
+          "constraint_name": "securities classification",
+          "pole": "payment_instrument",
+          "record": "hk-frs-securities_classification-001",
+          "implication": "treated as a payment instrument, not a security"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "hk-frs-monetary_sovereignty-001",
+          "hk-frs-securities_classification-001",
+          "us-pss-reserve_backing-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 3 cell(s), 1 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "US->HK",
+      "stakeholder": "token_holder",
+      "label": "Institutional holder / investor (TC)",
+      "lens": "What am I holding — is it a security, is it yield-bearing, is the reserve sound?",
+      "corridor_class": "I",
+      "signal_class": "I",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "TC"
+      ],
+      "inbound_mechanism": {
+        "test": "HKMA fiat-referenced-stablecoin licence",
+        "detail": "Licence required to issue in Hong Kong or to issue an HKD-referenced token anywhere; the first cohort is HKD-only and bank-led, so a non-HKD or crypto-native issuer needs a later licence or a partnership with a licensed issuer.",
+        "administrator": "HKMA"
+      },
+      "headline": "As an institutional holder in HK: treated as a payment instrument, not a security; the corridor is broadly feasible (Category I).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "us-pss-reserve_backing-001",
+          "implication": "reserve must be high-quality liquid assets"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "HK",
+          "side_constraint": "C4",
+          "constraint_name": "securities classification",
+          "pole": "payment_instrument",
+          "record": "hk-frs-securities_classification-001",
+          "implication": "treated as a payment instrument, not a security"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "HK",
+          "side_constraint": "C3",
+          "constraint_name": "yield",
+          "pole": "prohibited_issuer",
+          "record": "hk-frs-permitted_activity_yield-001",
+          "implication": "issuer may not pay yield"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "hk-frs-permitted_activity_yield-001",
+          "hk-frs-securities_classification-001",
+          "us-pss-reserve_backing-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 3 cell(s), 1 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "US->JP",
+      "stakeholder": "issuer",
+      "label": "Stablecoin issuer (L1)",
+      "lens": "May I issue, and will my token be admitted into the destination?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "SC"
+      ],
+      "inbound_mechanism": {
+        "test": "Japan Electronic Payment Instruments inbound channel-determination",
+        "detail": "Foreign token circulates only via a registered EPIESP holding reserves in Japan equal to customer holdings, with the foreign issuer not issuing/redeeming/soliciting to Japanese users (recognition + registration, not mutual recognition).",
+        "administrator": "FSA / Local Finance Bureaus"
+      },
+      "headline": "As an US issuer, issuance is authorization-gated; entry into JP is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "licence_gated",
+          "record": "us-pss-issuer_pathway-001",
+          "implication": "issuance is authorization-gated"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "us-pss-reserve_backing-001",
+          "implication": "reserve must be high-quality liquid assets"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "JP",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "closed_set",
+          "record": "jp-epi-issuer_pathway-001",
+          "implication": "issuance limited to a defined set of entities"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "JP",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "channelled",
+          "record": "jp-epi-monetary_sovereignty-001",
+          "implication": "foreign tokens admitted only via a determination / channel"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "jp-epi-issuer_pathway-001",
+          "jp-epi-monetary_sovereignty-001",
+          "us-pss-issuer_pathway-001",
+          "us-pss-reserve_backing-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 4 cell(s), 0 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "US->JP",
+      "stakeholder": "distributor",
+      "label": "Distributor / wallet / PSP (L2 routing)",
+      "lens": "What may I do in the routing chain without becoming an unlicensed issuer or broker?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "DC"
+      ],
+      "inbound_mechanism": {
+        "test": "Japan Electronic Payment Instruments inbound channel-determination",
+        "detail": "Foreign token circulates only via a registered EPIESP holding reserves in Japan equal to customer holdings, with the foreign issuer not issuing/redeeming/soliciting to Japanese users (recognition + registration, not mutual recognition).",
+        "administrator": "FSA / Local Finance Bureaus"
+      },
+      "headline": "As a distributor/wallet into JP: roles separated by licensed function; the corridor is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C5",
+          "constraint_name": "bank/non-bank routing",
+          "pole": "bank_and_nonbank",
+          "record": "us-pss-bank_nonbank_routing-001",
+          "implication": "bank and non-bank issuers admitted"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C3",
+          "constraint_name": "yield",
+          "pole": "prohibited_incl_agents",
+          "record": "us-pss-permitted_activity_yield-001",
+          "implication": "issuer and agents may not pay yield"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "JP",
+          "side_constraint": "C5",
+          "constraint_name": "bank/non-bank routing",
+          "pole": "layered_separation",
+          "record": "jp-epi-bank_nonbank_routing-001",
+          "implication": "roles separated by licensed function"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "JP",
+          "side_constraint": "C3",
+          "constraint_name": "yield",
+          "pole": "prohibited_issuer",
+          "record": "jp-epi-permitted_activity_yield-001",
+          "implication": "issuer may not pay yield"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "JP",
+          "side_constraint": "C4",
+          "constraint_name": "securities classification",
+          "pole": "payment_instrument",
+          "record": "jp-epi-securities_classification-001",
+          "implication": "treated as a payment instrument, not a security"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "jp-epi-bank_nonbank_routing-001",
+          "jp-epi-permitted_activity_yield-001",
+          "jp-epi-securities_classification-001",
+          "us-pss-bank_nonbank_routing-001",
+          "us-pss-permitted_activity_yield-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 5 cell(s), 3 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "US->JP",
+      "stakeholder": "reserve_custodian",
+      "label": "Reserve custodian",
+      "lens": "What reserve composition and segregation must I hold, and is data sharing constrained?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "RC",
+        "SC"
+      ],
+      "inbound_mechanism": {
+        "test": "Japan Electronic Payment Instruments inbound channel-determination",
+        "detail": "Foreign token circulates only via a registered EPIESP holding reserves in Japan equal to customer holdings, with the foreign issuer not issuing/redeeming/soliciting to Japanese users (recognition + registration, not mutual recognition).",
+        "administrator": "FSA / Local Finance Bureaus"
+      },
+      "headline": "As reserve custodian for the US issuer: reserve must be high-quality liquid assets; the corridor is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "us-pss-reserve_backing-001",
+          "implication": "reserve must be high-quality liquid assets"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C6",
+          "constraint_name": "cross-border/data",
+          "pole": "open",
+          "record": "us-pss-cross_border_data-001",
+          "implication": "no data-localization barrier to supervisory sharing"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "JP",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_flex",
+          "record": "jp-epi-capital_requirements-001",
+          "implication": "reserve prescribed with some flexibility"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "jp-epi-capital_requirements-001",
+          "us-pss-cross_border_data-001",
+          "us-pss-reserve_backing-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 3 cell(s), 2 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "US->JP",
+      "stakeholder": "home_regulator",
+      "label": "Home (origin) regulator",
+      "lens": "Can I supervise outbound use and share information with the host?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "RC"
+      ],
+      "inbound_mechanism": {
+        "test": "Japan Electronic Payment Instruments inbound channel-determination",
+        "detail": "Foreign token circulates only via a registered EPIESP holding reserves in Japan equal to customer holdings, with the foreign issuer not issuing/redeeming/soliciting to Japanese users (recognition + registration, not mutual recognition).",
+        "administrator": "FSA / Local Finance Bureaus"
+      },
+      "headline": "As the US (home) regulator: no data-localization barrier to supervisory sharing; supervising outbound use into JP, the corridor is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C6",
+          "constraint_name": "cross-border/data",
+          "pole": "open",
+          "record": "us-pss-cross_border_data-001",
+          "implication": "no data-localization barrier to supervisory sharing"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C8",
+          "constraint_name": "disclosure/supervisory",
+          "pole": "coordinated",
+          "record": "us-pss-disclosure_reporting-001",
+          "implication": "supervisory coordination available"
+        },
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "channelled",
+          "record": "us-pss-monetary_sovereignty-001",
+          "implication": "foreign tokens admitted only via a determination / channel"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "JP",
+          "side_constraint": "C8",
+          "constraint_name": "disclosure/supervisory",
+          "pole": "coordinated",
+          "record": "jp-epi-disclosure_reporting-001",
+          "implication": "supervisory coordination available"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "jp-epi-disclosure_reporting-001",
+          "us-pss-cross_border_data-001",
+          "us-pss-disclosure_reporting-001",
+          "us-pss-monetary_sovereignty-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 4 cell(s), 4 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "US->JP",
+      "stakeholder": "host_regulator",
+      "label": "Host (destination) regulator",
+      "lens": "Under what conditions may a foreign token circulate here?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "RC"
+      ],
+      "inbound_mechanism": {
+        "test": "Japan Electronic Payment Instruments inbound channel-determination",
+        "detail": "Foreign token circulates only via a registered EPIESP holding reserves in Japan equal to customer holdings, with the foreign issuer not issuing/redeeming/soliciting to Japanese users (recognition + registration, not mutual recognition).",
+        "administrator": "FSA / Local Finance Bureaus"
+      },
+      "headline": "As the JP (host) regulator: foreign tokens — foreign tokens admitted only via a determination / channel; the corridor is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "licence_gated",
+          "record": "us-pss-issuer_pathway-001",
+          "implication": "issuance is authorization-gated"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "JP",
+          "side_constraint": "C1",
+          "constraint_name": "issuer eligibility",
+          "pole": "closed_set",
+          "record": "jp-epi-issuer_pathway-001",
+          "implication": "issuance limited to a defined set of entities"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "JP",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "channelled",
+          "record": "jp-epi-monetary_sovereignty-001",
+          "implication": "foreign tokens admitted only via a determination / channel"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "JP",
+          "side_constraint": "C8",
+          "constraint_name": "disclosure/supervisory",
+          "pole": "coordinated",
+          "record": "jp-epi-disclosure_reporting-001",
+          "implication": "supervisory coordination available"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "jp-epi-disclosure_reporting-001",
+          "jp-epi-issuer_pathway-001",
+          "jp-epi-monetary_sovereignty-001",
+          "us-pss-issuer_pathway-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 4 cell(s), 1 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "US->JP",
+      "stakeholder": "corporate_treasury",
+      "label": "Corporate treasury (rail user)",
+      "lens": "Can I move value on this rail, at scale, and how do I book it?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "DC"
+      ],
+      "inbound_mechanism": {
+        "test": "Japan Electronic Payment Instruments inbound channel-determination",
+        "detail": "Foreign token circulates only via a registered EPIESP holding reserves in Japan equal to customer holdings, with the foreign issuer not issuing/redeeming/soliciting to Japanese users (recognition + registration, not mutual recognition).",
+        "administrator": "FSA / Local Finance Bureaus"
+      },
+      "headline": "As a corporate treasury using the US->JP rail: foreign tokens admitted only via a determination / channel; feasibility is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "us-pss-reserve_backing-001",
+          "implication": "reserve must be high-quality liquid assets"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "JP",
+          "side_constraint": "C7",
+          "constraint_name": "monetary sovereignty",
+          "pole": "channelled",
+          "record": "jp-epi-monetary_sovereignty-001",
+          "implication": "foreign tokens admitted only via a determination / channel"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "JP",
+          "side_constraint": "C4",
+          "constraint_name": "securities classification",
+          "pole": "payment_instrument",
+          "record": "jp-epi-securities_classification-001",
+          "implication": "treated as a payment instrument, not a security"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "jp-epi-monetary_sovereignty-001",
+          "jp-epi-securities_classification-001",
+          "us-pss-reserve_backing-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 3 cell(s), 1 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    },
+    {
+      "edge": "US->JP",
+      "stakeholder": "token_holder",
+      "label": "Institutional holder / investor (TC)",
+      "lens": "What am I holding — is it a security, is it yield-bearing, is the reserve sound?",
+      "corridor_class": "II",
+      "signal_class": "II",
+      "agree_with_signal": true,
+      "archetypes_engaged": [
+        "TC"
+      ],
+      "inbound_mechanism": {
+        "test": "Japan Electronic Payment Instruments inbound channel-determination",
+        "detail": "Foreign token circulates only via a registered EPIESP holding reserves in Japan equal to customer holdings, with the foreign issuer not issuing/redeeming/soliciting to Japanese users (recognition + registration, not mutual recognition).",
+        "administrator": "FSA / Local Finance Bureaus"
+      },
+      "headline": "As an institutional holder in JP: treated as a payment instrument, not a security; the corridor is feasible pending a determination (Category II).",
+      "reading": [
+        {
+          "side": "origin",
+          "jurisdiction": "US",
+          "side_constraint": "C2",
+          "constraint_name": "reserve/capital",
+          "pole": "prescribed_hqla",
+          "record": "us-pss-reserve_backing-001",
+          "implication": "reserve must be high-quality liquid assets"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "JP",
+          "side_constraint": "C4",
+          "constraint_name": "securities classification",
+          "pole": "payment_instrument",
+          "record": "jp-epi-securities_classification-001",
+          "implication": "treated as a payment instrument, not a security"
+        },
+        {
+          "side": "dest",
+          "jurisdiction": "JP",
+          "side_constraint": "C3",
+          "constraint_name": "yield",
+          "pole": "prohibited_issuer",
+          "record": "jp-epi-permitted_activity_yield-001",
+          "implication": "issuer may not pay yield"
+        }
+      ],
+      "provenance": {
+        "records": [
+          "jp-epi-permitted_activity_yield-001",
+          "jp-epi-securities_classification-001",
+          "us-pss-reserve_backing-001"
+        ],
+        "all_tier1_legal": true,
+        "nontier1": []
+      },
+      "verification_status": "preview — rests on 3 cell(s), 1 not yet verified to resolution_text; profile is not citable authority until those are verified"
+    }
+  ]
+}

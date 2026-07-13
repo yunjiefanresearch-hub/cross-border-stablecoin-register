@@ -1,0 +1,44 @@
+id: cn-prc-reserve_backing-001
+jurisdiction: CN
+authority: PBOC; SAFE; CSRC
+instrument_type: other
+instrument_label_local: 无境内发行 (no domestic issuance); indirect HK pathway
+dimension: reserve_backing
+constraint_ref: C2
+requirement_summary: Reserve requirements are not applicable to domestic issuance, which is prohibited. On the indirect
+  pathway through Hong Kong, HKMA reserve requirements apply to the HK-licensed entity; the PRC-connected parent
+  holds no reserve obligation directly under PRC law but faces consolidation treatment under A-share listing rules.
+requirement_structured:
+  domestic: not applicable (issuance prohibited)
+  indirect_hk: HKMA reserve rules apply to HK entity
+  prc_parent: no direct reserve obligation; A-share consolidation treatment
+status: in_force
+source:
+  primary: PRC prohibition on domestic issuance; HKMA reserve rules apply to HK-licensed entity (indirect pathway)
+  pinpoint: Reserve — N/A domestically; indirect HK pathway + A-share consolidation
+  url: ''
+secondary:
+- citation: Fan, Multi-Jurisdiction Stablecoin Compliance Matrix v0.9.6 (June 2026), §Mainland China (Reserve and
+    Backing Requirements) [re-pinned from v0.9.3]
+interpretation_note: 'Provenance: transcribed from the author''s Compliance Matrix (re-pinned to v0.9.6; originally
+  v0.9.3); pending primary-source verification. Recorded because the ''N/A domestically + indirect HK consolidation''
+  structure is itself the analytically relevant fact for PRC-connected groups.
+
+
+  [v0.9.5 verification] Prohibition/absence-of-regime cell: the 2017/2021 Notices establish a prohibition; there
+  is no affirmative permitted-activity rule to confirm, so this stays unset (not promotable to resolution_text as
+  a positive proposition).'
+confidence: medium
+claim_class: tier1_legal
+last_reviewed: '2026-06-17'
+version_added: 0.3.0
+tags:
+- apac
+- focus
+- from_matrix_v0.9.6
+- v0.3.0_backfill
+- indirect_pathway
+- v0.7.0_claim_class
+- v0.9.5_verification
+- binding_prohibition
+binding_status: prohibition

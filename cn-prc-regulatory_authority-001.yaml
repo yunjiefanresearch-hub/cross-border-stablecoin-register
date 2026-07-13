@@ -1,0 +1,54 @@
+id: cn-prc-regulatory_authority-001
+jurisdiction: CN
+authority: PBOC; CAC; CSRC; MIIT; SAFE
+instrument_type: other
+instrument_label_local: 虚拟货币 / stablecoin (no lawful domestic instrument)
+dimension: regulatory_authority
+constraint_ref: C1
+requirement_summary: 'No single stablecoin regulator exists because there is no lawful domestic issuance pathway;
+  instead, a coordinated multi-agency prohibition perimeter governs. The eight-ministry Notice 银发〔2026〕42号 (in force
+  6 Feb 2026), issued jointly with the Cyberspace Administration and the two supreme judicial organs, sets the perimeter:
+  the People''s Bank of China (PBOC) leads, with the NDRC, MIIT, MPS, SAMR, NFRA, CSRC, and SAFE. The 2026 Notice
+  put the prohibition on private RMB-pegged stablecoin issuance into writing, formalising the stance PBOC had signalled
+  to PRC tech groups in 2025. The CAC governs ICP, deep-synthesis/generative-AI content, and cross-border data flows;
+  the CSRC governs A-share issuer disclosure and has directed brokerages to pause Hong Kong tokenisation activity;
+  MIIT and SAFE supply supporting telecoms/ICP and outbound-capital measures.'
+requirement_structured:
+  agencies:
+    PBOC: primary financial regulator; private RMB-linked issuance guidance (Oct 2025)
+    CAC: cross-border data, ICP, content; joined Oct 2025 guidance
+    CSRC: A-share disclosure; brokerage tokenization pause
+    MIIT: telecoms / ICP supporting measures
+    SAFE: outbound capital and profit repatriation control
+  single_stablecoin_regulator: false
+status: in_force
+effective_date: null
+source:
+  primary: '《关于进一步防范和处置虚拟货币等相关风险的通知》(银发〔2026〕42号, 6 Feb 2026); issuing bodies: PBOC, NDRC, MIIT, MPS, SAMR, NFRA,
+    CSRC, SAFE, with 中央网信办/最高法/最高检'
+  pinpoint: 银发〔2026〕42号 (a coordinated multi-agency prohibition perimeter; eight ministries plus the cyberspace
+    administration and the two supreme judicial organs)
+  url: https://www.csrc.gov.cn/csrc/c100028/c7614318/content.shtml
+secondary:
+- citation: Fan, Multi-Jurisdiction Stablecoin Compliance Matrix v0.9.6 (June 2026), §Mainland China (Regulators)
+    [re-pinned from v0.9.3]
+interpretation_note: 'Provenance: transcribed from the author''s Compliance Matrix (re-pinned to v0.9.6; originally
+  v0.9.3). The relevant ''authority'' question for PRC-connected groups is not who licenses issuance (no one does)
+  but which agencies condition the indirect Hong Kong pathway.
+
+
+  [v0.9.5 verification] NATIVE-LANGUAGE VERIFICATION (Chinese): citation updated to the in-force 银发〔2026〕42号 (repealing
+  银发〔2021〕237号).'
+confidence: high
+claim_class: tier1_legal
+last_reviewed: '2026-06-17'
+version_added: 0.2.0
+tags:
+- apac
+- focus
+- from_matrix_v0.9.6
+- v0.9.5_verification
+- binding_prohibition
+- verification_reviewed
+binding_status: prohibition
+evidence_tier: firm_summary

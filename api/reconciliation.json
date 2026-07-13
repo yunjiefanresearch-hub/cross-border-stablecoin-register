@@ -1,0 +1,547 @@
+{
+  "register": "Cross-Border Stablecoin Register",
+  "version": "0.10.1",
+  "generated": "2026-07-10",
+  "endpoint": "reconciliation",
+  "guardrail": "static projection of the public register; no facts added here",
+  "data": {
+    "undirected_pairs": [
+      {
+        "pair": "EU-US",
+        "computed_category": "I/II",
+        "authored_category": "I/II",
+        "agree": true,
+        "basis": "both directions authorizable (dual authorization or partnership)",
+        "finding": null
+      },
+      {
+        "pair": "UK-US",
+        "computed_category": "I/II*",
+        "authored_category": "I",
+        "agree": false,
+        "basis": "one side is a regime-in-transition (operative later); Atlas flags T",
+        "finding": "uk_regime_in_transition"
+      },
+      {
+        "pair": "SG-US",
+        "computed_category": "I/II",
+        "authored_category": "I/II",
+        "agree": true,
+        "basis": "both directions authorizable (dual authorization or partnership)",
+        "finding": null
+      },
+      {
+        "pair": "HK-US",
+        "computed_category": "I/II",
+        "authored_category": "I/II",
+        "agree": true,
+        "basis": "both directions authorizable (dual authorization or partnership)",
+        "finding": null
+      },
+      {
+        "pair": "CN-US",
+        "computed_category": "III",
+        "authored_category": "III",
+        "agree": true,
+        "basis": "either direction is blocked / pre-regime / origin-dragged",
+        "finding": null
+      },
+      {
+        "pair": "BR-US",
+        "computed_category": "I/II",
+        "authored_category": "I/II",
+        "agree": true,
+        "basis": "both directions authorizable (dual authorization or partnership)",
+        "finding": null
+      },
+      {
+        "pair": "CH-US",
+        "computed_category": "I/II",
+        "authored_category": "I/II",
+        "agree": true,
+        "basis": "both directions authorizable (dual authorization or partnership)",
+        "finding": null
+      },
+      {
+        "pair": "AE-US",
+        "computed_category": "I/II",
+        "authored_category": "I/II",
+        "agree": true,
+        "basis": "both directions authorizable (dual authorization or partnership)",
+        "finding": null
+      },
+      {
+        "pair": "TW-US",
+        "computed_category": "III",
+        "authored_category": "III",
+        "agree": true,
+        "basis": "either direction is blocked / pre-regime / origin-dragged",
+        "finding": null
+      },
+      {
+        "pair": "JP-US",
+        "computed_category": "I/II",
+        "authored_category": "I/II",
+        "agree": true,
+        "basis": "both directions authorizable (dual authorization or partnership)",
+        "finding": null
+      },
+      {
+        "pair": "KR-US",
+        "computed_category": "III",
+        "authored_category": "III",
+        "agree": true,
+        "basis": "either direction is blocked / pre-regime / origin-dragged",
+        "finding": null
+      },
+      {
+        "pair": "EU-UK",
+        "computed_category": "I/II*",
+        "authored_category": "I",
+        "agree": false,
+        "basis": "one side is a regime-in-transition (operative later); Atlas flags T",
+        "finding": "uk_regime_in_transition"
+      },
+      {
+        "pair": "EU-SG",
+        "computed_category": "I/II",
+        "authored_category": "I/II",
+        "agree": true,
+        "basis": "both directions authorizable (dual authorization or partnership)",
+        "finding": null
+      },
+      {
+        "pair": "EU-HK",
+        "computed_category": "I/II",
+        "authored_category": "I/II",
+        "agree": true,
+        "basis": "both directions authorizable (dual authorization or partnership)",
+        "finding": null
+      },
+      {
+        "pair": "CN-EU",
+        "computed_category": "III",
+        "authored_category": "III",
+        "agree": true,
+        "basis": "either direction is blocked / pre-regime / origin-dragged",
+        "finding": null
+      },
+      {
+        "pair": "BR-EU",
+        "computed_category": "I/II",
+        "authored_category": "I/II",
+        "agree": true,
+        "basis": "both directions authorizable (dual authorization or partnership)",
+        "finding": null
+      },
+      {
+        "pair": "CH-EU",
+        "computed_category": "I/II",
+        "authored_category": "I/II",
+        "agree": true,
+        "basis": "both directions authorizable (dual authorization or partnership)",
+        "finding": null
+      },
+      {
+        "pair": "AE-EU",
+        "computed_category": "I/II",
+        "authored_category": "I/II",
+        "agree": true,
+        "basis": "both directions authorizable (dual authorization or partnership)",
+        "finding": null
+      },
+      {
+        "pair": "EU-TW",
+        "computed_category": "III",
+        "authored_category": "III",
+        "agree": true,
+        "basis": "either direction is blocked / pre-regime / origin-dragged",
+        "finding": null
+      },
+      {
+        "pair": "EU-JP",
+        "computed_category": "I/II",
+        "authored_category": "I/II",
+        "agree": true,
+        "basis": "both directions authorizable (dual authorization or partnership)",
+        "finding": null
+      },
+      {
+        "pair": "EU-KR",
+        "computed_category": "III",
+        "authored_category": "III",
+        "agree": true,
+        "basis": "either direction is blocked / pre-regime / origin-dragged",
+        "finding": null
+      },
+      {
+        "pair": "SG-UK",
+        "computed_category": "I/II*",
+        "authored_category": "I/II",
+        "agree": true,
+        "basis": "one side is a regime-in-transition (operative later); Atlas flags T",
+        "finding": null
+      },
+      {
+        "pair": "HK-UK",
+        "computed_category": "I/II*",
+        "authored_category": "I/II",
+        "agree": true,
+        "basis": "one side is a regime-in-transition (operative later); Atlas flags T",
+        "finding": null
+      },
+      {
+        "pair": "CN-UK",
+        "computed_category": "III",
+        "authored_category": "III",
+        "agree": true,
+        "basis": "either direction is blocked / pre-regime / origin-dragged",
+        "finding": null
+      },
+      {
+        "pair": "BR-UK",
+        "computed_category": "I/II*",
+        "authored_category": "I/II",
+        "agree": true,
+        "basis": "one side is a regime-in-transition (operative later); Atlas flags T",
+        "finding": null
+      },
+      {
+        "pair": "CH-UK",
+        "computed_category": "I/II*",
+        "authored_category": "I/II",
+        "agree": true,
+        "basis": "one side is a regime-in-transition (operative later); Atlas flags T",
+        "finding": null
+      },
+      {
+        "pair": "AE-UK",
+        "computed_category": "I/II*",
+        "authored_category": "I/II",
+        "agree": true,
+        "basis": "one side is a regime-in-transition (operative later); Atlas flags T",
+        "finding": null
+      },
+      {
+        "pair": "TW-UK",
+        "computed_category": "III",
+        "authored_category": "III",
+        "agree": true,
+        "basis": "either direction is blocked / pre-regime / origin-dragged",
+        "finding": null
+      },
+      {
+        "pair": "JP-UK",
+        "computed_category": "I/II*",
+        "authored_category": "I/II",
+        "agree": true,
+        "basis": "one side is a regime-in-transition (operative later); Atlas flags T",
+        "finding": null
+      },
+      {
+        "pair": "KR-UK",
+        "computed_category": "III",
+        "authored_category": "III",
+        "agree": true,
+        "basis": "either direction is blocked / pre-regime / origin-dragged",
+        "finding": null
+      },
+      {
+        "pair": "HK-SG",
+        "computed_category": "I/II",
+        "authored_category": "I/II",
+        "agree": true,
+        "basis": "both directions authorizable (dual authorization or partnership)",
+        "finding": null
+      },
+      {
+        "pair": "CN-SG",
+        "computed_category": "III",
+        "authored_category": "III",
+        "agree": true,
+        "basis": "either direction is blocked / pre-regime / origin-dragged",
+        "finding": null
+      },
+      {
+        "pair": "BR-SG",
+        "computed_category": "I/II",
+        "authored_category": "I/II",
+        "agree": true,
+        "basis": "both directions authorizable (dual authorization or partnership)",
+        "finding": null
+      },
+      {
+        "pair": "CH-SG",
+        "computed_category": "I/II",
+        "authored_category": "I/II",
+        "agree": true,
+        "basis": "both directions authorizable (dual authorization or partnership)",
+        "finding": null
+      },
+      {
+        "pair": "AE-SG",
+        "computed_category": "I/II",
+        "authored_category": "I/II",
+        "agree": true,
+        "basis": "both directions authorizable (dual authorization or partnership)",
+        "finding": null
+      },
+      {
+        "pair": "SG-TW",
+        "computed_category": "III",
+        "authored_category": "III",
+        "agree": true,
+        "basis": "either direction is blocked / pre-regime / origin-dragged",
+        "finding": null
+      },
+      {
+        "pair": "JP-SG",
+        "computed_category": "I/II",
+        "authored_category": "I/II",
+        "agree": true,
+        "basis": "both directions authorizable (dual authorization or partnership)",
+        "finding": null
+      },
+      {
+        "pair": "KR-SG",
+        "computed_category": "III",
+        "authored_category": "III",
+        "agree": true,
+        "basis": "either direction is blocked / pre-regime / origin-dragged",
+        "finding": null
+      },
+      {
+        "pair": "CN-HK",
+        "computed_category": "III",
+        "authored_category": "III",
+        "agree": true,
+        "basis": "either direction is blocked / pre-regime / origin-dragged",
+        "finding": null
+      },
+      {
+        "pair": "BR-HK",
+        "computed_category": "I/II",
+        "authored_category": "I/II",
+        "agree": true,
+        "basis": "both directions authorizable (dual authorization or partnership)",
+        "finding": null
+      },
+      {
+        "pair": "CH-HK",
+        "computed_category": "I/II",
+        "authored_category": "I/II",
+        "agree": true,
+        "basis": "both directions authorizable (dual authorization or partnership)",
+        "finding": null
+      },
+      {
+        "pair": "AE-HK",
+        "computed_category": "I/II",
+        "authored_category": "I/II",
+        "agree": true,
+        "basis": "both directions authorizable (dual authorization or partnership)",
+        "finding": null
+      },
+      {
+        "pair": "HK-TW",
+        "computed_category": "III",
+        "authored_category": "III",
+        "agree": true,
+        "basis": "either direction is blocked / pre-regime / origin-dragged",
+        "finding": null
+      },
+      {
+        "pair": "HK-JP",
+        "computed_category": "I/II",
+        "authored_category": "I/II",
+        "agree": true,
+        "basis": "both directions authorizable (dual authorization or partnership)",
+        "finding": null
+      },
+      {
+        "pair": "HK-KR",
+        "computed_category": "III",
+        "authored_category": "III",
+        "agree": true,
+        "basis": "either direction is blocked / pre-regime / origin-dragged",
+        "finding": null
+      },
+      {
+        "pair": "BR-CN",
+        "computed_category": "III",
+        "authored_category": "III",
+        "agree": true,
+        "basis": "either direction is blocked / pre-regime / origin-dragged",
+        "finding": null
+      },
+      {
+        "pair": "CH-CN",
+        "computed_category": "III",
+        "authored_category": "III",
+        "agree": true,
+        "basis": "either direction is blocked / pre-regime / origin-dragged",
+        "finding": null
+      },
+      {
+        "pair": "AE-CN",
+        "computed_category": "III",
+        "authored_category": "III",
+        "agree": true,
+        "basis": "either direction is blocked / pre-regime / origin-dragged",
+        "finding": null
+      },
+      {
+        "pair": "CN-TW",
+        "computed_category": "III",
+        "authored_category": "III",
+        "agree": true,
+        "basis": "either direction is blocked / pre-regime / origin-dragged",
+        "finding": null
+      },
+      {
+        "pair": "CN-JP",
+        "computed_category": "III",
+        "authored_category": "III",
+        "agree": true,
+        "basis": "either direction is blocked / pre-regime / origin-dragged",
+        "finding": null
+      },
+      {
+        "pair": "CN-KR",
+        "computed_category": "III",
+        "authored_category": "III",
+        "agree": true,
+        "basis": "either direction is blocked / pre-regime / origin-dragged",
+        "finding": null
+      },
+      {
+        "pair": "BR-CH",
+        "computed_category": "I/II",
+        "authored_category": "I/II",
+        "agree": true,
+        "basis": "both directions authorizable (dual authorization or partnership)",
+        "finding": null
+      },
+      {
+        "pair": "AE-BR",
+        "computed_category": "I/II",
+        "authored_category": "I/II",
+        "agree": true,
+        "basis": "both directions authorizable (dual authorization or partnership)",
+        "finding": null
+      },
+      {
+        "pair": "BR-TW",
+        "computed_category": "III",
+        "authored_category": "III",
+        "agree": true,
+        "basis": "either direction is blocked / pre-regime / origin-dragged",
+        "finding": null
+      },
+      {
+        "pair": "BR-JP",
+        "computed_category": "I/II",
+        "authored_category": "I/II",
+        "agree": true,
+        "basis": "both directions authorizable (dual authorization or partnership)",
+        "finding": null
+      },
+      {
+        "pair": "BR-KR",
+        "computed_category": "III",
+        "authored_category": "III",
+        "agree": true,
+        "basis": "either direction is blocked / pre-regime / origin-dragged",
+        "finding": null
+      },
+      {
+        "pair": "AE-CH",
+        "computed_category": "I/II",
+        "authored_category": "I/II",
+        "agree": true,
+        "basis": "both directions authorizable (dual authorization or partnership)",
+        "finding": null
+      },
+      {
+        "pair": "CH-TW",
+        "computed_category": "III",
+        "authored_category": "III",
+        "agree": true,
+        "basis": "either direction is blocked / pre-regime / origin-dragged",
+        "finding": null
+      },
+      {
+        "pair": "CH-JP",
+        "computed_category": "I/II",
+        "authored_category": "I/II",
+        "agree": true,
+        "basis": "both directions authorizable (dual authorization or partnership)",
+        "finding": null
+      },
+      {
+        "pair": "CH-KR",
+        "computed_category": "III",
+        "authored_category": "III",
+        "agree": true,
+        "basis": "either direction is blocked / pre-regime / origin-dragged",
+        "finding": null
+      },
+      {
+        "pair": "AE-TW",
+        "computed_category": "III",
+        "authored_category": "III",
+        "agree": true,
+        "basis": "either direction is blocked / pre-regime / origin-dragged",
+        "finding": null
+      },
+      {
+        "pair": "AE-JP",
+        "computed_category": "I/II",
+        "authored_category": "I/II",
+        "agree": true,
+        "basis": "both directions authorizable (dual authorization or partnership)",
+        "finding": null
+      },
+      {
+        "pair": "AE-KR",
+        "computed_category": "III",
+        "authored_category": "III",
+        "agree": true,
+        "basis": "either direction is blocked / pre-regime / origin-dragged",
+        "finding": null
+      },
+      {
+        "pair": "JP-TW",
+        "computed_category": "III",
+        "authored_category": "III",
+        "agree": true,
+        "basis": "either direction is blocked / pre-regime / origin-dragged",
+        "finding": null
+      },
+      {
+        "pair": "KR-TW",
+        "computed_category": "III",
+        "authored_category": "III",
+        "agree": true,
+        "basis": "either direction is blocked / pre-regime / origin-dragged",
+        "finding": null
+      },
+      {
+        "pair": "JP-KR",
+        "computed_category": "III",
+        "authored_category": "III",
+        "agree": true,
+        "basis": "either direction is blocked / pre-regime / origin-dragged",
+        "finding": null
+      }
+    ],
+    "agreement": "64/66",
+    "findings_by_cause": {
+      "uk_regime_in_transition": [
+        "EU-UK",
+        "UK-US"
+      ]
+    },
+    "note": "computed layer is a labelled preview; a divergence is a finding, never an authoritative correction"
+  }
+}

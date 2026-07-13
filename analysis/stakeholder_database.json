@@ -1,0 +1,63 @@
+{
+  "schema": "cbsr-analysis/stakeholder_database",
+  "version": "0.9.4",
+  "status": "preview",
+  "note": "Operationalizes the Corridor Atlas \u00a78 stakeholder-projection concept. A controlled set of actor personas, each mapped to (a) the C1\u2013C8 constraints that bear on it and (b) the corridor archetypes (RC/SC/TC/DC) it engages. The projection profile_for(stakeholder, edge) RE-PROJECTS the already-derived corridor class, the substrate poles, and the edge's inbound mechanism through a persona's lens \u2014 it introduces NO new legal facts and inherits the verification status of the cells it reads (so a profile is preview, not citable authority, until those cells are verified). The persona list is the register's operationalization and is itself subject to confirmation against the \u00a78 source text.",
+  "archetype_legend": {
+    "RC": "Regulatory",
+    "SC": "Stablecoin Settlement",
+    "TC": "Tokenized-Asset",
+    "DC": "Digital-Financial"
+  },
+  "stakeholders": {
+    "issuer": {
+      "label": "Stablecoin issuer (L1)",
+      "lens": "May I issue, and will my token be admitted into the destination?",
+      "primary_constraints": ["C1", "C2", "C7"],
+      "archetypes": ["SC"],
+      "reads": {"origin": ["C1", "C2"], "dest": ["C1", "C7"]}
+    },
+    "distributor": {
+      "label": "Distributor / wallet / PSP (L2 routing)",
+      "lens": "What may I do in the routing chain without becoming an unlicensed issuer or broker?",
+      "primary_constraints": ["C5", "C3", "C4"],
+      "archetypes": ["DC"],
+      "reads": {"origin": ["C5", "C3"], "dest": ["C5", "C3", "C4"]}
+    },
+    "reserve_custodian": {
+      "label": "Reserve custodian",
+      "lens": "What reserve composition and segregation must I hold, and is data sharing constrained?",
+      "primary_constraints": ["C2", "C6"],
+      "archetypes": ["SC", "RC"],
+      "reads": {"origin": ["C2", "C6"], "dest": ["C2"]}
+    },
+    "home_regulator": {
+      "label": "Home (origin) regulator",
+      "lens": "Can I supervise outbound use and share information with the host?",
+      "primary_constraints": ["C6", "C8", "C7"],
+      "archetypes": ["RC"],
+      "reads": {"origin": ["C6", "C8", "C7"], "dest": ["C8"]}
+    },
+    "host_regulator": {
+      "label": "Host (destination) regulator",
+      "lens": "Under what conditions may a foreign token circulate here?",
+      "primary_constraints": ["C1", "C7", "C8"],
+      "archetypes": ["RC"],
+      "reads": {"origin": ["C1"], "dest": ["C1", "C7", "C8"]}
+    },
+    "corporate_treasury": {
+      "label": "Corporate treasury (rail user)",
+      "lens": "Can I move value on this rail, at scale, and how do I book it?",
+      "primary_constraints": ["C7", "C4", "C2"],
+      "archetypes": ["DC"],
+      "reads": {"origin": ["C2"], "dest": ["C7", "C4"]}
+    },
+    "token_holder": {
+      "label": "Institutional holder / investor (TC)",
+      "lens": "What am I holding \u2014 is it a security, is it yield-bearing, is the reserve sound?",
+      "primary_constraints": ["C4", "C3", "C2"],
+      "archetypes": ["TC"],
+      "reads": {"origin": ["C2"], "dest": ["C4", "C3"]}
+    }
+  }
+}

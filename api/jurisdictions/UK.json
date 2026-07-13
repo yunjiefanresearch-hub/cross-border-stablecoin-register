@@ -1,0 +1,325 @@
+{
+  "register": "Cross-Border Stablecoin Register",
+  "version": "0.10.1",
+  "generated": "2026-07-10",
+  "endpoint": "jurisdiction",
+  "guardrail": "static projection of the public register; no facts added here",
+  "data": {
+    "jurisdiction": "UK",
+    "records": [
+      {
+        "id": "uk-frs-aml_kyc-001",
+        "jurisdiction": "UK",
+        "dimension": "aml_kyc",
+        "claim_class": "tier1_legal",
+        "evidence_tier": null,
+        "binding_status": "in_force_enacted",
+        "status": "transitional",
+        "instrument": "FSMA 2000 (Cryptoassets) Regulations 2026, SI 2026/102; Money Laundering Regulations 2017",
+        "pinpoint": "AML/KYC — full FSMA scope; MLR registration regime superseded",
+        "url": ""
+      },
+      {
+        "id": "uk-frs-bank_nonbank_routing-001",
+        "jurisdiction": "UK",
+        "dimension": "bank_nonbank_routing",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "made_not_commenced",
+        "status": "in_force",
+        "instrument": "FSMA 2026 (conduct + systemic regimes); Banking Act 2009 (systemic)",
+        "pinpoint": "Authorized-firm issuance; FCA conduct vs. BoE systemic split",
+        "url": null
+      },
+      {
+        "id": "uk-frs-capital_requirements-001",
+        "jurisdiction": "UK",
+        "dimension": "capital_requirements",
+        "claim_class": "tier1_legal",
+        "evidence_tier": null,
+        "binding_status": "pending_proposal",
+        "status": "proposed",
+        "instrument": "FCA Consultation Paper CP25/15; Bank of England systemic stablecoin proposals (10 Nov 2025)",
+        "pinpoint": "Prudential regime — FCA CP25/15 (pending); BoE systemic regime",
+        "url": ""
+      },
+      {
+        "id": "uk-frs-cross_border_data-001",
+        "jurisdiction": "UK",
+        "dimension": "cross_border_data",
+        "claim_class": "tier1_legal",
+        "evidence_tier": null,
+        "binding_status": "made_not_commenced",
+        "status": "in_force",
+        "instrument": "UK GDPR (Data Protection Act 2018)",
+        "pinpoint": "Cross-border transfer — adequacy / IDTA / UK Addendum to EU SCCs",
+        "url": "https://www.legislation.gov.uk/uksi/2026/102/contents/made"
+      },
+      {
+        "id": "uk-frs-custody-001",
+        "jurisdiction": "UK",
+        "dimension": "custody",
+        "claim_class": "tier1_legal",
+        "evidence_tier": null,
+        "binding_status": "made_not_commenced",
+        "status": "transitional",
+        "instrument": "FSMA 2000 (Cryptoassets) Regulations 2026, SI 2026/102; FCA CP25/14",
+        "pinpoint": "Custody — 24-hour rule; safeguarding licence for regulated custodians",
+        "url": "https://www.legislation.gov.uk/uksi/2026/102/contents/made"
+      },
+      {
+        "id": "uk-frs-distribution-001",
+        "jurisdiction": "UK",
+        "dimension": "distribution",
+        "claim_class": "tier1_legal",
+        "evidence_tier": null,
+        "binding_status": "pending_proposal",
+        "status": "proposed",
+        "instrument": "FSMA 2000 (Cryptoassets) Regulations 2026, SI 2026/102; HM Treasury draft amendment SI (21 Apr 2026)",
+        "pinpoint": "Distribution — offshore 'involved' test; UKQS financial-promotions carve-out; payments amendment",
+        "url": ""
+      },
+      {
+        "id": "uk-frs-implementation_status-001",
+        "jurisdiction": "UK",
+        "dimension": "implementation_status",
+        "claim_class": "tier2_operational",
+        "evidence_tier": null,
+        "binding_status": "made_not_commenced",
+        "status": "transitional",
+        "instrument": "SI 2026/102; FCA CP25/14 & CP25/15; Bank of England proposals; HM Treasury amendment SI",
+        "pinpoint": "Implementation timeline — SI in force Feb 2026; FCA final summer 2026; full regime late 2027",
+        "url": ""
+      },
+      {
+        "id": "uk-frs-issuer_pathway-001",
+        "jurisdiction": "UK",
+        "dimension": "issuer_pathway",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "made_not_commenced",
+        "status": "transitional",
+        "instrument": "SI 2026/102, Art. 9M(2); FSMA s.418 (as amended); HM Treasury policy note",
+        "pinpoint": "reg 9M(2) (issuing a qualifying stablecoin; all three limbs) vs HMT policy note (any one limb)",
+        "url": "https://www.legislation.gov.uk/uksi/2026/102/contents/made"
+      },
+      {
+        "id": "uk-frs-monetary_sovereignty-001",
+        "jurisdiction": "UK",
+        "dimension": "monetary_sovereignty",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "made_not_commenced",
+        "status": "transitional",
+        "instrument": "FSMA 2026; Bank of England systemic stablecoin regime",
+        "pinpoint": "Monetary-sovereignty treatment of foreign tokens — pending systemic-regime operation",
+        "url": null
+      },
+      {
+        "id": "uk-frs-permitted_activity_yield-001",
+        "jurisdiction": "UK",
+        "dimension": "permitted_activity_yield",
+        "claim_class": "tier1_legal",
+        "evidence_tier": null,
+        "binding_status": "pending_proposal",
+        "status": "consultation",
+        "instrument": "SI 2026/102 (silent on yield); Bank of England Nov 2025 materials (60/40 backing; pass-through constrained)",
+        "pinpoint": "BoE Nov 2025 backing-split / pass-through position; FCA rules pending",
+        "url": null
+      },
+      {
+        "id": "uk-frs-redemption-001",
+        "jurisdiction": "UK",
+        "dimension": "redemption",
+        "claim_class": "tier1_legal",
+        "evidence_tier": null,
+        "binding_status": "made_not_commenced",
+        "status": "proposed",
+        "instrument": "FSMA 2000 (Cryptoassets) Regulations 2026, SI 2026/102",
+        "pinpoint": "Redemption — issuer-controlled; backing-asset trust structure",
+        "url": "https://www.legislation.gov.uk/uksi/2026/102/contents/made"
+      },
+      {
+        "id": "uk-frs-regulatory_authority-001",
+        "jurisdiction": "UK",
+        "dimension": "regulatory_authority",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "made_not_commenced",
+        "status": "transitional",
+        "instrument": "Financial Services and Markets Act 2000 (Cryptoassets) Regulations 2026, SI 2026/102",
+        "pinpoint": "FCA/BoE supervisory architecture under FSMA 2000 (as amended by SI 2026/102)",
+        "url": "https://www.legislation.gov.uk/uksi/2026/102/contents/made"
+      },
+      {
+        "id": "uk-frs-reserve_backing-001",
+        "jurisdiction": "UK",
+        "dimension": "reserve_backing",
+        "claim_class": "tier1_legal",
+        "evidence_tier": null,
+        "binding_status": "made_not_commenced",
+        "status": "transitional",
+        "instrument": "Financial Services and Markets Act 2000 (Cryptoassets) Regulations 2026, SI 2026/102",
+        "pinpoint": "1:1 backing; CIS/AIF carve-out for backing assets",
+        "url": "https://www.legislation.gov.uk/uksi/2026/102/contents/made"
+      },
+      {
+        "id": "uk-frs-securities_classification-001",
+        "jurisdiction": "UK",
+        "dimension": "securities_classification",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "made_not_commenced",
+        "status": "in_force",
+        "instrument": "Financial Services and Markets Act 2000 (Regulated Activities) Order; FSMA 2026 stablecoin provisions",
+        "pinpoint": "Regulated-activity perimeter for stablecoins vs. the investment (securities) heads",
+        "url": null
+      }
+    ],
+    "citable_cells": [],
+    "outbound_classes_at_base": {
+      "US": {
+        "class": "II",
+        "rule": "destination_gate:comparability",
+        "origin_override": false
+      },
+      "EU": {
+        "class": "I",
+        "rule": "destination_gate:open_capped",
+        "origin_override": false
+      },
+      "UK": null,
+      "SG": {
+        "class": "I",
+        "rule": "destination_gate:open",
+        "origin_override": false
+      },
+      "HK": {
+        "class": "I",
+        "rule": "destination_gate:open",
+        "origin_override": false
+      },
+      "CN": {
+        "class": "blocked",
+        "rule": "destination_gate:prohibition",
+        "origin_override": false
+      },
+      "BR": {
+        "class": "II",
+        "rule": "destination_gate:fx_counterparty",
+        "origin_override": false
+      },
+      "CH": {
+        "class": "I",
+        "rule": "destination_gate:open",
+        "origin_override": false
+      },
+      "AE": {
+        "class": "II",
+        "rule": "destination_gate:usage_channel",
+        "origin_override": false
+      },
+      "TW": {
+        "class": "T",
+        "rule": "destination_gate:transition",
+        "origin_override": false
+      },
+      "JP": {
+        "class": "II",
+        "rule": "destination_gate:channel",
+        "origin_override": false
+      },
+      "KR": {
+        "class": "pre_regime",
+        "rule": "destination_gate:pre_regime",
+        "origin_override": false
+      }
+    },
+    "forward": {
+      "jurisdiction": "UK",
+      "own_pending_events": [
+        {
+          "event_id": "uk-systemic-regime-operative",
+          "title": "UK systemic stablecoin regime + FCA conduct regime operative (SI 2026/102 full commencement)",
+          "trigger_kind": "fully-scheduled",
+          "status": "scheduled",
+          "effective_date": "2027-10-25",
+          "moves_class": true,
+          "accessibility_only": false
+        }
+      ],
+      "summary": {
+        "own_driven_inbound": 8,
+        "own_driven_outbound": 0,
+        "counterpart_driven_inbound": 2,
+        "counterpart_driven_outbound": 3,
+        "accessibility_only_own_events": 0
+      },
+      "inbound_reclassified": [
+        {
+          "counterpart": "KR",
+          "from": "III",
+          "to": "T",
+          "via_trigger": "kr-daba-enacted",
+          "trigger_jurisdiction": "KR",
+          "timing": "contingent (if enacted)"
+        },
+        {
+          "counterpart": "TW",
+          "from": "III",
+          "to": "T",
+          "via_trigger": "tw-vas-act-enacted",
+          "trigger_jurisdiction": "TW",
+          "timing": "contingent (if enacted)"
+        }
+      ],
+      "outbound_reclassified": [
+        {
+          "counterpart": "KR",
+          "from": "pre_regime",
+          "to": "II",
+          "via_trigger": "kr-daba-enacted",
+          "trigger_jurisdiction": "KR",
+          "timing": "contingent (if enacted)"
+        },
+        {
+          "counterpart": "TW",
+          "from": "T",
+          "to": "II",
+          "via_trigger": "tw-vas-act-enacted",
+          "trigger_jurisdiction": "TW",
+          "timing": "contingent (if enacted)"
+        },
+        {
+          "counterpart": "US",
+          "from": "T",
+          "to": "II",
+          "via_trigger": "us-genius-act-effective",
+          "trigger_jurisdiction": "US",
+          "timing": "scheduled ≤2027-01-18 (outer cap)"
+        }
+      ],
+      "counterpart_exposure": [
+        {
+          "counterpart": "KR",
+          "edges_affected": 2,
+          "inbound": 1,
+          "outbound": 1
+        },
+        {
+          "counterpart": "TW",
+          "edges_affected": 2,
+          "inbound": 1,
+          "outbound": 1
+        },
+        {
+          "counterpart": "US",
+          "edges_affected": 1,
+          "inbound": 0,
+          "outbound": 1
+        }
+      ],
+      "supervisor_reading": "UK's own pending trigger reclassifies 8 inbound and 0 outbound corridor(s). Separately, 2 inbound and 3 outbound corridor(s) reclassify when counterparts enact. Most exposed counterpart(s): KR (2), TW (2), US (1)."
+    }
+  }
+}

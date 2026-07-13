@@ -1,0 +1,32 @@
+id: cn-prc-bank_nonbank_routing-001
+jurisdiction: CN
+authority: People's Bank of China (PBOC); Cyberspace Administration (data)
+instrument_type: other
+dimension: bank_nonbank_routing
+constraint_ref: C5
+requirement_summary: With no domestic issuance pathway, there is no bank/non-bank routing architecture for compliant
+  private-token issuance to characterize.
+requirement_structured:
+  context: no issuance pathway
+status: in_force
+effective_date: null
+source:
+  primary: PBOC framework; 2021 inter-ministerial Notice
+  pinpoint: Absence of a compliant issuance/routing architecture
+interpretation_note: 'Authored in v0.9.2 to fill the CN.C5 constraint cell for the substrate sweep.
+
+
+  [v0.9.5 verification] Prohibition/absence-of-regime cell: the 2017/2021 Notices establish a prohibition; there
+  is no affirmative permitted-activity rule to confirm, so this stays unset (not promotable to resolution_text as
+  a positive proposition).'
+confidence: low
+claim_class: tier1_legal
+last_reviewed: '2026-06-27'
+version_added: 0.9.2
+tags:
+- v0.9.2_cell_sweep
+- cn
+- bank_nonbank_routing
+- v0.9.5_verification
+- binding_prohibition
+binding_status: prohibition

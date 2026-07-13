@@ -1,0 +1,50 @@
+id: ch-frs-issuer_pathway-001
+jurisdiction: CH
+authority: FINMA
+instrument_type: fiat_referenced_stablecoin
+instrument_label_local: stablecoin (Banking Act; bank-guarantee or licensed-institution pathway)
+dimension: issuer_pathway
+constraint_ref: C1
+requirement_summary: 'Two issuer pathways. Pathway 1 (licensed institution): an issuer holding a banking licence,
+  or a FinTech licence under Art. 1b of the Banking Act, may issue stablecoins as a licensed institution. Pathway
+  2 (bank default-guarantee exemption): a non-bank issuer avoids the deposit-taking prohibition by securing a default
+  guarantee (Bankengarantie) from a Swiss bank covering the deposited funds; under Banking Ordinance Art. 5(3)(f)
+  funds covered by such a guarantee are not deposits, so the issuer is not engaged in unauthorized deposit-taking.
+  The entire non-bank issuance market runs through this single textual aperture.'
+requirement_structured:
+  pathway_1: banking licence or FinTech licence (Banking Act Art. 1b)
+  pathway_2: non-bank issuer under a Swiss bank default guarantee (Bankengarantie); BankO Art. 5(3)(f) excludes
+    guaranteed funds from 'deposit'
+  market_structure: entire non-bank market runs through the bank-guarantee exemption
+status: in_force
+source:
+  primary: Banking Act Art. 1b (FinTech licence); Banking Ordinance Art. 5(3)(f) (deposit exclusion); FINMA Guidance
+    06/2024
+  pinpoint: Issuer pathways — licensed-institution vs bank-guarantee exemption (BankO Art. 5(3)(f))
+  url: https://www.fedlex.admin.ch/eli/cc/2014/273/de
+secondary:
+- citation: Fan, Multi-Jurisdiction Stablecoin Compliance Matrix v0.9.6 (June 2026), §Switzerland (Issuer Pathways
+    and Eligibility)
+- citation: 'Fan, Cross-Border Stablecoin Architecture v3 (Twelve Jurisdictions, June 2026), §2.1 (Constraint 1:
+    Issuer Eligibility)'
+- citation: Banking Act (BankG, SR 952.0) / Banking Ordinance (BankV, SR 952.02) on Fedlex; English version is informational
+    only.
+interpretation_note: 'Provenance: transcribed from the author''s Compliance Matrix v0.9.6; VERIFIED against the
+  official primary text in the v0.5.1 verification pass (source.url is the official instrument). The bank-guarantee
+  pathway is the structural hallmark of the Swiss regime and the single point through which the whole non-bank market
+  is configured.'
+confidence: high
+claim_class: tier1_legal
+evidence_tier: resolution_text
+last_reviewed: '2026-06-27'
+version_added: 0.4.0
+tags:
+- europe
+- focus
+- from_matrix_v0.9.6
+- v0.4.0_expansion
+- v0.5.1_verification
+- resolution_text_verified
+- v0.7.0_claim_class
+- binding_in_force_enacted
+binding_status: in_force_enacted

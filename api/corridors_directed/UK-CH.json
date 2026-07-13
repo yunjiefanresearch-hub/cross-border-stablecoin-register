@@ -1,0 +1,59 @@
+{
+  "register": "Cross-Border Stablecoin Register",
+  "version": "0.10.1",
+  "generated": "2026-07-10",
+  "endpoint": "corridor_directed",
+  "guardrail": "static projection of the public register; no facts added here",
+  "data": {
+    "corridor_id": "uk-ch-directed",
+    "name": "UK -> CH (GBP->CHF directed edge)",
+    "schema": "corridor/v3-directed-edge",
+    "origin": "UK",
+    "destination": "CH",
+    "direction": "directed",
+    "currencies": "GBP -> CHF",
+    "feasibility_class": "Category I (dual authorization available)",
+    "class_code": "I",
+    "compatibility_category": "I/II",
+    "compatibility_pair": "CH-UK",
+    "archetypes": [
+      "RC",
+      "SC",
+      "TC",
+      "DC"
+    ],
+    "interaction_sets": [
+      "C",
+      "D"
+    ],
+    "infrastructure_overlap": {
+      "bloc": "agora",
+      "note": "Both ends on Project Agora (UK and CH)."
+    },
+    "inbound_mechanism": {
+      "test": "FINMA authorization (banking / DLT framework)",
+      "administrator": "FINMA",
+      "detail": null
+    },
+    "origin_drag": false,
+    "materialized_from": "computed_skeleton",
+    "class_basis": {
+      "rule": "destination_gate",
+      "governing_jurisdiction": "CH",
+      "signal": "inbound_gate",
+      "signal_value": "authorization",
+      "claim_class": "tier1_legal",
+      "binding_status": "in_force_enacted",
+      "evidence_tier": "firm_summary",
+      "instrument": "FINMA authorization (banking / DLT framework).",
+      "record_ref": "ch-frs-monetary_sovereignty-001",
+      "record_ref_meta": {
+        "dimension": "monetary_sovereignty",
+        "match": "same_instrument",
+        "record_binding_status": "in_force_enacted",
+        "record_evidence_tier": "resolution_text",
+        "record_claim_class": "tier1_legal"
+      }
+    }
+  }
+}

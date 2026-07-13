@@ -1,0 +1,40 @@
+id: cn-prc-aml_kyc-001
+jurisdiction: CN
+authority: PBOC
+instrument_type: other
+instrument_label_local: 反洗钱 (AML)
+dimension: aml_kyc
+requirement_summary: The Anti-Money Laundering Law of the PRC and PBOC AML/CFT regulations apply to all financial
+  institutions, and cryptocurrency-related transactions are explicitly subject to AML scrutiny under the 2017 ICO
+  Notice (94 公告) and supporting circulars.
+requirement_structured:
+  statute: Anti-Money Laundering Law of the PRC
+  regulator_rules: PBOC AML/CFT regulations (all financial institutions)
+  crypto: explicit AML scrutiny under 94 公告 and supporting circulars
+status: in_force
+source:
+  primary: Anti-Money Laundering Law of the PRC; PBOC AML/CFT regulations; 2017 ICO Notice (94 公告)
+  pinpoint: AML — PRC AML Law; PBOC AML/CFT; crypto AML scrutiny under 94 公告
+  url: ''
+secondary:
+- citation: Fan, Multi-Jurisdiction Stablecoin Compliance Matrix v0.9.6 (June 2026), §Mainland China (AML / KYC
+    Framework) [re-pinned from v0.9.3]
+interpretation_note: 'Provenance: transcribed from the author''s Compliance Matrix (re-pinned to v0.9.6; originally
+  v0.9.3); pending primary-source verification.
+
+
+  [v0.9.5 verification] PIPL/DSL/CAC data regime is in force, but the specific outbound-transfer thresholds were
+  NOT line-verified against original-language official text in this pass; kept unset.'
+confidence: high
+claim_class: tier1_legal
+last_reviewed: '2026-06-17'
+version_added: 0.3.0
+tags:
+- apac
+- focus
+- from_matrix_v0.9.6
+- v0.3.0_backfill
+- v0.7.0_claim_class
+- v0.9.5_verification
+- binding_in_force_enacted
+binding_status: in_force_enacted

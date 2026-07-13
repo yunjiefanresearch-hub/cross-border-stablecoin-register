@@ -1,0 +1,50 @@
+id: ae-pt-implementation_status-001
+jurisdiction: AE
+authority: CBUAE / free-zone regulators
+instrument_type: payment_stablecoin
+instrument_label_local: Payment Token (Dirham Payment Token / Foreign Payment Token)
+dimension: implementation_status
+requirement_summary: 'In-force regime. Milestones: CBUAE Payment Token Services Regulation (Circular 2/2024) issued
+  (2024); one-year transition period for existing arrangements (2024-2025); transition period closes and AED tokens
+  (AE Coin, Zand AED) go live, with the DFSA recognising USD tokens (USDC, RLUSD) (2025-2026). Multiple AED tokens
+  and DFSA-recognised USD tokens are now live.'
+requirement_structured:
+  regime_stage: in force; transition closed
+  milestones:
+  - CBUAE PTSR (Circular 2/2024) issued 2024
+  - one-year transition 2024-2025
+  - transition closed; AED + USD tokens live 2025-2026
+  live_tokens:
+  - AE Coin
+  - Zand AED
+  - USDC (DFSA-recognised)
+  - RLUSD (DFSA-recognised)
+status: in_force
+source:
+  primary: CBUAE PTSR (Circular 2/2024); DFSA recognition of USD tokens
+  pinpoint: Timeline — PTSR 2024; one-year transition closed; AED + DFSA-recognised USD tokens live
+  url: https://rulebook.centralbank.ae/en/rulebook/payment-token-services-regulation
+secondary:
+- citation: Fan, Multi-Jurisdiction Stablecoin Compliance Matrix v0.9.6 (June 2026), §United Arab Emirates (Implementation
+    Timeline)
+- citation: CBUAE Payment Token Services Regulation (Circular 2/2024) — published in English (authoritative) and
+    Arabic.
+- citation: 'ADGM FRT framework effective 1 Jan 2026: https://www.adgm.com/media/announcements/adgm-fsra-finalises-regulatory-framework-for-regulated-activities-involving-fiat-referenced-tokens.'
+interpretation_note: 'Provenance: transcribed from the author''s Compliance Matrix v0.9.6; VERIFIED against the
+  official primary text in the v0.5.1 verification pass (source.url is the official instrument). As of June 2026
+  a reader should re-verify channel-restriction enforcement and new AED/USD token launches.'
+confidence: high
+claim_class: tier2_operational
+evidence_tier: resolution_text
+last_reviewed: '2026-06-27'
+version_added: 0.4.0
+tags:
+- mideast
+- focus
+- from_matrix_v0.9.6
+- v0.4.0_expansion
+- v0.5.1_verification
+- resolution_text_verified
+- v0.7.0_claim_class
+- binding_in_force_enacted
+binding_status: in_force_enacted

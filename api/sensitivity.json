@@ -1,0 +1,130 @@
+{
+  "register": "Cross-Border Stablecoin Register",
+  "version": "0.10.1",
+  "generated": "2026-07-10",
+  "endpoint": "sensitivity",
+  "guardrail": "static projection of the public register; no facts added here",
+  "data": {
+    "schema": "cbsr-analysis/computed_sensitivity",
+    "version": "v0.10.1",
+    "generated": "2026-07-09",
+    "as_of_base": "2026-06-30",
+    "method": "For each pending trigger (a contingent enactment or a dated commencement) the layer counts the directed edges it reclassifies, split into fan-in (edges terminating in the trigger jurisdiction) and fan-out (edges originating there), derived edge-by-edge from computed_corridor_states.json. It asserts NO new facts; every count is a re-derivation of the corridor states.",
+    "finding": "The forward map's class-level motion concentrates at the one remaining pre-regime origin (South Korea, 21 edges) and the two regime-in-transition destinations (Taiwan, 18; the United Kingdom, 8). The United States is also a class-mover (8 edges), enacted-not-commenced with a dated horizon. Two orderings must be read together: by edge count KR(21) > TW(18) > UK(8) ≈ US(8) > CN(0); by dated horizon US(≤2027-01-18, outer cap) precedes UK(2027-10-25, gazetted), while TW and KR carry no date and move no horizon. The prohibition destination (Mainland China) is insensitive to any positive trigger.",
+    "ranking_criteria": "Ordered by breadth (edges reclassified) first; among the regime-in-transition destinations the paper's tie-breakers are timing certainty (a gazetted commencement date outranks an ungazetted one) and resolution class (a clean Category I outranks a channelled Category II). Separately, a DATED ordering ranks the two scheduled horizons (US outer cap 2027-01-18 before UK gazetted 2027-10-25). Breadth is mechanical; the tie-breakers and the dated ordering are the paper's.",
+    "ordering": [
+      {
+        "jurisdiction": "KR",
+        "trigger_id": "kr-daba-enacted",
+        "trigger_kind": "contingent-no-date",
+        "timing": "no gazetted date (National Assembly subcommittee)",
+        "both_directions": true,
+        "edges_reclassified": 21,
+        "fan_in": 11,
+        "fan_out": 10,
+        "changes_any_class": true,
+        "rank": 1,
+        "resolves_to": "inbound pre_regime→I/III (destination-set); outbound III→I/II/T (destination-set)",
+        "note": "The single highest-sensitivity jurisdiction: a both-directions trigger at the one remaining pre-regime origin. A single contingent enactment reclassifies the most edges of any pending trigger (21), lifting South Korea out of pre_regime inbound and out of Category III outbound. Under destination-first the post-trigger classes are set by each counterpart destination, not uniformly II.",
+        "mechanical_fan_rank": 1
+      },
+      {
+        "jurisdiction": "TW",
+        "trigger_id": "tw-vas-act-enacted",
+        "trigger_kind": "enacted-not-commenced",
+        "timing": "no gazetted date (nine subsidiary items pending)",
+        "both_directions": false,
+        "edges_reclassified": 18,
+        "fan_in": 9,
+        "fan_out": 9,
+        "changes_any_class": true,
+        "rank": 2,
+        "resolves_to": "inbound T→II (channelled); outbound III→I/II (destination-set)",
+        "note": "Enacted at third reading 2026-06-30, not commenced. Second, not tied with the UK: its commencement moves 18 edges because two of its outbound edges (TW→CN blocked, TW→KR pre_regime) are held by their DESTINATIONS and cannot move whatever Taiwan does — a direct consequence of the destination-first correction (NF-1).",
+        "mechanical_fan_rank": 2
+      },
+      {
+        "jurisdiction": "UK",
+        "trigger_id": "uk-systemic-regime-operative",
+        "trigger_kind": "fully-scheduled",
+        "timing": "gazetted 2027-10-25",
+        "both_directions": false,
+        "edges_reclassified": 8,
+        "fan_in": 8,
+        "fan_out": 0,
+        "changes_any_class": true,
+        "rank": 3,
+        "resolves_to": "I (clean)",
+        "note": "Commencement reclassifies every inbound edge from a token-holding origin from Category T to a clean Category I on a gazetted day, resolving the eight-pair caveat in full. On EDGE COUNT it ties the US (8 each); on the DATED ordering it comes SECOND, because the US horizon (outer cap 2027-01-18) falls first.",
+        "mechanical_fan_rank": 3
+      },
+      {
+        "jurisdiction": "US",
+        "trigger_id": "us-genius-act-effective",
+        "trigger_kind": "scheduled-with-cap",
+        "timing": "outer cap ≤ 2027-01-18 (may fall sooner)",
+        "both_directions": false,
+        "edges_reclassified": 8,
+        "fan_in": 8,
+        "fan_out": 0,
+        "changes_any_class": true,
+        "rank": 4,
+        "resolves_to": "II (comparability channel)",
+        "note": "E1 CORRECTION: the United States is enacted-not-commenced, not live. GENIUS Act §20 sets the effective date at the earlier of 18 months after enactment (2027-01-18) or 120 days after final regulations; at the snapshot only proposed rules existed, so the 2027-01-18 outer cap binds. The 8 token-holder→US edges read Category T today and resolve to II at commencement. This is the FIRST of the two dated horizons — earlier than the UK's gazetted 2027-10-25.",
+        "mechanical_fan_rank": 3
+      }
+    ],
+    "insensitive": [
+      {
+        "jurisdiction": "SG",
+        "trigger_id": "sg-scs-legislation-enacted",
+        "trigger_kind": "contingent-not-class-change",
+        "timing": "no gazetted date (expected mid-2026)",
+        "both_directions": false,
+        "edges_reclassified": 0,
+        "fan_in": 0,
+        "fan_out": 0,
+        "changes_any_class": false,
+        "rank": null,
+        "reason": "contingent-not-class-change",
+        "note": "A pending enactment that hardens the Single-Currency-Stablecoin cells' binding status without moving any feasibility class — the baseline PS Act 2019 DPT gate is already in force. Accessibility (intra-regime gating), not class."
+      },
+      {
+        "jurisdiction": "CN",
+        "trigger_id": null,
+        "trigger_kind": "resolved-tightening-open-relaxation",
+        "timing": "no positive trigger (stable prohibition)",
+        "both_directions": false,
+        "edges_reclassified": 0,
+        "fan_in": 0,
+        "fan_out": 0,
+        "changes_any_class": false,
+        "rank": null,
+        "reason": "prohibition",
+        "note": "Genuinely insensitive — 0 edges. A destination prohibition dominates the origin's issuance gap, so every edge terminating in the PRC is stable across the entire pending set. §4.2's 'insensitive' claim becomes TRUE the moment NF-1 (destination-first) is fixed."
+      }
+    ],
+    "disagreement_as_finding": {
+      "observation": "Taiwan's inbound fan (9 edges) is mechanically one larger than the United Kingdom's (8), because Taiwan is not itself a token-holder, so all 9 token-holding origins point inbound to it, whereas the United Kingdom's own self-edge is excluded. A breadth-only ranking would place Taiwan above the United Kingdom among the regime-in-transition destinations.",
+      "resolution": "The paper places the United Kingdom ahead on its stated tie-breakers: timing certainty (UK gazetted 2027-10-25; Taiwan ungazetted) and resolution class (UK resolves to clean Category I; Taiwan to channelled Category II). Breadth is mechanical; the tie-breakers are the paper's.",
+      "handling": "Recorded, not hidden: the layer keeps both the mechanical fan counts and the paper's ordering, surfacing the divergence as a disagreement-as-finding, consistent with the computed-vs-authored reconciliation discipline.",
+      "feeds": "reconciliation"
+    },
+    "provenance": {
+      "clean": true,
+      "asserts_new_facts": false,
+      "note": "Every count is derived edge-by-edge from computed_corridor_states.json, itself a re-derivation of the signal compose(). The layer reshapes and orders; it introduces no fact.",
+      "reproduces": {
+        "KR_edges": 20,
+        "UK_edges": 8,
+        "TW_fan_in": 9
+      },
+      "regenerated": "v0.10.1: recomputed from the register's own frozen forward transition set. US moves from the insensitive set to an 8-edge class-mover via us-genius-act-effective (§18 gate commencement); KR fan counts and TW both-directions counts re-derived under destination-first precedence. Cross-checked two ways (scheduled==as_of_timeline; recomputed counts==ordering)."
+    },
+    "two_orderings": {
+      "by_edge_count": "KR (21) > TW (18) > UK (8) ≈ US (8) > CN (0)",
+      "by_dated_horizon": "US (≤ 2027-01-18, outer cap) > UK (2027-10-25, gazetted). TW and KR carry no date and move no horizon.",
+      "note": "A forward map must report both. Edge count answers 'which pending change reclassifies the most edges'; dated horizon answers 'which dated flip arrives first'. The US horizon comes first and was omitted from the paper's §4.2 as drafted (errata E1)."
+    }
+  }
+}

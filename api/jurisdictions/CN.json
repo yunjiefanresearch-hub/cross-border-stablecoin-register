@@ -1,0 +1,246 @@
+{
+  "register": "Cross-Border Stablecoin Register",
+  "version": "0.10.1",
+  "generated": "2026-07-10",
+  "endpoint": "jurisdiction",
+  "guardrail": "static projection of the public register; no facts added here",
+  "data": {
+    "jurisdiction": "CN",
+    "records": [
+      {
+        "id": "cn-prc-aml_kyc-001",
+        "jurisdiction": "CN",
+        "dimension": "aml_kyc",
+        "claim_class": "tier1_legal",
+        "evidence_tier": null,
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Anti-Money Laundering Law of the PRC; PBOC AML/CFT regulations; 2017 ICO Notice (94 公告)",
+        "pinpoint": "AML — PRC AML Law; PBOC AML/CFT; crypto AML scrutiny under 94 公告",
+        "url": ""
+      },
+      {
+        "id": "cn-prc-bank_nonbank_routing-001",
+        "jurisdiction": "CN",
+        "dimension": "bank_nonbank_routing",
+        "claim_class": "tier1_legal",
+        "evidence_tier": null,
+        "binding_status": "prohibition",
+        "status": "in_force",
+        "instrument": "PBOC framework; 2021 inter-ministerial Notice",
+        "pinpoint": "Absence of a compliant issuance/routing architecture",
+        "url": null
+      },
+      {
+        "id": "cn-prc-capital_requirements-001",
+        "jurisdiction": "CN",
+        "dimension": "capital_requirements",
+        "claim_class": "tier1_legal",
+        "evidence_tier": null,
+        "binding_status": "prohibition",
+        "status": "in_force",
+        "instrument": "HKMA capital rules (HK entity); SAFE outbound-investment registration; Accounting Standards for Business Enterprises",
+        "pinpoint": "Capital — N/A domestically; indirect HK HK$25m + SAFE registration + consolidation",
+        "url": ""
+      },
+      {
+        "id": "cn-prc-cross_border_data-001",
+        "jurisdiction": "CN",
+        "dimension": "cross_border_data",
+        "claim_class": "tier1_legal",
+        "evidence_tier": null,
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Personal Information Protection Law (PIPL, eff. 1 Nov 2021); Data Security Law (DSL, eff. 1 Sep 2021); CAC Provisions on Promoting and Regulating Cross-Border Data Flows (22 Mar 2024)",
+        "pinpoint": "PIPL three-gate outbound transfer; DSL important-data review; March 2024 threshold relief; FTZ negative lists",
+        "url": null
+      },
+      {
+        "id": "cn-prc-distribution-001",
+        "jurisdiction": "CN",
+        "dimension": "distribution",
+        "claim_class": "tier1_legal",
+        "evidence_tier": null,
+        "binding_status": "prohibition",
+        "status": "in_force",
+        "instrument": "PRC prohibition on cryptocurrency promotion/offering/trading within territory; CSRC A-share disclosure rules; SAFE outbound-capital controls; PBOC/CAC October 2025 guidance",
+        "pinpoint": "Domestic distribution prohibited; three indirect-pathway constraint layers (A-share / SAFE / PBOC-CAC)",
+        "url": "https://www.csrc.gov.cn/csrc/c100028/c7614318/content.shtml"
+      },
+      {
+        "id": "cn-prc-implementation_status-001",
+        "jurisdiction": "CN",
+        "dimension": "implementation_status",
+        "claim_class": "tier2_operational",
+        "evidence_tier": null,
+        "binding_status": "no_regime",
+        "status": "in_force",
+        "instrument": "94 公告 (2017); DSL (2021); PIPL (2021); 2024 cross-border data Provisions; HKMA April 2026 first-license cohort",
+        "pinpoint": "Implementation timeline — stable prohibition; 2017-2026 milestones",
+        "url": ""
+      },
+      {
+        "id": "cn-prc-issuer_pathway-001",
+        "jurisdiction": "CN",
+        "dimension": "issuer_pathway",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "prohibition",
+        "status": "in_force",
+        "instrument": "《关于进一步防范和处置虚拟货币等相关风险的通知》(银发〔2026〕42号, 6 Feb 2026; repealed 银发〔2021〕237号); 2017 ICO Notice (94公告)",
+        "pinpoint": "银发〔2026〕42号 (virtual-currency-related business activities in the PRC are illegal financial activities, strictly prohibited; the prohibited act is upgraded from '代币发行融资' (token-offering financing, 2021) to '发行虚拟货币' (issuing virtual currency), now reaching non-fundraising / airdrop / utility issuance)",
+        "url": "https://www.csrc.gov.cn/csrc/c100028/c7614318/content.shtml"
+      },
+      {
+        "id": "cn-prc-monetary_sovereignty-001",
+        "jurisdiction": "CN",
+        "dimension": "monetary_sovereignty",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "prohibition",
+        "status": "in_force",
+        "instrument": "《关于进一步防范和处置虚拟货币等相关风险的通知》(银发〔2026〕42号, eff. 6 Feb 2026; repealed 银发〔2021〕237号); 2017 ICO Notice (94公告)",
+        "pinpoint": "银发〔2026〕42号 — 未经许可，境内外任何主体不得在境外发行挂钩人民币的稳定币 (no entity, domestic or overseas, may issue RMB-pegged stablecoins overseas without approval); 境内主体及其控制的境外主体不得在境外发行虚拟货币 (PRC-controlled entities may not issue virtual currencies abroad); RWA tokenisation restrictions",
+        "url": "https://www.csrc.gov.cn/csrc/c100028/c7614318/content.shtml"
+      },
+      {
+        "id": "cn-prc-permitted_activity_yield-001",
+        "jurisdiction": "CN",
+        "dimension": "permitted_activity_yield",
+        "claim_class": "tier1_legal",
+        "evidence_tier": null,
+        "binding_status": "prohibition",
+        "status": "in_force",
+        "instrument": "PBOC et al. Notice on Preventing Token Fundraising Risks (2017); related circulars",
+        "pinpoint": "Prohibition context — no permitted issuer to which a yield rule could attach",
+        "url": null
+      },
+      {
+        "id": "cn-prc-regulatory_authority-001",
+        "jurisdiction": "CN",
+        "dimension": "regulatory_authority",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "prohibition",
+        "status": "in_force",
+        "instrument": "《关于进一步防范和处置虚拟货币等相关风险的通知》(银发〔2026〕42号, 6 Feb 2026); issuing bodies: PBOC, NDRC, MIIT, MPS, SAMR, NFRA, CSRC, SAFE, with 中央网信办/最高法/最高检",
+        "pinpoint": "银发〔2026〕42号 (a coordinated multi-agency prohibition perimeter; eight ministries plus the cyberspace administration and the two supreme judicial organs)",
+        "url": "https://www.csrc.gov.cn/csrc/c100028/c7614318/content.shtml"
+      },
+      {
+        "id": "cn-prc-reserve_backing-001",
+        "jurisdiction": "CN",
+        "dimension": "reserve_backing",
+        "claim_class": "tier1_legal",
+        "evidence_tier": null,
+        "binding_status": "prohibition",
+        "status": "in_force",
+        "instrument": "PRC prohibition on domestic issuance; HKMA reserve rules apply to HK-licensed entity (indirect pathway)",
+        "pinpoint": "Reserve — N/A domestically; indirect HK pathway + A-share consolidation",
+        "url": ""
+      },
+      {
+        "id": "cn-prc-securities_classification-001",
+        "jurisdiction": "CN",
+        "dimension": "securities_classification",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "prohibition",
+        "status": "in_force",
+        "instrument": "《关于进一步防范和处置虚拟货币等相关风险的通知》(银发〔2026〕42号); CSRC 公告〔2026〕1号《关于境内资产境外发行资产支持证券代币的监管指引》",
+        "pinpoint": "银发〔2026〕42号 (token issuance treated as illegal public fundraising / illegal financial activity); CSRC 公告〔2026〕1号 (RWA asset-backed-securities-token guidance: filing system + negative list for onshore-asset offshore ABS-token issuance)",
+        "url": "https://www.csrc.gov.cn/csrc/c100028/c7614318/content.shtml"
+      }
+    ],
+    "citable_cells": [],
+    "outbound_classes_at_base": {
+      "US": {
+        "class": "III",
+        "rule": "origin_drag:prohibition",
+        "origin_override": true
+      },
+      "EU": {
+        "class": "III",
+        "rule": "origin_drag:prohibition",
+        "origin_override": true
+      },
+      "UK": {
+        "class": "III",
+        "rule": "origin_drag:prohibition",
+        "origin_override": true
+      },
+      "SG": {
+        "class": "III",
+        "rule": "origin_drag:prohibition",
+        "origin_override": true
+      },
+      "HK": {
+        "class": "III",
+        "rule": "origin_drag:prohibition",
+        "origin_override": true
+      },
+      "CN": null,
+      "BR": {
+        "class": "III",
+        "rule": "origin_drag:prohibition",
+        "origin_override": true
+      },
+      "CH": {
+        "class": "III",
+        "rule": "origin_drag:prohibition",
+        "origin_override": true
+      },
+      "AE": {
+        "class": "III",
+        "rule": "origin_drag:prohibition",
+        "origin_override": true
+      },
+      "TW": {
+        "class": "III",
+        "rule": "origin_drag:prohibition",
+        "origin_override": true
+      },
+      "JP": {
+        "class": "III",
+        "rule": "origin_drag:prohibition",
+        "origin_override": true
+      },
+      "KR": {
+        "class": "III",
+        "rule": "origin_drag:prohibition",
+        "origin_override": true
+      }
+    },
+    "forward": {
+      "jurisdiction": "CN",
+      "own_pending_events": [],
+      "summary": {
+        "own_driven_inbound": 0,
+        "own_driven_outbound": 0,
+        "counterpart_driven_inbound": 0,
+        "counterpart_driven_outbound": 1,
+        "accessibility_only_own_events": 0
+      },
+      "inbound_reclassified": [],
+      "outbound_reclassified": [
+        {
+          "counterpart": "KR",
+          "from": "pre_regime",
+          "to": "III",
+          "via_trigger": "kr-daba-enacted",
+          "trigger_jurisdiction": "KR",
+          "timing": "contingent (if enacted)"
+        }
+      ],
+      "counterpart_exposure": [
+        {
+          "counterpart": "KR",
+          "edges_affected": 1,
+          "inbound": 0,
+          "outbound": 1
+        }
+      ],
+      "supervisor_reading": "CN has no class-moving or accessibility-changing pending event of its own. Separately, 0 inbound and 1 outbound corridor(s) reclassify when counterparts enact. Most exposed counterpart(s): KR (1)."
+    }
+  }
+}

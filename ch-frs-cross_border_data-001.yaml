@@ -1,0 +1,39 @@
+id: ch-frs-cross_border_data-001
+jurisdiction: CH
+authority: FINMA / FDPIC
+instrument_type: fiat_referenced_stablecoin
+instrument_label_local: stablecoin (Banking Act; bank-guarantee or licensed-institution pathway)
+dimension: cross_border_data
+constraint_ref: C6
+requirement_summary: The Swiss Federal Act on Data Protection (FADP) applies (revised FADP in force September 2023).
+  Cross-border data transfer requires adequate protection in the recipient state or appropriate safeguards. Switzerland
+  maintains adequacy recognition with the EU.
+requirement_structured:
+  statute: Federal Act on Data Protection (revised FADP, in force Sep 2023)
+  transfer_rule: adequate protection in recipient state or appropriate safeguards
+  eu_adequacy: maintained
+status: in_force
+effective_date: '2023-09-01'
+source:
+  primary: Federal Act on Data Protection (revised FADP, in force Sep 2023)
+  pinpoint: Cross-border transfer — adequacy or safeguards; EU adequacy maintained
+  url: ''
+secondary:
+- citation: Fan, Multi-Jurisdiction Stablecoin Compliance Matrix v0.9.6 (June 2026), §Switzerland (Cross-Border
+    Data Treatment)
+interpretation_note: 'Provenance: transcribed from the author''s Compliance Matrix v0.9.6; pending primary-source
+  verification. Unlike the PRC PIPL/DSL regime, the FADP''s EU-adequacy footing eases cross-border data flows on
+  Swiss-anchored corridors.'
+confidence: medium
+claim_class: tier1_legal
+evidence_tier: firm_summary
+last_reviewed: '2026-06-27'
+version_added: 0.4.0
+tags:
+- europe
+- focus
+- from_matrix_v0.9.6
+- v0.4.0_expansion
+- v0.7.0_claim_class
+- binding_in_force_enacted
+binding_status: in_force_enacted

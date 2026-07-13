@@ -1,0 +1,28 @@
+# Copy this file to <id>.yaml and fill every field.
+# RULE: a record is only "verified" when it contains NO <VERIFY ...> markers AND
+# every `source.primary` / `pinpoint` has been checked by a human against the
+# primary instrument. Never let an AI tool generate citations. (see METHODOLOGY.md)
+id: jx-typ-dimension-001            # e.g. hk-frs-permitted_activity_yield-001
+jurisdiction: HK                    # HK | TW | BR | US | EU | UK | SG | CN
+authority: ""                       # e.g. HKMA, FCA, EBA, BCB, "SEC/CFTC/Treasury (joint)"
+instrument_type: fiat_referenced_stablecoin
+instrument_label_local: ""          # verbatim local term
+dimension: permitted_activity_yield # one of the 15 — see taxonomy.md
+constraint_ref: C3                  # optional link to eight-constraint framework (C1..C8, or C3xC4)
+requirement_summary: "<VERIFY: one-paragraph summary checked against the primary source>"
+requirement_structured: {}          # optional machine-readable facets
+status: in_force                    # in_force | transitional | proposed | consultation
+effective_date: null                # YYYY-MM-DD or null
+source:
+  primary: "<VERIFY: instrument + pinpoint, e.g. 'Stablecoins Ordinance (Cap. 656), Sch. 2 s.15'>"
+  url: ""
+  pinpoint: ""
+secondary: []
+interpretation_note: ""             # the judgment layer — where ambiguity is resolved
+interpretive_flag:                  # optional — the Matrix's [interpretive question] construct
+  tension: ""
+  resolution_channel: ""
+confidence: low                     # high | medium | low
+last_reviewed: "2026-06-17"
+version_added: 0.2.0
+tags: []

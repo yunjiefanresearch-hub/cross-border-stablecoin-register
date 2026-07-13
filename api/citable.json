@@ -1,0 +1,430 @@
+{
+  "register": "Cross-Border Stablecoin Register",
+  "version": "0.10.1",
+  "generated": "2026-07-10",
+  "endpoint": "citable",
+  "guardrail": "human-verified propositions of law only; operational facts excluded by construction",
+  "filter": {
+    "claim_class": "tier1_legal",
+    "status": "in_force",
+    "evidence_tier": "resolution_text",
+    "description": "Lawyer-citable: a proposition of law (tier1_legal), currently in force, confirmed against the official statutory/regulatory text (resolution_text). Operational/market facts (tier2_operational) are excluded by kind even when well-sourced; draft provisions are excluded by status; unverified legal points are excluded by evidence_tier."
+  },
+  "count": 46,
+  "data": [
+    {
+      "id": "ae-pt-distribution-001",
+      "jurisdiction": "AE",
+      "dimension": "distribution",
+      "instrument": "CBUAE PTSR (Circular 2/2024)",
+      "pinpoint": "Distribution — channel restriction; free-zone issuers carved out of onshore perimeter",
+      "url": "https://rulebook.centralbank.ae/en/rulebook/payment-token-services-regulation",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "ae-pt-issuer_pathway-001",
+      "jurisdiction": "AE",
+      "dimension": "issuer_pathway",
+      "instrument": "CBUAE PTSR (Circular 2/2024); VARA / ADGM-FSRA / DIFC-DFSA frameworks",
+      "pinpoint": "Issuer pathways — DPT (CBUAE-licensed); FPT (foreign, VA/derivative-only); bank subsidiary; free-zone cannot issue AED",
+      "url": "https://rulebook.centralbank.ae/en/rulebook/payment-token-services-regulation",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "ae-pt-monetary_sovereignty-001",
+      "jurisdiction": "AE",
+      "dimension": "monetary_sovereignty",
+      "instrument": "CBUAE Payment Token Services Regulation (Circular 2/2024)",
+      "pinpoint": "Channel restriction — merchants may accept only CBUAE-licensed Dirham Payment Tokens for goods/services; foreign tokens VA/derivative-only",
+      "url": "https://rulebook.centralbank.ae/en/rulebook/payment-token-services-regulation",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "ae-pt-permitted_activity_yield-001",
+      "jurisdiction": "AE",
+      "dimension": "permitted_activity_yield",
+      "instrument": "CBUAE PTSR (Circular 2/2024); ADGM-FSRA FRT framework",
+      "pinpoint": "Yield — prohibited onshore; ADGM permits reserve income but bans investment/savings promotion",
+      "url": "https://rulebook.centralbank.ae/en/rulebook/payment-token-services-regulation",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "ae-pt-regulatory_authority-001",
+      "jurisdiction": "AE",
+      "dimension": "regulatory_authority",
+      "instrument": "CBUAE Payment Token Services Regulation (Circular 2/2024); VARA / ADGM-FSRA / DIFC-DFSA frameworks",
+      "pinpoint": "Regulators — CBUAE onshore; VARA / ADGM-FSRA / DIFC-DFSA free zones",
+      "url": "https://rulebook.centralbank.ae/en/rulebook/payment-token-services-regulation",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "ae-pt-reserve_backing-001",
+      "jurisdiction": "AE",
+      "dimension": "reserve_backing",
+      "instrument": "CBUAE PTSR (Circular 2/2024); ADGM FRT framework",
+      "pinpoint": "Reserve/backing — 100% segregated in UAE banks; bank-subsidiary >=50% cash + UAE govt bonds/CBUAE bills",
+      "url": "https://rulebook.centralbank.ae/en/rulebook/payment-token-services-regulation",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "br-vasp-aml_kyc-001",
+      "jurisdiction": "BR",
+      "dimension": "aml_kyc",
+      "instrument": "Res BCB 520/2025 Art. 44 (Travel Rule) + Art. 89 (two-stage phase-in: domestic by Feb 2027, international by 2 Feb 2028) + Art. 88 (authorisation adjustment period — 270-day adequação; internal controls / cybersecurity / Law 13.810/2019); Res BCB 521/2025 (KYT / self-hosted wallets)",
+      "pinpoint": "Res BCB 520/2025 (PLD/FTP obligations on SPSAVs; ≥3 responsible administrators including AML/CFT; GAFI Recs 15-16 alignment); Lei 14.478/2022",
+      "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=520",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "br-vasp-bank_nonbank_routing-001",
+      "jurisdiction": "BR",
+      "dimension": "bank_nonbank_routing",
+      "instrument": "Lei 14.478/2022; BCB regulations",
+      "pinpoint": "Res BCB 520/2025 Art. 20 (besides SPSAVs, only commercial/exchange/investment/multiple banks, Caixa, CTVM/DTVM and FX brokers may provide intermediation/custody, with restrictions); Art. 4 (SPSAV modalities)",
+      "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=520",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "br-vasp-capital_requirements-001",
+      "jurisdiction": "BR",
+      "dimension": "capital_requirements",
+      "instrument": "Resolução Conjunta CMN/BCB nº 14/2025; Res BCB 517/2025 (both 3 Nov 2025) — SPSAV minimum-capital methodology",
+      "pinpoint": "Resolução Conjunta CMN/BCB nº 14/2025 + Res BCB nº 517/2025 (both 3 Nov 2025): minimum capital R$10,800,000 to R$37,200,000 scaled by the set of activities performed",
+      "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=517",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "br-vasp-custody-001",
+      "jurisdiction": "BR",
+      "dimension": "custody",
+      "instrument": "Res BCB 520/2025 — patrimonial segregation (segregação patrimonial)",
+      "pinpoint": "Res BCB 520/2025 (patrimonial segregation: client funds in individualised payment/deposit accounts; client virtual assets in segregated wallets; foreign-custodian conditions — home-country authorisation/supervision, Brazil representative, enforceable guarantees, formal segregation of Brazilian clients' assets)",
+      "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=520",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "br-vasp-disclosure_reporting-001",
+      "jurisdiction": "BR",
+      "dimension": "disclosure_reporting",
+      "instrument": "Res BCB 520/2025 (proof-of-reserves + biennial independent audit + published reports); Res BCB 521/2025 Art. 82-A (monthly BCB reporting); IN BCB 701 (22 Jan 2026)",
+      "pinpoint": "Res BCB 520/2025 (proof of reserves; periodic audits; transparent information flows); Res BCB 521/2025 (monthly FX-operations reporting from 4 May 2026)",
+      "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=520",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "br-vasp-issuer_pathway-001",
+      "jurisdiction": "BR",
+      "dimension": "issuer_pathway",
+      "instrument": "Res BCB 519/2025 (authorisation regime); Res BCB 520/2025 Art. 4 (provider modalities)",
+      "pinpoint": "Lei 14.478/2022 (BCB authorisation required to provide virtual-asset services); Res BCB 519/2025 (authorisation process); Res BCB 520/2025 Art. 4 (three SPSAV modalities: intermediária, custodiante, corretora), Art. 14 (sociedade limitada/anônima; ≥3 administrators; head office in Brazil); authorisation deadline 30 Oct 2026 (270 days)",
+      "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=519",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "br-vasp-monetary_sovereignty-001",
+      "jurisdiction": "BR",
+      "dimension": "monetary_sovereignty",
+      "instrument": "Res BCB 521/2025 (FX reclassification + caps); Res BCB 561/2026 (eFX exclusion); Lei 14.286/2021",
+      "pinpoint": "Res BCB 521/2025 (amends Res 277/278/279 of 31 Dec 2022): virtual-asset services brought into the FX market — international payments/transfers, stablecoin trades, and payment of expenses abroad treated as câmbio operations; monthly reporting to the BCB from 4 May 2026",
+      "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=521",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "br-vasp-regulatory_authority-001",
+      "jurisdiction": "BR",
+      "dimension": "regulatory_authority",
+      "instrument": "Lei 14.478/2022 (Marco Legal dos Ativos Virtuais); Decreto 11.563/2023 (BCB as VASP authority; CVM carve-out for securities tokens)",
+      "pinpoint": "Lei 14.478/2022 arts. 2-9; Decreto 11.563/2023 (BCB designated competent authority for virtual-asset services; CVM retains jurisdiction over tokens that are securities)",
+      "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2022/lei/l14478.htm",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "br-vasp-reserve_backing-001",
+      "jurisdiction": "BR",
+      "dimension": "reserve_backing",
+      "instrument": "Res BCB 520/2025 — stablecoin definition + asset-curation / listing-policy rules",
+      "pinpoint": "Res BCB 520/2025 Art. 2, III (reserve assets of a fiat-referenced token = the fiduciary currency and public debt issued by the same governments); Arts. 64+ (asset curation; algorithmic-stablecoin prohibition; proof of reserves)",
+      "url": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=520",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "br-vasp-securities_classification-001",
+      "jurisdiction": "BR",
+      "dimension": "securities_classification",
+      "instrument": "Lei 14.478/2022 + Decreto 11.563/2023 (CVM carve-out); CVM Parecer de Orientação 40; Resolução CVM 175 (investment funds)",
+      "pinpoint": "Lei 14.478/2022; Decreto 11.563/2023 (BCB over payment/VASP activity; CVM jurisdiction preserved over tokens with securities characteristics)",
+      "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2022/lei/l14478.htm",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "ch-frs-aml_kyc-001",
+      "jurisdiction": "CH",
+      "dimension": "aml_kyc",
+      "instrument": "FINMA Guidance 06/2024; Anti-Money Laundering Act (AMLA)",
+      "pinpoint": "AML — identify every holder incl. intermediate holders; anonymous transfers prohibited",
+      "url": "https://www.finma.ch/en/news/2024/07/20240726-m-am-06-24-stablecoins/",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "ch-frs-issuer_pathway-001",
+      "jurisdiction": "CH",
+      "dimension": "issuer_pathway",
+      "instrument": "Banking Act Art. 1b (FinTech licence); Banking Ordinance Art. 5(3)(f) (deposit exclusion); FINMA Guidance 06/2024",
+      "pinpoint": "Issuer pathways — licensed-institution vs bank-guarantee exemption (BankO Art. 5(3)(f))",
+      "url": "https://www.fedlex.admin.ch/eli/cc/2014/273/de",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "ch-frs-monetary_sovereignty-001",
+      "jurisdiction": "CH",
+      "dimension": "monetary_sovereignty",
+      "instrument": "FINMA Guidance 06/2024 (no usage cap); Banking Act framework",
+      "pinpoint": "Monetary sovereignty — no usage cap; foreign-currency tokens unrestricted",
+      "url": "https://www.fedlex.admin.ch/eli/cc/2014/273/de",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "ch-frs-permitted_activity_yield-001",
+      "jurisdiction": "CH",
+      "dimension": "permitted_activity_yield",
+      "instrument": "FINMA Guidance 06/2024; Banking Ordinance Art. 5(3)(f)",
+      "pinpoint": "Yield permitted; bank guarantee must cover interest (structural constraint, not prohibition)",
+      "url": "https://www.finma.ch/en/news/2024/07/20240726-m-am-06-24-stablecoins/",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "ch-frs-regulatory_authority-001",
+      "jurisdiction": "CH",
+      "dimension": "regulatory_authority",
+      "instrument": "Banking Act and Banking Ordinance; FINMA Guidance 06/2024 (Stablecoins)",
+      "pinpoint": "FINMA as primary stablecoin supervisor; SNB for systemic FMIs; no bespoke statute",
+      "url": "https://www.fedlex.admin.ch/eli/cc/1934/121/de",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "ch-frs-reserve_backing-001",
+      "jurisdiction": "CH",
+      "dimension": "reserve_backing",
+      "instrument": "Banking Ordinance Art. 5(3)(f); FINMA Guidance 06/2024; Collective Investment Schemes Act (CISA)",
+      "pinpoint": "Reserve/backing — no statutory schedule; guarantee covers principal + interest; CISA characterization risk",
+      "url": "https://www.fedlex.admin.ch/eli/cc/2014/273/de",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "eu-emt-monetary_sovereignty-001",
+      "jurisdiction": "EU",
+      "dimension": "monetary_sovereignty",
+      "instrument": "Regulation (EU) 2023/1114 (MiCA), Art. 58(3) (applying the Art. 23 means-of-exchange thresholds to non-EU-currency EMTs)",
+      "pinpoint": "Art. 58(3) (applying Art. 23 mutatis mutandis to non-EU-currency EMTs)",
+      "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj/eng",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "eu-emt-permitted_activity_yield-001",
+      "jurisdiction": "EU",
+      "dimension": "permitted_activity_yield",
+      "instrument": "Regulation (EU) 2023/1114 (MiCA), Article 50",
+      "pinpoint": "Art. 50 (no interest paid to EMT holders)",
+      "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj/eng",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "eu-emt-regulatory_authority-001",
+      "jurisdiction": "EU",
+      "dimension": "regulatory_authority",
+      "instrument": "Regulation (EU) 2023/1114 (MiCA)",
+      "pinpoint": "Titles III/IV; EBA/ESMA/NCA supervisory architecture",
+      "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj/eng",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "hk-frs-capital_requirements-001",
+      "jurisdiction": "HK",
+      "dimension": "capital_requirements",
+      "instrument": "Stablecoins Ordinance (Cap. 656), capital requirements",
+      "pinpoint": "HK$25m paid-up capital (statutory)",
+      "url": "https://www.elegislation.gov.hk/hk/cap656",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "hk-frs-distribution-001",
+      "jurisdiction": "HK",
+      "dimension": "distribution",
+      "instrument": "Stablecoins Ordinance (Cap. 656), offering / distribution restrictions and offence provisions",
+      "pinpoint": "permitted-offeror closed loop; HK$5m / 7-year offence",
+      "url": "https://www.elegislation.gov.hk/hk/cap656",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "hk-frs-issuer_pathway-001",
+      "jurisdiction": "HK",
+      "dimension": "issuer_pathway",
+      "instrument": "Stablecoins Ordinance (Cap. 656), licensing provisions",
+      "pinpoint": "licensable regulated activities; s.8(1) licensing offence",
+      "url": "https://www.elegislation.gov.hk/hk/cap656",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "hk-frs-monetary_sovereignty-001",
+      "jurisdiction": "HK",
+      "dimension": "monetary_sovereignty",
+      "instrument": "Stablecoins Ordinance (Cap. 656) — HKD-referencing perimeter + non-HKD FRS professional-investor restriction",
+      "pinpoint": "offshore HKD-referencing issuance is licensable; non-HKD FRS offering limited",
+      "url": "https://www.elegislation.gov.hk/hk/cap656",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "hk-frs-permitted_activity_yield-001",
+      "jurisdiction": "HK",
+      "dimension": "permitted_activity_yield",
+      "instrument": "Stablecoins Ordinance (Cap. 656), Schedule 2, s.15 (Non-interest bearing)",
+      "pinpoint": "Sch. 2 s.15 (no interest on issued stablecoins)",
+      "url": "https://www.elegislation.gov.hk/hk/cap656",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "hk-frs-redemption-001",
+      "jurisdiction": "HK",
+      "dimension": "redemption",
+      "instrument": "Stablecoins Ordinance (Cap. 656), redemption requirements",
+      "pinpoint": "par redemption within 1 business day",
+      "url": "https://www.elegislation.gov.hk/hk/cap656",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "hk-frs-regulatory_authority-001",
+      "jurisdiction": "HK",
+      "dimension": "regulatory_authority",
+      "instrument": "Stablecoins Ordinance (Cap. 656), in force 1 Aug 2025",
+      "pinpoint": "HKMA as the licensing/supervisory authority",
+      "url": "https://www.elegislation.gov.hk/hk/cap656",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "hk-frs-reserve_backing-001",
+      "jurisdiction": "HK",
+      "dimension": "reserve_backing",
+      "instrument": "Stablecoins Ordinance (Cap. 656), reserve / backing requirements",
+      "pinpoint": "100% backing; same-currency reserve with HKD/USD exception; segregation/trust",
+      "url": "https://www.elegislation.gov.hk/hk/cap656",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "jp-epi-aml_kyc-001",
+      "jurisdiction": "JP",
+      "dimension": "aml_kyc",
+      "instrument": "Payment Services Act (2022 amendment); FSA AML framework",
+      "pinpoint": "AML — FATF travel rule operative; intermediary cold storage / trust segregation / liability-sharing",
+      "url": "https://laws.e-gov.go.jp/",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "jp-epi-distribution-001",
+      "jurisdiction": "JP",
+      "dimension": "distribution",
+      "instrument": "Payment Services Act (Electronic Payment Instruments regime)",
+      "pinpoint": "Distribution — foreign tokens handled via a registered EPIESP holding JP reserves equal to customer holdings; foreign issuer may not issue/redeem/solicit to JP users",
+      "url": "https://laws.e-gov.go.jp/",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "jp-epi-issuer_pathway-001",
+      "jurisdiction": "JP",
+      "dimension": "issuer_pathway",
+      "instrument": "Payment Services Act (Electronic Payment Instruments regime)",
+      "pinpoint": "Issuer pathway — closed trichotomy (bank / funds-transfer / trust); intermediation via registered EPIESP",
+      "url": "https://laws.e-gov.go.jp/",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "jp-epi-monetary_sovereignty-001",
+      "jurisdiction": "JP",
+      "dimension": "monetary_sovereignty",
+      "instrument": "Payment Services Act (Electronic Payment Instruments regime)",
+      "pinpoint": "Monetary sovereignty — no cap; foreign tokens admitted via registered EPIESP holding JP reserves",
+      "url": "https://laws.e-gov.go.jp/",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "jp-epi-permitted_activity_yield-001",
+      "jurisdiction": "JP",
+      "dimension": "permitted_activity_yield",
+      "instrument": "Payment Services Act (Electronic Payment Instruments regime)",
+      "pinpoint": "Yield — holders not remunerated; issuer earns reserve interest",
+      "url": "https://laws.e-gov.go.jp/",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "jp-epi-redemption-001",
+      "jurisdiction": "JP",
+      "dimension": "redemption",
+      "instrument": "Payment Services Act (Electronic Payment Instruments regime)",
+      "pinpoint": "Redemption — at par on demand; funds-transfer-type JPY 1,000,000 per-transfer cap",
+      "url": "https://laws.e-gov.go.jp/",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "jp-epi-regulatory_authority-001",
+      "jurisdiction": "JP",
+      "dimension": "regulatory_authority",
+      "instrument": "Payment Services Act (Electronic Payment Instruments regime, in force 1 Jun 2023) as amended by Act No. 66 of 2025",
+      "pinpoint": "Regulators — FSA single supervisor; Local Finance Bureaus by delegation",
+      "url": "https://laws.e-gov.go.jp/",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "kr-frs-aml_kyc-001",
+      "jurisdiction": "KR",
+      "dimension": "aml_kyc",
+      "instrument": "Act on Reporting and Use of Specific Financial Transaction Information; Virtual Asset User Protection Act",
+      "pinpoint": "AML — Travel Rule + VASP registration for stablecoin-to-fiat conversion for third parties",
+      "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=261099",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "tw-frs-aml_kyc-001",
+      "jurisdiction": "TW",
+      "dimension": "aml_kyc",
+      "instrument": "Money Laundering Control Act (as amended) + VASP Registration Regulations (in force 30 Nov 2024)",
+      "pinpoint": "Money Laundering Control Act (洗錢防制法) Art. 6 (amended 31 Jul 2024); VASP registration regime in force 30 Nov 2024 (non-registration: up to 2 yr + NT$5m individuals / NT$50m entities); VASPs classified into 5 types",
+      "url": "https://law.moj.gov.tw/",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "us-pss-issuer_pathway-001",
+      "jurisdiction": "US",
+      "dimension": "issuer_pathway",
+      "instrument": "Guiding and Establishing National Innovation for U.S. Stablecoins Act (GENIUS Act)",
+      "pinpoint": "GENIUS Act Sec. 3-4 (permitted payment stablecoin issuers: IDI subsidiaries; OCC-qualified non-banks; certified state regimes)",
+      "url": "https://www.congress.gov/bill/119th-congress/senate-bill/1582/text",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "us-pss-permitted_activity_yield-001",
+      "jurisdiction": "US",
+      "dimension": "permitted_activity_yield",
+      "instrument": "GENIUS Act §4(a)(11); OCC NPRM §15.10(c)(4) / anti-evasion §15.10(c)(6); FDIC NPRM §350.3(b)(4); CLARITY Act (H.R. 3633) §404(c)(1) (Tillis-Alsobrooks text, 1 May 2026; affirmed final 5 May 2026)",
+      "pinpoint": "GENIUS Act Sec. 4(a)(11) (no interest/yield in connection with holding, use, or retention)",
+      "url": "https://www.federalregister.gov/documents/2025/09/19/2025-18226/genius-act-implementation",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "us-pss-reserve_backing-001",
+      "jurisdiction": "US",
+      "dimension": "reserve_backing",
+      "instrument": "GENIUS Act Sec. 4(a)(1) (1:1 fair-value reserve backing)",
+      "pinpoint": "GENIUS Act Sec. 4(a)(1) (1:1 fair-value backing of outstanding payment stablecoins)",
+      "url": "https://www.congress.gov/bill/119th-congress/senate-bill/1582/text",
+      "last_reviewed": "2026-06-27"
+    },
+    {
+      "id": "us-pss-securities_classification-001",
+      "jurisdiction": "US",
+      "dimension": "securities_classification",
+      "instrument": "Reves v. Ernst & Young, 494 U.S. 56 (1990); SEC v. W.J. Howey Co., 328 U.S. 293 (1946); Investment Company Act of 1940 (registered MMFs); CLARITY Act market-structure provisions (pending)",
+      "pinpoint": "GENIUS Act securities carve-out (amending the '33/'34 Acts and ICA40 for permitted payment stablecoins)",
+      "url": "https://www.congress.gov/bill/119th-congress/senate-bill/1582/text",
+      "last_reviewed": "2026-06-27"
+    }
+  ]
+}

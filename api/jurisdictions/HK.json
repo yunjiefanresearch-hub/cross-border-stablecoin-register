@@ -1,0 +1,402 @@
+{
+  "register": "Cross-Border Stablecoin Register",
+  "version": "0.10.1",
+  "generated": "2026-07-10",
+  "endpoint": "jurisdiction",
+  "guardrail": "static projection of the public register; no facts added here",
+  "data": {
+    "jurisdiction": "HK",
+    "records": [
+      {
+        "id": "hk-frs-aml_kyc-001",
+        "jurisdiction": "HK",
+        "dimension": "aml_kyc",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "HKMA AML/CFT Guideline for licensed stablecoin issuers (under Cap. 656)",
+        "pinpoint": "AMLO + Ordinance AML obligations on licensees",
+        "url": "https://www.elegislation.gov.hk/hk/cap656"
+      },
+      {
+        "id": "hk-frs-bank_nonbank_routing-001",
+        "jurisdiction": "HK",
+        "dimension": "bank_nonbank_routing",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Stablecoins Ordinance (Cap. 656)",
+        "pinpoint": "Licensing of issuers (bank and non-bank); not bank-only",
+        "url": null
+      },
+      {
+        "id": "hk-frs-capital_requirements-001",
+        "jurisdiction": "HK",
+        "dimension": "capital_requirements",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "resolution_text",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Stablecoins Ordinance (Cap. 656), capital requirements",
+        "pinpoint": "HK$25m paid-up capital (statutory)",
+        "url": "https://www.elegislation.gov.hk/hk/cap656"
+      },
+      {
+        "id": "hk-frs-cross_border_data-001",
+        "jurisdiction": "HK",
+        "dimension": "cross_border_data",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Personal Data (Privacy) Ordinance (PDPO); s.33 (cross-border transfer, not yet commenced)",
+        "pinpoint": "PDPO (Cap. 486) data obligations; HKMA outsourcing/data guidance",
+        "url": "https://www.elegislation.gov.hk/hk/cap656"
+      },
+      {
+        "id": "hk-frs-disclosure_reporting-001",
+        "jurisdiction": "HK",
+        "dimension": "disclosure_reporting",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Stablecoins Ordinance (Cap. 656)",
+        "pinpoint": "Disclosure, reserve attestation and supervisory reporting",
+        "url": null
+      },
+      {
+        "id": "hk-frs-distribution-001",
+        "jurisdiction": "HK",
+        "dimension": "distribution",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "resolution_text",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Stablecoins Ordinance (Cap. 656), offering / distribution restrictions and offence provisions",
+        "pinpoint": "permitted-offeror closed loop; HK$5m / 7-year offence",
+        "url": "https://www.elegislation.gov.hk/hk/cap656"
+      },
+      {
+        "id": "hk-frs-implementation_status-001",
+        "jurisdiction": "HK",
+        "dimension": "implementation_status",
+        "claim_class": "tier2_operational",
+        "evidence_tier": null,
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Stablecoins Ordinance (Cap. 656) commencement + HKMA licensing actions",
+        "pinpoint": "Timeline Jan 2022 -> Q3 2026; first cohort 10 Apr 2026",
+        "url": null
+      },
+      {
+        "id": "hk-frs-issuer_pathway-001",
+        "jurisdiction": "HK",
+        "dimension": "issuer_pathway",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "resolution_text",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Stablecoins Ordinance (Cap. 656), licensing provisions",
+        "pinpoint": "licensable regulated activities; s.8(1) licensing offence",
+        "url": "https://www.elegislation.gov.hk/hk/cap656"
+      },
+      {
+        "id": "hk-frs-monetary_sovereignty-001",
+        "jurisdiction": "HK",
+        "dimension": "monetary_sovereignty",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "resolution_text",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Stablecoins Ordinance (Cap. 656) — HKD-referencing perimeter + non-HKD FRS professional-investor restriction",
+        "pinpoint": "offshore HKD-referencing issuance is licensable; non-HKD FRS offering limited",
+        "url": "https://www.elegislation.gov.hk/hk/cap656"
+      },
+      {
+        "id": "hk-frs-permitted_activity_yield-001",
+        "jurisdiction": "HK",
+        "dimension": "permitted_activity_yield",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "resolution_text",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Stablecoins Ordinance (Cap. 656), Schedule 2, s.15 (Non-interest bearing)",
+        "pinpoint": "Sch. 2 s.15 (no interest on issued stablecoins)",
+        "url": "https://www.elegislation.gov.hk/hk/cap656"
+      },
+      {
+        "id": "hk-frs-redemption-001",
+        "jurisdiction": "HK",
+        "dimension": "redemption",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "resolution_text",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Stablecoins Ordinance (Cap. 656), redemption requirements",
+        "pinpoint": "par redemption within 1 business day",
+        "url": "https://www.elegislation.gov.hk/hk/cap656"
+      },
+      {
+        "id": "hk-frs-regulatory_authority-001",
+        "jurisdiction": "HK",
+        "dimension": "regulatory_authority",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "resolution_text",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Stablecoins Ordinance (Cap. 656), in force 1 Aug 2025",
+        "pinpoint": "HKMA as the licensing/supervisory authority",
+        "url": "https://www.elegislation.gov.hk/hk/cap656"
+      },
+      {
+        "id": "hk-frs-reserve_backing-001",
+        "jurisdiction": "HK",
+        "dimension": "reserve_backing",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "resolution_text",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Stablecoins Ordinance (Cap. 656), reserve / backing requirements",
+        "pinpoint": "100% backing; same-currency reserve with HKD/USD exception; segregation/trust",
+        "url": "https://www.elegislation.gov.hk/hk/cap656"
+      },
+      {
+        "id": "hk-frs-securities_classification-001",
+        "jurisdiction": "HK",
+        "dimension": "securities_classification",
+        "claim_class": "tier1_legal",
+        "evidence_tier": "firm_summary",
+        "binding_status": "in_force_enacted",
+        "status": "in_force",
+        "instrument": "Stablecoins Ordinance (Cap. 656); Securities and Futures Ordinance (Cap. 571)",
+        "pinpoint": "HKMA stablecoin perimeter vs. the SFO securities/futures definitions",
+        "url": null
+      }
+    ],
+    "citable_cells": [
+      {
+        "id": "hk-frs-capital_requirements-001",
+        "jurisdiction": "HK",
+        "dimension": "capital_requirements",
+        "instrument": "Stablecoins Ordinance (Cap. 656), capital requirements",
+        "pinpoint": "HK$25m paid-up capital (statutory)",
+        "url": "https://www.elegislation.gov.hk/hk/cap656",
+        "last_reviewed": "2026-06-27"
+      },
+      {
+        "id": "hk-frs-distribution-001",
+        "jurisdiction": "HK",
+        "dimension": "distribution",
+        "instrument": "Stablecoins Ordinance (Cap. 656), offering / distribution restrictions and offence provisions",
+        "pinpoint": "permitted-offeror closed loop; HK$5m / 7-year offence",
+        "url": "https://www.elegislation.gov.hk/hk/cap656",
+        "last_reviewed": "2026-06-27"
+      },
+      {
+        "id": "hk-frs-issuer_pathway-001",
+        "jurisdiction": "HK",
+        "dimension": "issuer_pathway",
+        "instrument": "Stablecoins Ordinance (Cap. 656), licensing provisions",
+        "pinpoint": "licensable regulated activities; s.8(1) licensing offence",
+        "url": "https://www.elegislation.gov.hk/hk/cap656",
+        "last_reviewed": "2026-06-27"
+      },
+      {
+        "id": "hk-frs-monetary_sovereignty-001",
+        "jurisdiction": "HK",
+        "dimension": "monetary_sovereignty",
+        "instrument": "Stablecoins Ordinance (Cap. 656) — HKD-referencing perimeter + non-HKD FRS professional-investor restriction",
+        "pinpoint": "offshore HKD-referencing issuance is licensable; non-HKD FRS offering limited",
+        "url": "https://www.elegislation.gov.hk/hk/cap656",
+        "last_reviewed": "2026-06-27"
+      },
+      {
+        "id": "hk-frs-permitted_activity_yield-001",
+        "jurisdiction": "HK",
+        "dimension": "permitted_activity_yield",
+        "instrument": "Stablecoins Ordinance (Cap. 656), Schedule 2, s.15 (Non-interest bearing)",
+        "pinpoint": "Sch. 2 s.15 (no interest on issued stablecoins)",
+        "url": "https://www.elegislation.gov.hk/hk/cap656",
+        "last_reviewed": "2026-06-27"
+      },
+      {
+        "id": "hk-frs-redemption-001",
+        "jurisdiction": "HK",
+        "dimension": "redemption",
+        "instrument": "Stablecoins Ordinance (Cap. 656), redemption requirements",
+        "pinpoint": "par redemption within 1 business day",
+        "url": "https://www.elegislation.gov.hk/hk/cap656",
+        "last_reviewed": "2026-06-27"
+      },
+      {
+        "id": "hk-frs-regulatory_authority-001",
+        "jurisdiction": "HK",
+        "dimension": "regulatory_authority",
+        "instrument": "Stablecoins Ordinance (Cap. 656), in force 1 Aug 2025",
+        "pinpoint": "HKMA as the licensing/supervisory authority",
+        "url": "https://www.elegislation.gov.hk/hk/cap656",
+        "last_reviewed": "2026-06-27"
+      },
+      {
+        "id": "hk-frs-reserve_backing-001",
+        "jurisdiction": "HK",
+        "dimension": "reserve_backing",
+        "instrument": "Stablecoins Ordinance (Cap. 656), reserve / backing requirements",
+        "pinpoint": "100% backing; same-currency reserve with HKD/USD exception; segregation/trust",
+        "url": "https://www.elegislation.gov.hk/hk/cap656",
+        "last_reviewed": "2026-06-27"
+      }
+    ],
+    "outbound_classes_at_base": {
+      "US": {
+        "class": "II",
+        "rule": "destination_gate:comparability",
+        "origin_override": false
+      },
+      "EU": {
+        "class": "I",
+        "rule": "destination_gate:open_capped",
+        "origin_override": false
+      },
+      "UK": {
+        "class": "T",
+        "rule": "destination_gate:transition",
+        "origin_override": false
+      },
+      "SG": {
+        "class": "I",
+        "rule": "destination_gate:open",
+        "origin_override": false
+      },
+      "HK": null,
+      "CN": {
+        "class": "blocked",
+        "rule": "destination_gate:prohibition",
+        "origin_override": false
+      },
+      "BR": {
+        "class": "II",
+        "rule": "destination_gate:fx_counterparty",
+        "origin_override": false
+      },
+      "CH": {
+        "class": "I",
+        "rule": "destination_gate:open",
+        "origin_override": false
+      },
+      "AE": {
+        "class": "II",
+        "rule": "destination_gate:usage_channel",
+        "origin_override": false
+      },
+      "TW": {
+        "class": "T",
+        "rule": "destination_gate:transition",
+        "origin_override": false
+      },
+      "JP": {
+        "class": "II",
+        "rule": "destination_gate:channel",
+        "origin_override": false
+      },
+      "KR": {
+        "class": "pre_regime",
+        "rule": "destination_gate:pre_regime",
+        "origin_override": false
+      }
+    },
+    "forward": {
+      "jurisdiction": "HK",
+      "own_pending_events": [],
+      "summary": {
+        "own_driven_inbound": 0,
+        "own_driven_outbound": 0,
+        "counterpart_driven_inbound": 2,
+        "counterpart_driven_outbound": 4,
+        "accessibility_only_own_events": 0
+      },
+      "inbound_reclassified": [
+        {
+          "counterpart": "KR",
+          "from": "III",
+          "to": "I",
+          "via_trigger": "kr-daba-enacted",
+          "trigger_jurisdiction": "KR",
+          "timing": "contingent (if enacted)"
+        },
+        {
+          "counterpart": "TW",
+          "from": "III",
+          "to": "I",
+          "via_trigger": "tw-vas-act-enacted",
+          "trigger_jurisdiction": "TW",
+          "timing": "contingent (if enacted)"
+        }
+      ],
+      "outbound_reclassified": [
+        {
+          "counterpart": "KR",
+          "from": "pre_regime",
+          "to": "II",
+          "via_trigger": "kr-daba-enacted",
+          "trigger_jurisdiction": "KR",
+          "timing": "contingent (if enacted)"
+        },
+        {
+          "counterpart": "TW",
+          "from": "T",
+          "to": "II",
+          "via_trigger": "tw-vas-act-enacted",
+          "trigger_jurisdiction": "TW",
+          "timing": "contingent (if enacted)"
+        },
+        {
+          "counterpart": "UK",
+          "from": "T",
+          "to": "I",
+          "via_trigger": "uk-systemic-regime-operative",
+          "trigger_jurisdiction": "UK",
+          "timing": "scheduled 2027-10-25"
+        },
+        {
+          "counterpart": "US",
+          "from": "T",
+          "to": "II",
+          "via_trigger": "us-genius-act-effective",
+          "trigger_jurisdiction": "US",
+          "timing": "scheduled ≤2027-01-18 (outer cap)"
+        }
+      ],
+      "counterpart_exposure": [
+        {
+          "counterpart": "KR",
+          "edges_affected": 2,
+          "inbound": 1,
+          "outbound": 1
+        },
+        {
+          "counterpart": "TW",
+          "edges_affected": 2,
+          "inbound": 1,
+          "outbound": 1
+        },
+        {
+          "counterpart": "UK",
+          "edges_affected": 1,
+          "inbound": 0,
+          "outbound": 1
+        },
+        {
+          "counterpart": "US",
+          "edges_affected": 1,
+          "inbound": 0,
+          "outbound": 1
+        }
+      ],
+      "supervisor_reading": "HK has no class-moving or accessibility-changing pending event of its own. Separately, 2 inbound and 4 outbound corridor(s) reclassify when counterparts enact. Most exposed counterpart(s): KR (2), TW (2), UK (1), US (1)."
+    }
+  }
+}

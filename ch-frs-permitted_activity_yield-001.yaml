@@ -1,0 +1,49 @@
+id: ch-frs-permitted_activity_yield-001
+jurisdiction: CH
+authority: FINMA
+instrument_type: fiat_referenced_stablecoin
+instrument_label_local: stablecoin (Banking Act; bank-guarantee or licensed-institution pathway)
+dimension: permitted_activity_yield
+constraint_ref: C3
+requirement_summary: Paying yield to holders is NOT prohibited — Switzerland is the clearest survey example of a
+  regime where holder yield is permitted but structurally constrained. Under the bank-guarantee pathway the guarantee
+  must cover any interest earned, so the cost of offering yield is the cost of guaranteeing it; the protective mechanism
+  scales with the yield offered. This contrasts sharply with the prohibition cluster (EU Art. 50; HK Sched. 2 s.15;
+  US GENIUS Act § 4(a)(11)).
+requirement_structured:
+  holder_yield: permitted (not prohibited)
+  constraint: bank guarantee must cover principal + interest; cost of yield = cost of guaranteeing it
+  contrast: 'prohibition cluster: EU / HK / US'
+status: in_force
+source:
+  primary: FINMA Guidance 06/2024; Banking Ordinance Art. 5(3)(f)
+  pinpoint: Yield permitted; bank guarantee must cover interest (structural constraint, not prohibition)
+  url: https://www.finma.ch/en/news/2024/07/20240726-m-am-06-24-stablecoins/
+secondary:
+- citation: Fan, Multi-Jurisdiction Stablecoin Compliance Matrix v0.9.6 (June 2026), §Switzerland (Yield and Interest
+    Treatment)
+- citation: FINMA Guidance 06/2024 (Stablecoins, 26 July 2024) — official English PDF available.
+interpretation_note: 'Provenance: transcribed from the author''s Compliance Matrix v0.9.6; VERIFIED against the
+  official primary text in the v0.5.1 verification pass (source.url is the official instrument). This is the permission-cluster
+  anchor on the C3 spine: it shows the yield boundary is drawn by guarantee economics in Switzerland, not by a flat
+  ban.'
+interpretive_flag:
+  tension: Whether holding assets for the account of holders to generate yield tips the arrangement into collective-investment-scheme
+    (CIS) territory under CISA.
+  resolution_channel: FINMA characterization guidance / supervisory practice on CISA scope.
+confidence: high
+claim_class: tier1_legal
+evidence_tier: resolution_text
+last_reviewed: '2026-06-27'
+version_added: 0.4.0
+tags:
+- europe
+- focus
+- from_matrix_v0.9.6
+- v0.4.0_expansion
+- spine
+- v0.5.1_verification
+- resolution_text_verified
+- v0.7.0_claim_class
+- binding_in_force_enacted
+binding_status: in_force_enacted

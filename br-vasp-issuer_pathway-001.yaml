@@ -1,0 +1,72 @@
+id: br-vasp-issuer_pathway-001
+jurisdiction: BR
+authority: BCB
+instrument_type: other
+instrument_label_local: sociedade prestadora de serviços de ativos virtuais (SPSAV)
+dimension: issuer_pathway
+constraint_ref: C1
+requirement_summary: 'Providing virtual-asset services in Brazil requires prior BCB authorisation as an SPSAV. Under
+  Res BCB 520 Art. 4 there are three modalities — Intermediário, Custodiante and Corretor (intermediary / custodian
+  / broker, the broker combining both functions); a provider may not accumulate incompatible functions. Already-regulated
+  institutions may also offer virtual-asset services on notification to the BCB: commercial / investment / multiple
+  banks, Caixa Econômica Federal, and securities brokers (CTVM), distributors (DTVM) and FX dealers (corretoras
+  de câmbio). Overseas providers must be authorised before operating, requiring a local subsidiary or partnership
+  with a licensed local entity. Grandfathering: providers operating before 2 Feb 2026 may continue while authorisation
+  is processed (apply within ~260–270 days), but transactions with non-authorised providers are prohibited from
+  30 Oct 2026, after which a non-compliant provider must cease within 30 days.'
+requirement_structured:
+  modalities:
+  - Intermediário
+  - Custodiante
+  - Corretor
+  function_accumulation: prohibited (must operate per designation)
+  local_presence_required: true
+  grandfathering_deadline: '2026-10-30'
+status: in_force
+effective_date: '2026-02-02'
+source:
+  primary: Res BCB 519/2025 (authorisation regime); Res BCB 520/2025 Art. 4 (provider modalities)
+  url: https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=519
+  pinpoint: 'Lei 14.478/2022 (BCB authorisation required to provide virtual-asset services); Res BCB 519/2025 (authorisation
+    process); Res BCB 520/2025 Art. 4 (three SPSAV modalities: intermediária, custodiante, corretora), Art. 14 (sociedade
+    limitada/anônima; ≥3 administrators; head office in Brazil); authorisation deadline 30 Oct 2026 (270 days)'
+secondary:
+- citation: Notabene (C. Veloso), Brazil's Central Bank Regulates VASPs (11 Nov 2025)
+  url: https://notabene.id/post/brazils-central-bank-regulates-virtual-asset-service-providers-what-bcb-resolutions-mean-for-crypto-compliance
+- citation: Cescon Barrieu, Brazilian Central Bank issues new rules on virtual assets (11 Nov 2025)
+  url: https://cesconbarrieu.com.br/en/brazilian-central-bank-virtual-asset/
+interpretation_note: 'Provenance: corridor fieldwork. The three-modality structure and the Art. 4 pinpoint are drawn
+  from concordant firm analysis (Notabene, Cescon); confirmation against the official BCB normativo text is the
+  remaining step (evidence_tier: firm_summary). For the corridor, the foreign counterparty''s BCB-FX-authorisation
+  status (not the SPSAV modality) drives the Res 521 cap. Note: firms cite 260 (Cescon) vs 270 (Notabene) grandfathering
+  days; the operative deadline is 30 Oct 2026.
+
+
+  [v0.9.5 verification] NATIVE-LANGUAGE VERIFICATION (Portuguese): confirmed against the official BCB text. The
+  Lei 14.478/2022 framework as implemented by Res BCB 519/520/521 (in force 2 Feb 2026) is enacted law, so this
+  cell is promoted to resolution_text.'
+confidence: high
+claim_class: tier1_legal
+evidence_tier: resolution_text
+last_reviewed: '2026-06-27'
+version_added: 0.3.1
+tags:
+- latam
+- focus
+- firm_analysis_corroborated_2026-06
+- v0.9.5_verification
+- binding_in_force_enacted
+- resolution_text_verified
+binding_status: in_force_enacted
+verification:
+  verified_by: external review (web retrieval against official sources)
+  verified_on: '2026-06-27'
+  method: official_text
+  against:
+    instrument: Lei 14.478/2022 + Res BCB 519/520/521 (in force 2 Feb 2026) + Res Conjunta CMN/BCB 14/2025 + Res
+      BCB 517/2025 + Decreto 11.563/2023
+    url: https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=519
+    pinpoint: 'Lei 14.478/2022 (BCB authorisation required to provide virtual-asset services); Res BCB 519/2025
+      (authorisation process); Res BCB 520/2025 Art. 4 (three SPSAV modalities: intermediária, custodiante, corretora),
+      Art. 14 (sociedade limitada/anônima; ≥3 administrators; head office in Brazil); authorisation deadline 30
+      Oct 2026 (270 days)'

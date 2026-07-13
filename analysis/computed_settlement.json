@@ -1,0 +1,677 @@
+{
+  "schema": "cbsr-analysis/computed_settlement",
+  "version": "v0.10.0",
+  "generated": "2026-07-10",
+  "claim_class": "tier2_operational",
+  "evidence_tier": "operational_enrichment",
+  "method": "The three wholesale-settlement experiments are recorded with their true operators (the §5.2 correction), each of the twelve jurisdictions is assigned to the bloc-internal substrate its rail belongs to, and every undirected corridor is then classified by whether its two ends sit on the same bloc substrate, on opposite blocs, on the Ensemble bridge, or off the shared experiments. The per-edge classification is deterministic given the public memberships.",
+  "correction": "The earlier draft attributed all three experiments to the BIS, which was wrong. Only Project Agorá is BIS-led; Project Ensemble is HKMA-led; and mBridge has not been a BIS project since the BIS withdrew on 31 Oct 2024, and is now operated by a PRC-and-Gulf group with the majority of settlement volume in digital yuan. The true operators are what reveal the bloc structure.",
+  "experiments": {
+    "agora": {
+      "name": "Project Agorá",
+      "lead": "Bank for International Settlements",
+      "bloc": "Agorá-participant (dollar-routing)",
+      "settlement_currency_orientation": "dollar-routing (tokenized-correspondent; keeps value in the dollar-centred correspondent structure)",
+      "bis_led": true,
+      "participants_note": "BIS together with seven Agorá-participant central banks (a dollar-routing, G7-anchored but not G7-only group: the Agorá members among the twelve are the United States, the euro area, the United Kingdom, Japan, Korea, and Switzerland) and 40+ private financial institutions",
+      "focus_members": [
+        "US",
+        "EU",
+        "UK",
+        "JP",
+        "KR",
+        "CH"
+      ]
+    },
+    "mbridge": {
+      "name": "mBridge",
+      "lead": "People's Bank of China, Hong Kong Monetary Authority, and the central banks of Thailand, the United Arab Emirates, and Saudi Arabia",
+      "bloc": "PRC-and-Gulf",
+      "settlement_currency_orientation": "dollar-bypass (settles across monetary areas without the dollar leg; majority of settlement volume reported in digital yuan)",
+      "bis_led": false,
+      "bis_withdrew": "2024-10-31",
+      "participants_note": "no BIS and no Western central bank among operators since the BIS withdrawal on 31 Oct 2024",
+      "focus_members": [
+        "CN",
+        "AE",
+        "HK"
+      ]
+    },
+    "ensemble": {
+      "name": "Project Ensemble",
+      "lead": "Hong Kong Monetary Authority",
+      "bloc": "bridge",
+      "launched": "2024-03",
+      "bis_led": false,
+      "role": "sits in the bridging position between the two blocs (not a BIS project)",
+      "focus_members": [
+        "HK"
+      ]
+    }
+  },
+  "bloc_membership": {
+    "US": "agora",
+    "EU": "agora",
+    "UK": "agora",
+    "JP": "agora",
+    "KR": "agora",
+    "CH": "agora",
+    "CN": "mbridge",
+    "AE": "mbridge",
+    "HK": "bridge",
+    "BR": "none",
+    "SG": "none",
+    "TW": "none"
+  },
+  "edges": [
+    {
+      "pair": "US-EU",
+      "infrastructure_overlap": "same-bloc:Agorá",
+      "blocs": {
+        "US": "agora",
+        "EU": "agora"
+      },
+      "basis": "both ends sit on the Agorá bloc-internal substrate"
+    },
+    {
+      "pair": "US-UK",
+      "infrastructure_overlap": "same-bloc:Agorá",
+      "blocs": {
+        "US": "agora",
+        "UK": "agora"
+      },
+      "basis": "both ends sit on the Agorá bloc-internal substrate"
+    },
+    {
+      "pair": "US-SG",
+      "infrastructure_overlap": "off-experiments",
+      "blocs": {
+        "US": "agora",
+        "SG": "none"
+      },
+      "basis": "at least one end is in no named settlement experiment"
+    },
+    {
+      "pair": "US-HK",
+      "infrastructure_overlap": "bridge",
+      "blocs": {
+        "US": "agora",
+        "HK": "bridge"
+      },
+      "basis": "Hong Kong's Ensemble sits in the bridging position toward the Agorá-participant (dollar-routing) bloc"
+    },
+    {
+      "pair": "US-CN",
+      "infrastructure_overlap": "cross-bloc",
+      "blocs": {
+        "US": "agora",
+        "CN": "mbridge"
+      },
+      "basis": "opposite blocs: Agorá (dollar-routing) vs mBridge (dollar-bypass); memberships do not overlap and the rails are not mutually interoperable"
+    },
+    {
+      "pair": "US-BR",
+      "infrastructure_overlap": "off-experiments",
+      "blocs": {
+        "US": "agora",
+        "BR": "none"
+      },
+      "basis": "at least one end is in no named settlement experiment"
+    },
+    {
+      "pair": "US-CH",
+      "infrastructure_overlap": "same-bloc:Agorá",
+      "blocs": {
+        "US": "agora",
+        "CH": "agora"
+      },
+      "basis": "both ends sit on the Agorá bloc-internal substrate"
+    },
+    {
+      "pair": "US-AE",
+      "infrastructure_overlap": "cross-bloc",
+      "blocs": {
+        "US": "agora",
+        "AE": "mbridge"
+      },
+      "basis": "opposite blocs: Agorá (dollar-routing) vs mBridge (dollar-bypass); memberships do not overlap and the rails are not mutually interoperable"
+    },
+    {
+      "pair": "US-TW",
+      "infrastructure_overlap": "off-experiments",
+      "blocs": {
+        "US": "agora",
+        "TW": "none"
+      },
+      "basis": "at least one end is in no named settlement experiment"
+    },
+    {
+      "pair": "US-JP",
+      "infrastructure_overlap": "same-bloc:Agorá",
+      "blocs": {
+        "US": "agora",
+        "JP": "agora"
+      },
+      "basis": "both ends sit on the Agorá bloc-internal substrate"
+    },
+    {
+      "pair": "US-KR",
+      "infrastructure_overlap": "same-bloc:Agorá",
+      "blocs": {
+        "US": "agora",
+        "KR": "agora"
+      },
+      "basis": "both ends sit on the Agorá bloc-internal substrate"
+    },
+    {
+      "pair": "EU-UK",
+      "infrastructure_overlap": "same-bloc:Agorá",
+      "blocs": {
+        "EU": "agora",
+        "UK": "agora"
+      },
+      "basis": "both ends sit on the Agorá bloc-internal substrate"
+    },
+    {
+      "pair": "EU-SG",
+      "infrastructure_overlap": "off-experiments",
+      "blocs": {
+        "EU": "agora",
+        "SG": "none"
+      },
+      "basis": "at least one end is in no named settlement experiment"
+    },
+    {
+      "pair": "EU-HK",
+      "infrastructure_overlap": "bridge",
+      "blocs": {
+        "EU": "agora",
+        "HK": "bridge"
+      },
+      "basis": "Hong Kong's Ensemble sits in the bridging position toward the Agorá-participant (dollar-routing) bloc"
+    },
+    {
+      "pair": "EU-CN",
+      "infrastructure_overlap": "cross-bloc",
+      "blocs": {
+        "EU": "agora",
+        "CN": "mbridge"
+      },
+      "basis": "opposite blocs: Agorá (dollar-routing) vs mBridge (dollar-bypass); memberships do not overlap and the rails are not mutually interoperable"
+    },
+    {
+      "pair": "EU-BR",
+      "infrastructure_overlap": "off-experiments",
+      "blocs": {
+        "EU": "agora",
+        "BR": "none"
+      },
+      "basis": "at least one end is in no named settlement experiment"
+    },
+    {
+      "pair": "EU-CH",
+      "infrastructure_overlap": "same-bloc:Agorá",
+      "blocs": {
+        "EU": "agora",
+        "CH": "agora"
+      },
+      "basis": "both ends sit on the Agorá bloc-internal substrate"
+    },
+    {
+      "pair": "EU-AE",
+      "infrastructure_overlap": "cross-bloc",
+      "blocs": {
+        "EU": "agora",
+        "AE": "mbridge"
+      },
+      "basis": "opposite blocs: Agorá (dollar-routing) vs mBridge (dollar-bypass); memberships do not overlap and the rails are not mutually interoperable"
+    },
+    {
+      "pair": "EU-TW",
+      "infrastructure_overlap": "off-experiments",
+      "blocs": {
+        "EU": "agora",
+        "TW": "none"
+      },
+      "basis": "at least one end is in no named settlement experiment"
+    },
+    {
+      "pair": "EU-JP",
+      "infrastructure_overlap": "same-bloc:Agorá",
+      "blocs": {
+        "EU": "agora",
+        "JP": "agora"
+      },
+      "basis": "both ends sit on the Agorá bloc-internal substrate"
+    },
+    {
+      "pair": "EU-KR",
+      "infrastructure_overlap": "same-bloc:Agorá",
+      "blocs": {
+        "EU": "agora",
+        "KR": "agora"
+      },
+      "basis": "both ends sit on the Agorá bloc-internal substrate"
+    },
+    {
+      "pair": "UK-SG",
+      "infrastructure_overlap": "off-experiments",
+      "blocs": {
+        "UK": "agora",
+        "SG": "none"
+      },
+      "basis": "at least one end is in no named settlement experiment"
+    },
+    {
+      "pair": "UK-HK",
+      "infrastructure_overlap": "bridge",
+      "blocs": {
+        "UK": "agora",
+        "HK": "bridge"
+      },
+      "basis": "Hong Kong's Ensemble sits in the bridging position toward the Agorá-participant (dollar-routing) bloc"
+    },
+    {
+      "pair": "UK-CN",
+      "infrastructure_overlap": "cross-bloc",
+      "blocs": {
+        "UK": "agora",
+        "CN": "mbridge"
+      },
+      "basis": "opposite blocs: Agorá (dollar-routing) vs mBridge (dollar-bypass); memberships do not overlap and the rails are not mutually interoperable"
+    },
+    {
+      "pair": "UK-BR",
+      "infrastructure_overlap": "off-experiments",
+      "blocs": {
+        "UK": "agora",
+        "BR": "none"
+      },
+      "basis": "at least one end is in no named settlement experiment"
+    },
+    {
+      "pair": "UK-CH",
+      "infrastructure_overlap": "same-bloc:Agorá",
+      "blocs": {
+        "UK": "agora",
+        "CH": "agora"
+      },
+      "basis": "both ends sit on the Agorá bloc-internal substrate"
+    },
+    {
+      "pair": "UK-AE",
+      "infrastructure_overlap": "cross-bloc",
+      "blocs": {
+        "UK": "agora",
+        "AE": "mbridge"
+      },
+      "basis": "opposite blocs: Agorá (dollar-routing) vs mBridge (dollar-bypass); memberships do not overlap and the rails are not mutually interoperable"
+    },
+    {
+      "pair": "UK-TW",
+      "infrastructure_overlap": "off-experiments",
+      "blocs": {
+        "UK": "agora",
+        "TW": "none"
+      },
+      "basis": "at least one end is in no named settlement experiment"
+    },
+    {
+      "pair": "UK-JP",
+      "infrastructure_overlap": "same-bloc:Agorá",
+      "blocs": {
+        "UK": "agora",
+        "JP": "agora"
+      },
+      "basis": "both ends sit on the Agorá bloc-internal substrate"
+    },
+    {
+      "pair": "UK-KR",
+      "infrastructure_overlap": "same-bloc:Agorá",
+      "blocs": {
+        "UK": "agora",
+        "KR": "agora"
+      },
+      "basis": "both ends sit on the Agorá bloc-internal substrate"
+    },
+    {
+      "pair": "SG-HK",
+      "infrastructure_overlap": "off-experiments",
+      "blocs": {
+        "SG": "none",
+        "HK": "bridge"
+      },
+      "basis": "at least one end is in no named settlement experiment"
+    },
+    {
+      "pair": "SG-CN",
+      "infrastructure_overlap": "off-experiments",
+      "blocs": {
+        "SG": "none",
+        "CN": "mbridge"
+      },
+      "basis": "at least one end is in no named settlement experiment"
+    },
+    {
+      "pair": "SG-BR",
+      "infrastructure_overlap": "off-experiments",
+      "blocs": {
+        "SG": "none",
+        "BR": "none"
+      },
+      "basis": "at least one end is in no named settlement experiment"
+    },
+    {
+      "pair": "SG-CH",
+      "infrastructure_overlap": "off-experiments",
+      "blocs": {
+        "SG": "none",
+        "CH": "agora"
+      },
+      "basis": "at least one end is in no named settlement experiment"
+    },
+    {
+      "pair": "SG-AE",
+      "infrastructure_overlap": "off-experiments",
+      "blocs": {
+        "SG": "none",
+        "AE": "mbridge"
+      },
+      "basis": "at least one end is in no named settlement experiment"
+    },
+    {
+      "pair": "SG-TW",
+      "infrastructure_overlap": "off-experiments",
+      "blocs": {
+        "SG": "none",
+        "TW": "none"
+      },
+      "basis": "at least one end is in no named settlement experiment"
+    },
+    {
+      "pair": "SG-JP",
+      "infrastructure_overlap": "off-experiments",
+      "blocs": {
+        "SG": "none",
+        "JP": "agora"
+      },
+      "basis": "at least one end is in no named settlement experiment"
+    },
+    {
+      "pair": "SG-KR",
+      "infrastructure_overlap": "off-experiments",
+      "blocs": {
+        "SG": "none",
+        "KR": "agora"
+      },
+      "basis": "at least one end is in no named settlement experiment"
+    },
+    {
+      "pair": "HK-CN",
+      "infrastructure_overlap": "same-bloc:mBridge",
+      "blocs": {
+        "HK": "bridge",
+        "CN": "mbridge"
+      },
+      "basis": "Hong Kong operates mBridge alongside this end"
+    },
+    {
+      "pair": "HK-BR",
+      "infrastructure_overlap": "off-experiments",
+      "blocs": {
+        "HK": "bridge",
+        "BR": "none"
+      },
+      "basis": "at least one end is in no named settlement experiment"
+    },
+    {
+      "pair": "HK-CH",
+      "infrastructure_overlap": "bridge",
+      "blocs": {
+        "HK": "bridge",
+        "CH": "agora"
+      },
+      "basis": "Hong Kong's Ensemble sits in the bridging position toward the Agorá-participant (dollar-routing) bloc"
+    },
+    {
+      "pair": "HK-AE",
+      "infrastructure_overlap": "same-bloc:mBridge",
+      "blocs": {
+        "HK": "bridge",
+        "AE": "mbridge"
+      },
+      "basis": "Hong Kong operates mBridge alongside this end"
+    },
+    {
+      "pair": "HK-TW",
+      "infrastructure_overlap": "off-experiments",
+      "blocs": {
+        "HK": "bridge",
+        "TW": "none"
+      },
+      "basis": "at least one end is in no named settlement experiment"
+    },
+    {
+      "pair": "HK-JP",
+      "infrastructure_overlap": "bridge",
+      "blocs": {
+        "HK": "bridge",
+        "JP": "agora"
+      },
+      "basis": "Hong Kong's Ensemble sits in the bridging position toward the Agorá-participant (dollar-routing) bloc"
+    },
+    {
+      "pair": "HK-KR",
+      "infrastructure_overlap": "bridge",
+      "blocs": {
+        "HK": "bridge",
+        "KR": "agora"
+      },
+      "basis": "Hong Kong's Ensemble sits in the bridging position toward the Agorá-participant (dollar-routing) bloc"
+    },
+    {
+      "pair": "CN-BR",
+      "infrastructure_overlap": "off-experiments",
+      "blocs": {
+        "CN": "mbridge",
+        "BR": "none"
+      },
+      "basis": "at least one end is in no named settlement experiment"
+    },
+    {
+      "pair": "CN-CH",
+      "infrastructure_overlap": "cross-bloc",
+      "blocs": {
+        "CN": "mbridge",
+        "CH": "agora"
+      },
+      "basis": "opposite blocs: Agorá (dollar-routing) vs mBridge (dollar-bypass); memberships do not overlap and the rails are not mutually interoperable"
+    },
+    {
+      "pair": "CN-AE",
+      "infrastructure_overlap": "same-bloc:mBridge",
+      "blocs": {
+        "CN": "mbridge",
+        "AE": "mbridge"
+      },
+      "basis": "both ends sit on the mBridge bloc-internal substrate"
+    },
+    {
+      "pair": "CN-TW",
+      "infrastructure_overlap": "off-experiments",
+      "blocs": {
+        "CN": "mbridge",
+        "TW": "none"
+      },
+      "basis": "at least one end is in no named settlement experiment"
+    },
+    {
+      "pair": "CN-JP",
+      "infrastructure_overlap": "cross-bloc",
+      "blocs": {
+        "CN": "mbridge",
+        "JP": "agora"
+      },
+      "basis": "opposite blocs: Agorá (dollar-routing) vs mBridge (dollar-bypass); memberships do not overlap and the rails are not mutually interoperable"
+    },
+    {
+      "pair": "CN-KR",
+      "infrastructure_overlap": "cross-bloc",
+      "blocs": {
+        "CN": "mbridge",
+        "KR": "agora"
+      },
+      "basis": "opposite blocs: Agorá (dollar-routing) vs mBridge (dollar-bypass); memberships do not overlap and the rails are not mutually interoperable"
+    },
+    {
+      "pair": "BR-CH",
+      "infrastructure_overlap": "off-experiments",
+      "blocs": {
+        "BR": "none",
+        "CH": "agora"
+      },
+      "basis": "at least one end is in no named settlement experiment"
+    },
+    {
+      "pair": "BR-AE",
+      "infrastructure_overlap": "off-experiments",
+      "blocs": {
+        "BR": "none",
+        "AE": "mbridge"
+      },
+      "basis": "at least one end is in no named settlement experiment"
+    },
+    {
+      "pair": "BR-TW",
+      "infrastructure_overlap": "off-experiments",
+      "blocs": {
+        "BR": "none",
+        "TW": "none"
+      },
+      "basis": "at least one end is in no named settlement experiment"
+    },
+    {
+      "pair": "BR-JP",
+      "infrastructure_overlap": "off-experiments",
+      "blocs": {
+        "BR": "none",
+        "JP": "agora"
+      },
+      "basis": "at least one end is in no named settlement experiment"
+    },
+    {
+      "pair": "BR-KR",
+      "infrastructure_overlap": "off-experiments",
+      "blocs": {
+        "BR": "none",
+        "KR": "agora"
+      },
+      "basis": "at least one end is in no named settlement experiment"
+    },
+    {
+      "pair": "CH-AE",
+      "infrastructure_overlap": "cross-bloc",
+      "blocs": {
+        "CH": "agora",
+        "AE": "mbridge"
+      },
+      "basis": "opposite blocs: Agorá (dollar-routing) vs mBridge (dollar-bypass); memberships do not overlap and the rails are not mutually interoperable"
+    },
+    {
+      "pair": "CH-TW",
+      "infrastructure_overlap": "off-experiments",
+      "blocs": {
+        "CH": "agora",
+        "TW": "none"
+      },
+      "basis": "at least one end is in no named settlement experiment"
+    },
+    {
+      "pair": "CH-JP",
+      "infrastructure_overlap": "same-bloc:Agorá",
+      "blocs": {
+        "CH": "agora",
+        "JP": "agora"
+      },
+      "basis": "both ends sit on the Agorá bloc-internal substrate"
+    },
+    {
+      "pair": "CH-KR",
+      "infrastructure_overlap": "same-bloc:Agorá",
+      "blocs": {
+        "CH": "agora",
+        "KR": "agora"
+      },
+      "basis": "both ends sit on the Agorá bloc-internal substrate"
+    },
+    {
+      "pair": "AE-TW",
+      "infrastructure_overlap": "off-experiments",
+      "blocs": {
+        "AE": "mbridge",
+        "TW": "none"
+      },
+      "basis": "at least one end is in no named settlement experiment"
+    },
+    {
+      "pair": "AE-JP",
+      "infrastructure_overlap": "cross-bloc",
+      "blocs": {
+        "AE": "mbridge",
+        "JP": "agora"
+      },
+      "basis": "opposite blocs: Agorá (dollar-routing) vs mBridge (dollar-bypass); memberships do not overlap and the rails are not mutually interoperable"
+    },
+    {
+      "pair": "AE-KR",
+      "infrastructure_overlap": "cross-bloc",
+      "blocs": {
+        "AE": "mbridge",
+        "KR": "agora"
+      },
+      "basis": "opposite blocs: Agorá (dollar-routing) vs mBridge (dollar-bypass); memberships do not overlap and the rails are not mutually interoperable"
+    },
+    {
+      "pair": "TW-JP",
+      "infrastructure_overlap": "off-experiments",
+      "blocs": {
+        "TW": "none",
+        "JP": "agora"
+      },
+      "basis": "at least one end is in no named settlement experiment"
+    },
+    {
+      "pair": "TW-KR",
+      "infrastructure_overlap": "off-experiments",
+      "blocs": {
+        "TW": "none",
+        "KR": "agora"
+      },
+      "basis": "at least one end is in no named settlement experiment"
+    },
+    {
+      "pair": "JP-KR",
+      "infrastructure_overlap": "same-bloc:Agorá",
+      "blocs": {
+        "JP": "agora",
+        "KR": "agora"
+      },
+      "basis": "both ends sit on the Agorá bloc-internal substrate"
+    }
+  ],
+  "counts": {
+    "same-bloc:Agorá": 15,
+    "off-experiments": 30,
+    "bridge": 6,
+    "cross-bloc": 12,
+    "same-bloc:mBridge": 3
+  },
+  "finding": "The settlement substrate is not a single shared open rail but two bloc-internal rails — a dollar-routing rail (Project Agorá, the Agorá-participant bloc) and a dollar-bypass rail (mBridge, PRC-and-Gulf) — each open to its own members and closed across the divide, with Hong Kong's Project Ensemble in the bridging position. The partition is visible at the level of individual corridors.",
+  "evidence_note": "Tier-2, operational-grade structural context, NOT a proposition of law. Per §5.1/§5.4 this reading rests on the public central-bank project literature (reliable as to the existence and design of the experiments, forward-looking as to their interaction with the private issuance layer). No feasibility-class conclusion in §§3-4 depends on this layer; it is tracked as a per-edge enrichment attribute, consistent with the register's own tiering.",
+  "provenance": {
+    "clean": true,
+    "asserts_new_facts": false,
+    "source": "Feasibility-Over-Time paper §5.2 (the bifurcation, corrected) + the public membership of each experiment",
+    "note": "Bloc memberships are transcribed from §5.2 and public central-bank announcements; per-edge overlaps are computed from them."
+  }
+}

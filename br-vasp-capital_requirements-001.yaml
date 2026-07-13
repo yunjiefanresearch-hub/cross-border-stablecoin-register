@@ -1,0 +1,70 @@
+id: br-vasp-capital_requirements-001
+jurisdiction: BR
+authority: CMN/BCB (joint); BCB
+instrument_type: other
+instrument_label_local: sociedade prestadora de serviços de ativos virtuais (SPSAV)
+dimension: capital_requirements
+constraint_ref: C2
+requirement_summary: 'Minimum capital for SPSAVs is set by Resolução Conjunta CMN/BCB nº 14/2025 and Res BCB 517/2025
+  (both 3 Nov 2025), scaled by activity/modality. Per the BCB''s 10 Nov 2025 press conference the range is R$10,800,000–R$37,200,000
+  (ANBIMA: ''VASPs must now hold R$10.8 million to R$37.2 million in minimum capital''). Res BCB 519/520 do not
+  hard-code a capital figure; they cross-refer to this methodology. FX-authorised institutions (banks, DTVM/CTVM,
+  corretoras de câmbio) remain subject to their existing prudential regimes. IMPORTANT: the frequently-cited R$1m–3m
+  (~USD 181,500–544,500) range was the REJECTED 2024 public-consultation (CP 109/110) proposal, NOT the binding
+  regime.'
+requirement_structured:
+  capital_basis:
+  - Resolução Conjunta CMN/BCB nº 14/2025
+  - Res BCB 517/2025
+  minimum_capital_brl_range:
+  - 10800000
+  - 37200000
+  scaling: by activity/modality
+  fx_authorised_institutions: existing prudential regime (no separate VASP minimum)
+  rejected_consultation_figure: R$1m–3m (CP 109/110, 2024) — NOT operative
+status: in_force
+effective_date: '2026-02-02'
+source:
+  primary: Resolução Conjunta CMN/BCB nº 14/2025; Res BCB 517/2025 (both 3 Nov 2025) — SPSAV minimum-capital methodology
+  url: https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=517
+  pinpoint: 'Resolução Conjunta CMN/BCB nº 14/2025 + Res BCB nº 517/2025 (both 3 Nov 2025): minimum capital R$10,800,000
+    to R$37,200,000 scaled by the set of activities performed'
+secondary:
+- citation: ANBIMA, summary of BCB 10 Nov 2025 framework (R$10.8m–R$37.2m minimum capital)
+  url: https://www.anbima.com.br/
+- citation: Mattos Filho, CP 109/110 consultation summary (proposed R$1m–3m — subsequently NOT retained)
+  url: https://www.mattosfilho.com.br/en/
+interpretation_note: 'Provenance: corridor fieldwork + author''s primary-source verification report (Item 8). The
+  binding figure (R$10.8m–R$37.2m) supersedes the R$1m–3m number that circulated from the 2024 consultations and
+  that an earlier Matrix draft carried; this record exists partly to prevent the rejected-proposal figure from propagating.
+  Per-modality breakdown within the range remains to be confirmed against the Res. Conjunta 14/2025 text (hence
+  evidence_tier firm_summary; confidence medium).
+
+
+  [v0.9.5 verification] NATIVE-LANGUAGE VERIFICATION (Portuguese): confirmed against the official BCB text. The
+  Lei 14.478/2022 framework as implemented by Res BCB 519/520/521 (in force 2 Feb 2026) is enacted law, so this
+  cell is promoted to resolution_text.'
+confidence: medium
+claim_class: tier1_legal
+evidence_tier: resolution_text
+last_reviewed: '2026-06-27'
+version_added: 0.3.2
+tags:
+- latam
+- focus
+- firm_analysis_corroborated_2026-06
+- capital_figure_corrected
+- v0.9.5_verification
+- binding_in_force_enacted
+- resolution_text_verified
+binding_status: in_force_enacted
+verification:
+  verified_by: external review (web retrieval against official sources)
+  verified_on: '2026-06-27'
+  method: official_text
+  against:
+    instrument: Lei 14.478/2022 + Res BCB 519/520/521 (in force 2 Feb 2026) + Res Conjunta CMN/BCB 14/2025 + Res
+      BCB 517/2025 + Decreto 11.563/2023
+    url: https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=517
+    pinpoint: 'Resolução Conjunta CMN/BCB nº 14/2025 + Res BCB nº 517/2025 (both 3 Nov 2025): minimum capital R$10,800,000
+      to R$37,200,000 scaled by the set of activities performed'

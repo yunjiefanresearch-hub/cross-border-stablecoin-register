@@ -1,0 +1,29 @@
+id: ae-pt-securities_classification-001
+jurisdiction: AE
+authority: Central Bank of the UAE (CBUAE)
+instrument_type: payment_stablecoin
+dimension: securities_classification
+constraint_ref: C4
+requirement_summary: Payment tokens are regulated by the CBUAE as payment instruments under the Payment Token Services
+  Regulation; securities are a separate perimeter under the SCA.
+requirement_structured:
+  regulator: CBUAE
+  securities_authority: SCA
+  as: payment instrument
+status: in_force
+effective_date: null
+source:
+  primary: CBUAE Payment Token Services Regulation (2024)
+  pinpoint: Payment-token perimeter (CBUAE) vs. securities (SCA)
+interpretation_note: Authored in v0.9.2 to fill the AE.C4 constraint cell for the substrate sweep.
+confidence: high
+claim_class: tier1_legal
+evidence_tier: firm_summary
+last_reviewed: '2026-06-27'
+version_added: 0.9.2
+tags:
+- v0.9.2_cell_sweep
+- ae
+- securities_classification
+- binding_in_force_enacted
+binding_status: in_force_enacted

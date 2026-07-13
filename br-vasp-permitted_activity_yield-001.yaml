@@ -1,0 +1,40 @@
+id: br-vasp-permitted_activity_yield-001
+jurisdiction: BR
+authority: Banco Central do Brasil (BCB)
+instrument_type: fiat_referenced_stablecoin
+dimension: permitted_activity_yield
+constraint_ref: C3
+requirement_summary: The VASP framework and the central bank's implementing rulemaking are still being finalized;
+  whether and how issuers or intermediaries may pass through yield is not yet settled.
+requirement_structured:
+  status: rulemaking pending
+  yield: unsettled
+status: in_force
+effective_date: null
+source:
+  primary: Lei 14.478/2022 (Marco Legal dos Ativos Virtuais); BCB implementing rulemaking
+  pinpoint: Res BCB 520/2025 (VASPs may not offer credit to clients or raise funds from the public except via share
+    issuance; client virtual assets may not be used for proprietary operations except staking and qualified/professional-investor
+    transactions)
+  url: https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=520
+interpretation_note: 'Authored in v0.9.2 to fill the BR.C3 constraint cell for the substrate sweep.
+
+
+  [v0.9.5 verification] NATIVE-LANGUAGE VERIFICATION (Portuguese): binding_status corrected pending_proposal ->
+  in_force_enacted. Res BCB 520/2025 (in force 2 Feb 2026) confirmed against official text: it prohibits credit
+  offering and public fundraising except by share issuance and restricts client-asset use to staking / qualified-investor
+  transactions. Held at firm_summary because the specific stablecoin yield PASS-THROUGH question (whether a compliant
+  issuer may pass reserve yield to holders) remains unsettled pending further BCB rulemaking.'
+confidence: low
+claim_class: tier1_legal
+last_reviewed: '2026-06-27'
+version_added: 0.9.2
+tags:
+- v0.9.2_cell_sweep
+- br
+- permitted_activity_yield
+- v0.9.5_verification
+- binding_in_force_enacted
+- verification_reviewed
+binding_status: in_force_enacted
+evidence_tier: firm_summary

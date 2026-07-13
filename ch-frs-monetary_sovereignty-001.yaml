@@ -1,0 +1,47 @@
+id: ch-frs-monetary_sovereignty-001
+jurisdiction: CH
+authority: FINMA / SNB
+instrument_type: fiat_referenced_stablecoin
+instrument_label_local: stablecoin (Banking Act; bank-guarantee or licensed-institution pathway)
+dimension: monetary_sovereignty
+constraint_ref: C7
+requirement_summary: 'There is no monetary-sovereignty usage cap: foreign-currency stablecoins are not restricted
+  by volume or channel. The practical constraints are the bank-guarantee structure and the AML holder-identification
+  requirement, not distribution caps. Switzerland thus sits at the permissive end of the C7 spectrum, in contrast
+  to the EU''s Article 23 quantitative cap, the UAE''s onshore channel restriction, and the PRC prohibition.'
+requirement_structured:
+  usage_cap: none
+  foreign_currency_tokens: unrestricted by volume or channel
+  practical_constraints: bank-guarantee structure + AML holder identification
+  c7_position: permissive end (no cap)
+status: in_force
+source:
+  primary: FINMA Guidance 06/2024 (no usage cap); Banking Act framework
+  pinpoint: Monetary sovereignty — no usage cap; foreign-currency tokens unrestricted
+  url: https://www.fedlex.admin.ch/eli/cc/2014/273/de
+secondary:
+- citation: Fan, Multi-Jurisdiction Stablecoin Compliance Matrix v0.9.6 (June 2026), §Switzerland (Distribution
+    and Offering Restrictions)
+- citation: 'Fan, Cross-Border Stablecoin Architecture v3 (Twelve Jurisdictions, June 2026), §2.7 / §5 (Constraint
+    7: Monetary Sovereignty)'
+- citation: Banking Act (BankG, SR 952.0) / Banking Ordinance (BankV, SR 952.02) on Fedlex; English version is informational
+    only.
+interpretation_note: 'Provenance: transcribed from the author''s Compliance Matrix v0.9.6; VERIFIED against the
+  official primary text in the v0.5.1 verification pass (source.url is the official instrument). The absence of
+  a C7 cap is itself the data point: Switzerland regulates the issuer (via guarantee + AML), not the currency-of-denomination
+  of the token.'
+confidence: high
+claim_class: tier1_legal
+evidence_tier: resolution_text
+last_reviewed: '2026-06-27'
+version_added: 0.4.0
+tags:
+- europe
+- focus
+- from_matrix_v0.9.6
+- v0.4.0_expansion
+- v0.5.1_verification
+- resolution_text_verified
+- v0.7.0_claim_class
+- binding_in_force_enacted
+binding_status: in_force_enacted

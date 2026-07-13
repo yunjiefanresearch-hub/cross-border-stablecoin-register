@@ -1,0 +1,47 @@
+id: br-vasp-bank_nonbank_routing-001
+jurisdiction: BR
+authority: Banco Central do Brasil (BCB)
+instrument_type: fiat_referenced_stablecoin
+dimension: bank_nonbank_routing
+constraint_ref: C5
+requirement_summary: Virtual-asset services are supervised by the Banco Central do Brasil; issuance and distribution
+  run through authorized payment/virtual-asset service providers under the central bank's prudential perimeter.
+requirement_structured:
+  supervisor: BCB
+  issuance_via: authorized PSP/VASP
+status: in_force
+effective_date: null
+source:
+  primary: Lei 14.478/2022; BCB regulations
+  pinpoint: Res BCB 520/2025 Art. 20 (besides SPSAVs, only commercial/exchange/investment/multiple banks, Caixa,
+    CTVM/DTVM and FX brokers may provide intermediation/custody, with restrictions); Art. 4 (SPSAV modalities)
+  url: https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=520
+interpretation_note: 'Authored in v0.9.2 to fill the BR.C5 constraint cell for the substrate sweep.
+
+
+  [v0.9.5 verification] NATIVE-LANGUAGE VERIFICATION (Portuguese): confirmed against the official BCB text. The
+  Lei 14.478/2022 framework as implemented by Res BCB 519/520/521 (in force 2 Feb 2026) is enacted law, so this
+  cell is promoted to resolution_text.'
+confidence: medium
+claim_class: tier1_legal
+evidence_tier: resolution_text
+last_reviewed: '2026-06-27'
+version_added: 0.9.2
+tags:
+- v0.9.2_cell_sweep
+- br
+- bank_nonbank_routing
+- v0.9.5_verification
+- binding_in_force_enacted
+- resolution_text_verified
+binding_status: in_force_enacted
+verification:
+  verified_by: external review (web retrieval against official sources)
+  verified_on: '2026-06-27'
+  method: official_text
+  against:
+    instrument: Lei 14.478/2022 + Res BCB 519/520/521 (in force 2 Feb 2026) + Res Conjunta CMN/BCB 14/2025 + Res
+      BCB 517/2025 + Decreto 11.563/2023
+    url: https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução BCB&numero=520
+    pinpoint: Res BCB 520/2025 Art. 20 (besides SPSAVs, only commercial/exchange/investment/multiple banks, Caixa,
+      CTVM/DTVM and FX brokers may provide intermediation/custody, with restrictions); Art. 4 (SPSAV modalities)

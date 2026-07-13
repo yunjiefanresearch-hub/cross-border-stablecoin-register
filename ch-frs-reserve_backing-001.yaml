@@ -1,0 +1,45 @@
+id: ch-frs-reserve_backing-001
+jurisdiction: CH
+authority: FINMA
+instrument_type: fiat_referenced_stablecoin
+instrument_label_local: stablecoin (Banking Act; bank-guarantee or licensed-institution pathway)
+dimension: reserve_backing
+constraint_ref: C2
+requirement_summary: 'There is no statutory reserve schedule (no mandated asset list or percentages). Under the
+  bank-guarantee pathway the protective mechanism is the guarantee, not a prescribed reserve portfolio: the guarantee
+  must cover the principal plus interest of the deposited funds. If the arrangement is structured so that assets
+  are held for the account of holders (rather than as a claim against the issuer), collective investment scheme
+  (CIS) rules under CISA may apply.'
+requirement_structured:
+  statutory_reserve_schedule: none
+  protective_mechanism: bank default guarantee covering principal + interest
+  cis_risk: CISA may apply if assets are held for the account of holders
+status: in_force
+source:
+  primary: Banking Ordinance Art. 5(3)(f); FINMA Guidance 06/2024; Collective Investment Schemes Act (CISA)
+  pinpoint: Reserve/backing — no statutory schedule; guarantee covers principal + interest; CISA characterization
+    risk
+  url: https://www.fedlex.admin.ch/eli/cc/2014/273/de
+secondary:
+- citation: Fan, Multi-Jurisdiction Stablecoin Compliance Matrix v0.9.6 (June 2026), §Switzerland (Reserve and Backing
+    Requirements)
+- citation: FINMA Guidance 06/2024 (Stablecoins, 26 July 2024) — official English PDF available.
+interpretation_note: 'Provenance: transcribed from the author''s Compliance Matrix v0.9.6; VERIFIED against the
+  official primary text in the v0.5.1 verification pass (source.url is the official instrument). Switzerland is
+  the survey''s principal counter-example to a prescribed-reserve-portfolio model: the guarantee, not an asset schedule,
+  performs the protective function (Matrix Tier 2 correction).'
+confidence: high
+claim_class: tier1_legal
+evidence_tier: resolution_text
+last_reviewed: '2026-06-27'
+version_added: 0.4.0
+tags:
+- europe
+- focus
+- from_matrix_v0.9.6
+- v0.4.0_expansion
+- v0.5.1_verification
+- resolution_text_verified
+- v0.7.0_claim_class
+- binding_in_force_enacted
+binding_status: in_force_enacted

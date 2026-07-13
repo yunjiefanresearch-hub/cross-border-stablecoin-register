@@ -1,0 +1,64 @@
+id: br-vasp-regulatory_authority-001
+jurisdiction: BR
+authority: BCB (Banco Central do Brasil); CVM retains jurisdiction over securities-like tokens
+instrument_type: other
+instrument_label_local: sociedade prestadora de serviços de ativos virtuais (SPSAV)
+dimension: regulatory_authority
+requirement_summary: Lei 14.478/2022 (Marco Legal dos Ativos Virtuais) and Decreto 11.563/2023 designate the Banco
+  Central do Brasil (BCB) as the authority for virtual-asset service providers (SPSAVs), while preserving the Comissão
+  de Valores Mobiliários (CVM) jurisdiction over virtual assets that are securities (token taxonomy follows CVM
+  Parecer de Orientação 40). The operative VASP framework is Res BCB 519/520/521 (pub. 10 Nov 2025; in force 2 Feb
+  2026), supplemented by Res BCB 561/2026 for the eFX rail. The foreign-exchange classification of cross-border
+  virtual-asset payments rests on the Foreign Exchange Law, Lei 14.286/2021.
+requirement_structured:
+  primary_authority: BCB
+  securities_authority: CVM (Parecer de Orientação 40)
+  framework_resolutions:
+  - Res BCB 519/2025
+  - Res BCB 520/2025
+  - Res BCB 521/2025
+  - Res BCB 561/2026
+status: in_force
+effective_date: '2026-02-02'
+source:
+  primary: Lei 14.478/2022 (Marco Legal dos Ativos Virtuais); Decreto 11.563/2023 (BCB as VASP authority; CVM carve-out
+    for securities tokens)
+  url: https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2022/lei/l14478.htm
+  pinpoint: Lei 14.478/2022 arts. 2-9; Decreto 11.563/2023 (BCB designated competent authority for virtual-asset
+    services; CVM retains jurisdiction over tokens that are securities)
+secondary:
+- citation: Chainalysis, Breaking Down Brazil's New Crypto Framework (18 Nov 2025)
+  url: https://www.chainalysis.com/blog/brazil-crypto-asset-regulatory-framework-2025/
+- citation: BDO, Brazil — Central Bank Unveils Regulatory Framework for the Virtual Asset Market (16 Feb 2026)
+  url: https://www.bdo.global/en-gb/insights/tax/world-wide-tax/brazil-central-bank-unveils-regulatory-framework-for-the-virtual-asset-market
+interpretation_note: 'Provenance: corridor fieldwork (HK->BR USD-settlement). Corroborated by firm analysis; the
+  official BCB normativo URLs are confirmed, but the article text was not read in this pass (evidence_tier: firm_summary).
+  The BCB/CVM split is the hook for the C4 securities-classification dimension.
+
+
+  [v0.9.5 verification] NATIVE-LANGUAGE VERIFICATION (Portuguese): confirmed against the official BCB text. The
+  Lei 14.478/2022 framework as implemented by Res BCB 519/520/521 (in force 2 Feb 2026) is enacted law, so this
+  cell is promoted to resolution_text.'
+confidence: high
+claim_class: tier1_legal
+evidence_tier: resolution_text
+last_reviewed: '2026-06-27'
+version_added: 0.3.1
+tags:
+- latam
+- focus
+- firm_analysis_corroborated_2026-06
+- v0.9.5_verification
+- binding_in_force_enacted
+- resolution_text_verified
+binding_status: in_force_enacted
+verification:
+  verified_by: external review (web retrieval against official sources)
+  verified_on: '2026-06-27'
+  method: official_text
+  against:
+    instrument: Lei 14.478/2022 + Res BCB 519/520/521 (in force 2 Feb 2026) + Res Conjunta CMN/BCB 14/2025 + Res
+      BCB 517/2025 + Decreto 11.563/2023
+    url: https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2022/lei/l14478.htm
+    pinpoint: Lei 14.478/2022 arts. 2-9; Decreto 11.563/2023 (BCB designated competent authority for virtual-asset
+      services; CVM retains jurisdiction over tokens that are securities)
