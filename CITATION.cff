@@ -6,8 +6,8 @@ authors:
   - family-names: "Fan"
     given-names: "Yunjie"
     orcid: "https://orcid.org/0009-0005-6762-084X"
-repository-code: "https://github.com/yunjiefanresearch-hub/stablecoin-rail-register"
-url: "https://yunjiefanresearch-hub.github.io/stablecoin-rail-register"
+repository-code: "https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register"
+url: "https://yunjiefanresearch-hub.github.io/cross-border-stablecoin-register"
 abstract: "An open, versioned, machine-readable register of how jurisdictions regulate stablecoins across a fifteen-dimension framework derived from an eight-constraint model, with two doctrinal spines (the permitted-activity / yield boundary and securities classification) and a corridor-level interoperability layer. Focus jurisdictions (twelve): United States, Hong Kong, European Union, United Kingdom, Singapore, Mainland China, Brazil, Switzerland, United Arab Emirates, Taiwan, Japan, and South Korea; doctrinal anchor: United States (CLARITY Act Section 404 / GENIUS Act). Each record is one sourced (jurisdiction x instrument x dimension) regulatory fact, validated against a published JSON Schema. Data is licensed CC-BY-4.0; tooling is licensed Apache-2.0 (see LICENSE-CODE)."
 keywords:
   - stablecoin

@@ -65,6 +65,20 @@ jobs:
           python build_pages.py
           python build_site.py
 
+      - name: Identifiers — every published $id / URL / version must be self-consistent
+        # v0.10.2: through v0.10.1 the three schema $ids, CITATION.cff, mcp.json and the generated
+        # landing page all pointed at the retired `stablecoin-rail-register` slug, and a fourth $id
+        # (tools/corridor_directed.schema.json) pointed at a repository that does not exist. A register
+        # whose value is verifiable provenance cannot publish schema identifiers that do not resolve.
+        # Nothing was checking, so nothing was caught. This checks.
+        run: python tools/check_identifiers.py
+
+      - name: MCP tool surface — server, manifest and docs must agree
+        # v0.10.2: the server registered 33 tools; MCP_SERVER.md documented 28. Five working tools
+        # (stakeholder_database, profile_for, edge_coverage, corridor_skeleton, forward_view) were
+        # undiscoverable. A tool nobody can find is a tool that does not exist.
+        run: python tools/check_docs_sync.py
+
       - name: Invariants — every structural & provenance gate must hold
         run: python run_invariants.py
 
@@ -73,6 +87,17 @@ jobs:
 
       - name: README counts must match the dataset
         run: python check_readme_counts.py
+
+      - name: Package — the wheel must build and the INSTALLED server must find its dataset
+        # The failure this prevents: mcp_server.py used to resolve dataset.json relative to its own
+        # file. That works in a clone and raises FileNotFoundError the moment the server is installed
+        # from PyPI — which is the only way anyone other than the maintainer will ever run it.
+        run: |
+          python -m pip install --upgrade build
+          python -m build --wheel
+          python -m pip install dist/*.whl
+          cd "$(mktemp -d)"          # NOT the repo: no dataset.json anywhere up the tree
+          python -c "from cbsr_mcp import server; assert len(server.RECORDS) == 152; print('installed server resolved its dataset:', len(server.RECORDS), 'records')"
 
       - name: Directed-132 layer — 17 hard gates on the corridor artifact
         run: python tools/verify_corridors_directed.py

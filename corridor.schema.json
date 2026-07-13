@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://yunjiefanresearch-hub.github.io/stablecoin-rail-register/corridor.schema.json",
+  "$id": "https://yunjiefanresearch-hub.github.io/cross-border-stablecoin-register/corridor.schema.json",
   "title": "CBSR Corridor (directed edge)",
   "description": "A directed origin->destination corridor edge. Two validated shapes share a common core: 'corridor/v3-directed-edge' is the flat Atlas-derived edge (origin/destination/feasibility_class/compatibility_pair/interaction_sets); 'corridor/v2-rich' is the deeply-verified leg-by-leg analysis (legs/boundary_analysis/watch_list) used for the hk-br anchor. The `schema` discriminator selects the required-field set. The cross-layer relationship to the §5.14 compatibility matrix is enforced separately by build.py (category must match the linked pair; differing interaction_sets require a `divergence` field).",
   "type": "object",

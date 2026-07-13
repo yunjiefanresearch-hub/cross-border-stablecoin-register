@@ -1,6 +1,6 @@
 {
  "$schema": "https://json-schema.org/draft/2020-12/schema",
- "$id": "https://yunjiefanresearch-hub.github.io/stablecoin-rail-register/record.schema.json",
+ "$id": "https://yunjiefanresearch-hub.github.io/cross-border-stablecoin-register/record.schema.json",
  "title": "Cross-Border Stablecoin Register — obligation record",
  "description": "One verified (jurisdiction x instrument x dimension) regulatory fact, versioned and sourced. v0.4.0: focus set expanded to twelve jurisdictions (US, EU, UK, SG, HK, CN, BR, CH, AE, TW, JP, KR), aligned to the maintainer's revised substrate — the Cross-Border Stablecoin Architecture v3 (Twelve Jurisdictions, June 2026) eight-constraint framework and the Multi-Jurisdiction Compliance Matrix v0.9.6. v0.7.0: adds the required `claim_class` axis (tier1_legal vs tier2_operational), orthogonal to `evidence_tier` (provenance strength) and `status` (in force vs draft), enabling the lawyer-citable subset = tier1_legal AND in_force AND resolution_text. v0.9.5 adds the orthogonal `binding_status` axis (binding status of the cited instrument), which caps citability: resolution_text is permitted only where binding_status is in_force_enacted.",
  "type": "object",

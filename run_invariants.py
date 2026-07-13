@@ -216,8 +216,13 @@ inv("D6  open question 7.2 records the Feb-2026 written tightening (42号)",
 # === PORTABILITY (the v0.9.7 engineering fix) ==================================================
 # v0.10.0: the portability gate now also covers tools/ — the directed-corridor verifier, the class
 # rule and the negative-test suite all print §, — and CJK instrument names (银发〔2026〕42号).
+# v0.10.2: src/cbsr_mcp/ is now IN SCOPE. The MCP server moved there so it could be packaged, and
+# the packaged server is the most widely shipped code in the repository — it runs on strangers'
+# machines, in whatever locale they have. Leaving it outside this gate would have silently narrowed
+# the portability guarantee at the exact moment it started to matter most.
 py_files = sorted(glob.glob(str(ROOT / "*.py")) + glob.glob(str(ROOT / "scripts" / "*.py"))
-                  + glob.glob(str(ROOT / "tools" / "*.py")))
+                  + glob.glob(str(ROOT / "tools" / "*.py"))
+                  + glob.glob(str(ROOT / "src" / "cbsr_mcp" / "*.py")))
 def io_calls_have_encoding(text):
     for m in re.finditer(r"\.(read_text|write_text)\(", text):
         i = m.end() - 1; depth = 0; j = i; n = len(text)

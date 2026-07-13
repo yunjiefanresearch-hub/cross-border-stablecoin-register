@@ -1,0 +1,36 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
+  "name": "io.github.yunjiefanresearch-hub/cbsr",
+  "description": "Typed query tools over the Cross-Border Stablecoin Register: twelve jurisdictions across fifteen dimensions of stablecoin regulation, a directed corridor layer (132 directed corridors — the same border can be permissive one way and restricted the other), a computed feasibility engine with as_of time travel, and a lawyer-citable subset. No network calls; no synthesis.",
+  "version": "0.10.1",
+  "repository": {
+    "url": "https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register",
+    "source": "github"
+  },
+  "websiteUrl": "https://yunjiefanresearch-hub.github.io/cbsr.io/",
+  "packages": [
+    {
+      "registryType": "pypi",
+      "registryBaseUrl": "https://pypi.org",
+      "identifier": "cbsr-mcp",
+      "version": "0.10.1",
+      "transport": { "type": "stdio" }
+    }
+  ],
+  "_meta": {
+    "io.modelcontextprotocol.registry/publisher-provided": {
+      "register": {
+        "name": "Cross-Border Stablecoin Register (CBSR)",
+        "doi": "10.5281/zenodo.20730358",
+        "jurisdictions": 12,
+        "dimensions": 15,
+        "records": 152,
+        "directed_corridors": 132,
+        "license": { "data": "CC-BY-4.0", "code": "Apache-2.0" },
+        "evidence_rule": "citable = claim_class:tier1_legal AND status:in_force AND evidence_tier:resolution_text",
+        "asserts_new_facts": false,
+        "network_calls": false
+      }
+    }
+  }
+}

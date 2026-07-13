@@ -367,7 +367,7 @@ table.rtbl .tcref{font-family:var(--mono);font-size:11px;color:var(--accent)}
         <a class="mlink" href="./corridors.html"><b>Corridor explorer</b></a>
         <a class="mlink" href="./console.html"><b>Register console</b></a>
         <a class="mlink" href="https://doi.org/10.5281/zenodo.20730358">DOI <b>10.5281/zenodo.20730358</b></a>
-        <a class="mlink" href="https://github.com/yunjiefanresearch-hub/stablecoin-rail-register">GitHub</a>
+        <a class="mlink" href="https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register">GitHub</a>
         <a class="mlink" href="./dataset.json"><b>dataset.json</b></a>
       </nav>
     </div>
@@ -535,9 +535,9 @@ table.rtbl .tcref{font-family:var(--mono);font-size:11px;color:var(--accent)}
       </div>
       <div class="card">
         <span class="ct">Source</span>
-        <h3><a href="https://github.com/yunjiefanresearch-hub/stablecoin-rail-register">GitHub repository</a></h3>
+        <h3><a href="https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register">GitHub repository</a></h3>
         <p>Records, schema, build pipeline, methodology, corridor layer. Contributions under the verification rule.</p>
-        <span class="go"><a href="https://github.com/yunjiefanresearch-hub/stablecoin-rail-register">Open repo →</a></span>
+        <span class="go"><a href="https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register">Open repo →</a></span>
       </div>
       <div class="card">
         <span class="ct">Methodology</span>
@@ -634,7 +634,7 @@ table.rtbl .tcref{font-family:var(--mono);font-size:11px;color:var(--accent)}
         Founder &amp; maintainer: Yunjie Fan<br>
         Data: CC-BY-4.0 · Code: Apache-2.0<br>
         Cadence: quarterly diffs + event patches<br>
-        <a href="https://github.com/yunjiefanresearch-hub/stablecoin-rail-register">github.com/yunjiefanresearch-hub/stablecoin-rail-register</a><br>
+        <a href="https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register">github.com/yunjiefanresearch-hub/cross-border-stablecoin-register</a><br>
         <span style="color:#6E86A0">v__VERSION__ · generated __GENERATED__</span>
       </div>
     </div>

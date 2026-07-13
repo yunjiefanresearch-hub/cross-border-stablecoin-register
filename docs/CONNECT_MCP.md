@@ -64,8 +64,10 @@ tool list is in [`MCP_SERVER.md`](../MCP_SERVER.md); a few worth knowing on day 
 Clone or download the register so `mcp_server.py` and `dataset.json` sit together:
 
 ```bash
-git clone https://github.com/yunjiefanresearch-hub/stablecoin-rail-register.git
-cd stablecoin-rail-register
+# Consuming the register? You do not need this. Just:  uvx cbsr-mcp
+# This route is for working ON the register.
+git clone https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register.git
+cd cross-border-stablecoin-register
 ```
 
 ---
@@ -86,7 +88,7 @@ Or add it manually to `claude_desktop_config.json`
   "mcpServers": {
     "cross-border-stablecoin-register": {
       "command": "python",
-      "args": ["/ABSOLUTE/PATH/TO/stablecoin-rail-register/mcp_server.py"]
+      "args": ["/ABSOLUTE/PATH/TO/cross-border-stablecoin-register/mcp_server.py"]
     }
   }
 }

@@ -3,7 +3,7 @@
   "displayName": "Cross-Border Stablecoin Register",
   "description": "An open, versioned register mapping how jurisdictions regulate stablecoins — clause by clause, across 15 dimensions and 12 jurisdictions — exposed as typed MCP tools over the committed dataset.json. No network, no synthesis: every tool filters and reshapes the published register, and every returned record carries its source, pinpoint, claim_class, evidence_tier and version.",
   "version": "0.10.1",
-  "homepage": "https://github.com/yunjiefanresearch-hub/stablecoin-rail-register",
+  "homepage": "https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register",
   "doi": "10.5281/zenodo.20730358",
   "license": "CC-BY-4.0",
   "transport": "stdio",

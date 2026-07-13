@@ -1,0 +1,51 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cbsr-mcp"
+version = "0.10.1"
+description = "MCP server for the Cross-Border Stablecoin Register (CBSR): typed query tools over an open, versioned register of cross-border stablecoin regulation across twelve jurisdictions."
+readme = "README-PYPI.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Yunjie Fan" }]
+keywords = [
+  "mcp", "model-context-protocol", "stablecoin", "regulation",
+  "cross-border", "compliance", "regtech", "legal", "register",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Legal Industry",
+  "Intended Audience :: Financial and Insurance Industry",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Scientific/Engineering :: Information Analysis",
+]
+dependencies = ["mcp>=1.2.0"]
+
+[project.urls]
+Homepage      = "https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register"
+Repository    = "https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register"
+Documentation = "https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register/blob/main/MCP_SERVER.md"
+
+[project.scripts]
+cbsr-mcp = "cbsr_mcp.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cbsr_mcp"]
+
+# The register's single source of truth is the repo-root dataset.json that build.py compiles.
+# It is mapped INTO the wheel rather than duplicated in the tree, so there is exactly one
+# dataset.json in version control and the packaged server can never drift from the register.
+# This is also what keeps the server's "no network calls" guarantee true once installed.
+[tool.hatch.build.targets.wheel.force-include]
+"dataset.json" = "cbsr_mcp/data/dataset.json"
+
+[tool.hatch.build.targets.sdist]
+include = ["src/cbsr_mcp", "dataset.json", "README-PYPI.md", "LICENSE-CODE", "pyproject.toml"]

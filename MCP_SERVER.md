@@ -9,48 +9,46 @@ records (no data is synthesised at query time).
 ## Install
 
 ```bash
-pip install "mcp[cli]"
+uvx cbsr-mcp
 ```
 
-The server needs the `mcp` package available to whichever Python runs it. If you use a virtual
-environment, install it there and point the client at that environment's interpreter.
+That is the whole thing. The dataset ships inside the wheel, so there is nothing to clone, no path
+to configure, and no network call at run time — the server reads the same `dataset.json` that carries
+the DOI.
 
-## Run
+## Register with an MCP client
 
-```bash
-python mcp_server.py          # stdio transport — what MCP clients speak
-```
-
-Test interactively with the MCP Inspector:
-
-```bash
-mcp dev mcp_server.py
-```
-
-## Register with Claude Desktop
-
-Easiest — let the CLI write the config for you:
-
-```bash
-mcp install mcp_server.py --name "Cross-Border Stablecoin Register"
-```
-
-Or add it manually to `claude_desktop_config.json`
+`claude_desktop_config.json`
 (macOS: `~/Library/Application Support/Claude/`, Windows: `%APPDATA%\Claude\`):
 
 ```json
 {
   "mcpServers": {
-    "cross-border-stablecoin-register": {
-      "command": "python",
-      "args": ["/ABSOLUTE/PATH/TO/stablecoin-rail-register/mcp_server.py"]
+    "cbsr": {
+      "command": "uvx",
+      "args": ["cbsr-mcp"]
     }
   }
 }
 ```
 
-Use an absolute path, and if you installed `mcp` into a venv, set `"command"` to that venv's
-`python` (e.g. `/path/.venv/bin/python`). Restart the client after editing the config.
+Restart the client. The 33 tools below appear.
+
+## Run from a source checkout
+
+If you are working on the register itself rather than consuming it, the original zero-install path
+still works verbatim — no packaging step, no `PYTHONPATH`:
+
+```bash
+pip install "mcp[cli]"
+python mcp_server.py          # stdio transport — what MCP clients speak
+mcp dev mcp_server.py         # interactive, via the MCP Inspector
+```
+
+`mcp_server.py` is a launcher; the server itself is `src/cbsr_mcp/server.py`. Both paths execute the
+same code and read the same dataset: installed, it resolves the copy bundled in the wheel; from a
+checkout, the `dataset.json` that `build.py` compiles. A pinned version of the tools always answers
+from the pinned version of the register — that is the point.
 
 ## Tools
 
@@ -84,6 +82,11 @@ Use an absolute path, and if you installed `mcp` into a venv, set `"command"` to
 | `convergence(side?)` | **Yield-line convergence (§4.5).** The cross-jurisdiction view of the holder-yield-prohibited / activity-rewards-permitted boundary, reshaped from the per-jurisdiction `permitted_activity_yield` records (asserts no new facts). Tiers jurisdictions by role — citable two-sided `anchor` (US), `sibling`, `counter_example` (CH), `holder_prohibition_in_force`, `draft_would_align`, backlog — under the register's citable-purity discipline |
 | `reconciliation(only_divergences?)` | **Computed-vs-authored audit.** For every undirected pair, the class the engine derives vs the class a human authored, with agree/disagree and, where they differ, the named cause (`findings_by_cause`). A divergence is a finding (a regime-in-transition side), not a defect |
 | `records(claim_class?, evidence_tier?, status?, binding_status?, jurisdiction?, dimension?, citable_only?)` | **Evidence-axis browser.** Filter along the axes that decide citability and get, per record, whether it is lawyer-citable and — if not — exactly which axis blocks it (the "why not citable" x-ray). The complement to `query()` |
+| `stakeholder_database()` | **The Atlas §8 actor catalogue.** Each persona (issuer, distributor, regulator, treasury, holder, …) with its lens, the C1–C8 constraints that bear on it, and the corridor archetypes (RC/SC/TC/DC) it engages. Pair with `profile_for()` |
+| `profile_for(stakeholder, origin, destination)` | **Project a directed corridor onto a persona.** The persona's lens, the corridor's derived class, a per-constraint reading of the origin/destination poles that persona cares about (each citing its backing record), engaged archetypes and inbound mechanism. Introduces no new facts — every line is read from an existing record, so the profile is bounded by the verification status of the cells it reads |
+| `corridor_skeleton(origin, destination)` | **The record for any directed edge.** The hand-authored RICH corridor if one exists, otherwise the COMPUTED SKELETON (derived class, inbound mechanism test + administrator, baseline archetypes, directed interaction sets, provenance). Skeletons assert nothing new: empirical fields are left explicitly unset rather than guessed |
+| `edge_coverage()` | **How much of the edge layer actually carries a record.** Separates the hand-authored RICH corridors from the COMPUTED SKELETONS and the still-indeterminate edges — the honest denominator behind "132 directed corridors" |
+| `forward_view(jurisdiction?)` | **The supervisor's forward view (Atlas §4.4).** The trigger register re-sorted *by jurisdiction* rather than by trigger: which pending developments will reclassify the corridors into and out of this jurisdiction, own-trigger vs counterpart-driven, and ranked counterpart exposure. Asserts no new facts |
 
 **A suite of typed tools.** Every returned record summary carries `source.primary`, `pinpoint`, `claim_class`,
 `evidence_tier`, `confidence`, dates and `version_added` — the two evidence axes (`claim_class` = kind

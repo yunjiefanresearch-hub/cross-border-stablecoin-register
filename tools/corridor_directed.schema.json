@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/yunjiefan/cbsr-corridor-audit/schema/corridor_directed.schema.json",
+  "$id": "https://yunjiefanresearch-hub.github.io/cross-border-stablecoin-register/tools/corridor_directed.schema.json",
   "title": "CBSR directed corridor edge (v0.10.0)",
   "description": "Schema for one directed edge in analysis/computed_corridors_directed.json. Thirteen fields are universal across all 132 edges and are REQUIRED; the remainder are optional enrichment. This file is dependency-free to check: tools/verify_corridors_directed.py ships a minimal executor that validates every edge against THIS file, so the verifier and the schema cannot disagree, and tools/schema_reference_crosscheck.py re-validates the same corpus with the independent `jsonschema` reference implementation when it is installed. v0.10.0 adds `class_basis` (REQUIRED: the three-axis evidence model -- which precedence step decided this edge's class, on whose signal, of what claim_class, resting on an instrument of what binding_status), tightens `as_of_timeline` events into a typed shape with the trigger typology (`scheduled` / `scheduled_with_cap` / `contingent` and a `date_kind`), and structures `origin_override`. Historical note: through v0.9.99 `claim_class` and `binding_status` were not even schema fields at this layer, so the lawyer-citable intersection was undefined, not merely empty (eighth review NF-5). They now exist, are required on every edge, and are gated (EV1).",
   "type": "object",
