@@ -1,13 +1,13 @@
 {
   "register": "Cross-Border Stablecoin Register",
   "version": "0.10.1",
-  "generated": "2026-07-10",
+  "generated": "2026-07-15",
   "endpoint": "signal_table",
   "guardrail": "static projection of the public register; no facts added here",
   "data": {
     "schema": "cbsr-analysis/signal_table",
     "version": "0.10.0",
-    "generated": "2026-07-10",
+    "generated": "2026-07-15",
     "register_version": "0.10.0",
     "as_of": "2026-06-30",
     "what_this_is": "The per-jurisdiction signals from which every one of the 132 directed corridor classes is derived by the published rule tools/class_rule.py:class_of. GENERATED — do not edit. The signal VALUES are curated in analysis/signal_table.source.json; scripts/gen_signal_table.py joins them to the register's 152 node records and populates `record_ref`, which closes the corridor-layer face of finding C1 (backlog VB-11).",

@@ -1,6 +1,6 @@
 {
   "schema": "cbsr-analysis/computed_corridors_directed",
-  "generated": "2026-07-10",
+  "generated": "2026-07-15",
   "register_version": "0.10.1",
   "source": "Unifies the register's own layers: authored corridors (root *.yaml), computed skeletons (analysis/computed_corridor_skeletons.json), and the event-calendar transition edges. No new facts; compatibility_category is taken from the §5.14 matrix.",
   "note": "Directed-edge interaction_sets are the Atlas per-direction refinement and may differ from the undirected §5.14 pair; only the compatibility_category is a hard cross-layer relationship and is enforced. From v0.10.0 every class_code is DERIVED, not authored: tools/class_rule.py:class_of applies the Corridor Atlas v0.2.5 destination-first precedence (prohibition > no-regime > origin-drag > in-transition > operative gate type) to data/signal_table.json, and tools/recompute_classes.py re-derives all 132 and diffs them against this artifact. `materialized_from` is a PRODUCTION-provenance partition (9 authored + 106 skeleton + 17 event-calendar transition edges) and is orthogonal to class: 25 edges now carry an as_of_timeline, not 17.",

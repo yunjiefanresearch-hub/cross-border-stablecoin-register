@@ -5,8 +5,8 @@
   "endpoint": "date_matrix",
   "guardrail": "static projection of the public register; no facts added here",
   "data": {
-    "as_of": "2026-06-30",
-    "is_base": true,
+    "as_of": "2027-01-18",
+    "is_base": false,
     "directed": {
       "US": {
         "US": null,
@@ -985,6 +985,20 @@
         "title": "Japan recognises equivalent foreign trust-type stablecoins as Electronic Payment Instruments (Cabinet Office Ordinance)",
         "effective_date": "2026-06-01",
         "trigger_kind": "inbound-recognition",
+        "moves_a_class": false
+      },
+      {
+        "event_id": "eu-mica-art143-transitional-expiry",
+        "title": "EU MiCA Article 143(3) transitional grandfathering expiry (national side-doors close; admissible-token set narrows)",
+        "effective_date": "2026-07-01",
+        "trigger_kind": "intra-regime-gating",
+        "moves_a_class": false
+      },
+      {
+        "event_id": "us-genius-act-effective",
+        "title": "US GENIUS Act takes effect; §18 foreign-issuer comparability gate becomes operative (outer cap ≤ 2027-01-18)",
+        "effective_date": "2027-01-18",
+        "trigger_kind": "scheduled-with-cap",
         "moves_a_class": false
       }
     ],

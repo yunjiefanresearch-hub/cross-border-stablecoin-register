@@ -1,7 +1,7 @@
 {
   "register": "Cross-Border Stablecoin Register",
   "version": "0.10.1",
-  "generated": "2026-07-10",
+  "generated": "2026-07-15",
   "endpoint": "date_matrix",
   "guardrail": "static projection of the public register; no facts added here",
   "data": {
@@ -999,6 +999,13 @@
         "title": "EU MiCA Article 143(3) transitional grandfathering expiry (national side-doors close; admissible-token set narrows)",
         "effective_date": "2026-07-01",
         "trigger_kind": "intra-regime-gating",
+        "moves_a_class": false
+      },
+      {
+        "event_id": "us-genius-act-effective",
+        "title": "US GENIUS Act takes effect; §18 foreign-issuer comparability gate becomes operative (outer cap ≤ 2027-01-18)",
+        "effective_date": "2027-01-18",
+        "trigger_kind": "scheduled-with-cap",
         "moves_a_class": false
       }
     ],

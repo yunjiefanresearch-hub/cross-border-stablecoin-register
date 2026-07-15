@@ -1,7 +1,7 @@
 {
   "register": "Cross-Border Stablecoin Register",
   "version": "0.10.1",
-  "generated": "2026-07-10",
+  "generated": "2026-07-15",
   "endpoint": "corridor",
   "guardrail": "static projection of the public register; no facts added here",
   "data": {
@@ -47,6 +47,25 @@
       },
       {
         "as_of": "2026-07-01",
+        "directed": {
+          "US->EU": {
+            "class": "I",
+            "rule": "destination_gate:open_capped",
+            "origin_override": false
+          },
+          "EU->US": {
+            "class": "II",
+            "rule": "destination_gate:comparability",
+            "origin_override": false
+          }
+        },
+        "undirected": {
+          "category": "I/II",
+          "why": "both directions authorizable (dual authorization or partnership)"
+        }
+      },
+      {
+        "as_of": "2027-01-18",
         "directed": {
           "US->EU": {
             "class": "I",

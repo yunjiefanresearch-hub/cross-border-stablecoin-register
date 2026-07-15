@@ -1,7 +1,7 @@
 {
   "register": "Cross-Border Stablecoin Register",
   "version": "0.10.1",
-  "generated": "2026-07-10",
+  "generated": "2026-07-15",
   "endpoint": "events",
   "guardrail": "static projection of the public register; no facts added here",
   "trigger_kind_legend": {
@@ -16,7 +16,8 @@
       "dated-empty-effect": "a dated, now-in-force change with an explicitly empty feasibility-class effect; the control case showing the calendar distinguishes a change in law from a change in feasibility class (§3.6, JP).",
       "inbound-recognition": "a dated, now-in-force change in law that opens an inbound recognition or equivalence channel for qualifying foreign instruments; its reach is set by the recognition criteria and is handled by conditioning (the existing Category II channelled treatment), so it asserts no new class (§3.6 second same-day change; §5.3 dated recognition instance, JP).",
       "open-compositional": "information rather than a change in law, whose resolution feeds another jurisdiction's analysis (§3.8, HK 2nd cohort, carried in open_questions).",
-      "resolved-tightening": "an asymmetric posture: a boundary's recent movement is settled in one direction while a reversing development stays open (§3.9, PRC, carried in open_questions)."
+      "resolved-tightening": "an asymmetric posture: a boundary's recent movement is settled in one direction while a reversing development stays open (§3.9, PRC, carried in open_questions).",
+      "scheduled-with-cap": "a statutory effective date expressed as an outer cap with an earlier conditional trigger (commences on the EARLIER of a fixed backstop or a rulemaking-dependent date). Dated, but the date is a ceiling rather than a gazetted day, so it may fire sooner (GENIUS Act s.20, US)."
     },
     "horizon_rule": "Only fully-scheduled events move a compose() horizon. dated-empty-effect, intra-regime-gating, and inbound-recognition events are dated but move no feasibility class, so they appear on the timeline without changing any corridor's category, by design."
   },
@@ -283,6 +284,29 @@
       "records": [
         "eu-emt-regulatory_authority-001"
       ]
+    },
+    {
+      "id": "us-genius-act-effective",
+      "jurisdiction": "US",
+      "title": "US GENIUS Act takes effect; §18 foreign-issuer comparability gate becomes operative (outer cap ≤ 2027-01-18)",
+      "status": "scheduled",
+      "effective_date": "2027-01-18",
+      "precision": "outer_cap",
+      "claim_class": "tier1_legal",
+      "trigger_kind": "scheduled-with-cap",
+      "effect": [
+        {
+          "field": "binding_status (us-pss §18 comparability gate)",
+          "from": "made_not_commenced",
+          "to": "in_force_enacted"
+        }
+      ],
+      "basis": "GENIUS Act s.20: the Act takes effect on the EARLIER of 18 months after enactment (2027-01-18) or 120 days after the primary federal payment stablecoin regulators issue final regulations. On commencement the s.18 comparability gate moves from made_not_commenced to operative.",
+      "date_basis": "STATUTORY OUTER CAP, not a gazetted commencement day: 2027-01-18 = enactment 2025-07-18 + 18 months. May fall EARLIER (final rules + 120 days). precision=outer_cap — the latest the gate can commence, not a fixed day. At as_of_base 2026-06-30 no final implementing regulations had issued.",
+      "records": [
+        "us-pss-monetary_sovereignty-001"
+      ],
+      "source_note": "Puts the register's first dated US horizon on the calendar. Feasibility-class effect is deliberately empty of signal fields: compose()'s US signal already codes the inbound gate as comparability, so commencement moves the gate's binding_status, not the class. The directed layer carries the class movement (as_of_timeline: T -> II @ 2027-01-18) — see corridor_directed()."
     }
   ]
 }
