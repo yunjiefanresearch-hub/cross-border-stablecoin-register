@@ -1,7 +1,7 @@
 {
   "name": "Cross-Border Stablecoin Register",
   "version": "0.10.1",
-  "generated": "2026-07-13",
+  "generated": "2026-07-15",
   "record_count": 152,
   "records": [
     {
@@ -10403,6 +10403,29 @@
           "records": [
             "eu-emt-regulatory_authority-001"
           ]
+        },
+        {
+          "id": "us-genius-act-effective",
+          "jurisdiction": "US",
+          "title": "US GENIUS Act takes effect; §18 foreign-issuer comparability gate becomes operative (outer cap ≤ 2027-01-18)",
+          "status": "scheduled",
+          "effective_date": "2027-01-18",
+          "precision": "outer_cap",
+          "claim_class": "tier1_legal",
+          "trigger_kind": "scheduled-with-cap",
+          "effect": [
+            {
+              "field": "binding_status (us-pss §18 comparability gate)",
+              "from": "made_not_commenced",
+              "to": "in_force_enacted"
+            }
+          ],
+          "basis": "GENIUS Act s.20: the Act takes effect on the EARLIER of 18 months after enactment (2027-01-18) or 120 days after the primary federal payment stablecoin regulators issue final regulations. On commencement the s.18 comparability gate moves from made_not_commenced to operative.",
+          "date_basis": "STATUTORY OUTER CAP, not a gazetted commencement day: 2027-01-18 = enactment 2025-07-18 + 18 months. May fall EARLIER (final rules + 120 days). precision=outer_cap — the latest the gate can commence, not a fixed day. At as_of_base 2026-06-30 no final implementing regulations had issued.",
+          "records": [
+            "us-pss-monetary_sovereignty-001"
+          ],
+          "source_note": "Puts the register's first dated US horizon on the calendar. Feasibility-class effect is deliberately empty of signal fields: compose()'s US signal already codes the inbound gate as comparability, so commencement moves the gate's binding_status, not the class. The directed layer carries the class movement (as_of_timeline: T -> II @ 2027-01-18) — see corridor_directed()."
         }
       ],
       "trigger_kind_legend": {
@@ -10417,7 +10440,8 @@
           "dated-empty-effect": "a dated, now-in-force change with an explicitly empty feasibility-class effect; the control case showing the calendar distinguishes a change in law from a change in feasibility class (§3.6, JP).",
           "inbound-recognition": "a dated, now-in-force change in law that opens an inbound recognition or equivalence channel for qualifying foreign instruments; its reach is set by the recognition criteria and is handled by conditioning (the existing Category II channelled treatment), so it asserts no new class (§3.6 second same-day change; §5.3 dated recognition instance, JP).",
           "open-compositional": "information rather than a change in law, whose resolution feeds another jurisdiction's analysis (§3.8, HK 2nd cohort, carried in open_questions).",
-          "resolved-tightening": "an asymmetric posture: a boundary's recent movement is settled in one direction while a reversing development stays open (§3.9, PRC, carried in open_questions)."
+          "resolved-tightening": "an asymmetric posture: a boundary's recent movement is settled in one direction while a reversing development stays open (§3.9, PRC, carried in open_questions).",
+          "scheduled-with-cap": "a statutory effective date expressed as an outer cap with an earlier conditional trigger (commences on the EARLIER of a fixed backstop or a rulemaking-dependent date). Dated, but the date is a ceiling rather than a gazetted day, so it may fire sooner (GENIUS Act s.20, US)."
         },
         "horizon_rule": "Only fully-scheduled events move a compose() horizon. dated-empty-effect, intra-regime-gating, and inbound-recognition events are dated but move no feasibility class, so they appear on the timeline without changing any corridor's category, by design."
       }
@@ -10696,6 +10720,29 @@
           "records": [
             "eu-emt-regulatory_authority-001"
           ]
+        },
+        {
+          "id": "us-genius-act-effective",
+          "jurisdiction": "US",
+          "title": "US GENIUS Act takes effect; §18 foreign-issuer comparability gate becomes operative (outer cap ≤ 2027-01-18)",
+          "status": "scheduled",
+          "effective_date": "2027-01-18",
+          "precision": "outer_cap",
+          "claim_class": "tier1_legal",
+          "trigger_kind": "scheduled-with-cap",
+          "effect": [
+            {
+              "field": "binding_status (us-pss §18 comparability gate)",
+              "from": "made_not_commenced",
+              "to": "in_force_enacted"
+            }
+          ],
+          "basis": "GENIUS Act s.20: the Act takes effect on the EARLIER of 18 months after enactment (2027-01-18) or 120 days after the primary federal payment stablecoin regulators issue final regulations. On commencement the s.18 comparability gate moves from made_not_commenced to operative.",
+          "date_basis": "STATUTORY OUTER CAP, not a gazetted commencement day: 2027-01-18 = enactment 2025-07-18 + 18 months. May fall EARLIER (final rules + 120 days). precision=outer_cap — the latest the gate can commence, not a fixed day. At as_of_base 2026-06-30 no final implementing regulations had issued.",
+          "records": [
+            "us-pss-monetary_sovereignty-001"
+          ],
+          "source_note": "Puts the register's first dated US horizon on the calendar. Feasibility-class effect is deliberately empty of signal fields: compose()'s US signal already codes the inbound gate as comparability, so commencement moves the gate's binding_status, not the class. The directed layer carries the class movement (as_of_timeline: T -> II @ 2027-01-18) — see corridor_directed()."
         }
       ],
       "edge_timelines": [
@@ -10703,7 +10750,19 @@
           "edge": "EU->US",
           "as_of_base": "2026-06-30",
           "today_class": "II",
-          "scheduled_transitions": [],
+          "scheduled_transitions": [
+            {
+              "date": "2027-01-18",
+              "precision": "outer_cap",
+              "status": "scheduled",
+              "event_id": "us-genius-act-effective",
+              "title": "US GENIUS Act takes effect; §18 foreign-issuer comparability gate becomes operative (outer cap ≤ 2027-01-18)",
+              "class_before": "II",
+              "class_after": "II",
+              "changed": false,
+              "basis": "GENIUS Act s.20: the Act takes effect on the EARLIER of 18 months after enactment (2027-01-18) or 120 days after the primary federal payment stablecoin regulators issue final regulations. On commencement the s.18 comparability gate moves from made_not_commenced to operative."
+            }
+          ],
           "pending_contingent": [
             {
               "date": null,
@@ -10738,7 +10797,19 @@
           "edge": "HK->US",
           "as_of_base": "2026-06-30",
           "today_class": "II",
-          "scheduled_transitions": [],
+          "scheduled_transitions": [
+            {
+              "date": "2027-01-18",
+              "precision": "outer_cap",
+              "status": "scheduled",
+              "event_id": "us-genius-act-effective",
+              "title": "US GENIUS Act takes effect; §18 foreign-issuer comparability gate becomes operative (outer cap ≤ 2027-01-18)",
+              "class_before": "II",
+              "class_after": "II",
+              "changed": false,
+              "basis": "GENIUS Act s.20: the Act takes effect on the EARLIER of 18 months after enactment (2027-01-18) or 120 days after the primary federal payment stablecoin regulators issue final regulations. On commencement the s.18 comparability gate moves from made_not_commenced to operative."
+            }
+          ],
           "pending_contingent": [
             {
               "date": null,
@@ -10757,7 +10828,19 @@
           "edge": "JP->US",
           "as_of_base": "2026-06-30",
           "today_class": "II",
-          "scheduled_transitions": [],
+          "scheduled_transitions": [
+            {
+              "date": "2027-01-18",
+              "precision": "outer_cap",
+              "status": "scheduled",
+              "event_id": "us-genius-act-effective",
+              "title": "US GENIUS Act takes effect; §18 foreign-issuer comparability gate becomes operative (outer cap ≤ 2027-01-18)",
+              "class_before": "II",
+              "class_after": "II",
+              "changed": false,
+              "basis": "GENIUS Act s.20: the Act takes effect on the EARLIER of 18 months after enactment (2027-01-18) or 120 days after the primary federal payment stablecoin regulators issue final regulations. On commencement the s.18 comparability gate moves from made_not_commenced to operative."
+            }
+          ],
           "pending_contingent": [
             {
               "date": null,
@@ -10795,7 +10878,19 @@
           "edge": "US->EU",
           "as_of_base": "2026-06-30",
           "today_class": "I",
-          "scheduled_transitions": [],
+          "scheduled_transitions": [
+            {
+              "date": "2027-01-18",
+              "precision": "outer_cap",
+              "status": "scheduled",
+              "event_id": "us-genius-act-effective",
+              "title": "US GENIUS Act takes effect; §18 foreign-issuer comparability gate becomes operative (outer cap ≤ 2027-01-18)",
+              "class_before": "I",
+              "class_after": "I",
+              "changed": false,
+              "basis": "GENIUS Act s.20: the Act takes effect on the EARLIER of 18 months after enactment (2027-01-18) or 120 days after the primary federal payment stablecoin regulators issue final regulations. On commencement the s.18 comparability gate moves from made_not_commenced to operative."
+            }
+          ],
           "pending_contingent": [
             {
               "date": null,
@@ -10814,7 +10909,19 @@
           "edge": "US->HK",
           "as_of_base": "2026-06-30",
           "today_class": "I",
-          "scheduled_transitions": [],
+          "scheduled_transitions": [
+            {
+              "date": "2027-01-18",
+              "precision": "outer_cap",
+              "status": "scheduled",
+              "event_id": "us-genius-act-effective",
+              "title": "US GENIUS Act takes effect; §18 foreign-issuer comparability gate becomes operative (outer cap ≤ 2027-01-18)",
+              "class_before": "I",
+              "class_after": "I",
+              "changed": false,
+              "basis": "GENIUS Act s.20: the Act takes effect on the EARLIER of 18 months after enactment (2027-01-18) or 120 days after the primary federal payment stablecoin regulators issue final regulations. On commencement the s.18 comparability gate moves from made_not_commenced to operative."
+            }
+          ],
           "pending_contingent": [
             {
               "date": null,
@@ -10833,7 +10940,19 @@
           "edge": "US->JP",
           "as_of_base": "2026-06-30",
           "today_class": "II",
-          "scheduled_transitions": [],
+          "scheduled_transitions": [
+            {
+              "date": "2027-01-18",
+              "precision": "outer_cap",
+              "status": "scheduled",
+              "event_id": "us-genius-act-effective",
+              "title": "US GENIUS Act takes effect; §18 foreign-issuer comparability gate becomes operative (outer cap ≤ 2027-01-18)",
+              "class_before": "II",
+              "class_after": "II",
+              "changed": false,
+              "basis": "GENIUS Act s.20: the Act takes effect on the EARLIER of 18 months after enactment (2027-01-18) or 120 days after the primary federal payment stablecoin regulators issue final regulations. On commencement the s.18 comparability gate moves from made_not_commenced to operative."
+            }
+          ],
           "pending_contingent": [
             {
               "date": null,
@@ -10855,6 +10974,17 @@
           "as_of_base": "2026-06-30",
           "today_class": "T",
           "scheduled_transitions": [
+            {
+              "date": "2027-01-18",
+              "precision": "outer_cap",
+              "status": "scheduled",
+              "event_id": "us-genius-act-effective",
+              "title": "US GENIUS Act takes effect; §18 foreign-issuer comparability gate becomes operative (outer cap ≤ 2027-01-18)",
+              "class_before": "T",
+              "class_after": "T",
+              "changed": false,
+              "basis": "GENIUS Act s.20: the Act takes effect on the EARLIER of 18 months after enactment (2027-01-18) or 120 days after the primary federal payment stablecoin regulators issue final regulations. On commencement the s.18 comparability gate moves from made_not_commenced to operative."
+            },
             {
               "date": "2027-10-25",
               "precision": "day",
@@ -10896,6 +11026,17 @@
           "as_of_base": "2026-06-30",
           "today_class": "II",
           "scheduled_transitions": [
+            {
+              "date": "2027-01-18",
+              "precision": "outer_cap",
+              "status": "scheduled",
+              "event_id": "us-genius-act-effective",
+              "title": "US GENIUS Act takes effect; §18 foreign-issuer comparability gate becomes operative (outer cap ≤ 2027-01-18)",
+              "class_before": "II",
+              "class_after": "II",
+              "changed": false,
+              "basis": "GENIUS Act s.20: the Act takes effect on the EARLIER of 18 months after enactment (2027-01-18) or 120 days after the primary federal payment stablecoin regulators issue final regulations. On commencement the s.18 comparability gate moves from made_not_commenced to operative."
+            },
             {
               "date": "2027-10-25",
               "precision": "day",
@@ -11064,6 +11205,35 @@
         },
         {
           "as_of": "2026-07-01",
+          "undirected_agreement": "64/66",
+          "transition_caveated_pairs": {
+            "count": 8,
+            "pairs": [
+              "UK-US",
+              "EU-UK",
+              "SG-UK",
+              "HK-UK",
+              "BR-UK",
+              "CH-UK",
+              "AE-UK",
+              "JP-UK"
+            ]
+          },
+          "residual_findings": [
+            {
+              "pair": "UK-US",
+              "computed": "I/II*",
+              "authored": "I"
+            },
+            {
+              "pair": "EU-UK",
+              "computed": "I/II*",
+              "authored": "I"
+            }
+          ]
+        },
+        {
+          "as_of": "2027-01-18",
           "undirected_agreement": "64/66",
           "transition_caveated_pairs": {
             "count": 8,
@@ -23573,7 +23743,7 @@
     },
     "computed_corridors_directed": {
       "schema": "cbsr-analysis/computed_corridors_directed",
-      "generated": "2026-07-10",
+      "generated": "2026-07-15",
       "register_version": "0.10.1",
       "source": "Unifies the register's own layers: authored corridors (root *.yaml), computed skeletons (analysis/computed_corridor_skeletons.json), and the event-calendar transition edges. No new facts; compatibility_category is taken from the §5.14 matrix.",
       "note": "Directed-edge interaction_sets are the Atlas per-direction refinement and may differ from the undirected §5.14 pair; only the compatibility_category is a hard cross-layer relationship and is enforced. From v0.10.0 every class_code is DERIVED, not authored: tools/class_rule.py:class_of applies the Corridor Atlas v0.2.5 destination-first precedence (prohibition > no-regime > origin-drag > in-transition > operative gate type) to data/signal_table.json, and tools/recompute_classes.py re-derives all 132 and diffs them against this artifact. `materialized_from` is a PRODUCTION-provenance partition (9 authored + 106 skeleton + 17 event-calendar transition edges) and is orthogonal to class: 25 edges now carry an as_of_timeline, not 17.",
@@ -31438,7 +31608,7 @@
     "signal_table": {
       "schema": "cbsr-analysis/signal_table",
       "version": "0.10.0",
-      "generated": "2026-07-10",
+      "generated": "2026-07-15",
       "register_version": "0.10.0",
       "as_of": "2026-06-30",
       "what_this_is": "The per-jurisdiction signals from which every one of the 132 directed corridor classes is derived by the published rule tools/class_rule.py:class_of. GENERATED — do not edit. The signal VALUES are curated in analysis/signal_table.source.json; scripts/gen_signal_table.py joins them to the register's 152 node records and populates `record_ref`, which closes the corridor-layer face of finding C1 (backlog VB-11).",

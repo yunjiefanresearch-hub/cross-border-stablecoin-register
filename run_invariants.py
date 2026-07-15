@@ -135,8 +135,8 @@ inv("A4  pre_regime cross-check is {KR} (TW now enacted-not-commenced), consiste
 
 # === TIME ENGINE ===============================================================================
 events = an.get("event_calendar", {}).get("events", [])
-inv("T1  event calendar has 8 events, provenance clean",
-    len(events) == 8 and timeline.get("event_provenance", {}).get("clean") is True, f"events={len(events)}")
+inv("T1  event calendar has 9 events, provenance clean",
+    len(events) == 9 and timeline.get("event_provenance", {}).get("clean") is True, f"events={len(events)}")
 inv("T2  every event is tier1_legal; contingent events carry no effective_date",
     all(e.get("claim_class") == "tier1_legal" for e in events)
     and all(not e.get("effective_date") for e in events if e.get("status") == "contingent"))

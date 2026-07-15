@@ -272,6 +272,29 @@
       "records": [
         "eu-emt-regulatory_authority-001"
       ]
+    },
+    {
+      "id": "us-genius-act-effective",
+      "jurisdiction": "US",
+      "title": "US GENIUS Act takes effect; §18 foreign-issuer comparability gate becomes operative (outer cap ≤ 2027-01-18)",
+      "status": "scheduled",
+      "effective_date": "2027-01-18",
+      "precision": "outer_cap",
+      "claim_class": "tier1_legal",
+      "trigger_kind": "scheduled-with-cap",
+      "effect": [
+        {
+          "field": "binding_status (us-pss §18 comparability gate)",
+          "from": "made_not_commenced",
+          "to": "in_force_enacted"
+        }
+      ],
+      "basis": "GENIUS Act s.20: the Act takes effect on the EARLIER of 18 months after enactment (2027-01-18) or 120 days after the primary federal payment stablecoin regulators issue final regulations. On commencement the s.18 comparability gate moves from made_not_commenced to operative.",
+      "date_basis": "STATUTORY OUTER CAP, not a gazetted commencement day: 2027-01-18 = enactment 2025-07-18 + 18 months. May fall EARLIER (final rules + 120 days). precision=outer_cap — the latest the gate can commence, not a fixed day. At as_of_base 2026-06-30 no final implementing regulations had issued.",
+      "records": [
+        "us-pss-monetary_sovereignty-001"
+      ],
+      "source_note": "Puts the register's first dated US horizon on the calendar. Feasibility-class effect is deliberately empty of signal fields: compose()'s US signal already codes the inbound gate as comparability, so commencement moves the gate's binding_status, not the class. The directed layer carries the class movement (as_of_timeline: T -> II @ 2027-01-18) — see corridor_directed()."
     }
   ],
   "edge_timelines": [
@@ -279,7 +302,19 @@
       "edge": "EU->US",
       "as_of_base": "2026-06-30",
       "today_class": "II",
-      "scheduled_transitions": [],
+      "scheduled_transitions": [
+        {
+          "date": "2027-01-18",
+          "precision": "outer_cap",
+          "status": "scheduled",
+          "event_id": "us-genius-act-effective",
+          "title": "US GENIUS Act takes effect; §18 foreign-issuer comparability gate becomes operative (outer cap ≤ 2027-01-18)",
+          "class_before": "II",
+          "class_after": "II",
+          "changed": false,
+          "basis": "GENIUS Act s.20: the Act takes effect on the EARLIER of 18 months after enactment (2027-01-18) or 120 days after the primary federal payment stablecoin regulators issue final regulations. On commencement the s.18 comparability gate moves from made_not_commenced to operative."
+        }
+      ],
       "pending_contingent": [
         {
           "date": null,
@@ -314,7 +349,19 @@
       "edge": "HK->US",
       "as_of_base": "2026-06-30",
       "today_class": "II",
-      "scheduled_transitions": [],
+      "scheduled_transitions": [
+        {
+          "date": "2027-01-18",
+          "precision": "outer_cap",
+          "status": "scheduled",
+          "event_id": "us-genius-act-effective",
+          "title": "US GENIUS Act takes effect; §18 foreign-issuer comparability gate becomes operative (outer cap ≤ 2027-01-18)",
+          "class_before": "II",
+          "class_after": "II",
+          "changed": false,
+          "basis": "GENIUS Act s.20: the Act takes effect on the EARLIER of 18 months after enactment (2027-01-18) or 120 days after the primary federal payment stablecoin regulators issue final regulations. On commencement the s.18 comparability gate moves from made_not_commenced to operative."
+        }
+      ],
       "pending_contingent": [
         {
           "date": null,
@@ -333,7 +380,19 @@
       "edge": "JP->US",
       "as_of_base": "2026-06-30",
       "today_class": "II",
-      "scheduled_transitions": [],
+      "scheduled_transitions": [
+        {
+          "date": "2027-01-18",
+          "precision": "outer_cap",
+          "status": "scheduled",
+          "event_id": "us-genius-act-effective",
+          "title": "US GENIUS Act takes effect; §18 foreign-issuer comparability gate becomes operative (outer cap ≤ 2027-01-18)",
+          "class_before": "II",
+          "class_after": "II",
+          "changed": false,
+          "basis": "GENIUS Act s.20: the Act takes effect on the EARLIER of 18 months after enactment (2027-01-18) or 120 days after the primary federal payment stablecoin regulators issue final regulations. On commencement the s.18 comparability gate moves from made_not_commenced to operative."
+        }
+      ],
       "pending_contingent": [
         {
           "date": null,
@@ -371,7 +430,19 @@
       "edge": "US->EU",
       "as_of_base": "2026-06-30",
       "today_class": "I",
-      "scheduled_transitions": [],
+      "scheduled_transitions": [
+        {
+          "date": "2027-01-18",
+          "precision": "outer_cap",
+          "status": "scheduled",
+          "event_id": "us-genius-act-effective",
+          "title": "US GENIUS Act takes effect; §18 foreign-issuer comparability gate becomes operative (outer cap ≤ 2027-01-18)",
+          "class_before": "I",
+          "class_after": "I",
+          "changed": false,
+          "basis": "GENIUS Act s.20: the Act takes effect on the EARLIER of 18 months after enactment (2027-01-18) or 120 days after the primary federal payment stablecoin regulators issue final regulations. On commencement the s.18 comparability gate moves from made_not_commenced to operative."
+        }
+      ],
       "pending_contingent": [
         {
           "date": null,
@@ -390,7 +461,19 @@
       "edge": "US->HK",
       "as_of_base": "2026-06-30",
       "today_class": "I",
-      "scheduled_transitions": [],
+      "scheduled_transitions": [
+        {
+          "date": "2027-01-18",
+          "precision": "outer_cap",
+          "status": "scheduled",
+          "event_id": "us-genius-act-effective",
+          "title": "US GENIUS Act takes effect; §18 foreign-issuer comparability gate becomes operative (outer cap ≤ 2027-01-18)",
+          "class_before": "I",
+          "class_after": "I",
+          "changed": false,
+          "basis": "GENIUS Act s.20: the Act takes effect on the EARLIER of 18 months after enactment (2027-01-18) or 120 days after the primary federal payment stablecoin regulators issue final regulations. On commencement the s.18 comparability gate moves from made_not_commenced to operative."
+        }
+      ],
       "pending_contingent": [
         {
           "date": null,
@@ -409,7 +492,19 @@
       "edge": "US->JP",
       "as_of_base": "2026-06-30",
       "today_class": "II",
-      "scheduled_transitions": [],
+      "scheduled_transitions": [
+        {
+          "date": "2027-01-18",
+          "precision": "outer_cap",
+          "status": "scheduled",
+          "event_id": "us-genius-act-effective",
+          "title": "US GENIUS Act takes effect; §18 foreign-issuer comparability gate becomes operative (outer cap ≤ 2027-01-18)",
+          "class_before": "II",
+          "class_after": "II",
+          "changed": false,
+          "basis": "GENIUS Act s.20: the Act takes effect on the EARLIER of 18 months after enactment (2027-01-18) or 120 days after the primary federal payment stablecoin regulators issue final regulations. On commencement the s.18 comparability gate moves from made_not_commenced to operative."
+        }
+      ],
       "pending_contingent": [
         {
           "date": null,
@@ -431,6 +526,17 @@
       "as_of_base": "2026-06-30",
       "today_class": "T",
       "scheduled_transitions": [
+        {
+          "date": "2027-01-18",
+          "precision": "outer_cap",
+          "status": "scheduled",
+          "event_id": "us-genius-act-effective",
+          "title": "US GENIUS Act takes effect; §18 foreign-issuer comparability gate becomes operative (outer cap ≤ 2027-01-18)",
+          "class_before": "T",
+          "class_after": "T",
+          "changed": false,
+          "basis": "GENIUS Act s.20: the Act takes effect on the EARLIER of 18 months after enactment (2027-01-18) or 120 days after the primary federal payment stablecoin regulators issue final regulations. On commencement the s.18 comparability gate moves from made_not_commenced to operative."
+        },
         {
           "date": "2027-10-25",
           "precision": "day",
@@ -472,6 +578,17 @@
       "as_of_base": "2026-06-30",
       "today_class": "II",
       "scheduled_transitions": [
+        {
+          "date": "2027-01-18",
+          "precision": "outer_cap",
+          "status": "scheduled",
+          "event_id": "us-genius-act-effective",
+          "title": "US GENIUS Act takes effect; §18 foreign-issuer comparability gate becomes operative (outer cap ≤ 2027-01-18)",
+          "class_before": "II",
+          "class_after": "II",
+          "changed": false,
+          "basis": "GENIUS Act s.20: the Act takes effect on the EARLIER of 18 months after enactment (2027-01-18) or 120 days after the primary federal payment stablecoin regulators issue final regulations. On commencement the s.18 comparability gate moves from made_not_commenced to operative."
+        },
         {
           "date": "2027-10-25",
           "precision": "day",
@@ -640,6 +757,35 @@
     },
     {
       "as_of": "2026-07-01",
+      "undirected_agreement": "64/66",
+      "transition_caveated_pairs": {
+        "count": 8,
+        "pairs": [
+          "UK-US",
+          "EU-UK",
+          "SG-UK",
+          "HK-UK",
+          "BR-UK",
+          "CH-UK",
+          "AE-UK",
+          "JP-UK"
+        ]
+      },
+      "residual_findings": [
+        {
+          "pair": "UK-US",
+          "computed": "I/II*",
+          "authored": "I"
+        },
+        {
+          "pair": "EU-UK",
+          "computed": "I/II*",
+          "authored": "I"
+        }
+      ]
+    },
+    {
+      "as_of": "2027-01-18",
       "undirected_agreement": "64/66",
       "transition_caveated_pairs": {
         "count": 8,

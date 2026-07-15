@@ -1,0 +1,46 @@
+# Weekly snapshot of every demand signal that would otherwise roll off or has to be pulled.
+# GitHub Traffic has a 14-day window: miss a week and that data is gone forever.
+#
+# Setup (one time): create a fine-grained PAT with "Repository administration: Read"
+# on this repo, save it as an Actions secret named TRAFFIC_TOKEN. (The default
+# GITHUB_TOKEN is usually rejected by the /traffic endpoints.)
+#
+# PyPI + Zenodo need no auth. Commit this to the REGISTER repo (where the traffic lives).
+name: metrics-snapshot
+on:
+  schedule: [{ cron: "0 6 * * 1" }]      # Mondays 06:00 UTC
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: GitHub traffic → metrics/*.jsonl
+        env:
+          GH_TOKEN: ${{ secrets.TRAFFIC_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then echo "TRAFFIC_TOKEN not set: skipping traffic"; exit 0; fi
+          mkdir -p metrics
+          ts=$(date -u +%FT%TZ)
+          for ep in views clones popular/paths popular/referrers; do
+            name=$(echo "$ep" | tr '/' '_')
+            curl -sf -H "Authorization: Bearer $GH_TOKEN" \
+                 -H "Accept: application/vnd.github+json" \
+                 "https://api.github.com/repos/$REPO/traffic/$ep" \
+              | jq --arg ts "$ts" '{captured_at:$ts, data:.}' \
+              >> "metrics/traffic_${name}.jsonl" || echo "traffic/$ep failed (token scope?)"
+          done
+
+      - name: PyPI + Zenodo → metrics/public_stats.jsonl
+        run: python metrics/pull_public_stats.py
+
+      - name: Commit
+        run: |
+          git config user.name  "metrics-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add metrics/ && git commit -m "metrics snapshot $(date -u +%FT%TZ)" || echo "no change"
+          git push

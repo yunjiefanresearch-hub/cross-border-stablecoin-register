@@ -83,6 +83,10 @@
       "summary": "COMPUTE the directed feasibility of an origin->destination corridor from the per-jurisdiction signal table and the Corridor Atlas algorithm (origin dr"
     },
     {
+      "name": "corridor_directed",
+      "summary": "Published directed layer: the timing-aware feasibility class for a directed edge, its dated as_of_timeline (today's class + each scheduled resolution and date_kind), and the class_basis. Prefer over compose_corridor for today's reading; the latter is the Atlas s.3.2 preview."
+    },
+    {
       "name": "explain_feasibility",
       "summary": "Explain WHY a corridor falls in its feasibility class: the rule that fired (origin drag vs destination gate), the justifying node-record basis for eac"
     },

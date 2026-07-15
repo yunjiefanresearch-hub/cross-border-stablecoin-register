@@ -406,6 +406,7 @@ VERIFICATION_WORKLIST: dict = ANALYSIS.get("verification_worklist", {})
 STAKEHOLDER_DB: dict = ANALYSIS.get("stakeholder_database", {})
 COMPUTED_STAKEHOLDER_PROFILES: dict = ANALYSIS.get("computed_stakeholder_profiles", {})
 COMPUTED_CORRIDOR_SKELETONS: dict = ANALYSIS.get("computed_corridor_skeletons", {})
+COMPUTED_CORRIDORS_DIRECTED: dict = ANALYSIS.get("computed_corridors_directed", {})
 _SUB_SEVERITY = {"blocked": 4, "III": 3, "II": 2, "I": 1, "pre_regime": 0}
 _GATE_CLASS = {"open": "I", "open_capped": "I", "comparability": "II", "channel": "II",
                "usage_channel": "II", "fx_counterparty": "II", "transition": "T",
@@ -481,12 +482,53 @@ def compose_corridor(origin: str, destination: str, as_of: Optional[str] = None)
            "operative_interaction_sets": row.get("interaction_sets"),
            "section_5_14_category": row.get("category"),
            "authored_corridor": authored,
-           "note": "computed layer is a preview (Atlas §3.2 rule); not asserted authoritative — see findings_by_cause."}
+           "note": "computed layer is a preview (Atlas §3.2 rule); not asserted authoritative — see findings_by_cause. The preview reads the inbound gate's TYPE, so where a destination regime is enacted-but-not-commenced it returns the RESOLVED class (e.g. II), not the in-transition class (T). For the published timing-aware reading, call corridor_directed().",
+           "authoritative_reading": "corridor_directed"}
     if as_of:
         base_res = _compose_directed(o, d)
         out["base_class"] = base_res.get("class")
         out["changed_from_base"] = base_res.get("class") != res["class"]
     return out
+
+
+@mcp.tool()
+def corridor_directed(origin: str, destination: str) -> dict:
+    """
+    The PUBLISHED, timing-aware directed reading of a corridor — the same reading as the register's
+    corridor map, /api/corridors_directed/ and the landing page. Returns the directed feasibility class
+    and its class_code, the dated as_of_timeline (today's class plus each scheduled resolution and its
+    date_kind), and the class_basis (rule, governing jurisdiction, signal, instrument, binding_status,
+    evidence_tier) the class rests on.
+
+    PREFER THIS over compose_corridor() for "what does this corridor read today". compose_corridor()
+    exposes the Atlas s.3.2 PREVIEW, which reads the inbound gate's TYPE: where a destination regime is
+    enacted-but-not-commenced it returns the RESOLVED class (e.g. II) rather than the in-transition
+    class (T). This tool asserts no new facts — every field is read from the published directed layer.
+    """
+    o, d = origin.upper(), destination.upper()
+    if o not in JURISDICTIONS or d not in JURISDICTIONS:
+        return {"error": f"unknown jurisdiction(s): {origin}/{destination}"}
+    edges = COMPUTED_CORRIDORS_DIRECTED.get("edges", [])
+    if not edges:
+        return {"error": "directed layer not present (run scripts/build_corridors_directed.py, then build.py)"}
+    e = next((x for x in edges if x.get("origin") == o and x.get("destination") == d), None)
+    if e is None:
+        return {"error": f"no directed edge {o}->{d}", "edges_available": len(edges)}
+    return {"edge": f"{o}->{d}",
+            "class_code": e.get("class_code"),
+            "feasibility_class": e.get("feasibility_class"),
+            "as_of_timeline": e.get("as_of_timeline"),
+            "class_basis": e.get("class_basis"),
+            "origin_drag": e.get("origin_drag"),
+            "inbound_mechanism": e.get("inbound_mechanism"),
+            "evidence_tier": e.get("evidence_tier"),
+            "divergence": e.get("divergence"),
+            "corridor_id": e.get("corridor_id"),
+            "provenance": e.get("materialized_from") or e.get("authored_source_file"),
+            "source": e.get("source"),
+            "valid_as_of": e.get("valid_as_of"),
+            "note": "Published directed layer (timing-aware). compose_corridor() returns the Atlas s.3.2 "
+                    "preview and may differ where a destination regime is made_not_commenced."}
 
 
 @mcp.tool()
@@ -663,7 +705,12 @@ def corridor_timeline(origin: str, destination: str) -> dict:
                         "class_if_enacted": cls, "would_change": cls != today.get("class")})
     return {"edge": f"{o}->{d}", "today_class": today.get("class"),
             "scheduled_transitions": transitions, "pending_contingent": pending,
-            "next_scheduled_change": next((t for t in transitions if t["changed"]), None)}
+            "next_scheduled_change": next((t for t in transitions if t["changed"]), None),
+            "authoritative_reading": "corridor_directed",
+            "note": "today_class and the transitions here are computed from the compose() signal table "
+                    "and the event calendar. Where a destination regime is enacted-but-not-commenced the "
+                    "preview may already report the resolved class, leaving no scheduled change to show; "
+                    "corridor_directed() carries the published as_of_timeline for that edge."}
 
 
 def _sub_cell(j, c):
