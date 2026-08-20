@@ -1,0 +1,75 @@
+{
+  "external_gates": {
+    "github_actions": "unverified_external",
+    "windows_11": "unverified_external"
+  },
+  "generated": "2026-08-20",
+  "schema": "cbsr/local-linux-matrix/v1",
+  "scope": "local Linux execution; not GitHub Actions evidence",
+  "shared_constraints_sha256": "6970056c0c0b56de1cdc63e21d4cd5fb2ee2e4ca21242d31b2ca628b8ca37a7a",
+  "shared_source_fingerprint_sha256": "d3193c1c680b3a023455829e005446c54035f7328b69508539e1014fcfc649e9",
+  "shared_wheel_sha256": "02bfe7589dfb0f3f7e28240be2c79da73cd86134c668015f8258146c60177d4b",
+  "status": "passed",
+  "versions": [
+    {
+      "constraints_sha256": "6970056c0c0b56de1cdc63e21d4cd5fb2ee2e4ca21242d31b2ca628b8ca37a7a",
+      "generation_passes": 2,
+      "log_sha256": "bbaad74d2b2030208749a6bc043d81a221eea60762c3f45ba75e5dd1107e8943",
+      "pip_audit": "passed_locked_graph_against_2026-08-20_live_snapshot",
+      "platform": "Linux-6.18.35-x86_64-with-glibc2.39",
+      "python": "3.10.20",
+      "reproducible_artifact_count": 332,
+      "requested_minor": "3.10",
+      "source_fingerprint_sha256": "d3193c1c680b3a023455829e005446c54035f7328b69508539e1014fcfc649e9",
+      "status": "passed",
+      "step_count": 73,
+      "warning_policy": "error",
+      "wheel_sha256": "02bfe7589dfb0f3f7e28240be2c79da73cd86134c668015f8258146c60177d4b"
+    },
+    {
+      "constraints_sha256": "6970056c0c0b56de1cdc63e21d4cd5fb2ee2e4ca21242d31b2ca628b8ca37a7a",
+      "generation_passes": 2,
+      "log_sha256": "d16b122a5096295a6be37ec1865532a30bb922a8b84ce8b553066d562693ecda",
+      "pip_audit": "passed_locked_graph_against_2026-08-20_live_snapshot",
+      "platform": "Linux-6.18.35-x86_64-with-glibc2.39",
+      "python": "3.11.15",
+      "reproducible_artifact_count": 332,
+      "requested_minor": "3.11",
+      "source_fingerprint_sha256": "d3193c1c680b3a023455829e005446c54035f7328b69508539e1014fcfc649e9",
+      "status": "passed",
+      "step_count": 73,
+      "warning_policy": "error",
+      "wheel_sha256": "02bfe7589dfb0f3f7e28240be2c79da73cd86134c668015f8258146c60177d4b"
+    },
+    {
+      "constraints_sha256": "6970056c0c0b56de1cdc63e21d4cd5fb2ee2e4ca21242d31b2ca628b8ca37a7a",
+      "generation_passes": 2,
+      "log_sha256": "5e5fe8000bfd7ab12dc13c2cace45705b95acf5c5e59d67c2d6ca683f23dde78",
+      "pip_audit": "passed_no_known_vulnerabilities_live",
+      "platform": "Linux-6.18.35-x86_64-with-glibc2.39",
+      "python": "3.12.13",
+      "reproducible_artifact_count": 332,
+      "requested_minor": "3.12",
+      "source_fingerprint_sha256": "d3193c1c680b3a023455829e005446c54035f7328b69508539e1014fcfc649e9",
+      "status": "passed",
+      "step_count": 73,
+      "warning_policy": "error",
+      "wheel_sha256": "02bfe7589dfb0f3f7e28240be2c79da73cd86134c668015f8258146c60177d4b"
+    },
+    {
+      "constraints_sha256": "6970056c0c0b56de1cdc63e21d4cd5fb2ee2e4ca21242d31b2ca628b8ca37a7a",
+      "generation_passes": 2,
+      "log_sha256": "026a358e1c9a11b46d716f5943f998564eef4967268b03e9b4cca645177bad1f",
+      "pip_audit": "passed_locked_graph_against_2026-08-20_live_snapshot",
+      "platform": "Linux-6.18.35-x86_64-with-glibc2.39",
+      "python": "3.13.14",
+      "reproducible_artifact_count": 332,
+      "requested_minor": "3.13",
+      "source_fingerprint_sha256": "d3193c1c680b3a023455829e005446c54035f7328b69508539e1014fcfc649e9",
+      "status": "passed",
+      "step_count": 73,
+      "warning_policy": "error",
+      "wheel_sha256": "02bfe7589dfb0f3f7e28240be2c79da73cd86134c668015f8258146c60177d4b"
+    }
+  ]
+}

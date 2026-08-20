@@ -19,7 +19,9 @@ try:
     _sys.stderr.reconfigure(encoding="utf-8")
 except Exception:
     pass
-import json, pathlib, datetime, shutil
+import json, pathlib, shutil
+
+from src.cbsr_mcp.api.projections import public_record_projection
 
 ROOT = pathlib.Path(__file__).resolve().parent
 API = ROOT / "api"
@@ -52,7 +54,7 @@ def _w(relpath, obj):
 
 def _envelope(kind, data, extra=None):
     e = {"register": "Cross-Border Stablecoin Register", "version": VERSION,
-         "generated": str(datetime.date.today()), "endpoint": kind,
+         "generated": str(DS.get("generated")), "endpoint": kind,
          "guardrail": "static projection of the public register; no facts added here", **(extra or {})}
     e["data"] = data
     return e
@@ -71,25 +73,29 @@ def build():
         "jurisdictions": J12,
         "as_of_base": STATES["as_of_base"],
         "key_dates": STATES["key_dates"],
-        "citable_count": DS["citable_subset"]["count"],
+        "citable_count": DS.get("decision_ready_citable_subset", {}).get("count", 0),
+        "structural_citable_candidates": DS["citable_subset"]["count"],
+        "review_coverage": DS.get("review_coverage", {}),
         "authored_corridors": len(DS.get("corridors", [])),
     })))
 
     # ---- records (full + faceted axes) --------------------------------------
-    slim = [{"id": r["id"], "jurisdiction": r["jurisdiction"], "dimension": r["dimension"],
-             "claim_class": r.get("claim_class"), "evidence_tier": r.get("evidence_tier"),
-             "binding_status": r.get("binding_status"), "status": r.get("status"),
-             "instrument": (r.get("source") or {}).get("primary") or r.get("instrument_label_local"),
-             "pinpoint": (r.get("source") or {}).get("pinpoint"),
-             "url": (r.get("source") or {}).get("url")} for r in RECORDS]
+    slim = [public_record_projection(record) for record in RECORDS]
     written.append(_w("records.json", _envelope("records", slim,
-                     {"axes": ["claim_class", "evidence_tier", "binding_status"]})))
+                     {"axes": ["claim_class", "evidence_tier", "binding_status", "legal_status",
+                               "source_disposition", "review_status", "review_stage"]})))
+    written.append(_w("review.json", _envelope("review", {
+        "coverage": DS.get("review_coverage", {}),
+        "freshness": DS.get("freshness", {}),
+        "decision_ready_citable": DS.get("decision_ready_citable_subset", {}),
+    })))
 
     # per-jurisdiction
     _fvj = (FV.get("jurisdictions") or {})
     for j in J12:
         jr = [s for s in slim if s["jurisdiction"] == j]
-        cit = [c for c in DS["citable_subset"]["records"] if c["jurisdiction"] == j]
+        cit = [c for c in DS.get("decision_ready_citable_subset", {}).get("records", [])
+               if c["jurisdiction"] == j]
         sig = STATES["date_states"][0]["directed"].get(j, {})  # this jurisdiction as origin at base
         written.append(_w(f"jurisdictions/{j}.json", _envelope("jurisdiction", {
             "jurisdiction": j, "records": jr, "citable_cells": cit,
@@ -106,6 +112,8 @@ def build():
         by_kind.setdefault(e.get("trigger_kind", "unclassified"), []).append(e["id"])
     written.append(_w("events/by_kind.json", _envelope("events_by_kind", by_kind,
                      {"trigger_kind_legend": ev.get("trigger_kind_legend", {})})))
+    ontology = DS["analysis"].get("legal_event_ontology", {})
+    written.append(_w("events/ontology.json", _envelope("legal_event_ontology", ontology)))
 
     # ---- corridor states (dated + what-if), full and per key date -----------
     written.append(_w("corridor_states.json", _envelope("corridor_states", {
@@ -168,10 +176,12 @@ def build():
         written.append(_w("convergence.json", _envelope("convergence", CONV)))
 
     # ---- citable subset (lawyer view; human-verified cells only) ------------
-    written.append(_w("citable.json", _envelope("citable", DS["citable_subset"]["records"],
-                     {"filter": DS["citable_subset"]["filter"],
-                      "count": DS["citable_subset"]["count"],
-                      "guardrail": "human-verified propositions of law only; operational facts excluded by construction"})))
+    ready = DS.get("decision_ready_citable_subset", {})
+    written.append(_w("citable.json", _envelope("citable", ready.get("records", []),
+                     {"filter": ready.get("filter", {}),
+                      "count": ready.get("count", 0),
+                      "structural_candidate_count": DS["citable_subset"]["count"],
+                      "guardrail": "official + current + independently reconciled propositions of law only"})))
 
     # ---- reconciliation (authored vs computed) ------------------------------
     comp = DS["analysis"]["computed"]
@@ -204,9 +214,11 @@ def build():
     manifest = {
         "meta": "meta.json",
         "records": "records.json",
+        "review": "review.json",
         "jurisdictions": {j: f"jurisdictions/{j}.json" for j in J12},
         "events": "events.json",
         "events_by_kind": "events/by_kind.json",
+        "legal_event_ontology": "events/ontology.json",
         "corridor_states": "corridor_states.json",
         "dates": {st["as_of"]: f"dates/{st['as_of']}.json" for st in STATES["date_states"]},
         "corridors": corridor_keys,
@@ -237,7 +249,8 @@ def build():
               f"re-derive all 132 classes rather than trust them")
     print(f"  meta, records (+{len(J12)} jurisdictions), events (+by_kind),")
     print(f"  corridor_states (+{len(STATES['date_states'])} dates, +{len(corridor_keys)} corridors),")
-    print(f"  convergence, citable ({DS['citable_subset']['count']}), reconciliation, worklist, index")
+    print(f"  convergence, decision-ready citable ({ready.get('count', 0)}; "
+          f"{DS['citable_subset']['count']} structural candidates), reconciliation, worklist, index")
 
 
 if __name__ == "__main__":

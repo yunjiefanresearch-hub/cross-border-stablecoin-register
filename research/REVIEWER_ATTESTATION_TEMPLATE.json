@@ -1,0 +1,14 @@
+{
+  "schema": "cbsr/reviewer-attestation/v1",
+  "record_id": "replace-with-record-id",
+  "reviewer_id": "replace-with-stable-independent-reviewer-id",
+  "reviewed_on": "YYYY-MM-DD",
+  "jurisdiction_competence": "describe",
+  "source_url_opened": "https://official-source.example/",
+  "pinpoint_confirmed": "exact article/section/page",
+  "legal_status_disposition": "operative|enacted_not_commenced|finalized_policy_pending|proposed|consultation|prohibited|no_regime|superseded",
+  "agreement": "agreed|disagreed",
+  "disagreement_note": null,
+  "conflict_of_interest": "none disclosed",
+  "signature_reference": "external signature or approval record reference"
+}

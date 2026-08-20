@@ -47,3 +47,20 @@ verification:
     instrument: MiCA — Regulation (EU) 2023/1114
     url: https://eur-lex.europa.eu/eli/reg/2023/1114/oj/eng
     pinpoint: reserve composition set in MiCA + Level-2 RTS; deposit-% pinpoint pending RTS line-read
+
+# CBSR v0.11 review/temporal metadata (mechanically migrated; null means not evidenced)
+source_last_checked: '2026-06-27'
+next_review_due: '2026-07-27'
+review_status: stale
+reviewer: external review (web retrieval against official sources)
+second_reviewer: null
+review_stage: primary_reviewed_second_pending
+reconciliation_status: not_started
+review_disagreement: null
+source_disposition: official
+source_check_status: checked
+effective_from: null
+effective_until: null
+event_id: null
+legal_status: operative
+uncertainty: high

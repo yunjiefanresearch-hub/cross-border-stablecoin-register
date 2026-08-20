@@ -31,6 +31,7 @@ try:
 except Exception:
     pass
 import json, pathlib, datetime, importlib.util
+from build_clock import BUILD_DATE
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 
@@ -198,7 +199,7 @@ def build():
     out = {
         "schema": "cbsr-analysis/computed_corridor_states",
         "version": meta.get("version", ""),
-        "generated": str(datetime.date.today()),
+        "generated": BUILD_DATE,
         "as_of_base": BASE_DATE,
         "jurisdictions": J12,
         "provenance": {

@@ -2,7 +2,7 @@
 
 **Cross-Border Stablecoin Register (CBSR)**
 Maintainer: Yunjie Fan, independent research on cross-jurisdictional digital-asset regulation
-Status: v0.1.0 · June 2026 · governs the register and its derived layers
+Status: governance v0.11.0 · 20 August 2026 · governs the register and its derived layers
 Companion documents: [`CHARTER.md`](CHARTER.md) · [`DISCLOSURE.md`](DISCLOSURE.md) · [`METHODOLOGY.md`](METHODOLOGY.md) · [`CONTRIBUTING.md`](CONTRIBUTING.md)
 
 ---
@@ -74,11 +74,12 @@ structure that lets the project be maximally useful without compromising what ma
 Open licensing does *not* dissolve the project's quality boundary. Two things are governed tiers, not
 casual states:
 
-- **Verification status gates what may be cited as law.** "Open" never means "unverified passes as
-  verified." The citable subset (the records a lawyer may cite as current binding law) is a strict,
-  enforced intersection of the three evidence axes; a record outside it is openly available but is not,
-  and is not represented as, citable current law. The data is free to reuse; the *status* of a claim is
-  not negotiable by a reuser.
+- **Structural citability is not legal currentness.** "Open" never means "unverified passes as
+  verified." A record can satisfy the historic structural `citable` predicate while still being stale,
+  missing an independent second review, or otherwise not decision-ready. At the 20 August 2026 audit
+  cut-off, **0 of 152 records are current and 0 are decision-ready**. The API publishes the structural
+  candidate flag, freshness, source disposition, review state and next review date separately. No CBSR
+  subset is represented as a substitute for current-law advice.
 - **The computed layer is a preview, not an authority.** The derived conclusions are open data, but they
   are labelled previews; reusing them does not convert them into asserted truth, and the project does not
   warrant a computed conclusion where it diverges from the authored analysis (the divergence is published
@@ -113,11 +114,18 @@ the maintainer and for any contributor.
    welcome but are merged as *drafts*, not as verified coverage.
 2. **Validation.** The build validates the record against the published schema; a record that does not
    validate cannot be merged.
-3. **Review and merge.** The maintainer reviews for substance and sourcing; continuous integration runs
-   the full suite (schema validation, structural invariants, the negative tests, and the cross-layer
-   integrity checks) on the pull request. A change that breaks any gate cannot be merged.
-4. **Status.** A merged record carries its three evidence axes and its status; a draft is visibly a
-   draft, a verified record is visibly verified, and the difference is in the data, not in prose.
+3. **First review.** An identified reviewer line-reads the cited source, records the official-source
+   disposition, pinpoint, checked date, uncertainty and verdict in the record and source ledger.
+4. **Independent second review.** A different identified reviewer independently records a verdict.
+   Automation cannot impersonate either reviewer. Disagreement remains open until a reconciliation note
+   names both verdicts, the resolution, the resolver and date.
+5. **Review and merge.** Continuous integration runs the canonical verifier, including schema,
+   provenance, deterministic regeneration, negative tests, security gates and clean-wheel smoke. A change
+   that breaks any gate cannot be merged. Repository rules must separately require review and passing CI;
+   that remote configuration is not proven by committed files.
+6. **Status.** `current` or `decision_ready` requires the temporal gate, official-source disposition,
+   primary review, independent second review and resolved conflicts. A missing reviewer never defaults to
+   approval. The present dataset therefore remains non-decision-ready.
 
 The gates are not advisory. The structural invariants are read-only assertions over the built register
 that must all hold, and the negative-test suite deliberately breaks each validation gate on a throwaway
@@ -151,6 +159,26 @@ The verified status of the data is the project's central asset, and it is govern
   are defenses and only a primary-source pass retires the liability) is repeated wherever the coverage
   counts appear. A record leaves the backlog only by acquiring the provenance the build requires, and the
   move is recorded.
+
+### 4.1 Two-person evidence-promotion control
+
+The source YAML is the system of record. A promotion request must change the source record and the
+152-row ledger together. CI rejects incomplete metadata and deterministic generation exposes drift in
+compiled outputs. The second reviewer must be a real person distinct from the first reviewer and must
+complete `research/REVIEWER_ATTESTATION_TEMPLATE.json`; an unresolved disagreement blocks promotion.
+The maintainer records reconciliation in the pull request and claims ledger. The mechanism is present,
+but **no independent second review has been completed for this snapshot**, so there is no operating
+evidence and no legal-currentness certificate.
+
+### 4.2 Evidence semantics
+
+- `source_disposition` describes source availability: `official`, `secondary`, `unavailable`, or
+  `not_applicable`. It does not encode whether a rule is binding.
+- `binding_status` describes the legal instrument state and is evaluated separately.
+- `freshness_status` is computed from persisted checked/due dates; unknown or overdue evidence cannot
+  yield unconditional `allow`.
+- `structurally_citable` is a legacy reproducibility signal, not a warranty of current law.
+- `decision_ready` is fail-closed and currently false for every record.
 
 ---
 
@@ -222,4 +250,6 @@ paper is the argument; the governance ensures the substrate is what it claims to
 ---
 
 *Maintainer:* **Yunjie Fan** · ORCID 0009-0005-6762-084X · SSRN Author ID 11463068
-*This governance applies to CBSR v0.9.8 and forward, from governance v0.1.0 (June 2026).*
+*This governance v0.11.0 supersedes prior current-law wording for CBSR v0.11.0 and later. Historic
+releases retain their original wording for citation, but they do not override this snapshot's freshness
+and independent-review gates.*

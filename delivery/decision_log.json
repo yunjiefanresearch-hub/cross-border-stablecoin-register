@@ -1,0 +1,102 @@
+{
+  "as_of": "2026-08-20",
+  "decisions": [
+    {
+      "date": "2026-08-20",
+      "decision": "Use one canonical verifier",
+      "decision_id": "D-001",
+      "owner_role": "maintainer",
+      "rationale": "CI, docs and platform scripts call `python -m tools.verify`; duplicated orchestration is forbidden.",
+      "status": "accepted"
+    },
+    {
+      "date": "2026-08-20",
+      "decision": "Fail closed on evidence",
+      "decision_id": "D-002",
+      "owner_role": "maintainer",
+      "rationale": "Stale, proposed, superseded, conflicting or unreviewed evidence cannot yield unconditional allow.",
+      "status": "accepted"
+    },
+    {
+      "date": "2026-08-20",
+      "decision": "Separate source availability from legal force",
+      "decision_id": "D-003",
+      "owner_role": "maintainer",
+      "rationale": "`source_disposition` and `binding_status` are independent fields.",
+      "status": "accepted"
+    },
+    {
+      "date": "2026-08-20",
+      "decision": "Persist review metadata in YAML",
+      "decision_id": "D-004",
+      "owner_role": "maintainer",
+      "rationale": "Derived outputs never invent reviewer identity or checked dates.",
+      "status": "accepted"
+    },
+    {
+      "date": "2026-08-20",
+      "decision": "Require a real independent second reviewer",
+      "decision_id": "D-005",
+      "owner_role": "maintainer",
+      "rationale": "No automation or maintainer self-review is counted as independent.",
+      "status": "accepted"
+    },
+    {
+      "date": "2026-08-20",
+      "decision": "Use domain-neutral policy schemas plus stablecoin pack",
+      "decision_id": "D-006",
+      "owner_role": "maintainer",
+      "rationale": "General action/mandate/decision/receipt schemas are separated from domain obligations.",
+      "status": "accepted"
+    },
+    {
+      "date": "2026-08-20",
+      "decision": "Receipts remain unsigned and non-executing",
+      "decision_id": "D-007",
+      "owner_role": "maintainer",
+      "rationale": "Hashing detects mutation; it does not authenticate a signer or authorize funds movement.",
+      "status": "accepted"
+    },
+    {
+      "date": "2026-08-20",
+      "decision": "Treat pilots as controlled evaluations",
+      "decision_id": "D-008",
+      "owner_role": "maintainer",
+      "rationale": "Pilot fixtures demonstrate mechanics and do not promote source records to current law.",
+      "status": "accepted"
+    },
+    {
+      "date": "2026-08-20",
+      "decision": "Treat DPG/SDG/GDC/DPI as design mappings",
+      "decision_id": "D-009",
+      "owner_role": "maintainer",
+      "rationale": "No certification, endorsement, causal impact or external determination is claimed.",
+      "status": "accepted"
+    },
+    {
+      "date": "2026-08-20",
+      "decision": "Keep deployment ZIP free of Git history",
+      "decision_id": "D-010",
+      "owner_role": "maintainer",
+      "rationale": "PR/commit lineage is delivered as a plan, not fabricated as completed history.",
+      "status": "accepted"
+    },
+    {
+      "date": "2026-08-20",
+      "decision": "Block release on external assurance",
+      "decision_id": "D-011",
+      "owner_role": "maintainer",
+      "rationale": "Remote GitHub, Windows, legal, security and peer-review gates remain explicit.",
+      "status": "accepted"
+    },
+    {
+      "date": "2026-08-20",
+      "decision": "Do not publish while PyPI is absent",
+      "decision_id": "D-012",
+      "owner_role": "maintainer",
+      "rationale": "Source/wheel deployment remains canonical until an authorized, verified publication occurs.",
+      "status": "accepted"
+    }
+  ],
+  "schema": "cbsr/decision-log/v1"
+}

@@ -5,14 +5,15 @@ instrument_type: fiat_referenced_stablecoin
 instrument_label_local: qualifying stablecoin
 dimension: permitted_activity_yield
 constraint_ref: C3
-requirement_summary: Yield is not expressly addressed in SI 2026/102. The Bank of England's November 2025 materials
-  describe a 60/40 backing split and constrain pass-through of returns to holders. The detailed treatment is expected
-  in the FCA's summer 2026 rules.
+requirement_summary: Yield is not expressly addressed in SI 2026/102. The FCA published PS26/10 final issuance rules
+  in June 2026 and the Bank published its systemic policy/draft Code. The exact holder-yield and remuneration treatment
+  has not yet been mapped and independently reviewed for this record, so no substantive conclusion is promoted.
 status: consultation
 effective_date: null
 source:
-  primary: SI 2026/102 (silent on yield); Bank of England Nov 2025 materials (60/40 backing; pass-through constrained)
-  pinpoint: BoE Nov 2025 backing-split / pass-through position; FCA rules pending
+  primary: SI 2026/102; FCA PS26/10; Bank of England June 2026 systemic policy/draft Code
+  pinpoint: Holder-yield/remuneration mapping pending; do not infer from reserve remuneration
+  url: https://www.fca.org.uk/publication/policy/ps26-10.pdf
 secondary:
 - citation: Fan, Compliance Matrix v0.9.3 (18 May 2026), p.5 (Comparison Table — Yield to holders)
 interpretation_note: 'Provenance: transcribed from author''s Compliance Matrix v0.9.3. UK is the least-settled of
@@ -23,7 +24,7 @@ interpretation_note: 'Provenance: transcribed from author''s Compliance Matrix v
 interpretive_flag:
   tension: Whether and how returns may be passed through to holders is not fixed in the SI; BoE signals constraint
     but the FCA rule is pending.
-  resolution_channel: FCA summer 2026 policy statement.
+  resolution_channel: Line-by-line mapping of FCA PS26/10 and the final Bank Code, followed by independent review.
 confidence: low
 claim_class: tier1_legal
 last_reviewed: '2026-06-17'
@@ -36,3 +37,21 @@ tags:
 - v0.9.5_verification
 - binding_pending_proposal
 binding_status: pending_proposal
+
+# CBSR v0.11 review/temporal metadata (mechanically migrated; null means not evidenced)
+evidence_tier: unverified
+source_last_checked: null
+next_review_due: null
+review_status: unknown
+reviewer: null
+second_reviewer: null
+review_stage: unreviewed
+reconciliation_status: not_started
+review_disagreement: null
+source_disposition: official
+source_check_status: not_checked
+effective_from: null
+effective_until: null
+event_id: null
+legal_status: consultation
+uncertainty: high

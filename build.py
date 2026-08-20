@@ -16,8 +16,10 @@ try:
     _sys.stderr.reconfigure(encoding="utf-8")
 except Exception:
     pass
-import json, sys, pathlib, datetime
+import json, os, sys, pathlib, datetime
 import yaml
+
+from src.cbsr_mcp.freshness import derive_freshness, enrich_records, freshness_report
 
 # README<->build drift gate (see check_readme_counts.py). Guarded so an offline extract without the
 # module still builds; when present, it forbids a drift-prone count from being restated in README.
@@ -123,7 +125,18 @@ ROOT = pathlib.Path(__file__).resolve().parent
 
 # Single source of truth for the dataset/release version. Bump this when tagging
 # a release; keep it in step with README, CITATION.cff, and the schema $id.
-REGISTER_VERSION = "0.10.1"
+REGISTER_VERSION = "0.11.0"
+
+# Reproducible by default. Override only when intentionally preparing another as-of build:
+#   CBSR_BUILD_DATE=YYYY-MM-DD python build.py
+# The build date is release metadata, never a claim that each legal record is fresh; per-record
+# freshness is derived separately from last_reviewed/source_last_checked.
+DEFAULT_BUILD_DATE = "2026-08-20"
+BUILD_DATE = os.environ.get("CBSR_BUILD_DATE", DEFAULT_BUILD_DATE)
+try:
+    datetime.date.fromisoformat(BUILD_DATE)
+except ValueError as exc:
+    raise SystemExit("CBSR_BUILD_DATE must be an ISO date (YYYY-MM-DD)") from exc
 
 def find(name):
     hits = list(ROOT.rglob(name))
@@ -213,11 +226,11 @@ def render_coverage(cov, roadmap, recs=None, analysis=None):
             elif d in planned.get(j, {}): cells.append(f"⬜{planned[j][d]}")
             else: cells.append("·")
         lines.append(f"| **{j}** | " + " | ".join(cells) + " |")
-    legend = ("\n**Legend:** ✅ verified · ✍️ draft (contains `<VERIFY`) · ⬜vX.Y planned · "
+    legend = ("\n**Legend:** ✅ recorded/schema-valid · ✍️ draft (contains `<VERIFY`) · ⬜vX.Y planned · "
               "· out of current scope. `Yield*` = `permitted_activity_yield` (the spine dimension).\n")
     # What ✅ does and does not mean — the legal-reader caveat, made explicit.
-    semantics = ("\n> **What ✅ means here.** ✅ marks a cell that has a sourced, schema-valid record "
-                 "with **no `<VERIFY` marker and a human-passed pinpoint**. It does **not** by itself mean "
+    semantics = ("\n> **What ✅ means here.** ✅ marks a schema-valid recorded cell "
+                 "with **no `<VERIFY` marker**. It does **not** by itself mean "
                  "the pinpoint has been checked against the official gazette / statutory text. Provenance is "
                  "tracked separately by `evidence_tier`: `resolution_text` = confirmed against the official "
                  "text; `mixed` = the core point is confirmed against the official text but some operational "
@@ -225,8 +238,8 @@ def render_coverage(cov, roadmap, recs=None, analysis=None):
                  "yet against the official text. As of the v0.5.1 verification pass, the live-regime focus "
                  "jurisdictions (Switzerland, the UAE, Japan) and the in-force AML / user-protection layers of "
                  "the pre-regime jurisdictions (Taiwan, South Korea) carry an official `source.url` and are "
-                 "`resolution_text` or `mixed`; draft provisions (the Taiwan VAS Act, the Korea Digital Asset "
-                 "Basic Act) keep `status: proposed` / `firm_summary` with an official URL for the *bill*, and "
+                 "`resolution_text` or `mixed`; Taiwan's promulgated-but-not-commenced VAS Act remains "
+                 "`firm_summary`, while Korea's Digital Asset Basic Act proposal remains `status: proposed`; "
                  "the older seven-jurisdiction records predate the `evidence_tier` field (`unset`). Check the "
                  "breakdown below before citing any cell as primary authority.\n")
     n_ver = sum(1 for v in cov.values() if v == "verified")
@@ -241,17 +254,18 @@ def render_coverage(cov, roadmap, recs=None, analysis=None):
                       f"resolution_text {tc.get('resolution_text', 0)} · "
                       f"mixed {tc.get('mixed', 0)} · "
                       f"firm_summary {tc.get('firm_summary', 0)} · "
-                      f"unset {tc.get('unset', 0)} · "
+                      f"unverified {tc.get('unverified', 0)} · "
                       f"records with a populated `source.url`: {with_url}/{sum(tc.values())}.\n")
     claim_block = ""
     if recs is not None:
         from collections import Counter
-        m = Counter((r.get("claim_class", "unset"), r.get("evidence_tier", "unset")) for r in recs)
-        tiers = ["resolution_text", "mixed", "firm_summary", "unset"]
+        m = Counter((r.get("claim_class", "unset"), r.get("evidence_tier", "unverified")) for r in recs)
+        tiers = ["resolution_text", "mixed", "firm_summary", "unverified"]
         classes = ["tier1_legal", "tier2_operational"]
         citable = sum(1 for r in recs if r.get("claim_class") == "tier1_legal"
                       and r.get("status") == "in_force"
                       and r.get("evidence_tier") == "resolution_text")
+        decision_ready = sum(1 for r in recs if is_decision_ready_citable(r))
         header = "| claim_class \\ evidence_tier | " + " | ".join(tiers) + " | total |"
         sep = "|" + "---|" * (len(tiers) + 2)
         rows = []
@@ -262,20 +276,22 @@ def render_coverage(cov, roadmap, recs=None, analysis=None):
             "\n## Two-axis evidence model (the honesty view)\n"
             "`claim_class` is the *kind* of claim (a proposition of law vs a market/operational "
             "report); `evidence_tier` is *how well-sourced* it is. They are orthogonal. The "
-            "**lawyer-citable subset** is the intersection `tier1_legal` + `in_force` + "
-            "`resolution_text` — binding law, in force now, confirmed against the official text. "
+            "**structural citable-candidate subset** is the intersection `tier1_legal` + `in_force` + "
+            "`resolution_text`. Decision-ready citability additionally requires official, current, "
+            "independently reconciled review evidence. "
             "Operational facts are excluded by *kind* even when well-sourced; draft provisions are "
             "excluded by *status*; unverified legal points are excluded by *tier*.\n\n"
             + header + "\n" + sep + "\n" + "\n".join(rows) + "\n\n"
-            f"> **Citable cells: {citable}** records satisfy `tier1_legal` + `in_force` + "
+            f"> **Structural citable candidates: {citable}; decision-ready: {decision_ready}.** "
+            "The structural candidates satisfy `tier1_legal` + `in_force` + "
             "`resolution_text` and carry an official `source.url` + `pinpoint` (enforced by the "
-            "build). This is the subset a lawyer or supervisor can cite as current binding law; it "
-            "is exposed directly by the MCP `citable_law()` tool and as `citable_subset` in "
+            "build), but are not represented as current until the human review gates pass. The MCP "
+            "`citable_law()` tool exposes only `decision_ready_citable_subset`; structural candidates remain in "
             "`dataset.json`. The two `tier2_operational` records at `resolution_text` (e.g. a "
             "confirmed product launch) are deliberately *not* citable as law — they are true, "
             "well-sourced facts about the market, not propositions of law.\n")
-    summary = (f"\n_Verified cells: {n_ver} · draft cells: {n_draft} · planned cells: {n_planned}. "
-               f"Generated {datetime.date.today()}._\n")
+    summary = (f"\n_Recorded/schema-valid cells: {n_ver} · draft cells: {n_draft} · planned cells: {n_planned}. "
+               f"Generated {BUILD_DATE}._\n")
     computed_block = ""
     if analysis and analysis.get("computed"):
         cm = analysis["computed"]
@@ -515,6 +531,19 @@ def load_analysis():
             analysis["event_calendar"] = eobj
         except json.JSONDecodeError as e:
             errors.append(f"event_calendar.json: invalid JSON ({e})")
+    ontology_path = adir / "legal_event_ontology.json"
+    if ontology_path.exists():
+        try:
+            ontology = json.loads(ontology_path.read_text(encoding="utf-8"))
+            if ontology.get("schema") != "cbsr/legal-event-ontology/v1":
+                errors.append("legal_event_ontology.json: missing/incorrect schema tag")
+            if ontology.get("coverage", {}).get("records") != 152:
+                errors.append("legal_event_ontology.json: must cover all 152 records")
+            if ontology.get("coverage", {}).get("invalid"):
+                errors.append("legal_event_ontology.json: contains invalid record timelines")
+            analysis["legal_event_ontology"] = ontology
+        except json.JSONDecodeError as e:
+            errors.append(f"legal_event_ontology.json: invalid JSON ({e})")
     tf = adir / "computed_timeline.json"
     if tf.exists():
         try:
@@ -724,7 +753,66 @@ def citable_projection(r):
         "id": r["id"], "jurisdiction": r["jurisdiction"], "dimension": r["dimension"],
         "instrument": src.get("primary"), "pinpoint": src.get("pinpoint"), "url": src.get("url"),
         "last_reviewed": r.get("last_reviewed"),
+        "source_last_checked": r.get("source_last_checked"),
+        "next_review_due": r.get("next_review_due"),
+        "review_status": r.get("review_status"),
+        "review_stage": r.get("review_stage"),
+        "reviewer": r.get("reviewer"),
+        "second_reviewer": r.get("second_reviewer"),
+        "source_disposition": r.get("source_disposition"),
     }
+
+
+def is_decision_ready_citable(r):
+    fresh = derive_freshness(r, BUILD_DATE)
+    return (
+        is_citable(r)
+        and fresh["review_status"] == "current"
+        and r.get("source_disposition") == "official"
+        and r.get("review_stage") == "reconciled"
+        and bool(r.get("reviewer"))
+        and bool(r.get("second_reviewer"))
+    )
+
+
+def check_review_metadata(recs, analysis):
+    """Reject review assertions that are not supported by committed dates and identities."""
+    errors = []
+    event_records = {}
+    for event in ((analysis or {}).get("event_calendar") or {}).get("events", []):
+        for record_id in event.get("records", []):
+            event_records.setdefault(record_id, set()).add(event.get("id"))
+    for r in recs:
+        derived = derive_freshness(r, BUILD_DATE)
+        for field in ("source_last_checked", "next_review_due", "review_status", "source_disposition", "uncertainty"):
+            if r.get(field) != derived.get(field):
+                errors.append(
+                    f"{r['id']}: persisted {field}={r.get(field)!r} disagrees with derived {derived.get(field)!r}"
+                )
+        source = r.get("source") or {}
+        disposition = r.get("source_disposition")
+        if disposition in {"official", "secondary"} and not source.get("url"):
+            errors.append(f"{r['id']}: source_disposition={disposition} requires source.url")
+        if disposition == "unavailable" and source.get("url"):
+            errors.append(f"{r['id']}: source_disposition=unavailable contradicts populated source.url")
+        if r.get("source_check_status") == "checked" and not r.get("source_last_checked"):
+            errors.append(f"{r['id']}: source_check_status=checked requires source_last_checked")
+        stage = r.get("review_stage")
+        reviewer = r.get("reviewer")
+        second = r.get("second_reviewer")
+        if stage != "unreviewed" and not reviewer:
+            errors.append(f"{r['id']}: review_stage={stage} requires reviewer")
+        if stage == "reconciled":
+            if not second:
+                errors.append(f"{r['id']}: reconciled review requires independent second_reviewer")
+            if reviewer == second:
+                errors.append(f"{r['id']}: reviewer and second_reviewer must be different identities")
+            if r.get("reconciliation_status") not in {"agreed", "resolved"}:
+                errors.append(f"{r['id']}: reconciled review requires agreed/resolved reconciliation_status")
+        event_id = r.get("event_id")
+        if event_id and event_id not in event_records.get(r["id"], set()):
+            errors.append(f"{r['id']}: event_id {event_id!r} is not reciprocally linked by event_calendar")
+    return errors
 
 def check_citable_integrity(recs):
     """Enforce that a record claiming official-text confirmation actually points to that text.
@@ -902,6 +990,7 @@ def main():
     errors += check_evidence_tier_requirements(recs)
     errors += check_binding_status(recs)
     errors += check_verification_ledger(recs, analysis)
+    errors += check_review_metadata(recs, analysis)
     readme_path = ROOT / "README.md"
     if _check_readme_counts and readme_path.exists():
         errors += _check_readme_counts(readme_path.read_text(encoding="utf-8"))
@@ -910,32 +999,55 @@ def main():
         for e in errors: print("  -", e)
         sys.exit(1)
     cov = coverage(recs)
+    enriched = enrich_records(recs, BUILD_DATE)
+    freshness = freshness_report(recs, BUILD_DATE)
     citable = [citable_projection(r) for r in recs if is_citable(r)]
+    decision_ready_citable = [citable_projection(r) for r in recs if is_decision_ready_citable(r)]
     dataset = {
         "name": "Cross-Border Stablecoin Register", "version": REGISTER_VERSION,
-        "generated": str(datetime.date.today()), "record_count": len(recs),
-        "records": [{k: v for k, v in r.items() if k != "_draft"} for r in recs],
+        "generated": BUILD_DATE, "record_count": len(recs),
+        "records": [{k: v for k, v in r.items() if k != "_draft"} for r in enriched],
         "corridors": corridors,
+        "freshness": freshness,
+        "review_coverage": {
+            "records": len(recs),
+            "primary_reviewer_present": sum(bool(r.get("reviewer")) for r in recs),
+            "second_reviewer_present": sum(bool(r.get("second_reviewer")) for r in recs),
+            "reconciled": sum(r.get("review_stage") == "reconciled" for r in recs),
+            "official_source": sum(r.get("source_disposition") == "official" for r in recs),
+            "decision_ready": len(decision_ready_citable),
+        },
         "citable_subset": {
             "filter": CITABLE_FILTER,
             "count": len(citable),
             "records": citable,
+            "readiness": "structural candidates only; freshness and independent-review gates are separate",
+        },
+        "decision_ready_citable_subset": {
+            "filter": {**CITABLE_FILTER,
+                       "review_status": "current", "review_stage": "reconciled",
+                       "source_disposition": "official"},
+            "count": len(decision_ready_citable),
+            "records": decision_ready_citable,
         },
     }
     if analysis is not None:
         dataset["analysis"] = analysis
+    (ROOT / "analysis" / "freshness_report.json").write_text(
+        json.dumps(freshness, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+    )
     (ROOT / "dataset.json").write_text(json.dumps(dataset, indent=2, ensure_ascii=False), encoding="utf-8")
     (ROOT / "COVERAGE.md").write_text(render_coverage(cov, roadmap, recs, analysis), encoding="utf-8")
     (ROOT / "records.md").write_text(render_records(recs), encoding="utf-8")
     print(f"OK — {len(recs)} records valid, {len(corridors)} corridor(s); "
-          f"{sum(1 for v in cov.values() if v=='verified')} verified / "
+          f"{sum(1 for v in cov.values() if v=='verified')} recorded/schema-valid / "
           f"{sum(1 for v in cov.values() if v=='draft')} draft cell(s).")
     print(f"     schema validation backend: {VALIDATOR_BACKEND}")
     cm_matrix = claim_class_matrix(recs)
     n_legal = sum(v for (cc, _), v in cm_matrix.items() if cc == "tier1_legal")
     n_oper = sum(v for (cc, _), v in cm_matrix.items() if cc == "tier2_operational")
     print(f"     claim_class: {n_legal} tier1_legal · {n_oper} tier2_operational; "
-          f"citable subset (tier1_legal + in_force + resolution_text): {len(citable)} records.")
+          f"structural citable candidates: {len(citable)}; decision-ready: {len(decision_ready_citable)}.")
     if analysis is not None:
         comp = analysis.get("compatibility", {})
         print(f"     analysis layer: {len(comp.get('pairs', []))} compatibility pairs, "

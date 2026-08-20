@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yunjiefanresearch-hub.github.io/cross-border-stablecoin-register/schemas/legal-event-ontology.v1.schema.json",
+  "title": "CBSR legal event ontology v1",
+  "type": "object",
+  "required": ["schema", "states", "allowed_transitions", "coverage", "records"],
+  "properties": {
+    "schema": {"const": "cbsr/legal-event-ontology/v1"},
+    "states": {"type": "array", "minItems": 8, "items": {"type": "string"}},
+    "allowed_transitions": {"type": "object"},
+    "coverage": {"type": "object"},
+    "records": {"type": "array", "minItems": 152, "maxItems": 152}
+  }
+}

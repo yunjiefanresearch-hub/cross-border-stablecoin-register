@@ -1,0 +1,21 @@
+name: Security question (non-sensitive)
+description: Ask about the security model. Exploitable vulnerabilities must use private reporting.
+title: "[security question] "
+labels: ["security", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: "Do not disclose a vulnerability, secret or exploit here. Use this repository's private vulnerability reporting flow described in SECURITY.md."
+  - type: textarea
+    id: question
+    attributes:
+      label: Non-sensitive security question
+    validations:
+      required: true
+  - type: checkboxes
+    id: safe
+    attributes:
+      label: Confirmation
+      options:
+        - label: This issue contains no exploit details, credentials, personal data or confidential findings.
+          required: true

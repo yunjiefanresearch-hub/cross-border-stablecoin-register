@@ -7,6 +7,26 @@ Each tagged release is archived to Zenodo for a citable DOI; the **concept DOI
 [10.5281/zenodo.20730358](https://doi.org/10.5281/zenodo.20730358)** always resolves to the latest
 version, while each release below carries its own version DOI.
 
+## [0.11.0] — 2026-08-20
+
+- Bounded and pinned the warning-free runtime combination to MCP 1.29, Pydantic 2.12 and
+  Pydantic Settings 2.14; the lock refresh rejects prereleases and fully yanked releases.
+- Added deterministic release clocks and byte-for-byte regeneration checks.
+- Added freshness classification for every record; the snapshot reports all 152 as stale rather than
+  implying that schema validity proves current law.
+- Added a deterministic mandate-aware AgenticFi core, five outcomes, six MCP capabilities and canonical
+  unsigned SHA-256 decision receipts with tamper verification.
+- Added Windows setup/run/recheck scripts and one canonical 53-step verifier used unchanged by local
+  setup, CI and PowerShell. The verifier includes two full regeneration passes, committed-output and
+  second-pass hashes, reproducible wheel builds, repository-external clean installation, six-tool MCP
+  smoke with warnings as errors, SBOM, licence inventory and strict `pip-audit`.
+- Added exact runtime/development constraints plus a reviewed upgrade procedure; local Linux CPython
+  3.10, 3.11, 3.12 and 3.13 evidence is aggregated separately from the still-external GitHub Actions
+  and Windows 11 release gates.
+- Added a quantitative census, twelve generated jurisdiction dossiers, a qualitative codebook, a
+  four-jurisdiction official-source lead ledger and a technical whitepaper. No evidence tier was promoted
+  without record-level mapping and a second reviewer.
+
 ## [0.10.1] — 2026-07-09
 
 > **Forward/sensitivity regeneration from the corrected corridor layer (consistency fix; no new legal facts).**

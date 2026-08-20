@@ -2,14 +2,14 @@
   "name": "cross-border-stablecoin-register",
   "displayName": "Cross-Border Stablecoin Register",
   "description": "An open, versioned register mapping how jurisdictions regulate stablecoins — clause by clause, across 15 dimensions and 12 jurisdictions — exposed as typed MCP tools over the committed dataset.json. No network, no synthesis: every tool filters and reshapes the published register, and every returned record carries its source, pinpoint, claim_class, evidence_tier and version.",
-  "version": "0.10.1",
+  "version": "0.11.0",
   "homepage": "https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register",
   "doi": "10.5281/zenodo.20730358",
   "license": "CC-BY-4.0",
   "transport": "stdio",
   "runtime": {
     "language": "python",
-    "requires": "mcp[cli]",
+    "requires": "mcp>=1.29,<1.30",
     "entrypoint": "mcp_server.py"
   },
   "mcpServers": {
@@ -23,140 +23,244 @@
   },
   "tools": [
     {
-      "name": "about",
-      "summary": "Register metadata: name, version, record count, license, DOI, and the verification rule."
-    },
-    {
-      "name": "list_jurisdictions",
-      "summary": "List jurisdictions covered, with full name and record count."
-    },
-    {
-      "name": "list_dimensions",
-      "summary": "List the 15 dimensions with descriptions and how many records each has."
-    },
-    {
-      "name": "get_record",
-      "summary": "Return the full record (all fields including requirement_structured and interpretation_note) by its id."
-    },
-    {
-      "name": "query",
-      "summary": "Typed filter over the register."
-    },
-    {
-      "name": "compare_dimension",
-      "summary": "Compare all jurisdictions on a single dimension — the core differential view."
-    },
-    {
-      "name": "jurisdiction_profile",
-      "summary": "Return all records for one jurisdiction, ordered by the dimension framework."
-    },
-    {
-      "name": "search",
-      "summary": "Keyword search across jurisdiction, dimension, authority, requirement summary, source, and tags."
-    },
-    {
-      "name": "get_corridor",
-      "summary": "Return corridor model(s) — what clears and what breaks at each regulatory boundary along a cross-border flow."
-    },
-    {
-      "name": "coverage",
-      "summary": "Coverage matrix: for each jurisdiction × dimension, whether a record exists ('verified') or not ('planned')."
-    },
-    {
       "name": "compatibility",
-      "summary": "Query the §5.14 pairwise compatibility matrix (all 66 jurisdiction pairs from the Architecture working paper)."
+      "summary": "Query the §5.14 pairwise compatibility matrix (all 66 jurisdiction pairs from the",
+      "signature": "(jurisdiction: 'Optional[str]' = None, other: 'Optional[str]' = None, category: 'Optional[str]' = None) -> 'dict'",
+      "module": "cbsr_mcp.tools.architecture"
     },
     {
       "name": "interaction_sets",
-      "summary": "The six constraint-interaction sets (A-F) from Architecture §2.9 — the constraint pairs through which joint binding generates composition problems, ea"
+      "summary": "The six constraint-interaction sets (A-F) from Architecture §2.9 — the constraint pairs",
+      "signature": "() -> 'dict'",
+      "module": "cbsr_mcp.tools.architecture"
     },
     {
       "name": "architectural_patterns",
-      "summary": "The Architecture paper's architectural patterns: the PRC three-pattern typology (§3.3 — direct subsidiary licensing / partnership distribution / separ"
+      "summary": "The Architecture paper's architectural patterns: the PRC three-pattern typology (§3.3 —",
+      "signature": "() -> 'dict'",
+      "module": "cbsr_mcp.tools.architecture"
     },
     {
       "name": "open_questions",
-      "summary": "The §7 open regulatory questions (7.1–7.5) whose resolution will determine which architectural options become operationally viable, each preserved wit"
+      "summary": "The §7 open regulatory questions (7.1–7.5) whose resolution will determine which architectural",
+      "signature": "() -> 'dict'",
+      "module": "cbsr_mcp.tools.architecture"
     },
     {
       "name": "compose_corridor",
-      "summary": "COMPUTE the directed feasibility of an origin->destination corridor from the per-jurisdiction signal table and the Corridor Atlas algorithm (origin dr"
+      "summary": "COMPUTE the directed feasibility of an origin->destination corridor from the per-jurisdiction",
+      "signature": "(origin: 'str', destination: 'str', as_of: 'Optional[str]' = None) -> 'dict'",
+      "module": "cbsr_mcp.tools.architecture"
     },
     {
       "name": "corridor_directed",
-      "summary": "Published directed layer: the timing-aware feasibility class for a directed edge, its dated as_of_timeline (today's class + each scheduled resolution and date_kind), and the class_basis. Prefer over compose_corridor for today's reading; the latter is the Atlas s.3.2 preview."
+      "summary": "The PUBLISHED, timing-aware directed reading of a corridor — the same reading as the register's",
+      "signature": "(origin: 'str', destination: 'str') -> 'dict'",
+      "module": "cbsr_mcp.tools.architecture"
     },
     {
       "name": "explain_feasibility",
-      "summary": "Explain WHY a corridor falls in its feasibility class: the rule that fired (origin drag vs destination gate), the justifying node-record basis for eac"
+      "summary": "Explain WHY a corridor falls in its feasibility class: the rule that fired (origin drag vs",
+      "signature": "(origin: 'str', destination: 'str') -> 'dict'",
+      "module": "cbsr_mcp.tools.architecture"
     },
     {
       "name": "verification_report",
-      "summary": "The verification queue: which records are confirmed against official primary text and which are still pending."
+      "summary": "The verification queue: which records are confirmed against official primary text and which are",
+      "signature": "() -> 'dict'",
+      "module": "cbsr_mcp.tools.architecture"
     },
     {
       "name": "verification_worklist",
-      "summary": "The primary-source verification worklist: for every still-unverified cell, exactly what is missing to reach the next evidence tier and the instrument/"
+      "summary": "The primary-source verification worklist: for every still-unverified cell, exactly what is missing",
+      "signature": "(jurisdiction: 'Optional[str]' = None) -> 'dict'",
+      "module": "cbsr_mcp.tools.architecture"
     },
     {
       "name": "citable_law",
-      "summary": "The lawyer-citable subset: only records that are a proposition of law (claim_class=tier1_legal), currently in force (status=in_force), AND confirmed a"
+      "summary": "The lawyer-citable subset: only records that are a proposition of law (claim_class=tier1_legal),",
+      "signature": "(jurisdiction: 'Optional[str]' = None, dimension: 'Optional[str]' = None) -> 'dict'",
+      "module": "cbsr_mcp.tools.architecture"
     },
     {
       "name": "event_calendar",
-      "summary": "The regulatory event calendar driving date-aware compose(): dated/contingent CHANGES IN LAW that move a jurisdiction's signal."
+      "summary": "The regulatory event calendar driving date-aware compose(): dated/contingent CHANGES IN LAW that",
+      "signature": "(jurisdiction: 'Optional[str]' = None) -> 'dict'",
+      "module": "cbsr_mcp.tools.architecture"
     },
     {
       "name": "corridor_timeline",
-      "summary": "The dated future of a directed corridor: today's class, the scheduled transitions that change it (with their effective dates), and any contingent tran"
+      "summary": "The dated future of a directed corridor: today's class, the scheduled transitions that change it",
+      "signature": "(origin: 'str', destination: 'str') -> 'dict'",
+      "module": "cbsr_mcp.tools.architecture"
     },
     {
       "name": "constraint_substrate",
-      "summary": "The constraint substrate: each (jurisdiction × constraint C1–C8) as a structured POLE from a controlled vocabulary, citing the tier1_legal record(s) i"
+      "summary": "The constraint substrate: each (jurisdiction × constraint C1–C8) as a structured POLE from a",
+      "signature": "(jurisdiction: 'Optional[str]' = None, constraint: 'Optional[str]' = None) -> 'dict'",
+      "module": "cbsr_mcp.tools.architecture"
     },
     {
       "name": "compose_via_substrate",
-      "summary": "DERIVE a directed corridor's feasibility by composing the two jurisdictions' C1–C8 poles through the interaction-set rules — the deeper engine behind "
+      "summary": "DERIVE a directed corridor's feasibility by composing the two jurisdictions' C1–C8 poles through the",
+      "signature": "(origin: 'str', destination: 'str') -> 'dict'",
+      "module": "cbsr_mcp.tools.architecture"
+    },
+    {
+      "name": "about",
+      "summary": "Register metadata: name, version, record count, license, DOI, and the verification rule.",
+      "signature": "() -> 'dict'",
+      "module": "cbsr_mcp.tools.register"
+    },
+    {
+      "name": "list_jurisdictions",
+      "summary": "List jurisdictions covered, with full name and record count.",
+      "signature": "() -> 'list[dict]'",
+      "module": "cbsr_mcp.tools.register"
+    },
+    {
+      "name": "list_dimensions",
+      "summary": "List the 15 dimensions with descriptions and how many records each has.",
+      "signature": "() -> 'list[dict]'",
+      "module": "cbsr_mcp.tools.register"
+    },
+    {
+      "name": "get_record",
+      "summary": "Return the full record (all fields including requirement_structured and interpretation_note) by its id.",
+      "signature": "(record_id: 'str') -> 'dict'",
+      "module": "cbsr_mcp.tools.register"
+    },
+    {
+      "name": "query",
+      "summary": "Typed filter over the register. All arguments optional and combined with AND.",
+      "signature": "(jurisdiction: 'Optional[str]' = None, dimension: 'Optional[str]' = None, status: 'Optional[str]' = None, confidence: 'Optional[str]' = None, constraint_ref: 'Optional[str]' = None) -> 'dict'",
+      "module": "cbsr_mcp.tools.register"
+    },
+    {
+      "name": "compare_dimension",
+      "summary": "Compare all jurisdictions on a single dimension — the core differential view.",
+      "signature": "(dimension: 'str') -> 'dict'",
+      "module": "cbsr_mcp.tools.register"
+    },
+    {
+      "name": "jurisdiction_profile",
+      "summary": "Return all records for one jurisdiction, ordered by the dimension framework.",
+      "signature": "(jurisdiction: 'str') -> 'dict'",
+      "module": "cbsr_mcp.tools.register"
+    },
+    {
+      "name": "search",
+      "summary": "Keyword search across jurisdiction, dimension, authority, requirement summary, source, and tags.",
+      "signature": "(keyword: 'str') -> 'dict'",
+      "module": "cbsr_mcp.tools.register"
+    },
+    {
+      "name": "get_corridor",
+      "summary": "Return corridor model(s) — what clears and what breaks at each regulatory boundary",
+      "signature": "(corridor_id: 'Optional[str]' = None) -> 'dict'",
+      "module": "cbsr_mcp.tools.register"
+    },
+    {
+      "name": "coverage",
+      "summary": "Coverage matrix: for each jurisdiction × dimension, whether a record exists ('verified')",
+      "signature": "() -> 'dict'",
+      "module": "cbsr_mcp.tools.register"
     },
     {
       "name": "stakeholder_database",
-      "summary": "The Atlas §8 stakeholder catalogue: the actor personas (issuer, distributor, regulators, treasury, holder, ...), each with its lens, the C1–C8 constra"
+      "summary": "The Atlas §8 stakeholder catalogue: the actor personas (issuer, distributor, regulators, treasury,",
+      "signature": "() -> 'dict'",
+      "module": "cbsr_mcp.tools.research"
     },
     {
       "name": "profile_for",
-      "summary": "PROJECT a directed corridor onto a stakeholder persona (Atlas §8)."
+      "summary": "PROJECT a directed corridor onto a stakeholder persona (Atlas §8). Returns the persona's lens, the",
+      "signature": "(stakeholder: 'str', origin: 'str', destination: 'str') -> 'dict'",
+      "module": "cbsr_mcp.tools.research"
     },
     {
       "name": "edge_coverage",
-      "summary": "Edge-layer coverage: how many directed corridors carry a record."
+      "summary": "Edge-layer coverage: how many directed corridors carry a record. Distinguishes the hand-authored",
+      "signature": "() -> 'dict'",
+      "module": "cbsr_mcp.tools.research"
     },
     {
       "name": "corridor_skeleton",
-      "summary": "Return the corridor record for a directed edge: the hand-authored RICH record if one exists, otherwise the COMPUTED SKELETON (derived feasibility clas"
+      "summary": "Return the corridor record for a directed edge: the hand-authored RICH record if one exists,",
+      "signature": "(origin: 'str', destination: 'str') -> 'dict'",
+      "module": "cbsr_mcp.tools.research"
     },
     {
       "name": "verification_ledger",
-      "summary": "The external primary-source verification pass (v0.9.5) audit trail."
+      "summary": "The external primary-source verification pass (v0.9.5) audit trail.",
+      "signature": "(jurisdiction: 'Optional[str]' = None) -> 'dict'",
+      "module": "cbsr_mcp.tools.research"
     },
     {
       "name": "events_by_kind",
-      "summary": "The regulatory event calendar grouped by trigger_kind — the paper's typology of triggers by the KIND OF CERTAINTY each carries (flagship §3), not mere"
+      "summary": "The regulatory event calendar grouped by trigger_kind — the paper's typology of triggers by the",
+      "signature": "(kind: 'Optional[str]' = None) -> 'dict'",
+      "module": "cbsr_mcp.tools.research"
     },
     {
       "name": "convergence",
-      "summary": "The cross-jurisdiction yield-line convergence view (flagship §4.5): independent legislative systems converging on the same functional boundary around "
+      "summary": "The cross-jurisdiction yield-line convergence view (flagship §4.5): independent legislative systems",
+      "signature": "(side: 'Optional[str]' = None) -> 'dict'",
+      "module": "cbsr_mcp.tools.research"
     },
     {
       "name": "forward_view",
-      "summary": "The per-jurisdiction supervisor forward view (Atlas §4.4): the trigger register re-sorted by jurisdiction into pending events, inbound/outbound edges that reclassify (own-trigger vs counterpart-driven), and ranked counterpart exposure; asserts no new facts."
+      "summary": "The per-jurisdiction supervisor forward view (Atlas §4.4): the trigger register re-sorted BY",
+      "signature": "(jurisdiction: 'Optional[str]' = None) -> 'dict'",
+      "module": "cbsr_mcp.tools.research"
     },
     {
       "name": "reconciliation",
-      "summary": "The computed-vs-authored corridor reconciliation: for every undirected jurisdiction pair, the class the compose() engine derives from the signal table"
+      "summary": "The computed-vs-authored corridor reconciliation: for every undirected jurisdiction pair, the class",
+      "signature": "(only_divergences: 'bool' = False) -> 'dict'",
+      "module": "cbsr_mcp.tools.research"
     },
     {
       "name": "records",
-      "summary": "The evidence-axis record browser: filter the register along the axes that decide citability — claim_class (KIND: tier1_legal vs tier2_operational), ev"
+      "summary": "The evidence-axis record browser: filter the register along the axes that decide citability —",
+      "signature": "(claim_class: 'Optional[str]' = None, evidence_tier: 'Optional[str]' = None, status: 'Optional[str]' = None, binding_status: 'Optional[str]' = None, jurisdiction: 'Optional[str]' = None, dimension: 'Optional[str]' = None, citable_only: 'bool' = False) -> 'dict'",
+      "module": "cbsr_mcp.tools.research"
+    },
+    {
+      "name": "search_evidence",
+      "summary": "Search provenance-bearing regulatory evidence for an AgenticFi decision.",
+      "signature": "(keyword: 'str', jurisdiction: 'Optional[str]' = None, limit: 'int' = 20) -> 'dict'",
+      "module": "cbsr_mcp.tools.agentic"
+    },
+    {
+      "name": "get_rule",
+      "summary": "Return one rule with legal force, provenance, freshness, and decision-use warnings.",
+      "signature": "(record_id: 'str') -> 'dict'",
+      "module": "cbsr_mcp.tools.agentic"
+    },
+    {
+      "name": "evaluate_action",
+      "summary": "Evaluate, but never execute, an action against its mandate and applicable CBSR evidence.",
+      "signature": "(action: 'dict') -> 'dict'",
+      "module": "cbsr_mcp.tools.agentic"
+    },
+    {
+      "name": "compare_jurisdictions",
+      "summary": "Compare two jurisdictions on requested dimensions with freshness and evidence gaps visible.",
+      "signature": "(left: 'str', right: 'str', dimensions: 'Optional[list[str]]' = None) -> 'dict'",
+      "module": "cbsr_mcp.tools.agentic"
+    },
+    {
+      "name": "watch_changes",
+      "summary": "Return records needing review plus dated/contingent regulatory events; no network polling.",
+      "signature": "(since: 'Optional[str]' = None, jurisdiction: 'Optional[str]' = None) -> 'dict'",
+      "module": "cbsr_mcp.tools.agentic"
+    },
+    {
+      "name": "audit_decision",
+      "summary": "Recompute a receipt hash and report tampering; does not imply a digital signature.",
+      "signature": "(receipt: 'dict') -> 'dict'",
+      "module": "cbsr_mcp.tools.agentic"
     }
   ],
   "guardrails": [
@@ -169,6 +273,7 @@
   "provenance": {
     "source_of_truth": "dataset.json (compiled by build.py from the YAML records + analysis/ layer)",
     "asserts_new_facts": false,
-    "note": "This manifest's tool list is generated from mcp_server.py; connect via docs/CONNECT_MCP.md."
+    "note": "This manifest's tool list is generated from mcp_server.py; connect via docs/CONNECT_MCP.md.",
+    "tool_metadata_source": "src/cbsr_mcp/tools/registry.py"
   }
 }

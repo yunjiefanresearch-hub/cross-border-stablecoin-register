@@ -23,6 +23,24 @@ interpretive_flag:                  # optional — the Matrix's [interpretive qu
   tension: ""
   resolution_channel: ""
 confidence: low                     # high | medium | low
+claim_class: tier1_legal            # tier1_legal | tier2_operational
+evidence_tier: unverified           # unverified until the required evidence is committed
+binding_status: in_force_enacted    # legal force of the cited instrument
 last_reviewed: "2026-06-17"
+source_last_checked: null            # only the date the cited URL was actually opened
+next_review_due: null
+review_status: unknown
+reviewer: null
+second_reviewer: null
+review_stage: unreviewed
+reconciliation_status: not_started
+review_disagreement: null
+source_disposition: unavailable      # official | secondary | unavailable | not_applicable
+source_check_status: source_unavailable
+effective_from: null
+effective_until: null
+event_id: null
+legal_status: operative
+uncertainty: high
 version_added: 0.2.0
 tags: []

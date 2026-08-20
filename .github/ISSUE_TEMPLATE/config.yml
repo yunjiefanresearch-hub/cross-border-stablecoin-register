@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Private vulnerability reporting
+    url: https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register/security/advisories/new
+    about: Report exploitable vulnerabilities privately; do not open a public issue.

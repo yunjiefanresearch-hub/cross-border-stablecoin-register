@@ -1,0 +1,16 @@
+dimension,records,jurisdictions_covered,official_sources,resolution_text,current,independent_second_review
+aml_kyc,10,10,7,5,0,0
+bank_nonbank_routing,12,12,1,1,0,0
+capital_requirements,11,11,10,2,0,0
+cross_border_data,12,12,3,0,0,0
+custody,2,2,2,1,0,0
+disclosure_reporting,8,8,1,1,0,0
+distribution,9,9,8,3,0,0
+implementation_status,9,9,6,2,0,0
+issuer_pathway,12,12,10,6,0,0
+monetary_sovereignty,12,12,10,6,0,0
+permitted_activity_yield,12,12,11,6,0,0
+redemption,8,8,8,2,0,0
+regulatory_authority,11,11,10,6,0,0
+reserve_backing,12,12,11,5,0,0
+securities_classification,12,12,5,2,0,0

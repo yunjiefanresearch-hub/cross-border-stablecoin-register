@@ -1,0 +1,7 @@
+failure_id,failure,threat,control
+F1,source_acquisition_gap,unsupported or secondary-only legal claim,official-source disposition and fail-closed decision gate
+F2,freshness_unknown_or_stale,obsolete legal state,"SLA, next-review date and currentness gate"
+F3,independent_review_gap,single-reviewer interpretation bias,blind second review and reconciliation
+F4,event_model_gap,missed commencement or supersession,typed legal-event ontology
+F5,receipt_tampering,post-decision evidence substitution,canonical component and receipt digests
+F6,mandate_overreach,agent acts beyond authority,"versioned mandate, jurisdiction/time/amount and human-review gates"

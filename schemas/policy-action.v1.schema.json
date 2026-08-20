@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yunjiefanresearch-hub.github.io/cross-border-stablecoin-register/schemas/policy-action.v1.schema.json",
+  "title": "CBSR domain-neutral policy action v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "action_id", "origin", "destination", "asset", "amount", "actor", "as_of", "mandate"],
+  "properties": {
+    "schema": {"const": "cbsr/policy-action/v1"},
+    "action_id": {"type": "string", "minLength": 1},
+    "origin": {"type": "string", "pattern": "^[A-Z]{2}$"},
+    "destination": {"type": "string", "pattern": "^[A-Z]{2}$"},
+    "asset": {"type": "string", "minLength": 1},
+    "amount": {"oneOf": [{"type": "number", "minimum": 0}, {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"}]},
+    "actor": {"type": "string", "minLength": 1},
+    "counterparty": {"type": ["string", "null"]},
+    "requires_kyc": {"type": "boolean"},
+    "required_dimensions": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "as_of": {"type": "string", "format": "date"},
+    "requested_at": {"type": "string", "format": "date-time"},
+    "conflicting_evidence": {"type": "boolean"},
+    "action": {"type": "string", "minLength": 1},
+    "authority": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "conditions": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "modality": {"type": "string", "minLength": 1},
+    "obligations": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "exceptions": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "effective_window": {
+      "type": "object", "additionalProperties": false,
+      "required": ["starts_at", "ends_at"],
+      "properties": {
+        "starts_at": {"type": "string", "format": "date-time"},
+        "ends_at": {"type": "string", "format": "date-time"}
+      }
+    },
+    "evidence": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "uncertainty": {"enum": ["low", "medium", "mixed", "high", "unknown"]},
+    "domain_context": {"type": "object", "additionalProperties": true},
+    "mandate": {"$ref": "policy-mandate.v1.schema.json"}
+  }
+}

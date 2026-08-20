@@ -1,0 +1,32 @@
+name: dependency constraint review
+
+on:
+  schedule:
+    - cron: "23 5 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Check reviewed compatibility windows for newer stable releases
+        shell: bash
+        run: |
+          set -o pipefail
+          python -m pip install "packaging>=24,<27"
+          python tools/refresh_constraints.py --check 2>&1 | tee constraint-refresh.txt
+      - name: Preserve the review result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: constraint-review-${{ github.run_id }}
+          path: constraint-refresh.txt
+          if-no-files-found: warn
+          retention-days: 30

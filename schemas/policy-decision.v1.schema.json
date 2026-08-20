@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yunjiefanresearch-hub.github.io/cross-border-stablecoin-register/schemas/policy-decision.v1.schema.json",
+  "title": "CBSR policy decision v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "outcome", "reasons", "conditions", "evidence_ids", "rule_ids", "source_urls", "applicable_rules", "freshness_snapshot", "uncertainty", "mandate_id", "mandate_version", "assumptions", "obligations", "conflict_details", "engine_version", "ruleset_version", "evaluated_at", "requested_as_of", "non_legal_advice_notice", "deterministic", "execution_authorized"],
+  "properties": {
+    "schema": {"const": "cbsr/policy-decision/v1"},
+    "outcome": {"enum": ["allow", "allow_with_conditions", "review_required", "prohibited", "insufficient_evidence"]},
+    "reasons": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "conditions": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "evidence_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "rule_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "source_urls": {"type": "array", "uniqueItems": true, "items": {"type": "string", "format": "uri"}},
+    "applicable_rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["rule_id", "record_id", "jurisdiction", "dimension", "source_url", "source_disposition", "source_last_checked", "next_review_due", "binding_status", "legal_status", "review_status", "review_stage", "evidence_tier", "uncertainty"],
+        "properties": {
+          "rule_id": {"type": "string"}, "record_id": {"type": "string"},
+          "jurisdiction": {"type": "string"}, "dimension": {"type": "string"},
+          "source_url": {"type": ["string", "null"]}, "source_disposition": {"type": ["string", "null"]},
+          "source_last_checked": {"type": ["string", "null"]}, "next_review_due": {"type": ["string", "null"]},
+          "binding_status": {"type": ["string", "null"]}, "legal_status": {"type": ["string", "null"]},
+          "review_status": {"type": ["string", "null"]}, "review_stage": {"type": ["string", "null"]},
+          "evidence_tier": {"type": ["string", "null"]}, "uncertainty": {"type": "string"}
+        }
+      }
+    },
+    "freshness_snapshot": {
+      "type": "object", "additionalProperties": false,
+      "required": ["as_of", "current", "due_for_review", "stale", "unknown", "source_last_checked", "next_review_due"],
+      "properties": {
+        "as_of": {"type": "string"}, "current": {"type": "integer", "minimum": 0},
+        "due_for_review": {"type": "integer", "minimum": 0}, "stale": {"type": "integer", "minimum": 0},
+        "unknown": {"type": "integer", "minimum": 0},
+        "source_last_checked": {"type": "array", "items": {"type": "string"}},
+        "next_review_due": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "uncertainty": {"enum": ["low", "medium", "mixed", "high", "unknown"]},
+    "mandate_id": {"type": ["string", "null"]}, "mandate_version": {"type": ["string", "null"]},
+    "assumptions": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "obligations": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "conflict_details": {"type": "array", "items": {"type": "object"}},
+    "engine_version": {"const": "cbsr-policy-engine/1.1.0"},
+    "ruleset_version": {"const": "cbsr-stablecoin-rules/1.1.0"},
+    "evaluated_at": {"type": "string"},
+    "requested_as_of": {"type": "string", "format": "date"},
+    "non_legal_advice_notice": {"type": "string", "minLength": 40},
+    "deterministic": {"const": true},
+    "execution_authorized": {"const": false}
+  }
+}

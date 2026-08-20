@@ -1,7 +1,7 @@
 {
   "register": "Cross-Border Stablecoin Register",
-  "version": "0.10.1",
-  "generated": "2026-07-15",
+  "version": "0.11.0",
+  "generated": "2026-08-20",
   "endpoint": "jurisdiction",
   "guardrail": "static projection of the public register; no facts added here",
   "data": {
@@ -14,10 +14,31 @@
         "claim_class": "tier1_legal",
         "evidence_tier": "firm_summary",
         "binding_status": "in_force_enacted",
+        "legal_status": "operative",
         "status": "in_force",
         "instrument": "MiCA, Regulation (EU) 2023/1114; EMD2 (Directive 2009/110/EC)",
         "pinpoint": "Issuer prudential status; safeguarding/segregation of reserve assets",
-        "url": null
+        "url": null,
+        "source_disposition": "unavailable",
+        "source_check_status": "source_unavailable",
+        "source_last_checked": null,
+        "next_review_due": null,
+        "review_status": "unknown",
+        "review_stage": "unreviewed",
+        "reviewer": null,
+        "second_reviewer": null,
+        "uncertainty": "high",
+        "event_id": null,
+        "freshness": {
+          "as_of": "2026-08-20",
+          "source_last_checked": null,
+          "next_review_due": null,
+          "review_status": "unknown",
+          "days_overdue": null,
+          "sla_days": 30,
+          "source_disposition": "unavailable",
+          "uncertainty": "high"
+        }
       },
       {
         "id": "eu-emt-cross_border_data-001",
@@ -26,10 +47,31 @@
         "claim_class": "tier1_legal",
         "evidence_tier": "firm_summary",
         "binding_status": "in_force_enacted",
+        "legal_status": "operative",
         "status": "in_force",
         "instrument": "MiCA, Regulation (EU) 2023/1114; GDPR (Regulation (EU) 2016/679)",
         "pinpoint": "Passporting; data protection and cross-border supervisory cooperation",
-        "url": null
+        "url": null,
+        "source_disposition": "unavailable",
+        "source_check_status": "source_unavailable",
+        "source_last_checked": null,
+        "next_review_due": null,
+        "review_status": "unknown",
+        "review_stage": "unreviewed",
+        "reviewer": null,
+        "second_reviewer": null,
+        "uncertainty": "high",
+        "event_id": null,
+        "freshness": {
+          "as_of": "2026-08-20",
+          "source_last_checked": null,
+          "next_review_due": null,
+          "review_status": "unknown",
+          "days_overdue": null,
+          "sla_days": 30,
+          "source_disposition": "unavailable",
+          "uncertainty": "high"
+        }
       },
       {
         "id": "eu-emt-disclosure_reporting-001",
@@ -38,10 +80,31 @@
         "claim_class": "tier1_legal",
         "evidence_tier": "firm_summary",
         "binding_status": "in_force_enacted",
+        "legal_status": "operative",
         "status": "in_force",
         "instrument": "MiCA, Regulation (EU) 2023/1114",
         "pinpoint": "White-paper and ongoing disclosure; significant-EMT supervision and reporting",
-        "url": null
+        "url": null,
+        "source_disposition": "unavailable",
+        "source_check_status": "source_unavailable",
+        "source_last_checked": null,
+        "next_review_due": null,
+        "review_status": "unknown",
+        "review_stage": "unreviewed",
+        "reviewer": null,
+        "second_reviewer": null,
+        "uncertainty": "high",
+        "event_id": null,
+        "freshness": {
+          "as_of": "2026-08-20",
+          "source_last_checked": null,
+          "next_review_due": null,
+          "review_status": "unknown",
+          "days_overdue": null,
+          "sla_days": 30,
+          "source_disposition": "unavailable",
+          "uncertainty": "high"
+        }
       },
       {
         "id": "eu-emt-issuer_pathway-001",
@@ -50,10 +113,31 @@
         "claim_class": "tier1_legal",
         "evidence_tier": "firm_summary",
         "binding_status": "in_force_enacted",
+        "legal_status": "operative",
         "status": "in_force",
         "instrument": "Markets in Crypto-Assets Regulation (MiCA), Regulation (EU) 2023/1114",
         "pinpoint": "Title IV — EMT issuance restricted to authorized credit institutions or e-money institutions",
-        "url": null
+        "url": null,
+        "source_disposition": "unavailable",
+        "source_check_status": "source_unavailable",
+        "source_last_checked": null,
+        "next_review_due": null,
+        "review_status": "unknown",
+        "review_stage": "unreviewed",
+        "reviewer": null,
+        "second_reviewer": null,
+        "uncertainty": "high",
+        "event_id": null,
+        "freshness": {
+          "as_of": "2026-08-20",
+          "source_last_checked": null,
+          "next_review_due": null,
+          "review_status": "unknown",
+          "days_overdue": null,
+          "sla_days": 30,
+          "source_disposition": "unavailable",
+          "uncertainty": "high"
+        }
       },
       {
         "id": "eu-emt-monetary_sovereignty-001",
@@ -62,10 +146,31 @@
         "claim_class": "tier1_legal",
         "evidence_tier": "resolution_text",
         "binding_status": "in_force_enacted",
+        "legal_status": "operative",
         "status": "in_force",
         "instrument": "Regulation (EU) 2023/1114 (MiCA), Art. 58(3) (applying the Art. 23 means-of-exchange thresholds to non-EU-currency EMTs)",
         "pinpoint": "Art. 58(3) (applying Art. 23 mutatis mutandis to non-EU-currency EMTs)",
-        "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj/eng"
+        "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj/eng",
+        "source_disposition": "official",
+        "source_check_status": "checked",
+        "source_last_checked": "2026-06-27",
+        "next_review_due": "2026-07-27",
+        "review_status": "stale",
+        "review_stage": "primary_reviewed_second_pending",
+        "reviewer": "external review (web retrieval against official sources)",
+        "second_reviewer": null,
+        "uncertainty": "low",
+        "event_id": null,
+        "freshness": {
+          "as_of": "2026-08-20",
+          "source_last_checked": "2026-06-27",
+          "next_review_due": "2026-07-27",
+          "review_status": "stale",
+          "days_overdue": 24,
+          "sla_days": 30,
+          "source_disposition": "official",
+          "uncertainty": "low"
+        }
       },
       {
         "id": "eu-emt-permitted_activity_yield-001",
@@ -74,10 +179,31 @@
         "claim_class": "tier1_legal",
         "evidence_tier": "resolution_text",
         "binding_status": "in_force_enacted",
+        "legal_status": "operative",
         "status": "in_force",
         "instrument": "Regulation (EU) 2023/1114 (MiCA), Article 50",
         "pinpoint": "Art. 50 (no interest paid to EMT holders)",
-        "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj/eng"
+        "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj/eng",
+        "source_disposition": "official",
+        "source_check_status": "checked",
+        "source_last_checked": "2026-06-27",
+        "next_review_due": "2026-07-27",
+        "review_status": "stale",
+        "review_stage": "primary_reviewed_second_pending",
+        "reviewer": "external review (web retrieval against official sources)",
+        "second_reviewer": null,
+        "uncertainty": "low",
+        "event_id": null,
+        "freshness": {
+          "as_of": "2026-08-20",
+          "source_last_checked": "2026-06-27",
+          "next_review_due": "2026-07-27",
+          "review_status": "stale",
+          "days_overdue": 24,
+          "sla_days": 30,
+          "source_disposition": "official",
+          "uncertainty": "low"
+        }
       },
       {
         "id": "eu-emt-regulatory_authority-001",
@@ -86,10 +212,31 @@
         "claim_class": "tier1_legal",
         "evidence_tier": "resolution_text",
         "binding_status": "in_force_enacted",
+        "legal_status": "operative",
         "status": "in_force",
         "instrument": "Regulation (EU) 2023/1114 (MiCA)",
         "pinpoint": "Titles III/IV; EBA/ESMA/NCA supervisory architecture",
-        "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj/eng"
+        "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj/eng",
+        "source_disposition": "official",
+        "source_check_status": "checked",
+        "source_last_checked": "2026-06-27",
+        "next_review_due": "2026-07-27",
+        "review_status": "stale",
+        "review_stage": "primary_reviewed_second_pending",
+        "reviewer": "external review (web retrieval against official sources)",
+        "second_reviewer": null,
+        "uncertainty": "low",
+        "event_id": "eu-mica-art143-transitional-expiry",
+        "freshness": {
+          "as_of": "2026-08-20",
+          "source_last_checked": "2026-06-27",
+          "next_review_due": "2026-07-27",
+          "review_status": "stale",
+          "days_overdue": 24,
+          "sla_days": 30,
+          "source_disposition": "official",
+          "uncertainty": "low"
+        }
       },
       {
         "id": "eu-emt-reserve_backing-001",
@@ -98,10 +245,31 @@
         "claim_class": "tier1_legal",
         "evidence_tier": "firm_summary",
         "binding_status": "in_force_enacted",
+        "legal_status": "operative",
         "status": "in_force",
         "instrument": "Regulation (EU) 2023/1114 (MiCA), reserve composition provisions",
         "pinpoint": "reserve composition set in MiCA + Level-2 RTS; deposit-% pinpoint pending RTS line-read",
-        "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj/eng"
+        "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj/eng",
+        "source_disposition": "official",
+        "source_check_status": "checked",
+        "source_last_checked": "2026-06-27",
+        "next_review_due": "2026-07-27",
+        "review_status": "stale",
+        "review_stage": "primary_reviewed_second_pending",
+        "reviewer": "external review (web retrieval against official sources)",
+        "second_reviewer": null,
+        "uncertainty": "high",
+        "event_id": null,
+        "freshness": {
+          "as_of": "2026-08-20",
+          "source_last_checked": "2026-06-27",
+          "next_review_due": "2026-07-27",
+          "review_status": "stale",
+          "days_overdue": 24,
+          "sla_days": 30,
+          "source_disposition": "official",
+          "uncertainty": "high"
+        }
       },
       {
         "id": "eu-emt-securities_classification-001",
@@ -110,41 +278,34 @@
         "claim_class": "tier1_legal",
         "evidence_tier": "firm_summary",
         "binding_status": "in_force_enacted",
+        "legal_status": "operative",
         "status": "in_force",
         "instrument": "MiCA, Regulation (EU) 2023/1114; MiFID II (Directive 2014/65/EU)",
         "pinpoint": "Scope — EMT/ART as crypto-assets outside the MiFID II financial-instrument definition",
-        "url": null
+        "url": null,
+        "source_disposition": "unavailable",
+        "source_check_status": "source_unavailable",
+        "source_last_checked": null,
+        "next_review_due": null,
+        "review_status": "unknown",
+        "review_stage": "unreviewed",
+        "reviewer": null,
+        "second_reviewer": null,
+        "uncertainty": "high",
+        "event_id": null,
+        "freshness": {
+          "as_of": "2026-08-20",
+          "source_last_checked": null,
+          "next_review_due": null,
+          "review_status": "unknown",
+          "days_overdue": null,
+          "sla_days": 30,
+          "source_disposition": "unavailable",
+          "uncertainty": "high"
+        }
       }
     ],
-    "citable_cells": [
-      {
-        "id": "eu-emt-monetary_sovereignty-001",
-        "jurisdiction": "EU",
-        "dimension": "monetary_sovereignty",
-        "instrument": "Regulation (EU) 2023/1114 (MiCA), Art. 58(3) (applying the Art. 23 means-of-exchange thresholds to non-EU-currency EMTs)",
-        "pinpoint": "Art. 58(3) (applying Art. 23 mutatis mutandis to non-EU-currency EMTs)",
-        "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj/eng",
-        "last_reviewed": "2026-06-27"
-      },
-      {
-        "id": "eu-emt-permitted_activity_yield-001",
-        "jurisdiction": "EU",
-        "dimension": "permitted_activity_yield",
-        "instrument": "Regulation (EU) 2023/1114 (MiCA), Article 50",
-        "pinpoint": "Art. 50 (no interest paid to EMT holders)",
-        "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj/eng",
-        "last_reviewed": "2026-06-27"
-      },
-      {
-        "id": "eu-emt-regulatory_authority-001",
-        "jurisdiction": "EU",
-        "dimension": "regulatory_authority",
-        "instrument": "Regulation (EU) 2023/1114 (MiCA)",
-        "pinpoint": "Titles III/IV; EBA/ESMA/NCA supervisory architecture",
-        "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj/eng",
-        "last_reviewed": "2026-06-27"
-      }
-    ],
+    "citable_cells": [],
     "outbound_classes_at_base": {
       "US": {
         "class": "II",

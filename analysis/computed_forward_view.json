@@ -1,6 +1,6 @@
 {
   "schema": "cbsr-analysis/computed_forward_view",
-  "version": "v0.10.1",
+  "version": "v0.11.0",
   "generated": "2026-07-09T00:00:00Z",
   "as_of_base": "2026-06-30",
   "method": "Per-jurisdiction re-sort of the trigger register (Atlas §4.4). For each jurisdiction it lists its own pending events (flagged class-moving vs accessibility-only), the inbound and outbound directed edges that change feasibility class under the pending set (each attributed to the trigger causing it), and the counterpart jurisdictions on the other end ranked by exposure. Movements are read from computed_corridor_states.json; events from the event calendar. No new facts are asserted.",
@@ -14,7 +14,7 @@
       "analysis/computed_corridor_states.json",
       "analysis/event_calendar.json"
     ],
-    "regenerated": "v0.10.1: forward view re-derived from the register's own frozen forward transition set (analysis/forward_transition_set.json); US carries its own class-moving trigger (us-genius-act-effective, §18 comparability-gate commencement, dated outer cap 2027-01-18) on 8 inbound edges. Self-contained: no frontend dependency."
+    "regenerated": "v0.11.0: forward view re-derived from the register's own frozen forward transition set (analysis/forward_transition_set.json); US carries its own class-moving trigger (us-genius-act-effective, §18 comparability-gate commencement, dated outer cap 2027-01-18) on 8 inbound edges. Self-contained: no frontend dependency."
   },
   "jurisdictions": {
     "US": {

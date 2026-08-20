@@ -1,0 +1,55 @@
+{
+  "as_of": "2026-08-20",
+  "audit_baseline_sha": "c723b9b4ec4dc86d7e13bc79681ba63101feb380",
+  "baseline_metrics": {
+    "agenticfi_scenarios": 10,
+    "current_records": 0,
+    "dossier_minimum_lines": 16,
+    "independent_second_reviews": 0,
+    "mcp_server_lines": 1352,
+    "missing_evidence_tier": 27,
+    "pytest_tests": 21,
+    "records": 152,
+    "source_urls": 100,
+    "targeted_legal_leads": 4
+  },
+  "baseline_source": "user-supplied acceptance audit of the R3 ZIP; Git history is intentionally absent from deployment ZIPs",
+  "current_metrics": {
+    "agenticfi_pilots": 2,
+    "agenticfi_scenarios": 31,
+    "claims": 157,
+    "current_records": 0,
+    "decision_ready_records": 0,
+    "dossiers": 12,
+    "independent_second_reviews": 0,
+    "legal_event_rows": 152,
+    "legal_events_linked": 20,
+    "mcp_server_lines": 53,
+    "receipt_mutations": 13,
+    "records": 152,
+    "research_ledger_rows": 152,
+    "research_manifest_files": 45,
+    "source_urls": 103,
+    "stale_records": 38,
+    "unavailable_sources": 49,
+    "unknown_freshness_records": 114,
+    "unverified_evidence_tiers": 27,
+    "whitepaper_lines": 461
+  },
+  "limitations": [
+    "The historical SHAs cannot be re-resolved from a Git-history-free ZIP.",
+    "Legal currentness and independent review are not reproduced by code execution.",
+    "GitHub and Windows status require external platform evidence."
+  ],
+  "reported_foundation_sha": "e91fdee15a330f3fc2f003994f3816c7ef827226",
+  "reproduction_commands": [
+    "python -m pip install --constraint constraints/dev.txt '.[dev]'",
+    "python -m tools.verify",
+    "python tools/verify_agenticfi_delivery.py",
+    "python tools/verify_research_delivery.py",
+    "python tools/verify_governance_delivery.py",
+    "python tools/verify_delivery.py"
+  ],
+  "schema": "cbsr/baseline-reproduction/v1",
+  "sha_availability_in_zip": "not_applicable_no_git_history"
+}

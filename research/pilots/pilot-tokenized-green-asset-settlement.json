@@ -1,0 +1,600 @@
+{
+  "schema": "cbsr/agenticfi-pilot/v1",
+  "pilot_id": "pilot-tokenized-green-asset-settlement",
+  "title": "Pilot 2 — Tokenized green-asset settlement",
+  "as_of": "2026-08-20",
+  "execution_mode": "offline_deterministic_decision_support",
+  "legal_currentness_claim": false,
+  "fixture_note": "This controlled DvP fixture tests only the stablecoin settlement-policy leg. Green taxonomy, securities-law classification, title transfer and asset eligibility are assumed inputs and remain separate human gates.",
+  "actors": [
+    "Singapore green-bond seller",
+    "EU institutional buyer",
+    "mandated settlement-policy agent",
+    "human legal/compliance approver"
+  ],
+  "jurisdictions": [
+    "SG",
+    "EU"
+  ],
+  "assets": [
+    "USDC",
+    "USDC",
+    "tokenized_green_bond"
+  ],
+  "assumed_facts": [
+    "The delivery asset is a tokenized green bond and the payment asset is USDC.",
+    "Eligibility, green taxonomy and securities-law analysis have not been performed by CBSR.",
+    "A separate atomic-settlement system would act only after all human and external controls pass."
+  ],
+  "decision_path": [
+    "Validate the generic DvP action, stablecoin payment leg and versioned mandate.",
+    "Check Singapore-to-EU route, USDC asset, counterparty, amount and validity interval.",
+    "Evaluate only explicit stablecoin issuer-pathway fixtures; do not infer green-asset legality.",
+    "Require KYC and human review because 250,000 exceeds the 100,000 threshold.",
+    "Emit allow_with_conditions with assumptions, obligations, sources and an unsigned replayable receipt."
+  ],
+  "human_review_trigger": "The amount exceeds 100,000 and the underlying tokenized security is outside CBSR's stablecoin domain pack.",
+  "limitations": [
+    "CBSR does not determine whether the token is a security, whether the bond is green, or whether title transfers.",
+    "The current/reconciled state is a controlled test fixture and does not update the legal register.",
+    "Atomicity, custody, settlement finality, oracle and smart-contract risks are outside the decision receipt."
+  ],
+  "failure_cases": [
+    "Unknown asset classification or missing securities-law evidence requires legal review.",
+    "Failed KYC/sanctions, disallowed route or expired mandate prevents progression.",
+    "No human approval, stale stablecoin evidence or receipt-integrity failure blocks settlement."
+  ],
+  "action": {
+    "schema": "cbsr/policy-action/v1",
+    "action_id": "pilot-sg-eu-green-dvp-001",
+    "origin": "SG",
+    "destination": "EU",
+    "asset": "USDC",
+    "amount": "250000",
+    "actor": "agent:pilot-runner",
+    "counterparty": "pilot-counterparty",
+    "requires_kyc": true,
+    "as_of": "2026-08-20",
+    "requested_at": "2026-08-20T10:00:00Z",
+    "action": "tokenized_green_asset_delivery_versus_payment",
+    "authority": [
+      "pilot-mandate-sg-eu-green"
+    ],
+    "modality": "request",
+    "conditions": [
+      "subject_to_policy_evaluation"
+    ],
+    "obligations": [
+      "preserve_decision_receipt",
+      "obtain_required_human_approval"
+    ],
+    "exceptions": [],
+    "evidence": [],
+    "uncertainty": "high",
+    "domain_context": {
+      "settlement_asset": "USDC",
+      "underlying_asset": "tokenized_green_bond"
+    },
+    "mandate": {
+      "schema": "cbsr/policy-mandate/v1",
+      "mandate_id": "pilot-mandate-sg-eu-green",
+      "version": "1.0",
+      "issued_by": "pilot:policy-owner",
+      "active": true,
+      "revoked": false,
+      "valid_from": "2026-01-01",
+      "valid_until": "2027-01-01",
+      "max_amount": "1000000",
+      "assets": [
+        "USDC"
+      ],
+      "jurisdictions": [
+        "SG",
+        "EU"
+      ],
+      "prohibited_jurisdictions": [],
+      "counterparties": [
+        "pilot-counterparty"
+      ],
+      "human_review": {
+        "required": false,
+        "amount_threshold": "100000"
+      },
+      "audit_identity": {
+        "subject_id": "agent:pilot-runner",
+        "actor_type": "agent",
+        "principal_id": "human:pilot-owner",
+        "session_id": "pilot-replay-2026-08-20",
+        "authentication_context": [
+          "controlled_fixture",
+          "deterministic_replay"
+        ]
+      }
+    }
+  },
+  "evidence": [
+    {
+      "id": "sg-scs-issuer_pathway-001",
+      "jurisdiction": "SG",
+      "authority": "MAS",
+      "instrument_type": "fiat_referenced_stablecoin",
+      "instrument_label_local": "single-currency stablecoin (SCS)",
+      "dimension": "issuer_pathway",
+      "constraint_ref": "C1",
+      "requirement_summary": "The MAS Single-Currency Stablecoin (SCS) framework applies only to stablecoins pegged to the Singapore Dollar or any G10 currency and issued in Singapore; tokens pegged to other assets or issued offshore stay under the general Digital Payment Token regime and may not use the 'MAS-regulated stablecoin' label. Non-bank SCS issuers with circulation above S$5 million must hold a Major Payment Institution (MPI) licence; those below are exempt from the framework but cannot use the label. Banks are exempt from the PSA licence requirement and may issue under their banking framework. Issuers must be incorporated in Singapore.",
+      "requirement_structured": {
+        "peg_scope": "SGD or any G10 currency, issued in Singapore",
+        "mpi_threshold": "circulation > S$5,000,000 requires MPI licence",
+        "below_threshold": "exempt but no 'MAS-regulated' label",
+        "banks": "exempt from PSA licence",
+        "incorporation": "must be incorporated in Singapore"
+      },
+      "status": "transitional",
+      "effective_date": "2023-08-15",
+      "source": {
+        "primary": "Payment Services Act 2019 (PSA, amended 2022); MAS Single-Currency Stablecoin Regulatory Framework (finalised 15 Aug 2023)",
+        "pinpoint": "SCS framework — peg scope (SGD/G10, Singapore-issued); MPI licence > S$5m; Singapore incorporation",
+        "url": ""
+      },
+      "secondary": [
+        {
+          "citation": "Fan, Compliance Matrix v0.9.3 (18 May 2026), pp.18-19 (Singapore — Issuer Pathways and Eligibility)"
+        }
+      ],
+      "interpretation_note": "Provenance: transcribed from author's Compliance Matrix v0.9.3; pending primary-source verification (source.url to be filled). The S$5m threshold creates an opt-in regime for small issuers; the MPI + incorporation rules confine the framework to bank-led or institutional issuers in practice.\n\n[v0.9.5 verification] The SCS issuer scope is finalized-policy-pending, BUT the operative DPT licensing pathway under the PS Act 2019 is in force (status left transitional, NOT proposed — SG is a live regime, not pre-regime).",
+      "confidence": "medium",
+      "claim_class": "tier1_legal",
+      "last_reviewed": "2026-06-17",
+      "version_added": "0.3.0",
+      "tags": [
+        "apac",
+        "focus",
+        "from_matrix_v0.9.3",
+        "v0.3.0_backfill",
+        "v0.7.0_claim_class",
+        "v0.9.5_verification",
+        "binding_finalized_policy_pending"
+      ],
+      "binding_status": "finalized_policy_pending",
+      "evidence_tier": "unverified",
+      "source_last_checked": "2026-08-20",
+      "next_review_due": "2026-09-19",
+      "review_status": "current",
+      "reviewer": "controlled-fixture-primary",
+      "second_reviewer": "controlled-fixture-independent",
+      "review_stage": "reconciled",
+      "reconciliation_status": "not_started",
+      "review_disagreement": null,
+      "source_disposition": "unavailable",
+      "source_check_status": "source_unavailable",
+      "effective_from": "2023-08-15",
+      "effective_until": null,
+      "event_id": "sg-scs-legislation-enacted",
+      "legal_status": "finalized_policy_pending",
+      "uncertainty": "high",
+      "freshness": {
+        "as_of": "2026-08-20",
+        "source_last_checked": "2026-08-20",
+        "next_review_due": "2026-09-19",
+        "review_status": "current",
+        "days_overdue": null,
+        "sla_days": 14,
+        "source_disposition": "unavailable",
+        "uncertainty": "high"
+      }
+    },
+    {
+      "id": "eu-emt-issuer_pathway-001",
+      "jurisdiction": "EU",
+      "authority": "EBA/ESMA; national competent authorities",
+      "instrument_type": "e_money_token",
+      "dimension": "issuer_pathway",
+      "constraint_ref": "C1",
+      "requirement_summary": "Issuance of an e-money token is restricted to entities authorized as credit institutions or electronic money institutions; no other entity may issue. An authorizable private token exists.",
+      "requirement_structured": {
+        "permitted_issuers": [
+          "credit institution",
+          "electronic money institution"
+        ],
+        "exportable_token": true
+      },
+      "status": "in_force",
+      "effective_date": null,
+      "source": {
+        "primary": "Markets in Crypto-Assets Regulation (MiCA), Regulation (EU) 2023/1114",
+        "pinpoint": "Title IV — EMT issuance restricted to authorized credit institutions or e-money institutions"
+      },
+      "interpretation_note": "Authored in v0.9.2 to fill the EU.C1 constraint cell for the substrate sweep.",
+      "confidence": "high",
+      "claim_class": "tier1_legal",
+      "evidence_tier": "firm_summary",
+      "last_reviewed": "2026-06-27",
+      "version_added": "0.9.2",
+      "tags": [
+        "v0.9.2_cell_sweep",
+        "eu",
+        "issuer_pathway",
+        "binding_in_force_enacted"
+      ],
+      "binding_status": "in_force_enacted",
+      "source_last_checked": "2026-08-20",
+      "next_review_due": "2026-09-19",
+      "review_status": "current",
+      "reviewer": "controlled-fixture-primary",
+      "second_reviewer": "controlled-fixture-independent",
+      "review_stage": "reconciled",
+      "reconciliation_status": "not_started",
+      "review_disagreement": null,
+      "source_disposition": "unavailable",
+      "source_check_status": "source_unavailable",
+      "effective_from": null,
+      "effective_until": null,
+      "event_id": null,
+      "legal_status": "operative",
+      "uncertainty": "high",
+      "freshness": {
+        "as_of": "2026-08-20",
+        "source_last_checked": "2026-08-20",
+        "next_review_due": "2026-09-19",
+        "review_status": "current",
+        "days_overdue": null,
+        "sla_days": 30,
+        "source_disposition": "unavailable",
+        "uncertainty": "high"
+      }
+    }
+  ],
+  "decision": {
+    "outcome": "review_required",
+    "reasons": [
+      "non_final_transitional_or_superseded_rule",
+      "rule_not_operative"
+    ],
+    "evidence_ids": [
+      "eu-emt-issuer_pathway-001",
+      "sg-scs-issuer_pathway-001"
+    ],
+    "rule_ids": [
+      "cbsr.rule.eu-emt-issuer_pathway-001",
+      "cbsr.rule.sg-scs-issuer_pathway-001"
+    ],
+    "source_urls": [],
+    "applicable_rules": [
+      {
+        "rule_id": "cbsr.rule.eu-emt-issuer_pathway-001",
+        "record_id": "eu-emt-issuer_pathway-001",
+        "jurisdiction": "EU",
+        "dimension": "issuer_pathway",
+        "source_url": null,
+        "source_disposition": "unavailable",
+        "source_last_checked": "2026-08-20",
+        "next_review_due": "2026-09-19",
+        "binding_status": "in_force_enacted",
+        "legal_status": "operative",
+        "review_status": "current",
+        "review_stage": "reconciled",
+        "evidence_tier": "firm_summary",
+        "uncertainty": "high"
+      },
+      {
+        "rule_id": "cbsr.rule.sg-scs-issuer_pathway-001",
+        "record_id": "sg-scs-issuer_pathway-001",
+        "jurisdiction": "SG",
+        "dimension": "issuer_pathway",
+        "source_url": null,
+        "source_disposition": "unavailable",
+        "source_last_checked": "2026-08-20",
+        "next_review_due": "2026-09-19",
+        "binding_status": "finalized_policy_pending",
+        "legal_status": "finalized_policy_pending",
+        "review_status": "current",
+        "review_stage": "reconciled",
+        "evidence_tier": "unverified",
+        "uncertainty": "high"
+      }
+    ],
+    "freshness_snapshot": {
+      "as_of": "2026-08-20",
+      "current": 2,
+      "due_for_review": 0,
+      "stale": 0,
+      "unknown": 0,
+      "source_last_checked": [
+        "2026-08-20"
+      ],
+      "next_review_due": [
+        "2026-09-19"
+      ]
+    },
+    "uncertainty": "high",
+    "mandate_id": "pilot-mandate-sg-eu-green",
+    "mandate_version": "1.0",
+    "assumptions": [
+      "audit_identity_is_asserted_not_authenticated_by_cbsr",
+      "evaluation_as_of:2026-08-20",
+      "offline_committed_snapshot"
+    ],
+    "obligations": [
+      "verify_applicable_aml_kyc_and_sanctions_controls",
+      "verify_cross_border_data_transfer_basis",
+      "verify_distribution_and_offering_permissions",
+      "verify_issuer_and_intermediary_authorizations",
+      "verify_redemption_rights_timing_and_par_value",
+      "verify_reserve_composition_custody_and_attestation"
+    ],
+    "conditions": [
+      "complete_kyc_before_execution",
+      "obtain_human_approval"
+    ],
+    "conflict_details": [],
+    "engine_version": "cbsr-policy-engine/1.1.0",
+    "ruleset_version": "cbsr-stablecoin-rules/1.1.0",
+    "evaluated_at": "2026-08-20T00:00:00Z",
+    "requested_as_of": "2026-08-20",
+    "non_legal_advice_notice": "CBSR provides deterministic research decision support, not legal advice, transaction approval or execution authority.",
+    "schema": "cbsr/policy-decision/v1",
+    "deterministic": true,
+    "execution_authorized": false
+  },
+  "receipt": {
+    "schema": "cbsr/decision-receipt/v1",
+    "dataset_version": "0.11.0",
+    "receipt_id": "cbsr-receipt-9a18472655a434afa9990528",
+    "generated_at": "2026-08-20T10:00:00Z",
+    "requested_as_of": "2026-08-20",
+    "non_legal_advice_notice": "CBSR provides deterministic research decision support, not legal advice, transaction approval or execution authority.",
+    "action": {
+      "schema": "cbsr/policy-action/v1",
+      "action_id": "pilot-sg-eu-green-dvp-001",
+      "origin": "SG",
+      "destination": "EU",
+      "asset": "USDC",
+      "amount": "250000",
+      "actor": "agent:pilot-runner",
+      "counterparty": "pilot-counterparty",
+      "requires_kyc": true,
+      "as_of": "2026-08-20",
+      "requested_at": "2026-08-20T10:00:00Z",
+      "action": "tokenized_green_asset_delivery_versus_payment",
+      "authority": [
+        "pilot-mandate-sg-eu-green"
+      ],
+      "modality": "request",
+      "conditions": [
+        "subject_to_policy_evaluation"
+      ],
+      "obligations": [
+        "preserve_decision_receipt",
+        "obtain_required_human_approval"
+      ],
+      "exceptions": [],
+      "evidence": [],
+      "uncertainty": "high",
+      "domain_context": {
+        "settlement_asset": "USDC",
+        "underlying_asset": "tokenized_green_bond"
+      },
+      "mandate": {
+        "schema": "cbsr/policy-mandate/v1",
+        "mandate_id": "pilot-mandate-sg-eu-green",
+        "version": "1.0",
+        "issued_by": "pilot:policy-owner",
+        "active": true,
+        "revoked": false,
+        "valid_from": "2026-01-01",
+        "valid_until": "2027-01-01",
+        "max_amount": "1000000",
+        "assets": [
+          "USDC"
+        ],
+        "jurisdictions": [
+          "SG",
+          "EU"
+        ],
+        "prohibited_jurisdictions": [],
+        "counterparties": [
+          "pilot-counterparty"
+        ],
+        "human_review": {
+          "required": false,
+          "amount_threshold": "100000"
+        },
+        "audit_identity": {
+          "subject_id": "agent:pilot-runner",
+          "actor_type": "agent",
+          "principal_id": "human:pilot-owner",
+          "session_id": "pilot-replay-2026-08-20",
+          "authentication_context": [
+            "controlled_fixture",
+            "deterministic_replay"
+          ]
+        }
+      }
+    },
+    "decision": {
+      "outcome": "review_required",
+      "reasons": [
+        "non_final_transitional_or_superseded_rule",
+        "rule_not_operative"
+      ],
+      "evidence_ids": [
+        "eu-emt-issuer_pathway-001",
+        "sg-scs-issuer_pathway-001"
+      ],
+      "rule_ids": [
+        "cbsr.rule.eu-emt-issuer_pathway-001",
+        "cbsr.rule.sg-scs-issuer_pathway-001"
+      ],
+      "source_urls": [],
+      "applicable_rules": [
+        {
+          "rule_id": "cbsr.rule.eu-emt-issuer_pathway-001",
+          "record_id": "eu-emt-issuer_pathway-001",
+          "jurisdiction": "EU",
+          "dimension": "issuer_pathway",
+          "source_url": null,
+          "source_disposition": "unavailable",
+          "source_last_checked": "2026-08-20",
+          "next_review_due": "2026-09-19",
+          "binding_status": "in_force_enacted",
+          "legal_status": "operative",
+          "review_status": "current",
+          "review_stage": "reconciled",
+          "evidence_tier": "firm_summary",
+          "uncertainty": "high"
+        },
+        {
+          "rule_id": "cbsr.rule.sg-scs-issuer_pathway-001",
+          "record_id": "sg-scs-issuer_pathway-001",
+          "jurisdiction": "SG",
+          "dimension": "issuer_pathway",
+          "source_url": null,
+          "source_disposition": "unavailable",
+          "source_last_checked": "2026-08-20",
+          "next_review_due": "2026-09-19",
+          "binding_status": "finalized_policy_pending",
+          "legal_status": "finalized_policy_pending",
+          "review_status": "current",
+          "review_stage": "reconciled",
+          "evidence_tier": "unverified",
+          "uncertainty": "high"
+        }
+      ],
+      "freshness_snapshot": {
+        "as_of": "2026-08-20",
+        "current": 2,
+        "due_for_review": 0,
+        "stale": 0,
+        "unknown": 0,
+        "source_last_checked": [
+          "2026-08-20"
+        ],
+        "next_review_due": [
+          "2026-09-19"
+        ]
+      },
+      "uncertainty": "high",
+      "mandate_id": "pilot-mandate-sg-eu-green",
+      "mandate_version": "1.0",
+      "assumptions": [
+        "audit_identity_is_asserted_not_authenticated_by_cbsr",
+        "evaluation_as_of:2026-08-20",
+        "offline_committed_snapshot"
+      ],
+      "obligations": [
+        "verify_applicable_aml_kyc_and_sanctions_controls",
+        "verify_cross_border_data_transfer_basis",
+        "verify_distribution_and_offering_permissions",
+        "verify_issuer_and_intermediary_authorizations",
+        "verify_redemption_rights_timing_and_par_value",
+        "verify_reserve_composition_custody_and_attestation"
+      ],
+      "conditions": [
+        "complete_kyc_before_execution",
+        "obtain_human_approval"
+      ],
+      "conflict_details": [],
+      "engine_version": "cbsr-policy-engine/1.1.0",
+      "ruleset_version": "cbsr-stablecoin-rules/1.1.0",
+      "evaluated_at": "2026-08-20T00:00:00Z",
+      "requested_as_of": "2026-08-20",
+      "non_legal_advice_notice": "CBSR provides deterministic research decision support, not legal advice, transaction approval or execution authority.",
+      "schema": "cbsr/policy-decision/v1",
+      "deterministic": true,
+      "execution_authorized": false
+    },
+    "applicable_rules": [
+      {
+        "rule_id": "cbsr.rule.eu-emt-issuer_pathway-001",
+        "record_id": "eu-emt-issuer_pathway-001",
+        "jurisdiction": "EU",
+        "dimension": "issuer_pathway",
+        "source_url": null,
+        "source_disposition": "unavailable",
+        "source_last_checked": "2026-08-20",
+        "next_review_due": "2026-09-19",
+        "binding_status": "in_force_enacted",
+        "legal_status": "operative",
+        "review_status": "current",
+        "review_stage": "reconciled",
+        "evidence_tier": "firm_summary",
+        "uncertainty": "high"
+      },
+      {
+        "rule_id": "cbsr.rule.sg-scs-issuer_pathway-001",
+        "record_id": "sg-scs-issuer_pathway-001",
+        "jurisdiction": "SG",
+        "dimension": "issuer_pathway",
+        "source_url": null,
+        "source_disposition": "unavailable",
+        "source_last_checked": "2026-08-20",
+        "next_review_due": "2026-09-19",
+        "binding_status": "finalized_policy_pending",
+        "legal_status": "finalized_policy_pending",
+        "review_status": "current",
+        "review_stage": "reconciled",
+        "evidence_tier": "unverified",
+        "uncertainty": "high"
+      }
+    ],
+    "source_urls": [],
+    "freshness_snapshot": {
+      "as_of": "2026-08-20",
+      "current": 2,
+      "due_for_review": 0,
+      "stale": 0,
+      "unknown": 0,
+      "source_last_checked": [
+        "2026-08-20"
+      ],
+      "next_review_due": [
+        "2026-09-19"
+      ]
+    },
+    "assumptions": [
+      "audit_identity_is_asserted_not_authenticated_by_cbsr",
+      "evaluation_as_of:2026-08-20",
+      "offline_committed_snapshot"
+    ],
+    "uncertainty": "high",
+    "mandate": {
+      "mandate_id": "pilot-mandate-sg-eu-green",
+      "version": "1.0",
+      "issued_by": "pilot:policy-owner"
+    },
+    "audit_identity": {
+      "subject_id": "agent:pilot-runner",
+      "actor_type": "agent",
+      "principal_id": "human:pilot-owner",
+      "session_id": "pilot-replay-2026-08-20",
+      "authentication_context": [
+        "controlled_fixture",
+        "deterministic_replay"
+      ]
+    },
+    "engine_version": "cbsr-policy-engine/1.1.0",
+    "ruleset_version": "cbsr-stablecoin-rules/1.1.0",
+    "component_digests": {
+      "action_sha256": "4dc982a1daa13194794d6c23d935c5b6bb88e2a03d605be4f9b627d792dd2d5e",
+      "decision_sha256": "41734b0a885051fcc21029e301cb9909a801d5df1d70f5762eb449253998e35e"
+    },
+    "signing_state": "unsigned",
+    "execution_authorized": false,
+    "sha256": "5426ba7c9cadd9f8b96dfb51bbbeb9e113a7882e8e9bf07cd268072cfb9242a4"
+  },
+  "verification": {
+    "valid": true,
+    "receipt_hash_valid": true,
+    "action_hash_valid": true,
+    "decision_hash_valid": true,
+    "supplied_sha256": "5426ba7c9cadd9f8b96dfb51bbbeb9e113a7882e8e9bf07cd268072cfb9242a4",
+    "computed_sha256": "5426ba7c9cadd9f8b96dfb51bbbeb9e113a7882e8e9bf07cd268072cfb9242a4",
+    "signing_state": "unsigned",
+    "warning": "Integrity only; this receipt is not digitally signed and proves no author identity."
+  },
+  "replay": {
+    "decision_identical": true,
+    "receipt_identical": true,
+    "receipt_sha256": "5426ba7c9cadd9f8b96dfb51bbbeb9e113a7882e8e9bf07cd268072cfb9242a4"
+  }
+}

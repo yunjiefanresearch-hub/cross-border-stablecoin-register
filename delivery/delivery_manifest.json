@@ -1,0 +1,209 @@
+{
+  "as_of": "2026-08-20",
+  "external_gates": "delivery/external_gates.json",
+  "file_count": 40,
+  "files": [
+    {
+      "bytes": 2702,
+      "path": "DPG_STANDARD.md",
+      "sha256": "6a23e9d5ccfce67cfa0e5a7b7546f1f68b971a8310b4d991616e173a6a6fed6a"
+    },
+    {
+      "bytes": 17487,
+      "path": "GOVERNANCE.md",
+      "sha256": "2fdbbe0c6f12a046c628ab18fd8dd8be6872cf2785aa8abb246ec0fd9cf40e2f"
+    },
+    {
+      "bytes": 1748,
+      "path": "PRIVACY.md",
+      "sha256": "a333cf60135342d61e446815d1c3a66e8bfe688ecda7cce1a4fe8045891ecaef"
+    },
+    {
+      "bytes": 3892,
+      "path": "SECURITY.md",
+      "sha256": "5084e18137b207162f4ddd9d5826e5c6e887a9b1dee37bea9161b60e71397d97"
+    },
+    {
+      "bytes": 10097,
+      "path": "analysis/dpg_evidence_matrix.json",
+      "sha256": "d93131b654f90908ceb3ad8dfdb1257c37e30cca5e89257e851003bf55f72e35"
+    },
+    {
+      "bytes": 18665,
+      "path": "analysis/dpi_safeguards_mapping.json",
+      "sha256": "0361e92ff681904e0c72aaebd7907f37f889ccd40d90d3c31a6be972bc2606bf"
+    },
+    {
+      "bytes": 4276,
+      "path": "analysis/gdc_mapping.json",
+      "sha256": "dd1b80853aeed1807a4fee0d2c7e82c32788aa850690ac975c5d7350a0de4b8c"
+    },
+    {
+      "bytes": 9085,
+      "path": "analysis/sdg_mapping.json",
+      "sha256": "877ef84adcc6f7dcdb49d90763f2df1becf8da2e34f9d18c7535a414a7a5673c"
+    },
+    {
+      "bytes": 1311,
+      "path": "delivery/BASELINE_REPRODUCTION.md",
+      "sha256": "e8d85840c891ecc2affdafe8549edb6ad8d154d89b9072da88135c8d953adb44"
+    },
+    {
+      "bytes": 1461,
+      "path": "delivery/COMPATIBILITY_MATRIX.md",
+      "sha256": "75b20769fedc45cfb648c002e958f91747874553d7fc141635fe0b7214c4d550"
+    },
+    {
+      "bytes": 1853,
+      "path": "delivery/DECISION_LOG.md",
+      "sha256": "1f7ee9d08a1031317d0bc3e1333958702a6af830734e37597653336d12dccc39"
+    },
+    {
+      "bytes": 2768,
+      "path": "delivery/FINAL_SCORECARD.md",
+      "sha256": "701ec064b8cea2384584d14a54ae622f439aa7b26013ef3a63c885628ffdb172"
+    },
+    {
+      "bytes": 980,
+      "path": "delivery/MIGRATION_NOTES_v0.11.md",
+      "sha256": "ea4149f4d985f4a131087811466b82094afe6cd11c40689ac579a42d07a69d25"
+    },
+    {
+      "bytes": 1547,
+      "path": "delivery/PR_STACK_PLAN.md",
+      "sha256": "d6f3352c62dc98980b725e16749d167537335496b26634bd5b44448d8bbc792f"
+    },
+    {
+      "bytes": 1137,
+      "path": "delivery/REMOTE_GITHUB_RUNBOOK.md",
+      "sha256": "71d17073dc59f2c86b16ce6bbf5e17f62f02c5cbb8d84dc047e56ac064d08537"
+    },
+    {
+      "bytes": 2999,
+      "path": "delivery/RISK_REGISTER.md",
+      "sha256": "78aab989f4bdfefaf5dd8ecab55ee3f47d775c7f173d2dca50ce2ef0be4b7ce2"
+    },
+    {
+      "bytes": 929,
+      "path": "delivery/ROLLBACK_NOTES_v0.11.md",
+      "sha256": "debe2ec7864336044a7fd57345bc3a3c0443ffa6c5af578c88bc30dae6afcbdc"
+    },
+    {
+      "bytes": 1833,
+      "path": "delivery/TRANSFORMATION_LOG.md",
+      "sha256": "5e8396a1d81329d554634657f2f608f2119430177a0a2228b26134be86627a5e"
+    },
+    {
+      "bytes": 1905,
+      "path": "delivery/baseline_reproduction.json",
+      "sha256": "373127c22bc24d2a4ca87e80e42b44cf082fbde47ac327c18da7f819b4914e20"
+    },
+    {
+      "bytes": 1076,
+      "path": "delivery/compatibility_matrix.csv",
+      "sha256": "a3b5434dbacb8b2cf9c4d832d0cdd3f7cd988a507b047cf045a1807180552d24"
+    },
+    {
+      "bytes": 3639,
+      "path": "delivery/decision_log.json",
+      "sha256": "5a8e2e588c2171cfc43807c17a5a38f14a9347c88575980629ae704787a7d3f2"
+    },
+    {
+      "bytes": 1073,
+      "path": "delivery/external_gates.json",
+      "sha256": "c71a9384acf2390af8ce414c368ae44ecc67c9f1b63cae933767680cabfd9aa1"
+    },
+    {
+      "bytes": 4415,
+      "path": "delivery/final_scorecard.json",
+      "sha256": "7eb630f220112919d4e55a5f2f1b0e98bfa6f6bbfcc16b8c5f315bafbaf6078b"
+    },
+    {
+      "bytes": 6107,
+      "path": "delivery/risk_register.json",
+      "sha256": "4fa25f47d29e983649b1db6945088bd39ce08798f2497c1b8899f11b878af2b7"
+    },
+    {
+      "bytes": 2862,
+      "path": "docs/delivery/AGENTICFI_EVALUATION_REPORT.md",
+      "sha256": "0b535108c2c84dd73f54e92cc151432e59fcad66e57a31552f9d998d4e56abb7"
+    },
+    {
+      "bytes": 1311,
+      "path": "docs/delivery/BASELINE_REPRODUCTION.md",
+      "sha256": "e8d85840c891ecc2affdafe8549edb6ad8d154d89b9072da88135c8d953adb44"
+    },
+    {
+      "bytes": 2768,
+      "path": "docs/delivery/CBSR_V0_11_SCORECARD.md",
+      "sha256": "701ec064b8cea2384584d14a54ae622f439aa7b26013ef3a63c885628ffdb172"
+    },
+    {
+      "bytes": 3274,
+      "path": "docs/delivery/CBSR_V0_11_TRANSFORMATION_LOG.md",
+      "sha256": "1689c93bdd976510e9b704f71fa50313b5825ab8d2d222639636b5f8f0b7f017"
+    },
+    {
+      "bytes": 542,
+      "path": "docs/delivery/CLAIMS_LEDGER.md",
+      "sha256": "71593e3a1c3890b7be40280db516989fb5bb4150c898e66d83baaef6613f0818"
+    },
+    {
+      "bytes": 1461,
+      "path": "docs/delivery/COMPATIBILITY_MATRIX.md",
+      "sha256": "75b20769fedc45cfb648c002e958f91747874553d7fc141635fe0b7214c4d550"
+    },
+    {
+      "bytes": 1853,
+      "path": "docs/delivery/DECISION_LOG.md",
+      "sha256": "1f7ee9d08a1031317d0bc3e1333958702a6af830734e37597653336d12dccc39"
+    },
+    {
+      "bytes": 971,
+      "path": "docs/delivery/RELEASE_NOTES_v0.11.0_DRAFT.md",
+      "sha256": "753d1519cd50cafeeaae23de66af2dbf0dba142409333913d4470a179cee5c4e"
+    },
+    {
+      "bytes": 2999,
+      "path": "docs/delivery/RISK_REGISTER.md",
+      "sha256": "78aab989f4bdfefaf5dd8ecab55ee3f47d775c7f173d2dca50ce2ef0be4b7ce2"
+    },
+    {
+      "bytes": 981,
+      "path": "docs/governance/ARCHIVAL_AND_PERSISTENT_IDENTIFIERS.md",
+      "sha256": "f21c7e3fb06aa3132a6c73c9a50a7cf960d5f37240095eebf6d175724cff0a0b"
+    },
+    {
+      "bytes": 1275,
+      "path": "docs/governance/DPG_SUBMISSION_READINESS.md",
+      "sha256": "95f6481401df5b12372304df0f64efcf3d32de67d5bd0104df2c37ce2435959c"
+    },
+    {
+      "bytes": 887,
+      "path": "docs/governance/FAIR_METADATA_AND_VERSIONING.md",
+      "sha256": "5d25ca3625c82102319e0333e1589f10502471ee29bbcd931f565d91ef5ecd97"
+    },
+    {
+      "bytes": 1100,
+      "path": "docs/governance/OPENSSF_READINESS.md",
+      "sha256": "2979d9c3f70fae9cadd025659bcf1cdc03b46e634f3b0404d06c69155b7513cc"
+    },
+    {
+      "bytes": 50823,
+      "path": "docs/whitepaper/CBSR_AGENTICFI_POLICY_INFRASTRUCTURE.md",
+      "sha256": "9e237e94ed96a20ee204f92b977441a69e158f52eece52226c059897a488aee2"
+    },
+    {
+      "bytes": 4686,
+      "path": "research/agenticfi_evaluation.json",
+      "sha256": "a04209e04c144ebea740dc0148f775924b89587545bbc8041c7632722e7c04a9"
+    },
+    {
+      "bytes": 8080,
+      "path": "research/research_manifest.json",
+      "sha256": "3c956c993b1bc6e4a6f4aa98423ccee88e0a83e66697e813dfc41688fa973d88"
+    }
+  ],
+  "package_evidence": "generated after delivery validation by python -m tools.verify",
+  "schema": "cbsr/delivery-manifest/v1"
+}

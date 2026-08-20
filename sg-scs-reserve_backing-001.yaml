@@ -54,3 +54,20 @@ verification:
       pending legislation)
     url: https://www.mas.gov.sg/news/media-releases/2023/mas-finalises-stablecoin-regulatory-framework
     pinpoint: 'SCS framework: 100% reserve in low-risk assets'
+
+# CBSR v0.11 review/temporal metadata (mechanically migrated; null means not evidenced)
+source_last_checked: '2026-06-27'
+next_review_due: '2026-07-11'
+review_status: stale
+reviewer: external review (web retrieval against official sources)
+second_reviewer: null
+review_stage: primary_reviewed_second_pending
+reconciliation_status: not_started
+review_disagreement: null
+source_disposition: official
+source_check_status: checked
+effective_from: '2023-08-15'
+effective_until: null
+event_id: sg-scs-legislation-enacted
+legal_status: finalized_policy_pending
+uncertainty: high

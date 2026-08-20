@@ -1,0 +1,179 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:2b11306d-ec40-5d68-b049-cbsr00001100",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-08-20T00:00:00Z",
+    "component": {
+      "type": "application",
+      "name": "cbsr-mcp",
+      "version": "0.11.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "build",
+      "version": "1.5.0",
+      "purl": "pkg:pypi/build@1.5.0",
+      "properties": [
+        {
+          "name": "cbsr:declared-requirement",
+          "value": "build>=1,<2"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "hatchling",
+      "version": "1.32.0",
+      "purl": "pkg:pypi/hatchling@1.32.0",
+      "properties": [
+        {
+          "name": "cbsr:declared-requirement",
+          "value": "hatchling>=1,<2"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "jsonschema",
+      "version": "4.26.0",
+      "purl": "pkg:pypi/jsonschema@4.26.0",
+      "properties": [
+        {
+          "name": "cbsr:declared-requirement",
+          "value": "jsonschema>=4.21,<5"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "mcp",
+      "version": "1.29.0",
+      "purl": "pkg:pypi/mcp@1.29.0",
+      "properties": [
+        {
+          "name": "cbsr:declared-requirement",
+          "value": "mcp>=1.29,<1.30"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "packaging",
+      "version": "26.3",
+      "purl": "pkg:pypi/packaging@26.3",
+      "properties": [
+        {
+          "name": "cbsr:declared-requirement",
+          "value": "packaging>=24,<27"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "pip-audit",
+      "version": "2.10.1",
+      "purl": "pkg:pypi/pip-audit@2.10.1",
+      "properties": [
+        {
+          "name": "cbsr:declared-requirement",
+          "value": "pip-audit>=2.10,<2.11"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "pydantic-settings",
+      "version": "2.14.2",
+      "purl": "pkg:pypi/pydantic-settings@2.14.2",
+      "properties": [
+        {
+          "name": "cbsr:declared-requirement",
+          "value": "pydantic-settings>=2.14.2,<2.15"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "pydantic",
+      "version": "2.12.5",
+      "purl": "pkg:pypi/pydantic@2.12.5",
+      "properties": [
+        {
+          "name": "cbsr:declared-requirement",
+          "value": "pydantic>=2.12,<2.13"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "pypdf",
+      "version": "6.10.0",
+      "purl": "pkg:pypi/pypdf@6.10.0",
+      "properties": [
+        {
+          "name": "cbsr:declared-requirement",
+          "value": "pypdf>=6.10,<6.11"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "pytest",
+      "version": "8.4.2",
+      "purl": "pkg:pypi/pytest@8.4.2",
+      "properties": [
+        {
+          "name": "cbsr:declared-requirement",
+          "value": "pytest>=8,<9"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "PyYAML",
+      "version": "6.0.3",
+      "purl": "pkg:pypi/pyyaml@6.0.3",
+      "properties": [
+        {
+          "name": "cbsr:declared-requirement",
+          "value": "PyYAML>=6,<7"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "reportlab",
+      "version": "4.4.9",
+      "purl": "pkg:pypi/reportlab@4.4.9",
+      "properties": [
+        {
+          "name": "cbsr:declared-requirement",
+          "value": "reportlab>=4.4,<4.5"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "tomli",
+      "version": "2.4.1",
+      "purl": "pkg:pypi/tomli@2.4.1",
+      "properties": [
+        {
+          "name": "cbsr:declared-requirement",
+          "value": "tomli>=2,<3; python_version<'3.11'"
+        }
+      ]
+    }
+  ]
+}

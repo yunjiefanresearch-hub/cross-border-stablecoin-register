@@ -1,7 +1,7 @@
 {
   "schema": "cbsr-analysis/computed_corridor_states",
   "version": "v0.10.0",
-  "generated": "2026-07-15",
+  "generated": "2026-08-20",
   "as_of_base": "2026-06-30",
   "jurisdictions": [
     "US",

@@ -1,0 +1,106 @@
+{
+  "as_of": "2026-08-20",
+  "assessment_type": "design alignment self-assessment; no UN endorsement",
+  "mappings": [
+    {
+      "commitment": "Anchor digital cooperation in international law and human rights",
+      "commitment_id": "human-rights",
+      "evidence_files": [
+        "PRIVACY.md",
+        "CODE_OF_CONDUCT.md"
+      ],
+      "external_determination": false,
+      "limitations": "A deployment-specific human-rights impact assessment is not complete.",
+      "official_reference": "https://www.un.org/pact-for-the-future/en/annex-i-global-digital-compact",
+      "owner_role": "maintainer",
+      "reviewed_date": "2026-08-20",
+      "status": "Partial",
+      "target_date": "before-v0.11.0-release",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "commitment": "Close digital divides and advance an inclusive digital economy",
+      "commitment_id": "digital-inclusion",
+      "evidence_files": [
+        "README.md",
+        "DPG_STANDARD.md"
+      ],
+      "external_determination": false,
+      "limitations": "Accessibility and user outcome testing remain pending.",
+      "official_reference": "https://www.un.org/pact-for-the-future/en/annex-i-global-digital-compact",
+      "owner_role": "maintainer",
+      "reviewed_date": "2026-08-20",
+      "status": "Partial",
+      "target_date": "before-v0.11.0-release",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "commitment": "Advance responsible, equitable and interoperable data governance",
+      "commitment_id": "data-governance",
+      "evidence_files": [
+        "record.schema.json",
+        "PRIVACY.md",
+        "research/research_manifest.json"
+      ],
+      "external_determination": false,
+      "limitations": "No external governance assessment has been completed.",
+      "official_reference": "https://www.un.org/pact-for-the-future/en/annex-i-global-digital-compact",
+      "owner_role": "maintainer",
+      "reviewed_date": "2026-08-20",
+      "status": "Partial",
+      "target_date": "before-v0.11.0-release",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "commitment": "Advance a safe and secure digital space",
+      "commitment_id": "safe-secure",
+      "evidence_files": [
+        "SECURITY.md",
+        "docs/security/THREAT_MODEL.md",
+        ".github/workflows/security.yml"
+      ],
+      "external_determination": false,
+      "limitations": "Independent security review and remote workflow evidence remain pending.",
+      "official_reference": "https://www.un.org/pact-for-the-future/en/annex-i-global-digital-compact",
+      "owner_role": "maintainer",
+      "reviewed_date": "2026-08-20",
+      "status": "Partial",
+      "target_date": "before-v0.11.0-release",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "commitment": "Develop safe, inclusive and interoperable digital public infrastructure",
+      "commitment_id": "digital-public-infrastructure",
+      "evidence_files": [
+        "analysis/dpi_safeguards_mapping.json",
+        "schemas/domain-pack.v1.schema.json"
+      ],
+      "external_determination": false,
+      "limitations": "CBSR is a policy-data component, not a national DPI deployment.",
+      "official_reference": "https://www.un.org/pact-for-the-future/en/annex-i-global-digital-compact",
+      "owner_role": "maintainer",
+      "reviewed_date": "2026-08-20",
+      "status": "Partial",
+      "target_date": "before-v0.11.0-release",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "commitment": "Promote transparency, accountability and human oversight",
+      "commitment_id": "accountability",
+      "evidence_files": [
+        "GOVERNANCE.md",
+        "src/cbsr_mcp/receipts.py",
+        "research/agenticfi_evaluation.json"
+      ],
+      "external_determination": false,
+      "limitations": "Receipts are unsigned and never authorize execution.",
+      "official_reference": "https://www.un.org/pact-for-the-future/en/annex-i-global-digital-compact",
+      "owner_role": "maintainer",
+      "reviewed_date": "2026-08-20",
+      "status": "Partial",
+      "target_date": "before-v0.11.0-release",
+      "verification_command": "python -m tools.verify"
+    }
+  ],
+  "schema": "cbsr/gdc-alignment/v1"
+}

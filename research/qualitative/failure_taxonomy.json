@@ -1,0 +1,41 @@
+{
+  "schema": "cbsr/failure-taxonomy/v1",
+  "failures": [
+    {
+      "failure_id": "F1",
+      "failure": "source_acquisition_gap",
+      "threat": "unsupported or secondary-only legal claim",
+      "control": "official-source disposition and fail-closed decision gate"
+    },
+    {
+      "failure_id": "F2",
+      "failure": "freshness_unknown_or_stale",
+      "threat": "obsolete legal state",
+      "control": "SLA, next-review date and currentness gate"
+    },
+    {
+      "failure_id": "F3",
+      "failure": "independent_review_gap",
+      "threat": "single-reviewer interpretation bias",
+      "control": "blind second review and reconciliation"
+    },
+    {
+      "failure_id": "F4",
+      "failure": "event_model_gap",
+      "threat": "missed commencement or supersession",
+      "control": "typed legal-event ontology"
+    },
+    {
+      "failure_id": "F5",
+      "failure": "receipt_tampering",
+      "threat": "post-decision evidence substitution",
+      "control": "canonical component and receipt digests"
+    },
+    {
+      "failure_id": "F6",
+      "failure": "mandate_overreach",
+      "threat": "agent acts beyond authority",
+      "control": "versioned mandate, jurisdiction/time/amount and human-review gates"
+    }
+  ]
+}

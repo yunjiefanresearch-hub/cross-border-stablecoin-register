@@ -1,0 +1,42 @@
+name: Data source request
+description: Propose an official source, pinpoint, temporal update or evidence correction.
+title: "[data source] "
+labels: ["data", "regulatory-review"]
+body:
+  - type: input
+    id: record
+    attributes:
+      label: Record ID, jurisdiction and dimension
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Official source URL
+    validations:
+      required: true
+  - type: textarea
+    id: pinpoint
+    attributes:
+      label: Instrument, provision, page and quotation-length pinpoint
+    validations:
+      required: true
+  - type: input
+    id: checked
+    attributes:
+      label: Date checked (YYYY-MM-DD)
+    validations:
+      required: true
+  - type: textarea
+    id: uncertainty
+    attributes:
+      label: Uncertainty, language and temporal caveats
+    validations:
+      required: true
+  - type: checkboxes
+    id: attestation
+    attributes:
+      label: Attestation
+      options:
+        - label: I reviewed the linked source and have not represented myself as an independent second reviewer unless I am one.
+          required: true

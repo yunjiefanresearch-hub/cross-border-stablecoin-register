@@ -126,7 +126,7 @@ destination" restatement rather than a genuine directional asymmetry. This is of
    builder — "cannot disagree by construction" is precisely why the verifier is not independent). It
    also rewrites the pitch to the more defensible "the deterministic expansion of 12 signals + one
    deep corridor." A concrete schema and integration are proposed in
-   [`PROPOSAL_signal_table.md`](PROPOSAL_signal_table.md). **Populating `binding_status` for the US is
+   [`SIGNAL_TABLE.md`](../SIGNAL_TABLE.md). **Populating `binding_status` for the US is
    where F1 gets resolved.**
 2. **Adjudicate F1/VB-06 upstream with the GENIUS primary text.** If confirmed, set the US inbound
    edges to `T`, add a 2027-01-18 scheduled trigger, and correct the headline and the §4 ordering.

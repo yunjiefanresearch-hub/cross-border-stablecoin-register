@@ -25,9 +25,9 @@ except Exception:
     pass
 
 import json
-from datetime import date
 from itertools import combinations
 from pathlib import Path
+from build_clock import BUILD_DATE
 
 ROOT = Path(__file__).resolve().parent.parent
 J12 = ["US", "EU", "UK", "SG", "HK", "CN", "BR", "CH", "AE", "TW", "JP", "KR"]
@@ -102,7 +102,7 @@ def build():
     out = {
         "schema": "cbsr-analysis/computed_settlement",
         "version": "v0.10.0",
-        "generated": date.today().isoformat(),
+        "generated": BUILD_DATE,
         "claim_class": "tier2_operational",
         "evidence_tier": "operational_enrichment",
         "method": ("The three wholesale-settlement experiments are recorded with their true operators (the §5.2 "

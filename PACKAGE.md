@@ -1,46 +1,38 @@
 # CBSR — package manifest
 
-This archive is the **full Cross-Border Stablecoin Register repository (v0.10.1)**,
-not a thin slice, with the two working papers and the three governance documents
+This archive is the **full Cross-Border Stablecoin Register repository (v0.11.0)**,
+not a thin slice, with the working papers, governance, security and privacy documents
 included. It contains the YAML records, the schemas, the build, the analysis
 layer, the MCP server, and the verification harness, so the register can be
 built and queried, not just read.
 
 ## What runs, and what it produces
 
-From the archive root, with Python 3:
+From the archive root, with Python 3.10-3.13:
 
 ```
-python build.py             # validates records, builds dataset.json, COVERAGE.md, records.md
-python run_invariants.py    # read-only structural invariants over the built register
-python run_negative_tests.py# fault-injection battery proving each build gate bites
-python check_readme_counts.py --scan README.md   # the README drift gate, standalone
+python -m pip install --constraint constraints/dev.txt pip setuptools wheel
+python -m pip install --constraint constraints/dev.txt ".[dev]"
+python -m tools.verify
 ```
 
-These were run on this exact archive immediately before packaging:
-
-- `build.py` exits 0: 152 records valid, citable subset (tier1_legal + in_force +
-  resolution_text) = 46.
-- `run_invariants.py` exits 0: 49/49 invariants hold, including R1 (the README
-  states no drift-prone count).
-- `run_negative_tests.py` exits 0: 10/10 gates bite, including the README-counts
-  gate, whose injected defect is a *spelled* count.
-- `check_readme_counts.py` runs standalone: self-test passes; `--scan README.md`
-  reports clean.
+No manual command list is an equivalent substitute. The canonical verifier checks the committed
+dependency constraints before doing any work, regenerates every committed derivative twice, compares
+byte hashes, reproduces the research layer, runs the positive and fault-injection gates, builds the
+wheel twice, installs it in a clean repository-external environment, exercises all six AgenticFi
+capabilities with warnings promoted to errors, and produces SBOM, licence and vulnerability evidence.
+The exact result is copied into `RELEASE_MANIFEST.json` at packaging time rather than hard-coded here.
 
 Because the data is present, the earlier limitation of the slice (the three
 data-dependent scripts could not actually run) no longer applies: a reviewer can
-reproduce the 152-record build, the 49 invariants, and the 10 negative tests
+reproduce the 152-record build, the 57 invariants, and the 10 legacy negative tests
 directly from this archive.
 
 ## One caveat on the validator path
 
-`build.py` validates against `record.schema.json` using a built-in fallback
-validator (a structural subset of JSON Schema Draft 2020-12), because the
-packaging environment had `PyYAML` but not the `jsonschema` library and could not
-install it offline. Every gate bit under the fallback. To exercise the full
-Draft-2020-12 path as well, run on a machine with `jsonschema` installed; the
-build prints which backend it used.
+`setup_windows.ps1` installs the exact committed development constraints, so the canonical verifier uses the
+full Draft 2020-12 `jsonschema` backend. `build.py` retains a smaller offline structural fallback for an
+emergency no-network extract and always prints which backend it used.
 
 ## MiCA §3.10 correction in this revision
 
@@ -57,16 +49,13 @@ binds a given corridor is the earliest deadline among the Member States it
 touches, not the cap. The conditional flag and the summary-table cell were
 updated to match.
 
-## A note on dates (one day ahead at packaging)
+## A note on dates and currentness
 
-Packaged 30 June 2026. §3.10 treats the 1 July 2026 outer cap as a future outer
-limit, which is correct for a 30 June snapshot but leads it by a single day. The
-national windows beneath the cap are mostly already closed and are written in the
-past tense. If this is published on or after 1 July 2026, flip the outer-cap
-phrasing to the past tense, the same way the Taiwan and Japan dated items are
-handled. The other fast-changing facts (the Taiwan third reading, the 1 June 2026
-Japan date, the BIS exit from mBridge) should likewise be re-checked against
-primary sources at publication time.
+This v0.11 source package was assembled on 20 August 2026, but the underlying
+regulatory snapshot remains independently freshness-gated. Packaging never changes
+`last_reviewed` or promotes a record. Recheck fast-changing facts against their
+primary sources before publication and preserve stale status until that review is
+recorded.
 
 ## References
 

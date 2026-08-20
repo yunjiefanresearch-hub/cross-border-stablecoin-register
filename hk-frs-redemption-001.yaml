@@ -39,3 +39,20 @@ verification:
     instrument: Stablecoins Ordinance (Cap. 656) + HKMA Guidelines
     url: https://www.elegislation.gov.hk/hk/cap656
     pinpoint: par redemption within 1 business day
+
+# CBSR v0.11 review/temporal metadata (mechanically migrated; null means not evidenced)
+source_last_checked: '2026-06-27'
+next_review_due: '2026-07-27'
+review_status: stale
+reviewer: external review (web retrieval against official sources)
+second_reviewer: null
+review_stage: primary_reviewed_second_pending
+reconciliation_status: not_started
+review_disagreement: null
+source_disposition: official
+source_check_status: checked
+effective_from: '2025-08-01'
+effective_until: null
+event_id: null
+legal_status: operative
+uncertainty: low

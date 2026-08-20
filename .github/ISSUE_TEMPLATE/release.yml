@@ -1,0 +1,37 @@
+name: Release readiness
+description: Track a release hard-gate, evidence gap or rollback concern.
+title: "[release] "
+labels: ["release", "triage"]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Proposed version
+    validations:
+      required: true
+  - type: dropdown
+    id: gate
+    attributes:
+      label: Gate
+      options:
+        - canonical verifier
+        - regulatory currentness and independent review
+        - security and supply chain
+        - GitHub ruleset and platform CI
+        - documentation and claims
+        - migration or rollback
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and exact command or URL
+    validations:
+      required: true
+  - type: checkboxes
+    id: no_overclaim
+    attributes:
+      label: Confirmation
+      options:
+        - label: I have not marked an external, legal or platform gate complete without primary evidence.
+          required: true

@@ -41,3 +41,20 @@ verification:
     instrument: Payment Services Act 2019 (enacted) + MAS Single-Currency Stablecoin Framework (finalized policy,
       pending legislation)
     pinpoint: MAS authority under the Payment Services Act 2019
+
+# CBSR v0.11 review/temporal metadata (mechanically migrated; null means not evidenced)
+source_last_checked: null
+next_review_due: null
+review_status: unknown
+reviewer: external review (web retrieval against official sources)
+second_reviewer: null
+review_stage: primary_reviewed_second_pending
+reconciliation_status: not_started
+review_disagreement: null
+source_disposition: unavailable
+source_check_status: source_unavailable
+effective_from: null
+effective_until: null
+event_id: null
+legal_status: operative
+uncertainty: high

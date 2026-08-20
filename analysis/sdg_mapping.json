@@ -1,0 +1,181 @@
+{
+  "as_of": "2026-08-20",
+  "claim": "design alignment only; no causal impact, compliance or UN endorsement claim",
+  "mappings": [
+    {
+      "alignment": "Open, reproducible cross-border policy infrastructure may reduce regulatory-information friction.",
+      "causal_claim": false,
+      "causal_limitation": "Repository controls cannot establish that CBSR caused progress on this SDG target.",
+      "claim_strength": "design_alignment_only",
+      "data_limitation": "The project measures repository outputs only; no beneficiary, institutional-outcome or population data are collected.",
+      "evidence": [
+        "dataset.json",
+        "research/claims/claims_ledger.csv",
+        "research/quantitative/jurisdiction_metrics.csv"
+      ],
+      "measurable_project_indicator": {
+        "baseline": 0,
+        "current": 1,
+        "metric": "documented evidence rows aligned to SDG target 9.1",
+        "outcome_measurement": "not_evaluated",
+        "unit": "repository mapping rows"
+      },
+      "measurement_status": "not_evaluated",
+      "official_reference": "https://sdgs.un.org/goals/goal9",
+      "official_target_text": "Develop quality, reliable, sustainable and resilient infrastructure, including regional and transborder infrastructure, to support economic development and human well-being, with a focus on affordable and equitable access for all.",
+      "owner_role": "maintainer",
+      "priority": "primary",
+      "reviewed_date": "2026-08-20",
+      "sdg": "9",
+      "target": "9.1",
+      "target_date": "before-impact-claim",
+      "verification_command": "python tools/verify_governance_delivery.py"
+    },
+    {
+      "alignment": "Structured policy evidence may support responsible financial-service design; no access outcome is measured.",
+      "causal_claim": false,
+      "causal_limitation": "Repository controls cannot establish that CBSR caused progress on this SDG target.",
+      "claim_strength": "design_alignment_only",
+      "data_limitation": "The project measures repository outputs only; no beneficiary, institutional-outcome or population data are collected.",
+      "evidence": [
+        "dataset.json",
+        "research/claims/claims_ledger.csv",
+        "research/quantitative/jurisdiction_metrics.csv"
+      ],
+      "measurable_project_indicator": {
+        "baseline": 0,
+        "current": 1,
+        "metric": "documented evidence rows aligned to SDG target 8.10",
+        "outcome_measurement": "not_evaluated",
+        "unit": "repository mapping rows"
+      },
+      "measurement_status": "not_evaluated",
+      "official_reference": "https://sdgs.un.org/goals/goal8",
+      "official_target_text": "Strengthen the capacity of domestic financial institutions to encourage and expand access to banking, insurance and financial services for all.",
+      "owner_role": "maintainer",
+      "priority": "secondary",
+      "reviewed_date": "2026-08-20",
+      "sdg": "8",
+      "target": "8.10",
+      "target_date": "before-impact-claim",
+      "verification_command": "python tools/verify_governance_delivery.py"
+    },
+    {
+      "alignment": "AML/KYC and prohibition evidence can be preserved in decision receipts; no illicit-flow reduction is attributed.",
+      "causal_claim": false,
+      "causal_limitation": "Repository controls cannot establish that CBSR caused progress on this SDG target.",
+      "claim_strength": "design_alignment_only",
+      "data_limitation": "The project measures repository outputs only; no beneficiary, institutional-outcome or population data are collected.",
+      "evidence": [
+        "dataset.json",
+        "research/claims/claims_ledger.csv",
+        "research/quantitative/jurisdiction_metrics.csv"
+      ],
+      "measurable_project_indicator": {
+        "baseline": 0,
+        "current": 1,
+        "metric": "documented evidence rows aligned to SDG target 16.4",
+        "outcome_measurement": "not_evaluated",
+        "unit": "repository mapping rows"
+      },
+      "measurement_status": "not_evaluated",
+      "official_reference": "https://sdgs.un.org/goals/goal16",
+      "official_target_text": "By 2030, significantly reduce illicit financial and arms flows, strengthen the recovery and return of stolen assets and combat all forms of organized crime.",
+      "owner_role": "maintainer",
+      "priority": "secondary",
+      "reviewed_date": "2026-08-20",
+      "sdg": "16",
+      "target": "16.4",
+      "target_date": "before-impact-claim",
+      "verification_command": "python tools/verify_governance_delivery.py"
+    },
+    {
+      "alignment": "Pinpointed evidence, deterministic rules and auditable receipts support transparency and accountability.",
+      "causal_claim": false,
+      "causal_limitation": "Repository controls cannot establish that CBSR caused progress on this SDG target.",
+      "claim_strength": "design_alignment_only",
+      "data_limitation": "The project measures repository outputs only; no beneficiary, institutional-outcome or population data are collected.",
+      "evidence": [
+        "dataset.json",
+        "research/claims/claims_ledger.csv",
+        "research/quantitative/jurisdiction_metrics.csv"
+      ],
+      "measurable_project_indicator": {
+        "baseline": 0,
+        "current": 1,
+        "metric": "documented evidence rows aligned to SDG target 16.6",
+        "outcome_measurement": "not_evaluated",
+        "unit": "repository mapping rows"
+      },
+      "measurement_status": "not_evaluated",
+      "official_reference": "https://sdgs.un.org/goals/goal16",
+      "official_target_text": "Develop effective, accountable and transparent institutions at all levels.",
+      "owner_role": "maintainer",
+      "priority": "primary",
+      "reviewed_date": "2026-08-20",
+      "sdg": "16",
+      "target": "16.6",
+      "target_date": "before-impact-claim",
+      "verification_command": "python tools/verify_governance_delivery.py"
+    },
+    {
+      "alignment": "Open licensing and machine-readable public regulatory sources support information access.",
+      "causal_claim": false,
+      "causal_limitation": "Repository controls cannot establish that CBSR caused progress on this SDG target.",
+      "claim_strength": "design_alignment_only",
+      "data_limitation": "The project measures repository outputs only; no beneficiary, institutional-outcome or population data are collected.",
+      "evidence": [
+        "dataset.json",
+        "research/claims/claims_ledger.csv",
+        "research/quantitative/jurisdiction_metrics.csv"
+      ],
+      "measurable_project_indicator": {
+        "baseline": 0,
+        "current": 1,
+        "metric": "documented evidence rows aligned to SDG target 16.10",
+        "outcome_measurement": "not_evaluated",
+        "unit": "repository mapping rows"
+      },
+      "measurement_status": "not_evaluated",
+      "official_reference": "https://sdgs.un.org/goals/goal16",
+      "official_target_text": "Ensure public access to information and protect fundamental freedoms, in accordance with national legislation and international agreements.",
+      "owner_role": "maintainer",
+      "priority": "primary",
+      "reviewed_date": "2026-08-20",
+      "sdg": "16",
+      "target": "16.10",
+      "target_date": "before-impact-claim",
+      "verification_command": "python tools/verify_governance_delivery.py"
+    },
+    {
+      "alignment": "CBSR targets timely, source-traceable jurisdictional data; it does not currently collect the listed population disaggregations.",
+      "causal_claim": false,
+      "causal_limitation": "Repository controls cannot establish that CBSR caused progress on this SDG target.",
+      "claim_strength": "design_alignment_only",
+      "data_limitation": "The project measures repository outputs only; no beneficiary, institutional-outcome or population data are collected.",
+      "evidence": [
+        "dataset.json",
+        "research/claims/claims_ledger.csv",
+        "research/quantitative/jurisdiction_metrics.csv"
+      ],
+      "measurable_project_indicator": {
+        "baseline": 0,
+        "current": 1,
+        "metric": "documented evidence rows aligned to SDG target 17.18",
+        "outcome_measurement": "not_evaluated",
+        "unit": "repository mapping rows"
+      },
+      "measurement_status": "not_evaluated",
+      "official_reference": "https://sdgs.un.org/goals/goal17",
+      "official_target_text": "By 2020, enhance capacity-building support to developing countries, including for least developed countries and small island developing States, to increase significantly the availability of high-quality, timely and reliable data disaggregated by income, gender, age, race, ethnicity, migratory status, disability, geographic location and other characteristics relevant in national contexts.",
+      "owner_role": "maintainer",
+      "priority": "primary",
+      "reviewed_date": "2026-08-20",
+      "sdg": "17",
+      "target": "17.18",
+      "target_date": "before-impact-claim",
+      "verification_command": "python tools/verify_governance_delivery.py"
+    }
+  ],
+  "schema": "cbsr/sdg-alignment/v2"
+}

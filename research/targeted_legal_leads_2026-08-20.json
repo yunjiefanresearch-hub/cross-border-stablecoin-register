@@ -1,0 +1,42 @@
+{
+  "schema": "cbsr/targeted-legal-leads/v1",
+  "as_of": "2026-08-20",
+  "review_scope": "four high-priority official leads; retained separately from the 152-record census ledger",
+  "second_reviewer": null,
+  "promotion_rule": "A lead does not change a record until its operative text and pinpoint are mapped and independently reviewed.",
+  "leads": [
+    {
+      "jurisdiction": "TW",
+      "official_source": "Office of the President, Gazette No. 7872",
+      "url": "https://www.president.gov.tw/File/Doc/69812613-22f1-4288-940e-c40903b232e1",
+      "published": "2026-07-22",
+      "disposition": "official_promulgation_confirmed_public_wording_updated_mapping_pending",
+      "record_impact": "Public draft wording was corrected; article-level commencement mapping and independent review remain required before currentness promotion."
+    },
+    {
+      "jurisdiction": "US",
+      "official_source": "Federal Register, Treasury proposed rule 2026-16796",
+      "url": "https://www.federalregister.gov/documents/2026/08/18/2026-16796/genius-act-regulations-on-payment-stablecoin-issuance-offer-and-sale",
+      "published": "2026-08-18",
+      "disposition": "proposal_not_law_mapping_pending",
+      "record_impact": "Keep as a proposed overlay; do not overwrite enacted-law propositions."
+    },
+    {
+      "jurisdiction": "UK",
+      "official_source": "Bank of England and FCA joint approach",
+      "url": "https://www.bankofengland.co.uk/paper/2026/boe-and-fcas-approach-to-joint-regulation-of-systemic-stablecoin-issuers",
+      "published": "2026-06-30",
+      "disposition": "official_fca_final_and_boe_draft_states_confirmed_public_wording_updated",
+      "record_impact": "FCA final rules, Bank draft Code and 25 Oct 2027 commencement are separated; detailed rule mapping and independent review remain pending."
+    },
+    {
+      "jurisdiction": "HK",
+      "official_source": "Hong Kong Monetary Authority licence announcement and register",
+      "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/04/20260410-4/",
+      "registry_url": "https://www.hkma.gov.hk/eng/regulatory-resources/registers/register-of-licensed-stablecoin-issuers/",
+      "published": "2026-04-10",
+      "disposition": "official_operational_fact_confirmed_legal_mapping_unchanged",
+      "record_impact": "Keep licence identity as an operational fact, separate from the Ordinance licensing duty."
+    }
+  ]
+}

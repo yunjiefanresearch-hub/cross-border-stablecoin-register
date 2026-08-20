@@ -75,3 +75,20 @@ verification:
     pinpoint: 'Res BCB 521/2025 (amends Res 277/278/279 of 31 Dec 2022): virtual-asset services brought into the
       FX market — international payments/transfers, stablecoin trades, and payment of expenses abroad treated as
       câmbio operations; monthly reporting to the BCB from 4 May 2026'
+
+# CBSR v0.11 review/temporal metadata (mechanically migrated; null means not evidenced)
+source_last_checked: '2026-06-27'
+next_review_due: '2026-07-27'
+review_status: stale
+reviewer: external review (web retrieval against official sources)
+second_reviewer: null
+review_stage: primary_reviewed_second_pending
+reconciliation_status: not_started
+review_disagreement: null
+source_disposition: official
+source_check_status: checked
+effective_from: '2026-02-02'
+effective_until: null
+event_id: null
+legal_status: operative
+uncertainty: low

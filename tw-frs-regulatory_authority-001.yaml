@@ -2,7 +2,7 @@ id: tw-frs-regulatory_authority-001
 jurisdiction: TW
 authority: FSC (primary; consults the CBC)
 instrument_type: fiat_referenced_stablecoin
-instrument_label_local: virtual asset / draft stablecoin (Virtual Asset Service Act)
+instrument_label_local: virtual asset / stablecoin (Virtual Asset Service Act, promulgated; commencement pending)
 dimension: regulatory_authority
 requirement_summary: 'Two layers, only one in force. In force: AML registration under the amended Money Laundering
   Control Act and the VASP Registration Regulations (effective 30 November 2024). Enacted but not commenced: the
@@ -13,16 +13,15 @@ requirement_summary: 'Two layers, only one in force. In force: AML registration 
 requirement_structured:
   in_force_layer: AML registration (amended Money Laundering Control Act + VASP Registration Regulations, 30 Nov
     2024)
-  draft_layer: Virtual Asset Service Act (FSC licensing; committee first review 3 Jun 2026; not in force)
+  enacted_not_commenced_layer: Virtual Asset Service Act (promulgated 22 Jul 2026; licensing commencement pending)
   primary_regulator: FSC
   central_bank_role: CBC consulted (onshore-NTD posture is the live question)
 status: in_force
 effective_date: '2024-11-30'
 source:
-  primary: Money Laundering Control Act (as amended) + VASP Registration Regulations (in force 30 Nov 2024); draft
-    Virtual Asset Service Act
-  pinpoint: Regulators — FSC primary (consults CBC); AML registration in force; comprehensive act in committee
-  url: https://law.moj.gov.tw/
+  primary: Money Laundering Control Act and VASP Registration Regulations; Virtual Asset Service Act, Presidential Gazette No. 7872
+  pinpoint: AML registration in force; VAS Act Arts. 2, 7-9; promulgated 22 Jul 2026, commencement mapping pending
+  url: https://www.president.gov.tw/File/Doc/69812613-22f1-4288-940e-c40903b232e1
 secondary:
 - citation: Fan, Multi-Jurisdiction Stablecoin Compliance Matrix v0.9.6 (June 2026), §Taiwan (Statutory Framework
     / Regulators)
@@ -30,8 +29,8 @@ secondary:
     materials are summaries).
 interpretation_note: 'Provenance: transcribed from the author''s Compliance Matrix v0.9.6; the core point is confirmed
   against the official primary text in the v0.5.1 pass (source.url added); some operational detail remains pending
-  and the tier is ''mixed''. Only the AML-registration layer is operative law; the issuance regime is draft. This
-  entry is a regime-under-construction snapshot — the most likely in the survey to be overtaken by events.'
+  and the tier is ''mixed''. Only the AML-registration layer is treated as operative in this snapshot; the issuance
+  regime is promulgated but its commencement/subordinate-rule position still requires line-by-line legal review.'
 confidence: high
 claim_class: tier1_legal
 evidence_tier: mixed
@@ -47,3 +46,20 @@ tags:
 - v0.7.0_claim_class
 - binding_in_force_enacted
 binding_status: in_force_enacted
+
+# CBSR v0.11 review/temporal metadata (mechanically migrated; null means not evidenced)
+source_last_checked: null
+next_review_due: null
+review_status: unknown
+reviewer: null
+second_reviewer: null
+review_stage: unreviewed
+reconciliation_status: not_started
+review_disagreement: null
+source_disposition: official
+source_check_status: not_checked
+effective_from: '2024-11-30'
+effective_until: null
+event_id: null
+legal_status: operative
+uncertainty: medium

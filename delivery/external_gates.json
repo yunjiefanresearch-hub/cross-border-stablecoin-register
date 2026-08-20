@@ -1,0 +1,42 @@
+{
+  "as_of": "2026-08-20",
+  "gates": [
+    {
+      "gate": "independent_legal_review",
+      "owner_role": "independent-legal-reviewer",
+      "status": "not_completed"
+    },
+    {
+      "gate": "independent_second_qualitative_coding",
+      "owner_role": "independent-researcher",
+      "status": "not_completed"
+    },
+    {
+      "gate": "external_whitepaper_peer_review",
+      "owner_role": "independent-peer-reviewer",
+      "status": "not_completed"
+    },
+    {
+      "gate": "external_security_review",
+      "owner_role": "independent-security-reviewer",
+      "status": "not_completed"
+    },
+    {
+      "gate": "github_actions_and_ruleset_readback",
+      "owner_role": "repository-admin",
+      "status": "not_verified"
+    },
+    {
+      "gate": "windows_11_clean_room",
+      "owner_role": "release-manager",
+      "status": "not_verified"
+    },
+    {
+      "gate": "signed_release_and_provenance_readback",
+      "owner_role": "release-manager",
+      "status": "not_verified"
+    }
+  ],
+  "release_ready": false,
+  "schema": "cbsr/external-gates/v1"
+}

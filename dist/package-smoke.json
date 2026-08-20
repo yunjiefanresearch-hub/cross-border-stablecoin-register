@@ -1,0 +1,39 @@
+{
+  "license_inventory": "dist/licenses.json",
+  "pip_audit": "passed_no_known_vulnerabilities_live",
+  "pip_audit_evidence": "dist/pip-audit.json",
+  "python": "3.12.13",
+  "reproducible_builds": 2,
+  "resolved_runtime": {
+    "cbsr-mcp": "0.11.0",
+    "mcp": "1.29.0",
+    "pydantic": "2.12.5",
+    "pydantic-settings": "2.14.2"
+  },
+  "schema": "cbsr/package-smoke/v1",
+  "smoke": {
+    "agenticfi_capabilities": [
+      "audit_decision",
+      "compare_jurisdictions",
+      "evaluate_action",
+      "get_rule",
+      "search_evidence",
+      "watch_changes"
+    ],
+    "comparison_count": 1,
+    "decision": "review_required",
+    "execution_authorized": false,
+    "receipt_valid": true,
+    "records": 152,
+    "registered_tools": 40,
+    "registry_tools": 40,
+    "rule_id": "us-pss-reserve_backing-001",
+    "search_count": 6,
+    "signing_state": "unsigned",
+    "version": "0.11.0",
+    "watch_due": 9
+  },
+  "warning_policy": "error",
+  "wheel": "cbsr_mcp-0.11.0-py3-none-any.whl",
+  "wheel_sha256": "853822112168c0efdfbeaa7a90bf6541111b2550a4e31b765668a587f448f778"
+}

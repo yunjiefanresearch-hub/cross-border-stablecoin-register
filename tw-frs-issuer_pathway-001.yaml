@@ -2,7 +2,7 @@ id: tw-frs-issuer_pathway-001
 jurisdiction: TW
 authority: FSC (would administer)
 instrument_type: fiat_referenced_stablecoin
-instrument_label_local: virtual asset / draft stablecoin (Virtual Asset Service Act)
+instrument_label_local: virtual asset / stablecoin (Virtual Asset Service Act, promulgated; commencement pending)
 dimension: issuer_pathway
 constraint_ref: C1
 requirement_summary: 'No stablecoin issuer is licensed yet: the licensing regime is enacted but not yet commenced.
@@ -19,7 +19,7 @@ source:
   primary: Virtual Asset Service Act, passed at third reading 30 Jun 2026 (committee first review 3 Jun 2026)
   pinpoint: 'Issuer pathway: FSC licence; share company; banks lead. Enacted at third reading, not yet commenced
     (awaiting subsidiary legislation)'
-  url: https://english.ey.gov.tw/
+  url: https://www.president.gov.tw/File/Doc/69812613-22f1-4288-940e-c40903b232e1
 secondary:
 - citation: Fan, Multi-Jurisdiction Stablecoin Compliance Matrix v0.9.6 (June 2026), §Taiwan (Issuer Pathways and
     Eligibility)
@@ -68,3 +68,20 @@ tags:
 - binding_made_not_commenced
 - v0.9.9_verification
 binding_status: made_not_commenced
+
+# CBSR v0.11 review/temporal metadata (mechanically migrated; null means not evidenced)
+source_last_checked: null
+next_review_due: null
+review_status: unknown
+reviewer: null
+second_reviewer: null
+review_stage: unreviewed
+reconciliation_status: not_started
+review_disagreement: null
+source_disposition: official
+source_check_status: not_checked
+effective_from: null
+effective_until: null
+event_id: tw-vas-act-enacted
+legal_status: enacted_not_commenced
+uncertainty: high

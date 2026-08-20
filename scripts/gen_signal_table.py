@@ -79,6 +79,7 @@ import json
 import pathlib
 
 import yaml
+from build_clock import BUILD_DATE
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 _sys.path.insert(0, str(ROOT / "tools"))
@@ -146,10 +147,9 @@ OVERRIDES = {
         "different question asked of them.")),
     ("KR", "inbound_gate"): dict(match="same_instrument", note="As KR.token_regime: `pending_proposal` (the bill exists) vs `no_regime` (nothing operative)."),
     ("TW", "inbound_gate"): dict(match="related_dimension", backlog_ref="VB-R1", note=(
-        "`tw-frs-monetary_sovereignty-001` still cites the 'draft Virtual Asset Service Act'. The Act was "
-        "passed at third reading on 2026-06-30 and is enacted, not draft. The signal is correct and the "
-        "record's source prose is stale — the node-record face of finding F-TW. Recorded here rather than "
-        "silently corrected: a legal record is edited by a verification pass, not by a build script.")),
+        "`tw-frs-monetary_sovereignty-001` now distinguishes the promulgated Virtual Asset Service Act "
+        "from the still-unmapped commencement and CBC policy questions. The signal remains transitional; "
+        "a named legal reviewer and independent reconciliation are still required before promotion.")),
     ("US", "inbound_gate"): dict(match="same_instrument", backlog_ref="VB-06", note=(
         "`us-pss-monetary_sovereignty-001` cites the GENIUS Act, pinpoint 'Foreign payment stablecoin "
         "issuers — comparability determination and registration' — the same §18 gate the signal names. "
@@ -291,7 +291,7 @@ def main() -> int:
     out = {
         "schema": "cbsr-analysis/signal_table",
         "version": "0.10.0",
-        "generated": str(datetime.date.today()),
+        "generated": BUILD_DATE,
         "register_version": REGISTER_VERSION,
         "as_of": src["as_of"],
         "what_this_is": (

@@ -1,7 +1,7 @@
 {
   "register": "Cross-Border Stablecoin Register",
-  "version": "0.10.1",
-  "generated": "2026-07-15",
+  "version": "0.11.0",
+  "generated": "2026-08-20",
   "endpoint": "corridor_directed",
   "guardrail": "static projection of the public register; no facts added here",
   "data": {
@@ -71,7 +71,7 @@
         "record_evidence_tier": "firm_summary",
         "record_claim_class": "tier1_legal",
         "backlog_ref": "VB-R1",
-        "note": "`tw-frs-monetary_sovereignty-001` still cites the 'draft Virtual Asset Service Act'. The Act was passed at third reading on 2026-06-30 and is enacted, not draft. The signal is correct and the record's source prose is stale — the node-record face of finding F-TW. Recorded here rather than silently corrected: a legal record is edited by a verification pass, not by a build script."
+        "note": "`tw-frs-monetary_sovereignty-001` now distinguishes the promulgated Virtual Asset Service Act from the still-unmapped commencement and CBC policy questions. The signal remains transitional; a named legal reviewer and independent reconciliation are still required before promotion."
       }
     }
   }

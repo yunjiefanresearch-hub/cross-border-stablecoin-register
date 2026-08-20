@@ -1,7 +1,7 @@
 {
   "register": "Cross-Border Stablecoin Register",
-  "version": "0.10.1",
-  "generated": "2026-07-15",
+  "version": "0.11.0",
+  "generated": "2026-08-20",
   "endpoint": "verification_worklist",
   "guardrail": "static projection of the public register; no facts added here",
   "data": {
@@ -39,15 +39,21 @@
         "has_url": false,
         "missing_for": {
           "firm_summary": [
-            "practitioner/law-firm corroboration of the load-bearing point"
+            "practitioner/law-firm corroboration of the load-bearing point",
+            "named primary reviewer"
           ],
           "mixed": [
             "source.url (official-text pointer)",
-            "confirmation of the core point against the text at source.pinpoint"
+            "confirmation of the core point against the text at source.pinpoint",
+            "named primary reviewer"
           ],
           "resolution_text": [
             "source.url (official-text pointer)",
-            "confirmation against the official statutory/normative text at source.pinpoint"
+            "confirmation against the official statutory/normative text at source.pinpoint",
+            "source_last_checked (date the cited URL was opened)",
+            "named primary reviewer",
+            "independent second reviewer",
+            "reconciled disposition"
           ]
         },
         "recommended_next_tier": "resolution_text"
@@ -64,15 +70,21 @@
         "has_url": false,
         "missing_for": {
           "firm_summary": [
-            "practitioner/law-firm corroboration of the load-bearing point"
+            "practitioner/law-firm corroboration of the load-bearing point",
+            "named primary reviewer"
           ],
           "mixed": [
             "source.url (official-text pointer)",
-            "confirmation of the core point against the text at source.pinpoint"
+            "confirmation of the core point against the text at source.pinpoint",
+            "named primary reviewer"
           ],
           "resolution_text": [
             "source.url (official-text pointer)",
-            "confirmation against the official statutory/normative text at source.pinpoint"
+            "confirmation against the official statutory/normative text at source.pinpoint",
+            "source_last_checked (date the cited URL was opened)",
+            "named primary reviewer",
+            "independent second reviewer",
+            "reconciled disposition"
           ]
         },
         "recommended_next_tier": "resolution_text"
@@ -89,15 +101,21 @@
         "has_url": false,
         "missing_for": {
           "firm_summary": [
-            "practitioner/law-firm corroboration of the load-bearing point"
+            "practitioner/law-firm corroboration of the load-bearing point",
+            "named primary reviewer"
           ],
           "mixed": [
             "source.url (official-text pointer)",
-            "confirmation of the core point against the text at source.pinpoint"
+            "confirmation of the core point against the text at source.pinpoint",
+            "named primary reviewer"
           ],
           "resolution_text": [
             "source.url (official-text pointer)",
-            "confirmation against the official statutory/normative text at source.pinpoint"
+            "confirmation against the official statutory/normative text at source.pinpoint",
+            "source_last_checked (date the cited URL was opened)",
+            "named primary reviewer",
+            "independent second reviewer",
+            "reconciled disposition"
           ]
         },
         "recommended_next_tier": "resolution_text"
@@ -114,15 +132,21 @@
         "has_url": false,
         "missing_for": {
           "firm_summary": [
-            "practitioner/law-firm corroboration of the load-bearing point"
+            "practitioner/law-firm corroboration of the load-bearing point",
+            "named primary reviewer"
           ],
           "mixed": [
             "source.url (official-text pointer)",
-            "confirmation of the core point against the text at source.pinpoint"
+            "confirmation of the core point against the text at source.pinpoint",
+            "named primary reviewer"
           ],
           "resolution_text": [
             "source.url (official-text pointer)",
-            "confirmation against the official statutory/normative text at source.pinpoint"
+            "confirmation against the official statutory/normative text at source.pinpoint",
+            "source_last_checked (date the cited URL was opened)",
+            "named primary reviewer",
+            "independent second reviewer",
+            "reconciled disposition"
           ]
         },
         "recommended_next_tier": "resolution_text"
@@ -139,13 +163,19 @@
         "has_url": true,
         "missing_for": {
           "firm_summary": [
-            "practitioner/law-firm corroboration of the load-bearing point"
+            "practitioner/law-firm corroboration of the load-bearing point",
+            "named primary reviewer"
           ],
           "mixed": [
-            "confirmation of the core point against the text at source.pinpoint"
+            "confirmation of the core point against the text at source.pinpoint",
+            "named primary reviewer"
           ],
           "resolution_text": [
-            "confirmation against the official statutory/normative text at source.pinpoint"
+            "confirmation against the official statutory/normative text at source.pinpoint",
+            "source_last_checked (date the cited URL was opened)",
+            "named primary reviewer",
+            "independent second reviewer",
+            "reconciled disposition"
           ]
         },
         "recommended_next_tier": "resolution_text"
@@ -162,15 +192,21 @@
         "has_url": false,
         "missing_for": {
           "firm_summary": [
-            "practitioner/law-firm corroboration of the load-bearing point"
+            "practitioner/law-firm corroboration of the load-bearing point",
+            "named primary reviewer"
           ],
           "mixed": [
             "source.url (official-text pointer)",
-            "confirmation of the core point against the text at source.pinpoint"
+            "confirmation of the core point against the text at source.pinpoint",
+            "named primary reviewer"
           ],
           "resolution_text": [
             "source.url (official-text pointer)",
-            "confirmation against the official statutory/normative text at source.pinpoint"
+            "confirmation against the official statutory/normative text at source.pinpoint",
+            "source_last_checked (date the cited URL was opened)",
+            "named primary reviewer",
+            "independent second reviewer",
+            "reconciled disposition"
           ]
         },
         "recommended_next_tier": "firm_summary"
@@ -187,15 +223,21 @@
         "has_url": false,
         "missing_for": {
           "firm_summary": [
-            "practitioner/law-firm corroboration of the load-bearing point"
+            "practitioner/law-firm corroboration of the load-bearing point",
+            "named primary reviewer"
           ],
           "mixed": [
             "source.url (official-text pointer)",
-            "confirmation of the core point against the text at source.pinpoint"
+            "confirmation of the core point against the text at source.pinpoint",
+            "named primary reviewer"
           ],
           "resolution_text": [
             "source.url (official-text pointer)",
-            "confirmation against the official statutory/normative text at source.pinpoint"
+            "confirmation against the official statutory/normative text at source.pinpoint",
+            "source_last_checked (date the cited URL was opened)",
+            "named primary reviewer",
+            "independent second reviewer",
+            "reconciled disposition"
           ]
         },
         "recommended_next_tier": "resolution_text"
@@ -212,15 +254,21 @@
         "has_url": false,
         "missing_for": {
           "firm_summary": [
-            "practitioner/law-firm corroboration of the load-bearing point"
+            "practitioner/law-firm corroboration of the load-bearing point",
+            "named primary reviewer"
           ],
           "mixed": [
             "source.url (official-text pointer)",
-            "confirmation of the core point against the text at source.pinpoint"
+            "confirmation of the core point against the text at source.pinpoint",
+            "named primary reviewer"
           ],
           "resolution_text": [
             "source.url (official-text pointer)",
-            "confirmation against the official statutory/normative text at source.pinpoint"
+            "confirmation against the official statutory/normative text at source.pinpoint",
+            "source_last_checked (date the cited URL was opened)",
+            "named primary reviewer",
+            "independent second reviewer",
+            "reconciled disposition"
           ]
         },
         "recommended_next_tier": "resolution_text"
@@ -237,15 +285,21 @@
         "has_url": false,
         "missing_for": {
           "firm_summary": [
-            "practitioner/law-firm corroboration of the load-bearing point"
+            "practitioner/law-firm corroboration of the load-bearing point",
+            "named primary reviewer"
           ],
           "mixed": [
             "source.url (official-text pointer)",
-            "confirmation of the core point against the text at source.pinpoint"
+            "confirmation of the core point against the text at source.pinpoint",
+            "named primary reviewer"
           ],
           "resolution_text": [
             "source.url (official-text pointer)",
-            "confirmation against the official statutory/normative text at source.pinpoint"
+            "confirmation against the official statutory/normative text at source.pinpoint",
+            "source_last_checked (date the cited URL was opened)",
+            "named primary reviewer",
+            "independent second reviewer",
+            "reconciled disposition"
           ]
         },
         "recommended_next_tier": "firm_summary"
@@ -262,15 +316,21 @@
         "has_url": false,
         "missing_for": {
           "firm_summary": [
-            "practitioner/law-firm corroboration of the load-bearing point"
+            "practitioner/law-firm corroboration of the load-bearing point",
+            "named primary reviewer"
           ],
           "mixed": [
             "source.url (official-text pointer)",
-            "confirmation of the core point against the text at source.pinpoint"
+            "confirmation of the core point against the text at source.pinpoint",
+            "named primary reviewer"
           ],
           "resolution_text": [
             "source.url (official-text pointer)",
-            "confirmation against the official statutory/normative text at source.pinpoint"
+            "confirmation against the official statutory/normative text at source.pinpoint",
+            "source_last_checked (date the cited URL was opened)",
+            "named primary reviewer",
+            "independent second reviewer",
+            "reconciled disposition"
           ]
         },
         "recommended_next_tier": "resolution_text"
@@ -287,15 +347,21 @@
         "has_url": false,
         "missing_for": {
           "firm_summary": [
-            "practitioner/law-firm corroboration of the load-bearing point"
+            "practitioner/law-firm corroboration of the load-bearing point",
+            "named primary reviewer"
           ],
           "mixed": [
             "source.url (official-text pointer)",
-            "confirmation of the core point against the text at source.pinpoint"
+            "confirmation of the core point against the text at source.pinpoint",
+            "named primary reviewer"
           ],
           "resolution_text": [
             "source.url (official-text pointer)",
-            "confirmation against the official statutory/normative text at source.pinpoint"
+            "confirmation against the official statutory/normative text at source.pinpoint",
+            "source_last_checked (date the cited URL was opened)",
+            "named primary reviewer",
+            "independent second reviewer",
+            "reconciled disposition"
           ]
         },
         "recommended_next_tier": "resolution_text"
@@ -312,15 +378,21 @@
         "has_url": false,
         "missing_for": {
           "firm_summary": [
-            "practitioner/law-firm corroboration of the load-bearing point"
+            "practitioner/law-firm corroboration of the load-bearing point",
+            "named primary reviewer"
           ],
           "mixed": [
             "source.url (official-text pointer)",
-            "confirmation of the core point against the text at source.pinpoint"
+            "confirmation of the core point against the text at source.pinpoint",
+            "named primary reviewer"
           ],
           "resolution_text": [
             "source.url (official-text pointer)",
-            "confirmation against the official statutory/normative text at source.pinpoint"
+            "confirmation against the official statutory/normative text at source.pinpoint",
+            "source_last_checked (date the cited URL was opened)",
+            "named primary reviewer",
+            "independent second reviewer",
+            "reconciled disposition"
           ]
         },
         "recommended_next_tier": "resolution_text"
@@ -337,15 +409,21 @@
         "has_url": false,
         "missing_for": {
           "firm_summary": [
-            "practitioner/law-firm corroboration of the load-bearing point"
+            "practitioner/law-firm corroboration of the load-bearing point",
+            "named primary reviewer"
           ],
           "mixed": [
             "source.url (official-text pointer)",
-            "confirmation of the core point against the text at source.pinpoint"
+            "confirmation of the core point against the text at source.pinpoint",
+            "named primary reviewer"
           ],
           "resolution_text": [
             "source.url (official-text pointer)",
-            "confirmation against the official statutory/normative text at source.pinpoint"
+            "confirmation against the official statutory/normative text at source.pinpoint",
+            "source_last_checked (date the cited URL was opened)",
+            "named primary reviewer",
+            "independent second reviewer",
+            "reconciled disposition"
           ]
         },
         "recommended_next_tier": "resolution_text"
@@ -362,15 +440,21 @@
         "has_url": false,
         "missing_for": {
           "firm_summary": [
-            "practitioner/law-firm corroboration of the load-bearing point"
+            "practitioner/law-firm corroboration of the load-bearing point",
+            "named primary reviewer"
           ],
           "mixed": [
             "source.url (official-text pointer)",
-            "confirmation of the core point against the text at source.pinpoint"
+            "confirmation of the core point against the text at source.pinpoint",
+            "named primary reviewer"
           ],
           "resolution_text": [
             "source.url (official-text pointer)",
-            "confirmation against the official statutory/normative text at source.pinpoint"
+            "confirmation against the official statutory/normative text at source.pinpoint",
+            "source_last_checked (date the cited URL was opened)",
+            "named primary reviewer",
+            "independent second reviewer",
+            "reconciled disposition"
           ]
         },
         "recommended_next_tier": "firm_summary"
@@ -387,15 +471,21 @@
         "has_url": false,
         "missing_for": {
           "firm_summary": [
-            "practitioner/law-firm corroboration of the load-bearing point"
+            "practitioner/law-firm corroboration of the load-bearing point",
+            "named primary reviewer"
           ],
           "mixed": [
             "source.url (official-text pointer)",
-            "confirmation of the core point against the text at source.pinpoint"
+            "confirmation of the core point against the text at source.pinpoint",
+            "named primary reviewer"
           ],
           "resolution_text": [
             "source.url (official-text pointer)",
-            "confirmation against the official statutory/normative text at source.pinpoint"
+            "confirmation against the official statutory/normative text at source.pinpoint",
+            "source_last_checked (date the cited URL was opened)",
+            "named primary reviewer",
+            "independent second reviewer",
+            "reconciled disposition"
           ]
         },
         "recommended_next_tier": "resolution_text"
@@ -412,15 +502,21 @@
         "has_url": false,
         "missing_for": {
           "firm_summary": [
-            "practitioner/law-firm corroboration of the load-bearing point"
+            "practitioner/law-firm corroboration of the load-bearing point",
+            "named primary reviewer"
           ],
           "mixed": [
             "source.url (official-text pointer)",
-            "confirmation of the core point against the text at source.pinpoint"
+            "confirmation of the core point against the text at source.pinpoint",
+            "named primary reviewer"
           ],
           "resolution_text": [
             "source.url (official-text pointer)",
-            "confirmation against the official statutory/normative text at source.pinpoint"
+            "confirmation against the official statutory/normative text at source.pinpoint",
+            "source_last_checked (date the cited URL was opened)",
+            "named primary reviewer",
+            "independent second reviewer",
+            "reconciled disposition"
           ]
         },
         "recommended_next_tier": "resolution_text"
@@ -437,15 +533,21 @@
         "has_url": false,
         "missing_for": {
           "firm_summary": [
-            "practitioner/law-firm corroboration of the load-bearing point"
+            "practitioner/law-firm corroboration of the load-bearing point",
+            "named primary reviewer"
           ],
           "mixed": [
             "source.url (official-text pointer)",
-            "confirmation of the core point against the text at source.pinpoint"
+            "confirmation of the core point against the text at source.pinpoint",
+            "named primary reviewer"
           ],
           "resolution_text": [
             "source.url (official-text pointer)",
-            "confirmation against the official statutory/normative text at source.pinpoint"
+            "confirmation against the official statutory/normative text at source.pinpoint",
+            "source_last_checked (date the cited URL was opened)",
+            "named primary reviewer",
+            "independent second reviewer",
+            "reconciled disposition"
           ]
         },
         "recommended_next_tier": "resolution_text"
@@ -462,15 +564,21 @@
         "has_url": false,
         "missing_for": {
           "firm_summary": [
-            "practitioner/law-firm corroboration of the load-bearing point"
+            "practitioner/law-firm corroboration of the load-bearing point",
+            "named primary reviewer"
           ],
           "mixed": [
             "source.url (official-text pointer)",
-            "confirmation of the core point against the text at source.pinpoint"
+            "confirmation of the core point against the text at source.pinpoint",
+            "named primary reviewer"
           ],
           "resolution_text": [
             "source.url (official-text pointer)",
-            "confirmation against the official statutory/normative text at source.pinpoint"
+            "confirmation against the official statutory/normative text at source.pinpoint",
+            "source_last_checked (date the cited URL was opened)",
+            "named primary reviewer",
+            "independent second reviewer",
+            "reconciled disposition"
           ]
         },
         "recommended_next_tier": "resolution_text"
@@ -487,15 +595,21 @@
         "has_url": false,
         "missing_for": {
           "firm_summary": [
-            "practitioner/law-firm corroboration of the load-bearing point"
+            "practitioner/law-firm corroboration of the load-bearing point",
+            "named primary reviewer"
           ],
           "mixed": [
             "source.url (official-text pointer)",
-            "confirmation of the core point against the text at source.pinpoint"
+            "confirmation of the core point against the text at source.pinpoint",
+            "named primary reviewer"
           ],
           "resolution_text": [
             "source.url (official-text pointer)",
-            "confirmation against the official statutory/normative text at source.pinpoint"
+            "confirmation against the official statutory/normative text at source.pinpoint",
+            "source_last_checked (date the cited URL was opened)",
+            "named primary reviewer",
+            "independent second reviewer",
+            "reconciled disposition"
           ]
         },
         "recommended_next_tier": "resolution_text"
@@ -506,21 +620,25 @@
         "constraint_ref": "C2",
         "dimension": "capital_requirements",
         "claim_class": "tier1_legal",
-        "status": "proposed",
-        "instrument": "FCA Consultation Paper CP25/15; Bank of England systemic stablecoin proposals (10 Nov 2025)",
-        "pinpoint": "Prudential regime — FCA CP25/15 (pending); BoE systemic regime",
-        "has_url": false,
+        "status": "transitional",
+        "instrument": "FCA PS26/10; Bank of England June 2026 systemic-stablecoin policy statement and draft Code",
+        "pinpoint": "FCA PS26/10 Summary and Ch. 2-3; exact capital-rule mapping pending",
+        "has_url": true,
         "missing_for": {
           "firm_summary": [
-            "practitioner/law-firm corroboration of the load-bearing point"
+            "practitioner/law-firm corroboration of the load-bearing point",
+            "named primary reviewer"
           ],
           "mixed": [
-            "source.url (official-text pointer)",
-            "confirmation of the core point against the text at source.pinpoint"
+            "confirmation of the core point against the text at source.pinpoint",
+            "named primary reviewer"
           ],
           "resolution_text": [
-            "source.url (official-text pointer)",
-            "confirmation against the official statutory/normative text at source.pinpoint"
+            "confirmation against the official statutory/normative text at source.pinpoint",
+            "source_last_checked (date the cited URL was opened)",
+            "named primary reviewer",
+            "independent second reviewer",
+            "reconciled disposition"
           ]
         },
         "recommended_next_tier": "resolution_text"
@@ -537,13 +655,19 @@
         "has_url": true,
         "missing_for": {
           "firm_summary": [
-            "practitioner/law-firm corroboration of the load-bearing point"
+            "practitioner/law-firm corroboration of the load-bearing point",
+            "named primary reviewer"
           ],
           "mixed": [
-            "confirmation of the core point against the text at source.pinpoint"
+            "confirmation of the core point against the text at source.pinpoint",
+            "named primary reviewer"
           ],
           "resolution_text": [
-            "confirmation against the official statutory/normative text at source.pinpoint"
+            "confirmation against the official statutory/normative text at source.pinpoint",
+            "source_last_checked (date the cited URL was opened)",
+            "named primary reviewer",
+            "independent second reviewer",
+            "reconciled disposition"
           ]
         },
         "recommended_next_tier": "resolution_text"
@@ -560,13 +684,19 @@
         "has_url": true,
         "missing_for": {
           "firm_summary": [
-            "practitioner/law-firm corroboration of the load-bearing point"
+            "practitioner/law-firm corroboration of the load-bearing point",
+            "named primary reviewer"
           ],
           "mixed": [
-            "confirmation of the core point against the text at source.pinpoint"
+            "confirmation of the core point against the text at source.pinpoint",
+            "named primary reviewer"
           ],
           "resolution_text": [
-            "confirmation against the official statutory/normative text at source.pinpoint"
+            "confirmation against the official statutory/normative text at source.pinpoint",
+            "source_last_checked (date the cited URL was opened)",
+            "named primary reviewer",
+            "independent second reviewer",
+            "reconciled disposition"
           ]
         },
         "recommended_next_tier": "resolution_text"
@@ -583,15 +713,21 @@
         "has_url": false,
         "missing_for": {
           "firm_summary": [
-            "practitioner/law-firm corroboration of the load-bearing point"
+            "practitioner/law-firm corroboration of the load-bearing point",
+            "named primary reviewer"
           ],
           "mixed": [
             "source.url (official-text pointer)",
-            "confirmation of the core point against the text at source.pinpoint"
+            "confirmation of the core point against the text at source.pinpoint",
+            "named primary reviewer"
           ],
           "resolution_text": [
             "source.url (official-text pointer)",
-            "confirmation against the official statutory/normative text at source.pinpoint"
+            "confirmation against the official statutory/normative text at source.pinpoint",
+            "source_last_checked (date the cited URL was opened)",
+            "named primary reviewer",
+            "independent second reviewer",
+            "reconciled disposition"
           ]
         },
         "recommended_next_tier": "resolution_text"
@@ -603,20 +739,24 @@
         "dimension": "implementation_status",
         "claim_class": "tier2_operational",
         "status": "transitional",
-        "instrument": "SI 2026/102; FCA CP25/14 & CP25/15; Bank of England proposals; HM Treasury amendment SI",
-        "pinpoint": "Implementation timeline — SI in force Feb 2026; FCA final summer 2026; full regime late 2027",
-        "has_url": false,
+        "instrument": "SI 2026/102; FCA PS26/10; Bank of England June 2026 policy statement/draft Code; Bank/FCA joint approach",
+        "pinpoint": "Joint approach, Introduction and Table C; FCA PS26/10 Summary; commencement 25 Oct 2027",
+        "has_url": true,
         "missing_for": {
           "firm_summary": [
-            "practitioner/law-firm corroboration of the load-bearing point"
+            "practitioner/law-firm corroboration of the load-bearing point",
+            "named primary reviewer"
           ],
           "mixed": [
-            "source.url (official-text pointer)",
-            "confirmation of the core point against the text at source.pinpoint"
+            "confirmation of the core point against the text at source.pinpoint",
+            "named primary reviewer"
           ],
           "resolution_text": [
-            "source.url (official-text pointer)",
-            "confirmation against the official statutory/normative text at source.pinpoint"
+            "confirmation against the official statutory/normative text at source.pinpoint",
+            "source_last_checked (date the cited URL was opened)",
+            "named primary reviewer",
+            "independent second reviewer",
+            "reconciled disposition"
           ]
         },
         "recommended_next_tier": "firm_summary"
@@ -628,20 +768,24 @@
         "dimension": "permitted_activity_yield",
         "claim_class": "tier1_legal",
         "status": "consultation",
-        "instrument": "SI 2026/102 (silent on yield); Bank of England Nov 2025 materials (60/40 backing; pass-through constrained)",
-        "pinpoint": "BoE Nov 2025 backing-split / pass-through position; FCA rules pending",
-        "has_url": false,
+        "instrument": "SI 2026/102; FCA PS26/10; Bank of England June 2026 systemic policy/draft Code",
+        "pinpoint": "Holder-yield/remuneration mapping pending; do not infer from reserve remuneration",
+        "has_url": true,
         "missing_for": {
           "firm_summary": [
-            "practitioner/law-firm corroboration of the load-bearing point"
+            "practitioner/law-firm corroboration of the load-bearing point",
+            "named primary reviewer"
           ],
           "mixed": [
-            "source.url (official-text pointer)",
-            "confirmation of the core point against the text at source.pinpoint"
+            "confirmation of the core point against the text at source.pinpoint",
+            "named primary reviewer"
           ],
           "resolution_text": [
-            "source.url (official-text pointer)",
-            "confirmation against the official statutory/normative text at source.pinpoint"
+            "confirmation against the official statutory/normative text at source.pinpoint",
+            "source_last_checked (date the cited URL was opened)",
+            "named primary reviewer",
+            "independent second reviewer",
+            "reconciled disposition"
           ]
         },
         "recommended_next_tier": "resolution_text"
@@ -658,13 +802,19 @@
         "has_url": true,
         "missing_for": {
           "firm_summary": [
-            "practitioner/law-firm corroboration of the load-bearing point"
+            "practitioner/law-firm corroboration of the load-bearing point",
+            "named primary reviewer"
           ],
           "mixed": [
-            "confirmation of the core point against the text at source.pinpoint"
+            "confirmation of the core point against the text at source.pinpoint",
+            "named primary reviewer"
           ],
           "resolution_text": [
-            "confirmation against the official statutory/normative text at source.pinpoint"
+            "confirmation against the official statutory/normative text at source.pinpoint",
+            "source_last_checked (date the cited URL was opened)",
+            "named primary reviewer",
+            "independent second reviewer",
+            "reconciled disposition"
           ]
         },
         "recommended_next_tier": "resolution_text"
@@ -681,13 +831,19 @@
         "has_url": true,
         "missing_for": {
           "firm_summary": [
-            "practitioner/law-firm corroboration of the load-bearing point"
+            "practitioner/law-firm corroboration of the load-bearing point",
+            "named primary reviewer"
           ],
           "mixed": [
-            "confirmation of the core point against the text at source.pinpoint"
+            "confirmation of the core point against the text at source.pinpoint",
+            "named primary reviewer"
           ],
           "resolution_text": [
-            "confirmation against the official statutory/normative text at source.pinpoint"
+            "confirmation against the official statutory/normative text at source.pinpoint",
+            "source_last_checked (date the cited URL was opened)",
+            "named primary reviewer",
+            "independent second reviewer",
+            "reconciled disposition"
           ]
         },
         "recommended_next_tier": "resolution_text"

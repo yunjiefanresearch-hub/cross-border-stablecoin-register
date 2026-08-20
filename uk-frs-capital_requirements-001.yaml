@@ -5,25 +5,26 @@ instrument_type: fiat_referenced_stablecoin
 instrument_label_local: UK qualifying stablecoin (UKQS)
 dimension: capital_requirements
 constraint_ref: C2
-requirement_summary: The prudential regime for qualifying stablecoin issuers sits under FCA Consultation Paper CP25/15,
-  with final requirements pending. The Bank of England separately addresses prudential standards for systemic sterling-denominated
-  stablecoins, with revised proposals published 10 November 2025.
+requirement_summary: The FCA published final rules for non-systemic UK-issued qualifying stablecoins in PS26/10
+  in June 2026. The Bank of England separately published a June 2026 systemic-stablecoin policy statement with a
+  draft Code of Practice. Exact prudential obligations, systemic/non-systemic allocation and commencement still
+  require record-level primary and independent legal review.
 requirement_structured:
-  non_systemic: FCA CP25/15 prudential regime — final rules pending
-  systemic: Bank of England regime for systemic GBP stablecoins (revised proposals 10 Nov 2025)
-status: proposed
+  non_systemic: FCA PS26/10 final rules (Jun 2026; commencement mapping pending)
+  systemic: Bank of England June 2026 policy statement and draft Code of Practice
+status: transitional
+effective_date: '2027-10-25'
 source:
-  primary: FCA Consultation Paper CP25/15; Bank of England systemic stablecoin proposals (10 Nov 2025)
-  pinpoint: Prudential regime — FCA CP25/15 (pending); BoE systemic regime
-  url: ''
+  primary: FCA PS26/10; Bank of England June 2026 systemic-stablecoin policy statement and draft Code
+  pinpoint: FCA PS26/10 Summary and Ch. 2-3; exact capital-rule mapping pending
+  url: https://www.fca.org.uk/publication/policy/ps26-10.pdf
 secondary:
 - citation: Fan, Compliance Matrix v0.9.3 (18 May 2026), p.14 (United Kingdom — Capital Requirements)
-interpretation_note: 'Provenance: transcribed from author''s Compliance Matrix v0.9.3; pending primary-source verification.
-  Final FCA prudential requirements are not yet published — confidence is held low/medium accordingly.
+interpretation_note: 'The public wording is updated to reflect PS26/10. The detailed capital proposition remains
+  unverified until a named primary reviewer maps the made rules and an independent reviewer reconciles the result.
 
 
-  [v0.9.5 verification] Prudential/capital detail rests on FCA CP25/14 / CP25/15 consultations (final rules expected
-  summer 2026); pending.'
+  [historical v0.9.5 note] The prior record rested on consultations; PS26/10 has since been published.'
 confidence: low
 claim_class: tier1_legal
 last_reviewed: '2026-06-17'
@@ -36,4 +37,22 @@ tags:
 - v0.7.0_claim_class
 - v0.9.5_verification
 - binding_pending_proposal
-binding_status: pending_proposal
+binding_status: made_not_commenced
+
+# CBSR v0.11 review/temporal metadata (mechanically migrated; null means not evidenced)
+evidence_tier: unverified
+source_last_checked: null
+next_review_due: null
+review_status: unknown
+reviewer: null
+second_reviewer: null
+review_stage: unreviewed
+reconciliation_status: not_started
+review_disagreement: null
+source_disposition: official
+source_check_status: not_checked
+effective_from: '2027-10-25'
+effective_until: null
+event_id: null
+legal_status: enacted_not_commenced
+uncertainty: high

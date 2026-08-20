@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="620" viewBox="0 0 960 620">
+<rect width="960" height="620" fill="#ffffff"/>
+<text x="40" y="40" font-family="sans-serif" font-size="24">CBSR review coverage by jurisdiction</text>
+<text x="40" y="66" font-family="sans-serif" font-size="13" fill="#555">Official source, primary review and independent second review are separate denominators.</text>
+<text x="40" y="108" font-family="monospace" font-size="14">AE</text>
+<rect x="90" y="92" width="575.7" height="8" fill="#d9d9d9"/>
+<rect x="90" y="102" width="442.9" height="8" fill="#2f6f9f"/>
+<rect x="90" y="112" width="0.0" height="8" fill="#dd8a2e"/>
+<rect x="90" y="122" width="0.0" height="8" fill="#2f9f62"/>
+<text x="730" y="110" font-family="sans-serif" font-size="12">records 13 · official 10 · primary 0 · second 0</text>
+<text x="40" y="148" font-family="monospace" font-size="14">BR</text>
+<rect x="90" y="132" width="531.4" height="8" fill="#d9d9d9"/>
+<rect x="90" y="142" width="531.4" height="8" fill="#2f6f9f"/>
+<rect x="90" y="152" width="442.9" height="8" fill="#dd8a2e"/>
+<rect x="90" y="162" width="0.0" height="8" fill="#2f9f62"/>
+<text x="730" y="150" font-family="sans-serif" font-size="12">records 12 · official 12 · primary 10 · second 0</text>
+<text x="40" y="188" font-family="monospace" font-size="14">CH</text>
+<rect x="90" y="172" width="620.0" height="8" fill="#d9d9d9"/>
+<rect x="90" y="182" width="487.1" height="8" fill="#2f6f9f"/>
+<rect x="90" y="192" width="0.0" height="8" fill="#dd8a2e"/>
+<rect x="90" y="202" width="0.0" height="8" fill="#2f9f62"/>
+<text x="730" y="190" font-family="sans-serif" font-size="12">records 14 · official 11 · primary 0 · second 0</text>
+<text x="40" y="228" font-family="monospace" font-size="14">CN</text>
+<rect x="90" y="212" width="531.4" height="8" fill="#d9d9d9"/>
+<rect x="90" y="222" width="221.4" height="8" fill="#2f6f9f"/>
+<rect x="90" y="232" width="0.0" height="8" fill="#dd8a2e"/>
+<rect x="90" y="242" width="0.0" height="8" fill="#2f9f62"/>
+<text x="730" y="230" font-family="sans-serif" font-size="12">records 12 · official 5 · primary 0 · second 0</text>
+<text x="40" y="268" font-family="monospace" font-size="14">EU</text>
+<rect x="90" y="252" width="398.6" height="8" fill="#d9d9d9"/>
+<rect x="90" y="262" width="177.1" height="8" fill="#2f6f9f"/>
+<rect x="90" y="272" width="177.1" height="8" fill="#dd8a2e"/>
+<rect x="90" y="282" width="0.0" height="8" fill="#2f9f62"/>
+<text x="730" y="270" font-family="sans-serif" font-size="12">records 9 · official 4 · primary 4 · second 0</text>
+<text x="40" y="308" font-family="monospace" font-size="14">HK</text>
+<rect x="90" y="292" width="620.0" height="8" fill="#d9d9d9"/>
+<rect x="90" y="302" width="442.9" height="8" fill="#2f6f9f"/>
+<rect x="90" y="312" width="354.3" height="8" fill="#dd8a2e"/>
+<rect x="90" y="322" width="0.0" height="8" fill="#2f9f62"/>
+<text x="730" y="310" font-family="sans-serif" font-size="12">records 14 · official 10 · primary 8 · second 0</text>
+<text x="40" y="348" font-family="monospace" font-size="14">JP</text>
+<rect x="90" y="332" width="620.0" height="8" fill="#d9d9d9"/>
+<rect x="90" y="342" width="442.9" height="8" fill="#2f6f9f"/>
+<rect x="90" y="352" width="44.3" height="8" fill="#dd8a2e"/>
+<rect x="90" y="362" width="0.0" height="8" fill="#2f9f62"/>
+<text x="730" y="350" font-family="sans-serif" font-size="12">records 14 · official 10 · primary 1 · second 0</text>
+<text x="40" y="388" font-family="monospace" font-size="14">KR</text>
+<rect x="90" y="372" width="620.0" height="8" fill="#d9d9d9"/>
+<rect x="90" y="382" width="442.9" height="8" fill="#2f6f9f"/>
+<rect x="90" y="392" width="0.0" height="8" fill="#dd8a2e"/>
+<rect x="90" y="402" width="0.0" height="8" fill="#2f9f62"/>
+<text x="730" y="390" font-family="sans-serif" font-size="12">records 14 · official 10 · primary 0 · second 0</text>
+<text x="40" y="428" font-family="monospace" font-size="14">SG</text>
+<rect x="90" y="412" width="575.7" height="8" fill="#d9d9d9"/>
+<rect x="90" y="422" width="310.0" height="8" fill="#2f6f9f"/>
+<rect x="90" y="432" width="398.6" height="8" fill="#dd8a2e"/>
+<rect x="90" y="442" width="0.0" height="8" fill="#2f9f62"/>
+<text x="730" y="430" font-family="sans-serif" font-size="12">records 13 · official 7 · primary 9 · second 0</text>
+<text x="40" y="468" font-family="monospace" font-size="14">TW</text>
+<rect x="90" y="452" width="620.0" height="8" fill="#d9d9d9"/>
+<rect x="90" y="462" width="442.9" height="8" fill="#2f6f9f"/>
+<rect x="90" y="472" width="44.3" height="8" fill="#dd8a2e"/>
+<rect x="90" y="482" width="0.0" height="8" fill="#2f9f62"/>
+<text x="730" y="470" font-family="sans-serif" font-size="12">records 14 · official 10 · primary 1 · second 0</text>
+<text x="40" y="508" font-family="monospace" font-size="14">UK</text>
+<rect x="90" y="492" width="620.0" height="8" fill="#d9d9d9"/>
+<rect x="90" y="502" width="398.6" height="8" fill="#2f6f9f"/>
+<rect x="90" y="512" width="88.6" height="8" fill="#dd8a2e"/>
+<rect x="90" y="522" width="0.0" height="8" fill="#2f9f62"/>
+<text x="730" y="510" font-family="sans-serif" font-size="12">records 14 · official 9 · primary 2 · second 0</text>
+<text x="40" y="548" font-family="monospace" font-size="14">US</text>
+<rect x="90" y="532" width="398.6" height="8" fill="#d9d9d9"/>
+<rect x="90" y="542" width="221.4" height="8" fill="#2f6f9f"/>
+<rect x="90" y="552" width="265.7" height="8" fill="#dd8a2e"/>
+<rect x="90" y="562" width="0.0" height="8" fill="#2f9f62"/>
+<text x="730" y="550" font-family="sans-serif" font-size="12">records 9 · official 5 · primary 6 · second 0</text>
+<text x="40" y="594" font-family="sans-serif" font-size="12" fill="#555">Grey: records · blue: official source · orange: primary review · green: independent second review</text>
+</svg>

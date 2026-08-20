@@ -45,3 +45,20 @@ verification:
     instrument: GENIUS Act (Pub. L., signed 18 Jul 2025); OCC/FDIC NPRMs + CLARITY Act (H.R.3633) pending
     url: https://www.federalregister.gov/documents/2025/09/19/2025-18226/genius-act-implementation
     pinpoint: capital left to OCC/FDIC rulemaking; figures from the OCC/FDIC NPRM (proposed)
+
+# CBSR v0.11 review/temporal metadata (mechanically migrated; null means not evidenced)
+source_last_checked: '2026-06-27'
+next_review_due: '2026-07-04'
+review_status: stale
+reviewer: external review (web retrieval against official sources)
+second_reviewer: null
+review_stage: primary_reviewed_second_pending
+reconciliation_status: not_started
+review_disagreement: null
+source_disposition: official
+source_check_status: checked
+effective_from: null
+effective_until: null
+event_id: null
+legal_status: proposed
+uncertainty: high

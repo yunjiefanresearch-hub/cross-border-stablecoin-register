@@ -32,6 +32,7 @@ except Exception:
     pass
 import json, pathlib, datetime
 import yaml
+from build_clock import BUILD_DATE
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 _sys.path.insert(0, str(ROOT / "tools"))
@@ -40,7 +41,7 @@ import migrate_from_v0_9_92 as mig   # the executable specification of the v0.10
 
 # M2: stamp the register version into the artifact so no consumer has to infer it from a
 # filename or an external map. Keep in step with build.py:REGISTER_VERSION on every release.
-REGISTER_VERSION = "0.10.1"
+REGISTER_VERSION = "0.11.0"
 mig.REGISTER_VERSION = REGISTER_VERSION   # the artifact's register_version follows the register's
 ATLAS_VERSION = "v0.2.5"   # N3: the Corridor Atlas release this layer's prose cites
 
@@ -277,7 +278,7 @@ def build():
 
     out = {
         "schema": "cbsr-analysis/computed_corridors_directed",
-        "generated": str(datetime.date.today()),
+        "generated": BUILD_DATE,
         "register_version": REGISTER_VERSION,   # M2: stamped, not inferred
         "source": ("Unifies the register's own layers: authored corridors (root *.yaml), computed "
                    "skeletons (analysis/computed_corridor_skeletons.json), and the event-calendar "

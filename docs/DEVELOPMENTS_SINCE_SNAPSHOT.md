@@ -9,7 +9,7 @@ independent review examined.
 **These are dating updates, not errors, and not verification gaps.** None changes a corridor
 feasibility class or contradicts the artifact; each is a moving part to re-verify before the papers'
 as-of is advanced. They are recorded here as flagged by the third review
-([`AUDIT_v0.9.93_third-review.md`](AUDIT_v0.9.93_third-review.md)); each should be **primary-verified**
+([`AUDIT_v0.9.93_third-review.md`](audit/AUDIT_v0.9.93_third-review.md)); each should be **primary-verified**
 at the point the register snapshot is rolled forward. Items below are stated as the review reported
 them, not asserted here as independently re-confirmed post-snapshot.
 

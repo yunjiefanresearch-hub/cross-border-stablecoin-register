@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yunjiefanresearch-hub.github.io/cross-border-stablecoin-register/schemas/policy-receipt.v1.schema.json",
+  "title": "CBSR decision receipt v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "dataset_version", "receipt_id", "generated_at", "requested_as_of", "non_legal_advice_notice", "action", "decision", "applicable_rules", "source_urls", "freshness_snapshot", "assumptions", "uncertainty", "mandate", "audit_identity", "engine_version", "ruleset_version", "component_digests", "signing_state", "execution_authorized", "sha256"],
+  "properties": {
+    "schema": {"const": "cbsr/decision-receipt/v1"},
+    "dataset_version": {"type": "string"},
+    "receipt_id": {"type": "string", "pattern": "^cbsr-receipt-[0-9a-f]{24}$"},
+    "generated_at": {"type": "string"},
+    "requested_as_of": {"type": ["string", "null"], "format": "date"},
+    "non_legal_advice_notice": {"type": ["string", "null"], "minLength": 40},
+    "action": {"type": "object"}, "decision": {"type": "object"},
+    "applicable_rules": {"type": "array", "items": {"type": "object"}},
+    "source_urls": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "freshness_snapshot": {"type": "object"},
+    "assumptions": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "uncertainty": {"enum": ["low", "medium", "mixed", "high", "unknown"]},
+    "mandate": {
+      "type": "object", "additionalProperties": false,
+      "required": ["mandate_id", "version", "issued_by"],
+      "properties": {"mandate_id": {"type": ["string", "null"]}, "version": {"type": ["string", "null"]}, "issued_by": {"type": ["string", "null"]}}
+    },
+    "audit_identity": {"type": "object"},
+    "engine_version": {"type": ["string", "null"]}, "ruleset_version": {"type": ["string", "null"]},
+    "component_digests": {
+      "type": "object", "additionalProperties": false,
+      "required": ["action_sha256", "decision_sha256"],
+      "properties": {"action_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}, "decision_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
+    },
+    "signing_state": {"enum": ["unsigned", "signed"]},
+    "execution_authorized": {"const": false},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

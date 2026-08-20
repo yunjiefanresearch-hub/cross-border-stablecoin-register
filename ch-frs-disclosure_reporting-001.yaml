@@ -27,3 +27,20 @@ tags:
 - disclosure_reporting
 - binding_in_force_enacted
 binding_status: in_force_enacted
+
+# CBSR v0.11 review/temporal metadata (mechanically migrated; null means not evidenced)
+source_last_checked: null
+next_review_due: null
+review_status: unknown
+reviewer: null
+second_reviewer: null
+review_stage: unreviewed
+reconciliation_status: not_started
+review_disagreement: null
+source_disposition: unavailable
+source_check_status: source_unavailable
+effective_from: null
+effective_until: null
+event_id: null
+legal_status: operative
+uncertainty: high

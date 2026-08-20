@@ -82,7 +82,7 @@ several to the digit:**
 **A residual (honestly flagged, now tracked as backlog):** the **Tillis** half of the yield-provision
 attribution (VB-01), the PRC 42号 re-verification (VB-04, does not bear on the blocked class), and the
 Japan Act No. 66 **promulgation** pinpoint (VB-03; the load-bearing 2026-06-01 effective date is
-confirmed). All are recorded in [`verification_backlog.json`](verification_backlog.json).
+confirmed). All are recorded in [`verification_backlog.json`](../verification_backlog.json).
 
 ## Sub-question C (logic appropriate; accuracy re-checked) — composition self-consistent; reconciliation exact
 
@@ -125,7 +125,7 @@ runnable (**C1**).
 3. **Living-document drift (snapshot 6-30 → 7-8)** — CLARITY odds ~48%→~42-46%; the MiCA 7-1 cliff has
    **passed**; FCA final rules reported landed 6-30; Taiwan presidential promulgation due ~10 days
    after third reading. None are errors; all are v1.0 dating updates, tracked in
-   [`DEVELOPMENTS_SINCE_SNAPSHOT.md`](DEVELOPMENTS_SINCE_SNAPSHOT.md).
+   [`DEVELOPMENTS_SINCE_SNAPSHOT.md`](../DEVELOPMENTS_SINCE_SNAPSHOT.md).
 4. **M1 (Matrix Taiwan cell stale) confirmed, not an internal contradiction.** Matrix v0.9.7 reads
    "remains a bill … no third reading yet," honest about its own cut-off (top-line ⚠ conditional-status
    banner, "June 2026 state"), and predates the third reading; the corridor layer already treats Taiwan

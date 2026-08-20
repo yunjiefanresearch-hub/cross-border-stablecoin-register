@@ -1,0 +1,45 @@
+-c runtime.txt
+
+# CBSR v0.11 complete development/release lock for CPython 3.10-3.13.
+# Runtime transitives are locked in runtime.txt; every additional package in the
+# verified development environment is pinned here.
+boolean.py==5.0
+build==1.5.0
+CacheControl==0.14.4
+charset-normalizer==3.5.1
+cyclonedx-python-lib==11.12.0
+defusedxml==0.7.1
+filelock==3.32.3
+hatchling==1.32.0
+iniconfig==2.3.0
+license-expression==30.4.4
+markdown-it-py==4.2.0
+mdurl==0.1.2
+msgpack==1.2.1
+packageurl-python==0.17.6
+pathspec==1.1.1
+pillow==12.3.0
+pip==26.2.1
+pip-api==0.0.34
+pip-audit==2.10.1
+pip-requirements-parser==32.0.1
+platformdirs==4.11.3
+pluggy==1.6.0
+Pygments==2.21.0
+py-serializable==2.1.0
+pyparsing==3.3.2
+pyproject-hooks==1.2.0
+pypdf==6.10.0
+pytest==8.4.2
+PyYAML==6.0.3
+requests==2.34.2
+reportlab==4.4.9
+rich==15.0.0
+setuptools==84.0.0
+sortedcontainers==2.4.0
+tomli==2.4.1; python_version < "3.11"
+tomli-w==1.2.0
+tomlkit==0.15.1
+trove-classifiers==2026.6.1.19
+urllib3==2.7.0
+wheel==0.48.0

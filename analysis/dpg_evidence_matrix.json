@@ -1,0 +1,215 @@
+{
+  "as_of": "2026-08-20",
+  "assessment_type": "repository self-assessment; not a DPGA determination",
+  "indicators": [
+    {
+      "evidence_files": [
+        "analysis/sdg_mapping.json",
+        "research/claims/claims_ledger.csv"
+      ],
+      "external_determination": false,
+      "indicator": "1",
+      "interpretation": "Repository evidence is assessed against this indicator without implying certification or external assurance.",
+      "limitations": "No causal-impact evaluation or UN/DPGA determination.",
+      "next_action": "Close the stated limitation, retain dated evidence, and obtain the applicable independent or remote readback before submission.",
+      "official_reference": "https://www.digitalpublicgoods.net/standard",
+      "owner_role": "maintainer",
+      "reviewed_date": "2026-08-20",
+      "status": "Partial",
+      "target_date": "before-v0.11.0-release",
+      "title": "SDG Relevance",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence_files": [
+        "LICENSE",
+        "LICENSE-DATA",
+        "LICENSE-CODE",
+        "README.md"
+      ],
+      "external_determination": false,
+      "indicator": "2",
+      "interpretation": "Repository evidence is assessed against this indicator without implying certification or external assurance.",
+      "limitations": "Licence notices still require release-by-release verification.",
+      "next_action": "Close the stated limitation, retain dated evidence, and obtain the applicable independent or remote readback before submission.",
+      "official_reference": "https://www.digitalpublicgoods.net/standard",
+      "owner_role": "maintainer",
+      "reviewed_date": "2026-08-20",
+      "status": "Met",
+      "target_date": "continuous",
+      "title": "Open Licencing",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence_files": [
+        "CITATION.cff",
+        ".github/CODEOWNERS",
+        "GOVERNANCE.md"
+      ],
+      "external_determination": false,
+      "indicator": "3",
+      "interpretation": "Repository evidence is assessed against this indicator without implying certification or external assurance.",
+      "limitations": "CODEOWNERS is committed, but repository-side enforcement requires remote ruleset readback.",
+      "next_action": "Close the stated limitation, retain dated evidence, and obtain the applicable independent or remote readback before submission.",
+      "official_reference": "https://www.digitalpublicgoods.net/standard",
+      "owner_role": "maintainer",
+      "reviewed_date": "2026-08-20",
+      "status": "Partial",
+      "target_date": "before-v0.11.0-release",
+      "title": "Clear Ownership",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence_files": [
+        "pyproject.toml",
+        "constraints/dev.txt",
+        ".github/workflows/build.yml"
+      ],
+      "external_determination": false,
+      "indicator": "4",
+      "interpretation": "Repository evidence is assessed against this indicator without implying certification or external assurance.",
+      "limitations": "Linux local evidence exists; remote Python 3.10-3.13 and Windows evidence remain external gates.",
+      "next_action": "Close the stated limitation, retain dated evidence, and obtain the applicable independent or remote readback before submission.",
+      "official_reference": "https://www.digitalpublicgoods.net/standard",
+      "owner_role": "maintainer",
+      "reviewed_date": "2026-08-20",
+      "status": "Partial",
+      "target_date": "before-v0.11.0-release",
+      "title": "Platform Independence",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence_files": [
+        "README.md",
+        "MCP_SERVER.md",
+        "LOCAL_DEPLOY_WINDOWS.md"
+      ],
+      "external_determination": false,
+      "indicator": "5",
+      "interpretation": "Repository evidence is assessed against this indicator without implying certification or external assurance.",
+      "limitations": "Independent usability testing has not been completed.",
+      "next_action": "Close the stated limitation, retain dated evidence, and obtain the applicable independent or remote readback before submission.",
+      "official_reference": "https://www.digitalpublicgoods.net/standard",
+      "owner_role": "maintainer",
+      "reviewed_date": "2026-08-20",
+      "status": "Partial",
+      "target_date": "before-v0.11.0-release",
+      "title": "Documentation",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence_files": [
+        "PRIVACY.md",
+        "api/records.json",
+        "dataset.json"
+      ],
+      "external_determination": false,
+      "indicator": "6",
+      "interpretation": "Repository evidence is assessed against this indicator without implying certification or external assurance.",
+      "limitations": "The public dataset contains regulatory research; downstream action payloads can contain sensitive data.",
+      "next_action": "Close the stated limitation, retain dated evidence, and obtain the applicable independent or remote readback before submission.",
+      "official_reference": "https://www.digitalpublicgoods.net/standard",
+      "owner_role": "maintainer",
+      "reviewed_date": "2026-08-20",
+      "status": "Met",
+      "target_date": "continuous",
+      "title": "Non-PII Data Extraction",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence_files": [
+        "PRIVACY.md",
+        "docs/security/THREAT_MODEL.md"
+      ],
+      "external_determination": false,
+      "indicator": "7",
+      "interpretation": "Repository evidence is assessed against this indicator without implying certification or external assurance.",
+      "limitations": "Applicability depends on deployment context and must be assessed by the downstream operator.",
+      "next_action": "Close the stated limitation, retain dated evidence, and obtain the applicable independent or remote readback before submission.",
+      "official_reference": "https://www.digitalpublicgoods.net/standard",
+      "owner_role": "maintainer",
+      "reviewed_date": "2026-08-20",
+      "status": "Partial",
+      "target_date": "before-v0.11.0-release",
+      "title": "Privacy & Applicable Laws",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence_files": [
+        "record.schema.json",
+        "schemas/policy-action.v1.schema.json",
+        "server.json"
+      ],
+      "external_determination": false,
+      "indicator": "8",
+      "interpretation": "Repository evidence is assessed against this indicator without implying certification or external assurance.",
+      "limitations": "External interoperability certification has not been performed.",
+      "next_action": "Close the stated limitation, retain dated evidence, and obtain the applicable independent or remote readback before submission.",
+      "official_reference": "https://www.digitalpublicgoods.net/standard",
+      "owner_role": "maintainer",
+      "reviewed_date": "2026-08-20",
+      "status": "Partial",
+      "target_date": "before-v0.11.0-release",
+      "title": "Open Standards & Best Practices",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence_files": [
+        "SECURITY.md",
+        ".github/workflows/security.yml",
+        "dist/cbsr-0.11.0.cdx.json"
+      ],
+      "external_determination": false,
+      "indicator": "9A",
+      "interpretation": "Repository evidence is assessed against this indicator without implying certification or external assurance.",
+      "limitations": "Local controls exist; independent security assessment and remote workflow evidence remain pending.",
+      "next_action": "Close the stated limitation, retain dated evidence, and obtain the applicable independent or remote readback before submission.",
+      "official_reference": "https://www.digitalpublicgoods.net/standard",
+      "owner_role": "maintainer",
+      "reviewed_date": "2026-08-20",
+      "status": "Partial",
+      "target_date": "before-v0.11.0-release",
+      "title": "Data Privacy & Security",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence_files": [
+        "CODE_OF_CONDUCT.md",
+        "GOVERNANCE.md",
+        ".github/ISSUE_TEMPLATE/config.yml"
+      ],
+      "external_determination": false,
+      "indicator": "9B",
+      "interpretation": "Repository evidence is assessed against this indicator without implying certification or external assurance.",
+      "limitations": "Moderation operation evidence does not yet exist.",
+      "next_action": "Close the stated limitation, retain dated evidence, and obtain the applicable independent or remote readback before submission.",
+      "official_reference": "https://www.digitalpublicgoods.net/standard",
+      "owner_role": "maintainer",
+      "reviewed_date": "2026-08-20",
+      "status": "Partial",
+      "target_date": "before-v0.11.0-release",
+      "title": "Inappropriate & Illegal Content",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence_files": [
+        "CODE_OF_CONDUCT.md",
+        ".github/ISSUE_TEMPLATE/config.yml"
+      ],
+      "external_determination": false,
+      "indicator": "9C",
+      "interpretation": "Repository evidence is assessed against this indicator without implying certification or external assurance.",
+      "limitations": "Enforcement effectiveness has not been independently evaluated.",
+      "next_action": "Close the stated limitation, retain dated evidence, and obtain the applicable independent or remote readback before submission.",
+      "official_reference": "https://www.digitalpublicgoods.net/standard",
+      "owner_role": "maintainer",
+      "reviewed_date": "2026-08-20",
+      "status": "Partial",
+      "target_date": "before-v0.11.0-release",
+      "title": "Protection from Harassment",
+      "verification_command": "python -m tools.verify"
+    }
+  ],
+  "official_reference": "https://www.digitalpublicgoods.net/standard",
+  "schema": "cbsr/dpg-evidence-matrix/v2"
+}

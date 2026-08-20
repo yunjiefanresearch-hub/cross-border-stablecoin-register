@@ -1,0 +1,599 @@
+{
+  "schema": "cbsr/agenticfi-pilot/v1",
+  "pilot_id": "pilot-enterprise-stablecoin-payment",
+  "title": "Pilot 1 — Enterprise cross-border stablecoin payment",
+  "as_of": "2026-08-20",
+  "execution_mode": "offline_deterministic_decision_support",
+  "legal_currentness_claim": false,
+  "fixture_note": "The pilot uses explicitly labelled current/reconciled controlled fixtures to exercise the positive path. Those overrides are test evidence only and do not promote the committed legal records.",
+  "actors": [
+    "enterprise treasury requester",
+    "mandated autonomous policy agent",
+    "human compliance approver",
+    "EU corporate beneficiary"
+  ],
+  "jurisdictions": [
+    "US",
+    "EU"
+  ],
+  "assets": [
+    "USDC"
+  ],
+  "assumed_facts": [
+    "The payment leg uses USDC and both counterparties have separate identity and sanctions controls.",
+    "The controlled evidence fixtures are test-only and are not assertions about current law.",
+    "The treasury agent has no authority to transmit funds; it can only request a policy decision."
+  ],
+  "decision_path": [
+    "Validate action, mandate version, audit identity and requested timestamp.",
+    "Check route, asset, counterparty, validity interval and amount against the mandate.",
+    "Resolve official rule IDs, source URLs, freshness and independent-review state from explicit fixtures.",
+    "Apply KYC and amount-threshold controls before returning allow_with_conditions.",
+    "Serialize the full evidence chain into an unsigned, non-executing receipt and replay it."
+  ],
+  "human_review_trigger": "The amount 750,000 exceeds the mandate threshold of 500,000, so human approval is mandatory.",
+  "limitations": [
+    "No funds are moved and no live identity, sanctions, wallet or counterparty checks are performed.",
+    "The positive evidence state is a controlled fixture, not a legal-currentness claim.",
+    "Tax, securities, consumer, insolvency and private-law questions remain outside this pilot."
+  ],
+  "failure_cases": [
+    "Missing or stale evidence returns review_required or insufficient_evidence.",
+    "A revoked/expired mandate, disallowed route, asset or counterparty returns prohibited.",
+    "Absent human approval leaves the action conditioned and never authorizes execution."
+  ],
+  "action": {
+    "schema": "cbsr/policy-action/v1",
+    "action_id": "pilot-us-eu-001",
+    "origin": "US",
+    "destination": "EU",
+    "asset": "USDC",
+    "amount": "750000",
+    "actor": "agent:pilot-runner",
+    "counterparty": "pilot-counterparty",
+    "requires_kyc": true,
+    "as_of": "2026-08-20",
+    "requested_at": "2026-08-20T10:00:00Z",
+    "action": "stablecoin_payment",
+    "authority": [
+      "pilot-mandate-us-eu"
+    ],
+    "modality": "request",
+    "conditions": [
+      "subject_to_policy_evaluation"
+    ],
+    "obligations": [
+      "preserve_decision_receipt",
+      "obtain_required_human_approval"
+    ],
+    "exceptions": [],
+    "evidence": [],
+    "uncertainty": "high",
+    "domain_context": {},
+    "mandate": {
+      "schema": "cbsr/policy-mandate/v1",
+      "mandate_id": "pilot-mandate-us-eu",
+      "version": "1.0",
+      "issued_by": "pilot:policy-owner",
+      "active": true,
+      "revoked": false,
+      "valid_from": "2026-01-01",
+      "valid_until": "2027-01-01",
+      "max_amount": "1000000",
+      "assets": [
+        "USDC"
+      ],
+      "jurisdictions": [
+        "US",
+        "EU"
+      ],
+      "prohibited_jurisdictions": [],
+      "counterparties": [
+        "pilot-counterparty"
+      ],
+      "human_review": {
+        "required": false,
+        "amount_threshold": "500000"
+      },
+      "audit_identity": {
+        "subject_id": "agent:pilot-runner",
+        "actor_type": "agent",
+        "principal_id": "human:pilot-owner",
+        "session_id": "pilot-replay-2026-08-20",
+        "authentication_context": [
+          "controlled_fixture",
+          "deterministic_replay"
+        ]
+      }
+    }
+  },
+  "evidence": [
+    {
+      "id": "us-pss-reserve_backing-001",
+      "jurisdiction": "US",
+      "authority": "OCC, FDIC",
+      "instrument_type": "payment_stablecoin",
+      "instrument_label_local": "payment stablecoin",
+      "dimension": "reserve_backing",
+      "constraint_ref": "C2",
+      "requirement_summary": "1:1 backing of outstanding payment stablecoins at fair value is required by the enacted GENIUS Act (Sec. 4(a)(1)). The detailed list of PERMISSIBLE reserve assets is set by the OCC NPRM (proposed 12 CFR Sec. 15.11(b)) and is NOT yet final — that composition is a pending overlay, not part of the in-force statutory proposition.",
+      "status": "in_force",
+      "effective_date": null,
+      "source": {
+        "primary": "GENIUS Act Sec. 4(a)(1) (1:1 fair-value reserve backing)",
+        "pinpoint": "GENIUS Act Sec. 4(a)(1) (1:1 fair-value backing of outstanding payment stablecoins)",
+        "url": "https://www.congress.gov/bill/119th-congress/senate-bill/1582/text"
+      },
+      "secondary": [
+        {
+          "citation": "Fan, Compliance Matrix v0.9.3 (18 May 2026), p.8 (US — Reserve and Backing Requirements)"
+        }
+      ],
+      "interpretation_note": "Provenance: transcribed from author's Compliance Matrix v0.9.3. Reserve half of the split reserve_capital dimension.\n\n[v0.9.5 verification] CAVEAT: Permissible-asset composition (proposed 12 CFR Sec. 15.11(b)) is an OCC NPRM (pending), not final law. SPLIT per verification: the citable proposition is the enacted 1:1 backing (Sec. 4(a)(1)); the 12 CFR Sec. 15.11(b) permissible-asset detail is an OCC NPRM (proposed), moved out of the citation into a flagged pending overlay. Status corrected proposed->in_force for the 1:1.",
+      "confidence": "medium",
+      "claim_class": "tier1_legal",
+      "last_reviewed": "2026-06-27",
+      "version_added": "0.2.0",
+      "tags": [
+        "us",
+        "anchor",
+        "from_matrix_v0.9.3",
+        "dimension_split",
+        "v0.9.5_verification",
+        "binding_in_force_enacted",
+        "resolution_text_verified"
+      ],
+      "binding_status": "in_force_enacted",
+      "evidence_tier": "resolution_text",
+      "verification": {
+        "verified_by": "external review (web retrieval against official sources)",
+        "verified_on": "2026-06-27",
+        "method": "official_text",
+        "against": {
+          "instrument": "GENIUS Act (Pub. L., signed 18 Jul 2025); OCC/FDIC NPRMs + CLARITY Act (H.R.3633) pending",
+          "url": "https://www.congress.gov/bill/119th-congress/senate-bill/1582/text",
+          "pinpoint": "GENIUS Act Sec. 4(a)(1) (1:1 fair-value backing of outstanding payment stablecoins)"
+        }
+      },
+      "source_last_checked": "2026-08-20",
+      "next_review_due": "2026-09-19",
+      "review_status": "current",
+      "reviewer": "controlled-fixture-primary",
+      "second_reviewer": "controlled-fixture-independent",
+      "review_stage": "reconciled",
+      "reconciliation_status": "not_started",
+      "review_disagreement": null,
+      "source_disposition": "official",
+      "source_check_status": "checked",
+      "effective_from": null,
+      "effective_until": null,
+      "event_id": null,
+      "legal_status": "operative",
+      "uncertainty": "low",
+      "freshness": {
+        "as_of": "2026-08-20",
+        "source_last_checked": "2026-08-20",
+        "next_review_due": "2026-09-19",
+        "review_status": "current",
+        "days_overdue": 24,
+        "sla_days": 30,
+        "source_disposition": "official",
+        "uncertainty": "low"
+      }
+    },
+    {
+      "id": "eu-emt-issuer_pathway-001",
+      "jurisdiction": "EU",
+      "authority": "EBA/ESMA; national competent authorities",
+      "instrument_type": "e_money_token",
+      "dimension": "issuer_pathway",
+      "constraint_ref": "C1",
+      "requirement_summary": "Issuance of an e-money token is restricted to entities authorized as credit institutions or electronic money institutions; no other entity may issue. An authorizable private token exists.",
+      "requirement_structured": {
+        "permitted_issuers": [
+          "credit institution",
+          "electronic money institution"
+        ],
+        "exportable_token": true
+      },
+      "status": "in_force",
+      "effective_date": null,
+      "source": {
+        "primary": "Markets in Crypto-Assets Regulation (MiCA), Regulation (EU) 2023/1114",
+        "pinpoint": "Title IV — EMT issuance restricted to authorized credit institutions or e-money institutions"
+      },
+      "interpretation_note": "Authored in v0.9.2 to fill the EU.C1 constraint cell for the substrate sweep.",
+      "confidence": "high",
+      "claim_class": "tier1_legal",
+      "evidence_tier": "firm_summary",
+      "last_reviewed": "2026-06-27",
+      "version_added": "0.9.2",
+      "tags": [
+        "v0.9.2_cell_sweep",
+        "eu",
+        "issuer_pathway",
+        "binding_in_force_enacted"
+      ],
+      "binding_status": "in_force_enacted",
+      "source_last_checked": "2026-08-20",
+      "next_review_due": "2026-09-19",
+      "review_status": "current",
+      "reviewer": "controlled-fixture-primary",
+      "second_reviewer": "controlled-fixture-independent",
+      "review_stage": "reconciled",
+      "reconciliation_status": "not_started",
+      "review_disagreement": null,
+      "source_disposition": "unavailable",
+      "source_check_status": "source_unavailable",
+      "effective_from": null,
+      "effective_until": null,
+      "event_id": null,
+      "legal_status": "operative",
+      "uncertainty": "high",
+      "freshness": {
+        "as_of": "2026-08-20",
+        "source_last_checked": "2026-08-20",
+        "next_review_due": "2026-09-19",
+        "review_status": "current",
+        "days_overdue": null,
+        "sla_days": 30,
+        "source_disposition": "unavailable",
+        "uncertainty": "high"
+      }
+    }
+  ],
+  "decision": {
+    "outcome": "allow_with_conditions",
+    "reasons": [
+      "operative_current_reconciled_evidence"
+    ],
+    "evidence_ids": [
+      "eu-emt-issuer_pathway-001",
+      "us-pss-reserve_backing-001"
+    ],
+    "rule_ids": [
+      "cbsr.rule.eu-emt-issuer_pathway-001",
+      "cbsr.rule.us-pss-reserve_backing-001"
+    ],
+    "source_urls": [
+      "https://www.congress.gov/bill/119th-congress/senate-bill/1582/text"
+    ],
+    "applicable_rules": [
+      {
+        "rule_id": "cbsr.rule.eu-emt-issuer_pathway-001",
+        "record_id": "eu-emt-issuer_pathway-001",
+        "jurisdiction": "EU",
+        "dimension": "issuer_pathway",
+        "source_url": null,
+        "source_disposition": "unavailable",
+        "source_last_checked": "2026-08-20",
+        "next_review_due": "2026-09-19",
+        "binding_status": "in_force_enacted",
+        "legal_status": "operative",
+        "review_status": "current",
+        "review_stage": "reconciled",
+        "evidence_tier": "firm_summary",
+        "uncertainty": "high"
+      },
+      {
+        "rule_id": "cbsr.rule.us-pss-reserve_backing-001",
+        "record_id": "us-pss-reserve_backing-001",
+        "jurisdiction": "US",
+        "dimension": "reserve_backing",
+        "source_url": "https://www.congress.gov/bill/119th-congress/senate-bill/1582/text",
+        "source_disposition": "official",
+        "source_last_checked": "2026-08-20",
+        "next_review_due": "2026-09-19",
+        "binding_status": "in_force_enacted",
+        "legal_status": "operative",
+        "review_status": "current",
+        "review_stage": "reconciled",
+        "evidence_tier": "resolution_text",
+        "uncertainty": "low"
+      }
+    ],
+    "freshness_snapshot": {
+      "as_of": "2026-08-20",
+      "current": 2,
+      "due_for_review": 0,
+      "stale": 0,
+      "unknown": 0,
+      "source_last_checked": [
+        "2026-08-20"
+      ],
+      "next_review_due": [
+        "2026-09-19"
+      ]
+    },
+    "uncertainty": "high",
+    "mandate_id": "pilot-mandate-us-eu",
+    "mandate_version": "1.0",
+    "assumptions": [
+      "audit_identity_is_asserted_not_authenticated_by_cbsr",
+      "evaluation_as_of:2026-08-20",
+      "offline_committed_snapshot"
+    ],
+    "obligations": [
+      "verify_applicable_aml_kyc_and_sanctions_controls",
+      "verify_cross_border_data_transfer_basis",
+      "verify_distribution_and_offering_permissions",
+      "verify_issuer_and_intermediary_authorizations",
+      "verify_redemption_rights_timing_and_par_value",
+      "verify_reserve_composition_custody_and_attestation"
+    ],
+    "conditions": [
+      "complete_kyc_before_execution",
+      "obtain_human_approval"
+    ],
+    "conflict_details": [],
+    "engine_version": "cbsr-policy-engine/1.1.0",
+    "ruleset_version": "cbsr-stablecoin-rules/1.1.0",
+    "evaluated_at": "2026-08-20T00:00:00Z",
+    "requested_as_of": "2026-08-20",
+    "non_legal_advice_notice": "CBSR provides deterministic research decision support, not legal advice, transaction approval or execution authority.",
+    "schema": "cbsr/policy-decision/v1",
+    "deterministic": true,
+    "execution_authorized": false
+  },
+  "receipt": {
+    "schema": "cbsr/decision-receipt/v1",
+    "dataset_version": "0.11.0",
+    "receipt_id": "cbsr-receipt-6c35fae9c10cca501a8a3da9",
+    "generated_at": "2026-08-20T10:00:00Z",
+    "requested_as_of": "2026-08-20",
+    "non_legal_advice_notice": "CBSR provides deterministic research decision support, not legal advice, transaction approval or execution authority.",
+    "action": {
+      "schema": "cbsr/policy-action/v1",
+      "action_id": "pilot-us-eu-001",
+      "origin": "US",
+      "destination": "EU",
+      "asset": "USDC",
+      "amount": "750000",
+      "actor": "agent:pilot-runner",
+      "counterparty": "pilot-counterparty",
+      "requires_kyc": true,
+      "as_of": "2026-08-20",
+      "requested_at": "2026-08-20T10:00:00Z",
+      "action": "stablecoin_payment",
+      "authority": [
+        "pilot-mandate-us-eu"
+      ],
+      "modality": "request",
+      "conditions": [
+        "subject_to_policy_evaluation"
+      ],
+      "obligations": [
+        "preserve_decision_receipt",
+        "obtain_required_human_approval"
+      ],
+      "exceptions": [],
+      "evidence": [],
+      "uncertainty": "high",
+      "domain_context": {},
+      "mandate": {
+        "schema": "cbsr/policy-mandate/v1",
+        "mandate_id": "pilot-mandate-us-eu",
+        "version": "1.0",
+        "issued_by": "pilot:policy-owner",
+        "active": true,
+        "revoked": false,
+        "valid_from": "2026-01-01",
+        "valid_until": "2027-01-01",
+        "max_amount": "1000000",
+        "assets": [
+          "USDC"
+        ],
+        "jurisdictions": [
+          "US",
+          "EU"
+        ],
+        "prohibited_jurisdictions": [],
+        "counterparties": [
+          "pilot-counterparty"
+        ],
+        "human_review": {
+          "required": false,
+          "amount_threshold": "500000"
+        },
+        "audit_identity": {
+          "subject_id": "agent:pilot-runner",
+          "actor_type": "agent",
+          "principal_id": "human:pilot-owner",
+          "session_id": "pilot-replay-2026-08-20",
+          "authentication_context": [
+            "controlled_fixture",
+            "deterministic_replay"
+          ]
+        }
+      }
+    },
+    "decision": {
+      "outcome": "allow_with_conditions",
+      "reasons": [
+        "operative_current_reconciled_evidence"
+      ],
+      "evidence_ids": [
+        "eu-emt-issuer_pathway-001",
+        "us-pss-reserve_backing-001"
+      ],
+      "rule_ids": [
+        "cbsr.rule.eu-emt-issuer_pathway-001",
+        "cbsr.rule.us-pss-reserve_backing-001"
+      ],
+      "source_urls": [
+        "https://www.congress.gov/bill/119th-congress/senate-bill/1582/text"
+      ],
+      "applicable_rules": [
+        {
+          "rule_id": "cbsr.rule.eu-emt-issuer_pathway-001",
+          "record_id": "eu-emt-issuer_pathway-001",
+          "jurisdiction": "EU",
+          "dimension": "issuer_pathway",
+          "source_url": null,
+          "source_disposition": "unavailable",
+          "source_last_checked": "2026-08-20",
+          "next_review_due": "2026-09-19",
+          "binding_status": "in_force_enacted",
+          "legal_status": "operative",
+          "review_status": "current",
+          "review_stage": "reconciled",
+          "evidence_tier": "firm_summary",
+          "uncertainty": "high"
+        },
+        {
+          "rule_id": "cbsr.rule.us-pss-reserve_backing-001",
+          "record_id": "us-pss-reserve_backing-001",
+          "jurisdiction": "US",
+          "dimension": "reserve_backing",
+          "source_url": "https://www.congress.gov/bill/119th-congress/senate-bill/1582/text",
+          "source_disposition": "official",
+          "source_last_checked": "2026-08-20",
+          "next_review_due": "2026-09-19",
+          "binding_status": "in_force_enacted",
+          "legal_status": "operative",
+          "review_status": "current",
+          "review_stage": "reconciled",
+          "evidence_tier": "resolution_text",
+          "uncertainty": "low"
+        }
+      ],
+      "freshness_snapshot": {
+        "as_of": "2026-08-20",
+        "current": 2,
+        "due_for_review": 0,
+        "stale": 0,
+        "unknown": 0,
+        "source_last_checked": [
+          "2026-08-20"
+        ],
+        "next_review_due": [
+          "2026-09-19"
+        ]
+      },
+      "uncertainty": "high",
+      "mandate_id": "pilot-mandate-us-eu",
+      "mandate_version": "1.0",
+      "assumptions": [
+        "audit_identity_is_asserted_not_authenticated_by_cbsr",
+        "evaluation_as_of:2026-08-20",
+        "offline_committed_snapshot"
+      ],
+      "obligations": [
+        "verify_applicable_aml_kyc_and_sanctions_controls",
+        "verify_cross_border_data_transfer_basis",
+        "verify_distribution_and_offering_permissions",
+        "verify_issuer_and_intermediary_authorizations",
+        "verify_redemption_rights_timing_and_par_value",
+        "verify_reserve_composition_custody_and_attestation"
+      ],
+      "conditions": [
+        "complete_kyc_before_execution",
+        "obtain_human_approval"
+      ],
+      "conflict_details": [],
+      "engine_version": "cbsr-policy-engine/1.1.0",
+      "ruleset_version": "cbsr-stablecoin-rules/1.1.0",
+      "evaluated_at": "2026-08-20T00:00:00Z",
+      "requested_as_of": "2026-08-20",
+      "non_legal_advice_notice": "CBSR provides deterministic research decision support, not legal advice, transaction approval or execution authority.",
+      "schema": "cbsr/policy-decision/v1",
+      "deterministic": true,
+      "execution_authorized": false
+    },
+    "applicable_rules": [
+      {
+        "rule_id": "cbsr.rule.eu-emt-issuer_pathway-001",
+        "record_id": "eu-emt-issuer_pathway-001",
+        "jurisdiction": "EU",
+        "dimension": "issuer_pathway",
+        "source_url": null,
+        "source_disposition": "unavailable",
+        "source_last_checked": "2026-08-20",
+        "next_review_due": "2026-09-19",
+        "binding_status": "in_force_enacted",
+        "legal_status": "operative",
+        "review_status": "current",
+        "review_stage": "reconciled",
+        "evidence_tier": "firm_summary",
+        "uncertainty": "high"
+      },
+      {
+        "rule_id": "cbsr.rule.us-pss-reserve_backing-001",
+        "record_id": "us-pss-reserve_backing-001",
+        "jurisdiction": "US",
+        "dimension": "reserve_backing",
+        "source_url": "https://www.congress.gov/bill/119th-congress/senate-bill/1582/text",
+        "source_disposition": "official",
+        "source_last_checked": "2026-08-20",
+        "next_review_due": "2026-09-19",
+        "binding_status": "in_force_enacted",
+        "legal_status": "operative",
+        "review_status": "current",
+        "review_stage": "reconciled",
+        "evidence_tier": "resolution_text",
+        "uncertainty": "low"
+      }
+    ],
+    "source_urls": [
+      "https://www.congress.gov/bill/119th-congress/senate-bill/1582/text"
+    ],
+    "freshness_snapshot": {
+      "as_of": "2026-08-20",
+      "current": 2,
+      "due_for_review": 0,
+      "stale": 0,
+      "unknown": 0,
+      "source_last_checked": [
+        "2026-08-20"
+      ],
+      "next_review_due": [
+        "2026-09-19"
+      ]
+    },
+    "assumptions": [
+      "audit_identity_is_asserted_not_authenticated_by_cbsr",
+      "evaluation_as_of:2026-08-20",
+      "offline_committed_snapshot"
+    ],
+    "uncertainty": "high",
+    "mandate": {
+      "mandate_id": "pilot-mandate-us-eu",
+      "version": "1.0",
+      "issued_by": "pilot:policy-owner"
+    },
+    "audit_identity": {
+      "subject_id": "agent:pilot-runner",
+      "actor_type": "agent",
+      "principal_id": "human:pilot-owner",
+      "session_id": "pilot-replay-2026-08-20",
+      "authentication_context": [
+        "controlled_fixture",
+        "deterministic_replay"
+      ]
+    },
+    "engine_version": "cbsr-policy-engine/1.1.0",
+    "ruleset_version": "cbsr-stablecoin-rules/1.1.0",
+    "component_digests": {
+      "action_sha256": "81f5e05b3175ea50c725b910435bc14d98aee1d236b9e3ddde18a327cb6541fc",
+      "decision_sha256": "9810a691602e6fda443e6e7b265003c66cd4fd5e01bbbfa3229e46d16bd7639b"
+    },
+    "signing_state": "unsigned",
+    "execution_authorized": false,
+    "sha256": "3e846a0d89be3f6e5869523bc90a112e17a19e1f6f75d576eb929cd1b5eab674"
+  },
+  "verification": {
+    "valid": true,
+    "receipt_hash_valid": true,
+    "action_hash_valid": true,
+    "decision_hash_valid": true,
+    "supplied_sha256": "3e846a0d89be3f6e5869523bc90a112e17a19e1f6f75d576eb929cd1b5eab674",
+    "computed_sha256": "3e846a0d89be3f6e5869523bc90a112e17a19e1f6f75d576eb929cd1b5eab674",
+    "signing_state": "unsigned",
+    "warning": "Integrity only; this receipt is not digitally signed and proves no author identity."
+  },
+  "replay": {
+    "decision_identical": true,
+    "receipt_identical": true,
+    "receipt_sha256": "3e846a0d89be3f6e5869523bc90a112e17a19e1f6f75d576eb929cd1b5eab674"
+  }
+}

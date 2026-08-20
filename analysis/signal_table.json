@@ -1,7 +1,7 @@
 {
   "schema": "cbsr-analysis/signal_table",
   "version": "0.10.0",
-  "generated": "2026-07-15",
+  "generated": "2026-08-20",
   "register_version": "0.10.0",
   "as_of": "2026-06-30",
   "what_this_is": "The per-jurisdiction signals from which every one of the 132 directed corridor classes is derived by the published rule tools/class_rule.py:class_of. GENERATED — do not edit. The signal VALUES are curated in analysis/signal_table.source.json; scripts/gen_signal_table.py joins them to the register's 152 node records and populates `record_ref`, which closes the corridor-layer face of finding C1 (backlog VB-11).",
@@ -244,7 +244,7 @@
         "signal_binding_status": "made_not_commenced",
         "record_binding_status": "made_not_commenced",
         "class_driving": true,
-        "reason": "`tw-frs-monetary_sovereignty-001` still cites the 'draft Virtual Asset Service Act'. The Act was passed at third reading on 2026-06-30 and is enacted, not draft. The signal is correct and the record's source prose is stale — the node-record face of finding F-TW. Recorded here rather than silently corrected: a legal record is edited by a verification pass, not by a build script.",
+        "reason": "`tw-frs-monetary_sovereignty-001` now distinguishes the promulgated Virtual Asset Service Act from the still-unmapped commencement and CBC policy questions. The signal remains transitional; a named legal reviewer and independent reconciliation are still required before promotion.",
         "backlog_ref": "VB-R1"
       },
       {
@@ -514,7 +514,7 @@
           "dimension": "permitted_activity_yield",
           "match": "related_dimension",
           "record_binding_status": "pending_proposal",
-          "record_evidence_tier": null,
+          "record_evidence_tier": "unverified",
           "record_claim_class": "tier1_legal",
           "note": "`uk-frs-permitted_activity_yield-001` is coded `pending_proposal` (SI 2026/102 is silent on yield; the Bank of England Nov 2025 materials are a consultation). The signal codes the made-not-commenced regime's restriction. Different instruments within one dimension.",
           "divergence": "`uk-frs-permitted_activity_yield-001` is coded `pending_proposal` (SI 2026/102 is silent on yield; the Bank of England Nov 2025 materials are a consultation). The signal codes the made-not-commenced regime's restriction. Different instruments within one dimension."
@@ -547,7 +547,7 @@
           "dimension": "issuer_pathway",
           "match": "same_instrument",
           "record_binding_status": "finalized_policy_pending",
-          "record_evidence_tier": null,
+          "record_evidence_tier": "unverified",
           "record_claim_class": "tier1_legal",
           "note": "The record bundles the in-force Payment Services Act 2019 baseline with the finalized-policy Single-Currency Stablecoin framework and is coded by the SCS layer (finalized_policy_pending). The signal is coded by the PSA baseline, which is what determines the class. Divergence declared.",
           "divergence": "The record bundles the in-force Payment Services Act 2019 baseline with the finalized-policy Single-Currency Stablecoin framework and is coded by the SCS layer (finalized_policy_pending). The signal is coded by the PSA baseline, which is what determines the class. Divergence declared."
@@ -746,7 +746,7 @@
           "dimension": "cross_border_data",
           "match": "related_dimension",
           "record_binding_status": "in_force_enacted",
-          "record_evidence_tier": null,
+          "record_evidence_tier": "unverified",
           "record_claim_class": "tier1_legal",
           "note": "The record carries PIPL / DSL / CAC — the cross-border DATA half of the override. The mainland capital-flow half (SAFE) is not separately recorded. Partial locator, declared as such."
         }
@@ -762,7 +762,7 @@
           "dimension": "permitted_activity_yield",
           "match": "related_dimension",
           "record_binding_status": "prohibition",
-          "record_evidence_tier": null,
+          "record_evidence_tier": "unverified",
           "record_claim_class": "tier1_legal",
           "note": "The signal value is `n_a` (a prohibition leaves no yield question to answer). The record rests on the 2017 token-fundraising notice, not on 42号.",
           "divergence": "The signal value is `n_a` (a prohibition leaves no yield question to answer). The record rests on the 2017 token-fundraising notice, not on 42号."
@@ -1123,7 +1123,7 @@
           "record_evidence_tier": "firm_summary",
           "record_claim_class": "tier1_legal",
           "backlog_ref": "VB-R1",
-          "note": "`tw-frs-monetary_sovereignty-001` still cites the 'draft Virtual Asset Service Act'. The Act was passed at third reading on 2026-06-30 and is enacted, not draft. The signal is correct and the record's source prose is stale — the node-record face of finding F-TW. Recorded here rather than silently corrected: a legal record is edited by a verification pass, not by a build script."
+          "note": "`tw-frs-monetary_sovereignty-001` now distinguishes the promulgated Virtual Asset Service Act from the still-unmapped commencement and CBC policy questions. The signal remains transitional; a named legal reviewer and independent reconciliation are still required before promotion."
         }
       },
       "egress_override": {

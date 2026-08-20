@@ -1,0 +1,63 @@
+{
+  "schema": "cbsr/transformation-before-after/v1",
+  "as_of": "2026-08-20",
+  "baseline_source": "user-supplied acceptance audit and committed R3 baseline",
+  "metrics": [
+    {
+      "metric": "research_ledger_rows",
+      "before": 4,
+      "after": 152,
+      "unit": "records",
+      "interpretation": "targeted leads replaced by full inventory ledger"
+    },
+    {
+      "metric": "dossier_minimum_lines",
+      "before": 16,
+      "after": 233,
+      "unit": "lines",
+      "interpretation": "minimum across twelve dossiers"
+    },
+    {
+      "metric": "agenticfi_policy_scenarios",
+      "before": 10,
+      "after": 31,
+      "unit": "scenarios",
+      "interpretation": "table-driven independent paths"
+    },
+    {
+      "metric": "pytest_tests",
+      "before": 21,
+      "after": 59,
+      "unit": "tests",
+      "interpretation": "current local test collection"
+    },
+    {
+      "metric": "mcp_server_lines",
+      "before": 1352,
+      "after": 53,
+      "unit": "lines",
+      "interpretation": "thin composition root"
+    },
+    {
+      "metric": "api_record_review_fields",
+      "before": 0,
+      "after": 7,
+      "unit": "fields",
+      "interpretation": "freshness/source/review projection"
+    },
+    {
+      "metric": "source_urls",
+      "before": 100,
+      "after": 103,
+      "unit": "records",
+      "interpretation": "legal research gap intentionally unchanged without invented URLs"
+    },
+    {
+      "metric": "independent_second_reviews",
+      "before": 0,
+      "after": 0,
+      "unit": "records",
+      "interpretation": "external human gate intentionally not fabricated"
+    }
+  ]
+}

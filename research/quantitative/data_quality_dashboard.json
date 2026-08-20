@@ -1,0 +1,186 @@
+{
+  "schema": "cbsr/data-quality-dashboard/v1",
+  "as_of": "2026-08-20",
+  "unit_of_analysis": "one jurisdiction-instrument-dimension record; corridor measures use ordered jurisdiction pairs",
+  "inclusion": "all 152 compiled source records and all 132 directed corridors",
+  "exclusion": "controlled pilot fixtures never change dataset statistics",
+  "missing_data_rule": "null and unavailable remain explicit; no reviewer, date, source or legal state is imputed",
+  "biases": [
+    "jurisdiction selection",
+    "uneven source availability",
+    "translation risk",
+    "reviewer non-independence",
+    "temporal truncation"
+  ],
+  "command": "python tools/research_deliverables.py",
+  "metrics": [
+    {
+      "metric": "records",
+      "value": 152,
+      "denominator": 152,
+      "unit": "records",
+      "definition": "compiled record count",
+      "source": "dataset.json"
+    },
+    {
+      "metric": "jurisdictions",
+      "value": 12,
+      "denominator": 12,
+      "unit": "jurisdictions",
+      "definition": "jurisdictions represented",
+      "source": "research/quantitative/jurisdiction_metrics.csv"
+    },
+    {
+      "metric": "dimensions",
+      "value": 15,
+      "denominator": 15,
+      "unit": "dimensions",
+      "definition": "distinct dimensions represented",
+      "source": "research/quantitative/dimension_metrics.csv"
+    },
+    {
+      "metric": "records_with_source_url",
+      "value": 103,
+      "denominator": 152,
+      "unit": "records",
+      "definition": "non-empty cited source URL; not a review claim",
+      "source": "dataset.json"
+    },
+    {
+      "metric": "official_source_disposition",
+      "value": 103,
+      "denominator": 152,
+      "unit": "records",
+      "definition": "source classified as official",
+      "source": "analysis/freshness_report.json"
+    },
+    {
+      "metric": "primary_text_resolution",
+      "value": 48,
+      "denominator": 152,
+      "unit": "records",
+      "definition": "resolution_text evidence tier",
+      "source": "research/quantitative_baseline.json"
+    },
+    {
+      "metric": "structural_citable_candidates",
+      "value": 46,
+      "denominator": 152,
+      "unit": "records",
+      "definition": "structural candidate only, not current-law ready",
+      "source": "dataset.json"
+    },
+    {
+      "metric": "decision_ready_citable",
+      "value": 0,
+      "denominator": 152,
+      "unit": "records",
+      "definition": "official, current and independently reconciled",
+      "source": "dataset.json"
+    },
+    {
+      "metric": "freshness_current",
+      "value": 0,
+      "denominator": 152,
+      "unit": "records",
+      "definition": "current under binding-status SLA",
+      "source": "analysis/freshness_report.json"
+    },
+    {
+      "metric": "freshness_stale",
+      "value": 38,
+      "denominator": 152,
+      "unit": "records",
+      "definition": "source check beyond SLA",
+      "source": "analysis/freshness_report.json"
+    },
+    {
+      "metric": "high_impact_current_reconciled",
+      "value": 0,
+      "denominator": 50,
+      "unit": "records",
+      "definition": "high-impact SLA hard gate",
+      "source": "analysis/freshness_report.json"
+    },
+    {
+      "metric": "missing_source_checked_date",
+      "value": 114,
+      "denominator": 152,
+      "unit": "records",
+      "definition": "null source_last_checked",
+      "source": "dataset.json"
+    },
+    {
+      "metric": "missing_effective_from",
+      "value": 100,
+      "denominator": 152,
+      "unit": "records",
+      "definition": "null effective_from; may be inapplicable or a gap",
+      "source": "dataset.json"
+    },
+    {
+      "metric": "invalid_date_relationships",
+      "value": 0,
+      "denominator": 152,
+      "unit": "records",
+      "definition": "ontology date-rule failures",
+      "source": "analysis/legal_event_ontology.json"
+    },
+    {
+      "metric": "uncertainty_high_or_unknown",
+      "value": 90,
+      "denominator": 152,
+      "unit": "records",
+      "definition": "persisted uncertainty classification",
+      "source": "dataset.json"
+    },
+    {
+      "metric": "primary_reviewer_coverage",
+      "value": 41,
+      "denominator": 152,
+      "unit": "records",
+      "definition": "named primary reviewer",
+      "source": "analysis/freshness_report.json"
+    },
+    {
+      "metric": "independent_second_reviewer_coverage",
+      "value": 0,
+      "denominator": 152,
+      "unit": "records",
+      "definition": "different named second reviewer",
+      "source": "analysis/freshness_report.json"
+    },
+    {
+      "metric": "first_class_event_coverage",
+      "value": 20,
+      "denominator": 152,
+      "unit": "records",
+      "definition": "record linked to event ontology",
+      "source": "analysis/legal_event_ontology.json"
+    },
+    {
+      "metric": "superseded_records",
+      "value": 0,
+      "denominator": 152,
+      "unit": "records",
+      "definition": "explicit superseded legal status",
+      "source": "dataset.json"
+    },
+    {
+      "metric": "directed_corridors",
+      "value": 132,
+      "denominator": 132,
+      "unit": "corridors",
+      "definition": "class distribution {\"I\": 32, \"II\": 24, \"III\": 29, \"T\": 25, \"blocked\": 11, \"pre_regime\": 11}",
+      "source": "analysis/computed_corridors_directed.json"
+    },
+    {
+      "metric": "temporally_sensitive_class_moves",
+      "value": 55,
+      "denominator": 132,
+      "unit": "edge movements",
+      "definition": "own-event inbound and outbound class movements; not unique edges",
+      "source": "analysis/computed_forward_view.json"
+    }
+  ]
+}

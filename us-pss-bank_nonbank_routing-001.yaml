@@ -59,3 +59,20 @@ verification:
   against:
     instrument: GENIUS Act (Pub. L., signed 18 Jul 2025); OCC/FDIC NPRMs + CLARITY Act (H.R.3633) pending
     pinpoint: CLARITY Act Sec. 404 covered-party definition (H.R.3633, House-passed, not enacted)
+
+# CBSR v0.11 review/temporal metadata (mechanically migrated; null means not evidenced)
+source_last_checked: null
+next_review_due: null
+review_status: unknown
+reviewer: external review (web retrieval against official sources)
+second_reviewer: null
+review_stage: primary_reviewed_second_pending
+reconciliation_status: not_started
+review_disagreement: null
+source_disposition: unavailable
+source_check_status: source_unavailable
+effective_from: null
+effective_until: null
+event_id: us-clarity-act-enacted
+legal_status: proposed
+uncertainty: high

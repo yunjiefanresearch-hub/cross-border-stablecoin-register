@@ -59,3 +59,20 @@ verification:
     pinpoint: Res BCB 520/2025 Art. 2, III (reserve assets of a fiat-referenced token = the fiduciary currency and
       public debt issued by the same governments); Arts. 64+ (asset curation; algorithmic-stablecoin prohibition;
       proof of reserves)
+
+# CBSR v0.11 review/temporal metadata (mechanically migrated; null means not evidenced)
+source_last_checked: '2026-06-27'
+next_review_due: '2026-07-27'
+review_status: stale
+reviewer: external review (web retrieval against official sources)
+second_reviewer: null
+review_stage: primary_reviewed_second_pending
+reconciliation_status: not_started
+review_disagreement: null
+source_disposition: official
+source_check_status: checked
+effective_from: '2026-02-02'
+effective_until: null
+event_id: null
+legal_status: operative
+uncertainty: low

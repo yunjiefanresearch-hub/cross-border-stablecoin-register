@@ -1,0 +1,119 @@
+{
+  "as_of": "2026-08-20",
+  "blocking_reason": "legal currentness, independent review, remote GitHub and Windows assurance gates remain open",
+  "release_ready": false,
+  "schema": "cbsr/final-scorecard/v1",
+  "scorecard": [
+    {
+      "category": "Runnable and reproducible",
+      "category_id": "A",
+      "confidence": "high",
+      "denominator": "100",
+      "evidence_paths": [
+        "tools/verify.py",
+        "constraints/",
+        "dist/package-smoke.json"
+      ],
+      "failing_criteria": "Hosted Python/Windows and required-check readback remain external.",
+      "numerator": "94",
+      "remediation": "Run and retain the remote matrix and Windows transcript.",
+      "score": 94,
+      "target": 100
+    },
+    {
+      "category": "Regulatory truth",
+      "category_id": "B",
+      "confidence": "high",
+      "denominator": "152 records",
+      "evidence_paths": [
+        "analysis/freshness_report.json",
+        "research/source_ledger_2026-08-20.csv"
+      ],
+      "failing_criteria": "Official line review, currentness, second review and event linkage remain incomplete.",
+      "numerator": "0 decision-ready; 0 second-reviewed",
+      "remediation": "Complete the 152-row legal workflow with two real reviewers and reconciliation.",
+      "score": 25,
+      "target": 100
+    },
+    {
+      "category": "Architecture",
+      "category_id": "C",
+      "confidence": "high",
+      "denominator": "target architecture",
+      "evidence_paths": [
+        "src/cbsr_mcp/",
+        "schemas/",
+        "docs/architecture/"
+      ],
+      "failing_criteria": "Only the stablecoin domain pack is production-shaped; downstream interoperability is not externally certified.",
+      "numerator": "7 module boundaries + 1 domain pack",
+      "remediation": "Add reviewed packs without weakening generic contracts.",
+      "score": 97,
+      "target": 100
+    },
+    {
+      "category": "AgenticFi capability",
+      "category_id": "D",
+      "confidence": "high",
+      "denominator": "18+ scenarios; 2 pilots",
+      "evidence_paths": [
+        "research/agenticfi_evaluation.json",
+        "research/pilots/"
+      ],
+      "failing_criteria": "Identity/signing and production execution integration are deliberately absent.",
+      "numerator": "31 scenarios; 2 pilots",
+      "remediation": "Complete authenticated controlled-environment validation and external security review.",
+      "score": 96,
+      "target": 100
+    },
+    {
+      "category": "Research quality",
+      "category_id": "E",
+      "confidence": "high",
+      "denominator": "independently reviewed mixed-method study",
+      "evidence_paths": [
+        "research/quantitative/",
+        "research/qualitative/",
+        "research/claims/",
+        "docs/whitepaper/"
+      ],
+      "failing_criteria": "Independent second coding, legal review and scholarly peer review are incomplete.",
+      "numerator": "152 coded cases; 12 dossiers; 157+ claims",
+      "remediation": "Complete independent coding/reconciliation and peer-review dispositions.",
+      "score": 78,
+      "target": 100
+    },
+    {
+      "category": "Governance/security/public interest",
+      "category_id": "F",
+      "confidence": "medium-high",
+      "denominator": "external controls and review",
+      "evidence_paths": [
+        "analysis/dpg_evidence_matrix.json",
+        "SECURITY.md",
+        ".github/workflows/"
+      ],
+      "failing_criteria": "Remote security settings/ruleset, independent review and external determinations are unverified.",
+      "numerator": "11 DPG + 6 SDG + 18 DPI rows",
+      "remediation": "Read back remote controls and close independent security/governance reviews.",
+      "score": 82,
+      "target": 100
+    },
+    {
+      "category": "Release/documentation",
+      "category_id": "G",
+      "confidence": "high",
+      "denominator": "signed, reviewed remote release",
+      "evidence_paths": [
+        "docs/delivery/",
+        "delivery/external_gates.json"
+      ],
+      "failing_criteria": "No five-PR stack, signed release, DOI/archive deposit or remote metadata readback.",
+      "numerator": "formal local delivery set",
+      "remediation": "Execute the authorized remote runbook only after all hard gates close.",
+      "score": 86,
+      "target": 100
+    }
+  ],
+  "scoring_rule": "repository capability and assurance are scored separately; external work is never credited before evidence"
+}

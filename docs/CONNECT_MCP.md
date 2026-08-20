@@ -51,11 +51,11 @@ tool list is in [`MCP_SERVER.md`](../MCP_SERVER.md); a few worth knowing on day 
 
 ## Prerequisites
 
-- Python 3.10+ available to whatever will launch the server.
+- Python 3.10-3.13 available to whatever will launch the server.
 - The `mcp` package on that interpreter:
 
   ```bash
-  pip install "mcp[cli]"
+  pip install --constraint constraints/runtime.txt .
   ```
 
   If you use a virtual environment, install it there and point the client at that environment's
@@ -64,8 +64,7 @@ tool list is in [`MCP_SERVER.md`](../MCP_SERVER.md); a few worth knowing on day 
 Clone or download the register so `mcp_server.py` and `dataset.json` sit together:
 
 ```bash
-# Consuming the register? You do not need this. Just:  uvx cbsr-mcp
-# This route is for working ON the register.
+# Install from the source bundle or the included wheel; no PyPI publication is assumed.
 git clone https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register.git
 cd cross-border-stablecoin-register
 ```

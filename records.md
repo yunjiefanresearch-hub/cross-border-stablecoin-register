@@ -133,7 +133,7 @@
 | `tw-frs-securities_classification-001` | TW | securities_classification | transitional | low | ✅ verified |
 | `uk-frs-aml_kyc-001` | UK | aml_kyc | transitional | medium | ✅ verified |
 | `uk-frs-bank_nonbank_routing-001` | UK | bank_nonbank_routing | in_force | medium | ✅ verified |
-| `uk-frs-capital_requirements-001` | UK | capital_requirements | proposed | low | ✅ verified |
+| `uk-frs-capital_requirements-001` | UK | capital_requirements | transitional | low | ✅ verified |
 | `uk-frs-cross_border_data-001` | UK | cross_border_data | in_force | medium | ✅ verified |
 | `uk-frs-custody-001` | UK | custody | transitional | medium | ✅ verified |
 | `uk-frs-distribution-001` | UK | distribution | proposed | medium | ✅ verified |

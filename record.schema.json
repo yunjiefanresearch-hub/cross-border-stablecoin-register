@@ -16,7 +16,24 @@
   "source",
   "confidence",
   "claim_class",
+  "evidence_tier",
+  "binding_status",
   "last_reviewed",
+  "source_last_checked",
+  "next_review_due",
+  "review_status",
+  "reviewer",
+  "second_reviewer",
+  "review_stage",
+  "reconciliation_status",
+  "review_disagreement",
+  "source_disposition",
+  "source_check_status",
+  "effective_from",
+  "effective_until",
+  "event_id",
+  "legal_status",
+  "uncertainty",
   "version_added"
  ],
  "properties": {
@@ -225,7 +242,8 @@
    "enum": [
     "resolution_text",
     "firm_summary",
-    "mixed"
+    "mixed",
+    "unverified"
    ]
   },
   "binding_status": {
@@ -243,6 +261,70 @@
   "last_reviewed": {
    "type": "string",
    "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+  },
+  "source_last_checked": {
+   "type": ["string", "null"],
+   "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+   "description": "Date on which the cited source was actually opened and checked. Null is mandatory when no record-level check is evidenced; last_reviewed is never a substitute."
+  },
+  "next_review_due": {
+   "type": ["string", "null"],
+   "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+   "description": "Policy-derived next review date, or null if no source check date exists."
+  },
+  "review_status": {
+   "type": "string",
+   "enum": ["current", "due_for_review", "stale", "unknown"],
+   "description": "Persisted review status. The build re-derives and rejects any contradiction."
+  },
+  "reviewer": {
+   "type": ["string", "null"]
+  },
+  "second_reviewer": {
+   "type": ["string", "null"],
+   "description": "Independent second reviewer. Absence prevents a two-person promotion claim."
+  },
+  "review_stage": {
+   "type": "string",
+   "enum": ["unreviewed", "primary_reviewed_second_pending", "reconciliation_required", "reconciled"]
+  },
+  "reconciliation_status": {
+   "type": "string",
+   "enum": ["not_started", "agreed", "disagreed", "resolved"]
+  },
+  "review_disagreement": {
+   "type": ["string", "null"]
+  },
+  "source_disposition": {
+   "type": "string",
+   "enum": ["official", "secondary", "unavailable", "not_applicable"],
+   "description": "Disposition of the cited source itself, separate from legal force."
+  },
+  "source_check_status": {
+   "type": "string",
+   "enum": ["checked", "not_checked", "source_unavailable", "not_applicable"]
+  },
+  "superseded_by": {
+   "type": "string"
+  },
+  "effective_from": {
+   "type": ["string", "null"],
+   "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+  },
+  "effective_until": {
+   "type": ["string", "null"],
+   "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+  },
+  "event_id": {
+   "type": ["string", "null"]
+  },
+  "legal_status": {
+   "type": "string",
+   "enum": ["operative", "enacted_not_commenced", "finalized_policy_pending", "proposed", "consultation", "prohibited", "no_regime", "superseded"]
+  },
+  "uncertainty": {
+   "type": "string",
+   "enum": ["low", "medium", "high"]
   },
   "verification": {
    "type": "object",

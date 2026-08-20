@@ -56,3 +56,20 @@ verification:
     url: https://laws.e-gov.go.jp/
     pinpoint: Monetary sovereignty — no cap; foreign tokens admitted via registered EPIESP holding JP reserves
 binding_status: in_force_enacted
+
+# CBSR v0.11 review/temporal metadata (mechanically migrated; null means not evidenced)
+source_last_checked: '2026-06-27'
+next_review_due: '2026-07-27'
+review_status: stale
+reviewer: maintainer
+second_reviewer: null
+review_stage: primary_reviewed_second_pending
+reconciliation_status: not_started
+review_disagreement: null
+source_disposition: official
+source_check_status: checked
+effective_from: '2023-06-01'
+effective_until: null
+event_id: jp-foreign-stablecoin-recognition
+legal_status: operative
+uncertainty: low

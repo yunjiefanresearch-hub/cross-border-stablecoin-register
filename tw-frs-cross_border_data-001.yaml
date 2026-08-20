@@ -2,7 +2,7 @@ id: tw-frs-cross_border_data-001
 jurisdiction: TW
 authority: FSC / PDPA competent authority
 instrument_type: fiat_referenced_stablecoin
-instrument_label_local: virtual asset / draft stablecoin (Virtual Asset Service Act)
+instrument_label_local: virtual asset / stablecoin (Virtual Asset Service Act, promulgated; commencement pending)
 dimension: cross_border_data
 constraint_ref: C6
 requirement_summary: The Personal Data Protection Act (PDPA) applies. Cross-border data transfer is subject to the
@@ -33,3 +33,20 @@ tags:
 - v0.7.0_claim_class
 - binding_in_force_enacted
 binding_status: in_force_enacted
+
+# CBSR v0.11 review/temporal metadata (mechanically migrated; null means not evidenced)
+source_last_checked: null
+next_review_due: null
+review_status: unknown
+reviewer: null
+second_reviewer: null
+review_stage: unreviewed
+reconciliation_status: not_started
+review_disagreement: null
+source_disposition: unavailable
+source_check_status: source_unavailable
+effective_from: null
+effective_until: null
+event_id: null
+legal_status: operative
+uncertainty: high

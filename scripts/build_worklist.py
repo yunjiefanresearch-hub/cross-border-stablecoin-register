@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build analysis/verification_worklist.json (v0.9.2): turn the 'unset evidence_tier' liability into a
+"""Build analysis/verification_worklist.json: turn the explicit `unverified` tier into a
 precise, per-cell, machine-readable worklist for the primary-source verification pass.
 
 This does NOT verify anything (verification requires the official text, which is external work and must
@@ -21,13 +21,14 @@ import collections
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 
-# what each tier needs that 'unset' lacks (necessary conditions; see build.check_evidence_tier_requirements)
+# What each tier/review state needs (necessary conditions; see build.py review gates).
 _TIER_NEEDS = {
-    "firm_summary": ["practitioner/law-firm corroboration of the load-bearing point"],
-    "mixed": ["source.url (official-text pointer)", "confirmation of the core point against the text at source.pinpoint"],
+    "firm_summary": ["practitioner/law-firm corroboration of the load-bearing point", "named primary reviewer"],
+    "mixed": ["source.url (official-text pointer)", "confirmation of the core point against the text at source.pinpoint", "named primary reviewer"],
     "resolution_text": ["source.url (official-text pointer)",
                          "confirmation against the official statutory/normative text at source.pinpoint",
-                         "last_reviewed (date of the text check)"],
+                         "source_last_checked (date the cited URL was opened)",
+                         "named primary reviewer", "independent second reviewer", "reconciled disposition"],
 }
 
 
@@ -41,7 +42,7 @@ def build_worklist():
         d = yaml.safe_load(f.read_text(encoding="utf-8"))
         if not isinstance(d, dict) or not d.get("id"):
             continue
-        if d.get("evidence_tier"):
+        if d.get("evidence_tier") not in (None, "", "unverified"):
             continue  # already tiered
         src = d.get("source") or {}
         is_legal = d.get("claim_class") == "tier1_legal"
@@ -58,7 +59,13 @@ def build_worklist():
             for n in needs:
                 if n.startswith("source.url") and has_url:
                     continue
-                if n.startswith("last_reviewed") and d.get("last_reviewed"):
+                if n.startswith("source_last_checked") and d.get("source_last_checked"):
+                    continue
+                if n == "named primary reviewer" and d.get("reviewer"):
+                    continue
+                if n == "independent second reviewer" and d.get("second_reviewer"):
+                    continue
+                if n == "reconciled disposition" and d.get("review_stage") == "reconciled":
                     continue
                 gap.append(n)
             missing[tier] = gap

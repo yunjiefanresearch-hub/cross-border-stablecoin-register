@@ -1,0 +1,542 @@
+{
+  "as_of": "2026-08-20",
+  "assessment_type": "repository self-assessment; not an official DPI safeguards assessment",
+  "principles": [
+    {
+      "evidence_files": [
+        "src/cbsr_mcp/policy.py",
+        "GOVERNANCE.md"
+      ],
+      "external_determination": false,
+      "official_reference": "https://www.dpi-safeguards.org/assessments",
+      "owner_role": "maintainer",
+      "principle": "Do no harm",
+      "principle_id": "F1",
+      "residual_gap": "Deployment-specific assessment and independent review remain pending.",
+      "reviewed_date": "2026-08-20",
+      "status": "Partial",
+      "target_date": "before-production-deployment",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence_files": [
+        "CODE_OF_CONDUCT.md",
+        "analysis/sdg_mapping.json"
+      ],
+      "external_determination": false,
+      "official_reference": "https://www.dpi-safeguards.org/assessments",
+      "owner_role": "maintainer",
+      "principle": "Do not discriminate",
+      "principle_id": "F2",
+      "residual_gap": "Deployment-specific assessment and independent review remain pending.",
+      "reviewed_date": "2026-08-20",
+      "status": "Partial",
+      "target_date": "before-production-deployment",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence_files": [
+        "README.md",
+        "analysis/sdg_mapping.json"
+      ],
+      "external_determination": false,
+      "official_reference": "https://www.dpi-safeguards.org/assessments",
+      "owner_role": "maintainer",
+      "principle": "Do not exclude",
+      "principle_id": "F3",
+      "residual_gap": "Deployment-specific assessment and independent review remain pending.",
+      "reviewed_date": "2026-08-20",
+      "status": "Partial",
+      "target_date": "before-production-deployment",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence_files": [
+        "src/cbsr_mcp/receipts.py",
+        "research/claims/claims_ledger.csv"
+      ],
+      "external_determination": false,
+      "official_reference": "https://www.dpi-safeguards.org/assessments",
+      "owner_role": "maintainer",
+      "principle": "Reinforce transparency and accountability",
+      "principle_id": "F4",
+      "residual_gap": "No external DPI safeguard assessment.",
+      "reviewed_date": "2026-08-20",
+      "status": "Met",
+      "target_date": "continuous",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence_files": [
+        "research/source_ledger_2026-08-20.csv",
+        "record.schema.json"
+      ],
+      "external_determination": false,
+      "official_reference": "https://www.dpi-safeguards.org/assessments",
+      "owner_role": "maintainer",
+      "principle": "Uphold the rule of law",
+      "principle_id": "F5",
+      "residual_gap": "Deployment-specific assessment and independent review remain pending.",
+      "reviewed_date": "2026-08-20",
+      "status": "Partial",
+      "target_date": "before-production-deployment",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence_files": [
+        "src/cbsr_mcp/core/models.py",
+        "PRIVACY.md"
+      ],
+      "external_determination": false,
+      "official_reference": "https://www.dpi-safeguards.org/assessments",
+      "owner_role": "maintainer",
+      "principle": "Promote autonomy and agency",
+      "principle_id": "F6",
+      "residual_gap": "Deployment-specific assessment and independent review remain pending.",
+      "reviewed_date": "2026-08-20",
+      "status": "Partial",
+      "target_date": "before-production-deployment",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence_files": [
+        "CONTRIBUTING.md",
+        ".github/ISSUE_TEMPLATE/data-source.yml"
+      ],
+      "external_determination": false,
+      "official_reference": "https://www.dpi-safeguards.org/assessments",
+      "owner_role": "maintainer",
+      "principle": "Foster community engagement",
+      "principle_id": "F7",
+      "residual_gap": "Deployment-specific assessment and independent review remain pending.",
+      "reviewed_date": "2026-08-20",
+      "status": "Partial",
+      "target_date": "before-production-deployment",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence_files": [
+        "SECURITY.md",
+        ".github/ISSUE_TEMPLATE/regulatory-correction.yml"
+      ],
+      "external_determination": false,
+      "official_reference": "https://www.dpi-safeguards.org/assessments",
+      "owner_role": "maintainer",
+      "principle": "Ensure effective remedy and redress",
+      "principle_id": "F8",
+      "residual_gap": "Deployment-specific assessment and independent review remain pending.",
+      "reviewed_date": "2026-08-20",
+      "status": "Partial",
+      "target_date": "before-production-deployment",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence_files": [
+        "constraints/dev.txt",
+        "delivery/RISK_REGISTER.md"
+      ],
+      "external_determination": false,
+      "official_reference": "https://www.dpi-safeguards.org/assessments",
+      "owner_role": "maintainer",
+      "principle": "Focus on future sustainability",
+      "principle_id": "F9",
+      "residual_gap": "Deployment-specific assessment and independent review remain pending.",
+      "reviewed_date": "2026-08-20",
+      "status": "Partial",
+      "target_date": "before-production-deployment",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence_files": [
+        "LICENSE",
+        "GOVERNANCE.md"
+      ],
+      "external_determination": false,
+      "official_reference": "https://www.dpi-safeguards.org/assessments",
+      "owner_role": "maintainer",
+      "principle": "Leverage market dynamics",
+      "principle_id": "O1",
+      "residual_gap": "Deployment-specific assessment and independent review remain pending.",
+      "reviewed_date": "2026-08-20",
+      "status": "Partial",
+      "target_date": "before-production-deployment",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence_files": [
+        "analysis/freshness_report.json",
+        "tools/verify.py"
+      ],
+      "external_determination": false,
+      "official_reference": "https://www.dpi-safeguards.org/assessments",
+      "owner_role": "maintainer",
+      "principle": "Evolve with evidence",
+      "principle_id": "O2",
+      "residual_gap": "No external DPI safeguard assessment.",
+      "reviewed_date": "2026-08-20",
+      "status": "Met",
+      "target_date": "continuous",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence_files": [
+        "PRIVACY.md",
+        "schemas/policy-action.v1.schema.json"
+      ],
+      "external_determination": false,
+      "official_reference": "https://www.dpi-safeguards.org/assessments",
+      "owner_role": "maintainer",
+      "principle": "Ensure data privacy by design",
+      "principle_id": "O3",
+      "residual_gap": "Deployment-specific assessment and independent review remain pending.",
+      "reviewed_date": "2026-08-20",
+      "status": "Partial",
+      "target_date": "before-production-deployment",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence_files": [
+        "SECURITY.md",
+        ".github/workflows/codeql.yml"
+      ],
+      "external_determination": false,
+      "official_reference": "https://www.dpi-safeguards.org/assessments",
+      "owner_role": "maintainer",
+      "principle": "Assure data security by design",
+      "principle_id": "O4",
+      "residual_gap": "Deployment-specific assessment and independent review remain pending.",
+      "reviewed_date": "2026-08-20",
+      "status": "Partial",
+      "target_date": "before-production-deployment",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence_files": [
+        "PRIVACY.md",
+        "docs/security/THREAT_MODEL.md"
+      ],
+      "external_determination": false,
+      "official_reference": "https://www.dpi-safeguards.org/assessments",
+      "owner_role": "maintainer",
+      "principle": "Ensure data protection during use",
+      "principle_id": "O5",
+      "residual_gap": "Deployment-specific assessment and independent review remain pending.",
+      "reviewed_date": "2026-08-20",
+      "status": "Partial",
+      "target_date": "before-production-deployment",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence_files": [
+        "CODE_OF_CONDUCT.md",
+        "analysis/sdg_mapping.json"
+      ],
+      "external_determination": false,
+      "official_reference": "https://www.dpi-safeguards.org/assessments",
+      "owner_role": "maintainer",
+      "principle": "Respond to gender, ability or age",
+      "principle_id": "O6",
+      "residual_gap": "Deployment-specific assessment and independent review remain pending.",
+      "reviewed_date": "2026-08-20",
+      "status": "Partial",
+      "target_date": "before-production-deployment",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence_files": [
+        "GOVERNANCE.md",
+        "CONTRIBUTING.md"
+      ],
+      "external_determination": false,
+      "official_reference": "https://www.dpi-safeguards.org/assessments",
+      "owner_role": "maintainer",
+      "principle": "Practice inclusive governance",
+      "principle_id": "O7",
+      "residual_gap": "Deployment-specific assessment and independent review remain pending.",
+      "reviewed_date": "2026-08-20",
+      "status": "Partial",
+      "target_date": "before-production-deployment",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence_files": [
+        "GOVERNANCE.md",
+        "delivery/RISK_REGISTER.md"
+      ],
+      "external_determination": false,
+      "official_reference": "https://www.dpi-safeguards.org/assessments",
+      "owner_role": "maintainer",
+      "principle": "Sustain financial viability",
+      "principle_id": "O8",
+      "residual_gap": "Deployment-specific assessment and independent review remain pending.",
+      "reviewed_date": "2026-08-20",
+      "status": "Partial",
+      "target_date": "before-production-deployment",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence_files": [
+        "LICENSE",
+        "LICENSE-DATA",
+        "LICENSE-CODE",
+        "schemas/domain-pack.v1.schema.json"
+      ],
+      "external_determination": false,
+      "official_reference": "https://www.dpi-safeguards.org/assessments",
+      "owner_role": "maintainer",
+      "principle": "Build and share open assets",
+      "principle_id": "O9",
+      "residual_gap": "No external DPI safeguard assessment.",
+      "reviewed_date": "2026-08-20",
+      "status": "Met",
+      "target_date": "continuous",
+      "verification_command": "python -m tools.verify"
+    }
+  ],
+  "risks": [
+    {
+      "linked_principles": [
+        "O3",
+        "O5"
+      ],
+      "official_reference": "https://www.dpi-safeguards.org/assessments",
+      "owner_role": "maintainer",
+      "repository_controls": [
+        "PRIVACY.md",
+        "docs/security/THREAT_MODEL.md",
+        "schemas/policy-action.v1.schema.json"
+      ],
+      "residual_risk": "not independently assessed",
+      "reviewed_date": "2026-08-20",
+      "risk": "Privacy vulnerability",
+      "risk_id": "privacy-vulnerability",
+      "target_date": "before-production-deployment",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "linked_principles": [
+        "O4"
+      ],
+      "official_reference": "https://www.dpi-safeguards.org/assessments",
+      "owner_role": "maintainer",
+      "repository_controls": [
+        ".github/workflows/codeql.yml",
+        "SECURITY.md"
+      ],
+      "residual_risk": "not independently assessed",
+      "reviewed_date": "2026-08-20",
+      "risk": "Digital insecurity",
+      "risk_id": "digital-insecurity",
+      "target_date": "before-production-deployment",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "linked_principles": [
+        "F1",
+        "O4"
+      ],
+      "official_reference": "https://www.dpi-safeguards.org/assessments",
+      "owner_role": "maintainer",
+      "repository_controls": [
+        ".github/workflows/codeql.yml",
+        "GOVERNANCE.md",
+        "SECURITY.md",
+        "src/cbsr_mcp/policy.py"
+      ],
+      "residual_risk": "not independently assessed",
+      "reviewed_date": "2026-08-20",
+      "risk": "Physical insecurity",
+      "risk_id": "physical-insecurity",
+      "target_date": "before-production-deployment",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "linked_principles": [
+        "F8"
+      ],
+      "official_reference": "https://www.dpi-safeguards.org/assessments",
+      "owner_role": "maintainer",
+      "repository_controls": [
+        ".github/ISSUE_TEMPLATE/regulatory-correction.yml",
+        "SECURITY.md"
+      ],
+      "residual_risk": "not independently assessed",
+      "reviewed_date": "2026-08-20",
+      "risk": "Lack of recourse",
+      "risk_id": "lack-of-recourse",
+      "target_date": "before-production-deployment",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "linked_principles": [
+        "F2",
+        "O6"
+      ],
+      "official_reference": "https://www.dpi-safeguards.org/assessments",
+      "owner_role": "maintainer",
+      "repository_controls": [
+        "CODE_OF_CONDUCT.md",
+        "analysis/sdg_mapping.json"
+      ],
+      "residual_risk": "not independently assessed",
+      "reviewed_date": "2026-08-20",
+      "risk": "Discrimination",
+      "risk_id": "discrimination",
+      "target_date": "before-production-deployment",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "linked_principles": [
+        "F3",
+        "O6"
+      ],
+      "official_reference": "https://www.dpi-safeguards.org/assessments",
+      "owner_role": "maintainer",
+      "repository_controls": [
+        "CODE_OF_CONDUCT.md",
+        "README.md",
+        "analysis/sdg_mapping.json"
+      ],
+      "residual_risk": "not independently assessed",
+      "reviewed_date": "2026-08-20",
+      "risk": "Unequal access",
+      "risk_id": "unequal-access",
+      "target_date": "before-production-deployment",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "linked_principles": [
+        "F3",
+        "F7"
+      ],
+      "official_reference": "https://www.dpi-safeguards.org/assessments",
+      "owner_role": "maintainer",
+      "repository_controls": [
+        ".github/ISSUE_TEMPLATE/data-source.yml",
+        "CONTRIBUTING.md",
+        "README.md",
+        "analysis/sdg_mapping.json"
+      ],
+      "residual_risk": "not independently assessed",
+      "reviewed_date": "2026-08-20",
+      "risk": "Exclusion",
+      "risk_id": "exclusion",
+      "target_date": "before-production-deployment",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "linked_principles": [
+        "F6"
+      ],
+      "official_reference": "https://www.dpi-safeguards.org/assessments",
+      "owner_role": "maintainer",
+      "repository_controls": [
+        "PRIVACY.md",
+        "src/cbsr_mcp/core/models.py"
+      ],
+      "residual_risk": "not independently assessed",
+      "reviewed_date": "2026-08-20",
+      "risk": "Disempowerment",
+      "risk_id": "disempowerment",
+      "target_date": "before-production-deployment",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "linked_principles": [
+        "F4",
+        "F7"
+      ],
+      "official_reference": "https://www.dpi-safeguards.org/assessments",
+      "owner_role": "maintainer",
+      "repository_controls": [
+        ".github/ISSUE_TEMPLATE/data-source.yml",
+        "CONTRIBUTING.md",
+        "research/claims/claims_ledger.csv",
+        "src/cbsr_mcp/receipts.py"
+      ],
+      "residual_risk": "not independently assessed",
+      "reviewed_date": "2026-08-20",
+      "risk": "Digital distrust",
+      "risk_id": "digital-distrust",
+      "target_date": "before-production-deployment",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "linked_principles": [
+        "F5"
+      ],
+      "official_reference": "https://www.dpi-safeguards.org/assessments",
+      "owner_role": "maintainer",
+      "repository_controls": [
+        "record.schema.json",
+        "research/source_ledger_2026-08-20.csv"
+      ],
+      "residual_risk": "not independently assessed",
+      "reviewed_date": "2026-08-20",
+      "risk": "Weak rule of law",
+      "risk_id": "weak-rule-of-law",
+      "target_date": "before-production-deployment",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "linked_principles": [
+        "F4",
+        "O7"
+      ],
+      "official_reference": "https://www.dpi-safeguards.org/assessments",
+      "owner_role": "maintainer",
+      "repository_controls": [
+        "CONTRIBUTING.md",
+        "GOVERNANCE.md",
+        "research/claims/claims_ledger.csv",
+        "src/cbsr_mcp/receipts.py"
+      ],
+      "residual_risk": "not independently assessed",
+      "reviewed_date": "2026-08-20",
+      "risk": "Weak institutions",
+      "risk_id": "weak-institutions",
+      "target_date": "before-production-deployment",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "linked_principles": [
+        "O2",
+        "O4"
+      ],
+      "official_reference": "https://www.dpi-safeguards.org/assessments",
+      "owner_role": "maintainer",
+      "repository_controls": [
+        ".github/workflows/codeql.yml",
+        "SECURITY.md",
+        "analysis/freshness_report.json",
+        "tools/verify.py"
+      ],
+      "residual_risk": "not independently assessed",
+      "reviewed_date": "2026-08-20",
+      "risk": "Technical shortcomings",
+      "risk_id": "technical-shortcomings",
+      "target_date": "before-production-deployment",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "linked_principles": [
+        "F9",
+        "O8"
+      ],
+      "official_reference": "https://www.dpi-safeguards.org/assessments",
+      "owner_role": "maintainer",
+      "repository_controls": [
+        "GOVERNANCE.md",
+        "constraints/dev.txt",
+        "delivery/RISK_REGISTER.md"
+      ],
+      "residual_risk": "not independently assessed",
+      "reviewed_date": "2026-08-20",
+      "risk": "Unsustainability",
+      "risk_id": "unsustainability",
+      "target_date": "before-production-deployment",
+      "verification_command": "python -m tools.verify"
+    }
+  ],
+  "schema": "cbsr/dpi-safeguards/v1"
+}

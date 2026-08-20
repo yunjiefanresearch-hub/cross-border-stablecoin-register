@@ -1,0 +1,17 @@
+{
+  "schema": "cbsr/domain-pack/v1",
+  "name": "stablecoin",
+  "version": "1.1.0",
+  "ruleset_version": "cbsr-stablecoin-rules/1.1.0",
+  "default_dimensions": ["issuer_pathway", "reserve_backing", "redemption", "aml_kyc", "cross_border_data", "distribution"],
+  "supported_assets": ["fiat_referenced_stablecoin", "payment_stablecoin", "e_money_token", "asset_referenced_token"],
+  "obligation_catalog": {
+    "issuer_pathway": ["verify_issuer_and_intermediary_authorizations"],
+    "reserve_backing": ["verify_reserve_composition_custody_and_attestation"],
+    "redemption": ["verify_redemption_rights_timing_and_par_value"],
+    "aml_kyc": ["verify_applicable_aml_kyc_and_sanctions_controls"],
+    "cross_border_data": ["verify_cross_border_data_transfer_basis"],
+    "distribution": ["verify_distribution_and_offering_permissions"]
+  },
+  "execution_boundary": "decision_support_only"
+}

@@ -1,0 +1,74 @@
+{
+  "schema": "cbsr/quantitative-baseline/v2",
+  "dataset_version": "0.11.0",
+  "as_of": "2026-08-20",
+  "records": 152,
+  "jurisdictions": 12,
+  "by_jurisdiction": {
+    "AE": 13,
+    "BR": 12,
+    "CH": 14,
+    "CN": 12,
+    "EU": 9,
+    "HK": 14,
+    "JP": 14,
+    "KR": 14,
+    "SG": 13,
+    "TW": 14,
+    "UK": 14,
+    "US": 9
+  },
+  "by_status": {
+    "consultation": 1,
+    "in_force": 110,
+    "proposed": 14,
+    "transitional": 27
+  },
+  "by_legal_status": {
+    "consultation": 1,
+    "enacted_not_commenced": 21,
+    "finalized_policy_pending": 9,
+    "no_regime": 1,
+    "operative": 98,
+    "prohibited": 9,
+    "proposed": 13
+  },
+  "by_binding_status": {
+    "finalized_policy_pending": 9,
+    "in_force_enacted": 98,
+    "made_not_commenced": 21,
+    "no_regime": 1,
+    "pending_proposal": 14,
+    "prohibition": 9
+  },
+  "by_evidence_tier": {
+    "firm_summary": 63,
+    "mixed": 14,
+    "resolution_text": 48,
+    "unverified": 27
+  },
+  "by_claim_class": {
+    "tier1_legal": 143,
+    "tier2_operational": 9
+  },
+  "by_source_disposition": {
+    "official": 103,
+    "unavailable": 49
+  },
+  "by_review_stage": {
+    "primary_reviewed_second_pending": 41,
+    "unreviewed": 111
+  },
+  "by_freshness": {
+    "stale": 38,
+    "unknown": 114
+  },
+  "structural_citable_candidates": 46,
+  "decision_ready_citable": 0,
+  "limitations": [
+    "Counts describe the committed snapshot; they do not prove that a legal proposition remains current.",
+    "last_reviewed is not treated as evidence that a source URL was opened.",
+    "No independent second reviewer is inferred from tool or model execution.",
+    "No inferential causal claim or population estimate is made."
+  ]
+}

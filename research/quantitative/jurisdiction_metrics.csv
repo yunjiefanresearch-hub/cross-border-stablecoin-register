@@ -1,0 +1,13 @@
+jurisdiction,records,official_sources,unavailable_sources,unverified_evidence,freshness_current,freshness_stale,freshness_unknown,primary_reviewer,second_reviewer,event_linked,decision_ready
+AE,13,10,3,0,0,0,13,0,0,0,0
+BR,12,12,0,0,0,10,2,10,0,0,0
+CH,14,11,3,0,0,0,14,0,0,0,0
+CN,12,5,7,8,0,0,12,0,0,0,0
+EU,9,4,5,0,0,4,5,4,0,1,0
+HK,14,10,4,1,0,8,6,8,0,0,0
+JP,14,10,4,0,0,1,13,1,0,3,0
+KR,14,10,4,3,0,0,14,0,0,1,0
+SG,13,7,6,3,0,7,6,9,0,8,0
+TW,14,10,4,3,0,1,13,1,0,1,0
+UK,14,9,5,9,0,2,12,2,0,1,0
+US,9,5,4,0,0,5,4,6,0,5,0

@@ -1,0 +1,189 @@
+{
+  "schema": "cbsr/agenticfi-evaluation/v1",
+  "as_of": "2026-08-20",
+  "engine_version": "cbsr-policy-engine/1.1.0",
+  "ruleset_version": "cbsr-stablecoin-rules/1.1.0",
+  "scenario_count": 31,
+  "receipt_mutation_count": 13,
+  "scenario_outcomes": {
+    "allow": 1,
+    "allow_with_conditions": 3,
+    "insufficient_evidence": 9,
+    "prohibited": 11,
+    "review_required": 7
+  },
+  "scenarios": [
+    {
+      "id": "allow_current_reconciled",
+      "expected_outcome": "allow"
+    },
+    {
+      "id": "missing_action",
+      "expected_outcome": "insufficient_evidence"
+    },
+    {
+      "id": "malformed_amount",
+      "expected_outcome": "insufficient_evidence"
+    },
+    {
+      "id": "negative_amount",
+      "expected_outcome": "insufficient_evidence"
+    },
+    {
+      "id": "unknown_action_schema",
+      "expected_outcome": "insufficient_evidence"
+    },
+    {
+      "id": "invalid_as_of",
+      "expected_outcome": "insufficient_evidence"
+    },
+    {
+      "id": "same_jurisdiction",
+      "expected_outcome": "insufficient_evidence"
+    },
+    {
+      "id": "revoked_mandate",
+      "expected_outcome": "prohibited"
+    },
+    {
+      "id": "inactive_mandate",
+      "expected_outcome": "prohibited"
+    },
+    {
+      "id": "mandate_not_started",
+      "expected_outcome": "prohibited"
+    },
+    {
+      "id": "mandate_expired",
+      "expected_outcome": "prohibited"
+    },
+    {
+      "id": "outside_time_window",
+      "expected_outcome": "prohibited"
+    },
+    {
+      "id": "prohibited_jurisdiction",
+      "expected_outcome": "prohibited"
+    },
+    {
+      "id": "over_amount_limit",
+      "expected_outcome": "prohibited"
+    },
+    {
+      "id": "asset_outside_mandate",
+      "expected_outcome": "prohibited"
+    },
+    {
+      "id": "jurisdiction_outside_mandate",
+      "expected_outcome": "prohibited"
+    },
+    {
+      "id": "counterparty_outside_mandate",
+      "expected_outcome": "prohibited"
+    },
+    {
+      "id": "no_evidence",
+      "expected_outcome": "insufficient_evidence"
+    },
+    {
+      "id": "malformed_evidence",
+      "expected_outcome": "insufficient_evidence"
+    },
+    {
+      "id": "unknown_record",
+      "expected_outcome": "insufficient_evidence"
+    },
+    {
+      "id": "regulatory_prohibition",
+      "expected_outcome": "prohibited"
+    },
+    {
+      "id": "stale_evidence",
+      "expected_outcome": "review_required"
+    },
+    {
+      "id": "proposed_rule",
+      "expected_outcome": "review_required"
+    },
+    {
+      "id": "not_commenced",
+      "expected_outcome": "review_required"
+    },
+    {
+      "id": "superseded_rule",
+      "expected_outcome": "review_required"
+    },
+    {
+      "id": "second_review_missing",
+      "expected_outcome": "review_required"
+    },
+    {
+      "id": "declared_conflict",
+      "expected_outcome": "review_required"
+    },
+    {
+      "id": "detected_conflict",
+      "expected_outcome": "review_required"
+    },
+    {
+      "id": "human_review_required",
+      "expected_outcome": "allow_with_conditions"
+    },
+    {
+      "id": "human_threshold",
+      "expected_outcome": "allow_with_conditions"
+    },
+    {
+      "id": "kyc_condition",
+      "expected_outcome": "allow_with_conditions"
+    }
+  ],
+  "receipt_mutations": [
+    "action",
+    "decision",
+    "applicable_rules",
+    "source_urls",
+    "freshness_snapshot",
+    "assumptions",
+    "mandate_version",
+    "audit_identity",
+    "engine_version",
+    "ruleset_version",
+    "generated_at",
+    "requested_as_of",
+    "non_legal_advice_notice"
+  ],
+  "pilots": [
+    {
+      "pilot_id": "pilot-enterprise-stablecoin-payment",
+      "outcome": "allow_with_conditions",
+      "receipt_sha256": "3e846a0d89be3f6e5869523bc90a112e17a19e1f6f75d576eb929cd1b5eab674",
+      "replay": {
+        "decision_identical": true,
+        "receipt_identical": true,
+        "receipt_sha256": "3e846a0d89be3f6e5869523bc90a112e17a19e1f6f75d576eb929cd1b5eab674"
+      }
+    },
+    {
+      "pilot_id": "pilot-tokenized-green-asset-settlement",
+      "outcome": "review_required",
+      "receipt_sha256": "5426ba7c9cadd9f8b96dfb51bbbeb9e113a7882e8e9bf07cd268072cfb9242a4",
+      "replay": {
+        "decision_identical": true,
+        "receipt_identical": true,
+        "receipt_sha256": "5426ba7c9cadd9f8b96dfb51bbbeb9e113a7882e8e9bf07cd268072cfb9242a4"
+      }
+    }
+  ],
+  "acceptance": {
+    "at_least_18_independent_scenarios": true,
+    "malformed_unknown_superseded_time_prohibited_conflict_covered": true,
+    "two_end_to_end_reproducible_pilots": true,
+    "execution_authorized": false
+  },
+  "external_gates": [
+    "independent legal review",
+    "production security review",
+    "signed identity provider"
+  ]
+}

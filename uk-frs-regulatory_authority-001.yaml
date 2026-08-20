@@ -6,16 +6,18 @@ instrument_label_local: qualifying stablecoin
 dimension: regulatory_authority
 requirement_summary: The Financial Services and Markets Act 2000 (Cryptoassets) Regulations 2026, SI 2026/102, in
   force from February 2026, make issuing a qualifying stablecoin in the UK a regulated activity under FSMA. The
-  FCA (conduct), Bank of England (systemic), and HM Treasury (perimeter) share authority; FCA rules are pending,
-  with a policy statement expected summer 2026.
+  FCA (conduct), Bank of England (systemic), and HM Treasury (perimeter) share authority. The FCA published PS26/10
+  final issuance rules in June 2026; the Bank's June 2026 systemic policy includes a draft Code of Practice, and
+  the authorities published their joint approach on 30 June 2026. The relevant regime commences 25 October 2027.
 status: transitional
-effective_date: '2026-02-01'
+effective_date: '2027-10-25'
 source:
   primary: Financial Services and Markets Act 2000 (Cryptoassets) Regulations 2026, SI 2026/102
   pinpoint: FCA/BoE supervisory architecture under FSMA 2000 (as amended by SI 2026/102)
   url: https://www.legislation.gov.uk/uksi/2026/102/contents/made
 secondary:
 - citation: Fan, Compliance Matrix v0.9.3 (18 May 2026), p.2 (Executive Summary) / p.5 / UK detailed entry
+- citation: 'FCA PS26/10 (June 2026); Bank of England/FCA joint approach (30 June 2026).'
 interpretation_note: 'Provenance: transcribed from author''s Compliance Matrix v0.9.3.
 
 
@@ -42,3 +44,20 @@ verification:
     instrument: FSMA 2000 (Cryptoassets) Regulations 2026, SI 2026/102; FCA CP25/14, CP25/15
     url: https://www.legislation.gov.uk/uksi/2026/102/contents/made
     pinpoint: FCA/BoE supervisory architecture under FSMA 2000 (as amended by SI 2026/102)
+
+# CBSR v0.11 review/temporal metadata (mechanically migrated; null means not evidenced)
+source_last_checked: '2026-06-27'
+next_review_due: '2026-07-11'
+review_status: stale
+reviewer: external review (web retrieval against official sources)
+second_reviewer: null
+review_stage: primary_reviewed_second_pending
+reconciliation_status: not_started
+review_disagreement: null
+source_disposition: official
+source_check_status: checked
+effective_from: '2027-10-25'
+effective_until: null
+event_id: uk-systemic-regime-operative
+legal_status: enacted_not_commenced
+uncertainty: high

@@ -1,0 +1,34 @@
+name: Regulatory correction
+description: Report a potentially stale, superseded, misstated or missing regulatory source.
+title: "[regulatory correction] "
+labels: ["regulatory-review"]
+body:
+  - type: input
+    id: record
+    attributes:
+      label: Record ID or jurisdiction/dimension
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Official primary source URL
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Proposed correction and pinpoint
+    validations:
+      required: true
+  - type: input
+    id: effective
+    attributes:
+      label: Enactment, commencement, or effective date
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Confirmation
+      options:
+        - label: I have not included confidential data or legal advice for a specific client.
+          required: true

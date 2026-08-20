@@ -23,7 +23,7 @@ import json, glob, re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-EXPECT_VERSION = "0.10.1"
+EXPECT_VERSION = "0.11.0"
 
 def load_json(p):
     return json.loads((ROOT / p).read_text(encoding="utf-8"))
@@ -60,7 +60,7 @@ signal_table = load_json("analysis/signal_table.json")
 BLOCKED = {"prohibition", "no_regime", "pending_proposal", "made_not_commenced", "finalized_policy_pending"}
 BINDING_ENUM = {"in_force_enacted", "made_not_commenced", "finalized_policy_pending",
                 "pending_proposal", "prohibition", "no_regime"}
-TIER_ENUM = {"resolution_text", "mixed", "firm_summary", "unset"}
+TIER_ENUM = {"resolution_text", "mixed", "firm_summary", "unverified"}
 
 results = []
 def inv(name, cond, detail=""):
@@ -79,7 +79,12 @@ for r in records: cc[r.get("claim_class")] = cc.get(r.get("claim_class"), 0) + 1
 inv("S3  claim_class split is 143 tier1_legal / 9 tier2_operational",
     cc.get("tier1_legal") == 143 and cc.get("tier2_operational") == 9, str(cc))
 inv("S4  every record has a valid evidence_tier",
-    all((r.get("evidence_tier") or "unset") in TIER_ENUM for r in records))
+    all((r.get("evidence_tier") or "unverified") in TIER_ENUM for r in records))
+inv("S5  every record persists review, source-disposition and legal-time fields",
+    all(all(field in r for field in (
+        "source_last_checked", "next_review_due", "review_status", "reviewer", "second_reviewer",
+        "review_stage", "source_disposition", "source_check_status", "legal_status", "uncertainty",
+    )) for r in records))
 
 # === CITABILITY DISCIPLINE =====================================================================
 rt = [r for r in records if r.get("evidence_tier") == "resolution_text"]
@@ -101,6 +106,11 @@ inv("C5  citable subset == 46", len(citable) == 46, f"got {len(citable)}")
 inv("C6  dataset.citable_subset.count agrees with the recomputed set",
     ds.get("citable_subset", {}).get("count") == len(citable),
     f"dataset={ds.get('citable_subset',{}).get('count')} recomputed={len(citable)}")
+ready = [r for r in citable if (r.get("freshness") or {}).get("review_status") == "current"
+         and r.get("source_disposition") == "official" and r.get("review_stage") == "reconciled"]
+inv("C7  decision-ready citable subset applies current + official + reconciled gates",
+    ds.get("decision_ready_citable_subset", {}).get("count") == len(ready),
+    f"dataset={ds.get('decision_ready_citable_subset',{}).get('count')} recomputed={len(ready)}")
 
 # === VERIFICATION LEDGER =======================================================================
 inv("L1  ledger schema + version", ledger.get("schema") == "cbsr/verification_ledger"

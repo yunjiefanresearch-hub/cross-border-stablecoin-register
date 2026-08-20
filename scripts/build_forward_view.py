@@ -36,8 +36,8 @@ except Exception:
     pass
 
 import json
-from datetime import date, datetime, timezone
 from pathlib import Path
+from build_clock import BUILD_TIMESTAMP
 
 ROOT = Path(__file__).resolve().parent.parent
 STATES = json.loads((ROOT / "analysis" / "computed_corridor_states.json").read_text(encoding="utf-8"))
@@ -156,7 +156,7 @@ def build():
     obj = {
         "schema": "cbsr-analysis/computed_forward_view",
         "version": CAL.get("version", STATES.get("version")),
-        "generated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "generated": BUILD_TIMESTAMP,
         "as_of_base": BASE,
         "method": ("Per-jurisdiction re-sort of the trigger register (Atlas §4.4). For each jurisdiction it "
                    "lists its own pending events (flagged class-moving vs accessibility-only), the inbound and "

@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
   "name": "io.github.yunjiefanresearch-hub/cbsr",
   "description": "Typed query tools over the Cross-Border Stablecoin Register: twelve jurisdictions across fifteen dimensions of stablecoin regulation, a directed corridor layer (132 directed corridors — the same border can be permissive one way and restricted the other), a computed feasibility engine with as_of time travel, and a lawyer-citable subset. No network calls; no synthesis.",
-  "version": "0.10.1",
+  "version": "0.11.0",
   "repository": {
     "url": "https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register",
     "source": "github"
@@ -13,7 +13,7 @@
       "registryType": "pypi",
       "registryBaseUrl": "https://pypi.org",
       "identifier": "cbsr-mcp",
-      "version": "0.10.1",
+      "version": "0.11.0",
       "transport": { "type": "stdio" }
     }
   ],

@@ -1,0 +1,30 @@
+name: Dependency update
+description: Propose a reviewed update to runtime or development constraints.
+title: "[dependency] "
+labels: ["dependencies", "security"]
+body:
+  - type: input
+    id: package
+    attributes:
+      label: Package and current/proposed versions
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Changelog, compatibility and security rationale
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: Canonical verifier and platform evidence
+    validations:
+      required: true
+  - type: checkboxes
+    id: lock
+    attributes:
+      label: Lock discipline
+      options:
+        - label: Runtime and dev constraints, audit snapshot and SBOM are regenerated together.
+          required: true

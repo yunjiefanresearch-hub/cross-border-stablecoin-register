@@ -183,7 +183,7 @@ The eighth review recomputed §4.2 **against the shipped (origin-drag-first) art
 *"Taiwan and Korea are exactly tied at 20 edges each"* and *"Mainland China is not insensitive."*
 **Both of those conclusions were themselves artefacts of the NF-1 bug.** Recomputed under the
 destination-first precedence by [`../tools/compute_sensitivity.py`](../tools/compute_sensitivity.py)
-(output: [`../out/corridor_sensitivity.md`](../out/corridor_sensitivity.md), regenerated in CI):
+(output: [`../analysis/computed_sensitivity.json`](../analysis/computed_sensitivity.json), regenerated in CI):
 
 | jurisdiction | trigger | kind | edges reclassified | inbound | outbound |
 |---|---|---|---:|---:|---:|

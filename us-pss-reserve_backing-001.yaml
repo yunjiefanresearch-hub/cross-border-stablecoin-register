@@ -46,3 +46,20 @@ verification:
     instrument: GENIUS Act (Pub. L., signed 18 Jul 2025); OCC/FDIC NPRMs + CLARITY Act (H.R.3633) pending
     url: https://www.congress.gov/bill/119th-congress/senate-bill/1582/text
     pinpoint: GENIUS Act Sec. 4(a)(1) (1:1 fair-value backing of outstanding payment stablecoins)
+
+# CBSR v0.11 review/temporal metadata (mechanically migrated; null means not evidenced)
+source_last_checked: '2026-06-27'
+next_review_due: '2026-07-27'
+review_status: stale
+reviewer: external review (web retrieval against official sources)
+second_reviewer: null
+review_stage: primary_reviewed_second_pending
+reconciliation_status: not_started
+review_disagreement: null
+source_disposition: official
+source_check_status: checked
+effective_from: null
+effective_until: null
+event_id: null
+legal_status: operative
+uncertainty: low

@@ -1,0 +1,77 @@
+{
+  "register": "Cross-Border Stablecoin Register",
+  "version": "0.11.0",
+  "generated": "2026-08-20",
+  "endpoint": "review",
+  "guardrail": "static projection of the public register; no facts added here",
+  "data": {
+    "coverage": {
+      "records": 152,
+      "primary_reviewer_present": 41,
+      "second_reviewer_present": 0,
+      "reconciled": 0,
+      "official_source": 103,
+      "decision_ready": 0
+    },
+    "freshness": {
+      "schema": "cbsr/freshness-report/v2",
+      "as_of": "2026-08-20",
+      "policy": {
+        "sla_days_by_binding_status": {
+          "pending_proposal": 7,
+          "no_regime": 7,
+          "made_not_commenced": 14,
+          "finalized_policy_pending": 14,
+          "in_force_enacted": 30,
+          "prohibition": 30
+        },
+        "grace_days": 7
+      },
+      "counts": {
+        "current": 0,
+        "due_for_review": 0,
+        "stale": 38,
+        "unknown": 114
+      },
+      "source_disposition_counts": {
+        "official": 103,
+        "secondary": 0,
+        "unavailable": 49,
+        "not_applicable": 0
+      },
+      "review_stage_counts": {
+        "primary_reviewed_second_pending": 41,
+        "unreviewed": 111
+      },
+      "reviewer_coverage": {
+        "primary_reviewer": {
+          "count": 41,
+          "denominator": 152
+        },
+        "independent_second_reviewer": {
+          "count": 0,
+          "denominator": 152
+        }
+      },
+      "high_impact_sla": {
+        "count": 50,
+        "current_reconciled": 0,
+        "breached_or_incomplete": 50
+      },
+      "decision_rule": "unconditional allow requires current evidence and reconciled independent second review"
+    },
+    "decision_ready_citable": {
+      "filter": {
+        "claim_class": "tier1_legal",
+        "status": "in_force",
+        "evidence_tier": "resolution_text",
+        "description": "Lawyer-citable: a proposition of law (tier1_legal), currently in force, confirmed against the official statutory/regulatory text (resolution_text). Operational/market facts (tier2_operational) are excluded by kind even when well-sourced; draft provisions are excluded by status; unverified legal points are excluded by evidence_tier.",
+        "review_status": "current",
+        "review_stage": "reconciled",
+        "source_disposition": "official"
+      },
+      "count": 0,
+      "records": []
+    }
+  }
+}

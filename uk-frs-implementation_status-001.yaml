@@ -4,27 +4,29 @@ authority: FCA; Bank of England; HM Treasury
 instrument_type: fiat_referenced_stablecoin
 instrument_label_local: UK qualifying stablecoin (UKQS)
 dimension: implementation_status
-requirement_summary: SI 2026/102 was published February 2026 and is in force; the Bank of England published revised
-  systemic-stablecoin proposals on 10 November 2025; HM Treasury published a draft amendment SI on 21 April 2026;
-  final FCA policy statements are expected summer 2026, perimeter guidance September 2026, and the full crypto regime
-  takes effect late 2027.
+requirement_summary: SI 2026/102 was made in February 2026 and the relevant issuer regime is scheduled to commence
+  on 25 October 2027. The FCA published final stablecoin-issuance rules in PS26/10 in June 2026. The Bank of England
+  published its systemic-stablecoin policy statement and draft Code of Practice in June 2026, followed by a joint
+  Bank/FCA approach on 30 June 2026. Bank finalisation and record-level commencement mapping remain pending.
 requirement_structured:
-  si_published: Feb 2026 (in force)
+  si_published: Feb 2026 (made; relevant commencement 25 Oct 2027)
   boe_proposals: 10 Nov 2025
   hmt_amendment: 21 Apr 2026
-  fca_final: summer 2026
-  perimeter_guidance: Sep 2026
-  full_regime: late 2027
+  fca_final: PS26/10 published Jun 2026
+  boe_systemic: policy statement and draft Code of Practice published Jun 2026
+  joint_approach: Bank/FCA publication 30 Jun 2026
+  full_regime: 25 Oct 2027
 status: transitional
-effective_date: '2026-02-01'
+effective_date: '2027-10-25'
 source:
-  primary: SI 2026/102; FCA CP25/14 & CP25/15; Bank of England proposals; HM Treasury amendment SI
-  pinpoint: Implementation timeline — SI in force Feb 2026; FCA final summer 2026; full regime late 2027
-  url: ''
+  primary: SI 2026/102; FCA PS26/10; Bank of England June 2026 policy statement/draft Code; Bank/FCA joint approach
+  pinpoint: Joint approach, Introduction and Table C; FCA PS26/10 Summary; commencement 25 Oct 2027
+  url: https://www.bankofengland.co.uk/paper/2026/boe-and-fcas-approach-to-joint-regulation-of-systemic-stablecoin-issuers
 secondary:
 - citation: Fan, Compliance Matrix v0.9.3 (18 May 2026), pp.16-17 (United Kingdom — Implementation Timeline)
-interpretation_note: 'Provenance: transcribed from author''s Compliance Matrix v0.9.3; pending primary-source verification.
-  The regime is mid-transition: a published SI but pending final FCA rules.'
+interpretation_note: 'The public wording is updated for the June 2026 FCA and Bank publications. This remains an
+  unreviewed record: the final FCA rulebook, Bank draft/final status and statutory commencement must be mapped line
+  by line and independently reconciled before currentness promotion.'
 confidence: high
 claim_class: tier2_operational
 last_reviewed: '2026-06-17'
@@ -37,3 +39,21 @@ tags:
 - v0.7.0_claim_class
 - binding_made_not_commenced
 binding_status: made_not_commenced
+
+# CBSR v0.11 review/temporal metadata (mechanically migrated; null means not evidenced)
+evidence_tier: unverified
+source_last_checked: null
+next_review_due: null
+review_status: unknown
+reviewer: null
+second_reviewer: null
+review_stage: unreviewed
+reconciliation_status: not_started
+review_disagreement: null
+source_disposition: official
+source_check_status: not_checked
+effective_from: '2027-10-25'
+effective_until: null
+event_id: null
+legal_status: enacted_not_commenced
+uncertainty: high

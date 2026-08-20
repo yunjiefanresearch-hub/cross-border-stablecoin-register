@@ -10,7 +10,27 @@ permitted-activity / yield boundary and securities classification), with a query
 derivation disagrees with the papers. Built from primary sources, citable by DOI.
 
 **Focus (twelve jurisdictions):** US · Hong Kong · EU · UK · Singapore · Mainland China · Brazil · Switzerland · United Arab Emirates · Taiwan · Japan · South Korea  ·  **Doctrinal anchor:** United States (CLARITY Act §404 / GENIUS Act)
-**Status:** v0.10.1 · **Cadence:** quarterly diffs + event patches · **License:** CC-BY-4.0 (data) / Apache-2.0 (code) — see [`LICENSING.md`](LICENSING.md)
+**Status:** v0.11.0 · **Cadence:** quarterly diffs + event patches · **License:** CC-BY-4.0 (data) / Apache-2.0 (code) — see [`LICENSING.md`](LICENSING.md)
+
+> **Freshness and human-review boundary (20 August 2026).** The committed source-check evidence yields
+> `current=0`, `stale=38`, `unknown=114`; it does not fall back to editorial `last_reviewed` dates.
+> Source-disposition and reviewer totals are published in `analysis/freshness_report.json`. Some rows
+> retain a primary-review trace, but none has an independently attested second review; consequently
+> `decision_ready_citable_subset.count=0`. The repository is runnable, not a legal-currentness certificate.
+
+For a Windows source-bundle installation, use [`LOCAL_DEPLOY_WINDOWS.md`](LOCAL_DEPLOY_WINDOWS.md) and
+run `setup_windows.ps1`. On every platform, install the committed constraint set before invoking the
+single canonical verifier:
+
+```bash
+python -m venv .venv
+.venv/bin/python -m pip install --constraint constraints/dev.txt pip setuptools wheel
+.venv/bin/python -m pip install --constraint constraints/dev.txt ".[dev]"
+.venv/bin/python -m tools.verify
+```
+
+On Windows use `.venv\Scripts\python.exe` or the supplied PowerShell scripts. A raw interpreter without
+the development graph is intentionally rejected by the verifier during preflight.
 
 ---
 
@@ -21,9 +41,9 @@ ambiguity resolution made transparent (see [`METHODOLOGY.md`](METHODOLOGY.md)) �
 differentiator is the **corridor layer**: what actually clears, and what breaks, at each regulatory
 boundary along a cross-border flow (see [the corridor file](hk-br-usd-stablecoin-settlement.yaml)).
 
-Each record is one verified `(jurisdiction × instrument × dimension)` fact: structured, sourced to a
-primary instrument with a pinpoint, dated, version-stamped, and machine-readable against a published
-[schema](record.schema.json).
+Each record is one `(jurisdiction × instrument × dimension)` proposition with separately persisted source,
+legal-force, freshness and reviewer fields. Schema validity proves structure, not legal verification; the
+complete record-level state is published in the JSON/CSV [research ledger](research/source_ledger_2026-08-20.json).
 
 ## Coverage
 The complete coverage matrix, the per-jurisdiction depth, the two-axis evidence-tier breakdown, and the
@@ -33,32 +53,32 @@ build.
 
 The register spans **twelve focus jurisdictions** across **fifteen dimensions** plus **two doctrinal
 spines** (the permitted-activity / yield boundary and securities classification), depth-first: each
-verified cell is one `(jurisdiction × instrument × dimension)` fact, sourced to a primary instrument
-with a pinpoint and machine-checked against a published schema. **v0.4.0** is the twelve-jurisdiction
+recorded cell is one `(jurisdiction × instrument × dimension)` proposition, with its source and review
+gaps machine-checked against a published schema. **v0.4.0** is the twelve-jurisdiction
 expansion, adding Switzerland, the UAE, Taiwan, Japan, and South Korea as full focus jurisdictions;
-Taiwan's AML-registration layer is in force while its draft Virtual Asset Service Act provisions are
-carried as draft-flagged `status: proposed` records. For Switzerland, yield to holders is permitted but
+Taiwan's AML-registration layer is in force; the Virtual Asset Service Act was promulgated on 22 July
+2026, while its licensing and stablecoin provisions remain tracked as enacted-not-commenced pending
+subsidiary rules. For Switzerland, yield to holders is permitted but
 structurally constrained (the bank guarantee must cover any interest), the register's clearest
 permission-cluster anchor on the yield spine, opposite the EU/HK/US prohibition. The full grid, with the
 planned schedule for the cells still open, is in [`COVERAGE.md`](COVERAGE.md).
 
 ## Use
 ```bash
-pip install -r requirements.txt
-python scripts/build_analysis.py   # (re)builds the analysis layer (compatibility matrix, etc.)
-python scripts/build_corridors.py  # (re)builds the directed corridor edges + declares cross-layer divergences
-python scripts/compose.py          # (re)builds the computed layer (compose() — computed-vs-authored diff)
-python build.py                    # validates records + corridor schema + cross-layer integrity, compiles dataset.json
-python build_site.py               # regenerates the static landing page from dataset.json
-
-python run_invariants.py           # read-only structural assertions over the built register
-python run_negative_tests.py       # proves the validation gates BITE (breaks each on a throwaway copy)
+python -m pip install --constraint constraints/dev.txt pip setuptools wheel
+python -m pip install --constraint constraints/dev.txt ".[dev]"
+python -m tools.verify
 ```
+The verifier is the only supported aggregate command. It executes two complete generation passes,
+compares committed and regenerated hashes, reproduces the research outputs, runs every semantic and
+negative gate, builds the wheel twice, installs it into a clean environment outside the repository,
+calls all six AgenticFi capabilities with warnings treated as errors, and runs `pip-audit`.
 Runs on any locale: every file read/write passes `encoding="utf-8"` and the scripts reconfigure stdout to
 UTF-8, so `python build.py` works on a non-UTF-8 console (e.g. Windows GBK) without `-X utf8`.
-Continuous integration runs all of the above on every push and pull request
-([`.github/workflows/build.yml`](.github/workflows/build.yml)), so an invalid record, a corridor that
-contradicts the matrix, or a stale derived artifact cannot be merged.
+Continuous integration is configured to run all of the above on pushes and pull requests
+([`.github/workflows/build.yml`](.github/workflows/build.yml)). Treat this as a merge gate only after
+the GitHub ruleset requires the stable `required-verification` check; a workflow file alone is not
+evidence of a successful run or enforced protection.
 
 - Machine-readable dataset: [`dataset.json`](dataset.json) — records, corridors, **and the `analysis` layer (incl. `analysis.computed`)**
 - Schemas (the standards): [`record.schema.json`](record.schema.json) · [`corridor.schema.json`](corridor.schema.json) · [`analysis.schema.json`](analysis.schema.json) · vocabulary: [`taxonomy.md`](taxonomy.md)
@@ -69,19 +89,32 @@ contradicts the matrix, or a stale derived artifact cannot be merged.
 cell for the category, interaction sets, and binding constraint of that jurisdiction pair). Deploys
 as-is to GitHub Pages or Netlify (no build step; publish the repo root).
 
-**Query it from an agent — one line, nothing to clone:**
+**Query it from an agent after the documented source install:**
 
 ```json
-{ "mcpServers": { "cbsr": { "command": "uvx", "args": ["cbsr-mcp"] } } }
+{
+  "mcpServers": {
+    "cbsr": {
+      "command": "C:/absolute/path/cross-border-stablecoin-register/.venv/Scripts/python.exe",
+      "args": ["C:/absolute/path/cross-border-stablecoin-register/mcp_server.py"]
+    }
+  }
+}
 ```
 
-The [`cbsr-mcp`](https://pypi.org/project/cbsr-mcp/) package wraps the dataset in typed tools over
+The source-installed `cbsr-mcp` package wraps the dataset in typed tools over
 the Model Context Protocol: node-layer tools (`query`, `compare_dimension`, `jurisdiction_profile`,
 `search`, `coverage`, `get_corridor`, …), the **lawyer-citable** tool (`citable_law`), analysis-layer
 tools (`compatibility`, `interaction_sets`, `architectural_patterns`, `open_questions`), **computing
 tools** (`compose_corridor`, `explain_feasibility`, `verification_report`), and **time-engine tools**
 (`compose_corridor(as_of=…)`, `corridor_timeline`, `event_calendar`), **substrate tools** (`constraint_substrate`, `compose_via_substrate`), the **verification worklist** (`verification_worklist`), and the **stakeholder projection** (`stakeholder_database`, `profile_for`), and the **edge layer** (`edge_coverage`, `corridor_skeleton`). See
 [`MCP_SERVER.md`](MCP_SERVER.md).
+
+The runtime now has explicit module boundaries: `core/` (typed versioned policy contracts), `data/`
+(offline repository), `evidence/` (review state), `events/` (legal-time ontology),
+`domain_packs/stablecoin/` (stablecoin obligations and ruleset), `serialization/`, `api/`, and `tools/`.
+`server.py` is a thin 40-line composition root; tool count, signatures, summaries and modules are derived
+from one registry and regenerate `mcp.json`. See [ADR 0001](docs/adr/0001-modular-mcp-policy-boundaries.md).
 
 ## Evidence model — `claim_class` × `evidence_tier`, and the citable subset
 Every record carries **two orthogonal evidence axes**, so a reader can separate *what kind of claim
@@ -93,7 +126,7 @@ this is* from *how well it is sourced*:
   live, who is registered, what products launched, what banking rails exist — properly read as-of-dated.
 - **`evidence_tier`** — the **provenance strength**. `resolution_text` = confirmed against the official
   text; `mixed` = core point confirmed, some operational detail pending; `firm_summary` =
-  practitioner-corroborated, pending the official-text check.
+  practitioner-corroborated, pending the official-text check; `unverified` = no earned tier is committed.
 
 These are independent. A confirmed product launch is well-sourced (`resolution_text`) but is *not* law
 (`tier2_operational`); a draft statutory provision is a legal claim (`tier1_legal`) but not yet binding
@@ -101,15 +134,17 @@ These are independent. A confirmed product launch is well-sourced (`resolution_t
 constraints and market-reported operability, which the Atlas warns must not be read at the same
 confidence.
 
-**The lawyer-citable subset** is the intersection that a lawyer or supervisor can cite as current
-binding law:
+**The structurally citable subset** is the intersection that has the correct claim kind, force state
+and source tier. In this snapshot 38 source checks are stale and 114 are unknown. The decision-ready
+subset additionally requires an official source, a current check and independently reconciled review:
 
 ```
 claim_class == tier1_legal  AND  status == in_force  AND  evidence_tier == resolution_text
+AND source_disposition == official AND review_status == current AND review_stage == reconciled
 ```
 
-Its current size is generated into [`COVERAGE.md`](COVERAGE.md); the v0.9.5 external verification pass promoted the in-force EU MiCA, US GENIUS, and HK Cap. 656 cells into it. It is precomputed as `citable_subset` in [`dataset.json`](dataset.json)
-(each row projected to instrument + pinpoint + official URL), exposed by the MCP `citable_law()` tool,
+Both counts are generated into [`COVERAGE.md`](COVERAGE.md). Structural candidates are stored as
+`citable_subset`; `decision_ready_citable_subset` is the stricter public gate. The MCP `citable_law()` tool exposes only the latter,
 and surfaced by the **"citable law only"** toggle in the static-site table. The build **enforces** it on
 two axes: a `tier1_legal` record at `resolution_text`/`mixed` that asserts official-text confirmation
 but lacks a `source.url` (or, at `resolution_text`, a `pinpoint`) fails the build; and a citable
@@ -146,7 +181,7 @@ signal-provenance gate) are exactly what v0.6.0–v0.7.1 built, so the date engi
 highest-applicability, lowest-risk next step, while the substrate is the deeper, later thesis.
 
 > **The quiet liability.** Every `compose()` result is only as honest as the hand-curated signal table
-> and the cells beneath it, and a standing set of `tier1_legal` cells are still `unset` (transcribed,
+> and the cells beneath it, and a standing set of `tier1_legal` cells are explicitly `unverified` (transcribed,
 > not yet confirmed against the official text). `claim_class` and the citable gates are the right
 > *defenses*, but they do not retire that liability; **only the primary-source verification pass does.**
 > The exact count, and the per-cell worklist, are tracked in the verification queue

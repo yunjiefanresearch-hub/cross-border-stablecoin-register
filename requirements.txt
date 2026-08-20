@@ -1,4 +1,7 @@
-# build.py uses jsonschema for full Draft 2020-12 validation, but degrades gracefully
-# to a built-in structural validator if it is absent (offline reproducibility).
-jsonschema>=4.21
-PyYAML>=6.0
+# Legacy build-only entry point. Full development and release verification uses:
+#   python -m pip install --constraint constraints/dev.txt ".[dev]"
+# Keeping this file constrained prevents a different dependency graph from being
+# resolved when an older automation still invokes `pip install -r requirements.txt`.
+-c constraints/dev.txt
+jsonschema
+PyYAML

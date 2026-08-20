@@ -6,12 +6,12 @@ Typed MCP tools over an open, versioned register of how twelve jurisdictions reg
 stablecoins — clause by clause, across fifteen dimensions, with a directed corridor layer
 and a computed feasibility engine.
 
-    uvx cbsr-mcp
+    python -m pip install --constraint constraints/runtime.txt .
 
 Claude Desktop / any MCP client:
 
 ```json
-{ "mcpServers": { "cbsr": { "command": "uvx", "args": ["cbsr-mcp"] } } }
+{ "mcpServers": { "cbsr": { "command": "C:/path/.venv/Scripts/python.exe", "args": ["C:/path/mcp_server.py"] } } }
 ```
 
 **Jurisdictions** — US · EU · UK · HK · SG · CN · JP · KR · TW · CH · AE · BR

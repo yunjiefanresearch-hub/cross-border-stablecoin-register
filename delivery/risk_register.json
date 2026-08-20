@@ -1,0 +1,150 @@
+{
+  "as_of": "2026-08-20",
+  "risks": [
+    {
+      "evidence": "freshness current=0; stale=38; unknown=114",
+      "mitigation": "Complete official-source line review, checked dates and temporal validation for 152 rows.",
+      "owner_role": "legal-review-lead",
+      "reviewed_date": "2026-08-20",
+      "risk": "Regulatory propositions are stale or unknown",
+      "risk_id": "R-001",
+      "severity": "critical",
+      "status": "open",
+      "target_date": "before-production-release",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence": "second reviewer=0/152; decision-ready=0/152",
+      "mitigation": "Perform blind second review and reconcile every disagreement.",
+      "owner_role": "independent-legal-reviewer",
+      "reviewed_date": "2026-08-20",
+      "risk": "Independent second legal review absent",
+      "risk_id": "R-002",
+      "severity": "critical",
+      "status": "open",
+      "target_date": "before-production-release",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence": "research/source_ledger_2026-08-20.csv",
+      "mitigation": "Locate official source or document secondary/unavailable disposition with rationale.",
+      "owner_role": "legal-research-lead",
+      "reviewed_date": "2026-08-20",
+      "risk": "49 records have no official source URL",
+      "risk_id": "R-003",
+      "severity": "high",
+      "status": "open",
+      "target_date": "before-production-release",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence": "analysis/legal_event_ontology.json",
+      "mitigation": "Research enactment/commencement/supersession events and validate dates.",
+      "owner_role": "legal-data-editor",
+      "reviewed_date": "2026-08-20",
+      "risk": "132 legal-event relationships are not first-class linked events",
+      "risk_id": "R-004",
+      "severity": "high",
+      "status": "open",
+      "target_date": "before-production-release",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence": "signing_state=unsigned; execution_authorized=false",
+      "mitigation": "Integrate an identity provider and signing service before production reliance.",
+      "owner_role": "security-owner",
+      "reviewed_date": "2026-08-20",
+      "risk": "Receipts are hashed but unsigned",
+      "risk_id": "R-005",
+      "severity": "high",
+      "status": "accepted-for-research",
+      "target_date": "before-production-release",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence": "delivery/REMOTE_GITHUB_RUNBOOK.md",
+      "mitigation": "Run workflows, retain artifacts, configure required checks/reviews, then query settings.",
+      "owner_role": "repository-admin",
+      "reviewed_date": "2026-08-20",
+      "risk": "GitHub ruleset and CI have not been remotely read back",
+      "risk_id": "R-006",
+      "severity": "high",
+      "status": "open-external",
+      "target_date": "before-production-release",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence": "docs/validation/PLATFORM_EVIDENCE.md",
+      "mitigation": "Run setup_windows.ps1 -Recreate and retain transcript or green windows-latest artifact.",
+      "owner_role": "release-manager",
+      "reviewed_date": "2026-08-20",
+      "risk": "Windows 11 clean-room evidence is external",
+      "risk_id": "R-007",
+      "severity": "high",
+      "status": "open-external",
+      "target_date": "before-production-release",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence": "docs/security/EXTERNAL_SECURITY_REVIEW_TEMPLATE.md",
+      "mitigation": "Complete scoped review and signed disposition template.",
+      "owner_role": "independent-security-reviewer",
+      "reviewed_date": "2026-08-20",
+      "risk": "Independent security review absent",
+      "risk_id": "R-008",
+      "severity": "high",
+      "status": "open-external",
+      "target_date": "before-production-release",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence": "research/qualitative/SECOND_CODER_WORKSHEET.csv",
+      "mitigation": "Complete the second-coder worksheet and reconciliation; calculate agreement.",
+      "owner_role": "independent-researcher",
+      "reviewed_date": "2026-08-20",
+      "risk": "Qualitative second coder and inter-coder agreement absent",
+      "risk_id": "R-009",
+      "severity": "medium",
+      "status": "open-external",
+      "target_date": "before-production-release",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence": "docs/whitepaper/PEER_REVIEW_TEMPLATE.md",
+      "mitigation": "Complete peer-review template, disposition claims and publish revision notes.",
+      "owner_role": "independent-peer-reviewer",
+      "reviewed_date": "2026-08-20",
+      "risk": "External whitepaper peer review absent",
+      "risk_id": "R-010",
+      "severity": "medium",
+      "status": "open-external",
+      "target_date": "before-production-release",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence": ".github/workflows/",
+      "mitigation": "Review and pin GitHub Actions to full commit SHAs under a documented update process.",
+      "owner_role": "security-owner",
+      "reviewed_date": "2026-08-20",
+      "risk": "Source action pins use version tags",
+      "risk_id": "R-011",
+      "severity": "medium",
+      "status": "open",
+      "target_date": "before-production-release",
+      "verification_command": "python -m tools.verify"
+    },
+    {
+      "evidence": "PRIVACY.md",
+      "mitigation": "Complete DPIA, retention, access, deletion, logging and transfer controls.",
+      "owner_role": "deployment-operator",
+      "reviewed_date": "2026-08-20",
+      "risk": "MCP/host privacy is deployment-specific",
+      "risk_id": "R-012",
+      "severity": "medium",
+      "status": "open-external",
+      "target_date": "before-production-release",
+      "verification_command": "python -m tools.verify"
+    }
+  ],
+  "schema": "cbsr/risk-register/v1"
+}

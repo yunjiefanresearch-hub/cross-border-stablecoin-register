@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yunjiefanresearch-hub.github.io/cross-border-stablecoin-register/schemas/domain-pack.v1.schema.json",
+  "title": "CBSR policy domain pack v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "name", "version", "ruleset_version", "default_dimensions", "supported_assets", "obligation_catalog", "execution_boundary"],
+  "properties": {
+    "schema": {"const": "cbsr/domain-pack/v1"}, "name": {"type": "string"},
+    "version": {"type": "string"}, "ruleset_version": {"type": "string"},
+    "default_dimensions": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "supported_assets": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "obligation_catalog": {"type": "object", "additionalProperties": {"type": "array", "items": {"type": "string"}}},
+    "execution_boundary": {"const": "decision_support_only"}
+  }
+}

@@ -28,8 +28,8 @@ except Exception:
     pass
 
 import json
-from datetime import date
 from pathlib import Path
+from build_clock import BUILD_DATE
 
 ROOT = Path(__file__).resolve().parent.parent
 STATES = json.loads((ROOT / "analysis" / "computed_corridor_states.json").read_text(encoding="utf-8"))
@@ -170,7 +170,7 @@ def build():
     out = {
         "schema": "cbsr-analysis/computed_sensitivity",
         "version": "v0.10.0",
-        "generated": date.today().isoformat(),
+        "generated": BUILD_DATE,
         "as_of_base": base,
         "method": ("For each pending trigger (a contingent enactment or a dated commencement) the layer counts the "
                    "directed edges it reclassifies, split into fan-in (edges terminating in the trigger jurisdiction) "

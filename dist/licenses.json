@@ -1,0 +1,178 @@
+{
+  "schema": "cbsr/license-inventory/v1",
+  "generated": "2026-08-20",
+  "scope": "clean wheel-install environment",
+  "manual_review_required": false,
+  "packages": [
+    {
+      "name": "annotated-types",
+      "version": "0.8.0",
+      "license": "MIT"
+    },
+    {
+      "name": "anyio",
+      "version": "4.14.2",
+      "license": "MIT"
+    },
+    {
+      "name": "attrs",
+      "version": "26.1.0",
+      "license": "MIT"
+    },
+    {
+      "name": "cbsr-mcp",
+      "version": "0.11.0",
+      "license": "Apache-2.0"
+    },
+    {
+      "name": "certifi",
+      "version": "2026.7.22",
+      "license": "MPL-2.0"
+    },
+    {
+      "name": "cffi",
+      "version": "2.1.1",
+      "license": "MIT-0"
+    },
+    {
+      "name": "click",
+      "version": "8.4.2",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "name": "cryptography",
+      "version": "50.0.0",
+      "license": "Apache-2.0 OR BSD-3-Clause"
+    },
+    {
+      "name": "h11",
+      "version": "0.16.0",
+      "license": "MIT"
+    },
+    {
+      "name": "httpcore",
+      "version": "1.0.9",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "name": "httpx",
+      "version": "0.28.1",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "name": "httpx-sse",
+      "version": "0.4.3",
+      "license": "MIT"
+    },
+    {
+      "name": "idna",
+      "version": "3.19",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "name": "jsonschema",
+      "version": "4.26.0",
+      "license": "MIT"
+    },
+    {
+      "name": "jsonschema-specifications",
+      "version": "2025.9.1",
+      "license": "MIT"
+    },
+    {
+      "name": "mcp",
+      "version": "1.29.0",
+      "license": "MIT"
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "license": "Apache-2.0 OR BSD-2-Clause"
+    },
+    {
+      "name": "pip",
+      "version": "26.2.1",
+      "license": "MIT"
+    },
+    {
+      "name": "pycparser",
+      "version": "3.0",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "name": "pydantic",
+      "version": "2.12.5",
+      "license": "MIT"
+    },
+    {
+      "name": "pydantic-settings",
+      "version": "2.14.2",
+      "license": "MIT"
+    },
+    {
+      "name": "pydantic_core",
+      "version": "2.41.5",
+      "license": "MIT"
+    },
+    {
+      "name": "PyJWT",
+      "version": "2.13.0",
+      "license": "MIT"
+    },
+    {
+      "name": "python-dotenv",
+      "version": "1.2.3",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "name": "python-multipart",
+      "version": "0.0.32",
+      "license": "Apache-2.0"
+    },
+    {
+      "name": "referencing",
+      "version": "0.37.0",
+      "license": "MIT"
+    },
+    {
+      "name": "rpds-py",
+      "version": "2026.6.3",
+      "license": "MIT"
+    },
+    {
+      "name": "setuptools",
+      "version": "84.0.0",
+      "license": "MIT"
+    },
+    {
+      "name": "sse-starlette",
+      "version": "3.4.8",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "name": "starlette",
+      "version": "1.6.0",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "name": "typing-inspection",
+      "version": "0.4.4",
+      "license": "MIT"
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.16.0",
+      "license": "PSF-2.0"
+    },
+    {
+      "name": "uvicorn",
+      "version": "0.52.4",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "name": "wheel",
+      "version": "0.48.0",
+      "license": "MIT"
+    }
+  ]
+}

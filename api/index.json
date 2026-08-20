@@ -1,14 +1,15 @@
 {
   "register": "Cross-Border Stablecoin Register",
-  "version": "0.10.1",
-  "generated": "2026-07-15",
+  "version": "0.11.0",
+  "generated": "2026-08-20",
   "endpoint": "index",
   "guardrail": "static projection of the public register; no facts added here",
   "description": "Static JSON API for the Cross-Border Stablecoin Register. All endpoints are projections of the public dataset.json; fetch any file directly.",
-  "endpoint_count": 230,
+  "endpoint_count": 232,
   "data": {
     "meta": "meta.json",
     "records": "records.json",
+    "review": "review.json",
     "jurisdictions": {
       "US": "jurisdictions/US.json",
       "EU": "jurisdictions/EU.json",
@@ -25,6 +26,7 @@
     },
     "events": "events.json",
     "events_by_kind": "events/by_kind.json",
+    "legal_event_ontology": "events/ontology.json",
     "corridor_states": "corridor_states.json",
     "dates": {
       "2026-06-01": "dates/2026-06-01.json",

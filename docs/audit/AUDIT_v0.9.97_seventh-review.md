@@ -60,7 +60,7 @@ is **provenance control, not semantic control**, and assumes the legacy snapshot
 > SCHEMA/DC*/OD1/CD1/IB1/DG1/DG2 still pass and **`CF1` is the only gate that fails** (a negative test
 > asserts exactly this). `CF1` is honest about being **partial** — it anchors only the confirmed
 > facts, so a coherent lie about an *unanchored* class still passes; full closure is the upstream
-> [`PROPOSAL_signal_table.md`](PROPOSAL_signal_table.md) recompute, where class becomes a function of
+> [`SIGNAL_TABLE.md`](../SIGNAL_TABLE.md) recompute, where class becomes a function of
 > published, `record_ref`-bearing signals rather than a hand-editable field. `CF1` anchors to verified
 > *facts* (not builder logic), so it is the independent check finding F6 asks for, not more of the
 > hand-copying F6 warns against.

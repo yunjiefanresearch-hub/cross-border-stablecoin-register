@@ -50,3 +50,21 @@ tags:
 - v0.9.5_verification
 - binding_prohibition
 binding_status: prohibition
+
+# CBSR v0.11 review/temporal metadata (mechanically migrated; null means not evidenced)
+evidence_tier: unverified
+source_last_checked: null
+next_review_due: null
+review_status: unknown
+reviewer: null
+second_reviewer: null
+review_stage: unreviewed
+reconciliation_status: not_started
+review_disagreement: null
+source_disposition: official
+source_check_status: not_checked
+effective_from: null
+effective_until: null
+event_id: null
+legal_status: prohibited
+uncertainty: high

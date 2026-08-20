@@ -6,15 +6,16 @@ differential layer directly instead of fetching and parsing `dataset.json`. The 
 committed `dataset.json` and makes **no network calls**; it only filters and reshapes published
 records (no data is synthesised at query time).
 
-## Install
+## Install from this source bundle
 
 ```bash
-uvx cbsr-mcp
+python -m venv .venv
+.venv/Scripts/python -m pip install --constraint constraints/runtime.txt .       # Windows PowerShell
+# .venv/bin/python -m pip install --constraint constraints/runtime.txt .         # macOS/Linux
 ```
 
-That is the whole thing. The dataset ships inside the wheel, so there is nothing to clone, no path
-to configure, and no network call at run time — the server reads the same `dataset.json` that carries
-the DOI.
+The project is not represented here as published on PyPI. Install from the checked-out source or the
+wheel included in the local-deployment archive. The server makes no network call at run time.
 
 ## Register with an MCP client
 
@@ -25,14 +26,14 @@ the DOI.
 {
   "mcpServers": {
     "cbsr": {
-      "command": "uvx",
-      "args": ["cbsr-mcp"]
+      "command": "C:/absolute/path/to/.venv/Scripts/python.exe",
+      "args": ["C:/absolute/path/to/mcp_server.py"]
     }
   }
 }
 ```
 
-Restart the client. The 33 tools below appear.
+Restart the client. The 40 tools below appear.
 
 ## Run from a source checkout
 
@@ -40,12 +41,13 @@ If you are working on the register itself rather than consuming it, the original
 still works verbatim — no packaging step, no `PYTHONPATH`:
 
 ```bash
-pip install "mcp[cli]"
+python -m pip install --constraint constraints/dev.txt ".[dev]"
 python mcp_server.py          # stdio transport — what MCP clients speak
 mcp dev mcp_server.py         # interactive, via the MCP Inspector
 ```
 
-`mcp_server.py` is a launcher; the server itself is `src/cbsr_mcp/server.py`. Both paths execute the
+`mcp_server.py` is a launcher; `src/cbsr_mcp/server.py` is a thin composition root and the tool families
+live under `src/cbsr_mcp/tools/`. Both paths execute the
 same code and read the same dataset: installed, it resolves the copy bundled in the wheel; from a
 checkout, the `dataset.json` that `build.py` compiles. A pinned version of the tools always answers
 from the pinned version of the register — that is the point.
@@ -63,8 +65,8 @@ from the pinned version of the register — that is the point.
 | `jurisdiction_profile(jurisdiction)` | All records for one jurisdiction, ordered by the framework |
 | `search(keyword)` | Keyword search across summary, source, authority, tags |
 | `get_corridor(corridor_id?)` | Corridor model(s): what clears / breaks at each boundary |
-| `coverage()` | Jurisdiction × dimension grid: where data exists vs. is planned |
-| `citable_law(jurisdiction?, dimension?)` | **Lawyer-citable subset.** Only records that are a proposition of law (`claim_class=tier1_legal`), in force (`status=in_force`), AND confirmed against the official text (`evidence_tier=resolution_text`); each row returns the binding instrument, pinpoint, and official URL. Optional jurisdiction/dimension filters. The "show me only what I could cite" view |
+| `coverage()` | Inventory grid plus a separate review-state grid; record presence is never called verification |
+| `citable_law(jurisdiction?, dimension?)` | **Decision-ready citable subset.** Requires `tier1_legal` + `in_force` + `resolution_text` and also official, current, independently reconciled review evidence. Structural candidates remain visible separately |
 | `compatibility(jurisdiction?, other?, category?)` | **Analysis layer.** The §5.14 pairwise compatibility matrix (66 pairs); filter by jurisdiction, a specific pair, or category (I / I/II / II / III) |
 | `interaction_sets()` | **Analysis layer.** The six constraint-interaction sets (§2.9, A–F): constraint pair, mechanism, worked example |
 | `architectural_patterns()` | **Analysis layer.** The PRC three-pattern typology (§3.3), the three-layer routing architecture (§4/§6), the §4.4 five-factor test, the six design principles |
@@ -76,13 +78,19 @@ from the pinned version of the register — that is the point.
 | `event_calendar(jurisdiction?)` | **Time engine.** The dated/contingent `tier1_legal` changes in law that move a jurisdiction's compose() signal (scheduled / contingent / in_force), with event provenance. A market launch is never an event |
 | `constraint_substrate(jurisdiction?, constraint?)` | **Constraint substrate.** Each `(jurisdiction × constraint C1–C8)` as a structured pole citing the `tier1_legal` record it is transcribed from, plus coverage. Poles exist only where a record backs them |
 | `compose_via_substrate(origin, destination)` | **Constraint substrate.** DERIVES a corridor's class by composing two jurisdictions' C1–C8 poles through the interaction-set rules (not the inbound-gate shortcut); returns per-set verdicts and the cross-check vs the signal compose(), or `indeterminate` with the missing poles |
-| `verification_report()` | **Verification queue.** Records bucketed by `evidence_tier`, the largest backlog (legacy `unset`), and records lacking a `source.url` |
+| `verification_report()` | **Verification queue.** Records bucketed by `evidence_tier`, including explicit `unverified`, and records lacking a `source.url` |
 | `verification_worklist(jurisdiction?)` | **Verification harness.** Per-cell gap analysis for the primary-source pass: for each unverified cell, the instrument + pinpoint and exactly what is missing to reach each tier. `evidence_tier` is enforced by the build (earned, not asserted). Verification is external work, never fabricated — this scopes it |
 | `verification_ledger(jurisdiction?)` | **Verification audit trail.** Per cell, the cited instrument's binding status, whether an official URL is attached, and the tier the pass applied — citability is capped by binding status, not by whether the text was located |
 | `events_by_kind(kind?)` | **Trigger typology (§3).** The event calendar grouped by `trigger_kind` — by the *kind of certainty* a trigger carries, not by date. Separates the one kind that moves a dated horizon (fully-scheduled) from dated-but-inert changes (intra-regime-gating, dated-empty-effect) and undated contingent branches; carries the legend + horizon rule |
 | `convergence(side?)` | **Yield-line convergence (§4.5).** The cross-jurisdiction view of the holder-yield-prohibited / activity-rewards-permitted boundary, reshaped from the per-jurisdiction `permitted_activity_yield` records (asserts no new facts). Tiers jurisdictions by role — citable two-sided `anchor` (US), `sibling`, `counter_example` (CH), `holder_prohibition_in_force`, `draft_would_align`, backlog — under the register's citable-purity discipline |
 | `reconciliation(only_divergences?)` | **Computed-vs-authored audit.** For every undirected pair, the class the engine derives vs the class a human authored, with agree/disagree and, where they differ, the named cause (`findings_by_cause`). A divergence is a finding (a regime-in-transition side), not a defect |
 | `records(claim_class?, evidence_tier?, status?, binding_status?, jurisdiction?, dimension?, citable_only?)` | **Evidence-axis browser.** Filter along the axes that decide citability and get, per record, whether it is lawyer-citable and — if not — exactly which axis blocks it (the "why not citable" x-ray). The complement to `query()` |
+| `search_evidence(keyword, jurisdiction?, limit?)` | Search provenance-bearing evidence for an AgenticFi decision |
+| `get_rule(record_id)` | Return one rule with legal force, freshness and decision-use warnings |
+| `evaluate_action(action)` | Deterministically evaluate a mandate-bound action; returns versioned rule IDs, source URLs, assumptions, obligations, conflicts, engine/ruleset versions and an unsigned receipt; never executes it |
+| `compare_jurisdictions(left, right, dimensions?)` | Two-jurisdiction comparison with freshness and gaps visible |
+| `watch_changes(since?, jurisdiction?)` | Offline review queue plus dated and contingent events |
+| `audit_decision(receipt)` | Detect receipt tampering; integrity only, explicitly unsigned |
 | `stakeholder_database()` | **The Atlas §8 actor catalogue.** Each persona (issuer, distributor, regulator, treasury, holder, …) with its lens, the C1–C8 constraints that bear on it, and the corridor archetypes (RC/SC/TC/DC) it engages. Pair with `profile_for()` |
 | `profile_for(stakeholder, origin, destination)` | **Project a directed corridor onto a persona.** The persona's lens, the corridor's derived class, a per-constraint reading of the origin/destination poles that persona cares about (each citing its backing record), engaged archetypes and inbound mechanism. Introduces no new facts — every line is read from an existing record, so the profile is bounded by the verification status of the cells it reads |
 | `corridor_skeleton(origin, destination)` | **The record for any directed edge.** The hand-authored RICH corridor if one exists, otherwise the COMPUTED SKELETON (derived class, inbound mechanism test + administrator, baseline archetypes, directed interaction sets, provenance). Skeletons assert nothing new: empirical fields are left explicitly unset rather than guessed |

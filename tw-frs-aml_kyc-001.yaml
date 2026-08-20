@@ -2,7 +2,7 @@ id: tw-frs-aml_kyc-001
 jurisdiction: TW
 authority: FSC
 instrument_type: fiat_referenced_stablecoin
-instrument_label_local: virtual asset / draft stablecoin (Virtual Asset Service Act)
+instrument_label_local: virtual asset / stablecoin (Virtual Asset Service Act, promulgated; commencement pending)
 dimension: aml_kyc
 requirement_summary: 'IN FORCE: AML registration under the amended Money Laundering Control Act and the VASP Registration
   Regulations (since 30 November 2024), requiring virtual-asset service providers to register and comply with AML/CFT
@@ -24,8 +24,8 @@ secondary:
     materials are summaries).
 interpretation_note: 'Provenance: transcribed from the author''s Compliance Matrix v0.9.6; VERIFIED against the
   official primary text in the v0.5.1 verification pass (source.url is the official instrument). This is the anchor
-  in-force record for Taiwan: AML registration is the only operative obligation pending enactment of the Virtual
-  Asset Service Act.
+  in-force record for Taiwan: AML registration is the only operative obligation while commencement and subsidiary
+  rules for the promulgated Virtual Asset Service Act remain pending.
 
 
   [v0.9.5 verification] NATIVE-LANGUAGE VERIFICATION (Chinese): confirmed against the official FSC text — the Money
@@ -57,3 +57,20 @@ verification:
     pinpoint: 'Money Laundering Control Act (洗錢防制法) Art. 6 (amended 31 Jul 2024); VASP registration regime in force
       30 Nov 2024 (non-registration: up to 2 yr + NT$5m individuals / NT$50m entities); VASPs classified into 5
       types'
+
+# CBSR v0.11 review/temporal metadata (mechanically migrated; null means not evidenced)
+source_last_checked: '2026-06-27'
+next_review_due: '2026-07-27'
+review_status: stale
+reviewer: external review (web retrieval against official sources)
+second_reviewer: null
+review_stage: primary_reviewed_second_pending
+reconciliation_status: not_started
+review_disagreement: null
+source_disposition: official
+source_check_status: checked
+effective_from: '2024-11-30'
+effective_until: null
+event_id: null
+legal_status: operative
+uncertainty: low

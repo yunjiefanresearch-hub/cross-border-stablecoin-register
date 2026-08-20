@@ -8,6 +8,9 @@ env/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+.tox/
+.nox/
+artifacts/validation/
 
 # Node
 node_modules/

@@ -1,6 +1,6 @@
 {
   "schema": "cbsr-analysis/computed_sensitivity",
-  "version": "v0.10.1",
+  "version": "v0.11.0",
   "generated": "2026-07-09",
   "as_of_base": "2026-06-30",
   "method": "For each pending trigger (a contingent enactment or a dated commencement) the layer counts the directed edges it reclassifies, split into fan-in (edges terminating in the trigger jurisdiction) and fan-out (edges originating there), derived edge-by-edge from computed_corridor_states.json. It asserts NO new facts; every count is a re-derivation of the corridor states.",
@@ -113,7 +113,7 @@
       "UK_edges": 8,
       "TW_fan_in": 9
     },
-    "regenerated": "v0.10.1: recomputed from the register's own frozen forward transition set. US moves from the insensitive set to an 8-edge class-mover via us-genius-act-effective (§18 gate commencement); KR fan counts and TW both-directions counts re-derived under destination-first precedence. Cross-checked two ways (scheduled==as_of_timeline; recomputed counts==ordering)."
+    "regenerated": "v0.11.0: recomputed from the register's own frozen forward transition set. US moves from the insensitive set to an 8-edge class-mover via us-genius-act-effective (§18 gate commencement); KR fan counts and TW both-directions counts re-derived under destination-first precedence. Cross-checked two ways (scheduled==as_of_timeline; recomputed counts==ordering)."
   },
   "two_orderings": {
     "by_edge_count": "KR (21) > TW (18) > UK (8) ≈ US (8) > CN (0)",

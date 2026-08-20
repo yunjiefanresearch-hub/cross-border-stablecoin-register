@@ -1,6 +1,6 @@
 {
   "schema": "cbsr/verification_ledger",
-  "version": "v0.10.1",
+  "version": "v0.11.0",
   "performed_by": "external review (web retrieval against official sources), 2026-06-27",
   "discipline": "Citability is capped by the binding status of the cited instrument, independent of whether the official text was located. resolution_text is applied ONLY where binding_status==in_force_enacted AND the proposition was confirmed against official text. made_not_commenced / finalized_policy_pending / pending_proposal cells receive the official URL + binding_status but are held at firm_summary; prohibition cells stay unset.",
   "buckets": {
@@ -259,7 +259,7 @@
       "official_url": "https://www.legislation.gov.uk/uksi/2026/102/contents/made",
       "pinpoint": "1:1 backing; CIS/AIF carve-out for backing assets",
       "verdict": "binding_status_recorded",
-      "applied_tier": "unset",
+      "applied_tier": "unverified",
       "status_after": "transitional",
       "note": "Reserve/backing under SI 2026/102 + FCA rules; made-not-commenced (operative 2027-10-25); held below resolution_text."
     },
@@ -271,7 +271,7 @@
       "official_url": "https://www.legislation.gov.uk/uksi/2026/102/contents/made",
       "pinpoint": "Custody — 24-hour rule; safeguarding licence for regulated custodians",
       "verdict": "binding_status_recorded",
-      "applied_tier": "unset",
+      "applied_tier": "unverified",
       "status_after": "transitional",
       "note": "Custody under SI 2026/102 + FCA rules; made-not-commenced; held below resolution_text."
     },
@@ -283,21 +283,21 @@
       "official_url": "https://www.legislation.gov.uk/uksi/2026/102/contents/made",
       "pinpoint": "Redemption — issuer-controlled; backing-asset trust structure",
       "verdict": "binding_status_recorded",
-      "applied_tier": "unset",
+      "applied_tier": "unverified",
       "status_after": "proposed",
       "note": "Redemption rules; made-not-commenced (operative 2027-10-25); held below resolution_text."
     },
     {
       "cell": "uk-frs-capital_requirements-001",
       "jurisdiction": "UK",
-      "instrument": "FSMA 2000 (Cryptoassets) Regulations 2026, SI 2026/102; FCA CP25/14, CP25/15",
-      "binding_status": "pending_proposal",
-      "official_url": "",
-      "pinpoint": "Prudential regime — FCA CP25/15 (pending); BoE systemic regime",
-      "verdict": "binding_status_recorded",
-      "applied_tier": "unset",
-      "status_after": "proposed",
-      "note": "Prudential/capital detail rests on FCA CP25/14 / CP25/15 consultations (final rules expected summer 2026); pending."
+      "instrument": "FSMA 2000 (Cryptoassets) Regulations 2026, SI 2026/102; FCA PS26/10; Bank of England June 2026 draft Code",
+      "binding_status": "made_not_commenced",
+      "official_url": "https://www.fca.org.uk/publication/policy/ps26-10.pdf",
+      "pinpoint": "FCA PS26/10 Summary and Chapters 2-3; detailed capital-rule mapping pending",
+      "verdict": "official_lead_confirmed_mapping_pending",
+      "applied_tier": "unverified",
+      "status_after": "transitional",
+      "note": "FCA PS26/10 is official and published; the record remains unverified and non-current until a named primary reviewer maps the made rules and an independent reviewer reconciles the proposition."
     },
     {
       "cell": "uk-frs-permitted_activity_yield-001",
@@ -307,7 +307,7 @@
       "official_url": null,
       "pinpoint": "BoE Nov 2025 backing-split / pass-through position; FCA rules pending",
       "verdict": "binding_status_recorded",
-      "applied_tier": "unset",
+      "applied_tier": "unverified",
       "status_after": "consultation",
       "note": "Yield/distribution treatment rests on FCA consultation; pending."
     },
@@ -319,7 +319,7 @@
       "official_url": "",
       "pinpoint": "Distribution — offshore 'involved' test; UKQS financial-promotions carve-out; payments amendment",
       "verdict": "binding_status_recorded",
-      "applied_tier": "unset",
+      "applied_tier": "unverified",
       "status_after": "proposed",
       "note": "Distribution rules rest on FCA consultation; pending."
     },
@@ -331,7 +331,7 @@
       "official_url": "https://www.legislation.gov.uk/uksi/2026/102/contents/made",
       "pinpoint": "Cross-border transfer — adequacy / IDTA / UK Addendum to EU SCCs",
       "verdict": "binding_status_recorded",
-      "applied_tier": "unset",
+      "applied_tier": "unverified",
       "status_after": "in_force",
       "note": "Cross-border/data under the FSMA 2026 perimeter; made-not-commenced."
     },
@@ -343,7 +343,7 @@
       "official_url": "",
       "pinpoint": "AML/KYC — full FSMA scope; MLR registration regime superseded",
       "verdict": "binding_status_recorded",
-      "applied_tier": "unset",
+      "applied_tier": "unverified",
       "status_after": "transitional",
       "note": "MLRs 2017 AML baseline IS in force (distinct from the not-yet-commenced FSMA 2026 stablecoin regime); binding status recorded."
     },
@@ -655,7 +655,7 @@
       "official_url": "",
       "pinpoint": "SCS framework — peg scope (SGD/G10, Singapore-issued); MPI licence > S$5m; Singapore incorporation",
       "verdict": "binding_status_recorded",
-      "applied_tier": "unset",
+      "applied_tier": "unverified",
       "status_after": "transitional",
       "note": "The SCS issuer scope is finalized-policy-pending, BUT the operative DPT licensing pathway under the PS Act 2019 is in force (status left transitional, NOT proposed — SG is a live regime, not pre-regime)."
     },
@@ -667,7 +667,7 @@
       "official_url": "",
       "pinpoint": "Implementation timeline — PSA 2020; SCS Aug 2023; DTSP Jun 2025; full SCS mid-2026",
       "verdict": "binding_status_recorded",
-      "applied_tier": "unset",
+      "applied_tier": "unverified",
       "status_after": "transitional",
       "note": "SCS framework implementation pending legislation (expected mid-2026); operational record."
     },
@@ -679,7 +679,7 @@
       "official_url": "",
       "pinpoint": "PDPA cross-border transfer safeguards; MAS data-hosting guidelines",
       "verdict": "binding_status_recorded",
-      "applied_tier": "unset",
+      "applied_tier": "unverified",
       "status_after": "in_force",
       "note": "SG cross-border data (PDPA) baseline in force; binding status recorded."
     },
@@ -727,7 +727,7 @@
       "official_url": "",
       "pinpoint": "Capital — N/A domestically; indirect HK HK$25m + SAFE registration + consolidation",
       "verdict": "binding_status_recorded",
-      "applied_tier": "unset",
+      "applied_tier": "unverified",
       "status_after": "in_force",
       "note": "Prohibition/absence-of-regime cell: the 2017/2021 Notices establish a prohibition; there is no affirmative permitted-activity rule to confirm, so this stays unset (not promotable to resolution_text as a positive proposition)."
     },
@@ -739,7 +739,7 @@
       "official_url": "",
       "pinpoint": "Reserve — N/A domestically; indirect HK pathway + A-share consolidation",
       "verdict": "binding_status_recorded",
-      "applied_tier": "unset",
+      "applied_tier": "unverified",
       "status_after": "in_force",
       "note": "Prohibition/absence-of-regime cell: the 2017/2021 Notices establish a prohibition; there is no affirmative permitted-activity rule to confirm, so this stays unset (not promotable to resolution_text as a positive proposition)."
     },
@@ -751,7 +751,7 @@
       "official_url": null,
       "pinpoint": "Prohibition context — no permitted issuer to which a yield rule could attach",
       "verdict": "binding_status_recorded",
-      "applied_tier": "unset",
+      "applied_tier": "unverified",
       "status_after": "in_force",
       "note": "Prohibition/absence-of-regime cell: the 2017/2021 Notices establish a prohibition; there is no affirmative permitted-activity rule to confirm, so this stays unset (not promotable to resolution_text as a positive proposition)."
     },
@@ -775,7 +775,7 @@
       "official_url": "https://www.csrc.gov.cn/csrc/c100028/c7614318/content.shtml",
       "pinpoint": "Domestic distribution prohibited; three indirect-pathway constraint layers (A-share / SAFE / PBOC-CAC)",
       "verdict": "binding_status_recorded",
-      "applied_tier": "unset",
+      "applied_tier": "unverified",
       "status_after": "in_force",
       "note": "NATIVE-LANGUAGE VERIFICATION (Chinese): the unpublished 2025 PBOC/CAC signalling is now written law (银发〔2026〕42号)."
     },
@@ -799,7 +799,7 @@
       "official_url": null,
       "pinpoint": "Absence of a compliant issuance/routing architecture",
       "verdict": "binding_status_recorded",
-      "applied_tier": "unset",
+      "applied_tier": "unverified",
       "status_after": "in_force",
       "note": "Prohibition/absence-of-regime cell: the 2017/2021 Notices establish a prohibition; there is no affirmative permitted-activity rule to confirm, so this stays unset (not promotable to resolution_text as a positive proposition)."
     },
@@ -811,7 +811,7 @@
       "official_url": null,
       "pinpoint": "PIPL three-gate outbound transfer; DSL important-data review; March 2024 threshold relief; FTZ negative lists",
       "verdict": "binding_status_recorded",
-      "applied_tier": "unset",
+      "applied_tier": "unverified",
       "status_after": "in_force",
       "note": "PIPL/DSL/CAC data regime is in force, but the specific outbound-transfer thresholds were NOT line-verified against original-language official text in this pass; kept unset."
     },
@@ -823,7 +823,7 @@
       "official_url": "",
       "pinpoint": "AML — PRC AML Law; PBOC AML/CFT; crypto AML scrutiny under 94 公告",
       "verdict": "binding_status_recorded",
-      "applied_tier": "unset",
+      "applied_tier": "unverified",
       "status_after": "in_force",
       "note": "PIPL/DSL/CAC data regime is in force, but the specific outbound-transfer thresholds were NOT line-verified against original-language official text in this pass; kept unset."
     },
@@ -835,7 +835,7 @@
       "official_url": "",
       "pinpoint": "Implementation timeline — stable prohibition; 2017-2026 milestones",
       "verdict": "binding_status_recorded",
-      "applied_tier": "unset",
+      "applied_tier": "unverified",
       "status_after": "in_force",
       "note": "No affirmative issuance regime exists in the PRC (operational/absence record)."
     },
@@ -986,14 +986,14 @@
     {
       "cell": "tw-frs-issuer_pathway-001",
       "jurisdiction": "TW",
-      "instrument": "VASP AML registration (in force 30 Nov 2024); Virtual Asset Service Act (enacted at third reading 30 Jun 2026, not commenced)",
+      "instrument": "VASP AML registration (in force 30 Nov 2024); Virtual Asset Service Act (promulgated 22 Jul 2026; commencement mapping pending)",
       "binding_status": "made_not_commenced",
-      "official_url": "https://english.ey.gov.tw/",
-      "pinpoint": "Issuer pathway: FSC licence; share company; banks lead. Enacted at third reading, not yet commenced (awaiting subsidiary legislation)",
-      "verdict": "binding_status_recorded",
+      "official_url": "https://www.president.gov.tw/File/Doc/69812613-22f1-4288-940e-c40903b232e1",
+      "pinpoint": "Presidential Gazette No. 7872, pp. 2-22; stablecoin provisions and commencement require independent mapping",
+      "verdict": "official_promulgation_confirmed_mapping_pending",
       "applied_tier": "firm_summary",
       "status_after": "transitional",
-      "note": "The TW issuer regime rests on the Virtual Asset Service Act (虛擬資產服務法), enacted at third reading on 30 Jun 2026 and moved from proposed to transitional (binding_status pending_proposal -> made_not_commenced). NATIVE-LANGUAGE VERIFICATION (Chinese): confirmed against official FSC text: the Legislative Yuan Finance Committee completed the article-by-article first review (初審) on 3 Jun 2026 and resolved to send it to the plenary (no caucus negotiation); third reading followed on 30 Jun 2026. The stablecoin provisions match the register (FSC permission + prior central-bank consent; issuer = share company; min capital set by FSC; par issuance/redemption; no interest; reserves at domestic FIs, segregated). Commencement awaits FSC subsidiary legislation (roughly nine subordinate items, indicative timetable around Q1 2027) with no gazetted date. Procedurally ahead of KR's DABA, still in subcommittee. The in-force VASP-AML registration layer is recorded separately."
+      "note": "Presidential Gazette No. 7872 confirms promulgation on 22 Jul 2026. The record remains firm_summary and non-current: article-level commencement, subordinate rules and independent review are not complete. The in-force VASP-AML registration layer is recorded separately."
     },
     {
       "cell": "kr-frs-issuer_pathway-001",

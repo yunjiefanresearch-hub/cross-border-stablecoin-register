@@ -1,0 +1,237 @@
+{
+  "schema": "cbsr/research-manifest/v1",
+  "as_of": "2026-08-20",
+  "file_count": 45,
+  "files": [
+    {
+      "path": "research/AGENTICFI_EVALUATION_REPORT.md",
+      "bytes": 2832,
+      "sha256": "33f8c91b1b069f01a17683ad1724f5e5c24627d8ab925008cda9b7f95b214485"
+    },
+    {
+      "path": "research/INDEPENDENT_REVIEW_PROTOCOL.md",
+      "bytes": 2221,
+      "sha256": "83fa2009a7468fb101d8c3c2e3c55a84f6135a8b34aedba5f432d23bd67c5990"
+    },
+    {
+      "path": "research/QUALITATIVE_CODEBOOK.md",
+      "bytes": 2586,
+      "sha256": "8bfca4a037243437a99d759ba7c1563021c1e5a3123b48f8b830b21ac99372c3"
+    },
+    {
+      "path": "research/QUANTITATIVE_BASELINE.md",
+      "bytes": 1540,
+      "sha256": "8c49294309aad82efcb118b0a44b77529757400e5bffcff8b08e0778f8c63508"
+    },
+    {
+      "path": "research/REVIEWER_ATTESTATION_TEMPLATE.json",
+      "bytes": 665,
+      "sha256": "f0df2a5f97c7f7053e42d9b63456218c6522d230bb88de65aad01a401ea05828"
+    },
+    {
+      "path": "research/agenticfi_evaluation.json",
+      "bytes": 4686,
+      "sha256": "a04209e04c144ebea740dc0148f775924b89587545bbc8041c7632722e7c04a9"
+    },
+    {
+      "path": "research/charts/review_coverage.svg",
+      "bytes": 5858,
+      "sha256": "3250d4fd4dcd7786e41faf11e14a2ada240d32ade30672f39d430e02787cd22a"
+    },
+    {
+      "path": "research/claims/claims_ledger.csv",
+      "bytes": 137584,
+      "sha256": "690755e35a17bc0d39882168b36a39b396f0d125dd5445b0204b14a3738ac306"
+    },
+    {
+      "path": "research/claims/claims_ledger.json",
+      "bytes": 204429,
+      "sha256": "d721639a5e41b06a0f035714b762aad58317d3b6aaf8e04d803aa45bd169d892"
+    },
+    {
+      "path": "research/jurisdictions/AE.md",
+      "bytes": 24248,
+      "sha256": "aea3c79032384545d3b3ba545aeebe4427ba3eae97fcb5e0800a52f004915453"
+    },
+    {
+      "path": "research/jurisdictions/BR.md",
+      "bytes": 34904,
+      "sha256": "935dc2df63c1449385f6e2dae1bfad897a5b1af6aed91c32121e6410e57d7b5f"
+    },
+    {
+      "path": "research/jurisdictions/CH.md",
+      "bytes": 27854,
+      "sha256": "e5df0c86dd3d798303d5ad148de769b5ff73d5cf6db031f9312c2ad78d63c1b8"
+    },
+    {
+      "path": "research/jurisdictions/CN.md",
+      "bytes": 28966,
+      "sha256": "f5f9d87dcebb4624c7f7160ac03f00ffb6e5421992323e50ab645da5fc2a4cfd"
+    },
+    {
+      "path": "research/jurisdictions/EU.md",
+      "bytes": 17638,
+      "sha256": "0959fbf7ba1f91071db35d6a319cb2b922eeee3f303b0d3011e1f8d0fa3f76c5"
+    },
+    {
+      "path": "research/jurisdictions/HK.md",
+      "bytes": 26429,
+      "sha256": "69b95faa6585f511cc0721819d88850f0ddb02dcecda596876bd8f5a35ad517c"
+    },
+    {
+      "path": "research/jurisdictions/JP.md",
+      "bytes": 26200,
+      "sha256": "71483846a94383d320d0b94e3b5430dd027b5d9493c73a75e51215ccb379c168"
+    },
+    {
+      "path": "research/jurisdictions/KR.md",
+      "bytes": 24812,
+      "sha256": "e7b5db36c860e01892933e275aececfc5830d471ea6d4c486cd1db28cd28468c"
+    },
+    {
+      "path": "research/jurisdictions/SG.md",
+      "bytes": 25475,
+      "sha256": "4580276be2a8fffcdebf778840e0e92e20edd76878c0dc57fbeafdf1643680ac"
+    },
+    {
+      "path": "research/jurisdictions/TW.md",
+      "bytes": 28308,
+      "sha256": "e7d805b8639852167d3b20b1c29d79539af2adc27337377b4dc605878c1ccae0"
+    },
+    {
+      "path": "research/jurisdictions/UK.md",
+      "bytes": 26046,
+      "sha256": "58482bcd25dc5fa20179516aff1e042ca21ef88a3730a598f7707b9b6f5b1b69"
+    },
+    {
+      "path": "research/jurisdictions/US.md",
+      "bytes": 21401,
+      "sha256": "17e3887a1b2fdb837b72950cedadf7cb1d84859aa3b668101b2739aed66ffce1"
+    },
+    {
+      "path": "research/pilots/pilot-enterprise-stablecoin-payment.json",
+      "bytes": 21873,
+      "sha256": "498b261911700c83c3b65555cadbe58a67d918a3ebb1916d3b978ebb79c5d888"
+    },
+    {
+      "path": "research/pilots/pilot-enterprise-stablecoin-payment.md",
+      "bytes": 3328,
+      "sha256": "5f41b0ed03f859905b2e3e265cdad4642c52c32741e17ae41ec459161d0fd8fd"
+    },
+    {
+      "path": "research/pilots/pilot-tokenized-green-asset-settlement.json",
+      "bytes": 22201,
+      "sha256": "11ac4b72bfba3ab446c8dc438ea34c2d10d4caf52c8263ae936db4165899aed4"
+    },
+    {
+      "path": "research/pilots/pilot-tokenized-green-asset-settlement.md",
+      "bytes": 3407,
+      "sha256": "fc196ea9e373932322b7f626a8b4b55ded0d203810d9860f2b39d21d8cfc15f8"
+    },
+    {
+      "path": "research/qualitative/QUALITATIVE_ANALYSIS.md",
+      "bytes": 2124,
+      "sha256": "932d4f533bad1e7543bb4d6c0d43b2e5f571672b8845ac269aff980533862077"
+    },
+    {
+      "path": "research/qualitative/SECOND_CODER_WORKSHEET.csv",
+      "bytes": 61959,
+      "sha256": "9bcaeaac20a3f92f76d5a2c633c955f666e073b566c035abf894fdaa0d6b27de"
+    },
+    {
+      "path": "research/qualitative/coded_cases.csv",
+      "bytes": 59983,
+      "sha256": "b28c3312739cd45a3777a0dab038a6f252cfb5505e92913ef408b27b84526689"
+    },
+    {
+      "path": "research/qualitative/coded_cases.json",
+      "bytes": 101135,
+      "sha256": "9122cbb2c475c2797349dfe2517f76fe6845145cf58654477294e66a87dc5757"
+    },
+    {
+      "path": "research/qualitative/failure_taxonomy.json",
+      "bytes": 1243,
+      "sha256": "6600c8f45a2a7ca313984f3c0e2467252c7ecfcd63b5d3236f6b3e5abc9e6391"
+    },
+    {
+      "path": "research/qualitative/threat_linkage.csv",
+      "bytes": 661,
+      "sha256": "02769cb83a7ca71279ffeacc22a2951826d949662b80fbb64edc85648df49d88"
+    },
+    {
+      "path": "research/quantitative/BEFORE_AFTER.md",
+      "bytes": 1016,
+      "sha256": "b84f57cf57daba452c05285abe11f60f8c6e63e2e10101140b1a6aae659a5e1b"
+    },
+    {
+      "path": "research/quantitative/DATA_QUALITY_DASHBOARD.md",
+      "bytes": 2638,
+      "sha256": "ddaf46044a9cccb75b43a1a2a56ce737527bdf65e34160e41b3bd5f1c8651778"
+    },
+    {
+      "path": "research/quantitative/before_after.csv",
+      "bytes": 633,
+      "sha256": "42a2a145747486ad8b18eb9dfda3ab9491e77ec292dc1478755c3f3455cf84e8"
+    },
+    {
+      "path": "research/quantitative/before_after.json",
+      "bytes": 1627,
+      "sha256": "36ab0a5e912d53161bc93702282ad4c10fa67d5a776675d8f06f44603941089d"
+    },
+    {
+      "path": "research/quantitative/data_quality_dashboard.csv",
+      "bytes": 2260,
+      "sha256": "6334a52d4c07ccec30fc33f067268d5d776c26b45fe69b379cd53604bfd61e87"
+    },
+    {
+      "path": "research/quantitative/data_quality_dashboard.json",
+      "bytes": 5578,
+      "sha256": "68cb3cb5ac0530a69af90074603b7fea83574898c5a4e684025962351731077b"
+    },
+    {
+      "path": "research/quantitative/dimension_metrics.csv",
+      "bytes": 596,
+      "sha256": "98313014b025f6cc25dc81a22042773656dd7691449c71c8753b83e82ca24eef"
+    },
+    {
+      "path": "research/quantitative/dimension_metrics.json",
+      "bytes": 3423,
+      "sha256": "7b0ffbb0a52de9de04734ec6a9481e201493b624a32f914064aaa975e2730b0b"
+    },
+    {
+      "path": "research/quantitative/jurisdiction_metrics.csv",
+      "bytes": 530,
+      "sha256": "adfac726bdb10804b9f45796850d456c2749d030f97a5b4303605f40c1e07746"
+    },
+    {
+      "path": "research/quantitative/jurisdiction_metrics.json",
+      "bytes": 4314,
+      "sha256": "15a524b5a0b9172fb9a8a9a9011577cd84df5760a0398e79b557c1669aa20f45"
+    },
+    {
+      "path": "research/quantitative_baseline.json",
+      "bytes": 1691,
+      "sha256": "dc0959cd434ddd43731b24b9f9bd4e2ceef5f19518674e6be26854b4dccd2a96"
+    },
+    {
+      "path": "research/source_ledger_2026-08-20.csv",
+      "bytes": 124232,
+      "sha256": "90cf379d42792c54fa94f23eaf823ea7e5fc7a9f55d7780805cefc632e5525b5"
+    },
+    {
+      "path": "research/source_ledger_2026-08-20.json",
+      "bytes": 238233,
+      "sha256": "d65d288fbbc7c44179d517fe84ec3d19068efd59843a0b489f6805a4eb268e2a"
+    },
+    {
+      "path": "research/targeted_legal_leads_2026-08-20.json",
+      "bytes": 2425,
+      "sha256": "2012ee14efc0feec1df037a28f9ec4b27f71869758f0a08a1f523572ba7f07da"
+    }
+  ],
+  "external_review": {
+    "legal_second_review": "not_completed",
+    "qualitative_second_coder": "not_completed",
+    "peer_review": "not_completed"
+  }
+}

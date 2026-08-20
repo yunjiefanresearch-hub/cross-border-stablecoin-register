@@ -43,7 +43,7 @@ API = ROOT / "api"
 
 # The register version this regeneration targets. Kept in one place; the pipeline's build.py owns the
 # authoritative REGISTER_VERSION and the invariant suite's V3 gate enforces cross-artifact agreement.
-NEWV = "0.10.1"
+NEWV = "0.11.0"
 
 
 def rj(p: Path):

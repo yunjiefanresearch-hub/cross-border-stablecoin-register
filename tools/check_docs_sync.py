@@ -4,7 +4,7 @@ Gate: the MCP tool surface must be identical in all three places that publish it
 
 Three artefacts each claim to describe the same set of tools:
 
-    src/cbsr_mcp/server.py   the @mcp.tool() functions actually registered  -- the truth
+    src/cbsr_mcp/tools/registry.py   runtime tool definitions and metadata  -- the truth
     mcp.json                 the hand-maintained client manifest
     MCP_SERVER.md            the hand-written table a reader/registry sees
 
@@ -29,7 +29,6 @@ try:
 except Exception:
     pass
 
-import ast
 import json
 import pathlib
 import re
@@ -37,23 +36,17 @@ import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 
-SERVER = ROOT / "src" / "cbsr_mcp" / "server.py"
 MANIFEST = ROOT / "mcp.json"
 DOC = ROOT / "MCP_SERVER.md"
 
 
 def tools_registered_in_server() -> set[str]:
-    """The tools the server actually exposes: every function under an @mcp.tool() decorator."""
-    tree = ast.parse(SERVER.read_text(encoding="utf-8"))
-    found: set[str] = set()
-    for node in ast.walk(tree):
-        if not isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
-            continue
-        for dec in node.decorator_list:
-            target = dec.func if isinstance(dec, ast.Call) else dec
-            if isinstance(target, ast.Attribute) and target.attr == "tool":
-                found.add(node.name)
-    return found
+    """Load the same registry the thin FastMCP composition root binds."""
+    sys.path.insert(0, str(ROOT / "src"))
+    from cbsr_mcp.tools import architecture, register, research, agentic  # noqa: F401
+    from cbsr_mcp.tools.registry import definitions
+
+    return {item.name for item in definitions()}
 
 
 def tools_in_manifest() -> set[str]:
@@ -73,7 +66,7 @@ def main() -> int:
     doc = tools_in_doc()
 
     if not server:
-        print("FAIL  no @mcp.tool() functions found in", SERVER)
+        print("FAIL  no tool definitions found in src/cbsr_mcp/tools/registry.py")
         return 1
 
     failures: list[str] = []

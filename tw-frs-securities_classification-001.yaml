@@ -36,3 +36,21 @@ tags:
 - binding_made_not_commenced
 - v0.9.9_tw_enactment
 binding_status: made_not_commenced
+
+# CBSR v0.11 review/temporal metadata (mechanically migrated; null means not evidenced)
+evidence_tier: unverified
+source_last_checked: null
+next_review_due: null
+review_status: unknown
+reviewer: null
+second_reviewer: null
+review_stage: unreviewed
+reconciliation_status: not_started
+review_disagreement: null
+source_disposition: unavailable
+source_check_status: source_unavailable
+effective_from: null
+effective_until: null
+event_id: null
+legal_status: enacted_not_commenced
+uncertainty: high

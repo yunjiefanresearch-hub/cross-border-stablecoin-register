@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yunjiefanresearch-hub.github.io/cross-border-stablecoin-register/schemas/policy-mandate.v1.schema.json",
+  "title": "CBSR policy mandate v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "mandate_id", "version", "issued_by", "audit_identity", "active", "valid_from", "valid_until", "human_review"],
+  "properties": {
+    "schema": {"const": "cbsr/policy-mandate/v1"},
+    "mandate_id": {"type": "string", "minLength": 1},
+    "version": {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+){0,2}$"},
+    "issued_by": {"type": "string", "minLength": 1},
+    "active": {"type": "boolean"},
+    "revoked": {"type": "boolean", "default": false},
+    "valid_from": {"type": "string", "format": "date"},
+    "valid_until": {"type": "string", "format": "date"},
+    "max_amount": {"oneOf": [{"type": "number", "minimum": 0}, {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"}]},
+    "assets": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "jurisdictions": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^[A-Z]{2}$"}},
+    "prohibited_jurisdictions": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^[A-Z]{2}$"}},
+    "counterparties": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "allowed_time_windows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["starts_at", "ends_at"],
+        "properties": {
+          "starts_at": {"type": "string", "format": "date-time"},
+          "ends_at": {"type": "string", "format": "date-time"}
+        }
+      }
+    },
+    "human_review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required"],
+      "properties": {
+        "required": {"type": "boolean"},
+        "amount_threshold": {"oneOf": [{"type": "number", "minimum": 0}, {"type": "string", "pattern": "^[0-9]+(\\.[0-9]+)?$"}]},
+        "jurisdictions": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^[A-Z]{2}$"}},
+        "dimensions": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "outcomes": {"type": "array", "uniqueItems": true, "items": {"enum": ["allow", "allow_with_conditions", "review_required", "prohibited", "insufficient_evidence"]}}
+      }
+    },
+    "audit_identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["subject_id", "actor_type"],
+      "properties": {
+        "subject_id": {"type": "string", "minLength": 1},
+        "actor_type": {"enum": ["human", "service", "agent", "hybrid"]},
+        "principal_id": {"type": ["string", "null"]},
+        "session_id": {"type": ["string", "null"]},
+        "authentication_context": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}
+      }
+    }
+  }
+}
