@@ -29,7 +29,7 @@ Pygments==2.21.0
 py-serializable==2.1.0
 pyparsing==3.3.2
 pyproject-hooks==1.2.0
-pypdf==6.10.0
+pypdf==6.16.2
 pytest==8.4.2
 PyYAML==6.0.3
 requests==2.34.2

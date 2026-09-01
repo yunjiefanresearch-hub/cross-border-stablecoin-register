@@ -46,7 +46,7 @@ dev = [
   "PyYAML>=6,<7",
   "pytest>=8,<9",
   "pip-audit>=2.10,<2.11",
-  "pypdf>=6.10,<6.11",
+  "pypdf>=6.10,<6.17",
   "reportlab>=4.4,<4.5",
   "tomli>=2,<3; python_version<'3.11'",
 ]
