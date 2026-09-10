@@ -33,8 +33,9 @@ These are GitHub settings, not properties a source-file change can apply:
 | cbsr-mapper | Interactive CBSR corridor map with a dated Register snapshot, evidence filters and explicit synchronization status. | https://yunjiefanresearch-hub.github.io/cbsr-mapper/ | stablecoin, visualization, regulatory-technology, react |
 | cbsr.io | CBSR public site: evidence, methods, tools and contributor entry points. | https://cbsr.io | stablecoin, research, open-data, mcp |
 
-Enable the Register's Dependency Graph so the dependency-review workflow can
-evaluate pull requests. Keep the gate failing until that prerequisite is available.
+The Register's Dependency Graph was initially disabled. After the maintainer enabled
+it, [Dependency review attempt 2](https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register/actions/runs/34481297481/attempts/2)
+passed for the repair. Keep Dependency Graph enabled and retain this required check.
 Verify the old `stablecoin-rail-register` homepage link redirects, then replace the
 repository homepage with the canonical destination. Confirm homepage ownership and
 availability before changing settings.
@@ -51,7 +52,14 @@ reuse an older success report as evidence for repaired source files.
 Open a task in the [issue tracker](https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register/issues)
 before changing evidence. The maintainer accepts submissions; an independent second
 reviewer accepts source-verification results. An issue claimant is not automatically
-a qualified reviewer. The following small scopes can be claimed independently:
+a qualified reviewer. Six public issues are now available with `small task` and
+`help wanted` labels: [#14](https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register/issues/14),
+[#15](https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register/issues/15),
+[#16](https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register/issues/16),
+[#17](https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register/issues/17),
+[#18](https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register/issues/18),
+and [#19](https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register/issues/19).
+The following small scopes can be claimed independently:
 
 | Task | Deliverable | Acceptance |
 | --- | --- | --- |
