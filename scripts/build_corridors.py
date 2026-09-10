@@ -237,7 +237,7 @@ if __name__ == "__main__":
     written = 0
     for c in C:
         (ROOT / f"{c['corridor_id']}.yaml").write_text(
-            yaml.dump(c, sort_keys=False, allow_unicode=True, default_flow_style=False, width=100), encoding="utf-8")
+            yaml.dump(c, sort_keys=False, allow_unicode=True, default_flow_style=False, width=100), encoding="utf-8", newline="\n")
         written += 1
     print(f"wrote {written} directed corridor records (+ the hk-br anchor already present = {written + 1} total)")
     print(f"  declared cross-layer divergences (directed edge vs §5.14 undirected pair): {DIVERGENCES}")

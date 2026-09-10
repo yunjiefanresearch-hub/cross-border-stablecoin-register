@@ -201,7 +201,7 @@
     {
       "bytes": 8080,
       "path": "research/research_manifest.json",
-      "sha256": "3c956c993b1bc6e4a6f4aa98423ccee88e0a83e66697e813dfc41688fa973d88"
+      "sha256": "b55cc8668ef27dcb25160c41b9524f00327a1389d328c6e84ed6e6873a867557"
     }
   ],
   "package_evidence": "generated after delivery validation by python -m tools.verify",

@@ -238,7 +238,7 @@ R.append(rec(**CN, id="cn-prc-implementation_status-001", authority="PBOC; CAC; 
 written = 0
 for r in R:
     path = ROOT / (r["id"] + ".yaml")
-    with open(path, "w", encoding="utf-8") as f:
+    with open(path, "w", encoding="utf-8", newline="\n") as f:
         yaml.dump(r, f, sort_keys=False, allow_unicode=True, width=100, default_flow_style=False)
     written += 1
 print(f"wrote {written} backfill records (SG/UK/CN, v0.3.0)")

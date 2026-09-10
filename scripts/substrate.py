@@ -211,7 +211,7 @@ def build_substrate():
         "illustration_triangle_derivations": illustration,
         "cross_region_derivations": cross_region,
     }
-    (ROOT / "analysis" / "computed_substrate.json").write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8")
+    (ROOT / "analysis" / "computed_substrate.json").write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8", newline="\n")
     return out
 
 

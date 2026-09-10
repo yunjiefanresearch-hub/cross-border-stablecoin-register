@@ -2,7 +2,7 @@
   "schema": "cbsr/license-inventory/v1",
   "generated": "2026-08-20",
   "scope": "clean wheel-install environment",
-  "manual_review_required": false,
+  "manual_review_required": true,
   "packages": [
     {
       "name": "annotated-types",
@@ -38,6 +38,11 @@
       "name": "click",
       "version": "8.4.2",
       "license": "BSD-3-Clause"
+    },
+    {
+      "name": "colorama",
+      "version": "0.4.6",
+      "license": "UNKNOWN"
     },
     {
       "name": "cryptography",
@@ -128,6 +133,11 @@
       "name": "python-multipart",
       "version": "0.0.32",
       "license": "Apache-2.0"
+    },
+    {
+      "name": "pywin32",
+      "version": "312",
+      "license": "PSF"
     },
     {
       "name": "referencing",

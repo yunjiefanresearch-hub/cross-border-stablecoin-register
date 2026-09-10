@@ -191,7 +191,7 @@ def write_trace(rows, dist):
                  "origins and are nonetheless **not** Category III, because a destination prohibition "
                  "and a destination pre-regime absence rank above origin drag. Those four edges read "
                  "`III` through v0.9.99 — the eighth review's NF-1.\n")
-    (OUT / "derivation_trace.md").write_text("\n".join(lines), encoding="utf-8")
+    (OUT / "derivation_trace.md").write_text("\n".join(lines), encoding="utf-8", newline="\n")
 
 
 def main(argv=None):

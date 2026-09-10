@@ -28,7 +28,7 @@ def _json(relative: str) -> dict:
 
 def _write_json(name: str, value: object) -> None:
     OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / name).write_text(json.dumps(value, indent=2, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
+    (OUT / name).write_text(json.dumps(value, indent=2, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
 
 
 def _sha(path: pathlib.Path) -> str:
@@ -147,7 +147,7 @@ capabilities, scans dependencies/licences/secrets and writes machine-readable ev
 Engineering delivery expanded materially. Legal currentness did not, and is not represented as having
 done so. Complete values and limitations are in `baseline_reproduction.json`.
 """
-    (OUT / "BASELINE_REPRODUCTION.md").write_text(baseline_md, encoding="utf-8")
+    (OUT / "BASELINE_REPRODUCTION.md").write_text(baseline_md, encoding="utf-8", newline="\n")
 
     risks = [
         ("R-001", "critical", "Regulatory propositions are stale or unknown", "open", "legal-review-lead", "Complete official-source line review, checked dates and temporal validation for 152 rows.", "freshness current=0; stale=38; unknown=114"),
@@ -173,7 +173,7 @@ done so. Complete values and limitations are in `baseline_reproduction.json`.
     for row in risk_rows:
         risk_md.append(f"| {row['risk_id']} | {row['severity']} | {row['risk']} | {row['status']} | {row['owner_role']} | {row['mitigation']} Evidence: `{row['evidence']}` |")
     risk_md += ["", "Open external risks cannot be closed by source-code assertions. Every row is reviewed on 2026-08-20 and targeted before production release."]
-    (OUT / "RISK_REGISTER.md").write_text("\n".join(risk_md) + "\n", encoding="utf-8")
+    (OUT / "RISK_REGISTER.md").write_text("\n".join(risk_md) + "\n", encoding="utf-8", newline="\n")
 
     decisions = [
         ("D-001", "Use one canonical verifier", "accepted", "CI, docs and platform scripts call `python -m tools.verify`; duplicated orchestration is forbidden."),
@@ -193,7 +193,7 @@ done so. Complete values and limitations are in `baseline_reproduction.json`.
     _write_json("decision_log.json", {"schema": "cbsr/decision-log/v1", "as_of": AS_OF, "decisions": decision_rows})
     decision_md = ["# Architecture and delivery decision log", "", "| ID | Decision | Status | Rationale |", "|---|---|---|---|"]
     decision_md += [f"| {row['decision_id']} | {row['decision']} | {row['status']} | {row['rationale']} |" for row in decision_rows]
-    (OUT / "DECISION_LOG.md").write_text("\n".join(decision_md) + "\n", encoding="utf-8")
+    (OUT / "DECISION_LOG.md").write_text("\n".join(decision_md) + "\n", encoding="utf-8", newline="\n")
 
     transformations = [
         ("Verification", "Single canonical verifier with deterministic generation, wheel clean-install, MCP smoke, SBOM, audit, licences and secrets", "implemented-local", "tools/verify.py"),
@@ -209,7 +209,7 @@ done so. Complete values and limitations are in `baseline_reproduction.json`.
     lines = ["# Transformation log", "", f"Snapshot date: {AS_OF}", "", "| Workstream | Delivered change | Status | Evidence |", "|---|---|---|---|"]
     lines += [f"| {name} | {change} | `{status}` | `{evidence}` |" for name, change, status, evidence in transformations]
     lines += ["", "`implemented` describes repository delivery only. It does not close external legal, security, peer-review, GitHub or Windows assurance gates."]
-    (OUT / "TRANSFORMATION_LOG.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    (OUT / "TRANSFORMATION_LOG.md").write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
 
     matrix_source = _json("docs/validation/local-linux-matrix.json")
     matrix_rows = []
@@ -228,11 +228,13 @@ done so. Complete values and limitations are in `baseline_reproduction.json`.
         {"platform": "GitHub Actions ubuntu-latest", "python": "3.10-3.13", "status": "unverified_external", "scope": "remote matrix and required check", "evidence": ".github/workflows/build.yml"},
         {"platform": "Windows 11 / windows-latest", "python": "3.12", "status": "unverified_external", "scope": "clean-room PowerShell path", "evidence": "setup_windows.ps1"},
     ]
-    (OUT / "compatibility_matrix.csv").write_text(_csv(matrix_rows, ["platform", "python", "status", "scope", "evidence"]), encoding="utf-8")
+    (OUT / "compatibility_matrix.csv").write_bytes(
+        _csv(matrix_rows, ["platform", "python", "status", "scope", "evidence"]).encode("utf-8")
+    )
     matrix_md = ["# Compatibility matrix", "", "| Platform | Python | Status | Evidence boundary |", "|---|---|---|---|"]
     matrix_md += [f"| {row['platform']} | {row['python']} | `{row['status']}` | {row['scope']}; `{row['evidence']}` |" for row in matrix_rows]
     matrix_md += ["", "The retained local matrix belongs to an earlier source fingerprint and is not credited as R5 pass evidence. Workflow declarations are not remote pass evidence. Windows remains unverified until a transcript or Actions artifact is retained."]
-    (OUT / "COMPATIBILITY_MATRIX.md").write_text("\n".join(matrix_md) + "\n", encoding="utf-8")
+    (OUT / "COMPATIBILITY_MATRIX.md").write_text("\n".join(matrix_md) + "\n", encoding="utf-8", newline="\n")
 
     score_rows = [
         ("A", "Runnable and reproducible", 94, "94", "100", ["tools/verify.py", "constraints/", "dist/package-smoke.json"], "Hosted Python/Windows and required-check readback remain external.", "Run and retain the remote matrix and Windows transcript.", "high"),
@@ -258,7 +260,7 @@ done so. Complete values and limitations are in `baseline_reproduction.json`.
     score_md = ["# CBSR v0.11 scorecard", "", "Scores measure the present snapshot. They are not averaged because engineering cannot offset a legal-currentness hard stop.", "", "| Category | Score | Numerator / denominator | Evidence | Failing criteria | Remediation | Confidence |", "|---|---:|---|---|---|---|---|"]
     score_md += [f"| {row['category_id']}. {row['category']} | **{row['score']}/100** | {row['numerator']} / {row['denominator']} | {', '.join(f'`{item}`' for item in row['evidence_paths'])} | {row['failing_criteria']} | {row['remediation']} | {row['confidence']} |" for row in scorecard]
     score_md += ["", "Release-ready decision: **No**. The software fails closed correctly, but the external and human evidence needed for a release claim is incomplete."]
-    (OUT / "FINAL_SCORECARD.md").write_text("\n".join(score_md) + "\n", encoding="utf-8")
+    (OUT / "FINAL_SCORECARD.md").write_text("\n".join(score_md) + "\n", encoding="utf-8", newline="\n")
 
     migration = """# CBSR 0.11 migration notes
 
@@ -281,7 +283,7 @@ Create a clean environment and install `.[dev]` under `constraints/dev.txt` befo
 
 Consumers must fail on unknown schema versions and must not map a legacy citable flag to unconditional allow.
 """
-    (OUT / "MIGRATION_NOTES_v0.11.md").write_text(migration, encoding="utf-8")
+    (OUT / "MIGRATION_NOTES_v0.11.md").write_text(migration, encoding="utf-8", newline="\n")
     rollback = """# CBSR 0.11 rollback notes
 
 1. Stop downstream decision use; retain affected action/receipt hashes and logs without sensitive payloads.
@@ -294,7 +296,7 @@ Consumers must fail on unknown schema versions and must not map a legacy citable
 Rollback cannot reverse an external legal change, data disclosure, credential leak or already-consumed downstream decision.
 Those events require the applicable incident, correction and notification procedure.
 """
-    (OUT / "ROLLBACK_NOTES_v0.11.md").write_text(rollback, encoding="utf-8")
+    (OUT / "ROLLBACK_NOTES_v0.11.md").write_text(rollback, encoding="utf-8", newline="\n")
 
     pr_plan = """# Five-layer review and Draft PR plan
 
@@ -313,7 +315,7 @@ Create each branch from the preceding approved layer or split the source snapsho
 push them, create Draft PRs, retain URLs and SHAs, and never merge Layer E while regulatory, security,
 GitHub or Windows hard gates remain open.
 """
-    (OUT / "PR_STACK_PLAN.md").write_text(pr_plan, encoding="utf-8")
+    (OUT / "PR_STACK_PLAN.md").write_text(pr_plan, encoding="utf-8", newline="\n")
 
     remote = """# Remote GitHub completion runbook
 
@@ -332,7 +334,7 @@ Committed workflow and policy files do not prove GitHub is configured or has run
 
 Do not paste a personal access token into this repository, an issue, a log or chat transcript.
 """
-    (OUT / "REMOTE_GITHUB_RUNBOOK.md").write_text(remote, encoding="utf-8")
+    (OUT / "REMOTE_GITHUB_RUNBOOK.md").write_text(remote, encoding="utf-8", newline="\n")
 
     external = {
         "schema": "cbsr/external-gates/v1", "as_of": AS_OF, "release_ready": False,
@@ -365,7 +367,7 @@ Do not paste a personal access token into this repository, an issue, a log or ch
     ]
     atomic_md += ["| " + " | ".join(row) + " |" for row in atomic_rows]
     atomic_md += ["", "Repository work is complete only within the listed local evidence boundary. Legal, peer, security, GitHub and Windows evidence is not converted into a software assertion.", ""]
-    (DOC_OUT / "CBSR_V0_11_TRANSFORMATION_LOG.md").write_text("\n".join(atomic_md), encoding="utf-8")
+    (DOC_OUT / "CBSR_V0_11_TRANSFORMATION_LOG.md").write_text("\n".join(atomic_md), encoding="utf-8", newline="\n")
 
     copies = {
         "BASELINE_REPRODUCTION.md": OUT / "BASELINE_REPRODUCTION.md",
@@ -379,7 +381,7 @@ Do not paste a personal access token into this repository, an issue, a log or ch
         content = source_path.read_text(encoding="utf-8")
         if target_name == "AGENTICFI_EVALUATION_REPORT.md":
             content = content.replace("(pilots/", "(../../research/pilots/")
-        (DOC_OUT / target_name).write_text(content, encoding="utf-8")
+        (DOC_OUT / target_name).write_text(content, encoding="utf-8", newline="\n")
     claims = _json("research/claims/claims_ledger.json")
     claims_md = [
         "# Claims ledger delivery contract", "",
@@ -388,7 +390,7 @@ Do not paste a personal access token into this repository, an issue, a log or ch
         "Every row contains claim text/type, record/evidence locator, freshness, reviewer, second reviewer, review date, status, strength, allowed use, uncertainty and limitation. Blank reviewer fields remain blank; no automated process may convert them into an independent attestation.", "",
         "Verification: `python tools/verify_research_delivery.py`.", "",
     ]
-    (DOC_OUT / "CLAIMS_LEDGER.md").write_text("\n".join(claims_md), encoding="utf-8")
+    (DOC_OUT / "CLAIMS_LEDGER.md").write_text("\n".join(claims_md), encoding="utf-8", newline="\n")
     release_notes = """# CBSR v0.11.0 release notes draft
 
 Status: **draft; not released; not release-ready**.
@@ -399,7 +401,7 @@ Breaking semantic change: structural citability is not legal currentness. Consum
 
 Known blocking gates: zero decision-ready records, no independent second legal review, incomplete event/source research, no independent coding/peer/security review, no remote GitHub/Windows/ruleset readback and no signed release provenance. Do not publish, tag or announce until `delivery/external_gates.json` is closed with real evidence.
 """
-    (DOC_OUT / "RELEASE_NOTES_v0.11.0_DRAFT.md").write_text(release_notes, encoding="utf-8")
+    (DOC_OUT / "RELEASE_NOTES_v0.11.0_DRAFT.md").write_text(release_notes, encoding="utf-8", newline="\n")
 
     # Manifest covers formal delivery inputs without hashing itself, avoiding a
     # self-referential digest. Package artifacts are verified later by verifier.
@@ -409,9 +411,28 @@ Known blocking gates: zero decision-ready records, no independent second legal r
         "research/agenticfi_evaluation.json", "docs/whitepaper/CBSR_AGENTICFI_POLICY_INFRASTRUCTURE.md",
         "DPG_STANDARD.md", "GOVERNANCE.md", "SECURITY.md", "PRIVACY.md",
     ]
-    key_paths += [path.relative_to(ROOT).as_posix() for path in sorted(DOC_OUT.iterdir()) if path.is_file()]
-    key_paths += [path.relative_to(ROOT).as_posix() for path in sorted((ROOT / "docs/governance").iterdir()) if path.is_file()]
-    key_paths += [f"delivery/{path.name}" for path in sorted(OUT.iterdir()) if path.is_file() and path.name != "delivery_manifest.json"]
+    key_paths += [
+        path.relative_to(ROOT).as_posix()
+        for path in sorted(
+            DOC_OUT.iterdir(), key=lambda item: item.relative_to(ROOT).as_posix()
+        )
+        if path.is_file()
+    ]
+    key_paths += [
+        path.relative_to(ROOT).as_posix()
+        for path in sorted(
+            (ROOT / "docs/governance").iterdir(),
+            key=lambda item: item.relative_to(ROOT).as_posix(),
+        )
+        if path.is_file()
+    ]
+    key_paths += [
+        f"delivery/{path.name}"
+        for path in sorted(
+            OUT.iterdir(), key=lambda item: item.relative_to(ROOT).as_posix()
+        )
+        if path.is_file() and path.name != "delivery_manifest.json"
+    ]
     manifest_rows = []
     for relative in sorted(set(key_paths)):
         path = ROOT / relative

@@ -609,7 +609,7 @@ def main() -> int:
             print("   -", p, file=sys.stderr)
         return 2
     pathlib.Path(args.dst).write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n",
-                                      encoding="utf-8")
+                                      encoding="utf-8", newline="\n")
     from collections import Counter
     n_cross = sum(1 for e in out["edges"] if e["infrastructure_overlap"]["bloc"] == "cross-bloc")
     dist = dict(sorted(Counter(e["class_code"] for e in out["edges"]).items()))

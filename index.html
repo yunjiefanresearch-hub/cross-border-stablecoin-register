@@ -355,8 +355,10 @@ table.rtbl .tcref{font-family:var(--mono);font-size:11px;color:var(--accent)}
     <div class="statstrip">
       <div class="stat"><span class="n">12</span><span class="l">Jurisdictions</span></div>
       <div class="stat"><span class="n">15</span><span class="l">Dimensions</span></div>
-      <div class="stat"><span class="n">152</span><span class="l">Verified records</span></div>
-      <div class="stat"><span class="n">9</span><span class="l">Corridor</span></div>
+      <div class="stat"><span class="n" id="record-count">152</span><span class="l">Sourced records</span></div>
+      <div class="stat"><span class="n" id="structural-count">46</span><span class="l">Structural candidates</span></div>
+      <div class="stat"><span class="n" id="decision-ready-count">0</span><span class="l">Decision-ready citable</span></div>
+      <div class="stat"><span class="n">9</span><span class="l">Authored corridors</span></div>
       <div class="stat"><span class="n">2</span><span class="l">Doctrinal spines</span></div>
       <div class="stat doi"><span class="n"><a href="https://doi.org/10.5281/zenodo.20730358">CC-BY-4.0</a></span><span class="l">Data license</span></div>
     </div>
@@ -374,7 +376,7 @@ table.rtbl .tcref{font-family:var(--mono);font-size:11px;color:var(--accent)}
   <div class="wrap">
     <p class="eyebrow">Coverage matrix</p>
     <h2 class="sec">Twelve jurisdictions mapped &times; fifteen dimensions</h2>
-    <p class="sec-sub">Each filled cell is a verified, sourced record. Select a cell to inspect it; a column header to compare all jurisdictions on that dimension; a jurisdiction to read its full profile. Empty cells are on the roadmap — this is an actively-built standard, not a finished table.</p>
+    <p class="sec-sub">Each filled cell is a sourced record; inclusion does not establish legal currentness or independent review. Snapshot: <span id="snapshot-date">2026-08-20</span>. Select a cell to inspect its evidence, or filter for decision-ready citable law.</p>
     <div class="mtoolbar">
       <div class="searchbox">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
@@ -382,7 +384,7 @@ table.rtbl .tcref{font-family:var(--mono);font-size:11px;color:var(--accent)}
       </div>
       <span class="matchcount" id="matchcount"></span>
       <div class="legend">
-        <span><i class="lg v"></i>verified</span>
+        <span><i class="lg v"></i>sourced</span>
         <span><i class="lg p"></i>planned</span>
         <span><i class="lg s"></i>spine dimension</span>
       </div>
@@ -406,7 +408,7 @@ table.rtbl .tcref{font-family:var(--mono);font-size:11px;color:var(--accent)}
         <label class="fbcite"><input type="checkbox" id="f-citable"> citable law only</label>
         <button class="fbreset" id="f-reset">reset</button>
       </div>
-      <div class="citebanner" id="citebanner">Showing only the <b>lawyer-citable subset</b>: <code>claim_class = tier1_legal</code> + <code>status = in_force</code> + <code>evidence_tier = resolution_text</code>. These records state a proposition of binding law, in force now, confirmed against the official text (each carries an official <code>source.url</code> + pinpoint, enforced by the build). Operational/market facts and draft provisions are excluded by design.</div>
+      <div class="citebanner" id="citebanner">Showing <b>decision-ready citable law</b>: legal, in-force, official-text evidence plus an official source, current evidence at the snapshot date, and independently reconciled review. Structural candidates do not pass this view until all six gates are satisfied. Every returned record carries its source URL and pinpoint.</div>
       <div class="tbl-scroll">
         <table class="rtbl" id="rtbl"><thead></thead><tbody></tbody></table>
       </div>
@@ -660,6 +662,12 @@ table.rtbl .tcref{font-family:var(--mono);font-size:11px;color:var(--accent)}
 
   function render(data){
     var records=(data&&data.records)||[];
+    var strict=(data&&data.decision_ready_citable_subset)||{count:0,records:[]};
+    var citableIds=new Set((strict.records||[]).map(function(r){return r.id;}));
+    document.getElementById("record-count").textContent=records.length;
+    document.getElementById("structural-count").textContent=((data&&data.citable_subset)||{}).count||0;
+    document.getElementById("decision-ready-count").textContent=citableIds.size;
+    document.getElementById("snapshot-date").textContent=data.generated||"unknown";
     var byCell={}; records.forEach(function(r){byCell[r.jurisdiction+"__"+r.dimension]=r;});
 
     // ---- matrix head ----
@@ -683,7 +691,7 @@ table.rtbl .tcref{font-family:var(--mono);font-size:11px;color:var(--accent)}
         var rec=byCell[j.c+"__"+d.k];
         var spineCls=d.spine?" spinecol":"";
         if(rec){
-          html+="<td class='cell"+spineCls+"'><button class='dot v' data-id='"+esc(rec.id)+"' title='"+esc(j.c+" · "+d.f+" — verified")+"'><span class='mk'></span></button></td>";
+          html+="<td class='cell"+spineCls+"'><button class='dot v' data-id='"+esc(rec.id)+"' title='"+esc(j.c+" · "+d.f+" — sourced record")+"'><span class='mk'></span></button></td>";
         }else{
           html+="<td class='cell"+spineCls+"'><span class='dot p' title='"+esc(j.c+" · "+d.f+" — planned")+"'><span class='mk'></span></span></td>";
         }
@@ -819,7 +827,7 @@ table.rtbl .tcref{font-family:var(--mono);font-size:11px;color:var(--accent)}
       {k:"confidence",label:"Conf",sortable:true},
       {k:"version_added",label:"Ver",sortable:true}
     ];
-    function isCitable(r){return r.claim_class==="tier1_legal"&&r.status==="in_force"&&r.evidence_tier==="resolution_text";}
+    function isCitable(r){return citableIds.has(r.id);}
     function ccBadge(r){
       if(r.claim_class==="tier1_legal")return "<span class='cc-badge cc-legal'>legal</span>";
       if(r.claim_class==="tier2_operational")return "<span class='cc-badge cc-oper'>oper</span>";
@@ -866,7 +874,7 @@ table.rtbl .tcref{font-family:var(--mono);font-size:11px;color:var(--accent)}
         var d=DMAP[r.dimension]||{f:r.dimension,spine:false};
         var pin=(r.source&&r.source.pinpoint)||"—";
         h+="<tr data-id='"+esc(r.id)+"'>";
-        h+="<td class='tj'>"+esc(r.jurisdiction)+(isCitable(r)?"<span class='cite-star' title='citable as law (tier1_legal + in_force + resolution_text)'>§</span>":"")+"</td>";
+        h+="<td class='tj'>"+esc(r.jurisdiction)+(isCitable(r)?"<span class='cite-star' title='decision-ready citable law: all six evidence and review gates passed'>§</span>":"")+"</td>";
         h+="<td class='td-dim'>"+esc(d.f)+(d.spine?" <span class='spm'>★</span>":"")+"</td>";
         h+="<td><span class='tcref'>"+esc(r.constraint_ref||"—")+"</span></td>";
         h+="<td class='td-req'>"+esc(r.requirement_summary)+"</td>";

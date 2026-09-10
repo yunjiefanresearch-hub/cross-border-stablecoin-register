@@ -451,7 +451,7 @@ def main():
         for label, mutate, target, is_lint, needs_strict in CASES:
             doc = copy.deepcopy(pristine)          # throwaway copy; the real artifact is never touched
             detail = mutate(doc)
-            tmp.write_text(json.dumps(doc, ensure_ascii=False), encoding="utf-8")
+            tmp.write_text(json.dumps(doc, ensure_ascii=False), encoding="utf-8", newline="\n")
 
             rc, payload, err = run_verifier(tmp, strict=needs_strict)
 
@@ -488,7 +488,7 @@ def main():
         for label, mutate, target in SIGNAL_CASES:
             t = copy.deepcopy(pristine_table)
             detail = mutate(t)
-            tmpt.write_text(json.dumps(t, ensure_ascii=False), encoding="utf-8")
+            tmpt.write_text(json.dumps(t, ensure_ascii=False), encoding="utf-8", newline="\n")
             rc, payload, err = run_recompute(tmpt)
             found = payload and any(target in v for v in
                                     payload["sig_violations"] + payload["pr1_violations"])

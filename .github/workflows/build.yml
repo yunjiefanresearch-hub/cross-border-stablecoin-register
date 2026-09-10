@@ -18,16 +18,19 @@ jobs:
   python-matrix:
     name: verify-python-${{ matrix.python-version }}
     runs-on: ubuntu-latest
-    env:
-      PIP_CACHE_DIR: ${{ runner.temp }}/cbsr-pip-cache
-      CBSR_PIP_CACHE_DIR: ${{ runner.temp }}/cbsr-pip-cache
-      CBSR_PIP_AUDIT_CACHE_DIR: ${{ runner.temp }}/cbsr-pip-audit-cache
     strategy:
       fail-fast: false
       matrix:
         python-version: ["3.10", "3.11", "3.12", "3.13"]
     steps:
       - uses: actions/checkout@v5
+
+      - name: Configure verifier cache paths
+        shell: bash
+        run: |
+          echo "PIP_CACHE_DIR=$RUNNER_TEMP/cbsr-pip-cache" >> "$GITHUB_ENV"
+          echo "CBSR_PIP_CACHE_DIR=$RUNNER_TEMP/cbsr-pip-cache" >> "$GITHUB_ENV"
+          echo "CBSR_PIP_AUDIT_CACHE_DIR=$RUNNER_TEMP/cbsr-pip-audit-cache" >> "$GITHUB_ENV"
 
       - uses: actions/setup-python@v6
         with:
@@ -65,12 +68,15 @@ jobs:
   windows-clean-room:
     name: verify-windows-clean-room-python-3.12
     runs-on: windows-latest
-    env:
-      PIP_CACHE_DIR: ${{ runner.temp }}/cbsr-pip-cache
-      CBSR_PIP_CACHE_DIR: ${{ runner.temp }}/cbsr-pip-cache
-      CBSR_PIP_AUDIT_CACHE_DIR: ${{ runner.temp }}/cbsr-pip-audit-cache
     steps:
       - uses: actions/checkout@v5
+
+      - name: Configure verifier cache paths
+        shell: pwsh
+        run: |
+          Add-Content -Path $env:GITHUB_ENV -Value "PIP_CACHE_DIR=$env:RUNNER_TEMP\cbsr-pip-cache"
+          Add-Content -Path $env:GITHUB_ENV -Value "CBSR_PIP_CACHE_DIR=$env:RUNNER_TEMP\cbsr-pip-cache"
+          Add-Content -Path $env:GITHUB_ENV -Value "CBSR_PIP_AUDIT_CACHE_DIR=$env:RUNNER_TEMP\cbsr-pip-audit-cache"
 
       - uses: actions/setup-python@v6
         with:

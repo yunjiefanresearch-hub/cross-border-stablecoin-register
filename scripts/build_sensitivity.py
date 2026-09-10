@@ -196,7 +196,7 @@ def build():
         },
     }
     (ROOT / "analysis" / "computed_sensitivity.json").write_text(
-        json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8")
+        json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8", newline="\n")
     top = ", ".join(f"{r['jurisdiction']}={r['edges_reclassified']}" for r in movers)
     print("wrote analysis/computed_sensitivity.json")
     print(f"  sensitivity ordering (by edges reclassified): {top}")

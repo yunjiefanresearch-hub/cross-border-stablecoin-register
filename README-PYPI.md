@@ -24,8 +24,11 @@ are modelled separately.
 **What it will not do.** The server reads the committed `dataset.json` that ships inside this
 wheel. It makes no network calls, and it synthesises nothing — every tool filters and reshapes
 published records. `citable_law()` returns only the subset that is a proposition of law
-(`tier1_legal`), currently in force, and confirmed against official resolution text. Everything
-else is returned with the axis it fails, stated.
+(`tier1_legal`), in force, confirmed against official resolution text, with an official source,
+current evidence at the snapshot date, and independently reconciled review. At the
+2026-08-20 snapshot there are 152 records, 46 structural candidates, and **0 decision-ready
+citable records**. `records()` exposes the axes blocking each record. The snapshot date is
+not a claim of real-time legal currentness.
 
 **Data:** CC-BY-4.0 · **Code:** Apache-2.0
 **Repository:** https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register

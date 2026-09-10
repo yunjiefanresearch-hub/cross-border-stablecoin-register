@@ -78,7 +78,7 @@
     },
     {
       "name": "citable_law",
-      "summary": "The lawyer-citable subset: only records that are a proposition of law (claim_class=tier1_legal),",
+      "summary": "Decision-ready citable law: structural legal candidates with official, current, independently reconciled evidence.",
       "signature": "(jurisdiction: 'Optional[str]' = None, dimension: 'Optional[str]' = None) -> 'dict'",
       "module": "cbsr_mcp.tools.architecture"
     },
@@ -267,7 +267,7 @@
     "Static/offline: the server reads the committed dataset.json and never fetches the network.",
     "No synthesis: tools only filter and reshape published records; no facts are generated.",
     "What-if is conditioning, not forecasting: compose_corridor(as_of=…), corridor_timeline and events_by_kind apply only the register's own scheduled/contingent changes in law, with no probabilities.",
-    "Citable-by-construction: citable_law() and records(citable_only=true) return only tier1_legal + in_force + resolution_text cells, each with an official source.url + pinpoint.",
+    "Decision-ready citable law: citable_law() and records(citable_only=true) require tier1_legal + in_force + resolution_text + source_disposition=official + freshness.review_status=current + review_stage=reconciled, with source.url + pinpoint. Current means current at the dated dataset snapshot; structural candidates are reported separately.",
     "Provenance-clean derived views: convergence and the computed layer assert no new facts (asserts_new_facts=false) and are cross-checked against the authored layer via reconciliation()."
   ],
   "provenance": {

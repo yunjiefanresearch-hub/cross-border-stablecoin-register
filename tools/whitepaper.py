@@ -168,4 +168,4 @@ def build_whitepaper(
 
     target = root / "docs/whitepaper/CBSR_AGENTICFI_POLICY_INFRASTRUCTURE.md"
     target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_text("\n".join(lines), encoding="utf-8")
+    target.write_text("\n".join(lines), encoding="utf-8", newline="\n")

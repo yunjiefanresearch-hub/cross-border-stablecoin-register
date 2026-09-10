@@ -40,8 +40,8 @@
     },
     {
       "path": "research/claims/claims_ledger.csv",
-      "bytes": 137584,
-      "sha256": "690755e35a17bc0d39882168b36a39b396f0d125dd5445b0204b14a3738ac306"
+      "bytes": 137426,
+      "sha256": "990b2e000101e658c6119b26773db904ed19d1d5a776cec601e509382c155d00"
     },
     {
       "path": "research/claims/claims_ledger.json",
@@ -135,13 +135,13 @@
     },
     {
       "path": "research/qualitative/SECOND_CODER_WORKSHEET.csv",
-      "bytes": 61959,
-      "sha256": "9bcaeaac20a3f92f76d5a2c633c955f666e073b566c035abf894fdaa0d6b27de"
+      "bytes": 61806,
+      "sha256": "d229aef023dabc8d0c5aa97795dbf22d7cecd1420e95ada29c427cde20fd3087"
     },
     {
       "path": "research/qualitative/coded_cases.csv",
-      "bytes": 59983,
-      "sha256": "b28c3312739cd45a3777a0dab038a6f252cfb5505e92913ef408b27b84526689"
+      "bytes": 59830,
+      "sha256": "af22245f718022093d332118b308bb69345a799f450bbd3147e2cd2e73a234ed"
     },
     {
       "path": "research/qualitative/coded_cases.json",
@@ -155,8 +155,8 @@
     },
     {
       "path": "research/qualitative/threat_linkage.csv",
-      "bytes": 661,
-      "sha256": "02769cb83a7ca71279ffeacc22a2951826d949662b80fbb64edc85648df49d88"
+      "bytes": 654,
+      "sha256": "881bdb58dceae2c3fdebc1b1489235b76803d51c0cf80f06e3102e513522c44a"
     },
     {
       "path": "research/quantitative/BEFORE_AFTER.md",
@@ -170,8 +170,8 @@
     },
     {
       "path": "research/quantitative/before_after.csv",
-      "bytes": 633,
-      "sha256": "42a2a145747486ad8b18eb9dfda3ab9491e77ec292dc1478755c3f3455cf84e8"
+      "bytes": 624,
+      "sha256": "cb810b9317f1c52744b583b8add8677baf8a2e53c4aa3fe5f94d2d41ce9bfbcf"
     },
     {
       "path": "research/quantitative/before_after.json",
@@ -180,8 +180,8 @@
     },
     {
       "path": "research/quantitative/data_quality_dashboard.csv",
-      "bytes": 2260,
-      "sha256": "6334a52d4c07ccec30fc33f067268d5d776c26b45fe69b379cd53604bfd61e87"
+      "bytes": 2238,
+      "sha256": "d67bcb85a45194eb3a06a251d21a7c680006c67925c31054adba725565728e14"
     },
     {
       "path": "research/quantitative/data_quality_dashboard.json",
@@ -190,8 +190,8 @@
     },
     {
       "path": "research/quantitative/dimension_metrics.csv",
-      "bytes": 596,
-      "sha256": "98313014b025f6cc25dc81a22042773656dd7691449c71c8753b83e82ca24eef"
+      "bytes": 580,
+      "sha256": "d62786b59acff982a385adcffe40a67b088ccbc12e180ed6d090be8dc46f4d9f"
     },
     {
       "path": "research/quantitative/dimension_metrics.json",
@@ -200,8 +200,8 @@
     },
     {
       "path": "research/quantitative/jurisdiction_metrics.csv",
-      "bytes": 530,
-      "sha256": "adfac726bdb10804b9f45796850d456c2749d030f97a5b4303605f40c1e07746"
+      "bytes": 517,
+      "sha256": "83f93eb3413de5f57622dff4a627c2828f4c6b00e48da99638ea98d0339b9e3c"
     },
     {
       "path": "research/quantitative/jurisdiction_metrics.json",
@@ -215,8 +215,8 @@
     },
     {
       "path": "research/source_ledger_2026-08-20.csv",
-      "bytes": 124232,
-      "sha256": "90cf379d42792c54fa94f23eaf823ea7e5fc7a9f55d7780805cefc632e5525b5"
+      "bytes": 124079,
+      "sha256": "9065edd4e1dee268571670064f6d29990985b9587f65a770dafeebaca2b993ba"
     },
     {
       "path": "research/source_ledger_2026-08-20.json",

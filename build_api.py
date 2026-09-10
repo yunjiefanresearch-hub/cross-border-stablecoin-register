@@ -39,6 +39,7 @@ CD_PATH = ROOT / "analysis" / "computed_corridors_directed.json"
 CD = json.loads(CD_PATH.read_text(encoding="utf-8")) if CD_PATH.exists() else {}
 ST_PATH = ROOT / "analysis" / "signal_table.json"
 ST = json.loads(ST_PATH.read_text(encoding="utf-8")) if ST_PATH.exists() else {}
+MCP = json.loads((ROOT / "mcp.json").read_text(encoding="utf-8"))
 
 RECORDS = DS["records"]
 J12 = STATES["jurisdictions"]
@@ -48,7 +49,7 @@ VERSION = DS.get("version", "")
 def _w(relpath, obj):
     p = API / relpath
     p.parent.mkdir(parents=True, exist_ok=True)
-    p.write_text(json.dumps(obj, ensure_ascii=False, indent=2), encoding="utf-8")
+    p.write_text(json.dumps(obj, ensure_ascii=False, indent=2), encoding="utf-8", newline="\n")
     return relpath
 
 
@@ -77,6 +78,8 @@ def build():
         "structural_citable_candidates": DS["citable_subset"]["count"],
         "review_coverage": DS.get("review_coverage", {}),
         "authored_corridors": len(DS.get("corridors", [])),
+        "directed_corridors": len(CD.get("edges", [])),
+        "mcp_tool_count": len(MCP["tools"]),
     })))
 
     # ---- records (full + faceted axes) --------------------------------------

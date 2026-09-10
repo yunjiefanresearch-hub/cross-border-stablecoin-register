@@ -2,7 +2,7 @@
   "license_inventory": "dist/licenses.json",
   "pip_audit": "passed_no_known_vulnerabilities_live",
   "pip_audit_evidence": "dist/pip-audit.json",
-  "python": "3.12.13",
+  "python": "3.12.14",
   "reproducible_builds": 2,
   "resolved_runtime": {
     "cbsr-mcp": "0.11.0",
@@ -35,5 +35,5 @@
   },
   "warning_policy": "error",
   "wheel": "cbsr_mcp-0.11.0-py3-none-any.whl",
-  "wheel_sha256": "853822112168c0efdfbeaa7a90bf6541111b2550a4e31b765668a587f448f778"
+  "wheel_sha256": "4281ccfd70e7ae1fead2bdc126b7009f537b418b41fc8def9bff7c055276d625"
 }

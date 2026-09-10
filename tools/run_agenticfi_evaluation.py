@@ -282,8 +282,8 @@ def main() -> int:
     )
     for pilot in (pilot_one, pilot_two):
         stem = pilot["pilot_id"]
-        (output / f"{stem}.json").write_text(json.dumps(pilot, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-        (output / f"{stem}.md").write_text(_pilot_markdown(pilot), encoding="utf-8")
+        (output / f"{stem}.json").write_text(json.dumps(pilot, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
+        (output / f"{stem}.md").write_text(_pilot_markdown(pilot), encoding="utf-8", newline="\n")
 
     outcomes = Counter(expected for _, expected in SCENARIOS)
     report = {
@@ -311,7 +311,7 @@ def main() -> int:
         "external_gates": ["independent legal review", "production security review", "signed identity provider"],
     }
     (ROOT / "research/agenticfi_evaluation.json").write_text(
-        json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+        json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n"
     )
     lines = [
         "# AgenticFi evaluation report", "", f"Evaluation date: **{AS_OF}**.  ",
@@ -333,7 +333,7 @@ def main() -> int:
         "It does not prove legal currentness, authenticate the asserted audit identity, authorize execution or replace "
         "an external security/legal review.", "",
     ]
-    (ROOT / "research/AGENTICFI_EVALUATION_REPORT.md").write_text("\n".join(lines), encoding="utf-8")
+    (ROOT / "research/AGENTICFI_EVALUATION_REPORT.md").write_text("\n".join(lines), encoding="utf-8", newline="\n")
     print(f"wrote AgenticFi evaluation: {len(SCENARIOS)} scenarios, {len(MUTATIONS)} mutations, 2 pilots")
     return 0
 

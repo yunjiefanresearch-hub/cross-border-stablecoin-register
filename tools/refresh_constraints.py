@@ -113,7 +113,7 @@ def main() -> int:
             match = re.match(r"^([A-Za-z0-9_.-]+)==([^;\s]+)(.*)$", line)
             if match and match.group(1).lower() in replacements:
                 lines[index] = f"{match.group(1)}=={replacements[match.group(1).lower()]}{match.group(3)}"
-        path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+        path.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
     print("constraints updated; this is an unverified proposal until the full matrix passes")
     return 0
 

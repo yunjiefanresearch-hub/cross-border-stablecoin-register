@@ -257,7 +257,7 @@ def _write_summary(status: str, completed: list[str], extra: dict | None = None)
         summary.update(extra)
     (EVIDENCE_DIR / "verify-summary.json").write_text(
         json.dumps(summary, indent=2, ensure_ascii=False, sort_keys=True) + "\n",
-        encoding="utf-8",
+        encoding="utf-8", newline="\n",
     )
 
 

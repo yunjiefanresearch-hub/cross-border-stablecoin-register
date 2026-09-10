@@ -92,11 +92,14 @@ confidence. The field is **per-record**, not derived from the dimension, so a fu
 inside a nominally-legal dimension (e.g. a `monetary_sovereignty` record whose load-bearing fact is a
 market datum) can be tagged `tier2_operational` explicitly. Corridors do not carry `claim_class`.
 
-**The lawyer-citable subset** is the intersection `claim_class == tier1_legal` AND
-`status == in_force` AND `evidence_tier == resolution_text` — binding law, in force now, confirmed
-against the official text. Exposed as `citable_subset` in `dataset.json`, the `citable_law()` MCP tool,
-and the "citable law only" site toggle; enforced by the build (a citable record must carry an official
-`source.url` + pinpoint).
+**Structural citable candidates** satisfy `claim_class == tier1_legal`, `status == in_force`,
+and `evidence_tier == resolution_text`. They are retained as the legacy `citable_subset`
+in `dataset.json`. **Decision-ready citable law** additionally requires
+`source_disposition == official`, `freshness.review_status == current`, and
+`review_stage == reconciled`, with a source URL and pinpoint. This stricter
+`decision_ready_citable_subset` is what `citable_law()` and the "citable law only"
+toggle expose. Current means current at the dated snapshot. The 2026-08-20 snapshot
+has 46 structural candidates and 0 decision-ready records out of 152 total records.
 
 ## evidence_tier — provenance strength
 `resolution_text` · `mixed` · `firm_summary` (legacy records: unset)

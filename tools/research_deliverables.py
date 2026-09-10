@@ -32,11 +32,11 @@ def _csv(path: pathlib.Path, rows: list[dict]) -> None:
     if not rows:
         raise SystemExit(f"refusing to write empty CSV: {path}")
     buffer = io.StringIO(newline="")
-    writer = csv.DictWriter(buffer, fieldnames=list(rows[0]))
+    writer = csv.DictWriter(buffer, fieldnames=list(rows[0]), lineterminator="\n")
     writer.writeheader()
     writer.writerows(rows)
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(buffer.getvalue(), encoding="utf-8")
+    path.write_bytes(buffer.getvalue().encode("utf-8"))
 
 
 def _sha(path: pathlib.Path) -> str:
@@ -74,7 +74,7 @@ def _quantitative() -> None:
     _csv(RESEARCH / "quantitative/jurisdiction_metrics.csv", rows)
     (RESEARCH / "quantitative/jurisdiction_metrics.json").write_text(
         json.dumps({"schema": "cbsr/quantitative-metrics/v1", "as_of": AS_OF, "rows": rows}, indent=2) + "\n",
-        encoding="utf-8",
+        encoding="utf-8", newline="\n",
     )
     dimensions = []
     for dimension in sorted({str(row.get("dimension")) for row in RECORDS}):
@@ -91,7 +91,7 @@ def _quantitative() -> None:
     _csv(RESEARCH / "quantitative/dimension_metrics.csv", dimensions)
     (RESEARCH / "quantitative/dimension_metrics.json").write_text(
         json.dumps({"schema": "cbsr/dimension-metrics/v1", "as_of": AS_OF, "rows": dimensions}, indent=2) + "\n",
-        encoding="utf-8",
+        encoding="utf-8", newline="\n",
     )
 
     freshness_report = json.loads((ROOT / "analysis/freshness_report.json").read_text(encoding="utf-8"))
@@ -144,12 +144,12 @@ def _quantitative() -> None:
         "metrics": dashboard_rows,
     }
     (RESEARCH / "quantitative/data_quality_dashboard.json").write_text(
-        json.dumps(dashboard, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+        json.dumps(dashboard, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n"
     )
     dashboard_md = ["# Data-quality dashboard", "", f"Extraction date: **{AS_OF}**. Unit: one jurisdiction–instrument–dimension record; corridor rows use ordered pairs.", "", "All missing fields remain missing. No checked date, reviewer, source or legal state is imputed. Controlled pilot fixtures are excluded.", "", "| Metric | Value / denominator | Unit | Definition |", "|---|---:|---|---|"]
     dashboard_md.extend(f"| `{row['metric']}` | {row['value']} / {row['denominator']} | {row['unit']} | {row['definition']} |" for row in dashboard_rows)
     dashboard_md.extend(["", "## Method and limitations", "", "Inclusion: all compiled records and directed corridors. Missing-data policy: retain explicit null/unavailable values. Principal biases are jurisdiction selection, unequal official-source access, translation, non-independent prior coding and the 2026-08-20 temporal cut-off. These are descriptive census statistics, not causal or population estimates.", ""])
-    (RESEARCH / "quantitative/DATA_QUALITY_DASHBOARD.md").write_text("\n".join(dashboard_md), encoding="utf-8")
+    (RESEARCH / "quantitative/DATA_QUALITY_DASHBOARD.md").write_text("\n".join(dashboard_md), encoding="utf-8", newline="\n")
     before_after = [
         {"metric": "research_ledger_rows", "before": 4, "after": 152, "unit": "records", "interpretation": "targeted leads replaced by full inventory ledger"},
         {"metric": "dossier_minimum_lines", "before": 16, "after": min(len((RESEARCH / f"jurisdictions/{code}.md").read_text(encoding="utf-8").splitlines()) for code in sorted({r['jurisdiction'] for r in RECORDS})), "unit": "lines", "interpretation": "minimum across twelve dossiers"},
@@ -163,12 +163,12 @@ def _quantitative() -> None:
     _csv(RESEARCH / "quantitative/before_after.csv", before_after)
     (RESEARCH / "quantitative/before_after.json").write_text(
         json.dumps({"schema": "cbsr/transformation-before-after/v1", "as_of": AS_OF, "baseline_source": "user-supplied acceptance audit and committed R3 baseline", "metrics": before_after}, indent=2, ensure_ascii=False) + "\n",
-        encoding="utf-8",
+        encoding="utf-8", newline="\n",
     )
     md = ["# Quantitative before/after", "", "Baseline values reproduce the acceptance audit; after values are generated from the current tree.", "", "| Metric | Before | After | Unit | Interpretation |", "|---|---:|---:|---|---|"]
     md.extend(f"| `{r['metric']}` | {r['before']} | {r['after']} | {r['unit']} | {r['interpretation']} |" for r in before_after)
     md.extend(["", "A higher number is not always better. The unchanged source/reviewer gaps are controls against fabricated research.", ""])
-    (RESEARCH / "quantitative/BEFORE_AFTER.md").write_text("\n".join(md), encoding="utf-8")
+    (RESEARCH / "quantitative/BEFORE_AFTER.md").write_text("\n".join(md), encoding="utf-8", newline="\n")
 
     chart_dir = RESEARCH / "charts"
     chart_dir.mkdir(parents=True, exist_ok=True)
@@ -189,7 +189,7 @@ def _quantitative() -> None:
             f'<text x="730" y="{y+18}" font-family="sans-serif" font-size="12">records {row["records"]} · official {row["official_sources"]} · primary {row["primary_reviewer"]} · second {row["second_reviewer"]}</text>',
         ])
     svg.extend(['<text x="40" y="594" font-family="sans-serif" font-size="12" fill="#555">Grey: records · blue: official source · orange: primary review · green: independent second review</text>', '</svg>'])
-    (chart_dir / "review_coverage.svg").write_text("\n".join(svg) + "\n", encoding="utf-8")
+    (chart_dir / "review_coverage.svg").write_text("\n".join(svg) + "\n", encoding="utf-8", newline="\n")
 
 
 def _codes(record: dict) -> list[str]:
@@ -226,7 +226,7 @@ def _qualitative() -> None:
     _csv(qualitative / "coded_cases.csv", coded)
     (qualitative / "coded_cases.json").write_text(
         json.dumps({"schema": "cbsr/qualitative-coded-cases/v1", "coding_claim": "deterministic primary coding only; no independent second coder inferred", "cases": coded}, indent=2, ensure_ascii=False) + "\n",
-        encoding="utf-8",
+        encoding="utf-8", newline="\n",
     )
     worksheet = [{**row, "second_codes": "", "second_coder": "", "agreement_status": "pending_independent_coder"} for row in coded]
     _csv(qualitative / "SECOND_CODER_WORKSHEET.csv", worksheet)
@@ -240,7 +240,7 @@ def _qualitative() -> None:
         {"failure_id": "F6", "failure": "mandate_overreach", "threat": "agent acts beyond authority", "control": "versioned mandate, jurisdiction/time/amount and human-review gates"},
     ]
     (qualitative / "failure_taxonomy.json").write_text(
-        json.dumps({"schema": "cbsr/failure-taxonomy/v1", "failures": taxonomy}, indent=2) + "\n", encoding="utf-8"
+        json.dumps({"schema": "cbsr/failure-taxonomy/v1", "failures": taxonomy}, indent=2) + "\n", encoding="utf-8", newline="\n"
     )
     _csv(qualitative / "threat_linkage.csv", taxonomy)
     themes = [
@@ -255,7 +255,7 @@ def _qualitative() -> None:
     lines.extend(["## Failure taxonomy and threat linkage", "", "| Failure | Threat | Control |", "|---|---|---|"])
     lines.extend(f"| `{row['failure']}` | {row['threat']} | {row['control']} |" for row in taxonomy)
     lines.extend(["", "## Independent coding gate", "", "A qualified second coder must complete `SECOND_CODER_WORKSHEET.csv` without copying the primary codes. Agreement, disagreement and reconciliation must then be computed and attested. Until that occurs, qualitative findings are exploratory and cannot be described as independently coded.", ""])
-    (qualitative / "QUALITATIVE_ANALYSIS.md").write_text("\n".join(lines), encoding="utf-8")
+    (qualitative / "QUALITATIVE_ANALYSIS.md").write_text("\n".join(lines), encoding="utf-8", newline="\n")
 
 
 def _claims() -> list[dict]:
@@ -289,20 +289,22 @@ def _claims() -> list[dict]:
         claims.append({"claim_id": claim_id, "claim_type": claim_type, "claim_text": text, "record_ids": "", "source_urls": evidence, "pinpoint": "generated artifact", "evidence_tier": "computed", "binding_status": "not_applicable", "freshness": AS_OF, "review_stage": "machine_verified", "allowed_use": "technical_claim", "uncertainty": "low", "reviewer": "canonical_verifier", "second_reviewer": "", "review_date": AS_OF, "status": "machine_verified", "strength": "computed", "limitation": "Reproducible technical claim only; no external assurance or legal conclusion."})
     _csv(RESEARCH / "claims/claims_ledger.csv", claims)
     (RESEARCH / "claims/claims_ledger.json").write_text(
-        json.dumps({"schema": "cbsr/claims-ledger/v2", "as_of": AS_OF, "claim_count": len(claims), "independent_review_status": "not_completed", "claims": claims}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+        json.dumps({"schema": "cbsr/claims-ledger/v2", "as_of": AS_OF, "claim_count": len(claims), "independent_review_status": "not_completed", "claims": claims}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n"
     )
     return claims
 
 
 def _manifest() -> None:
     files = []
-    for path in sorted(RESEARCH.rglob("*")):
+    for path in sorted(
+        RESEARCH.rglob("*"), key=lambda item: item.relative_to(ROOT).as_posix()
+    ):
         if not path.is_file() or path.name == "research_manifest.json" or "__pycache__" in path.parts:
             continue
         files.append({"path": path.relative_to(ROOT).as_posix(), "bytes": path.stat().st_size, "sha256": _sha(path)})
     (RESEARCH / "research_manifest.json").write_text(
         json.dumps({"schema": "cbsr/research-manifest/v1", "as_of": AS_OF, "file_count": len(files), "files": files, "external_review": {"legal_second_review": "not_completed", "qualitative_second_coder": "not_completed", "peer_review": "not_completed"}}, indent=2, ensure_ascii=False) + "\n",
-        encoding="utf-8",
+        encoding="utf-8", newline="\n",
     )
 
 

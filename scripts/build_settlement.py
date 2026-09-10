@@ -135,7 +135,7 @@ def build():
         },
     }
     (ROOT / "analysis" / "computed_settlement.json").write_text(
-        json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8")
+        json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8", newline="\n")
     print("wrote analysis/computed_settlement.json")
     print(f"  per-edge infrastructure_overlap over 66 corridors: {counts}")
     print(f"  Agorá={EXPERIMENTS['agora']['focus_members']}  mBridge={EXPERIMENTS['mbridge']['focus_members']}  "

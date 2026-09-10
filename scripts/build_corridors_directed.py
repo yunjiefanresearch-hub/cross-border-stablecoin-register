@@ -370,7 +370,7 @@ def build():
     n_cb = sum(1 for e in edges if e["infrastructure_overlap"]["bloc"] == "cross-bloc")
 
     (ROOT / "analysis" / "computed_corridors_directed.json").write_text(
-        json.dumps(out, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        json.dumps(out, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
 
     print(f"wrote analysis/computed_corridors_directed.json — {len(edges)} directed edges "
           f"(authored {prov['authored']} + skeleton {prov['computed_skeleton']} + transition {prov['computed_transition']})")

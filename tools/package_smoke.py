@@ -197,7 +197,7 @@ print(json.dumps(result, sort_keys=True))
             if not line.lower().startswith("cbsr-mcp==") and not line.lower().startswith("cbsr-mcp @")
         ]
         audit_requirements = temp / "audit-requirements.txt"
-        audit_requirements.write_text("\n".join(auditable) + "\n", encoding="utf-8")
+        audit_requirements.write_text("\n".join(auditable) + "\n", encoding="utf-8", newline="\n")
         audit_path = DIST / "pip-audit.json"
         snapshot_raw = os.environ.get("CBSR_OFFLINE_AUDIT_SNAPSHOT")
         if snapshot_raw:
@@ -250,7 +250,7 @@ print(json.dumps(result, sort_keys=True))
         }
         (DIST / "package-smoke.json").write_text(
             json.dumps(report, indent=2, ensure_ascii=False, sort_keys=True) + "\n",
-            encoding="utf-8",
+            encoding="utf-8", newline="\n",
         )
 
     print(f"package smoke passed: 2 reproducible wheels, clean install, 6 tools, warning-free, audit clean ({first_sha})")

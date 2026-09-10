@@ -51,7 +51,7 @@ def rj(p: Path):
 
 
 def wj(p: Path, o) -> None:
-    with p.open("w", encoding="utf-8") as f:
+    with p.open("w", encoding="utf-8", newline="\n") as f:
         json.dump(o, f, ensure_ascii=False, indent=2)
         f.write("\n")
 

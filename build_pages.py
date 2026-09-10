@@ -38,20 +38,28 @@ GEN = str(DS.get("generated", datetime.date.today()))
 
 
 def integrity_status():
-    """Run the three validators and capture their headline result (best-effort)."""
+    """Capture page-local checks; full-suite results require a commit-specific CI run."""
     out = {}
+    # The mutation suite runs in tools.verify. Running it inside every page generation
+    # duplicated a full repository copy and could time out on Windows, producing
+    # platform-dependent status text in otherwise deterministic published pages.
+    out["negative_tests"] = {
+        "label": "Negative tests and full verification", "pass": None,
+        "detail": "See the canonical CI run for this commit; not executed during page generation.",
+    }
     checks = [("invariants", "run_invariants.py", r"(\d+)/(\d+)\s+invariants"),
-              ("negative_tests", "run_negative_tests.py", r"(\d+)/(\d+)\s+gates"),
               ("readme_drift", "check_readme_counts.py", r"OK|PASS|self-test")]
     for name, script, pat in checks:
         try:
-            r = subprocess.run([_sys.executable, script], cwd=ROOT, capture_output=True, text=True, timeout=120)
+            args = ["--scan", "README.md"] if name == "readme_drift" else []
+            r = subprocess.run([_sys.executable, script, *args], cwd=ROOT, capture_output=True,
+                               text=True, encoding="utf-8", timeout=120)
             tail = (r.stdout or "") + (r.stderr or "")
             m = re.search(pat, tail)
             if name == "readme_drift":
-                out[name] = {"label": "README drift gate", "pass": bool(m), "detail": "no drift-prone counts"}
+                out[name] = {"label": "README drift gate", "pass": r.returncode == 0 and bool(m), "detail": "no drift-prone counts"}
             elif m:
-                out[name] = {"label": name.replace("_", " "), "pass": m.group(1) == m.group(2),
+                out[name] = {"label": name.replace("_", " "), "pass": r.returncode == 0 and m.group(1) == m.group(2),
                              "held": int(m.group(1)), "total": int(m.group(2))}
             else:
                 out[name] = {"label": name.replace("_", " "), "pass": False, "detail": "unparsed"}
@@ -430,7 +438,7 @@ table.mgrid thead th.corner{left:0;z-index:3;text-align:left;color:var(--ink-2)}
 <p class="dual">Everything is computed in your browser from the register's own signals, using the identical algorithm the MCP <code>compose_corridor(as_of=…)</code> tool runs. No server, no model, no probabilities.</p></div></div>
 {body}
 </body></html>"""
-    (ROOT / "corridors.html").write_text(html, encoding="utf-8")
+    (ROOT / "corridors.html").write_text(html, encoding="utf-8", newline="\n")
     return len(html.encode("utf-8"))
 
 
@@ -441,12 +449,16 @@ def build_console():
     records = [{"id": r["id"], "jurisdiction": r["jurisdiction"], "dimension": r["dimension"],
                 "claim_class": r.get("claim_class"), "evidence_tier": r.get("evidence_tier"),
                 "binding_status": r.get("binding_status"), "status": r.get("status"),
+                "source_disposition": r.get("source_disposition"),
+                "review_status": (r.get("freshness") or {}).get("review_status"),
+                "review_stage": r.get("review_stage"),
                 "instrument": (r.get("source") or {}).get("primary") or r.get("instrument_label_local") or "",
                 "pinpoint": (r.get("source") or {}).get("pinpoint") or "",
                 "url": (r.get("source") or {}).get("url") or "",
                 "last_reviewed": (r.get("verification") or {}).get("last_reviewed") or (r.get("source") or {}).get("last_reviewed") or ""}
                for r in DS["records"]]
-    citable_ids = {c["id"] for c in DS["citable_subset"]["records"]}
+    strict = DS.get("decision_ready_citable_subset", {"count": 0, "records": [], "filter": {}})
+    citable_ids = {c["id"] for c in strict["records"]}
     # per-record "why not citable": which axis blocks it
     for r in records:
         r["citable"] = r["id"] in citable_ids
@@ -457,12 +469,21 @@ def build_console():
             blocks.append(("status", r["status"], "not currently in force"))
         if r["evidence_tier"] != "resolution_text":
             blocks.append(("evidence_tier", r["evidence_tier"], "not confirmed against the official text (resolution_text)"))
+        for field, expected, reason in (
+            ("source_disposition", "official", "source is not classified as official"),
+            ("review_status", "current", "source check is not current at the snapshot date"),
+            ("review_stage", "reconciled", "independent second review is not reconciled"),
+        ):
+            if r[field] != expected:
+                blocks.append((field, r[field], reason))
         r["blocks"] = blocks
     payload = {
         "version": VERSION,
         "records": records,
-        "citable_filter": DS["citable_subset"]["filter"],
-        "citable_count": DS["citable_subset"]["count"],
+        "generated": GEN,
+        "citable_filter": strict["filter"],
+        "citable_count": strict["count"],
+        "structural_candidate_count": DS["citable_subset"]["count"],
         "reconciliation": {"pairs": DS["analysis"]["computed"]["undirected_pairs"]["pairs"],
                            "agreement": DS["analysis"]["computed"]["undirected_pairs"]["agreement"],
                            "findings_by_cause": DS["analysis"]["computed"]["findings_by_cause"]},
@@ -534,8 +555,8 @@ table.lawtable tr:hover td{background:var(--verified-bg)}
     body = f"""
 <section><div class="wrap">
   <p class="eyebrow">Paper II · evidence model</p>
-  <h2 class="sec">The register, along three axes</h2>
-  <p class="sec-sub">Citability is not asserted — it is <em>earned</em>, and it is machine-checkable along three orthogonal axes: what kind of claim it is (<code>claim_class</code>), how well the evidence is confirmed (<code>evidence_tier</code>), and whether the law is in force (<code>status</code>). Filter the 152 records by any combination, and open any row to see exactly which axis would keep it out of the lawyer-citable set.</p>
+  <h2 class="sec">The register, across evidence and review gates</h2>
+  <p class="sec-sub">Filter {len(records)} records by claim, evidence and legal force. Open any row to inspect all six gates, including official provenance, freshness at the snapshot date and independent review. A structural match is only a candidate until the review gates also pass.</p>
   <div class="tabs" role="tablist">
     <div class="tab on" data-t="browse" role="tab">Faceted browser</div>
     <div class="tab" data-t="law" role="tab">Lawyer-citable table</div>
@@ -559,11 +580,11 @@ table.lawtable tr:hover td{background:var(--verified-bg)}
       <th data-k="id">Record</th><th data-k="jurisdiction">Juris</th><th data-k="dimension">Dimension</th>
       <th data-k="claim_class">claim_class</th><th data-k="evidence_tier">evidence_tier</th>
       <th data-k="status">status</th><th data-k="citable">citable?</th></tr></thead><tbody></tbody></table></div>
-    <p class="guardrail">The "why not citable" x-ray (open any row) is the methodology's most teachable moment: it makes <em>earned, not asserted</em> visible cell by cell. A record is citable only when all three axes clear at once — <code>tier1_legal</code> &middot; <code>in_force</code> &middot; <code>resolution_text</code>.</p>
+    <p class="guardrail">Open any row to see every failed gate. Decision-ready citability requires legal, in-force, official-text evidence, an official source, current evidence at the snapshot date, and independently reconciled review.</p>
   </div>
 
   <div class="panel" data-p="law">
-    <p class="sec-sub" style="margin-top:4px">The {DS['citable_subset']['count']} cells that clear all three axes — a proposition of law, in force, confirmed against the official text. Each row gives the instrument, the pinpoint, and the official source URL. Operational and market facts are excluded by construction, even when well-sourced. Filter by jurisdiction or dimension; export what you need.</p>
+    <p class="sec-sub" style="margin-top:4px">Snapshot {GEN}: {len(records)} records, {DS['citable_subset']['count']} structural candidates, and {strict['count']} decision-ready citable records after all six evidence and review gates. Each eligible row gives the instrument, pinpoint and official URL. Filter by jurisdiction or dimension; export the eligible records.</p>
     <div class="axisbar">
       <div class="axisgrp"><label>jurisdiction</label><select id="lJur"></select></div>
       <div class="axisgrp"><label>dimension</label><select id="lDim"></select></div>
@@ -573,7 +594,7 @@ table.lawtable tr:hover td{background:var(--verified-bg)}
     <div class="counts" id="lCounts"></div>
     <div class="lawtable-wrap"><table class="lawtable" id="lawtable"><thead><tr>
       <th>Juris</th><th>Dimension</th><th>Instrument</th><th>Pinpoint</th><th>Source</th><th>Reviewed</th></tr></thead><tbody></tbody></table></div>
-    <p class="guardrail">Guardrail — this table draws only from the enforced <code>citable_subset</code>; every pinpoint was human-verified (no tool-generated citations), and no <code>tier2_operational</code> fact appears here regardless of how well it is sourced.</p>
+    <p class="guardrail">This table draws only from <code>decision_ready_citable_subset</code>. The legacy <code>citable_subset</code> counts structural candidates separately. Freshness is evaluated at the snapshot date; fetching this page does not perform a new source review.</p>
   </div>
 
   <div class="panel" data-p="recon">
@@ -584,7 +605,7 @@ table.lawtable tr:hover td{background:var(--verified-bg)}
   </div>
 
   <div class="panel" data-p="integrity">
-    <p class="sec-sub" style="margin-top:4px">The register re-runs its own gates on every build. These are the results captured when this page was generated — the machine enforcement behind "earned, not asserted".</p>
+    <p class="sec-sub" style="margin-top:4px">These are page-local checks captured during generation, not proof of full verification. See the <a href="https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register/actions/workflows/build.yml">canonical CI history</a> for the matching commit's complete result, platform matrix and evidence artifacts.</p>
     <div class="integ" id="integ"></div>
     <h3 style="font-family:var(--serif);font-size:17px;margin:26px 0 10px">Citation firewall — provenance</h3>
     <div class="prov" id="prov"></div>
@@ -718,7 +739,7 @@ table.lawtable tr:hover td{background:var(--verified-bg)}
       +"<div class='st'>"+(pass?"&#10003; passing":(v.pass===false?"&#10007; check":"&#8226; "+esc(v.detail||"")))+"</div></div>";
   }}).join("");
   document.getElementById("prov").innerHTML=
-    "Every citable cell carries a human review stamp (<b>last_reviewed</b>) and a source pinpoint. "
+    "Decision-ready citable law requires a dated source check and independently reconciled review, with a source pinpoint. Editorial <b>last_reviewed</b> alone does not establish freshness. "
     +"No citation is tool-generated; each pinpoint is confirmed against the official text (<span class='tag'>resolution_text</span>). "
     +"Operational and market notes (<b>tier2_operational</b>) are held on the far side of the citation firewall — present in the register, but never eligible for the citable set. "
     +"The firewall is enforced as a build gate, not a convention.";
@@ -754,7 +775,7 @@ table.lawtable tr:hover td{background:var(--verified-bg)}
 <p class="dual">All six views read the same public register you can clone or fetch. The "why not citable" x-ray and the computed-vs-authored reconciliation are the two things here you'll rarely find elsewhere.</p></div></div>
 {body}
 </body></html>"""
-    (ROOT / "console.html").write_text(html, encoding="utf-8")
+    (ROOT / "console.html").write_text(html, encoding="utf-8", newline="\n")
     return len(html.encode("utf-8"))
 
 

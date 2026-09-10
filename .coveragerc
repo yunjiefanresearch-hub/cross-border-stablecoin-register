@@ -1,0 +1,22 @@
+[run]
+branch = True
+source = .
+relative_files = True
+data_file = artifacts/validation/.coverage
+omit =
+    tests/*
+    .venv/*
+    venv/*
+    env/*
+    artifacts/*
+    dist/*
+
+[report]
+include_namespace_packages = True
+show_missing = True
+
+[json]
+output = artifacts/validation/coverage.json
+
+[html]
+directory = artifacts/validation/coverage-html

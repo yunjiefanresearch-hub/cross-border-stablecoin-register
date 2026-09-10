@@ -10,15 +10,38 @@ ACTION_SCHEMA = "cbsr/policy-action/v1"
 MANDATE_SCHEMA = "cbsr/policy-mandate/v1"
 DECISION_SCHEMA = "cbsr/policy-decision/v1"
 RECEIPT_SCHEMA = "cbsr/decision-receipt/v1"
+_MISSING = object()
 
 
 def _decimal(value: Any, field_name: str) -> Decimal | None:
     if value in (None, ""):
         return None
     try:
-        return Decimal(str(value))
+        result = Decimal(str(value))
     except (InvalidOperation, TypeError, ValueError) as exc:
         raise ValueError(f"{field_name}_must_be_a_number") from exc
+    if not result.is_finite():
+        raise ValueError(f"{field_name}_must_be_a_finite_number")
+    return result
+
+
+def _boolean(value: Any, field_name: str, *, default: bool) -> bool:
+    if value is _MISSING:
+        return default
+    if type(value) is not bool:
+        raise ValueError(f"{field_name}_must_be_a_boolean")
+    return value
+
+
+def _strings(value: Any, field_name: str, *, uppercase: bool = False) -> tuple[str, ...]:
+    if value is None:
+        return ()
+    if not isinstance(value, (list, tuple)):
+        raise ValueError(f"{field_name}_must_be_an_array")
+    if not all(isinstance(item, str) for item in value):
+        raise ValueError(f"{field_name}_must_contain_strings")
+    items = (item.upper() if uppercase else item for item in value)
+    return tuple(sorted(items))
 
 
 @dataclass(frozen=True)
@@ -38,7 +61,9 @@ class AuditIdentity:
             actor_type=str(value.get("actor_type") or ""),
             principal_id=str(value["principal_id"]) if value.get("principal_id") else None,
             session_id=str(value["session_id"]) if value.get("session_id") else None,
-            authentication_context=tuple(sorted(str(item) for item in value.get("authentication_context") or ())),
+            authentication_context=_strings(
+                value.get("authentication_context"), "authentication_context"
+            ),
         )
 
 
@@ -63,11 +88,15 @@ class HumanReviewPolicy:
     @classmethod
     def from_mapping(cls, value: Mapping[str, Any]) -> "HumanReviewPolicy":
         return cls(
-            required=value.get("required") is True,
+            required=_boolean(
+                value.get("required", _MISSING), "human_review_required", default=False
+            ),
             amount_threshold=_decimal(value.get("amount_threshold"), "human_review_amount_threshold"),
-            jurisdictions=tuple(sorted(str(item).upper() for item in value.get("jurisdictions") or ())),
-            dimensions=tuple(sorted(str(item) for item in value.get("dimensions") or ())),
-            outcomes=tuple(sorted(str(item) for item in value.get("outcomes") or ())),
+            jurisdictions=_strings(
+                value.get("jurisdictions"), "human_review_jurisdictions", uppercase=True
+            ),
+            dimensions=_strings(value.get("dimensions"), "human_review_dimensions"),
+            outcomes=_strings(value.get("outcomes"), "human_review_outcomes"),
         )
 
 
@@ -95,13 +124,27 @@ class Mandate:
         if value.get("schema") not in (None, MANDATE_SCHEMA):
             raise ValueError("unsupported_mandate_schema")
         audit = value.get("audit_identity")
-        audit_mapping = audit if isinstance(audit, Mapping) else {}
+        if audit is not None and not isinstance(audit, Mapping):
+            raise ValueError("audit_identity_must_be_an_object")
+        audit_mapping = audit or {}
         review = value.get("human_review")
-        if isinstance(review, Mapping):
+        if review is not None and not isinstance(review, Mapping):
+            raise ValueError("human_review_must_be_an_object")
+        if review is not None:
             human_review = HumanReviewPolicy.from_mapping(review)
         else:
-            human_review = HumanReviewPolicy(required=value.get("human_approval_required") is True)
-        windows = value.get("allowed_time_windows") or ()
+            human_review = HumanReviewPolicy(
+                required=_boolean(
+                    value.get("human_approval_required", _MISSING),
+                    "human_approval_required",
+                    default=False,
+                )
+            )
+        windows = value.get("allowed_time_windows")
+        if windows is None:
+            windows = ()
+        if not isinstance(windows, (list, tuple)):
+            raise ValueError("allowed_time_windows_must_be_an_array")
         if not all(isinstance(item, Mapping) for item in windows):
             raise ValueError("allowed_time_windows_must_be_objects")
         return cls(
@@ -109,17 +152,19 @@ class Mandate:
             version=str(value.get("version") or ""),
             issued_by=str(value.get("issued_by") or ""),
             audit_identity=AuditIdentity.from_mapping(audit_mapping),
-            active=value.get("active") is not False,
-            revoked=value.get("revoked") is True,
+            active=_boolean(value.get("active", _MISSING), "active", default=True),
+            revoked=_boolean(value.get("revoked", _MISSING), "revoked", default=False),
             valid_from=str(value["valid_from"]) if value.get("valid_from") else None,
             valid_until=str(value.get("valid_until") or value.get("expires_at") or "") or None,
             max_amount=_decimal(value.get("max_amount"), "max_amount"),
-            assets=tuple(sorted(str(item) for item in value.get("assets") or ())),
-            jurisdictions=tuple(sorted(str(item).upper() for item in value.get("jurisdictions") or ())),
-            prohibited_jurisdictions=tuple(
-                sorted(str(item).upper() for item in value.get("prohibited_jurisdictions") or ())
+            assets=_strings(value.get("assets"), "assets"),
+            jurisdictions=_strings(value.get("jurisdictions"), "jurisdictions", uppercase=True),
+            prohibited_jurisdictions=_strings(
+                value.get("prohibited_jurisdictions"),
+                "prohibited_jurisdictions",
+                uppercase=True,
             ),
-            counterparties=tuple(sorted(str(item) for item in value.get("counterparties") or ())),
+            counterparties=_strings(value.get("counterparties"), "counterparties"),
             allowed_time_windows=tuple(TimeWindow.from_mapping(item) for item in windows),
             human_review=human_review,
         )
@@ -187,19 +232,25 @@ class ActionRequest:
             actor=str(value.get("actor") or ""),
             mandate=Mandate.from_mapping(mandate),
             counterparty=str(value["counterparty"]) if value.get("counterparty") else None,
-            requires_kyc=value.get("requires_kyc") is True,
-            required_dimensions=tuple(sorted(str(item) for item in value.get("required_dimensions") or ())),
+            requires_kyc=_boolean(
+                value.get("requires_kyc", _MISSING), "requires_kyc", default=False
+            ),
+            required_dimensions=_strings(value.get("required_dimensions"), "required_dimensions"),
             as_of=str(value["as_of"]) if value.get("as_of") else None,
             requested_at=str(value["requested_at"]) if value.get("requested_at") else None,
-            conflicting_evidence=value.get("conflicting_evidence") is True,
+            conflicting_evidence=_boolean(
+                value.get("conflicting_evidence", _MISSING),
+                "conflicting_evidence",
+                default=False,
+            ),
             action=str(value.get("action") or "transfer"),
-            authority=tuple(sorted(str(item) for item in value.get("authority") or ())),
-            conditions=tuple(sorted(str(item) for item in value.get("conditions") or ())),
+            authority=_strings(value.get("authority"), "authority"),
+            conditions=_strings(value.get("conditions"), "conditions"),
             modality=str(value.get("modality") or "request"),
-            obligations=tuple(sorted(str(item) for item in value.get("obligations") or ())),
-            exceptions=tuple(sorted(str(item) for item in value.get("exceptions") or ())),
+            obligations=_strings(value.get("obligations"), "obligations"),
+            exceptions=_strings(value.get("exceptions"), "exceptions"),
             effective_window=TimeWindow.from_mapping(effective_window) if effective_window else None,
-            evidence=tuple(sorted(str(item) for item in value.get("evidence") or ())),
+            evidence=_strings(value.get("evidence"), "evidence"),
             uncertainty=str(value.get("uncertainty") or "unknown"),
         )
 

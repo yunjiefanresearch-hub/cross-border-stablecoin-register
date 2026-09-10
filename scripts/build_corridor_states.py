@@ -221,7 +221,7 @@ def build():
         "whatif_branches": whatif,
     }
     dest = ROOT / "analysis" / "computed_corridor_states.json"
-    dest.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
+    dest.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8", newline="\n")
 
     movers = [d["as_of"] for d in date_states if d["changes_vs_base"]]
     wi_movers = [w["trigger_id"] for w in whatif if w["changes_any_class"]]

@@ -21,8 +21,10 @@ YAML, an agent can ask the register directly — and every answer carries the sa
 (`source.primary`, `pinpoint`, `claim_class`, `evidence_tier`, `confidence`, `version_added`). The full
 tool list is in [`MCP_SERVER.md`](../MCP_SERVER.md); a few worth knowing on day one:
 
-- `citable_law(jurisdiction?, dimension?)` — the lawyer-citable subset: only `tier1_legal` + `in_force` +
-  `resolution_text` cells, each with an official URL and pinpoint.
+- `citable_law(jurisdiction?, dimension?)` — decision-ready citable law: `tier1_legal` + `in_force` +
+  `resolution_text` + official source + current evidence + independently reconciled review,
+  each with a URL and pinpoint. At the 2026-08-20 snapshot: **0 decision-ready records**,
+  **46 structural candidates**, out of **152 records**. Freshness is evaluated at that snapshot date.
 - `records(claim_class?, evidence_tier?, status?, binding_status?, jurisdiction?, dimension?, citable_only?)`
   — the evidence-axis browser: for every record, whether it is citable and, if not, exactly which axis
   blocks it (the "why not citable" x-ray).
@@ -44,8 +46,8 @@ tool list is in [`MCP_SERVER.md`](../MCP_SERVER.md); a few worth knowing on day 
 - **No synthesis.** Tools filter and reshape published records; no facts are generated.
 - **Conditioning, not forecasting.** The date-aware and what-if tools apply only the register's own
   scheduled / contingent changes in law — no probabilities, no predictions.
-- **Citable by construction.** The citable views return only human-verified, in-force propositions of law
-  with an official source and pinpoint.
+- **Citable by construction.** The citable views enforce all six evidence and review gates.
+  Structural candidates are counted separately from decision-ready records.
 
 ---
 

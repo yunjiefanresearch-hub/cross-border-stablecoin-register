@@ -1,0 +1,2 @@
+# Optional evidence tooling; separate from the runtime and canonical release graph.
+coverage==7.16.0

@@ -66,7 +66,7 @@ def main() -> int:
     }
     out = ROOT / "dist" / f"cbsr-{project['version']}.cdx.json"
     out.parent.mkdir(exist_ok=True)
-    out.write_text(json.dumps(bom, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    out.write_text(json.dumps(bom, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
     print(f"wrote {out.relative_to(ROOT)} ({len(components)} declared components)")
     return 0
 

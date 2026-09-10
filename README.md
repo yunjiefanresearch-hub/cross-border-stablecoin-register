@@ -1,6 +1,7 @@
 # Cross-Border Stablecoin Register
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20730358.svg)](https://doi.org/10.5281/zenodo.20730358)
+[![Canonical verification](https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register/actions/workflows/build.yml/badge.svg)](https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register/actions/workflows/build.yml)
 
 An **open, versioned, machine-readable** register of how jurisdictions regulate stablecoins —
 mapped clause by clause across **fifteen dimensions** and **two doctrinal spines** (the
@@ -17,6 +18,17 @@ derivation disagrees with the papers. Built from primary sources, citable by DOI
 > Source-disposition and reviewer totals are published in `analysis/freshness_report.json`. Some rows
 > retain a primary-review trace, but none has an independently attested second review; consequently
 > `decision_ready_citable_subset.count=0`. The repository is runnable, not a legal-currentness certificate.
+
+**Public snapshot:** record totals, structural candidates, decision-ready records,
+authored and directed corridors, tool count and date are published together in
+[`api/meta.json`](api/meta.json); tool metadata comes from [`mcp.json`](mcp.json).
+CBSR is the product brand; **Cross-Border Stablecoin Register** remains the dataset's citation name.
+For contribution tasks and outstanding publication settings, see
+[`PUBLIC_REPAIR.md`](docs/PUBLIC_REPAIR.md).
+
+**Security qualification:** the [OpenSSF Gold evidence and gap matrix](docs/security/OPENSSF_GOLD.md)
+tracks the requested delivery standard. It is a remediation record, not a Gold badge or
+certification claim; coverage, prerequisite levels, human reviews and hosted controls must be proved.
 
 For a Windows source-bundle installation, use [`LOCAL_DEPLOY_WINDOWS.md`](LOCAL_DEPLOY_WINDOWS.md) and
 run `setup_windows.ps1`. On every platform, install the committed constraint set before invoking the
