@@ -98,7 +98,7 @@ def main() -> int:
         "baseline_metrics": baseline_metrics,
         "current_metrics": current_metrics,
         "reproduction_commands": [
-            "python -m pip install --constraint constraints/dev.txt '.[dev]'",
+            "python -m pip install --require-hashes --only-binary=:all: -r constraints/dev-hashes.txt",
             "python -m tools.verify",
             "python tools/verify_agenticfi_delivery.py",
             "python tools/verify_research_delivery.py",
@@ -125,7 +125,7 @@ acceptance record, not hashes this bundle claims to contain.
 ## Reproduction sequence
 
 ```bash
-python -m pip install --constraint constraints/dev.txt ".[dev]"
+python -m pip install --require-hashes --only-binary=:all: -r constraints/dev-hashes.txt
 python -m tools.verify
 ```
 

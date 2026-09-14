@@ -17,13 +17,15 @@ env:
 jobs:
   python-matrix:
     name: verify-python-${{ matrix.python-version }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
       matrix:
         python-version: ["3.10", "3.11", "3.12", "3.13"]
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
 
       - name: Configure verifier cache paths
         shell: bash
@@ -32,19 +34,17 @@ jobs:
           echo "CBSR_PIP_CACHE_DIR=$RUNNER_TEMP/cbsr-pip-cache" >> "$GITHUB_ENV"
           echo "CBSR_PIP_AUDIT_CACHE_DIR=$RUNNER_TEMP/cbsr-pip-audit-cache" >> "$GITHUB_ENV"
 
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: ${{ matrix.python-version }}
           cache: pip
           cache-dependency-path: |
             pyproject.toml
-            constraints/runtime.txt
-            constraints/dev.txt
+            constraints/*.txt
 
       - name: Install the reviewed dependency graph
         run: |
-          python -m pip install --constraint constraints/dev.txt pip setuptools wheel
-          python -m pip install --constraint constraints/dev.txt ".[dev]"
+          python -m pip install --require-hashes --only-binary=:all: -r constraints/dev-hashes.txt
 
       - name: Run the only canonical verifier
         shell: bash
@@ -54,7 +54,7 @@ jobs:
 
       - name: Preserve machine-readable evidence
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
         with:
           name: verify-python-${{ matrix.python-version }}-${{ github.run_id }}
           path: |
@@ -69,7 +69,9 @@ jobs:
     name: verify-windows-clean-room-python-3.12
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
 
       - name: Configure verifier cache paths
         shell: pwsh
@@ -78,14 +80,13 @@ jobs:
           Add-Content -Path $env:GITHUB_ENV -Value "CBSR_PIP_CACHE_DIR=$env:RUNNER_TEMP\cbsr-pip-cache"
           Add-Content -Path $env:GITHUB_ENV -Value "CBSR_PIP_AUDIT_CACHE_DIR=$env:RUNNER_TEMP\cbsr-pip-audit-cache"
 
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: "3.12"
           cache: pip
           cache-dependency-path: |
             pyproject.toml
-            constraints/runtime.txt
-            constraints/dev.txt
+            constraints/*.txt
 
       - name: Run the documented Windows clean-room path
         shell: pwsh
@@ -97,7 +98,7 @@ jobs:
 
       - name: Preserve Windows transcript and evidence
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
         with:
           name: verify-windows-clean-room-${{ github.run_id }}
           path: |
@@ -111,7 +112,7 @@ jobs:
     name: required-verification
     if: always()
     needs: [python-matrix, windows-clean-room]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Enforce all platform jobs
         env:

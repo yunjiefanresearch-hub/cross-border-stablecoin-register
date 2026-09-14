@@ -16,7 +16,7 @@ permissions:
 
 jobs:
   coverage-evidence:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     env:
       PYTHONUTF8: "1"
       PYTHONPATH: src
@@ -29,9 +29,7 @@ jobs:
           python-version: "3.12"
       - name: Install locked test and measurement tooling
         run: |
-          python -m pip install --constraint constraints/dev.txt pip setuptools wheel
-          python -m pip install --constraint constraints/dev.txt ".[dev]"
-          python -m pip install -r constraints/quality.txt
+          python -m pip install --require-hashes --only-binary=:all: -r constraints/dev-hashes.txt -r constraints/quality-hashes.txt
       - name: Measure all Python source (unexecuted files count)
         run: |
           python -m coverage run -m pytest -q
@@ -43,7 +41,7 @@ jobs:
         run: python tools/check_gold_coverage.py --enforce
       - name: Upload measured evidence regardless of threshold outcome
         if: always()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
         with:
           name: gold-coverage-${{ github.sha }}
           path: |

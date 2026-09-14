@@ -63,6 +63,7 @@ GENERATION_STEPS = [
 ]
 
 VALIDATION_STEPS = [
+    ("dependency hash lock/provenance consistency", "tools/hash_constraints.py", "--check"),
     ("identifier gate", "tools/check_identifiers.py"),
     ("MCP documentation gate", "tools/check_docs_sync.py"),
     ("internal Markdown link gate", "tools/check_internal_links.py"),
@@ -98,7 +99,7 @@ SOURCE_FINGERPRINT_DIRS = ("src", "tools", "scripts", "tests", "schemas", ".gith
 SOURCE_FINGERPRINT_ROOTS = (
     "pyproject.toml", "record.schema.json", "build.py", "build_api.py", "build_pages.py",
     "build_site.py", "run_invariants.py", "run_negative_tests.py", "setup_windows.ps1",
-    "verify_windows.ps1", "run_mcp.ps1",
+    "verify_windows.ps1", "run_mcp.ps1", "pytest.ini", ".coveragerc", ".gitattributes", "Makefile",
 )
 
 
@@ -147,7 +148,7 @@ def _preflight() -> None:
     if missing:
         raise VerificationFailure(
             "verification prerequisites are missing: " + ", ".join(missing) + "\n"
-            "Install first with: python -m pip install --constraint constraints/dev.txt \".[dev]\""
+            "Install first with: python -m pip install --require-hashes --only-binary=:all: -r constraints/dev-hashes.txt"
         )
 
     mismatches = []

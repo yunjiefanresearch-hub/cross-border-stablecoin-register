@@ -36,13 +36,17 @@ single canonical verifier:
 
 ```bash
 python -m venv .venv
-.venv/bin/python -m pip install --constraint constraints/dev.txt pip setuptools wheel
-.venv/bin/python -m pip install --constraint constraints/dev.txt ".[dev]"
+.venv/bin/python -m pip install --require-hashes --only-binary=:all: -r constraints/dev-hashes.txt
 .venv/bin/python -m tools.verify
 ```
 
 On Windows use `.venv\Scripts\python.exe` or the supplied PowerShell scripts. A raw interpreter without
 the development graph is intentionally rejected by the verifier during preflight.
+The committed wheel-hash matrix covers Linux x86_64 / Python 3.10-3.13 and Windows
+x64 / Python 3.12. Other platforms require a separately reviewed lock extension;
+do not disable hash checking to force an installation. See
+[`constraints/README.md`](constraints/README.md) and the
+[supply-chain control record](docs/security/SUPPLY_CHAIN.md).
 
 ---
 
@@ -77,8 +81,7 @@ planned schedule for the cells still open, is in [`COVERAGE.md`](COVERAGE.md).
 
 ## Use
 ```bash
-python -m pip install --constraint constraints/dev.txt pip setuptools wheel
-python -m pip install --constraint constraints/dev.txt ".[dev]"
+python -m pip install --require-hashes --only-binary=:all: -r constraints/dev-hashes.txt
 python -m tools.verify
 ```
 The verifier is the only supported aggregate command. It executes two complete generation passes,

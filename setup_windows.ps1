@@ -20,7 +20,7 @@ try {
             $Python = "python"
             $PythonArgs = @()
         } else {
-            throw "Python 3.10-3.13 was not found. Install Python 3.12, then rerun this script."
+            throw "Python was not found. Install Python 3.12, then rerun this script."
         }
     } else {
         $PythonArgs = @()
@@ -29,17 +29,25 @@ try {
     $Version = & $Python @PythonArgs -c "import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}')"
     if ($LASTEXITCODE -ne 0) { throw "Unable to run the selected Python interpreter." }
     $Minor = ($Version -split '\.')[0..1] -join '.'
-    if ($Minor -notin @("3.10", "3.11", "3.12", "3.13")) {
-        throw "Unsupported Python $Version. Use Python 3.10, 3.11, 3.12 or 3.13."
+    if ($Minor -ne "3.12") {
+        throw "The Windows clean-room hash lock targets Python 3.12. Selected: $Version. Linux CI also tests 3.10, 3.11 and 3.13."
     }
 
-    $VenvPath = Join-Path $PSScriptRoot ".venv"
-    if (Test-Path $VenvPath) {
+    $RepositoryPath = (Get-Item -LiteralPath $PSScriptRoot).FullName
+    $VenvPath = [IO.Path]::GetFullPath((Join-Path $RepositoryPath ".venv"))
+    if (Test-Path -LiteralPath $VenvPath) {
         if (-not $Recreate) {
             throw ".venv already exists. Run .\verify_windows.ps1, or rerun setup with -Recreate for a clean room."
         }
+        $ExistingVenv = Get-Item -LiteralPath $VenvPath -Force
+        if (-not $ExistingVenv.PSIsContainer -or
+            ($ExistingVenv.Attributes -band [IO.FileAttributes]::ReparsePoint) -or
+            $ExistingVenv.Parent.FullName -ne $RepositoryPath -or
+            $ExistingVenv.Name -ne ".venv") {
+            throw "Refusing to recreate a linked or unexpected .venv target: $VenvPath"
+        }
         Write-Host "[1/5] Removing the explicitly selected CBSR .venv"
-        Remove-Item -Recurse -Force $VenvPath
+        Remove-Item -LiteralPath $VenvPath -Recurse -Force
     }
 
     Write-Host "[1/5] Creating clean .venv with Python $Version"
@@ -51,13 +59,16 @@ try {
     $env:CBSR_PIP_CACHE_DIR = $SharedPipCache
     $env:CBSR_PIP_AUDIT_CACHE_DIR = Join-Path $env:TEMP "cbsr-pip-audit-cache"
 
-    Write-Host "[2/5] Installing constrained packaging tools"
-    & $VenvPython -m pip install --constraint constraints/dev.txt pip setuptools wheel
-    if ($LASTEXITCODE -ne 0) { throw "Packaging tool installation failed." }
+    Write-Host "[2/5] Installing the SHA-256-verified development graph"
+    & $VenvPython -m pip install --require-hashes --only-binary=:all: -r constraints/dev-hashes.txt
+    if ($LASTEXITCODE -ne 0) { throw "Hash-checked dependency installation failed." }
 
-    Write-Host "[3/5] Installing CBSR and the reviewed development graph"
-    & $VenvPython -m pip install --constraint constraints/dev.txt ".[dev]"
-    if ($LASTEXITCODE -ne 0) { throw "CBSR installation failed." }
+    Write-Host "[3/5] Building and hash-checking this checkout's CBSR wheel"
+    $LocalWheelDirectory = Join-Path $EvidencePath ("local-wheel-" + [guid]::NewGuid().ToString("N"))
+    & $VenvPython -m build --wheel --no-isolation --outdir $LocalWheelDirectory
+    if ($LASTEXITCODE -ne 0) { throw "Local CBSR wheel build failed." }
+    & $VenvPython tools/install_local_wheel.py --wheel-dir $LocalWheelDirectory
+    if ($LASTEXITCODE -ne 0) { throw "Local wheel installation failed." }
 
     Write-Host "[4/5] Checking the resolved environment"
     & $VenvPython -m pip check

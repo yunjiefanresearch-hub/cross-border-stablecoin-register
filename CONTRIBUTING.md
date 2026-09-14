@@ -3,8 +3,7 @@
 Records are proposed as schema-validated additions to the data files.
 
 1. Create an isolated environment and install the complete committed graph:
-   `python -m pip install --constraint constraints/dev.txt pip setuptools wheel`, then
-   `python -m pip install --constraint constraints/dev.txt ".[dev]"`.
+   `python -m pip install --require-hashes --only-binary=:all: -r constraints/dev-hashes.txt`.
 2. Copy `_TEMPLATE.yaml` to `<id>.yaml`.
 3. Fill every field. Cite a **primary** source with a pinpoint; verify it yourself.
 4. Run the only aggregate gate: `python -m tools.verify` (or `make verify`). Do not replace it with
@@ -14,7 +13,8 @@ Records are proposed as schema-validated additions to the data files.
 6. Open a PR. Drafts (records with `<VERIFY` markers) are welcome but are merged as drafts (✍️),
    not as verified coverage.
 
-Dependency changes use `python tools/refresh_constraints.py --write`, followed by the same verifier.
+Dependency changes use `python tools/refresh_constraints.py --write`, then regenerate and review
+the wheel hashes as described in `constraints/README.md`, followed by the same verifier.
 They require a passing Linux Python 3.10-3.13 matrix and Windows clean-room job before merge.
 
 The register follows the source hierarchy and verification rule in `METHODOLOGY.md`.
@@ -72,7 +72,8 @@ changes received human review, reached a coverage target, or satisfied an OpenSS
 - Do not commit credentials, private vulnerability details, personal data, private legal
   files, production decision payloads, 2FA seeds, or recovery codes. Report exploitable
   vulnerabilities through the private process in `SECURITY.md`, not a public issue.
-- Dependency changes must use `python tools/refresh_constraints.py --write`, receive
+- Dependency changes must use `python tools/refresh_constraints.py --write`, refresh the reviewed
+  hash locks following `constraints/README.md`, receive
   dependency/security review, and pass the complete supported-platform verifier.
 - A change that introduces a network transport or client must use secure protocols by
   default, support TLS 1.2 or later when TLS is used, disable obsolete/insecure protocols by

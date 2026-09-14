@@ -230,7 +230,8 @@ def test_repaired_workflows_keep_their_security_and_release_boundaries():
     upload_command = publish["steps"][-1]["run"]
     assert "--clobber" not in upload_command
     assert '--repo "$GH_REPO"' in upload_command
-    assert publish["permissions"] == {"actions": "read", "contents": "write"}
+    # Same-run artifact downloads do not require a repository Actions token.
+    assert publish["permissions"] == {"contents": "write"}
 
 
 def test_repository_attributes_and_critical_outputs_are_lf_stable():

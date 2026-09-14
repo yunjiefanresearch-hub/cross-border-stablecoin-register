@@ -9,31 +9,35 @@ permissions:
   contents: read
 
 jobs:
-  attest-wheel:
-    runs-on: ubuntu-latest
+  verify-wheel:
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
-      id-token: write
-      attestations: write
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-python@v6
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: "3.12"
           cache: pip
           cache-dependency-path: |
             pyproject.toml
-            constraints/runtime.txt
-            constraints/dev.txt
+            constraints/*.txt
       - name: Install reviewed graph and run canonical verifier
         run: |
-          python -m pip install --constraint constraints/dev.txt pip setuptools wheel
-          python -m pip install --constraint constraints/dev.txt ".[dev]"
+          python -m pip install --require-hashes --only-binary=:all: -r constraints/dev-hashes.txt
           python -m tools.verify
-      - uses: actions/attest-build-provenance@v3
-        with:
-          subject-path: dist/cbsr_mcp-*.whl
-      - uses: actions/upload-artifact@v4
+      - name: Prepare release assets in the read-only job
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp artifacts/validation/verify-summary.json dist/verify-summary.json
+          (
+            cd dist
+            sha256sum -- *.whl *.json > SHA256SUMS
+          )
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
         with:
           name: cbsr-release-evidence-${{ github.run_id }}
           path: |
@@ -41,28 +45,35 @@ jobs:
             artifacts/validation/
           if-no-files-found: error
 
-  publish-release-assets:
-    if: github.event_name == 'release'
-    needs: attest-wheel
-    runs-on: ubuntu-latest
+  attest-wheel:
+    needs: verify-wheel
+    runs-on: ubuntu-24.04
     permissions:
-      actions: read
-      contents: write
+      contents: read
+      id-token: write
+      attestations: write
     steps:
-      - uses: actions/download-artifact@v4
+      # This privileged job neither checks out nor executes repository code.
+      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7
         with:
           name: cbsr-release-evidence-${{ github.run_id }}
           path: release-evidence
-      - name: Prepare release assets and checksums
-        shell: bash
-        run: |
-          set -euo pipefail
-          cp release-evidence/artifacts/validation/verify-summary.json \
-            release-evidence/dist/verify-summary.json
-          (
-            cd release-evidence/dist
-            sha256sum -- *.whl *.json > SHA256SUMS
-          )
+      - uses: actions/attest-build-provenance@977bb373ede98d70efdf65b84cb5f73e068dcc2a # v3
+        with:
+          subject-path: release-evidence/dist/cbsr_mcp-*.whl
+
+  publish-release-assets:
+    if: github.event_name == 'release'
+    needs: attest-wheel
+    runs-on: ubuntu-24.04
+    permissions:
+      # Required by the release-asset upload API; never available to builds.
+      contents: write
+    steps:
+      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7
+        with:
+          name: cbsr-release-evidence-${{ github.run_id }}
+          path: release-evidence
       - name: Upload verified assets to the published release
         shell: bash
         env:

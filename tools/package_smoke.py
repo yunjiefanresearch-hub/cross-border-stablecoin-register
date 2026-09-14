@@ -23,10 +23,15 @@ import subprocess
 import sys
 import tempfile
 
+if __package__:
+    from .install_local_wheel import write_wheel_requirement
+else:
+    from install_local_wheel import write_wheel_requirement
+
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DIST = ROOT / "dist"
-RUNTIME_CONSTRAINTS = ROOT / "constraints" / "runtime.txt"
-DEV_CONSTRAINTS = ROOT / "constraints" / "dev.txt"
+RUNTIME_HASHES = ROOT / "constraints" / "runtime-hashes.txt"
+BOOTSTRAP_HASHES = ROOT / "constraints" / "bootstrap-hashes.txt"
 SOURCE_DATE_EPOCH = "1787184000"  # 2026-08-20T00:00:00Z
 
 
@@ -48,6 +53,14 @@ def _constraint_digest() -> str:
 def _normalise_frozen(line: str) -> str:
     name, version = line.split("==", 1)
     return f"{name.lower().replace('_', '-')}=={version}"
+
+
+def package_install_command(python: str, local_requirement: pathlib.Path, index_args: list[str]) -> list[str]:
+    return [
+        python, "-m", "pip", "install", *index_args,
+        "--require-hashes", "--only-binary=:all:",
+        "--requirement", str(RUNTIME_HASHES), "--requirement", str(local_requirement),
+    ]
 
 
 def _run(command: list[str], cwd: pathlib.Path, env: dict[str, str] | None = None) -> subprocess.CompletedProcess[str]:
@@ -116,13 +129,14 @@ def main() -> int:
         wheelhouse = os.environ.get("CBSR_WHEELHOUSE")
         index_args = ["--no-index", "--find-links", wheelhouse] if wheelhouse else []
         _run([
-            str(python), "-m", "pip", "install", *index_args, "--constraint", str(DEV_CONSTRAINTS),
-            "pip", "setuptools", "wheel"
+            str(python), "-m", "pip", "install", *index_args,
+            "--require-hashes", "--only-binary=:all:", "--requirement", str(BOOTSTRAP_HASHES),
         ], cwd=temp, env=common_env)
-        _run([
-            str(python), "-m", "pip", "install", *index_args, "--constraint", str(RUNTIME_CONSTRAINTS),
-            str(published_wheel)
-        ], cwd=temp, env=common_env)
+        local_requirement = temp / "local-wheel.txt"
+        if write_wheel_requirement(published_wheel, local_requirement) != first_sha:
+            raise SystemExit("local wheel changed between build comparison and installation")
+        _run(package_install_command(str(python), local_requirement, index_args), cwd=temp, env=common_env)
+        _run([str(python), "-m", "pip", "check"], cwd=temp, env=common_env)
 
         smoke = r'''
 import json
@@ -242,6 +256,13 @@ print(json.dumps(result, sort_keys=True))
             "wheel_sha256": first_sha,
             "reproducible_builds": 2,
             "warning_policy": "error",
+            "dependency_integrity": {
+                "mode": "pip-require-hashes",
+                "binary_distributions_only": True,
+                "runtime_lock_sha256": _sha256(RUNTIME_HASHES),
+                "bootstrap_lock_sha256": _sha256(BOOTSTRAP_HASHES),
+                "local_wheel_hash_verified": True,
+            },
             "resolved_runtime": resolved,
             "smoke": smoke_data,
             "pip_audit": audit_status,

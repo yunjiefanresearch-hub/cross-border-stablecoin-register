@@ -43,7 +43,7 @@
   ],
   "reported_foundation_sha": "e91fdee15a330f3fc2f003994f3816c7ef827226",
   "reproduction_commands": [
-    "python -m pip install --constraint constraints/dev.txt '.[dev]'",
+    "python -m pip install --require-hashes --only-binary=:all: -r constraints/dev-hashes.txt",
     "python -m tools.verify",
     "python tools/verify_agenticfi_delivery.py",
     "python tools/verify_research_delivery.py",

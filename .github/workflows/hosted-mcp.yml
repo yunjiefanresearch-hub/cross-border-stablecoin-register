@@ -1,0 +1,91 @@
+# Copyright the Cross-Border Stablecoin Register contributors.
+# SPDX-License-Identifier: Apache-2.0
+name: Hosted MCP container smoke
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  container-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+
+      - name: Build the digest-pinned linux/amd64 image
+        shell: bash
+        env:
+          IMAGE_TAG: cbsr-hosted-mcp:${{ github.sha }}
+        run: |
+          set -euo pipefail
+          docker build \
+            --platform linux/amd64 \
+            --file hosted-mcp/Dockerfile \
+            --tag "$IMAGE_TAG" \
+            .
+          test "$(docker image inspect --format '{{.Config.User}}' "$IMAGE_TAG")" = "10001:10001"
+
+      - name: Probe health and the MCP GET rejection boundary
+        shell: bash
+        env:
+          IMAGE_TAG: cbsr-hosted-mcp:${{ github.sha }}
+          CONTAINER_NAME: cbsr-hosted-mcp-smoke-${{ github.run_id }}-${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+
+          cleanup() {
+            docker rm --force "$CONTAINER_NAME" >/dev/null 2>&1 || true
+          }
+          trap cleanup EXIT
+
+          docker run --detach \
+            --name "$CONTAINER_NAME" \
+            --read-only \
+            --cap-drop ALL \
+            --security-opt no-new-privileges \
+            --tmpfs /app/var:rw,noexec,nosuid,size=1m,uid=10001,gid=10001 \
+            --tmpfs /tmp:rw,noexec,nosuid,size=16m,uid=10001,gid=10001 \
+            --publish 127.0.0.1::8000 \
+            "$IMAGE_TAG" >/dev/null
+
+          mapping="$(docker port "$CONTAINER_NAME" 8000/tcp)"
+          if [[ ! "$mapping" =~ ^127\.0\.0\.1:([0-9]+)$ ]]; then
+            echo "unexpected non-loopback port mapping: $mapping" >&2
+            exit 1
+          fi
+          port="${BASH_REMATCH[1]}"
+
+          health=""
+          for _attempt in $(seq 1 45); do
+            if health="$(curl --fail --silent --show-error --max-time 2 \
+                "http://127.0.0.1:${port}/health" 2>/dev/null)"; then
+              break
+            fi
+            if [[ "$(docker inspect --format '{{.State.Running}}' "$CONTAINER_NAME")" != "true" ]]; then
+              docker logs "$CONTAINER_NAME"
+              exit 1
+            fi
+            sleep 1
+          done
+          test "$health" = '{"status":"ok","service":"cbsr-mcp"}'
+
+          # A plain GET is safe: it invokes no tool. The MCP endpoint must reject
+          # it with the protocol's structured 406 response because curl did not
+          # offer an SSE Accept header.
+          response="$RUNNER_TEMP/cbsr-mcp-get.json"
+          status="$(curl --silent --show-error --max-time 5 \
+            --output "$response" --write-out '%{http_code}' \
+            "http://127.0.0.1:${port}/mcp")"
+          test "$status" = "406"
+          grep --fixed-strings '"code":-32600' "$response"
+          grep --fixed-strings 'Client must accept text/event-stream' "$response"

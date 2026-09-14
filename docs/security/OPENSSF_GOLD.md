@@ -133,7 +133,7 @@ python -m pytest -q
 python -m tools.verify
 
 # Whole-repository Python coverage plus a runtime-only diagnostic in one report.
-python -m pip install -r constraints/quality.txt
+python -m pip install --require-hashes --only-binary=:all: -r constraints/dev-hashes.txt -r constraints/quality-hashes.txt
 python -m coverage run -m pytest -q
 python -m coverage json
 python tools/check_gold_coverage.py
