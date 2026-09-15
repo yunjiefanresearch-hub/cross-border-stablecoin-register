@@ -28,7 +28,7 @@ def main() -> int:
     document["tools"] = metadata()
     document["runtime"]["requires"] = "mcp>=1.29,<1.30"
     document["provenance"]["tool_metadata_source"] = "src/cbsr_mcp/tools/registry.py"
-    path.write_text(json.dumps(document, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    path.write_text(json.dumps(document, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
     print(f"wrote mcp.json from registry ({len(document['tools'])} tools)")
     return 0
 

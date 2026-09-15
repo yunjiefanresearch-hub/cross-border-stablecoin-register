@@ -1,8 +1,15 @@
 {
+  "dependency_integrity": {
+    "binary_distributions_only": true,
+    "bootstrap_lock_sha256": "f63ab6612e013395c7a0b24b6f6249b6b98e4c05864b8d4e23c8d3215aa33ae7",
+    "local_wheel_hash_verified": true,
+    "mode": "pip-require-hashes",
+    "runtime_lock_sha256": "7e6b204b31277b646aa0eb4d85b6948c3edecd0fe4510bf3e62fbc559bd72a0e"
+  },
   "license_inventory": "dist/licenses.json",
   "pip_audit": "passed_no_known_vulnerabilities_live",
   "pip_audit_evidence": "dist/pip-audit.json",
-  "python": "3.12.13",
+  "python": "3.12.14",
   "reproducible_builds": 2,
   "resolved_runtime": {
     "cbsr-mcp": "0.11.0",
@@ -35,5 +42,5 @@
   },
   "warning_policy": "error",
   "wheel": "cbsr_mcp-0.11.0-py3-none-any.whl",
-  "wheel_sha256": "853822112168c0efdfbeaa7a90bf6541111b2550a4e31b765668a587f448f778"
+  "wheel_sha256": "4a84aadd02367187b49223d84e4573f986f9cd51907867963a18304e0ba2ef90"
 }

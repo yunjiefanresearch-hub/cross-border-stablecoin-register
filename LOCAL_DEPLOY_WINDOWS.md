@@ -7,6 +7,10 @@ you showed earlier, for example:
 
 ## One-command setup
 
+Use CPython 3.12 x64 for this Windows clean-room recipe. The committed wheel hash
+matrix separately covers Linux x86_64 with Python 3.10-3.13; it does not claim
+Windows ARM64, other Windows Python minors, or macOS installation evidence.
+
 1. Extract the ZIP to a normal folder. Avoid extracting a second copy inside an older checkout.
 2. Open that folder in File Explorer.
 3. Right-click an empty area and choose **Open in Terminal**.
@@ -17,7 +21,8 @@ Set-ExecutionPolicy -Scope Process Bypass
 .\setup_windows.ps1
 ```
 
-The script creates `.venv`, installs the exact versions in `constraints/dev.txt`, runs `pip check`,
+The script creates `.venv`, installs the exact versions and SHA-256-verified wheels in
+`constraints/dev-hashes.txt`, builds and hash-checks the local CBSR wheel, runs `pip check`,
 then calls the same `python -m tools.verify` used by Linux CI. The verifier performs two complete
 regenerations, committed-output and second-pass hash checks, research reproduction, all positive and
 negative gates, two reproducible wheel builds, clean wheel installation outside the repository, all six

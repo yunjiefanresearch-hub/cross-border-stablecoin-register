@@ -40,25 +40,41 @@ J12 = {"US", "EU", "UK", "SG", "HK", "CN", "BR", "CH", "AE", "JP", "TW", "KR"}
 
 def validate(doc: dict) -> list[str]:
     errs: list[str] = []
+    if not isinstance(doc, dict):
+        return ["backlog must be an object"]
     missing_top = REQUIRED_TOP - set(doc)
     if missing_top:
         errs.append(f"top-level keys missing: {sorted(missing_top)}")
         return errs  # can't sensibly continue
 
-    allowed_status = set(doc["status_values"])
+    statuses = doc["status_values"]
+    if not isinstance(statuses, list) or not all(isinstance(item, str) and item for item in statuses):
+        return ["status_values must be an array of non-empty strings"]
+    for collection in ("items", "resolved_since_snapshot"):
+        if not isinstance(doc.get(collection, []), list):
+            errs.append(f"{collection} must be an array")
+    if errs:
+        return errs
+    allowed_status = set(statuses)
     seen_ids = set()
 
     def check_item(it: dict, where: str, required: set, allow_resolved=False) -> None:
+        if not isinstance(it, dict):
+            errs.append(f"{where}: item must be an object")
+            return
         miss = required - set(it)
         if miss:
             errs.append(f"{where} {it.get('id', '?')}: missing fields {sorted(miss)}")
         iid = it.get("id")
+        if not isinstance(iid, str) or not iid:
+            errs.append(f"{where}: id must be a non-empty string")
+            return
         if iid in seen_ids:
             errs.append(f"{where}: duplicate id {iid!r}")
         seen_ids.add(iid)
         st = it.get("status")
         ok_status = allowed_status | ({"confirmed"} if allow_resolved else set())
-        if st not in ok_status:
+        if not isinstance(st, str) or st not in ok_status:
             errs.append(f"{where} {iid}: status {st!r} not in {sorted(ok_status)}")
         # jurisdiction may be a single code or a slash/space-joined set; check each token
         for tok in str(it.get("jurisdiction", "")).replace("/", " ").split():

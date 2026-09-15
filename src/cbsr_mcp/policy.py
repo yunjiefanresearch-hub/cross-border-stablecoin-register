@@ -37,7 +37,10 @@ _UNCERTAINTY_ORDER = {"low": 0, "medium": 1, "mixed": 2, "high": 3, "unknown": 4
 
 def _iso_date(value: str, error: str) -> date:
     try:
-        return date.fromisoformat(value[:10])
+        parsed = date.fromisoformat(value)
+        if parsed.isoformat() != value:
+            raise ValueError(error)
+        return parsed
     except (TypeError, ValueError) as exc:
         raise ValueError(error) from exc
 
@@ -141,6 +144,10 @@ def evaluate_policy(
     known_record_ids: set[str] | None = None,
 ) -> dict[str, Any]:
     """Evaluate an action against a mandate and explicit evidence; never execute it."""
+    if not isinstance(action, Mapping):
+        return _input_failure("action_must_be_an_object")
+    if not isinstance(as_of, str):
+        return _input_failure("invalid_as_of_date")
     required = ("action_id", "origin", "destination", "asset", "amount", "actor", "mandate")
     missing = [key for key in required if action.get(key) in (None, "", {})]
     if missing:
@@ -161,7 +168,21 @@ def evaluate_policy(
     if domain_errors:
         return _input_failure("domain_validation:" + ",".join(domain_errors), today.isoformat())
 
-    rows = [dict(row) for row in evidence]
+    try:
+        supplied_rows = list(evidence)
+    except TypeError:
+        return _input_failure("evidence_must_be_an_array", today.isoformat())
+    rows = []
+    for row in supplied_rows:
+        if not isinstance(row, Mapping):
+            return _input_failure("evidence_records_must_be_objects", today.isoformat())
+        source = row.get("source")
+        freshness = row.get("freshness")
+        if source is not None and not isinstance(source, Mapping):
+            return _input_failure("evidence_source_must_be_an_object", today.isoformat())
+        if freshness is not None and not isinstance(freshness, Mapping):
+            return _input_failure("evidence_freshness_must_be_an_object", today.isoformat())
+        rows.append(dict(row))
     malformed_ids = [str(row.get("id") or "") for row in rows if not row.get("id")]
     if malformed_ids:
         return _input_failure("malformed_evidence_record", today.isoformat())

@@ -1,6 +1,7 @@
 # Cross-Border Stablecoin Register
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20730358.svg)](https://doi.org/10.5281/zenodo.20730358)
+[![Canonical verification](https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register/actions/workflows/build.yml/badge.svg)](https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register/actions/workflows/build.yml)
 
 An **open, versioned, machine-readable** register of how jurisdictions regulate stablecoins —
 mapped clause by clause across **fifteen dimensions** and **two doctrinal spines** (the
@@ -18,19 +19,34 @@ derivation disagrees with the papers. Built from primary sources, citable by DOI
 > retain a primary-review trace, but none has an independently attested second review; consequently
 > `decision_ready_citable_subset.count=0`. The repository is runnable, not a legal-currentness certificate.
 
+**Public snapshot:** record totals, structural candidates, decision-ready records,
+authored and directed corridors, tool count and date are published together in
+[`api/meta.json`](api/meta.json); tool metadata comes from [`mcp.json`](mcp.json).
+CBSR is the product brand; **Cross-Border Stablecoin Register** remains the dataset's citation name.
+For contribution tasks and outstanding publication settings, see
+[`PUBLIC_REPAIR.md`](docs/PUBLIC_REPAIR.md).
+
+**Security qualification:** the [OpenSSF Gold evidence and gap matrix](docs/security/OPENSSF_GOLD.md)
+tracks the requested delivery standard. It is a remediation record, not a Gold badge or
+certification claim; coverage, prerequisite levels, human reviews and hosted controls must be proved.
+
 For a Windows source-bundle installation, use [`LOCAL_DEPLOY_WINDOWS.md`](LOCAL_DEPLOY_WINDOWS.md) and
 run `setup_windows.ps1`. On every platform, install the committed constraint set before invoking the
 single canonical verifier:
 
 ```bash
 python -m venv .venv
-.venv/bin/python -m pip install --constraint constraints/dev.txt pip setuptools wheel
-.venv/bin/python -m pip install --constraint constraints/dev.txt ".[dev]"
+.venv/bin/python -m pip install --require-hashes --only-binary=:all: -r constraints/dev-hashes.txt
 .venv/bin/python -m tools.verify
 ```
 
 On Windows use `.venv\Scripts\python.exe` or the supplied PowerShell scripts. A raw interpreter without
 the development graph is intentionally rejected by the verifier during preflight.
+The committed wheel-hash matrix covers Linux x86_64 / Python 3.10-3.13 and Windows
+x64 / Python 3.12. Other platforms require a separately reviewed lock extension;
+do not disable hash checking to force an installation. See
+[`constraints/README.md`](constraints/README.md) and the
+[supply-chain control record](docs/security/SUPPLY_CHAIN.md).
 
 ---
 
@@ -65,8 +81,7 @@ planned schedule for the cells still open, is in [`COVERAGE.md`](COVERAGE.md).
 
 ## Use
 ```bash
-python -m pip install --constraint constraints/dev.txt pip setuptools wheel
-python -m pip install --constraint constraints/dev.txt ".[dev]"
+python -m pip install --require-hashes --only-binary=:all: -r constraints/dev-hashes.txt
 python -m tools.verify
 ```
 The verifier is the only supported aggregate command. It executes two complete generation passes,

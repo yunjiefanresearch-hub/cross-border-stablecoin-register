@@ -1,7 +1,4 @@
-# Legacy build-only entry point. Full development and release verification uses:
-#   python -m pip install --constraint constraints/dev.txt ".[dev]"
-# Keeping this file constrained prevents a different dependency graph from being
-# resolved when an older automation still invokes `pip install -r requirements.txt`.
--c constraints/dev.txt
-jsonschema
-PyYAML
+# Compatibility entry point: use the same complete, hashed verification graph.
+--require-hashes
+--only-binary=:all:
+-r constraints/dev-hashes.txt

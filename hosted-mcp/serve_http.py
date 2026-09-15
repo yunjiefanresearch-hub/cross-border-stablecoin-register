@@ -16,6 +16,8 @@ from __future__ import annotations
 import os, sys
 
 from cbsr_mcp.server import mcp   # reuse the exact FastMCP instance + all tools
+from starlette.requests import Request
+from starlette.responses import JSONResponse
 
 # corridor-demand telemetry (best-effort; no-ops cleanly if internals differ)
 try:
@@ -23,6 +25,12 @@ try:
     cbsr_obs.instrument(mcp)
 except Exception as e:
     print(f"[serve_http] obs disabled: {e}", file=sys.stderr)
+
+
+@mcp.custom_route("/health", methods=["GET"], include_in_schema=False)
+async def health(_request: Request) -> JSONResponse:
+    """Side-effect-free liveness probe for the hosted transport only."""
+    return JSONResponse({"status": "ok", "service": "cbsr-mcp"})
 
 HOST = os.environ.get("CBSR_HTTP_HOST", "0.0.0.0")
 PORT = int(os.environ.get("CBSR_HTTP_PORT", "8000"))

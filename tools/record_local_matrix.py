@@ -79,7 +79,7 @@ def main() -> int:
             "windows_11": "unverified_external",
         },
     }
-    OUT_JSON.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    OUT_JSON.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
 
     lines = [
         "# Local Linux Python matrix",
@@ -106,7 +106,7 @@ def main() -> int:
         "GitHub Actions and Windows remain external release gates as described in",
         "`PLATFORM_EVIDENCE.md`.",
     ])
-    OUT_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    OUT_MD.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
     print(f"recorded {len(rows)} local Linux passes in {OUT_JSON.relative_to(ROOT)}")
     return 0
 

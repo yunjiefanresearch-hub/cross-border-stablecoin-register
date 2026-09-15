@@ -1034,11 +1034,11 @@ def main():
     if analysis is not None:
         dataset["analysis"] = analysis
     (ROOT / "analysis" / "freshness_report.json").write_text(
-        json.dumps(freshness, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+        json.dumps(freshness, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n"
     )
-    (ROOT / "dataset.json").write_text(json.dumps(dataset, indent=2, ensure_ascii=False), encoding="utf-8")
-    (ROOT / "COVERAGE.md").write_text(render_coverage(cov, roadmap, recs, analysis), encoding="utf-8")
-    (ROOT / "records.md").write_text(render_records(recs), encoding="utf-8")
+    (ROOT / "dataset.json").write_text(json.dumps(dataset, indent=2, ensure_ascii=False), encoding="utf-8", newline="\n")
+    (ROOT / "COVERAGE.md").write_text(render_coverage(cov, roadmap, recs, analysis), encoding="utf-8", newline="\n")
+    (ROOT / "records.md").write_text(render_records(recs), encoding="utf-8", newline="\n")
     print(f"OK — {len(recs)} records valid, {len(corridors)} corridor(s); "
           f"{sum(1 for v in cov.values() if v=='verified')} recorded/schema-valid / "
           f"{sum(1 for v in cov.values() if v=='draft')} draft cell(s).")

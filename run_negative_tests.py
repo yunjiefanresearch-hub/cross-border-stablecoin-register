@@ -37,7 +37,7 @@ from pathlib import Path
 SRC = Path(__file__).resolve().parent
 
 def read(p):  return p.read_text(encoding="utf-8")
-def write(p, s): p.write_text(s, encoding="utf-8")
+def write(p, s): p.write_text(s, encoding="utf-8", newline="\n")
 
 def yaml_set(path, mutate):
     """Load a YAML record, mutate the dict in place, write it back (UTF-8)."""
@@ -143,7 +143,12 @@ def main():
     work = Path(tempfile.mkdtemp(prefix="cbsr_negtest_"))
     reg = work / "register"
     try:
-        shutil.copytree(SRC, reg, ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
+        # Copy source and fixtures, not the installed environment or Git object store.
+        # Copying .venv made a source-bundle Windows run exceed the page generator's timeout.
+        shutil.copytree(SRC, reg, ignore=shutil.ignore_patterns(
+            "__pycache__", "*.pyc", ".git", ".venv", "venv", "env", "node_modules",
+            ".pytest_cache", ".mypy_cache", ".ruff_cache", "artifacts", "dist",
+        ))
         # sanity: the clean copy must BUILD GREEN before we start breaking it
         clean_ok = not build_fails(reg)
         print("CBSR negative-test battery — validating that the gates BITE\n" + "=" * 64)

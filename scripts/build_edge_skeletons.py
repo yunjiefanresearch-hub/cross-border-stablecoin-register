@@ -141,7 +141,7 @@ def build_edge_skeletons():
         "provenance": {"nontier1_skeletons": bad_prov, "clean": not bad_prov},
         "skeletons": skeletons,
     }
-    (ROOT / "analysis" / "computed_corridor_skeletons.json").write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8")
+    (ROOT / "analysis" / "computed_corridor_skeletons.json").write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8", newline="\n")
     return out
 
 

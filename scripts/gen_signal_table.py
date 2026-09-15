@@ -341,7 +341,7 @@ def main() -> int:
         "settlement_blocs": src["settlement_blocs"],
     }
 
-    DST.write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    DST.write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
 
     # Re-run the audit's own gates over what we just wrote.
     doc = class_rule.load(DST)

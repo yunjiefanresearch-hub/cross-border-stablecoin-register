@@ -188,7 +188,7 @@ def build_stakeholder_projections():
                        "nontier1_profiles": bad_prov, "clean": (not missing and not bad_prov)},
         "profiles": profiles,
     }
-    (ROOT / "analysis" / "computed_stakeholder_profiles.json").write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8")
+    (ROOT / "analysis" / "computed_stakeholder_profiles.json").write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8", newline="\n")
     return out
 
 

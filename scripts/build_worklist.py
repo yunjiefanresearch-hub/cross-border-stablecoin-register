@@ -95,7 +95,7 @@ def build_worklist():
         "tier_requirements": _TIER_NEEDS,
         "items": items,
     }
-    (ROOT / "analysis" / "verification_worklist.json").write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8")
+    (ROOT / "analysis" / "verification_worklist.json").write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8", newline="\n")
     return out
 
 

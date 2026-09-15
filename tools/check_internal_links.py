@@ -46,7 +46,8 @@ def main() -> int:
                 continue
             candidate = (ROOT / decoded.lstrip("/")) if decoded.startswith("/") else (document.parent / decoded)
             checked += 1
-            if not candidate.resolve().exists():
+            resolved = candidate.resolve()
+            if not resolved.is_relative_to(ROOT.resolve()) or not resolved.exists():
                 line = text.count("\n", 0, match.start()) + 1
                 failures.append(f"{document.relative_to(ROOT)}:{line}: {raw}")
     if failures:

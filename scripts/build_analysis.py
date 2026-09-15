@@ -408,7 +408,7 @@ ARTIFACTS = {
 }
 if __name__ == "__main__":
     for name, obj in ARTIFACTS.items():
-        (OUT / name).write_text(json.dumps(obj, indent=2, ensure_ascii=False), encoding="utf-8")
+        (OUT / name).write_text(json.dumps(obj, indent=2, ensure_ascii=False), encoding="utf-8", newline="\n")
     # sanity: all 66 pairs present and well-formed
     assert compatibility["pair_count"] == 66, compatibility["pair_count"]
     seen = {p["pair"] for p in compat_pairs}

@@ -171,7 +171,7 @@ def main() -> int:
         path.write_text(
             text.rstrip() + "\n\n# CBSR v0.11 review/temporal metadata (mechanically migrated; null means not evidenced)\n"
             + block + "\n",
-            encoding="utf-8",
+            encoding="utf-8", newline="\n",
         )
         changed += 1
     if len(paths) != 152:

@@ -391,7 +391,7 @@ def build():
                              "agreement": f"{p_agree}/{len(pairs)}", "pairs": pairs},
         "findings_by_cause": {k: sorted(v) for k, v in sorted(findings.items())},
     }
-    (ROOT / "analysis" / "computed_compatibility.json").write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8")
+    (ROOT / "analysis" / "computed_compatibility.json").write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8", newline="\n")
     return out
 
 
@@ -484,7 +484,7 @@ def build_timeline():
         "illustration_edge_timelines": illustration,
         "undirected_agreement_over_time": over_time,
     }
-    (ROOT / "analysis" / "computed_timeline.json").write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8")
+    (ROOT / "analysis" / "computed_timeline.json").write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8", newline="\n")
     return out
 
 

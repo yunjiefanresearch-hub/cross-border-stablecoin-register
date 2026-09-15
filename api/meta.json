@@ -39,6 +39,8 @@
       "official_source": 103,
       "decision_ready": 0
     },
-    "authored_corridors": 9
+    "authored_corridors": 9,
+    "directed_corridors": 132,
+    "mcp_tool_count": 40
   }
 }

@@ -524,7 +524,7 @@ if __name__ == "__main__":
     for r in R:
         path = ROOT / f"{r['id']}.yaml"
         path.write_text(yaml.dump(r, sort_keys=False, allow_unicode=True,
-                                  default_flow_style=False, width=100), encoding="utf-8")
+                                  default_flow_style=False, width=100), encoding="utf-8", newline="\n")
         written += 1
     print(f"wrote {written} records ({len([r for r in R if r['jurisdiction']=='CH'])} CH, "
           f"{len([r for r in R if r['jurisdiction']=='AE'])} AE, "

@@ -162,7 +162,7 @@ _CITABLE_AXES = (
 
 
 def _citable_blocks(r: dict) -> list[list]:
-    """Return the axes on which a record fails the tier1_legal + in_force + resolution_text test."""
+    """Return every structural, source, freshness or independent-review gate that fails."""
     blocks = []
     for field, want, why in _CITABLE_AXES:
         if r.get(field) != want:

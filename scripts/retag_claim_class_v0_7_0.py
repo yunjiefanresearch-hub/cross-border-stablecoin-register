@@ -90,7 +90,7 @@ def process(path: pathlib.Path) -> str:
     insert_at = m.end()
     new_text = text[:insert_at] + f"claim_class: {cc}\n" + text[insert_at:]
     new_text = add_tag(new_text)
-    path.write_text(new_text, encoding="utf-8")
+    path.write_text(new_text, encoding="utf-8", newline="\n")
     return f"{cc}"
 
 

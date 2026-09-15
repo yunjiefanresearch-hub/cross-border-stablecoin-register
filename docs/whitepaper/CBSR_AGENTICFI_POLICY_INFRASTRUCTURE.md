@@ -407,7 +407,7 @@ This is a deduplicated inventory of source citations in the register. Inclusion 
 ### Canonical command
 
 ```text
-python -m pip install --constraint constraints/dev.txt ".[dev]"
+python -m pip install --require-hashes --only-binary=:all: -r constraints/dev-hashes.txt
 python -m tools.verify
 ```
 

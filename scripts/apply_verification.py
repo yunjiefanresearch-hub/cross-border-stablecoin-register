@@ -488,7 +488,7 @@ def apply():
         if disp.get("tier") == "resolution_text": tags.append("resolution_text_verified")
         elif "tier" in disp: tags.append("verification_reviewed")
         add_tags(d, tags)
-        f.write_text(yaml.safe_dump(d, sort_keys=False, allow_unicode=True, width=110), encoding="utf-8")
+        f.write_text(yaml.safe_dump(d, sort_keys=False, allow_unicode=True, width=110), encoding="utf-8", newline="\n")
         changed += 1
         ledger.append({"cell": cid, "jurisdiction": d["jurisdiction"],
                        "instrument": CLUSTERS[d["jurisdiction"]]["instrument"],
@@ -506,7 +506,7 @@ def apply():
         if "binding_status" in d: continue
         d["binding_status"] = fallback_binding(d.get("status"), d.get("evidence_tier"))
         add_tags(d, [f"binding_{d['binding_status']}"])
-        f.write_text(yaml.safe_dump(d, sort_keys=False, allow_unicode=True, width=110), encoding="utf-8")
+        f.write_text(yaml.safe_dump(d, sort_keys=False, allow_unicode=True, width=110), encoding="utf-8", newline="\n")
         fb += 1
     # 3) emit the ledger audit trail
     out = {"schema": "cbsr/verification_ledger", "version": "v0.10.0",
@@ -519,7 +519,7 @@ def apply():
            "buckets": {k: CLUSTERS[k]["binding_status"] for k in CLUSTERS},
            "clusters": CLUSTERS,
            "entries": ledger}
-    (ROOT / "analysis" / "verification_ledger.json").write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8")
+    (ROOT / "analysis" / "verification_ledger.json").write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8", newline="\n")
     return changed, fb, ledger
 
 if __name__ == "__main__":

@@ -1,5 +1,6 @@
 """Corridor, substrate and temporal architecture tools."""
 from __future__ import annotations
+from datetime import date
 from typing import Optional
 from ..core.catalog import JURISDICTIONS
 from ..data.repository import DATA, RECORDS, record_summary
@@ -150,6 +151,13 @@ def compose_corridor(origin: str, destination: str, as_of: Optional[str] = None)
     exists) the computed-vs-authored comparison.
     """
     o, d = origin.upper(), destination.upper()
+    if as_of is not None:
+        try:
+            parsed_as_of = date.fromisoformat(as_of)
+        except (TypeError, ValueError):
+            return {"error": "as_of must be an ISO date (YYYY-MM-DD)"}
+        if parsed_as_of.isoformat() != as_of:
+            return {"error": "as_of must be an ISO date (YYYY-MM-DD)"}
     if not COMPUTED:
         return {"error": "computed layer not present (run scripts/compose.py then build.py)"}
     signals = _signals_as_of(as_of) if as_of else None
@@ -297,16 +305,17 @@ def verification_worklist(jurisdiction: Optional[str] = None) -> dict:
 def citable_law(jurisdiction: Optional[str] = None,
                 dimension: Optional[str] = None) -> dict:
     """
-    The lawyer-citable subset: only records that are a proposition of law (claim_class=tier1_legal),
-    currently in force (status=in_force), AND confirmed against the official statutory/regulatory text
-    (evidence_tier=resolution_text). Each row returns the binding instrument, the pinpoint locator, and
-    the official URL — everything a citation needs.
+    Decision-ready citable law: structural legal candidates with official, current, independently reconciled evidence.
 
-    This is the 'show me only what I could cite' view for lawyers and supervisors. Operational/market
-    facts (claim_class=tier2_operational) are excluded by KIND even when well-sourced (a confirmed
-    product launch is a true fact, not a proposition of law); draft provisions are excluded by status;
-    unverified legal points are excluded by tier. The same subset is published as `citable_subset` in
-    dataset.json and enforced by the build (a citable record must carry source.url + pinpoint).
+    All six gates must pass: claim_class=tier1_legal, status=in_force,
+    evidence_tier=resolution_text, source_disposition=official,
+    freshness.review_status=current, and review_stage=reconciled. Each record also
+    carries its source URL and pinpoint. Freshness is assessed at the dataset's dated
+    snapshot, not at the time this offline tool is called.
+
+    This returns `decision_ready_citable_subset` from dataset.json. The legacy
+    `citable_subset` contains structural candidates only; its separate count never
+    promotes a candidate through the freshness or independent-review gates.
 
     Optional filters narrow to a jurisdiction (e.g. 'CH') and/or a dimension (e.g. 'reserve_backing').
     """

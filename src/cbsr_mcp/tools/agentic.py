@@ -1,7 +1,7 @@
 """Typed AgenticFi decision-support tools."""
 from __future__ import annotations
 import json
-from typing import Optional
+from typing import Mapping, Optional
 from ..core.catalog import DIMENSIONS, JURISDICTIONS
 from ..core.errors import error
 from ..data.repository import DATA, RECORDS, record_summary
@@ -65,17 +65,32 @@ def get_rule(record_id: str) -> dict:
 @tool
 def evaluate_action(action: dict) -> dict:
     """Evaluate, but never execute, an action against its mandate and applicable CBSR evidence."""
-    origin = str(action.get("origin") or "").upper()
-    destination = str(action.get("destination") or "").upper()
-    dimensions = set(action.get("required_dimensions") or STABLECOIN_PACK.default_dimensions)
+    action_value = dict(action) if isinstance(action, Mapping) else {}
+    origin = str(action_value.get("origin") or "").upper()
+    destination = str(action_value.get("destination") or "").upper()
+    requested_dimensions = action_value.get("required_dimensions")
+    if requested_dimensions is None or requested_dimensions == []:
+        dimensions = set(STABLECOIN_PACK.default_dimensions)
+    elif isinstance(requested_dimensions, (list, tuple)) and all(
+        isinstance(item, str) for item in requested_dimensions
+    ):
+        dimensions = set(requested_dimensions)
+    else:
+        # The policy parser supplies the structured fail-closed decision below.
+        dimensions = set()
     evidence = [
         record for record in RECORDS
         if record.get("jurisdiction") in {origin, destination}
         and record.get("dimension") in dimensions
     ]
-    as_of = str(action.get("as_of") or DATA.get("generated") or "2026-08-20")
-    decision = evaluate_policy(action, evidence, as_of, known_record_ids={str(row.get("id")) for row in RECORDS})
-    receipt = create_receipt(action, decision, str(DATA.get("version")))
+    as_of = str(action_value.get("as_of") or DATA.get("generated") or "2026-08-20")
+    decision = evaluate_policy(
+        action_value,
+        evidence,
+        as_of,
+        known_record_ids={str(row.get("id")) for row in RECORDS},
+    )
+    receipt = create_receipt(action_value, decision, str(DATA.get("version")))
     return {
         "decision": decision,
         "receipt": receipt,

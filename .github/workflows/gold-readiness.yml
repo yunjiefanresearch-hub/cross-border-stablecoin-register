@@ -1,0 +1,62 @@
+name: Gold coverage evidence (not certification)
+
+on:
+  pull_request:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+    inputs:
+      enforce_thresholds:
+        description: Fail unless measured Python coverage reaches 90% statements and 80% branches
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  coverage-evidence:
+    runs-on: ubuntu-24.04
+    env:
+      PYTHONUTF8: "1"
+      PYTHONPATH: src
+      # A fresh checkout and per-attempt summary prevent reuse of an earlier run.
+      CBSR_EVIDENCE_DIR: artifacts/validation/gold-canonical-${{ github.run_id }}-${{ github.run_attempt }}
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.12"
+      - name: Install locked test and measurement tooling
+        run: |
+          python -m pip install --require-hashes --only-binary=:all: -r constraints/dev-hashes.txt -r constraints/quality-hashes.txt
+      - name: Measure canonical verification including pytest and subprocesses
+        run: |
+          python -m coverage erase
+          python -m coverage run --context=canonical tools/verify.py
+      - name: Combine and render measured evidence even after a test failure
+        if: always()
+        run: |
+          python -m coverage combine
+          python -m coverage json --show-contexts
+          python -m coverage html
+      - name: Bind the report to this verification attempt and current source
+        if: always()
+        run: python tools/check_gold_coverage.py --verification-summary "$CBSR_EVIDENCE_DIR/verify-summary.json"
+      - name: Enforce Gold coverage thresholds when explicitly requested
+        if: github.event_name == 'workflow_dispatch' && inputs.enforce_thresholds
+        run: python tools/check_gold_coverage.py --verification-summary "$CBSR_EVIDENCE_DIR/verify-summary.json" --enforce
+      - name: Upload measured evidence regardless of threshold outcome
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: gold-coverage-${{ github.sha }}
+          path: |
+            artifacts/validation/coverage.json
+            artifacts/validation/gold-coverage.json
+            artifacts/validation/coverage-html/
+            ${{ env.CBSR_EVIDENCE_DIR }}/verify-summary.json
+          if-no-files-found: error
+          retention-days: 30

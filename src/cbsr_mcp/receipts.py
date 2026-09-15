@@ -64,12 +64,34 @@ def create_receipt(action: Mapping[str, Any], decision: Mapping[str, Any], datas
 
 
 def verify_receipt(receipt: Mapping[str, Any]) -> dict[str, Any]:
+    if not isinstance(receipt, Mapping):
+        return {
+            "valid": False,
+            "receipt_hash_valid": False,
+            "action_hash_valid": False,
+            "decision_hash_valid": False,
+            "supplied_sha256": None,
+            "computed_sha256": None,
+            "signing_state": "unknown",
+            "warning": "Integrity only; this receipt is not digitally signed and proves no author identity.",
+        }
     supplied = receipt.get("sha256")
     payload = {key: value for key, value in receipt.items() if key != "sha256"}
     computed = sha256_digest(payload)
-    component = receipt.get("component_digests") or {}
-    action_valid = component.get("action_sha256") == sha256_digest(receipt.get("action") or {})
-    decision_valid = component.get("decision_sha256") == sha256_digest(receipt.get("decision") or {})
+    component_value = receipt.get("component_digests")
+    action_value = receipt.get("action")
+    decision_value = receipt.get("decision")
+    component = component_value if isinstance(component_value, Mapping) else {}
+    action_valid = (
+        isinstance(component_value, Mapping)
+        and isinstance(action_value, Mapping)
+        and component.get("action_sha256") == sha256_digest(action_value)
+    )
+    decision_valid = (
+        isinstance(component_value, Mapping)
+        and isinstance(decision_value, Mapping)
+        and component.get("decision_sha256") == sha256_digest(decision_value)
+    )
     valid = bool(supplied) and supplied == computed and action_valid and decision_valid
     return {
         "valid": valid,

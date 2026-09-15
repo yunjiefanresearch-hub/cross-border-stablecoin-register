@@ -1,0 +1,25 @@
+# Copyright the Cross-Border Stablecoin Register contributors.
+# SPDX-License-Identifier: Apache-2.0
+**
+
+!pyproject.toml
+!README-PYPI.md
+!LICENSE-CODE
+!dataset.json
+
+!constraints/
+!constraints/dev-hashes.txt
+!constraints/runtime-hashes.txt
+
+!schemas/
+!schemas/**
+!src/
+!src/**
+
+!tools/
+!tools/install_local_wheel.py
+
+!hosted-mcp/
+!hosted-mcp/Dockerfile
+!hosted-mcp/serve_http.py
+!hosted-mcp/cbsr_obs.py

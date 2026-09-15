@@ -7,9 +7,13 @@ available for citation but do not receive runtime fixes.
 
 ## Reporting
 
-Do not disclose an exploitable vulnerability in a public issue. Use GitHub's private vulnerability
-reporting for this repository. Include the affected revision, reproduction steps, impact, and the
-smallest safe test case. Never include production credentials, personal data, or private legal files.
+Do not disclose an exploitable vulnerability in a public issue. Open the repository's
+[Security advisories page](https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register/security/advisories).
+If **Report a vulnerability** is available, follow
+[GitHub's private reporting instructions](https://docs.github.com/en/code-security/how-tos/report-and-fix-vulnerabilities/report-privately).
+Otherwise use the protected-channel fallback below; this policy does not itself prove that private
+reporting is enabled. Include the affected revision, reproduction steps, impact, and the smallest
+safe test case. Never include production credentials, personal data, or private legal files.
 
 ## Response expectations and coordinated disclosure
 

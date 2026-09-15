@@ -82,7 +82,7 @@ def main(output: str | None = None) -> int:
         for rel in sorted(value for value in present if value.startswith("dist/")):
             checksums.append(f"{_sha(ROOT / rel)}  {rel}")
         checksum_path = temp_root / "SHA256SUMS"
-        checksum_path.write_text("\n".join(checksums) + "\n", encoding="utf-8")
+        checksum_path.write_text("\n".join(checksums) + "\n", encoding="utf-8", newline="\n")
         manifest_path = temp_root / "RELEASE_MANIFEST.json"
         summary_path = ROOT / "artifacts" / "validation" / "verify-summary.json"
         if not summary_path.is_file():
@@ -127,7 +127,7 @@ def main(output: str | None = None) -> int:
                 "whitepaper_peer_review": "not_completed",
                 "qualitative_second_coder": "not_completed",
             },
-        }, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        }, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
 
         members = [(path, path.relative_to(ROOT).as_posix()) for path in files]
         members.extend([(checksum_path, "SHA256SUMS"), (manifest_path, "RELEASE_MANIFEST.json")])
@@ -142,7 +142,7 @@ def main(output: str | None = None) -> int:
 
     digest = _sha(destination)
     sidecar = destination.with_suffix(destination.suffix + ".sha256")
-    sidecar.write_text(f"{digest}  {destination.name}\n", encoding="utf-8")
+    sidecar.write_text(f"{digest}  {destination.name}\n", encoding="utf-8", newline="\n")
     print(json.dumps({"zip": str(destination), "bytes": destination.stat().st_size,
                       "files": len(files) + 2, "sha256": digest}, ensure_ascii=False))
     return 0

@@ -173,9 +173,9 @@ def main():
         },
     }
 
-    with io.open(os.path.join(out_dir, "compute_reconciliation_report.json"), "w", encoding="utf-8") as f:
+    with io.open(os.path.join(out_dir, "compute_reconciliation_report.json"), "w", encoding="utf-8", newline="\n") as f:
         json.dump(report, f, ensure_ascii=False, indent=2)
-    with io.open(os.path.join(out_dir, "corrections.json"), "w", encoding="utf-8") as f:
+    with io.open(os.path.join(out_dir, "corrections.json"), "w", encoding="utf-8", newline="\n") as f:
         json.dump(corrections, f, ensure_ascii=False, indent=2)
 
     # ---- console summary ----

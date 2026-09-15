@@ -25,7 +25,7 @@ try:
 except Exception:
     pass
 
-import sys, json, csv, pathlib
+import sys, json, csv, io, pathlib
 from collections import defaultdict, Counter
 
 __version__ = "0.10.0"
@@ -133,18 +133,19 @@ def write_matrix_md(doc, by_pair, src: pathlib.Path = None):
                  "drag: no origin-side token, present or future, completes a corridor into a "
                  "jurisdiction that bans the instrument or has nothing to receive it. Those four read "
                  "`III` — *\"partnership / coordination route\"* — through v0.9.99.\n")
-    (OUT / "corridor_matrix.md").write_text("\n".join(lines), encoding="utf-8")
+    (OUT / "corridor_matrix.md").write_text("\n".join(lines), encoding="utf-8", newline="\n")
 
 
 def write_matrix_csv(by_pair):
-    with (OUT / "corridor_matrix.csv").open("w", newline="", encoding="utf-8") as f:
-        w = csv.writer(f)
-        w.writerow(["origin\\dest"] + J12)
-        for o in J12:
-            row = [o]
-            for d in J12:
-                row.append("" if o == d else by_pair[(o, d)]["class_code"])
-            w.writerow(row)
+    stream = io.StringIO(newline="")
+    writer = csv.writer(stream, lineterminator="\n")
+    writer.writerow(["origin\\dest"] + J12)
+    for o in J12:
+        row = [o]
+        for d in J12:
+            row.append("" if o == d else by_pair[(o, d)]["class_code"])
+        writer.writerow(row)
+    (OUT / "corridor_matrix.csv").write_bytes(stream.getvalue().encode("utf-8"))
 
 
 def write_per_jurisdiction(doc, by_pair):
@@ -181,7 +182,7 @@ def write_per_jurisdiction(doc, by_pair):
             if in_g.get(c):
                 lines.append(f"- **{CELL[c]}** ← {', '.join(sorted(in_g[c]))}")
         lines.append("")
-    (OUT / "corridor_per_jurisdiction.md").write_text("\n".join(lines), encoding="utf-8")
+    (OUT / "corridor_per_jurisdiction.md").write_text("\n".join(lines), encoding="utf-8", newline="\n")
 
 
 def main(argv):

@@ -101,13 +101,13 @@ def _write_source_ledger(research: pathlib.Path) -> list[dict]:
         "records": rows,
     }
     (research / "source_ledger_2026-08-20.json").write_text(
-        json.dumps(ledger, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+        json.dumps(ledger, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n"
     )
     buffer = io.StringIO(newline="")
-    writer = csv.DictWriter(buffer, fieldnames=list(rows[0]))
+    writer = csv.DictWriter(buffer, fieldnames=list(rows[0]), lineterminator="\n")
     writer.writeheader()
     writer.writerows(rows)
-    (research / "source_ledger_2026-08-20.csv").write_text(buffer.getvalue(), encoding="utf-8")
+    (research / "source_ledger_2026-08-20.csv").write_bytes(buffer.getvalue().encode("utf-8"))
     return rows
 
 
@@ -139,7 +139,7 @@ def _write_baseline(research: pathlib.Path) -> dict:
         ],
     }
     (research / "quantitative_baseline.json").write_text(
-        json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+        json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n"
     )
     lines = [
         "# Quantitative baseline", "",
@@ -160,7 +160,7 @@ def _write_baseline(research: pathlib.Path) -> dict:
         "ineligible for a legal or AgenticFi decision.", "",
         "## Limitations", "", *[f"- {item}" for item in report["limitations"]], "",
     ]
-    (research / "QUANTITATIVE_BASELINE.md").write_text("\n".join(lines), encoding="utf-8")
+    (research / "QUANTITATIVE_BASELINE.md").write_text("\n".join(lines), encoding="utf-8", newline="\n")
     return report
 
 
@@ -298,7 +298,7 @@ def _write_dossiers(research: pathlib.Path, report: dict) -> None:
             "", "Bibliography entries reproduce committed source metadata. Inclusion is not a representation that "
             "the source was re-opened during this generation run.", "",
         ])
-        (dossiers / f"{code}.md").write_text("\n".join(body), encoding="utf-8")
+        (dossiers / f"{code}.md").write_text("\n".join(body), encoding="utf-8", newline="\n")
 
 
 def main() -> int:

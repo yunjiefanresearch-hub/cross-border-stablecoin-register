@@ -217,7 +217,7 @@ def main(argv=None):
 
     if args.write:
         OUT.mkdir(exist_ok=True)
-        (OUT / "corridor_sensitivity.md").write_text(render(results), encoding="utf-8")
+        (OUT / "corridor_sensitivity.md").write_text(render(results), encoding="utf-8", newline="\n")
         print("wrote out/corridor_sensitivity.md")
     return 0
 

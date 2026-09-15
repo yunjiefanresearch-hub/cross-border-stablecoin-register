@@ -19,9 +19,9 @@
       "sha256": "a333cf60135342d61e446815d1c3a66e8bfe688ecda7cce1a4fe8045891ecaef"
     },
     {
-      "bytes": 3892,
+      "bytes": 4284,
       "path": "SECURITY.md",
-      "sha256": "5084e18137b207162f4ddd9d5826e5c6e887a9b1dee37bea9161b60e71397d97"
+      "sha256": "1cb2c9ebb6fd67ef572b02f8062459561f556e7ec445ed4baf6b9eadee55adeb"
     },
     {
       "bytes": 10097,
@@ -44,9 +44,9 @@
       "sha256": "877ef84adcc6f7dcdb49d90763f2df1becf8da2e34f9d18c7535a414a7a5673c"
     },
     {
-      "bytes": 1311,
+      "bytes": 1336,
       "path": "delivery/BASELINE_REPRODUCTION.md",
-      "sha256": "e8d85840c891ecc2affdafe8549edb6ad8d154d89b9072da88135c8d953adb44"
+      "sha256": "091138c9f5ea86d1826a19de908f8614ab3b06aee871741473e5380977951ff1"
     },
     {
       "bytes": 1461,
@@ -94,9 +94,9 @@
       "sha256": "5e8396a1d81329d554634657f2f608f2119430177a0a2228b26134be86627a5e"
     },
     {
-      "bytes": 1905,
+      "bytes": 1930,
       "path": "delivery/baseline_reproduction.json",
-      "sha256": "373127c22bc24d2a4ca87e80e42b44cf082fbde47ac327c18da7f819b4914e20"
+      "sha256": "da54eb5d3f1a7f457e4e16e9ad80a185c67da45a6b0eab77153ea7b501c18752"
     },
     {
       "bytes": 1076,
@@ -129,9 +129,9 @@
       "sha256": "0b535108c2c84dd73f54e92cc151432e59fcad66e57a31552f9d998d4e56abb7"
     },
     {
-      "bytes": 1311,
+      "bytes": 1336,
       "path": "docs/delivery/BASELINE_REPRODUCTION.md",
-      "sha256": "e8d85840c891ecc2affdafe8549edb6ad8d154d89b9072da88135c8d953adb44"
+      "sha256": "091138c9f5ea86d1826a19de908f8614ab3b06aee871741473e5380977951ff1"
     },
     {
       "bytes": 2768,
@@ -189,9 +189,9 @@
       "sha256": "2979d9c3f70fae9cadd025659bcf1cdc03b46e634f3b0404d06c69155b7513cc"
     },
     {
-      "bytes": 50823,
+      "bytes": 50848,
       "path": "docs/whitepaper/CBSR_AGENTICFI_POLICY_INFRASTRUCTURE.md",
-      "sha256": "9e237e94ed96a20ee204f92b977441a69e158f52eece52226c059897a488aee2"
+      "sha256": "528a9dccf6a6923dd8189bd42f7137741a063c6c7ea8fb2a6eb17793afc89867"
     },
     {
       "bytes": 4686,
@@ -201,7 +201,7 @@
     {
       "bytes": 8080,
       "path": "research/research_manifest.json",
-      "sha256": "3c956c993b1bc6e4a6f4aa98423ccee88e0a83e66697e813dfc41688fa973d88"
+      "sha256": "b55cc8668ef27dcb25160c41b9524f00327a1389d328c6e84ed6e6873a867557"
     }
   ],
   "package_evidence": "generated after delivery validation by python -m tools.verify",

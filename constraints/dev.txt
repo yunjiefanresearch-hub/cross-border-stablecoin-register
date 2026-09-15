@@ -11,6 +11,7 @@ cyclonedx-python-lib==11.12.0
 defusedxml==0.7.1
 filelock==3.32.3
 hatchling==1.32.0
+importlib-metadata==8.7.0; python_full_version < "3.10.2"
 iniconfig==2.3.0
 license-expression==30.4.4
 markdown-it-py==4.2.0
@@ -29,17 +30,18 @@ Pygments==2.21.0
 py-serializable==2.1.0
 pyparsing==3.3.2
 pyproject-hooks==1.2.0
-pypdf==6.10.0
-pytest==8.4.2
+pypdf==6.18.1
+pytest==9.1.1
 PyYAML==6.0.3
 requests==2.34.2
 reportlab==4.4.9
 rich==15.0.0
 setuptools==84.0.0
 sortedcontainers==2.4.0
-tomli==2.4.1; python_version < "3.11"
+tomli==2.4.1
 tomli-w==1.2.0
 tomlkit==0.15.1
 trove-classifiers==2026.6.1.19
 urllib3==2.7.0
 wheel==0.48.0
+zipp==3.23.0; python_full_version < "3.10.2"

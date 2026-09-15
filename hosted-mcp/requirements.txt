@@ -1,1 +1,6 @@
-mcp[cli]>=1.2
+# Compatibility entry point for a manual Hosted MCP dependency install.
+# The HTTP launcher imports the MCP Python API; it does not need the `mcp[cli]`
+# extra. The canonical transitive graph and hashes live in the root lock.
+--require-hashes
+--only-binary=:all:
+-r ../constraints/runtime-hashes.txt

@@ -33,7 +33,7 @@ def _write_json(relative: str, payload: object) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(
         json.dumps(payload, indent=2, ensure_ascii=False, sort_keys=True) + "\n",
-        encoding="utf-8",
+        encoding="utf-8", newline="\n",
     )
 
 
@@ -45,7 +45,7 @@ def _write_csv(relative: str, rows: list[dict[str, object]], fields: list[str]) 
         writer.writerow({field: row.get(field, "") for field in fields})
     path = ROOT / relative
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(stream.getvalue(), encoding="utf-8")
+    path.write_bytes(stream.getvalue().encode("utf-8"))
 
 
 def _dpg() -> list[dict[str, object]]:
@@ -281,15 +281,15 @@ Each row is owned by the maintainer, was reviewed on {AS_OF}, and is rechecked b
 
 Official reference: {DPG_SOURCE}
 """
-    (ROOT / "DPG_STANDARD.md").write_text(dpg_md, encoding="utf-8")
+    (ROOT / "DPG_STANDARD.md").write_text(dpg_md, encoding="utf-8", newline="\n")
     gdc_md = "# Global Digital Compact design-alignment mapping\n\nNo UN endorsement or conformance determination is claimed.\n\n" + _markdown_table(gdc, "commitment_id", "commitment") + f"\n\nOfficial reference: {GDC_SOURCE}\n"
-    (ROOT / "analysis/gdc_mapping.md").write_text(gdc_md, encoding="utf-8")
+    (ROOT / "analysis/gdc_mapping.md").write_text(gdc_md, encoding="utf-8", newline="\n")
     dpi_md = "# Universal DPI Safeguards self-assessment\n\nThis is not an official safeguards assessment. It records repository controls and residual deployment gaps.\n\n" + _markdown_table(dpi, "principle_id", "principle")
     dpi_md += "\n\n## Risk linkage\n\n| Risk | Linked principles | Residual risk |\n|---|---|---|\n"
     for row in risks:
         dpi_md += f"| {row['risk']} | {', '.join(row['linked_principles'])} | {row['residual_risk']} |\n"
     dpi_md += f"\nOfficial reference: {DPI_SOURCE}\n"
-    (ROOT / "analysis/dpi_safeguards_mapping.md").write_text(dpi_md, encoding="utf-8")
+    (ROOT / "analysis/dpi_safeguards_mapping.md").write_text(dpi_md, encoding="utf-8", newline="\n")
     governance = ROOT / "docs/governance"
     governance.mkdir(parents=True, exist_ok=True)
     submission = [
@@ -310,7 +310,7 @@ Official reference: {DPG_SOURCE}
         "4. Obtain maintainer approval for an external submission; no automation may submit it.",
         "5. Record the submitted revision, date, recipient and response without rewriting repository history.", "",
     ]
-    (governance / "DPG_SUBMISSION_READINESS.md").write_text("\n".join(submission), encoding="utf-8")
+    (governance / "DPG_SUBMISSION_READINESS.md").write_text("\n".join(submission), encoding="utf-8", newline="\n")
     openssf = """# OpenSSF readiness checklist
 
 This is a local readiness inventory, not an OpenSSF badge, score or external assessment.
@@ -328,7 +328,7 @@ This is a local readiness inventory, not an OpenSSF badge, score or external ass
 
 Run `python -m tools.verify`; then complete the remote and human evidence columns before making a readiness claim.
 """
-    (governance / "OPENSSF_READINESS.md").write_text(openssf, encoding="utf-8")
+    (governance / "OPENSSF_READINESS.md").write_text(openssf, encoding="utf-8", newline="\n")
     archival = """# Archival and persistent-identifier plan
 
 No DOI, archive deposit or Software Heritage snapshot is created by this repository build.
@@ -342,7 +342,7 @@ No DOI, archive deposit or Software Heritage snapshot is created by this reposit
 
 Historic identifiers are immutable. Corrections create a new version and link supersession; they never overwrite the archived object.
 """
-    (governance / "ARCHIVAL_AND_PERSISTENT_IDENTIFIERS.md").write_text(archival, encoding="utf-8")
+    (governance / "ARCHIVAL_AND_PERSISTENT_IDENTIFIERS.md").write_text(archival, encoding="utf-8", newline="\n")
     fair = """# FAIR metadata and versioning note
 
 CBSR supports findability and interoperability through stable record IDs, schema IDs, `CITATION.cff`, versioned JSON schemas, machine-readable manifests and explicit licences. Accessibility is supported by open formats and source URLs, but source availability and language remain uneven. Reuse is bounded by provenance, freshness, review and non-legal-advice fields.
@@ -351,7 +351,7 @@ Versions follow semantic release identifiers for software and immutable dataset 
 
 This note is a repository design statement, not a FAIR certification or measured FAIR maturity score.
 """
-    (governance / "FAIR_METADATA_AND_VERSIONING.md").write_text(fair, encoding="utf-8")
+    (governance / "FAIR_METADATA_AND_VERSIONING.md").write_text(fair, encoding="utf-8", newline="\n")
     print(f"governance mappings generated: {len(dpg)} DPG indicators, {len(sdg)} SDG targets, {len(dpi)} DPI principles, {len(risks)} risks")
     return 0
 

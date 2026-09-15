@@ -79,7 +79,7 @@ def main() -> int:
         ),
     }
     path = ROOT / "analysis" / "legal_event_ontology.json"
-    path.write_text(json.dumps(artifact, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    path.write_text(json.dumps(artifact, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
     print(f"wrote {path.relative_to(ROOT)}: {len(rows)} records, {len(reciprocal_errors)} validation issue(s)")
     return 1 if reciprocal_errors else 0
 

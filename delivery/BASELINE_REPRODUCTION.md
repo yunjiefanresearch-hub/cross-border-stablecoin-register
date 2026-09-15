@@ -11,7 +11,7 @@ acceptance record, not hashes this bundle claims to contain.
 ## Reproduction sequence
 
 ```bash
-python -m pip install --constraint constraints/dev.txt ".[dev]"
+python -m pip install --require-hashes --only-binary=:all: -r constraints/dev-hashes.txt
 python -m tools.verify
 ```
 

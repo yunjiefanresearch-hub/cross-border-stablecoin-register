@@ -1,0 +1,14 @@
+# GENERATED quality lock — DO NOT EDIT BY HAND.
+# Source pins: constraints/runtime.txt, dev.txt, and/or quality.txt.
+# Hash source: official https://pypi.org JSON release metadata.
+# Target matrix: Linux x86_64 CPython 3.10-3.13; Windows amd64 CPython 3.12.
+--require-hashes
+--only-binary=:all:
+
+coverage==7.16.0 \
+    --hash=sha256:245f7de6d023a5bba375dbec9f2e0869bfa26ac0cc639bbb7b4c814884000b73 \
+    --hash=sha256:719a3feb6220dd32ed932d4c3676d17fb8739e2643b29c0e7c3af400ff80ac44 \
+    --hash=sha256:770d4244c423dcafb5c31db393f429fe952b1bba23bbff7cc3886f8133769ba5 \
+    --hash=sha256:78f8b56261d608be102c62edd3a60b66bcd0b581f3f86fdcabaf8b8d95adc950 \
+    --hash=sha256:7cae7715afa51dd7c9c42e6603bb46daf424c3449fdf06519cc658aa8d46e2e4 \
+    --hash=sha256:e9883a2f8206ce3af59117dc278e5d043fea06912bca3f199816129e5e2de354

@@ -21,8 +21,10 @@ YAML, an agent can ask the register directly — and every answer carries the sa
 (`source.primary`, `pinpoint`, `claim_class`, `evidence_tier`, `confidence`, `version_added`). The full
 tool list is in [`MCP_SERVER.md`](../MCP_SERVER.md); a few worth knowing on day one:
 
-- `citable_law(jurisdiction?, dimension?)` — the lawyer-citable subset: only `tier1_legal` + `in_force` +
-  `resolution_text` cells, each with an official URL and pinpoint.
+- `citable_law(jurisdiction?, dimension?)` — decision-ready citable law: `tier1_legal` + `in_force` +
+  `resolution_text` + official source + current evidence + independently reconciled review,
+  each with a URL and pinpoint. At the 2026-08-20 snapshot: **0 decision-ready records**,
+  **46 structural candidates**, out of **152 records**. Freshness is evaluated at that snapshot date.
 - `records(claim_class?, evidence_tier?, status?, binding_status?, jurisdiction?, dimension?, citable_only?)`
   — the evidence-axis browser: for every record, whether it is citable and, if not, exactly which axis
   blocks it (the "why not citable" x-ray).
@@ -44,18 +46,18 @@ tool list is in [`MCP_SERVER.md`](../MCP_SERVER.md); a few worth knowing on day 
 - **No synthesis.** Tools filter and reshape published records; no facts are generated.
 - **Conditioning, not forecasting.** The date-aware and what-if tools apply only the register's own
   scheduled / contingent changes in law — no probabilities, no predictions.
-- **Citable by construction.** The citable views return only human-verified, in-force propositions of law
-  with an official source and pinpoint.
+- **Citable by construction.** The citable views enforce all six evidence and review gates.
+  Structural candidates are counted separately from decision-ready records.
 
 ---
 
 ## Prerequisites
 
 - Python 3.10-3.13 available to whatever will launch the server.
-- The `mcp` package on that interpreter:
+- The complete hash-checked runtime graph on that interpreter (run from the cloned repository below):
 
   ```bash
-  pip install --constraint constraints/runtime.txt .
+  python -m pip install --require-hashes --only-binary=:all: -r constraints/runtime-hashes.txt
   ```
 
   If you use a virtual environment, install it there and point the client at that environment's
@@ -73,13 +75,7 @@ cd cross-border-stablecoin-register
 
 ## Connect to Claude Desktop
 
-The quickest path is to let the MCP CLI write the config for you:
-
-```bash
-mcp install mcp_server.py --name "Cross-Border Stablecoin Register"
-```
-
-Or add it manually to `claude_desktop_config.json`
+Add the source-bundle server to `claude_desktop_config.json`
 (macOS: `~/Library/Application Support/Claude/`, Windows: `%APPDATA%\Claude\`):
 
 ```json
@@ -112,14 +108,15 @@ does not need to run the server.
 
 ## Test it without a client
 
-The MCP Inspector runs the server and lets you call tools by hand:
+The canonical verifier exercises the server without requiring optional MCP CLI/Inspector packages:
 
 ```bash
-mcp dev mcp_server.py
+python -m pip install --require-hashes --only-binary=:all: -r constraints/dev-hashes.txt
+python -m tools.verify
 ```
 
-Then try, for example, `citable_law` with `jurisdiction = "CH"`, or `events_by_kind` with no argument to
-see which scheduled event actually moves a corridor.
+After connecting a client, try `citable_law` with `jurisdiction = "CH"`, or `events_by_kind`
+with no argument to see which scheduled event actually moves a corridor.
 
 ---
 
@@ -131,7 +128,7 @@ manifest and follow the endpoints:
 
 ```bash
 curl -s https://<your-pages-host>/api/index.json          # manifest of all endpoints
-curl -s https://<your-pages-host>/api/citable.json         # the 46-cell lawyer-citable subset
+curl -s https://<your-pages-host>/api/citable.json         # strict subset: 0 at the 2026-08-20 snapshot
 curl -s https://<your-pages-host>/api/events/by_kind.json  # events grouped by trigger_kind
 curl -s https://<your-pages-host>/api/corridors/US-UK.json # one corridor: timeline + what-if
 ```
@@ -144,7 +141,7 @@ purely a projection for callers who prefer static fetches to a live tool surface
 
 ## Troubleshooting
 
-- **The client shows no tools / the server won't start.** Confirm `pip install "mcp[cli]"` ran against the
+- **The client shows no tools / the server won't start.** Confirm the hash-checked runtime installation ran against the
   *same* interpreter the client launches, and that the path in the config is absolute. Restart the client
   after any config change.
 - **`dataset.json not found`.** The server reads `dataset.json` from its own directory. Keep
