@@ -3,6 +3,8 @@ branch = True
 source = .
 relative_files = True
 data_file = artifacts/validation/.coverage
+patch = subprocess
+parallel = True
 omit =
     tests/*
     .venv/*

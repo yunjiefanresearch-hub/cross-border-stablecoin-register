@@ -64,6 +64,7 @@ GENERATION_STEPS = [
 
 VALIDATION_STEPS = [
     ("dependency hash lock/provenance consistency", "tools/hash_constraints.py", "--check"),
+    ("complete development and quality dependency audit", "tools/audit_locked_dependencies.py"),
     ("identifier gate", "tools/check_identifiers.py"),
     ("MCP documentation gate", "tools/check_docs_sync.py"),
     ("internal Markdown link gate", "tools/check_internal_links.py"),

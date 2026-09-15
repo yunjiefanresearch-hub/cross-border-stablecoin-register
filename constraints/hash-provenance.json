@@ -3,7 +3,7 @@
   "hash_algorithm": "sha256",
   "locks": {
     "bootstrap-hashes.txt": "f63ab6612e013395c7a0b24b6f6249b6b98e4c05864b8d4e23c8d3215aa33ae7",
-    "dev-hashes.txt": "4f60b448e9864a7b8547498e2e1989a7e718692f18a9e06a83e86b89fe9b53b3",
+    "dev-hashes.txt": "2f2d40f83caaf893095522591379bb25321384cb40da44ccf711e08f981201cb",
     "quality-hashes.txt": "ff2a772266f891a1ea33a713c0d80c2330813e37f334390ef798cfed43126190",
     "runtime-hashes.txt": "7e6b204b31277b646aa0eb4d85b6948c3edecd0fe4510bf3e62fbc559bd72a0e"
   },
@@ -1256,16 +1256,20 @@
         }
       }
     },
-    "pypdf==6.10.0": {
+    "pypdf==6.18.1": {
       "info": {
         "name": "pypdf",
         "requires_dist": [
           "Pillow>=8.0.0; extra == \"full\"",
           "Pillow>=8.0.0; extra == \"image\"",
           "PyCryptodome; extra == \"cryptodome\"",
-          "cryptography; extra == \"crypto\"",
-          "cryptography; extra == \"full\"",
+          "arabic-reshaper; extra == \"full\"",
+          "arabic-reshaper; extra == \"rtl-text\"",
+          "cryptography>3.0; extra == \"crypto\"",
+          "cryptography>3.0; extra == \"full\"",
           "flit; extra == \"dev\"",
+          "fonttools; extra == \"fonts\"",
+          "fonttools; extra == \"full\"",
           "myst_parser; extra == \"docs\"",
           "pip-tools; extra == \"dev\"",
           "pre-commit; extra == \"dev\"",
@@ -1273,19 +1277,21 @@
           "pytest-socket; extra == \"dev\"",
           "pytest-timeout; extra == \"dev\"",
           "pytest-xdist; extra == \"dev\"",
+          "python-bidi; extra == \"full\"",
+          "python-bidi; extra == \"rtl-text\"",
           "sphinx; extra == \"docs\"",
           "sphinx_rtd_theme; extra == \"docs\"",
           "typing_extensions>=4.0; python_version < \"3.11\"",
           "wheel; extra == \"dev\""
         ],
-        "version": "6.10.0"
+        "version": "6.18.1"
       },
-      "metadata": "https://pypi.org/pypi/pypdf/6.10.0/json",
+      "metadata": "https://pypi.org/pypi/pypdf/6.18.1/json",
       "wheels": {
-        "pypdf-6.10.0-py3-none-any.whl": {
+        "pypdf-6.18.1-py3-none-any.whl": {
           "requires_python": ">=3.9",
-          "sha256": "90005e959e1596c6e6c84c8b0ad383285b3e17011751cedd17f2ce8fcdfc86de",
-          "url": "https://files.pythonhosted.org/packages/55/f2/7ebe366f633f30a6ad105f650f44f24f98cb1335c4157d21ae47138b3482/pypdf-6.10.0-py3-none-any.whl"
+          "sha256": "ee93a2665670ecf57ee81d197a4ca548f3dc15f9cefc56e59b8140866aaa3de5",
+          "url": "https://files.pythonhosted.org/packages/58/13/645df3995075112cb3cce15e8797c205f0f88fb50acc11012b84b071bc22/pypdf-6.18.1-py3-none-any.whl"
         }
       }
     },
@@ -1304,7 +1310,7 @@
         }
       }
     },
-    "pytest==8.4.2": {
+    "pytest==9.1.1": {
       "info": {
         "name": "pytest",
         "requires_dist": [
@@ -1313,9 +1319,9 @@
           "colorama>=0.4; sys_platform == \"win32\"",
           "exceptiongroup>=1; python_version < \"3.11\"",
           "hypothesis>=3.56; extra == \"dev\"",
-          "iniconfig>=1",
+          "iniconfig>=1.0.1",
           "mock; extra == \"dev\"",
-          "packaging>=20",
+          "packaging>=22",
           "pluggy<2,>=1.5",
           "pygments>=2.7.2",
           "requests; extra == \"dev\"",
@@ -1323,14 +1329,14 @@
           "tomli>=1; python_version < \"3.11\"",
           "xmlschema; extra == \"dev\""
         ],
-        "version": "8.4.2"
+        "version": "9.1.1"
       },
-      "metadata": "https://pypi.org/pypi/pytest/8.4.2/json",
+      "metadata": "https://pypi.org/pypi/pytest/9.1.1/json",
       "wheels": {
-        "pytest-8.4.2-py3-none-any.whl": {
-          "requires_python": ">=3.9",
-          "sha256": "872f880de3fc3a5bdc88a11b39c9710c3497a547cfa9320bc3c5e62fbf272e79",
-          "url": "https://files.pythonhosted.org/packages/a8/a4/20da314d277121d6534b3a980b29035dcd51e6744bd79075a6ce8fa4eb8d/pytest-8.4.2-py3-none-any.whl"
+        "pytest-9.1.1-py3-none-any.whl": {
+          "requires_python": ">=3.10",
+          "sha256": "37a86b45efb9a47a61a36449063e8e18d0cab3161329fc099eb21783169c4f0c",
+          "url": "https://files.pythonhosted.org/packages/24/25/1de2678b631f5a49215c6c96fff41ba892b0a34df68d6d80292b1b48aa7f/pytest-9.1.1-py3-none-any.whl"
         }
       }
     },
@@ -1889,10 +1895,10 @@
   "schema": "cbsr/pypi-wheel-hash-provenance/v2",
   "source_distributions_allowed": false,
   "sources": {
-    "constraints/dev.txt": "de190e70a6a056fe43dea6745840f593ed1ed80913da6ab1bd49c6533810b9f8",
+    "constraints/dev.txt": "a4eeea208778fdef44d926a100ea4108e4d7e15d65d8934fee4eb7c110cda0aa",
     "constraints/quality.txt": "7568d22d9fdbfc305a8d19017967450246d0578b7a900004e83e9c407701e2ec",
     "constraints/runtime.txt": "60ce3b9e3a275c0463a6252ac061313339f66d72248feb7b3bfa85788ba5c0af",
-    "pyproject.toml": "c1bbfac4a6d3259c8ea6ade92ca73db8d0da757c59da9efa1313d523e8032ef8"
+    "pyproject.toml": "9c45d0d46edd14b3667f9823749ab19e293b6c511ffdae3d30157918d6c252f4"
   },
   "targets": [
     {

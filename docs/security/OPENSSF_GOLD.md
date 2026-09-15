@@ -61,8 +61,8 @@ met; `SHOULD` items must be met or have an accepted justification in the officia
 | 12 | `build_reproducible` | [`tools/verify.py`](../../tools/verify.py) and package-smoke tooling perform repeated generation and wheel comparison; release artefacts include hashes and provenance inputs. | **Partial** | Publish an independently repeatable build recipe with a fixed toolchain/environment, have another party reproduce the same revision, and compare bit-for-bit artefact hashes. Two builds in one process or one environment are useful but not by themselves complete independent reproduction evidence. |
 | 13 | `test_invocation` | [`Makefile`](../../Makefile) provides `make test`; `python -m pytest -q` is the standard quick suite and `python -m tools.verify` is the canonical aggregate gate. | **Candidate evidence** | Verify both documented commands on a clean supported environment and link a successful public run. Do not substitute a hand-picked subset for the release verifier. |
 | 14 | `test_continuous_integration` | [Hosted run 34481297430](https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register/actions/runs/34481297430) passed the full canonical verifier on Linux Python 3.10–3.13, Windows Python 3.12 clean-room, and the aggregate required-verification job for repair commit `270a002e8d66bb9971b3638dfcab52f3b2f6d2fd`. | **Hosted execution evidenced; enforcement/cadence review required** | Retain successful exact-commit runs, verify required-check enforcement and normal integration cadence, and investigate failures. A successful run is not itself proof of branch protection or a Gold award. |
-| 15 | `test_statement_coverage90` | `.coveragerc`, `constraints/quality.txt`, and `tools/check_gold_coverage.py` define a reproducible whole-repository Python measurement and a separate runtime diagnostic. The latest verified hosted pytest-only measurement is 14.73% (1,355/9,197 statements; run linked below); subprocess-heavy canonical checks are not automatically attributed to this report. | **Measured below threshold; remediation required** | Publish combined instrumented evidence and add tests until the whole-project statement threshold passes. Do not claim project-wide Gold from the narrower runtime diagnostic. |
-| 16 | `test_branch_coverage80` | The same hosted coverage configuration measured 10.50% branches (350/3,334); no accepted Gold result is asserted here. | **Measured below threshold; remediation required** | Demonstrate the branch threshold over the declared whole-project denominator, publish the exact command/configuration/result, and explain any technically excluded files. Test count and statement coverage cannot substitute for branch coverage. |
+| 15 | `test_statement_coverage90` | `.coveragerc`, `constraints/quality.txt`, and `tools/check_gold_coverage.py` define whole-repository Python measurement and a separate runtime diagnostic. The 15 September local combined canonical measurement is 72.07% (6,697/9,292 statements), with the limitations below; the earlier hosted pytest-only baseline was 14.73%. | **Measured below threshold; remediation required** | Publish combined hosted evidence and add effective tests until the whole-project statement threshold passes. Do not claim project-wide Gold from the narrower runtime diagnostic. |
+| 16 | `test_branch_coverage80` | The same local combined measurement is 61.44% branches (2,073/3,374), versus the earlier hosted pytest-only 10.50%; no accepted Gold result is asserted here. | **Measured below threshold; remediation required** | Demonstrate the branch threshold over the declared whole-project denominator, publish the exact command/configuration/result, and explain any technically excluded files. Test count and statement coverage cannot substitute for branch coverage. |
 | 17 | `crypto_used_network` | [`src/cbsr_mcp/server.py`](../../src/cbsr_mcp/server.py) runs the packaged MCP server over stdio, and [SECURITY.md](../../SECURITY.md) describes an offline decision-support boundary. Documentation also describes optional HTTPS-hosted static API use. | **N/A candidate / scope review required** | Review every supported runtime transport and deployment mode. If the produced software truly performs no network communication, enter a precise N/A justification; otherwise test that insecure protocols are disabled by default and document secure configuration. |
 | 18 | `crypto_tls12` | Repository and documentation URLs use HTTPS, but no repository artefact establishes protocol negotiation for every supported host or client. | **N/A candidate or external test required** | Resolve the scope decision from row 17. For every TLS surface, test the deployed endpoint and client policy for TLS 1.2+ and rejection of obsolete SSL/TLS; retain dated results. |
 | 19 | `hardened_site` | A HEAD check at approximately 2026-09-10 06:50 UTC found the Register GitHub Pages endpoint returned 200 with `Strict-Transport-Security: max-age=31556952`, but CSP, `nosniff`, and `X-Frame-Options` were absent. The Mapper GitHub Pages endpoint returned 200 with all four headers absent. A local TLS connection to `https://cbsr.io/` failed; that single observation cannot establish global availability or header state. GitHub-hosted repository controls remain relevant but do not cure the Pages/download endpoints. HTML CSP meta markup is not an HTTP response header. | **Gap; live external test required** | Inventory every canonical website, repository, Pages/API, package, and download URL; repeat and retain response captures from a reliable network; then configure an approved hosting/fronting layer capable of all four nonpermissive response headers, or move hosting. Either infrastructure change needs separate authorization. Never add a meta tag and present it as response-header evidence. |
@@ -141,8 +141,30 @@ passed Linux Python 3.10-3.13 but failed Windows: the root `build.py` dataset ge
 shadowed PyPA's build module, leaving no installable wheel. The aggregate check
 correctly failed. This follow-up isolates packaging module lookup and explicitly
 selects UTF-8, with a regression test and a successful local wheel build/install.
-A subsequent complete hosted run must establish the repair; the failed run is not
-relabelled as a pass.
+The subsequent [hosted run for `7df6096`](https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register/actions/runs/34926810451)
+passed all five platform jobs and the required aggregate, with 78 canonical steps
+and 155 pytest tests on Windows. The failed run is not relabelled as a pass.
+
+The current measurement workflow instruments the canonical verifier and its
+same-environment subprocesses, combines their data, and binds the report to a
+successful same-attempt verification summary and the current source fingerprint.
+It retains the whole-project source denominator. Temporary source copies used by
+legacy negative tests and the clean-wheel smoke's separate runtime environment
+are not covered by this instrumentation; their independent test results remain
+separate evidence. Executed lines do not automatically imply effective assertions.
+The initial local combined run completed at 09:24 UTC on 15 September with all 79
+canonical steps passing, including 172 pytest tests (one third-party parser
+deprecation warning), a complete current-Windows-platform audit of 73 locked
+packages with zero known vulnerabilities, and two identical clean-install-tested
+wheels. The package import/six-tool smoke itself remained warning-free.
+
+Its source fingerprint was
+`186014a59b9805c734054ed5c54e182d555eff529bbb2dfad32a71a6b09b6b78`.
+The report measured 6,697/9,292 statements (72.07%) and 2,073/3,374 branches
+(61.44%), with no missing source files and a valid canonical-summary binding.
+Both thresholds remain false. The measurement change accounts for execution
+previously omitted; it is not a claim that assertions suddenly improved by the
+same amount. These local results do not substitute for the next hosted matrix.
 
 These commands collect evidence; they do **not** award a badge or convert a gap into a met
 criterion without review of the result.
@@ -154,7 +176,16 @@ python -m tools.verify
 
 # Whole-repository Python coverage plus a runtime-only diagnostic in one report.
 python -m pip install --require-hashes --only-binary=:all: -r constraints/dev-hashes.txt -r constraints/quality-hashes.txt
+python -m coverage erase
+python -m coverage run --context=canonical tools/verify.py
+python -m coverage combine
+python -m coverage json --show-contexts
+python tools/check_gold_coverage.py --verification-summary artifacts/validation/verify-summary.json
+
+# Smaller pytest-only diagnostic (erase/combine are still required):
+python -m coverage erase
 python -m coverage run -m pytest -q
+python -m coverage combine
 python -m coverage json
 python tools/check_gold_coverage.py
 

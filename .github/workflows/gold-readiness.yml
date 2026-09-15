@@ -20,6 +20,8 @@ jobs:
     env:
       PYTHONUTF8: "1"
       PYTHONPATH: src
+      # A fresh checkout and per-attempt summary prevent reuse of an earlier run.
+      CBSR_EVIDENCE_DIR: artifacts/validation/gold-canonical-${{ github.run_id }}-${{ github.run_attempt }}
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
@@ -30,15 +32,22 @@ jobs:
       - name: Install locked test and measurement tooling
         run: |
           python -m pip install --require-hashes --only-binary=:all: -r constraints/dev-hashes.txt -r constraints/quality-hashes.txt
-      - name: Measure all Python source (unexecuted files count)
+      - name: Measure canonical verification including pytest and subprocesses
         run: |
-          python -m coverage run -m pytest -q
-          python -m coverage json
+          python -m coverage erase
+          python -m coverage run --context=canonical tools/verify.py
+      - name: Combine and render measured evidence even after a test failure
+        if: always()
+        run: |
+          python -m coverage combine
+          python -m coverage json --show-contexts
           python -m coverage html
-          python tools/check_gold_coverage.py
+      - name: Bind the report to this verification attempt and current source
+        if: always()
+        run: python tools/check_gold_coverage.py --verification-summary "$CBSR_EVIDENCE_DIR/verify-summary.json"
       - name: Enforce Gold coverage thresholds when explicitly requested
         if: github.event_name == 'workflow_dispatch' && inputs.enforce_thresholds
-        run: python tools/check_gold_coverage.py --enforce
+        run: python tools/check_gold_coverage.py --verification-summary "$CBSR_EVIDENCE_DIR/verify-summary.json" --enforce
       - name: Upload measured evidence regardless of threshold outcome
         if: always()
         uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
@@ -48,5 +57,6 @@ jobs:
             artifacts/validation/coverage.json
             artifacts/validation/gold-coverage.json
             artifacts/validation/coverage-html/
+            ${{ env.CBSR_EVIDENCE_DIR }}/verify-summary.json
           if-no-files-found: error
           retention-days: 30

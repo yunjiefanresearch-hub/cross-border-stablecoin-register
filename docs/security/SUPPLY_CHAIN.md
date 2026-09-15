@@ -44,12 +44,15 @@ does not recognize `gh release upload` as an accepted packaging exception.
 [Upstream issue #5201](https://github.com/ossf/scorecard/issues/5201) separately
 tracks GitHub CLI release detection in the Packaging check.
 
-The prior scan consequently reported `Token-Permissions=9`. That warning may
-remain after this hardening: it is disclosed, not suppressed, and the permission
-is confined to the publisher. Replacing GitHub CLI with another release action,
-using a broader secret token, or disabling SARIF would not remove the underlying
-permission requirement. Reassess this exception whenever the scanner or release
-design changes; the actual new scan must be read before reporting its score.
+The prior scan reported `Token-Permissions=9` and emitted both the publisher's
+job-level warning and CodeQL's workflow-level write-permission warning. In this
+scanner version, a job-level write under explicit read-only workflow defaults can
+remain a warning without deducting points; CodeQL's top-level write caused the
+deduction. A score of 10 after moving it is not evidence that release write access
+disappeared or that GitHub CLI became a recognized packaging exception. Replacing
+GitHub CLI with another release action, using a broader secret token, or disabling
+SARIF would not remove the underlying permission requirement. Reassess the boundary
+whenever the scanner or release design changes.
 
 The [scan for PR head `de5c3ad`](https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register/actions/runs/34864683267)
 also reported CodeQL's workflow-level `security-events: write`. This follow-up moves
@@ -57,6 +60,25 @@ that necessary SARIF-upload permission into the `analyze` job and disables check
 credential persistence. A repository-wide regression gate now requires explicit
 read-only workflow defaults. Job-scoped write permissions still require review;
 moving a permission does not eliminate the capability of the job that needs it.
+
+## Development dependencies are also security-sensitive
+
+The [subsequent scan for `7df6096`](https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register/actions/runs/34926810428)
+reported no pinned-dependency or token-permission finding, but still identified 24
+OSV vulnerability records affecting `pypdf==6.10.0` and `pytest==8.4.2`. These are
+development dependencies, absent from the clean runtime audit. They are not dismissed
+as old scan results: the official records include
+[pypdf resource-exhaustion fixes](https://osv.dev/vulnerability/GHSA-jm82-fx9c-mx94)
+and [pytest temporary-directory handling](https://osv.dev/vulnerability/PYSEC-2026-1845).
+
+The reviewed repair uses `pypdf==6.18.1` and `pytest==9.1.1`, with regenerated official
+wheel hashes and dependency closure checks. The canonical verifier now also invokes
+`tools/audit_locked_dependencies.py` over the full development and quality locks
+(including runtime transitives), with current-platform marker evaluation and strict
+failure handling. Each platform run retains the audit output and exact lock digests.
+There is no ignore list or offline pass for this additional live audit; the runtime
+package smoke remains a separate, clean-environment test. An unavailable vulnerability
+service is a verification failure, not a clean result.
 
 Human review, required-check enforcement, independently reproduced releases and
 all other [Gold gaps](OPENSSF_GOLD.md) remain separate acceptance requirements.
