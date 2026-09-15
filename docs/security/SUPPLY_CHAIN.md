@@ -51,5 +51,12 @@ using a broader secret token, or disabling SARIF would not remove the underlying
 permission requirement. Reassess this exception whenever the scanner or release
 design changes; the actual new scan must be read before reporting its score.
 
+The [scan for PR head `de5c3ad`](https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register/actions/runs/34864683267)
+also reported CodeQL's workflow-level `security-events: write`. This follow-up moves
+that necessary SARIF-upload permission into the `analyze` job and disables checkout
+credential persistence. A repository-wide regression gate now requires explicit
+read-only workflow defaults. Job-scoped write permissions still require review;
+moving a permission does not eliminate the capability of the job that needs it.
+
 Human review, required-check enforcement, independently reproduced releases and
 all other [Gold gaps](OPENSSF_GOLD.md) remain separate acceptance requirements.

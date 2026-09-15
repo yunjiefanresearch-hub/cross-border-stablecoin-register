@@ -11,7 +11,7 @@ import yaml
 
 from tools.install_local_wheel import install_command, write_wheel_requirement
 from tools.package_smoke import package_install_command
-from tools.verify_security_governance import ROOT, pinned_action_names, validate_release_boundary
+from tools.verify_security_governance import ROOT, pinned_action_names, validate_default_permissions, validate_release_boundary
 
 
 def test_local_wheel_requirement_has_exact_hash_and_escaped_file_uri(tmp_path):
@@ -117,3 +117,33 @@ def test_release_gate_rejects_repository_execution_in_privileged_jobs(job):
     document["jobs"][job]["steps"].append({"run": "python -m tools.verify"})
     with pytest.raises(ValueError, match="only upload"):
         validate_release_boundary(document)
+
+
+def test_packaging_cli_ignores_repository_build_module(tmp_path):
+    # The real checkout has a dataset generator named build.py. PyPA's module
+    # must win even when a same-named local file or inherited path is present.
+    (tmp_path / "build.py").write_text("raise RuntimeError('local build shadowed PyPA')\n", encoding="utf-8")
+    command = [sys.executable, "-I", "-X", "utf8", "-m", "build", "--version"]
+    result = subprocess.run(command, cwd=tmp_path, capture_output=True, text=True, encoding="utf-8", check=False)
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert "build " in result.stdout.lower()
+    for relative in ("setup_windows.ps1", "Makefile"):
+        assert "-I -X utf8 -m build --wheel --no-isolation" in (ROOT / relative).read_text(encoding="utf-8")
+
+
+@pytest.mark.parametrize("permissions", [None, "write-all", {"security-events": "write"}, {"contents": "invalid"}])
+def test_workflow_gate_rejects_implicit_or_writable_defaults(permissions):
+    with pytest.raises(ValueError, match="read-only"):
+        validate_default_permissions({"permissions": permissions})
+
+
+@pytest.mark.parametrize("permissions", ["read-all", {}, {"contents": "read", "issues": "none"}])
+def test_workflow_gate_accepts_explicit_read_only_defaults(permissions):
+    validate_default_permissions({"permissions": permissions})
+
+
+def test_codeql_write_permission_is_job_scoped():
+    document = yaml.safe_load((ROOT / ".github/workflows/codeql.yml").read_text(encoding="utf-8"))
+    validate_default_permissions(document)
+    assert document["jobs"]["analyze"]["permissions"] == {"contents": "read", "security-events": "write"}
+    assert document["jobs"]["analyze"]["steps"][0]["with"]["persist-credentials"] is False

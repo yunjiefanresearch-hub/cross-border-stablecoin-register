@@ -58,6 +58,17 @@ def pinned_action_names(workflow: dict) -> set[str]:
     return names
 
 
+def validate_default_permissions(workflow: dict) -> None:
+    """Require explicit read-only defaults; grant writes only to reviewed jobs."""
+    permissions = workflow.get("permissions")
+    if permissions == "read-all":
+        return
+    if not isinstance(permissions, dict) or any(
+        value not in ("read", "none") for value in permissions.values()
+    ):
+        raise ValueError("workflow default permissions must be explicit and read-only")
+
+
 def validate_release_boundary(workflow: dict) -> None:
     """Keep source execution out of the signing and release-write jobs."""
     pinned_action_names(workflow)
@@ -102,6 +113,7 @@ def validate_release_boundary(workflow: dict) -> None:
 def _require_actions(relative: str, expected: tuple[str, ...] = ()) -> None:
     document = yaml.safe_load((ROOT / relative).read_text(encoding="utf-8"))
     names = pinned_action_names(document)
+    validate_default_permissions(document)
     missing = sorted(set(expected) - names)
     if missing:
         raise SystemExit(f"{relative} missing required actions: {missing}")

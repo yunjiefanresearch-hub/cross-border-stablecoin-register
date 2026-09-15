@@ -2,7 +2,7 @@
 
 setup:
 	python -m pip install --require-hashes --only-binary=:all: -r constraints/dev-hashes.txt
-	python -m build --wheel --no-isolation --outdir artifacts/local-wheel
+	python -I -X utf8 -m build --wheel --no-isolation --outdir artifacts/local-wheel
 	python tools/install_local_wheel.py --wheel-dir artifacts/local-wheel
 
 build:

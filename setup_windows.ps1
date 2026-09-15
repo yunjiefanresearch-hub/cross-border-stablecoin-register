@@ -65,7 +65,8 @@ try {
 
     Write-Host "[3/5] Building and hash-checking this checkout's CBSR wheel"
     $LocalWheelDirectory = Join-Path $EvidencePath ("local-wheel-" + [guid]::NewGuid().ToString("N"))
-    & $VenvPython -m build --wheel --no-isolation --outdir $LocalWheelDirectory
+    # Isolated module lookup prevents repo-root build.py from shadowing PyPA build.
+    & $VenvPython -I -X utf8 -m build --wheel --no-isolation --outdir $LocalWheelDirectory
     if ($LASTEXITCODE -ne 0) { throw "Local CBSR wheel build failed." }
     & $VenvPython tools/install_local_wheel.py --wheel-dir $LocalWheelDirectory
     if ($LASTEXITCODE -ne 0) { throw "Local wheel installation failed." }

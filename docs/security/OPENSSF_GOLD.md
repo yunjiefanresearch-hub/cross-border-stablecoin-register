@@ -1,6 +1,7 @@
 # OpenSSF Best Practices Gold readiness
 
-Status: evidence inventory and remediation plan, reviewed 10 September 2026.
+Status: evidence inventory and remediation plan; criteria reviewed 10 September 2026,
+hosted evidence updated 15 September 2026.
 
 This document is **not a certificate, an independent assessment, or an award of an
 OpenSSF badge**. The OpenSSF Best Practices program describes its process as voluntary
@@ -60,8 +61,8 @@ met; `SHOULD` items must be met or have an accepted justification in the officia
 | 12 | `build_reproducible` | [`tools/verify.py`](../../tools/verify.py) and package-smoke tooling perform repeated generation and wheel comparison; release artefacts include hashes and provenance inputs. | **Partial** | Publish an independently repeatable build recipe with a fixed toolchain/environment, have another party reproduce the same revision, and compare bit-for-bit artefact hashes. Two builds in one process or one environment are useful but not by themselves complete independent reproduction evidence. |
 | 13 | `test_invocation` | [`Makefile`](../../Makefile) provides `make test`; `python -m pytest -q` is the standard quick suite and `python -m tools.verify` is the canonical aggregate gate. | **Candidate evidence** | Verify both documented commands on a clean supported environment and link a successful public run. Do not substitute a hand-picked subset for the release verifier. |
 | 14 | `test_continuous_integration` | [Hosted run 34481297430](https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register/actions/runs/34481297430) passed the full canonical verifier on Linux Python 3.10–3.13, Windows Python 3.12 clean-room, and the aggregate required-verification job for repair commit `270a002e8d66bb9971b3638dfcab52f3b2f6d2fd`. | **Hosted execution evidenced; enforcement/cadence review required** | Retain successful exact-commit runs, verify required-check enforcement and normal integration cadence, and investigate failures. A successful run is not itself proof of branch protection or a Gold award. |
-| 15 | `test_statement_coverage90` | `.coveragerc`, `constraints/quality.txt`, and `tools/check_gold_coverage.py` define a reproducible whole-repository Python measurement and a separate runtime diagnostic. The latest pytest-only measurement is 10.17%; subprocess-heavy canonical checks are not automatically attributed to this report. | **Measured below threshold; remediation required** | Publish combined instrumented evidence and add tests until the whole-project statement threshold passes. Do not claim project-wide Gold from the narrower runtime diagnostic. |
-| 16 | `test_branch_coverage80` | The same coverage configuration measured 5.67% branches in the latest pytest-only run; no accepted Gold result is asserted here. | **Measured below threshold; remediation required** | Demonstrate the branch threshold over the declared whole-project denominator, publish the exact command/configuration/result, and explain any technically excluded files. Test count and statement coverage cannot substitute for branch coverage. |
+| 15 | `test_statement_coverage90` | `.coveragerc`, `constraints/quality.txt`, and `tools/check_gold_coverage.py` define a reproducible whole-repository Python measurement and a separate runtime diagnostic. The latest verified hosted pytest-only measurement is 14.73% (1,355/9,197 statements; run linked below); subprocess-heavy canonical checks are not automatically attributed to this report. | **Measured below threshold; remediation required** | Publish combined instrumented evidence and add tests until the whole-project statement threshold passes. Do not claim project-wide Gold from the narrower runtime diagnostic. |
+| 16 | `test_branch_coverage80` | The same hosted coverage configuration measured 10.50% branches (350/3,334); no accepted Gold result is asserted here. | **Measured below threshold; remediation required** | Demonstrate the branch threshold over the declared whole-project denominator, publish the exact command/configuration/result, and explain any technically excluded files. Test count and statement coverage cannot substitute for branch coverage. |
 | 17 | `crypto_used_network` | [`src/cbsr_mcp/server.py`](../../src/cbsr_mcp/server.py) runs the packaged MCP server over stdio, and [SECURITY.md](../../SECURITY.md) describes an offline decision-support boundary. Documentation also describes optional HTTPS-hosted static API use. | **N/A candidate / scope review required** | Review every supported runtime transport and deployment mode. If the produced software truly performs no network communication, enter a precise N/A justification; otherwise test that insecure protocols are disabled by default and document secure configuration. |
 | 18 | `crypto_tls12` | Repository and documentation URLs use HTTPS, but no repository artefact establishes protocol negotiation for every supported host or client. | **N/A candidate or external test required** | Resolve the scope decision from row 17. For every TLS surface, test the deployed endpoint and client policy for TLS 1.2+ and rejection of obsolete SSL/TLS; retain dated results. |
 | 19 | `hardened_site` | A HEAD check at approximately 2026-09-10 06:50 UTC found the Register GitHub Pages endpoint returned 200 with `Strict-Transport-Security: max-age=31556952`, but CSP, `nosniff`, and `X-Frame-Options` were absent. The Mapper GitHub Pages endpoint returned 200 with all four headers absent. A local TLS connection to `https://cbsr.io/` failed; that single observation cannot establish global availability or header state. GitHub-hosted repository controls remain relevant but do not cure the Pages/download endpoints. HTML CSP meta markup is not an HTTP response header. | **Gap; live external test required** | Inventory every canonical website, repository, Pages/API, package, and download URL; repeat and retain response captures from a reliable network; then configure an approved hosting/fronting layer capable of all four nonpermissive response headers, or move hosting. Either infrastructure change needs separate authorization. Never add a meta tag and present it as response-header evidence. |
@@ -123,6 +124,25 @@ disabled. The maintainer subsequently reported enabling it, and the
 [second workflow attempt](https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register/actions/runs/34481297481/attempts/2)
 completed successfully. The success is based on the rerun outcome, not the settings
 report alone. No failing security gate was bypassed.
+
+### Supply-chain follow-up (15 September 2026)
+
+The [hosted coverage report for PR head `de5c3ad`](https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register/actions/runs/34864683315)
+passed 146 pytest cases. Its full Python source inventory measured 1,355/9,197
+statements (14.73%) and 350/3,334 branches (10.50%), with no missing source files.
+The narrower runtime diagnostic was 790/1,318 statements (59.94%) and 153/454
+branches (33.70%). Both whole-project threshold flags were false. The PR workflow
+measures and uploads evidence; its threshold-enforcement step was skipped, so its
+successful status does not establish Gold coverage. The default PR checkout tested
+the merge candidate, not an independent reproduction of the branch alone.
+
+The same head's [canonical matrix](https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register/actions/runs/34864683363)
+passed Linux Python 3.10-3.13 but failed Windows: the root `build.py` dataset generator
+shadowed PyPA's build module, leaving no installable wheel. The aggregate check
+correctly failed. This follow-up isolates packaging module lookup and explicitly
+selects UTF-8, with a regression test and a successful local wheel build/install.
+A subsequent complete hosted run must establish the repair; the failed run is not
+relabelled as a pass.
 
 These commands collect evidence; they do **not** award a badge or convert a gap into a met
 criterion without review of the result.
