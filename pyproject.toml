@@ -29,7 +29,7 @@ classifiers = [
 ]
 dependencies = [
   # FastMCP public surface targeted by the Python 3.10-3.13 CI matrix.
-  "mcp>=1.29,<1.30",
+  "mcp>=1.29,<2.3",
   # MCP 1.29 emits IncompleteFieldDefinitionWarning with the Pydantic 2.13+
   # resolver. Pydantic Settings 2.14.2 contains the current secrets-path fix
   # and remains warning-free with Pydantic 2.12.5.
