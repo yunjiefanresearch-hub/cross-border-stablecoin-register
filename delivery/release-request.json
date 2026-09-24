@@ -1,0 +1,13 @@
+{
+  "schema": "cbsr/engineering-release-request/v1",
+  "version": "0.11.0.post1",
+  "tag": "v0.11.0.post1",
+  "title": "CBSR v0.11.0.post1 — 更新版本 / Engineering update",
+  "dataset_version": "0.11.0",
+  "snapshot_date": "2026-08-20",
+  "classification": "engineering-update-only",
+  "maintainer_authorized": true,
+  "authorization": "Maintainer explicitly approved publication as an updated version after disclosure of the outstanding independent reviews and OpenSSF Gold gaps.",
+  "independent_reviews_completed": false,
+  "gold_badge_awarded": false
+}

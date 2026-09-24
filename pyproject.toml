@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "cbsr-mcp"
-version = "0.11.0"
+version = "0.11.0.post1"
 description = "MCP server for the Cross-Border Stablecoin Register (CBSR): typed query tools over an open, versioned register of cross-border stablecoin regulation across twelve jurisdictions."
 readme = "README-PYPI.md"
 requires-python = ">=3.10,<3.14"

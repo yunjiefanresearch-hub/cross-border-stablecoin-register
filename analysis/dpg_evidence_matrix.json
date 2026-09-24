@@ -157,7 +157,7 @@
       "evidence_files": [
         "SECURITY.md",
         ".github/workflows/security.yml",
-        "dist/cbsr-0.11.0.cdx.json"
+        "dist/cbsr-0.11.0.post1.cdx.json"
       ],
       "external_determination": false,
       "indicator": "9A",

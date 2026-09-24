@@ -16,7 +16,7 @@ Checked here:
   1. no LIVE artefact carries the retired slug (CHANGELOG.md and BUILD_NOTE_*.md are exempt:
      they are dated records of what was true when written, and must not be rewritten)
   2. all three schema $ids share the one canonical base URL
-  3. the package version, the dataset version and mcp.json agree
+  3. package/init/MCP versions agree exactly; the dataset matches their base version
 
     python tools/check_identifiers.py
 """
@@ -105,7 +105,8 @@ def check_schema_ids() -> list[str]:
 def check_versions() -> list[str]:
     problems: list[str] = []
     dataset_v = json.loads((ROOT / "dataset.json").read_text(encoding="utf-8")).get("version")
-    manifest_v = json.loads((ROOT / "mcp.json").read_text(encoding="utf-8")).get("version")
+    manifest = json.loads((ROOT / "mcp.json").read_text(encoding="utf-8"))
+    manifest_v = manifest.get("version")
 
     pyproject = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
     m = re.search(r'^version\s*=\s*"([^"]+)"', pyproject, re.M)
@@ -115,7 +116,7 @@ def check_versions() -> list[str]:
     m = re.search(r'__version__\s*=\s*"([^"]+)"', init)
     init_v = m.group(1) if m else None
 
-    # The wheel bundles dataset.json, so the package version IS the register version.
+    # The wheel bundles dataset.json, so package and register base versions agree.
     # PEP 440 post-releases (0.10.1.post1) are allowed: they let a server-only fix ship
     # without falsely implying the DATA changed. The base version must still match.
     def base(v: str | None) -> str | None:
@@ -135,6 +136,15 @@ def check_versions() -> list[str]:
             "version drift -- the packaged server ships the dataset, so their versions cannot differ:\n"
             + "\n".join(f"      {k:<28} {v}" for k, v in versions.items())
         )
+    if len({package_v, init_v, manifest_v}) != 1 or package_v is None:
+        problems.append("package release version drift -- pyproject.toml, __init__.py and mcp.json must agree exactly")
+    if manifest.get("dataset_version") != dataset_v:
+        problems.append("mcp.json dataset_version must identify the actual bundled dataset version")
+    registry = json.loads((ROOT / "server.json").read_text(encoding="utf-8"))
+    package_entries = [entry for entry in registry.get("packages", []) if entry.get("identifier") == "cbsr-mcp"]
+    if (registry.get("version") != package_v or len(package_entries) != 1
+            or package_entries[0].get("version") != package_v):
+        problems.append("server.json registry descriptor must identify the exact current package release")
     return problems
 
 

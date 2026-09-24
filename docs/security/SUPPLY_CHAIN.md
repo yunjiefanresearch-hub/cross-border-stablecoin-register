@@ -2,6 +2,9 @@
 
 This control record addresses the PR #20 Scorecard feedback. It is not an OpenSSF
 Gold award, a promise of a perfect Scorecard score, or evidence that a release ran.
+The authorized `v0.11.0.post1` request is an engineering update to the software
+package; it does not advance the `0.11.0` legal-data snapshot or certify legal
+currentness, independent review, or Gold status.
 
 ## Installation boundary
 
@@ -25,20 +28,43 @@ for successful clean installations on every supported platform.
 
 | Job | Permissions | Allowed work |
 | --- | --- | --- |
-| `verify-wheel` | `contents: read` | Checkout without persisted credentials; install, build, canonical verification, checksums and artifact upload. |
-| `attest-wheel` | `contents: read`, `id-token: write`, `attestations: write` | Download the same run's verified wheel and issue build provenance. No checkout or repository-code execution. |
-| `publish-release-assets` | `contents: write` | Only after attestation, and only on a published-release event: download the same run's assets and upload them using GitHub CLI. No checkout, dependency installation or repository-code execution. |
+| `verify-wheel` | `contents: read` | Checkout without persisted credentials; install the locked graph, run the canonical verifier, then invoke the fail-closed release preparer. Upload only its `artifacts/release` directory. |
+| `attest-wheel` | `contents: read`, `id-token: write`, `attestations: write` | Download that same-run directory and attest the exact wheel filename emitted by the preparer. No checkout or repository-code execution. |
+| `publish-release-assets` | `contents: write` | Only after both verification and attestation: either create the explicitly requested release on the trusted `main` request-file push, or upload the same-run assets to the matching published-release event. No checkout, dependency installation or repository-code execution. |
 
-Manual dispatch verifies and attests but does not upload to a release. The upload
-does not use `--clobber`: existing same-name assets cause failure rather than
-replacement. Immutable artifacts are scoped to the same workflow run. No personal
-access token is introduced. The release-boundary gate rejects extra permissions or
-repository-code execution in privileged jobs.
+The publication push trigger is limited to `main` and the single
+`delivery/release-request.json` path. Other pushes do not start this workflow. The
+preparer accepts only a current PEP 440 post-release request, binds the current source
+fingerprint, canonical summary, two reproducible wheel builds, current lock digests
+and live vulnerability-audit evidence, and stages only the current-version wheel,
+SBOM/license inventory, package-smoke and audit evidence, manifest and checksums.
+The notes remain outside `assets/` so they become the release body rather than a
+downloadable asset.
+
+On the trusted push, the publisher first asks the GitHub ref API to create
+`refs/tags/$RELEASE_TAG` at the exact `${{ github.sha }}` supplied through
+`RELEASE_COMMIT`. Ref creation is atomic and is neither forced nor updated: an
+existing tag fails the job. `gh release create --verify-tag` then refuses to create
+from an absent tag. An existing release also fails normally rather than being edited.
+If tag creation succeeds but later release creation fails, the tag is deliberately
+left in place for explicit maintainer reconciliation and disclosure; the workflow
+does not hide the partial result by deleting or moving it.
+
+On a published-release event, the workflow rebuilds and re-verifies the declared
+version and then uses `gh release upload` for the event tag. Neither publication path
+uses `--clobber`, so an existing same-name asset fails rather than being replaced.
+Manual dispatch verifies and attests but cannot enter the publisher job. Immutable
+artifacts are scoped to the same workflow run. No personal access token is introduced.
+The release-boundary gate rejects broader triggers, extra permissions, publication
+without both predecessor jobs, checkout or repository-code execution in privileged
+jobs, and every publisher shell command outside this fixed allowlist.
 
 ## Why the publisher retains `contents: write`
 
-GitHub's [release-asset upload API](https://docs.github.com/en/rest/releases/assets#upload-a-release-asset)
-requires Contents write permission. Scorecard v5.5.0's
+GitHub's release and Git-ref APIs require Contents write permission; see the
+[release-asset upload API](https://docs.github.com/en/rest/releases/assets#upload-a-release-asset)
+and [create-a-reference API](https://docs.github.com/en/rest/git/refs#create-a-reference).
+Scorecard v5.5.0's
 [permission classifier](https://github.com/ossf/scorecard/blob/c395761df6afe1a69e476bc60a013a94bcbc153f/checks/raw/permissions.go#L442-L530)
 does not recognize `gh release upload` as an accepted packaging exception.
 [Upstream issue #5201](https://github.com/ossf/scorecard/issues/5201) separately

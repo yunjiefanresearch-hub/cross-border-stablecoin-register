@@ -99,6 +99,10 @@ def release_workflow():
     return yaml.safe_load((ROOT / ".github/workflows/release-provenance.yml").read_text(encoding="utf-8"))
 
 
+def release_events(document):
+    return document["on"] if "on" in document else document[True]
+
+
 def test_release_write_privileges_are_isolated_from_builds():
     validate_release_boundary(release_workflow())
 
@@ -115,8 +119,100 @@ def test_release_gate_rejects_extra_write_permissions(job):
 def test_release_gate_rejects_repository_execution_in_privileged_jobs(job):
     document = release_workflow()
     document["jobs"][job]["steps"].append({"run": "python -m tools.verify"})
-    with pytest.raises(ValueError, match="only upload"):
+    with pytest.raises(ValueError, match="attestation|exactly|whitelist"):
         validate_release_boundary(document)
+
+
+@pytest.mark.parametrize("job", ["attest-wheel", "publish-release-assets"])
+def test_release_gate_rejects_checkout_in_privileged_jobs(job):
+    document = release_workflow()
+    document["jobs"][job]["steps"].append(
+        {"uses": "actions/checkout@" + "a" * 40}
+    )
+    with pytest.raises(ValueError, match="unreviewed action"):
+        validate_release_boundary(document)
+
+
+def test_release_gate_rejects_pull_request_target():
+    document = release_workflow()
+    release_events(document)["pull_request_target"] = {}
+    with pytest.raises(ValueError, match="unreviewed trigger"):
+        validate_release_boundary(document)
+
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    [
+        ("paths", ["delivery/release-request.json", "**"]),
+        ("branches", ["main", "release/**"]),
+    ],
+)
+def test_release_gate_rejects_broader_push_publication(field, value):
+    document = release_workflow()
+    release_events(document)["push"][field] = value
+    with pytest.raises(ValueError, match="main release request"):
+        validate_release_boundary(document)
+
+
+def test_manual_dispatch_cannot_enable_publication():
+    document = release_workflow()
+    release_events(document)["workflow_dispatch"] = {
+        "inputs": {"publish": {"type": "boolean"}}
+    }
+    with pytest.raises(ValueError, match="must not accept publication inputs"):
+        validate_release_boundary(document)
+
+
+def test_release_gate_rejects_publication_without_both_prior_jobs():
+    document = release_workflow()
+    document["jobs"]["publish-release-assets"]["needs"] = ["verify-wheel"]
+    with pytest.raises(ValueError, match="verification and attestation"):
+        validate_release_boundary(document)
+
+
+def test_release_gate_rejects_extra_publisher_capabilities():
+    document = release_workflow()
+    document["jobs"]["publish-release-assets"]["permissions"]["id-token"] = "write"
+    with pytest.raises(ValueError, match="permissions"):
+        validate_release_boundary(document)
+
+
+@pytest.mark.parametrize(
+    ("reviewed", "unsafe"),
+    [
+        ("gh api --method POST", "gh api --method PATCH"),
+        ("--verify-tag", '--target "$RELEASE_COMMIT"'),
+        ('--repo "$GH_REPO"', '--clobber --repo "$GH_REPO"'),
+    ],
+)
+def test_release_gate_rejects_tag_or_asset_overwrite_variants(reviewed, unsafe):
+    document = release_workflow()
+    create = next(
+        step for step in document["jobs"]["publish-release-assets"]["steps"]
+        if step.get("if") == "github.event_name == 'push'"
+    )
+    create["run"] = create["run"].replace(reviewed, unsafe)
+    with pytest.raises(ValueError, match="whitelist"):
+        validate_release_boundary(document)
+
+
+def test_release_gate_binds_outputs_artifact_and_attestation_to_current_wheel():
+    document = release_workflow()
+    verifier = document["jobs"]["verify-wheel"]
+    assert verifier["outputs"] == {
+        "tag": "${{ steps.release.outputs.tag }}",
+        "title": "${{ steps.release.outputs.title }}",
+        "wheel": "${{ steps.release.outputs.wheel }}",
+    }
+    prepare = next(step for step in verifier["steps"] if step.get("id") == "release")
+    assert prepare["run"] == "python -m tools.prepare_release --output artifacts/release"
+    attestation = next(
+        step for step in document["jobs"]["attest-wheel"]["steps"]
+        if str(step.get("uses", "")).startswith("actions/attest-build-provenance@")
+    )
+    assert attestation["with"]["subject-path"] == (
+        "release-evidence/assets/${{ needs.verify-wheel.outputs.wheel }}"
+    )
 
 
 def test_packaging_cli_ignores_repository_build_module(tmp_path):

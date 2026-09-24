@@ -15,6 +15,6 @@ try:
 except Exception:
     pass
 
-__version__ = "0.11.0"  # MUST equal the register version in dataset.json — see tools/check_identifiers.py
+__version__ = "0.11.0.post1"  # Package update; base version matches the unchanged dataset.
 
 __all__ = ["__version__"]

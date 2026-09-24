@@ -60,6 +60,14 @@ before a release is labelled ready.
 
 ## Release hard stops
 
+For the specifically authorized `v0.11.0.post1` engineering update, the maintainer
+approved publication after disclosure of the outstanding human/independent reviews.
+The scope and limitations are recorded in
+[`docs/releases/UPDATE_v0.11.0.post1.md`](docs/releases/UPDATE_v0.11.0.post1.md).
+This one-update publication exception does not complete those reviews, close the
+broader research/legal release gates, award an OpenSSF badge, or waive any automated
+security, dependency, checksum or reproducibility check below.
+
 A release is blocked by a known unreviewed vulnerability, a detected secret, a failing licence policy,
 non-reproducible wheel, invalid receipt mutation test, missing verification summary, or unverified
 checksum. An independent security reviewer must complete

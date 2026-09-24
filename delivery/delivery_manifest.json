@@ -1,12 +1,12 @@
 {
   "as_of": "2026-08-20",
   "external_gates": "delivery/external_gates.json",
-  "file_count": 40,
+  "file_count": 41,
   "files": [
     {
-      "bytes": 2702,
+      "bytes": 2708,
       "path": "DPG_STANDARD.md",
-      "sha256": "6a23e9d5ccfce67cfa0e5a7b7546f1f68b971a8310b4d991616e173a6a6fed6a"
+      "sha256": "10bf7fbe6f78880275aaf02da85caadc5801dfcfde0d6843be668d56779efc90"
     },
     {
       "bytes": 17487,
@@ -19,14 +19,14 @@
       "sha256": "a333cf60135342d61e446815d1c3a66e8bfe688ecda7cce1a4fe8045891ecaef"
     },
     {
-      "bytes": 4284,
+      "bytes": 4805,
       "path": "SECURITY.md",
-      "sha256": "1cb2c9ebb6fd67ef572b02f8062459561f556e7ec445ed4baf6b9eadee55adeb"
+      "sha256": "f9faf43f2c7d05f2ffd6e7b1f1416ab208dde00a32fb48b7d896b219111b2bfc"
     },
     {
-      "bytes": 10097,
+      "bytes": 10103,
       "path": "analysis/dpg_evidence_matrix.json",
-      "sha256": "d93131b654f90908ceb3ad8dfdb1257c37e30cca5e89257e851003bf55f72e35"
+      "sha256": "820d850cf7a048d4c3baf369fb6128c3434071c694c8f69fe464e8e32654d14e"
     },
     {
       "bytes": 18665,
@@ -117,6 +117,11 @@
       "bytes": 4415,
       "path": "delivery/final_scorecard.json",
       "sha256": "7eb630f220112919d4e55a5f2f1b0e98bfa6f6bbfcc16b8c5f315bafbaf6078b"
+    },
+    {
+      "bytes": 563,
+      "path": "delivery/release-request.json",
+      "sha256": "b86a85e1f5bd9683beece73edbc3b6f568ccdadf90794d121b60af4a9200b362"
     },
     {
       "bytes": 6107,

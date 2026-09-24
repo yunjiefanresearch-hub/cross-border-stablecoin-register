@@ -17,8 +17,13 @@ import stat
 import tempfile
 import zipfile
 
+try:
+    import tomllib
+except ModuleNotFoundError:  # Python 3.10
+    import tomli as tomllib
+
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-VERSION = "0.11.0"
+VERSION = tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))["project"]["version"]
 ARCHIVE_ROOT = "cross-border-stablecoin-register"
 EXCLUDED_DIRS = {
     ".git", ".venv", ".pytest_cache", "__pycache__", "node_modules",
@@ -90,6 +95,8 @@ def main(output: str | None = None) -> int:
         verification = json.loads(summary_path.read_text(encoding="utf-8"))
         if verification.get("status") != "passed":
             raise SystemExit("latest canonical verification did not pass")
+        if verification.get("version") != VERSION:
+            raise SystemExit("canonical verification evidence is for a different package release")
         matrix = json.loads((ROOT / "docs/validation/local-linux-matrix.json").read_text(encoding="utf-8"))
         if matrix.get("status") != "passed" or len(matrix.get("versions", [])) != 4:
             raise SystemExit("current four-version local Linux matrix is incomplete")
