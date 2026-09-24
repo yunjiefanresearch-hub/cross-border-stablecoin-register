@@ -3,6 +3,10 @@ name: Release provenance
 on:
   release:
     types: [published]
+  push:
+    branches: [main]
+    paths:
+      - delivery/release-request.json
   workflow_dispatch:
 
 permissions:
@@ -13,6 +17,10 @@ jobs:
     runs-on: ubuntu-24.04
     permissions:
       contents: read
+    outputs:
+      tag: ${{ steps.release.outputs.tag }}
+      title: ${{ steps.release.outputs.title }}
+      wheel: ${{ steps.release.outputs.wheel }}
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
@@ -28,21 +36,13 @@ jobs:
         run: |
           python -m pip install --require-hashes --only-binary=:all: -r constraints/dev-hashes.txt
           python -m tools.verify
-      - name: Prepare release assets in the read-only job
-        shell: bash
-        run: |
-          set -euo pipefail
-          cp artifacts/validation/verify-summary.json dist/verify-summary.json
-          (
-            cd dist
-            sha256sum -- *.whl *.json > SHA256SUMS
-          )
+      - name: Prepare the declared release bundle after verification
+        id: release
+        run: python -m tools.prepare_release --output artifacts/release
       - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
         with:
           name: cbsr-release-evidence-${{ github.run_id }}
-          path: |
-            dist/
-            artifacts/validation/
+          path: artifacts/release/
           if-no-files-found: error
 
   attest-wheel:
@@ -60,11 +60,11 @@ jobs:
           path: release-evidence
       - uses: actions/attest-build-provenance@977bb373ede98d70efdf65b84cb5f73e068dcc2a # v3
         with:
-          subject-path: release-evidence/dist/cbsr_mcp-*.whl
+          subject-path: release-evidence/assets/${{ needs.verify-wheel.outputs.wheel }}
 
   publish-release-assets:
-    if: github.event_name == 'release'
-    needs: attest-wheel
+    if: github.event_name == 'release' || github.event_name == 'push'
+    needs: [verify-wheel, attest-wheel]
     runs-on: ubuntu-24.04
     permissions:
       # Required by the release-asset upload API; never available to builds.
@@ -74,7 +74,27 @@ jobs:
         with:
           name: cbsr-release-evidence-${{ github.run_id }}
           path: release-evidence
+      - name: Create the requested release from verified assets
+        if: github.event_name == 'push'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ needs.verify-wheel.outputs.tag }}
+          RELEASE_TITLE: ${{ needs.verify-wheel.outputs.title }}
+          RELEASE_COMMIT: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          gh api --method POST "repos/$GH_REPO/git/refs" \
+            -f "ref=refs/tags/$RELEASE_TAG" \
+            -f "sha=$RELEASE_COMMIT"
+          gh release create "$RELEASE_TAG" release-evidence/assets/* \
+            --verify-tag \
+            --title "$RELEASE_TITLE" \
+            --notes-file release-evidence/release-notes.md \
+            --repo "$GH_REPO"
       - name: Upload verified assets to the published release
+        if: github.event_name == 'release'
         shell: bash
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -82,8 +102,5 @@ jobs:
           RELEASE_TAG: ${{ github.event.release.tag_name }}
         run: |
           set -euo pipefail
-          gh release upload "$RELEASE_TAG" \
-            release-evidence/dist/*.whl \
-            release-evidence/dist/*.json \
-            release-evidence/dist/SHA256SUMS \
+          gh release upload "$RELEASE_TAG" release-evidence/assets/* \
             --repo "$GH_REPO"

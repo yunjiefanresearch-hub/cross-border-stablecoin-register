@@ -12,7 +12,7 @@ This is a repository self-assessment against the Digital Public Goods Standard. 
 | 6 | Non-PII Data Extraction | Met | `PRIVACY.md`, `api/records.json`, `dataset.json` | The public dataset contains regulatory research; downstream action payloads can contain sensitive data. |
 | 7 | Privacy & Applicable Laws | Partial | `PRIVACY.md`, `docs/security/THREAT_MODEL.md` | Applicability depends on deployment context and must be assessed by the downstream operator. |
 | 8 | Open Standards & Best Practices | Partial | `record.schema.json`, `schemas/policy-action.v1.schema.json`, `server.json` | External interoperability certification has not been performed. |
-| 9A | Data Privacy & Security | Partial | `SECURITY.md`, `.github/workflows/security.yml`, `dist/cbsr-0.11.0.cdx.json` | Local controls exist; independent security assessment and remote workflow evidence remain pending. |
+| 9A | Data Privacy & Security | Partial | `SECURITY.md`, `.github/workflows/security.yml`, `dist/cbsr-0.11.0.post1.cdx.json` | Local controls exist; independent security assessment and remote workflow evidence remain pending. |
 | 9B | Inappropriate & Illegal Content | Partial | `CODE_OF_CONDUCT.md`, `GOVERNANCE.md`, `.github/ISSUE_TEMPLATE/config.yml` | Moderation operation evidence does not yet exist. |
 | 9C | Protection from Harassment | Partial | `CODE_OF_CONDUCT.md`, `.github/ISSUE_TEMPLATE/config.yml` | Enforcement effectiveness has not been independently evaluated. |
 

@@ -12,7 +12,7 @@
   "python": "3.12.14",
   "reproducible_builds": 2,
   "resolved_runtime": {
-    "cbsr-mcp": "0.11.0",
+    "cbsr-mcp": "0.11.0.post1",
     "mcp": "1.29.0",
     "pydantic": "2.12.5",
     "pydantic-settings": "2.14.2"
@@ -41,6 +41,6 @@
     "watch_due": 9
   },
   "warning_policy": "error",
-  "wheel": "cbsr_mcp-0.11.0-py3-none-any.whl",
-  "wheel_sha256": "4a84aadd02367187b49223d84e4573f986f9cd51907867963a18304e0ba2ef90"
+  "wheel": "cbsr_mcp-0.11.0.post1-py3-none-any.whl",
+  "wheel_sha256": "c0b749afb5124ed7515b0ae3bee9fc3e55b7834b99c22bbd9cc5d23eb8fc373f"
 }

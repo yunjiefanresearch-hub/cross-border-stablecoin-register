@@ -224,12 +224,43 @@ def test_repaired_workflows_keep_their_security_and_release_boundaries():
     }
 
     release = _workflow("release-provenance.yml")
+    assert set(release["on"]) == {"release", "push", "workflow_dispatch"}
+    assert "pull_request_target" not in release["on"]
+    assert release["on"]["release"] == {"types": ["published"]}
+    assert release["on"]["push"] == {
+        "branches": ["main"],
+        "paths": ["delivery/release-request.json"],
+    }
     publish = release["jobs"]["publish-release-assets"]
-    assert publish["if"] == "github.event_name == 'release'"
+    assert publish["if"] == "github.event_name == 'release' || github.event_name == 'push'"
+    assert publish["needs"] == ["verify-wheel", "attest-wheel"]
     assert "workflow_dispatch" in release["on"]
-    upload_command = publish["steps"][-1]["run"]
-    assert "--clobber" not in upload_command
-    assert '--repo "$GH_REPO"' in upload_command
+    verifier = release["jobs"]["verify-wheel"]
+    assert verifier["outputs"]["wheel"] == "${{ steps.release.outputs.wheel }}"
+    prepare = next(step for step in verifier["steps"] if step.get("id") == "release")
+    assert prepare["run"] == "python -m tools.prepare_release --output artifacts/release"
+    privileged = [release["jobs"][name] for name in ("attest-wheel", "publish-release-assets")]
+    assert all(
+        not str(step.get("uses", "")).startswith("actions/checkout@")
+        for job in privileged for step in job["steps"]
+    )
+    assert all("run" not in step for step in release["jobs"]["attest-wheel"]["steps"])
+    publish_commands = [step["run"] for step in publish["steps"] if "run" in step]
+    assert len(publish_commands) == 2
+    assert all("--clobber" not in command for command in publish_commands)
+    assert any('gh release create "$RELEASE_TAG" release-evidence/assets/*' in command
+               for command in publish_commands)
+    assert any('gh release upload "$RELEASE_TAG" release-evidence/assets/*' in command
+               for command in publish_commands)
+    assert all('--repo "$GH_REPO"' in command for command in publish_commands)
+    create = next(step for step in publish["steps"] if step.get("if") == "github.event_name == 'push'")
+    assert create["env"]["RELEASE_COMMIT"] == "${{ github.sha }}"
+    assert 'gh api --method POST "repos/$GH_REPO/git/refs"' in create["run"]
+    assert '-f "ref=refs/tags/$RELEASE_TAG"' in create["run"]
+    assert '-f "sha=$RELEASE_COMMIT"' in create["run"]
+    assert "--verify-tag" in create["run"]
+    assert "--target" not in create["run"]
+    assert "--notes-file release-evidence/release-notes.md" in create["run"]
     # Same-run artifact downloads do not require a repository Actions token.
     assert publish["permissions"] == {"contents": "write"}
 

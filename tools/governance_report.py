@@ -20,6 +20,11 @@ import io
 import json
 import pathlib
 
+try:
+    import tomllib
+except ModuleNotFoundError:  # Python 3.10
+    import tomli as tomllib
+
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 AS_OF = "2026-08-20"
 DPG_SOURCE = "https://www.digitalpublicgoods.net/standard"
@@ -49,6 +54,7 @@ def _write_csv(relative: str, rows: list[dict[str, object]], fields: list[str]) 
 
 
 def _dpg() -> list[dict[str, object]]:
+    package_version = tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))["project"]["version"]
     specifications = [
         ("1", "SDG Relevance", "Partial", ["analysis/sdg_mapping.json", "research/claims/claims_ledger.csv"],
          "No causal-impact evaluation or UN/DPGA determination."),
@@ -66,7 +72,7 @@ def _dpg() -> list[dict[str, object]]:
          "Applicability depends on deployment context and must be assessed by the downstream operator."),
         ("8", "Open Standards & Best Practices", "Partial", ["record.schema.json", "schemas/policy-action.v1.schema.json", "server.json"],
          "External interoperability certification has not been performed."),
-        ("9A", "Data Privacy & Security", "Partial", ["SECURITY.md", ".github/workflows/security.yml", "dist/cbsr-0.11.0.cdx.json"],
+        ("9A", "Data Privacy & Security", "Partial", ["SECURITY.md", ".github/workflows/security.yml", f"dist/cbsr-{package_version}.cdx.json"],
          "Local controls exist; independent security assessment and remote workflow evidence remain pending."),
         ("9B", "Inappropriate & Illegal Content", "Partial", ["CODE_OF_CONDUCT.md", "GOVERNANCE.md", ".github/ISSUE_TEMPLATE/config.yml"],
          "Moderation operation evidence does not yet exist."),

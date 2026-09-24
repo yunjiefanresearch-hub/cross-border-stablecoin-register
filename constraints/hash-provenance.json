@@ -1898,7 +1898,7 @@
     "constraints/dev.txt": "a4eeea208778fdef44d926a100ea4108e4d7e15d65d8934fee4eb7c110cda0aa",
     "constraints/quality.txt": "7568d22d9fdbfc305a8d19017967450246d0578b7a900004e83e9c407701e2ec",
     "constraints/runtime.txt": "60ce3b9e3a275c0463a6252ac061313339f66d72248feb7b3bfa85788ba5c0af",
-    "pyproject.toml": "9c45d0d46edd14b3667f9823749ab19e293b6c511ffdae3d30157918d6c252f4"
+    "pyproject.toml": "342dcf5fcfb492502ca8d0cad6e2f982d889f3efbd14507b7e9ab3c37e64c6e5"
   },
   "targets": [
     {

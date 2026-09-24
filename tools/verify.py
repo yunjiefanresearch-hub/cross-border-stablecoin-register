@@ -27,6 +27,11 @@ import subprocess
 import sys
 from typing import Iterable
 
+try:
+    import tomllib
+except ModuleNotFoundError:  # Python 3.10
+    import tomli as tomllib
+
 from packaging.requirements import Requirement
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -242,7 +247,8 @@ def _write_summary(status: str, completed: list[str], extra: dict | None = None)
     summary = {
         "schema": "cbsr/verification-summary/v2",
         "status": status,
-        "version": "0.11.0",
+        "version": tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))["project"]["version"],
+        "dataset_version": json.loads((ROOT / "dataset.json").read_text(encoding="utf-8"))["version"],
         "python": platform.python_version(),
         "implementation": platform.python_implementation(),
         "platform": platform.platform(),
