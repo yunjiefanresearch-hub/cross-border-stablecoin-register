@@ -2,6 +2,11 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20730358.svg)](https://doi.org/10.5281/zenodo.20730358)
 [![Canonical verification](https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register/actions/workflows/build.yml/badge.svg)](https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register/actions/workflows/build.yml)
+[![OpenSSF Baseline](https://www.bestpractices.dev/projects/14172/baseline)](https://www.bestpractices.dev/projects/14172)
+[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/14172/badge)](https://www.bestpractices.dev/projects/14172)
+
+The OpenSSF badges display the project's live self-assessment status. They do not
+certify the legal dataset or imply an independent security audit or a Gold award.
 
 An **open, versioned, machine-readable** register of how jurisdictions regulate stablecoins —
 mapped clause by clause across **fifteen dimensions** and **two doctrinal spines** (the
