@@ -33,7 +33,7 @@ referencing==0.37.0
 rpds-py==0.30.0; python_version < "3.11"
 rpds-py==2026.6.3; python_version >= "3.11"
 sse-starlette==3.4.8
-starlette==1.6.0
+starlette==1.7.0
 typing-extensions==4.16.0
 typing-inspection==0.4.4
 uvicorn==0.52.4
