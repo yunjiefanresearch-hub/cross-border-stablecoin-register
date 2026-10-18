@@ -3,6 +3,11 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20730358.svg)](https://doi.org/10.5281/zenodo.20730358)
 [![Canonical verification](https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register/actions/workflows/build.yml/badge.svg)](https://github.com/yunjiefanresearch-hub/cross-border-stablecoin-register/actions/workflows/build.yml)
 
+**Official CBSR website: [cbsr.site](https://cbsr.site/).** CBSR is evidence infrastructure
+for agentic finance; **Cross-Border Stablecoin Register** is the formal citation name of
+its first regulatory dataset. Read the [dataset guide](https://cbsr.site/data/) for scope,
+versions, downloads, licensing, and review boundaries.
+
 An **open, versioned, machine-readable** register of how jurisdictions regulate stablecoins —
 mapped clause by clause across **fifteen dimensions** and **two doctrinal spines** (the
 permitted-activity / yield boundary and securities classification), with a queryable
