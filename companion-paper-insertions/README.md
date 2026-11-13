@@ -20,7 +20,7 @@ For Brazil (v0.3.1) the register led and these files fed the **papers**. For the
 (**Switzerland, the UAE, Taiwan, Japan, South Korea**) the direction is reversed: the **papers were
 revised first** — the Compliance Matrix is now **v0.9.6** and the Architecture is now **v3 (Twelve
 Jurisdictions)**, both already carrying full entries for all five — and the **register was brought
-up to parity** from them (see `CHANGELOG.md` [0.4.0] and `BUILD_NOTE_v0.4.0_*`). No new
+up to parity** from them (see `CHANGELOG.md` [0.4.0] and [the v0.4.0 build note](../docs/history/BUILD_NOTE_v0.4.0_twelve-jurisdiction-expansion.md)). No new
 paper-insertion files are therefore needed for these five: the canonical text already lives in the
 companion works, which the new `ch-frs-*` / `ae-pt-*` / `tw-frs-*` / `jp-epi-*` / `kr-frs-*` records
 cite as `secondary` provenance.

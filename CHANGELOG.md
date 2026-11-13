@@ -47,7 +47,7 @@ version, while each release below carries its own version DOI.
 - **Tooling** — `tools/regen_forward_sensitivity.py` added; the write is gated by two cross-checks
   (scheduled transitions match each edge's own `as_of_timeline`; recomputed edge counts match the
   ordering written). The GENIUS *issuer* layer remains correctly recorded as in force; only the §18
-  gate is treated as not-yet-operative. See `BUILD_NOTE_v0.10.1_forward-sensitivity-regeneration.md`
+  gate is treated as not-yet-operative. See [the v0.10.1 build note](docs/history/BUILD_NOTE_v0.10.1_forward-sensitivity-regeneration.md)
   for the declared residual (`computed_corridor_states.json` date-state engine, deferred to v0.10.2).
 
 **Release-consistency completion (this patch).** The 0.10.1 bump is now propagated across *every*
@@ -1092,7 +1092,7 @@ The invariant suite is now 47/47 (B2, B3 added; V3 and Sen1 widened); the negati
 ### Changed
 - **`COVERAGE.md`** gained a **Computed layer** section (agreement stats + findings) and a
   **Verification queue** section (the `unset` legacy backlog by jurisdiction — the declared next pass).
-- **`BUILD_NOTE_v0.5.0`** §4/§5 reconciled with current data: a superseded banner makes clear its
+- [The v0.5.0 build note](docs/history/BUILD_NOTE_v0.5.0_analysis-and-corridor-layer.md) §4/§5 reconciled with current data: a superseded banner makes clear its
   "resolution_text 0 / url 10/117" and "does not promote tier" statements describe **v0.5.0 only** and
   were superseded by the v0.5.1 verification pass (the authoritative figures live in the generated
   `COVERAGE.md`). The audit's "build note misstates its own data" finding is closed.

@@ -16,8 +16,8 @@ Claude Desktop / any MCP client:
 
 **Jurisdictions** — US · EU · UK · HK · SG · CN · JP · KR · TW · CH · AE · BR
 
-**What it is.** 152 records, each carrying its own source URL, pinpoint citation, claim class,
-evidence tier and binding status. A corridor is *directed*: the same border can be permissive
+**What it is.** 152 records with separate fields for sources, source-check dates, claim class,
+evidence tier and binding status. A source URL is recorded for 103 records. A corridor is *directed*: the same border can be permissive
 one way and restricted the other, so all 132 directed corridors across the twelve jurisdictions
 are modelled separately.
 
