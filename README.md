@@ -18,14 +18,15 @@ Each record is one proposition about one jurisdiction, instrument and dimension.
 
 **Status:** v0.11.0 (data snapshot generated 20 August 2026).
 
-- [Coverage](COVERAGE.md) reports the evidence tiers, source URLs and the records that meet the structural test for citable law.
+- [Coverage](COVERAGE.md) reports the evidence tiers, populated source URLs and the records that meet the structural test for citable law.
+- [Snapshot metadata](api/meta.json) reports the official-source field separately from the evidence tiers and lists the record, corridor and MCP tool totals.
 - [Source-check report](analysis/freshness_report.json) records current, stale and missing checks. No record has a current source check or an independently attested second review, so the decision-ready subset is empty.
-- [Corridor analysis](COVERAGE.md#computed-layer-preview) reports where the rule engine reproduces the hand-worked corridors and jurisdiction-pair categories, and where it differs (EU–UK and UK–US).
-- [Snapshot metadata](api/meta.json) lists the record, corridor and MCP tool totals. The [v0.11.0.post1 engineering update](docs/releases/UPDATE_v0.11.0.post1.md) uses the same data snapshot.
+- [Corridor analysis](COVERAGE.md#computed-layer-preview) uses 30 June 2026 as the reference date. It reports a feasibility class or an indeterminate result for each directed corridor, and shows where the rule engine reproduces the hand-worked corridors and jurisdiction-pair categories. The two differences are EU–UK and UK–US.
+The [v0.11.0.post1 engineering update](docs/releases/UPDATE_v0.11.0.post1.md) uses the same data snapshot.
 
 ## Use
 
-- [Download the dataset](dataset.json). The analysis layer is under `analysis`.
+- [Download the dataset](dataset.json) or read the [dataset guide](https://cbsr.site/data/). The analysis layer is under `analysis`.
 - [Query the dataset with typed MCP tools](MCP_SERVER.md). In v0.11.0, `citable_law()` returns an empty result.
 - [Explore the CBSR mapper](https://github.com/yunjiefanresearch-hub/cbsr-mapper).
 - [Find open tasks](docs/OPEN_TASKS.md) or read the [contribution guide](CONTRIBUTING.md).
@@ -42,9 +43,9 @@ On Windows, use [the Windows setup guide](LOCAL_DEPLOY_WINDOWS.md). The [develop
 
 ## Cite
 
-Fan, Y. (2026). *Cross-Border Stablecoin Register* (v0.11.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.20730358
+Fan, Y. (2026). *Cross-Border Stablecoin Register* (v0.11.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.22021736
 
-Cite the version you used and record its source commit when reproducing a result. See [CITATION.cff](CITATION.cff) for citation metadata.
+Cite the version you used and record its source commit when reproducing a result. See [CITATION.cff](CITATION.cff) for citation metadata and [the release archive guide](docs/VERSIONS.md#citing) for version DOIs.
 
 ## Licences
 
