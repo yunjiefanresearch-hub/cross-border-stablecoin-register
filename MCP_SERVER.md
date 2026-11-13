@@ -84,7 +84,7 @@ from the pinned version of the register — that is the point.
 | `events_by_kind(kind?)` | **Trigger typology (§3).** The event calendar grouped by `trigger_kind` — by the *kind of certainty* a trigger carries, not by date. Separates the one kind that moves a dated horizon (fully-scheduled) from dated-but-inert changes (intra-regime-gating, dated-empty-effect) and undated contingent branches; carries the legend + horizon rule |
 | `convergence(side?)` | **Yield-line convergence (§4.5).** The cross-jurisdiction view of the holder-yield-prohibited / activity-rewards-permitted boundary, reshaped from the per-jurisdiction `permitted_activity_yield` records (asserts no new facts). Tiers jurisdictions by role — citable two-sided `anchor` (US), `sibling`, `counter_example` (CH), `holder_prohibition_in_force`, `draft_would_align`, backlog — under the register's citable-purity discipline |
 | `reconciliation(only_divergences?)` | **Computed-vs-authored audit.** For every undirected pair, the class the engine derives vs the class a human authored, with agree/disagree and, where they differ, the named cause (`findings_by_cause`). A divergence is a finding (a regime-in-transition side), not a defect |
-| `records(claim_class?, evidence_tier?, status?, binding_status?, jurisdiction?, dimension?, citable_only?)` | **Evidence-axis browser.** Filter along the axes that decide citability and get, per record, whether it is lawyer-citable and — if not — exactly which axis blocks it (the "why not citable" x-ray). The complement to `query()` |
+| `records(claim_class?, evidence_tier?, status?, binding_status?, jurisdiction?, dimension?, citable_only?)` | **Evidence-axis browser.** Filter along the axes that decide citability and see each record’s decision-ready status and any unmet requirements. The complement to `query()` |
 | `search_evidence(keyword, jurisdiction?, limit?)` | Search provenance-bearing evidence for an AgenticFi decision |
 | `get_rule(record_id)` | Return one rule with legal force, freshness and decision-use warnings |
 | `evaluate_action(action)` | Deterministically evaluate a mandate-bound action; returns versioned rule IDs, source URLs, assumptions, obligations, conflicts, engine/ruleset versions and an unsigned receipt; never executes it |
@@ -97,10 +97,11 @@ from the pinned version of the register — that is the point.
 | `edge_coverage()` | **How much of the edge layer actually carries a record.** Separates the hand-authored RICH corridors from the COMPUTED SKELETONS and the still-indeterminate edges — the honest denominator behind "132 directed corridors" |
 | `forward_view(jurisdiction?)` | **The supervisor's forward view (Atlas §4.4).** The trigger register re-sorted *by jurisdiction* rather than by trigger: which pending developments will reclassify the corridors into and out of this jurisdiction, own-trigger vs counterpart-driven, and ranked counterpart exposure. Asserts no new facts |
 
-**A suite of typed tools.** Every returned record summary carries `source.primary`, `pinpoint`, `claim_class`,
-`evidence_tier`, `confidence`, dates and `version_added` — the two evidence axes (`claim_class` = kind
-of claim; `evidence_tier` = provenance strength) let an agent separate *binding law* from
-*well-sourced market fact*. The lawyer-citable subset (`tier1_legal` + `in_force` + `resolution_text`)
-is available via `citable_law()` and as `citable_subset` in `dataset.json`. Per the methodology, some
-records are transcribed from the maintainer's Compliance Matrix and are pending final primary-source
-verification (`source.url` empty); treat `confidence` and `interpretation_note` accordingly.
+Record summaries include fields for the instrument, pinpoint, claim class, evidence tier and dates.
+Where a record lacks a source URL or a source check, consult its evidence and review fields.
+
+`citable_law()` returns only the dataset’s `decision_ready_citable_subset`. A record must describe a
+proposition of law in force, confirmed against an official source, with a current source check and
+an independently reconciled second review. The tool returns zero records in v0.11.0. The structural
+candidates are in `dataset.json` under `citable_subset`. The response reports their total as
+`structural_candidate_count`.
