@@ -45,7 +45,9 @@ numbers:
 
 ## Citing
 
-Each tagged release is archived to Zenodo. The **concept DOI**
-[10.5281/zenodo.20730358](https://doi.org/10.5281/zenodo.20730358) always resolves to the latest
-version; cite the **version DOI** minted for the tag you used, not the concept DOI, when a claim
+Available Zenodo records are listed under the [concept DOI](https://doi.org/10.5281/zenodo.20730358),
+which resolves to the latest archived version. Cite a **version DOI** when a claim
 depends on a specific state of the data.
+
+- [v0.11.0 data snapshot (20 August 2026)](https://doi.org/10.5281/zenodo.22021736)
+- [v0.11.0.post1 engineering update (24 September 2026)](https://doi.org/10.5281/zenodo.22941250)
